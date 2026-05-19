@@ -1,0 +1,9 @@
+node_modules
+dist
+.git
+.gitignore
+.wrangler
+.tanstack
+npm-debug.log
+yarn-error.log
+*.local
