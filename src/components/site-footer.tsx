@@ -29,6 +29,7 @@ export function SiteFooter() {
             <li><Link to="/cursos" className="hover:text-primary">Cursos</Link></li>
             <li><Link to="/sobre" className="hover:text-primary">Sobre</Link></li>
             <li><Link to="/contato" className="hover:text-primary">Contato</Link></li>
+            <li><Link to="/publicador" className="hover:text-primary">Rotas</Link></li>
           </ul>
         </div>
 
