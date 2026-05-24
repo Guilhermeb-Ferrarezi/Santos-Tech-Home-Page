@@ -13,6 +13,24 @@ import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as CursosRouteImport } from './routes/cursos'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SobreIndexRouteImport } from './routes/sobre.index'
+import { Route as CursosIndexRouteImport } from './routes/cursos.index'
+import { Route as SobreVisaoRouteImport } from './routes/sobre.visao'
+import { Route as CursosJuniorRouteImport } from './routes/cursos.junior'
+import { Route as CursosCreateRouteImport } from './routes/cursos.create'
+import { Route as CursosCampsRouteImport } from './routes/cursos.camps'
+import { Route as CursosAcademiesRouteImport } from './routes/cursos.academies'
+import { Route as CursosJuniorIndexRouteImport } from './routes/cursos.junior.index'
+import { Route as CursosCreateIndexRouteImport } from './routes/cursos.create.index'
+import { Route as CursosJunior78AnosRouteImport } from './routes/cursos.junior.7-8-anos'
+import { Route as CursosJunior67AnosRouteImport } from './routes/cursos.junior.6-7-anos'
+import { Route as CursosJunior56AnosRouteImport } from './routes/cursos.junior.5-6-anos'
+import { Route as CursosCreate910AnosRouteImport } from './routes/cursos.create.9-10-anos'
+import { Route as CursosCreate89AnosRouteImport } from './routes/cursos.create.8-9-anos'
+import { Route as CursosCreate1314AnosRouteImport } from './routes/cursos.create.13-14-anos'
+import { Route as CursosCreate1213AnosRouteImport } from './routes/cursos.create.12-13-anos'
+import { Route as CursosCreate1112AnosRouteImport } from './routes/cursos.create.11-12-anos'
+import { Route as CursosCreate1011AnosRouteImport } from './routes/cursos.create.10-11-anos'
 
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
@@ -34,39 +52,242 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SobreIndexRoute = SobreIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SobreRoute,
+} as any)
+const CursosIndexRoute = CursosIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CursosRoute,
+} as any)
+const SobreVisaoRoute = SobreVisaoRouteImport.update({
+  id: '/visao',
+  path: '/visao',
+  getParentRoute: () => SobreRoute,
+} as any)
+const CursosJuniorRoute = CursosJuniorRouteImport.update({
+  id: '/junior',
+  path: '/junior',
+  getParentRoute: () => CursosRoute,
+} as any)
+const CursosCreateRoute = CursosCreateRouteImport.update({
+  id: '/create',
+  path: '/create',
+  getParentRoute: () => CursosRoute,
+} as any)
+const CursosCampsRoute = CursosCampsRouteImport.update({
+  id: '/camps',
+  path: '/camps',
+  getParentRoute: () => CursosRoute,
+} as any)
+const CursosAcademiesRoute = CursosAcademiesRouteImport.update({
+  id: '/academies',
+  path: '/academies',
+  getParentRoute: () => CursosRoute,
+} as any)
+const CursosJuniorIndexRoute = CursosJuniorIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CursosJuniorRoute,
+} as any)
+const CursosCreateIndexRoute = CursosCreateIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CursosCreateRoute,
+} as any)
+const CursosJunior78AnosRoute = CursosJunior78AnosRouteImport.update({
+  id: '/7-8-anos',
+  path: '/7-8-anos',
+  getParentRoute: () => CursosJuniorRoute,
+} as any)
+const CursosJunior67AnosRoute = CursosJunior67AnosRouteImport.update({
+  id: '/6-7-anos',
+  path: '/6-7-anos',
+  getParentRoute: () => CursosJuniorRoute,
+} as any)
+const CursosJunior56AnosRoute = CursosJunior56AnosRouteImport.update({
+  id: '/5-6-anos',
+  path: '/5-6-anos',
+  getParentRoute: () => CursosJuniorRoute,
+} as any)
+const CursosCreate910AnosRoute = CursosCreate910AnosRouteImport.update({
+  id: '/9-10-anos',
+  path: '/9-10-anos',
+  getParentRoute: () => CursosCreateRoute,
+} as any)
+const CursosCreate89AnosRoute = CursosCreate89AnosRouteImport.update({
+  id: '/8-9-anos',
+  path: '/8-9-anos',
+  getParentRoute: () => CursosCreateRoute,
+} as any)
+const CursosCreate1314AnosRoute = CursosCreate1314AnosRouteImport.update({
+  id: '/13-14-anos',
+  path: '/13-14-anos',
+  getParentRoute: () => CursosCreateRoute,
+} as any)
+const CursosCreate1213AnosRoute = CursosCreate1213AnosRouteImport.update({
+  id: '/12-13-anos',
+  path: '/12-13-anos',
+  getParentRoute: () => CursosCreateRoute,
+} as any)
+const CursosCreate1112AnosRoute = CursosCreate1112AnosRouteImport.update({
+  id: '/11-12-anos',
+  path: '/11-12-anos',
+  getParentRoute: () => CursosCreateRoute,
+} as any)
+const CursosCreate1011AnosRoute = CursosCreate1011AnosRouteImport.update({
+  id: '/10-11-anos',
+  path: '/10-11-anos',
+  getParentRoute: () => CursosCreateRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
-  '/cursos': typeof CursosRoute
-  '/sobre': typeof SobreRoute
+  '/cursos': typeof CursosRouteWithChildren
+  '/sobre': typeof SobreRouteWithChildren
+  '/cursos/academies': typeof CursosAcademiesRoute
+  '/cursos/camps': typeof CursosCampsRoute
+  '/cursos/create': typeof CursosCreateRouteWithChildren
+  '/cursos/junior': typeof CursosJuniorRouteWithChildren
+  '/sobre/visao': typeof SobreVisaoRoute
+  '/cursos/': typeof CursosIndexRoute
+  '/sobre/': typeof SobreIndexRoute
+  '/cursos/create/10-11-anos': typeof CursosCreate1011AnosRoute
+  '/cursos/create/11-12-anos': typeof CursosCreate1112AnosRoute
+  '/cursos/create/12-13-anos': typeof CursosCreate1213AnosRoute
+  '/cursos/create/13-14-anos': typeof CursosCreate1314AnosRoute
+  '/cursos/create/8-9-anos': typeof CursosCreate89AnosRoute
+  '/cursos/create/9-10-anos': typeof CursosCreate910AnosRoute
+  '/cursos/junior/5-6-anos': typeof CursosJunior56AnosRoute
+  '/cursos/junior/6-7-anos': typeof CursosJunior67AnosRoute
+  '/cursos/junior/7-8-anos': typeof CursosJunior78AnosRoute
+  '/cursos/create/': typeof CursosCreateIndexRoute
+  '/cursos/junior/': typeof CursosJuniorIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
-  '/cursos': typeof CursosRoute
-  '/sobre': typeof SobreRoute
+  '/cursos/academies': typeof CursosAcademiesRoute
+  '/cursos/camps': typeof CursosCampsRoute
+  '/sobre/visao': typeof SobreVisaoRoute
+  '/cursos': typeof CursosIndexRoute
+  '/sobre': typeof SobreIndexRoute
+  '/cursos/create/10-11-anos': typeof CursosCreate1011AnosRoute
+  '/cursos/create/11-12-anos': typeof CursosCreate1112AnosRoute
+  '/cursos/create/12-13-anos': typeof CursosCreate1213AnosRoute
+  '/cursos/create/13-14-anos': typeof CursosCreate1314AnosRoute
+  '/cursos/create/8-9-anos': typeof CursosCreate89AnosRoute
+  '/cursos/create/9-10-anos': typeof CursosCreate910AnosRoute
+  '/cursos/junior/5-6-anos': typeof CursosJunior56AnosRoute
+  '/cursos/junior/6-7-anos': typeof CursosJunior67AnosRoute
+  '/cursos/junior/7-8-anos': typeof CursosJunior78AnosRoute
+  '/cursos/create': typeof CursosCreateIndexRoute
+  '/cursos/junior': typeof CursosJuniorIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
-  '/cursos': typeof CursosRoute
-  '/sobre': typeof SobreRoute
+  '/cursos': typeof CursosRouteWithChildren
+  '/sobre': typeof SobreRouteWithChildren
+  '/cursos/academies': typeof CursosAcademiesRoute
+  '/cursos/camps': typeof CursosCampsRoute
+  '/cursos/create': typeof CursosCreateRouteWithChildren
+  '/cursos/junior': typeof CursosJuniorRouteWithChildren
+  '/sobre/visao': typeof SobreVisaoRoute
+  '/cursos/': typeof CursosIndexRoute
+  '/sobre/': typeof SobreIndexRoute
+  '/cursos/create/10-11-anos': typeof CursosCreate1011AnosRoute
+  '/cursos/create/11-12-anos': typeof CursosCreate1112AnosRoute
+  '/cursos/create/12-13-anos': typeof CursosCreate1213AnosRoute
+  '/cursos/create/13-14-anos': typeof CursosCreate1314AnosRoute
+  '/cursos/create/8-9-anos': typeof CursosCreate89AnosRoute
+  '/cursos/create/9-10-anos': typeof CursosCreate910AnosRoute
+  '/cursos/junior/5-6-anos': typeof CursosJunior56AnosRoute
+  '/cursos/junior/6-7-anos': typeof CursosJunior67AnosRoute
+  '/cursos/junior/7-8-anos': typeof CursosJunior78AnosRoute
+  '/cursos/create/': typeof CursosCreateIndexRoute
+  '/cursos/junior/': typeof CursosJuniorIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contato' | '/cursos' | '/sobre'
+  fullPaths:
+    | '/'
+    | '/contato'
+    | '/cursos'
+    | '/sobre'
+    | '/cursos/academies'
+    | '/cursos/camps'
+    | '/cursos/create'
+    | '/cursos/junior'
+    | '/sobre/visao'
+    | '/cursos/'
+    | '/sobre/'
+    | '/cursos/create/10-11-anos'
+    | '/cursos/create/11-12-anos'
+    | '/cursos/create/12-13-anos'
+    | '/cursos/create/13-14-anos'
+    | '/cursos/create/8-9-anos'
+    | '/cursos/create/9-10-anos'
+    | '/cursos/junior/5-6-anos'
+    | '/cursos/junior/6-7-anos'
+    | '/cursos/junior/7-8-anos'
+    | '/cursos/create/'
+    | '/cursos/junior/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contato' | '/cursos' | '/sobre'
-  id: '__root__' | '/' | '/contato' | '/cursos' | '/sobre'
+  to:
+    | '/'
+    | '/contato'
+    | '/cursos/academies'
+    | '/cursos/camps'
+    | '/sobre/visao'
+    | '/cursos'
+    | '/sobre'
+    | '/cursos/create/10-11-anos'
+    | '/cursos/create/11-12-anos'
+    | '/cursos/create/12-13-anos'
+    | '/cursos/create/13-14-anos'
+    | '/cursos/create/8-9-anos'
+    | '/cursos/create/9-10-anos'
+    | '/cursos/junior/5-6-anos'
+    | '/cursos/junior/6-7-anos'
+    | '/cursos/junior/7-8-anos'
+    | '/cursos/create'
+    | '/cursos/junior'
+  id:
+    | '__root__'
+    | '/'
+    | '/contato'
+    | '/cursos'
+    | '/sobre'
+    | '/cursos/academies'
+    | '/cursos/camps'
+    | '/cursos/create'
+    | '/cursos/junior'
+    | '/sobre/visao'
+    | '/cursos/'
+    | '/sobre/'
+    | '/cursos/create/10-11-anos'
+    | '/cursos/create/11-12-anos'
+    | '/cursos/create/12-13-anos'
+    | '/cursos/create/13-14-anos'
+    | '/cursos/create/8-9-anos'
+    | '/cursos/create/9-10-anos'
+    | '/cursos/junior/5-6-anos'
+    | '/cursos/junior/6-7-anos'
+    | '/cursos/junior/7-8-anos'
+    | '/cursos/create/'
+    | '/cursos/junior/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContatoRoute: typeof ContatoRoute
-  CursosRoute: typeof CursosRoute
-  SobreRoute: typeof SobreRoute
+  CursosRoute: typeof CursosRouteWithChildren
+  SobreRoute: typeof SobreRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -99,14 +320,213 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sobre/': {
+      id: '/sobre/'
+      path: '/'
+      fullPath: '/sobre/'
+      preLoaderRoute: typeof SobreIndexRouteImport
+      parentRoute: typeof SobreRoute
+    }
+    '/cursos/': {
+      id: '/cursos/'
+      path: '/'
+      fullPath: '/cursos/'
+      preLoaderRoute: typeof CursosIndexRouteImport
+      parentRoute: typeof CursosRoute
+    }
+    '/sobre/visao': {
+      id: '/sobre/visao'
+      path: '/visao'
+      fullPath: '/sobre/visao'
+      preLoaderRoute: typeof SobreVisaoRouteImport
+      parentRoute: typeof SobreRoute
+    }
+    '/cursos/junior': {
+      id: '/cursos/junior'
+      path: '/junior'
+      fullPath: '/cursos/junior'
+      preLoaderRoute: typeof CursosJuniorRouteImport
+      parentRoute: typeof CursosRoute
+    }
+    '/cursos/create': {
+      id: '/cursos/create'
+      path: '/create'
+      fullPath: '/cursos/create'
+      preLoaderRoute: typeof CursosCreateRouteImport
+      parentRoute: typeof CursosRoute
+    }
+    '/cursos/camps': {
+      id: '/cursos/camps'
+      path: '/camps'
+      fullPath: '/cursos/camps'
+      preLoaderRoute: typeof CursosCampsRouteImport
+      parentRoute: typeof CursosRoute
+    }
+    '/cursos/academies': {
+      id: '/cursos/academies'
+      path: '/academies'
+      fullPath: '/cursos/academies'
+      preLoaderRoute: typeof CursosAcademiesRouteImport
+      parentRoute: typeof CursosRoute
+    }
+    '/cursos/junior/': {
+      id: '/cursos/junior/'
+      path: '/'
+      fullPath: '/cursos/junior/'
+      preLoaderRoute: typeof CursosJuniorIndexRouteImport
+      parentRoute: typeof CursosJuniorRoute
+    }
+    '/cursos/create/': {
+      id: '/cursos/create/'
+      path: '/'
+      fullPath: '/cursos/create/'
+      preLoaderRoute: typeof CursosCreateIndexRouteImport
+      parentRoute: typeof CursosCreateRoute
+    }
+    '/cursos/junior/7-8-anos': {
+      id: '/cursos/junior/7-8-anos'
+      path: '/7-8-anos'
+      fullPath: '/cursos/junior/7-8-anos'
+      preLoaderRoute: typeof CursosJunior78AnosRouteImport
+      parentRoute: typeof CursosJuniorRoute
+    }
+    '/cursos/junior/6-7-anos': {
+      id: '/cursos/junior/6-7-anos'
+      path: '/6-7-anos'
+      fullPath: '/cursos/junior/6-7-anos'
+      preLoaderRoute: typeof CursosJunior67AnosRouteImport
+      parentRoute: typeof CursosJuniorRoute
+    }
+    '/cursos/junior/5-6-anos': {
+      id: '/cursos/junior/5-6-anos'
+      path: '/5-6-anos'
+      fullPath: '/cursos/junior/5-6-anos'
+      preLoaderRoute: typeof CursosJunior56AnosRouteImport
+      parentRoute: typeof CursosJuniorRoute
+    }
+    '/cursos/create/9-10-anos': {
+      id: '/cursos/create/9-10-anos'
+      path: '/9-10-anos'
+      fullPath: '/cursos/create/9-10-anos'
+      preLoaderRoute: typeof CursosCreate910AnosRouteImport
+      parentRoute: typeof CursosCreateRoute
+    }
+    '/cursos/create/8-9-anos': {
+      id: '/cursos/create/8-9-anos'
+      path: '/8-9-anos'
+      fullPath: '/cursos/create/8-9-anos'
+      preLoaderRoute: typeof CursosCreate89AnosRouteImport
+      parentRoute: typeof CursosCreateRoute
+    }
+    '/cursos/create/13-14-anos': {
+      id: '/cursos/create/13-14-anos'
+      path: '/13-14-anos'
+      fullPath: '/cursos/create/13-14-anos'
+      preLoaderRoute: typeof CursosCreate1314AnosRouteImport
+      parentRoute: typeof CursosCreateRoute
+    }
+    '/cursos/create/12-13-anos': {
+      id: '/cursos/create/12-13-anos'
+      path: '/12-13-anos'
+      fullPath: '/cursos/create/12-13-anos'
+      preLoaderRoute: typeof CursosCreate1213AnosRouteImport
+      parentRoute: typeof CursosCreateRoute
+    }
+    '/cursos/create/11-12-anos': {
+      id: '/cursos/create/11-12-anos'
+      path: '/11-12-anos'
+      fullPath: '/cursos/create/11-12-anos'
+      preLoaderRoute: typeof CursosCreate1112AnosRouteImport
+      parentRoute: typeof CursosCreateRoute
+    }
+    '/cursos/create/10-11-anos': {
+      id: '/cursos/create/10-11-anos'
+      path: '/10-11-anos'
+      fullPath: '/cursos/create/10-11-anos'
+      preLoaderRoute: typeof CursosCreate1011AnosRouteImport
+      parentRoute: typeof CursosCreateRoute
+    }
   }
 }
+
+interface CursosCreateRouteChildren {
+  CursosCreate1011AnosRoute: typeof CursosCreate1011AnosRoute
+  CursosCreate1112AnosRoute: typeof CursosCreate1112AnosRoute
+  CursosCreate1213AnosRoute: typeof CursosCreate1213AnosRoute
+  CursosCreate1314AnosRoute: typeof CursosCreate1314AnosRoute
+  CursosCreate89AnosRoute: typeof CursosCreate89AnosRoute
+  CursosCreate910AnosRoute: typeof CursosCreate910AnosRoute
+  CursosCreateIndexRoute: typeof CursosCreateIndexRoute
+}
+
+const CursosCreateRouteChildren: CursosCreateRouteChildren = {
+  CursosCreate1011AnosRoute: CursosCreate1011AnosRoute,
+  CursosCreate1112AnosRoute: CursosCreate1112AnosRoute,
+  CursosCreate1213AnosRoute: CursosCreate1213AnosRoute,
+  CursosCreate1314AnosRoute: CursosCreate1314AnosRoute,
+  CursosCreate89AnosRoute: CursosCreate89AnosRoute,
+  CursosCreate910AnosRoute: CursosCreate910AnosRoute,
+  CursosCreateIndexRoute: CursosCreateIndexRoute,
+}
+
+const CursosCreateRouteWithChildren = CursosCreateRoute._addFileChildren(
+  CursosCreateRouteChildren,
+)
+
+interface CursosJuniorRouteChildren {
+  CursosJunior56AnosRoute: typeof CursosJunior56AnosRoute
+  CursosJunior67AnosRoute: typeof CursosJunior67AnosRoute
+  CursosJunior78AnosRoute: typeof CursosJunior78AnosRoute
+  CursosJuniorIndexRoute: typeof CursosJuniorIndexRoute
+}
+
+const CursosJuniorRouteChildren: CursosJuniorRouteChildren = {
+  CursosJunior56AnosRoute: CursosJunior56AnosRoute,
+  CursosJunior67AnosRoute: CursosJunior67AnosRoute,
+  CursosJunior78AnosRoute: CursosJunior78AnosRoute,
+  CursosJuniorIndexRoute: CursosJuniorIndexRoute,
+}
+
+const CursosJuniorRouteWithChildren = CursosJuniorRoute._addFileChildren(
+  CursosJuniorRouteChildren,
+)
+
+interface CursosRouteChildren {
+  CursosAcademiesRoute: typeof CursosAcademiesRoute
+  CursosCampsRoute: typeof CursosCampsRoute
+  CursosCreateRoute: typeof CursosCreateRouteWithChildren
+  CursosJuniorRoute: typeof CursosJuniorRouteWithChildren
+  CursosIndexRoute: typeof CursosIndexRoute
+}
+
+const CursosRouteChildren: CursosRouteChildren = {
+  CursosAcademiesRoute: CursosAcademiesRoute,
+  CursosCampsRoute: CursosCampsRoute,
+  CursosCreateRoute: CursosCreateRouteWithChildren,
+  CursosJuniorRoute: CursosJuniorRouteWithChildren,
+  CursosIndexRoute: CursosIndexRoute,
+}
+
+const CursosRouteWithChildren =
+  CursosRoute._addFileChildren(CursosRouteChildren)
+
+interface SobreRouteChildren {
+  SobreVisaoRoute: typeof SobreVisaoRoute
+  SobreIndexRoute: typeof SobreIndexRoute
+}
+
+const SobreRouteChildren: SobreRouteChildren = {
+  SobreVisaoRoute: SobreVisaoRoute,
+  SobreIndexRoute: SobreIndexRoute,
+}
+
+const SobreRouteWithChildren = SobreRoute._addFileChildren(SobreRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContatoRoute: ContatoRoute,
-  CursosRoute: CursosRoute,
-  SobreRoute: SobreRoute,
+  CursosRoute: CursosRouteWithChildren,
+  SobreRoute: SobreRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

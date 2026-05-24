@@ -11,6 +11,7 @@ import {
 import appCss from "../styles.css?url";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { WhatsAppFab } from "@/components/whatsapp-fab";
 
 function NotFoundComponent() {
   return (
@@ -78,12 +79,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       meta: [
         { charSet: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "theme-color", content: "#187ABF" },
         { title: "Santos Tech — Escola de Programação em Ribeirão Preto" },
         {
           name: "description",
           content:
             "Escola especializada em programação para crianças, jovens e adultos. Do zero ao profissional, em Ribeirão Preto.",
         },
+        // ── Open Graph (default — páginas individuais sobrescrevem og:title, og:description e og:image)
         {
           property: "og:title",
           content: "Santos Tech — Escola de Programação",
@@ -95,26 +98,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         },
         { property: "og:type", content: "website" },
         { property: "og:site_name", content: "Santos Tech" },
-        { name: "twitter:card", content: "summary" },
+        { property: "og:locale", content: "pt_BR" },
+        { property: "og:image", content: "/og-image.png" },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
+        { property: "og:image:alt", content: "Santos Tech — Escola de Programação" },
+        // ── Twitter (igual OG, large card)
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: "Santos Tech — Escola de Programação" },
+        { name: "twitter:description", content: "Do absoluto zero ao profissional. Cursos presenciais em Ribeirão Preto." },
+        { name: "twitter:image", content: "/og-image.png" },
       ],
       links: [
-        {
-          rel: "stylesheet",
-          href: appCss,
-        },
-        {
-          rel: "preconnect",
-          href: "https://fonts.googleapis.com",
-        },
-        {
-          rel: "preconnect",
-          href: "https://fonts.gstatic.com",
-          crossOrigin: "anonymous",
-        },
-        {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap",
-        },
+        // ── Favicon (logo do leão Santos Tech)
+        { rel: "icon", type: "image/png", href: "/favicon.png" },
+        { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+        // ── App
+        { rel: "stylesheet", href: appCss },
       ],
     }),
     shellComponent: RootShell,
@@ -149,6 +149,7 @@ function RootComponent() {
           <Outlet />
         </main>
         <SiteFooter />
+        <WhatsAppFab />
       </div>
     </QueryClientProvider>
   );

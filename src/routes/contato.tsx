@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MessageCircle, MapPin, Mail, Instagram, Clock } from "lucide-react";
+import { MapPin, Mail, Instagram, Clock } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons";
+import { WHATSAPP_URL } from "@/lib/whatsapp";
+import { DecorativeElements } from "@/components/decorative-elements";
 
 export const Route = createFileRoute("/contato")({
   component: ContactPage,
@@ -15,13 +18,25 @@ export const Route = createFileRoute("/contato")({
   }),
 });
 
-const WHATSAPP = "https://wa.me/5516992578710?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20aula%20experimental.";
+const WHATSAPP = WHATSAPP_URL.courses;
 
 function ContactPage() {
   return (
     <>
-      <section className="bg-accent/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+      <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#e6f1fa] via-[#f3f8fc] to-white py-16 sm:py-20">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.18]"
+          style={{
+            backgroundImage:
+              "radial-gradient(rgba(24,122,191,0.35) 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
+        <div className="pointer-events-none absolute -left-24 top-8 h-64 w-64 rounded-full bg-[#187ABF]/25 blur-3xl animate-blob" />
+        <div className="pointer-events-none absolute -right-20 bottom-8 h-72 w-72 rounded-full bg-[#0DB88F]/20 blur-3xl animate-blob [animation-delay:3s]" />
+        <DecorativeElements variant="games" color="#187ABF" />
+
+        <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <p className="text-sm font-bold uppercase tracking-wider text-primary">Fale com a gente</p>
           <h1 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
             Vamos <span className="text-primary">conversar</span>
@@ -37,9 +52,9 @@ function ContactPage() {
           <div>
             <h2 className="text-2xl font-black">Informações de contato</h2>
             <div className="mt-8 space-y-6">
-              <a href={WHATSAPP} target="_blank" rel="noreferrer" className="flex items-start gap-4 rounded-2xl border border-border bg-card p-6 transition hover:border-primary/40 hover:shadow-lg">
+              <a href={WHATSAPP} target="_blank" rel="noreferrer" className="flex items-start gap-4 rounded-xl border border-border bg-card p-6 transition hover:border-primary/40 hover:shadow-lg">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-                  <MessageCircle className="h-6 w-6" />
+                  <WhatsAppIcon className="h-6 w-6" />
                 </div>
                 <div>
                   <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">WhatsApp</p>
@@ -48,7 +63,7 @@ function ContactPage() {
                 </div>
               </a>
 
-              <div className="flex items-start gap-4 rounded-2xl border border-border bg-card p-6">
+              <div className="flex items-start gap-4 rounded-xl border border-border bg-card p-6">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <MapPin className="h-6 w-6" />
                 </div>
@@ -59,27 +74,27 @@ function ContactPage() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 rounded-2xl border border-border bg-card p-6">
+              <a href="mailto:ceo.santosgames@gmail.com" className="flex items-start gap-4 rounded-xl border border-border bg-card p-6 transition hover:border-primary/40 hover:shadow-lg">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <Mail className="h-6 w-6" />
                 </div>
                 <div>
                   <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">E-mail</p>
-                  <p className="mt-1 text-lg font-bold">contato@santos-tech.com</p>
+                  <p className="mt-1 text-lg font-bold">ceo.santosgames@gmail.com</p>
                 </div>
-              </div>
+              </a>
 
-              <a href="https://instagram.com/santostech" target="_blank" rel="noreferrer" className="flex items-start gap-4 rounded-2xl border border-border bg-card p-6 transition hover:border-primary/40 hover:shadow-lg">
+              <a href="https://instagram.com/escolasantostech" target="_blank" rel="noreferrer" className="flex items-start gap-4 rounded-xl border border-border bg-card p-6 transition hover:border-primary/40 hover:shadow-lg">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <Instagram className="h-6 w-6" />
                 </div>
                 <div>
                   <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Instagram</p>
-                  <p className="mt-1 text-lg font-bold">@santostech</p>
+                  <p className="mt-1 text-lg font-bold">@escolasantostech</p>
                 </div>
               </a>
 
-              <div className="flex items-start gap-4 rounded-2xl border border-border bg-card p-6">
+              <div className="flex items-start gap-4 rounded-xl border border-border bg-card p-6">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <Clock className="h-6 w-6" />
                 </div>
@@ -99,7 +114,7 @@ function ContactPage() {
                 Conheça a escola, o método e os professores antes de matricular. Sem compromisso.
               </p>
               <a href={WHATSAPP} target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center gap-2 rounded-full bg-background px-7 py-3.5 text-sm font-bold text-primary shadow-lg transition hover:bg-background/90">
-                <MessageCircle className="h-4 w-4" /> Agendar agora
+                <WhatsAppIcon className="h-4 w-4" /> Agendar agora
               </a>
             </div>
 
