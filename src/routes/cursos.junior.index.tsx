@@ -26,27 +26,18 @@ const PaintBrushIcon = phosphor(PhPaintBrush, "duotone");
 const HeartStraightIcon = phosphor(PhHeartStraight, "duotone");
 import { Img, getOptimizedUrl } from "@/components/img";
 import { TechHero } from "@/components/tech-hero";
+import { JsonLd } from "@/components/json-ld";
+import { pageMeta, buildCourseSchema, buildBreadcrumbSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/junior/")({
   component: JuniorPage,
-  head: () => ({
-    meta: [
-      { title: "JR · 5 a 8 anos — Santos Tech" },
-      {
-        name: "description",
-        content:
-          "Programação para crianças de 5 a 8 anos em Ribeirão Preto. 3 blocos de 1 ano (5–6, 6–7, 7–8), Passaporte do Inventor com progressão por selos. Aulas presenciais.",
-      },
-      { property: "og:title", content: "JR · Santos Tech" },
-      {
-        property: "og:description",
-        content:
-          "Base sólida em programação para a primeira infância. Aulas presenciais, divertidas e estruturadas.",
-      },
-      { property: "og:url", content: "/cursos/junior" },
-    ],
-    links: [{ rel: "canonical", href: "/cursos/junior" }],
-  }),
+  head: () =>
+    pageMeta({
+      title: "JR (5 a 8 anos) — Programação para Primeira Infância | Santos Tech",
+      description:
+        "Programa JR da Santos Tech: programação para crianças de 5 a 8 anos em Ribeirão Preto, sem precisar saber ler. 3 cursos anuais (JR1, JR2, JR3) com Passaporte do Inventor — atividades lúdicas, robótica tangível e ScratchJr.",
+      path: "/cursos/junior",
+    }),
 });
 
 const WHATSAPP = WHATSAPP_URL.courses;
@@ -221,6 +212,23 @@ function MethodPoint({ icon: Icon, title, children }: { icon: typeof Sparkles; t
 function JuniorPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          buildBreadcrumbSchema([
+            { name: "Início", path: "/" },
+            { name: "Programas", path: "/cursos" },
+            { name: "JR", path: "/cursos/junior" },
+          ]),
+          buildCourseSchema({
+            name: "JR — Programação para 5 a 8 anos",
+            description:
+              "Programa de 3 cursos anuais (JR1, JR2, JR3) que introduz programação a crianças de 5 a 8 anos sem necessidade de leitura. Atividades lúdicas, robótica tangível e ScratchJr com sistema de Passaporte do Inventor.",
+            path: "/cursos/junior",
+            ageMin: 5,
+            ageMax: 8,
+          }),
+        ]}
+      />
       {/* HERO JR */}
       <TechHero primary={JR} dark={JR_DARK} soft={JR_SOFT} decor="playful">
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32">

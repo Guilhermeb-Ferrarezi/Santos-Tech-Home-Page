@@ -22,7 +22,9 @@ const SRC = path.join(ROOT, "src/assets");
 const OUT = path.join(SRC, "optimized");
 
 const SIZES = [400, 800, 1200];
-const SKIP = new Set(["logo.png"]);
+// Tamanhos extras pro logo (display 48px = 96px @2x DPR). Cobre header/footer.
+const LOGO_SIZES = [96, 192];
+const SKIP = new Set();
 
 await fs.mkdir(OUT, { recursive: true });
 
@@ -37,10 +39,18 @@ for (const file of files) {
   const inputPath = path.join(SRC, file);
   const input = sharp(inputPath);
   const { width: origWidth } = await input.metadata();
+  const isLogo = name === "logo";
 
-  // Imagens pequenas (< menor tamanho alvo): exporta no tamanho nativo só.
-  const targets =
-    origWidth && origWidth < SIZES[0] ? [origWidth] : SIZES.filter((s) => !origWidth || origWidth >= s);
+  // Logo precisa de tamanhos pequenos (display em 48-96px). Outras imagens
+  // usam SIZES; pequenas exportam no tamanho nativo.
+  let targets;
+  if (isLogo) {
+    targets = LOGO_SIZES;
+  } else if (origWidth && origWidth < SIZES[0]) {
+    targets = [origWidth];
+  } else {
+    targets = SIZES.filter((s) => !origWidth || origWidth >= s);
+  }
 
   for (const size of targets) {
     const resized = input.clone().resize(size, null, { withoutEnlargement: true });

@@ -1,0 +1,12 @@
+# Santos Tech — robots.txt
+# Permite indexação completa por crawlers tradicionais e LLMs.
+
+User-agent: *
+Allow: /
+
+# Bloqueia arquivos internos sem conteúdo relevante pra SEO.
+Disallow: /assets/
+Disallow: /api/
+
+# Sitemap principal — listado pros crawlers descobrirem rotas.
+Sitemap: https://santos-tech.com/sitemap.xml

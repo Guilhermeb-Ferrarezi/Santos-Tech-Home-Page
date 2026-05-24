@@ -41,27 +41,18 @@ import {
   type CourseTheme,
   type FaqItem,
 } from "@/components/course-page";
+import { JsonLd } from "@/components/json-ld";
+import { pageMeta, buildCourseSchema, buildBreadcrumbSchema, buildFaqSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/academies")({
   component: AcademiesPage,
-  head: () => ({
-    meta: [
-      { title: "ACADEMIES — Robótica e IA · Santos Tech" },
-      {
-        name: "description",
-        content:
-          "Módulos avançados de especialização em Robótica e Inteligência Artificial em Ribeirão Preto. Para alunos avançados ou que querem aprofundar áreas específicas.",
-      },
-      { property: "og:title", content: "ACADEMIES · Santos Tech" },
-      {
-        property: "og:description",
-        content:
-          "Robótica e IA: módulos avançados de aprofundamento técnico. Aulas presenciais com kits e ferramentas profissionais.",
-      },
-      { property: "og:url", content: "/cursos/academies" },
-    ],
-    links: [{ rel: "canonical", href: "/cursos/academies" }],
-  }),
+  head: () =>
+    pageMeta({
+      title: "Academia de Robótica e Academia de IA — Especialização | Santos Tech",
+      description:
+        "Academias da Santos Tech: módulos avançados de Robótica (9 a 14 anos) e Inteligência Artificial (11 a 14 anos) em Ribeirão Preto. Especialização técnica com kits físicos, treinamento de modelos, engenharia de prompt e projetos próprios.",
+      path: "/cursos/academies",
+    }),
 });
 
 const WHATSAPP = WHATSAPP_URL.courses;
@@ -241,6 +232,32 @@ function AcademyCard({ academy }: { academy: Academy }) {
 function AcademiesPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          buildBreadcrumbSchema([
+            { name: "Início", path: "/" },
+            { name: "Programas", path: "/cursos" },
+            { name: "Academies", path: "/cursos/academies" },
+          ]),
+          buildCourseSchema({
+            name: "Academia de Robótica (9 a 14 anos) — Santos Tech",
+            description:
+              "Módulo de especialização em robótica educacional. Kits físicos com motores, sensores e estrutura. Crianças montam, programam e testam robôs reais com desafios de sumô, seguidor de linha e resgate.",
+            path: "/cursos/academies#robotica",
+            ageMin: 9,
+            ageMax: 14,
+          }),
+          buildCourseSchema({
+            name: "Academia de IA (11 a 14 anos) — Santos Tech",
+            description:
+              "Módulo de introdução prática à Inteligência Artificial. Treinamento de modelos simples, engenharia de prompt, geração de imagem e texto, ética e responsabilidade ao usar IA.",
+            path: "/cursos/academies#ai",
+            ageMin: 11,
+            ageMax: 14,
+          }),
+          buildFaqSchema(FAQ),
+        ]}
+      />
       <CourseHero
         theme={THEME}
         eyebrow="ACADEMIES · Módulos avançados"

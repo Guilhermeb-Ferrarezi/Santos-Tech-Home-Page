@@ -18,6 +18,8 @@ import { phosphor } from "@/lib/phosphor";
 import { Reveal } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
 import { TechHero } from "@/components/tech-hero";
+import { JsonLd } from "@/components/json-ld";
+import { pageMeta, buildCourseSchema, buildBreadcrumbSchema } from "@/lib/seo";
 import { HoverWashCard } from "@/components/hover-wash-card";
 
 // Pillars do "Método CREATE" — Phosphor duotone
@@ -31,24 +33,13 @@ const heroImg = getOptimizedUrl("students-1", 800, "avif");
 
 export const Route = createFileRoute("/cursos/create/")({
   component: CreatePage,
-  head: () => ({
-    meta: [
-      { title: "CREATE · 8 a 14 anos — Santos Tech" },
-      {
-        name: "description",
-        content:
-          "Programa carro-chefe da Santos Tech. 6 cursos de 1 ano para crianças e pré-adolescentes (8 a 14 anos) construírem os próprios jogos, depurarem código e fazerem projetos reais.",
-      },
-      { property: "og:title", content: "CREATE · Santos Tech" },
-      {
-        property: "og:description",
-        content:
-          "6 cursos · do primeiro jogo ao projeto final. Aulas presenciais em Ribeirão Preto.",
-      },
-      { property: "og:url", content: "/cursos/create" },
-    ],
-    links: [{ rel: "canonical", href: "/cursos/create" }],
-  }),
+  head: () =>
+    pageMeta({
+      title: "CREATE (8 a 14 anos) — Criação de Jogos | Santos Tech",
+      description:
+        "Programa CREATE da Santos Tech: 6 cursos anuais (CREATE1 a CREATE6) para crianças e pré-adolescentes de 8 a 14 anos. Do MakeCode Arcade ao Unity com C#. Trilha gamificada com progressão por níveis no PORTAL DO ALUNO ST. Aulas presenciais em Ribeirão Preto.",
+      path: "/cursos/create",
+    }),
 });
 
 const WHATSAPP = WHATSAPP_URL.courses;
@@ -195,6 +186,23 @@ function CourseCardItem({ course }: { course: CourseCard }) {
 function CreatePage() {
   return (
     <>
+      <JsonLd
+        data={[
+          buildBreadcrumbSchema([
+            { name: "Início", path: "/" },
+            { name: "Programas", path: "/cursos" },
+            { name: "CREATE", path: "/cursos/create" },
+          ]),
+          buildCourseSchema({
+            name: "CREATE — Programação e Criação de Jogos (8 a 14 anos)",
+            description:
+              "Programa carro-chefe da Santos Tech: 6 cursos anuais (CREATE1 a CREATE6) que ensinam crianças e pré-adolescentes a criar seus próprios jogos. Trilha do MakeCode Arcade ao Unity com C#, com progressão por níveis no PORTAL DO ALUNO ST.",
+            path: "/cursos/create",
+            ageMin: 8,
+            ageMax: 14,
+          }),
+        ]}
+      />
       {/* HERO CREATE */}
       <TechHero primary={CREATE} dark={CREATE_DARK} soft={CREATE_LIGHT} decor="games">
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32">

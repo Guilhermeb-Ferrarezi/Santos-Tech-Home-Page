@@ -42,26 +42,18 @@ import {
   type FaqItem,
   type ProgressionBadge,
 } from "@/components/course-page";
+import { JsonLd } from "@/components/json-ld";
+import { pageMeta, coursePageSchemas } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/junior/5-6-anos")({
   component: Junior56Page,
-  head: () => ({
-    meta: [
-      { title: "JR1 (5–6 anos) — Primeiros Passos · Santos Tech" },
-      {
-        name: "description",
-        content:
-          "Curso anual de programação para crianças de 5 a 6 anos em Ribeirão Preto. 40 aulas, 80h, 4 módulos, sem precisar saber ler. Passaporte do Inventor com sistema próprio de progressão.",
-      },
-      { property: "og:title", content: "JR1 · 5 a 6 anos · Santos Tech" },
-      {
-        property: "og:description",
-        content: "1 ano de aprendizado lúdico e estruturado: do desplugado ao ScratchJr. Aulas presenciais.",
-      },
-      { property: "og:url", content: "/cursos/junior/5-6-anos" },
-    ],
-    links: [{ rel: "canonical", href: "/cursos/junior/5-6-anos" }],
-  }),
+  head: () =>
+    pageMeta({
+      title: "JR1 (5 a 6 anos) — Primeiros Passos em Programação | Santos Tech",
+      description:
+        "Primeiro curso do programa JR: 40 aulas anuais de programação pra crianças de 5 a 6 anos em Ribeirão Preto, sem precisar saber ler. Atividades desplugadas, robótica tangível e ScratchJr. Passaporte do Inventor com sistema próprio de progressão.",
+      path: "/cursos/junior/5-6-anos",
+    }),
 });
 
 const WHATSAPP = WHATSAPP_URL.courses;
@@ -228,6 +220,19 @@ const FAQ: FaqItem[] = [
 function Junior56Page() {
   return (
     <>
+      <JsonLd
+        data={coursePageSchemas({
+          path: "/cursos/junior/5-6-anos",
+          programName: "JR",
+          programPath: "/cursos/junior",
+          courseName: "JR1 — Primeiros Passos em Programação (5 a 6 anos)",
+          courseDescription:
+            "Primeiro curso do programa JR da Santos Tech. 40 aulas anuais que introduzem programação a crianças de 5 a 6 anos sem necessidade de leitura. Atividades desplugadas, robótica tangível com Bee-Bot e primeiros projetos no ScratchJr. Sistema Passaporte do Inventor.",
+          ageMin: 5,
+          ageMax: 6,
+          faq: FAQ,
+        })}
+      />
       <CourseHero
         theme={THEME}
         breadcrumb={{ href: "/cursos/junior", label: "Programa JR" }}

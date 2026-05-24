@@ -10,26 +10,18 @@ import {
 import { Reveal } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
 import { DecorativeElements } from "@/components/decorative-elements";
+import { JsonLd } from "@/components/json-ld";
+import { pageMeta, buildBreadcrumbSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/sobre/visao")({
   component: NossaVisaoPage,
-  head: () => ({
-    meta: [
-      { title: "Nossa Visão — Santos Tech" },
-      {
-        name: "description",
-        content:
-          "Nossa visão é um mundo onde crianças escrevem o código. Aprender a programar desenvolve pensamento computacional, resolução de problemas, criatividade e liderança — habilidades que ficam pra vida.",
-      },
-      { property: "og:title", content: "Nossa Visão — Santos Tech" },
-      {
-        property: "og:description",
-        content: "Um mundo onde crianças escrevem o código.",
-      },
-      { property: "og:url", content: "/sobre/visao" },
-    ],
-    links: [{ rel: "canonical", href: "/sobre/visao" }],
-  }),
+  head: () =>
+    pageMeta({
+      title: "Nossa Visão — Santos Tech | Um mundo onde crianças escrevem o código",
+      description:
+        "Nossa visão é um mundo onde crianças escrevem o código. Aprender programação desenvolve pensamento computacional, resolução de problemas, criatividade e liderança — habilidades que ficam pra vida.",
+      path: "/sobre/visao",
+    }),
 });
 
 const WHATSAPP = WHATSAPP_URL.courses;
@@ -58,6 +50,13 @@ const PRINCIPIOS = [
 function NossaVisaoPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbSchema([
+          { name: "Início", path: "/" },
+          { name: "Sobre", path: "/sobre" },
+          { name: "Nossa Visão", path: "/sobre/visao" },
+        ])}
+      />
       {/* HERO — visão como manifesto */}
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#e6f1fa] via-[#f3f8fc] to-white py-20 sm:py-28">
         <div

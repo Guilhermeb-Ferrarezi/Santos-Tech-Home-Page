@@ -24,19 +24,17 @@ const RobotIcon = phosphor(PhRobot, "duotone");
 import { Reveal } from "@/components/reveal";
 import { DecorativeElements } from "@/components/decorative-elements";
 import { Img } from "@/components/img";
+import { pageMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   component: Index,
-  head: () => ({
-    meta: [
-      { title: "Santos Tech — Programação para Crianças em Ribeirão Preto" },
-      { name: "description", content: "Aulas presenciais de programação para crianças de 5 a 14 anos em Ribeirão Preto. Programas CREATE, JR, FÉRIAS TECH e AVANÇADO — com progressão por níveis e plataforma própria." },
-      { property: "og:title", content: "Santos Tech — Programação para Crianças" },
-      { property: "og:description", content: "Aqui, o tempo de tela vira habilidade do futuro. Aulas presenciais para crianças de 5 a 14 anos em Ribeirão Preto." },
-      { property: "og:url", content: "/" },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
-  }),
+  head: () =>
+    pageMeta({
+      title: "Santos Tech — Escola de Programação para Crianças em Ribeirão Preto",
+      description:
+        "Escola presencial de programação para crianças e adolescentes de 5 a 14 anos no Jardim América, Ribeirão Preto. Programas CREATE (criação de jogos), JR (primeira infância), Robótica, IA e Férias Tech. Aulas 100% presenciais.",
+      path: "/",
+    }),
 });
 
 const WHATSAPP = WHATSAPP_URL.courses;
@@ -165,13 +163,15 @@ function Index() {
               </Reveal>
               <Reveal delay={240}>
                 <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-st-blue-dark px-5 py-2.5 text-sm font-bold text-white shadow-lg sm:text-base">
-                  CREATE · JR · FÉRIAS TECH · AVANÇADO
+                  CREATE · JR · ROBÓTICA · IA · FÉRIAS TECH
                 </div>
               </Reveal>
               <Reveal delay={360}>
                 <p className="mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
-                  Aqui, ele cria o próprio jogo já na primeira aula. Aulas
-                  presenciais para crianças de 5 a 14 anos, em Ribeirão Preto.
+                  A <strong>Santos Tech</strong> é uma escola presencial de
+                  programação para crianças e adolescentes de{" "}
+                  <strong>5 a 14 anos</strong> em Ribeirão Preto. Seu filho cria
+                  o próprio jogo já na primeira aula.
                 </p>
               </Reveal>
               <Reveal delay={480} className="mt-8 flex flex-wrap items-center gap-3">

@@ -13,26 +13,18 @@ import { Reveal } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
 import { DecorativeElements } from "@/components/decorative-elements";
 import { HoverWashCard } from "@/components/hover-wash-card";
+import { JsonLd } from "@/components/json-ld";
+import { pageMeta, buildBreadcrumbSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/")({
   component: ProgramasPage,
-  head: () => ({
-    meta: [
-      { title: "Programas — Santos Tech" },
-      {
-        name: "description",
-        content:
-          "Todos os programas da Santos Tech em um só lugar: JR (5–8 anos), CREATE (8–14), Academia de IA, Academia de Robótica e Férias Tech. Aulas presenciais em Ribeirão Preto.",
-      },
-      { property: "og:title", content: "Programas — Santos Tech" },
-      {
-        property: "og:description",
-        content: "Programação para crianças e jovens — do primeiro contato à formação completa.",
-      },
-      { property: "og:url", content: "/cursos" },
-    ],
-    links: [{ rel: "canonical", href: "/cursos" }],
-  }),
+  head: () =>
+    pageMeta({
+      title: "Programas e Cursos — Santos Tech | Programação para Crianças",
+      description:
+        "Todos os cursos de programação da Santos Tech em Ribeirão Preto: JR (5–8 anos), CREATE (8–14 anos, criação de jogos), Academia de IA, Academia de Robótica e Férias Tech. Veja qual programa combina com a idade do seu filho.",
+      path: "/cursos",
+    }),
 });
 
 const WHATSAPP = WHATSAPP_URL.courses;
@@ -223,6 +215,12 @@ function ProgramCardItem({ program, isInternal }: { program: ProgramCard; isInte
 function ProgramasPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbSchema([
+          { name: "Início", path: "/" },
+          { name: "Programas", path: "/cursos" },
+        ])}
+      />
       {/* HERO */}
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#e6f1fa] via-[#f3f8fc] to-white py-16 sm:py-20">
         <div

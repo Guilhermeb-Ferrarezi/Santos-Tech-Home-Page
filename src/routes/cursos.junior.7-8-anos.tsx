@@ -20,26 +20,18 @@ import {
   type ProgressionBadge,
 } from "@/components/course-page";
 import { Reveal } from "@/components/reveal";
+import { JsonLd } from "@/components/json-ld";
+import { pageMeta, coursePageSchemas } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/junior/7-8-anos")({
   component: Junior78Page,
-  head: () => ({
-    meta: [
-      { title: "JR3 (7–8 anos) — Pronto pra Criar · Santos Tech" },
-      {
-        name: "description",
-        content:
-          "Curso anual de programação para crianças de 7 a 8 anos em Ribeirão Preto. 40 aulas, 80h, do Scratch completo ao MakeCode Arcade. Bússola do Criador — ano-ponte para o CREATE.",
-      },
-      { property: "og:title", content: "JR3 · 7 a 8 anos · Santos Tech" },
-      {
-        property: "og:description",
-        content: "O ano-ponte para o CREATE. Variáveis, condicionais, clones, MakeCode. Aulas presenciais.",
-      },
-      { property: "og:url", content: "/cursos/junior/7-8-anos" },
-    ],
-    links: [{ rel: "canonical", href: "/cursos/junior/7-8-anos" }],
-  }),
+  head: () =>
+    pageMeta({
+      title: "JR3 (7 a 8 anos) — Pronto pra Criar (Ponte pro CREATE) | Santos Tech",
+      description:
+        "Terceiro e último curso do programa JR pra crianças de 7 a 8 anos em Ribeirão Preto. 40 aulas com Scratch completo (variáveis, condicionais, clones) e introdução ao MakeCode Arcade. Bússola do Criador — preparação direta pra Faixa Branca do CREATE.",
+      path: "/cursos/junior/7-8-anos",
+    }),
 });
 
 const WHATSAPP = WHATSAPP_URL.courses;
@@ -207,6 +199,19 @@ const FAQ: FaqItem[] = [
 function Junior78Page() {
   return (
     <>
+      <JsonLd
+        data={coursePageSchemas({
+          path: "/cursos/junior/7-8-anos",
+          programName: "JR",
+          programPath: "/cursos/junior",
+          courseName: "JR3 — Pronto pra Criar (7 a 8 anos)",
+          courseDescription:
+            "Terceiro curso do programa JR da Santos Tech. 40 aulas com Scratch (MIT) completo — variáveis, condicionais avançadas, mensagens, clones — e introdução ao MakeCode Arcade. Bússola do Criador prepara a criança pra Faixa Branca do CREATE aos 8 anos.",
+          ageMin: 7,
+          ageMax: 8,
+          faq: FAQ,
+        })}
+      />
       <CourseHero
         theme={THEME}
         breadcrumb={{ href: "/cursos/junior", label: "Programa JR" }}

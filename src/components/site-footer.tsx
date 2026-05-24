@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, MapPin, Mail } from "lucide-react";
-import logo from "@/assets/logo.png";
+import { Img } from "@/components/img";
 import { WhatsAppIcon } from "@/components/icons";
 import { useProgramKey, type ProgramKey } from "@/lib/program-theme";
 import { WHATSAPP_URL, WHATSAPP_PHONE_DISPLAY } from "@/lib/whatsapp";
@@ -21,11 +21,12 @@ const themes: Record<ProgramKey, FooterTheme> = {
   default: {
     wrapper: "border-t border-border bg-muted/40",
     brandHeading: "text-foreground",
-    brandHeadingAccent: "text-primary",
+    // st-blue-dark (#04325A) tem 13:1 de contraste vs muted/40 — WCAG AAA.
+    brandHeadingAccent: "text-st-blue-dark",
     bodyText: "text-muted-foreground",
     headings: "text-foreground",
     links: "hover:text-primary",
-    iconColor: "text-primary",
+    iconColor: "text-st-blue-dark",
     bottomBar: "border-t border-border",
     bottomText: "text-muted-foreground",
   },
@@ -87,7 +88,13 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4 lg:px-8">
         <div className="md:col-span-2">
           <div className="flex items-center gap-3">
-            <img src={logo} alt="Santos Tech" className="h-12 w-12" />
+            <Img
+              name="logo"
+              alt="Logo Santos Tech"
+              width={48}
+              height={48}
+              className="h-12 w-12"
+            />
             <span className={`text-lg font-bold ${t.brandHeading}`}>
               SANTOS <span className={t.brandHeadingAccent}>TECH</span>
             </span>

@@ -26,26 +26,18 @@ import {
   type ProgressionBadge,
 } from "@/components/course-page";
 import { Reveal } from "@/components/reveal";
+import { JsonLd } from "@/components/json-ld";
+import { pageMeta, coursePageSchemas } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/create/9-10-anos")({
   component: Create910Page,
-  head: () => ({
-    meta: [
-      { title: "CREATE Ano 2 (9–10 anos) — Construtores de Mundos · Santos Tech" },
-      {
-        name: "description",
-        content:
-          "Segundo ano do CREATE em Ribeirão Preto. 40 aulas com mapas, câmera, listas, física e a transição do bloco pro JavaScript texto. Trilha Pixel: Construtores de Mundos.",
-      },
-      { property: "og:title", content: "CREATE Ano 2 · 9–10 anos · Santos Tech" },
-      {
-        property: "og:description",
-        content: "Mundos maiores, listas, física e leitura de código. Insígnia Pixel Arquiteto de Mundos.",
-      },
-      { property: "og:url", content: "/cursos/create/9-10-anos" },
-    ],
-    links: [{ rel: "canonical", href: "/cursos/create/9-10-anos" }],
-  }),
+  head: () =>
+    pageMeta({
+      title: "CREATE Ano 2 (9 a 10 anos) — Construtores de Mundos | Santos Tech",
+      description:
+        "Segundo ano do CREATE: 40 aulas pra crianças de 9 a 10 anos em Ribeirão Preto. Tilemaps, câmera, listas, física 2D e transição do bloco pro JavaScript escrito. Insígnia Pixel Arquiteto de Mundos ao final.",
+      path: "/cursos/create/9-10-anos",
+    }),
 });
 
 const WHATSAPP = WHATSAPP_URL.courses;
@@ -225,6 +217,19 @@ const FAQ: FaqItem[] = [
 function Create910Page() {
   return (
     <>
+      <JsonLd
+        data={coursePageSchemas({
+          path: "/cursos/create/9-10-anos",
+          programName: "CREATE",
+          programPath: "/cursos/create",
+          courseName: "CREATE Ano 2 — Construtores de Mundos (9 a 10 anos)",
+          courseDescription:
+            "Segundo ano do CREATE da Santos Tech. 40 aulas trabalham tilemaps, câmera, listas, física 2D e fazem a transição do MakeCode em blocos pro JavaScript escrito. Trilha Pixel: Arquiteto de Mundos.",
+          ageMin: 9,
+          ageMax: 10,
+          faq: FAQ,
+        })}
+      />
       <CourseHero
         theme={THEME}
         breadcrumb={{ href: "/cursos/create", label: "Programa CREATE" }}

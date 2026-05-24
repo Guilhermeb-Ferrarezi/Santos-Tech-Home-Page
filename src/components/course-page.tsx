@@ -13,7 +13,7 @@
  */
 
 import { Link } from "@tanstack/react-router";
-import type { ComponentType, ReactNode } from "react";
+import type { ComponentType, CSSProperties, ReactNode } from "react";
 import {
   ArrowRight,
   CheckCircle2,
@@ -62,7 +62,7 @@ export type CourseTheme = {
   soft: string;
 };
 
-type LucideIcon = ComponentType<{ className?: string }>;
+type LucideIcon = ComponentType<{ className?: string; style?: CSSProperties }>;
 
 /** One badge in a progression trail (selo, insígnia, marco, faixa, ...). */
 export type ProgressionBadge = {

@@ -27,26 +27,18 @@ import {
   type ProgressionBadge,
 } from "@/components/course-page";
 import { Reveal } from "@/components/reveal";
+import { JsonLd } from "@/components/json-ld";
+import { pageMeta, coursePageSchemas } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/create/12-13-anos")({
   component: Create1213Page,
-  head: () => ({
-    meta: [
-      { title: "CREATE Ano 5 (12–13 anos) — Núcleo do Motor (Unity + C#) · Santos Tech" },
-      {
-        name: "description",
-        content:
-          "Quinto ano do CREATE em Ribeirão Preto. 40 aulas entrando no Unity com C#: editor profissional, física 2D, sprites, animação e jogo 2D completo. Trilha Pixel: Núcleo do Motor.",
-      },
-      { property: "og:title", content: "CREATE Ano 5 · 12–13 anos · Santos Tech" },
-      {
-        property: "og:description",
-        content: "Entrada no Unity com C#. Jogo 2D completo. Título Desenvolvedor Unity Júnior.",
-      },
-      { property: "og:url", content: "/cursos/create/12-13-anos" },
-    ],
-    links: [{ rel: "canonical", href: "/cursos/create/12-13-anos" }],
-  }),
+  head: () =>
+    pageMeta({
+      title: "CREATE Ano 5 (12 a 13 anos) — Unity + C# (Núcleo do Motor) | Santos Tech",
+      description:
+        "Quinto ano do CREATE: entrada no Unity com C# pra adolescentes de 12 a 13 anos em Ribeirão Preto. 40 aulas com editor profissional, física 2D, sprites, animação e um jogo 2D completo. Título Desenvolvedor Unity Júnior.",
+      path: "/cursos/create/12-13-anos",
+    }),
 });
 
 const WHATSAPP = WHATSAPP_URL.courses;
@@ -220,6 +212,19 @@ const FAQ: FaqItem[] = [
 function Create1213Page() {
   return (
     <>
+      <JsonLd
+        data={coursePageSchemas({
+          path: "/cursos/create/12-13-anos",
+          programName: "CREATE",
+          programPath: "/cursos/create",
+          courseName: "CREATE Ano 5 — Núcleo do Motor: Unity + C# (12 a 13 anos)",
+          courseDescription:
+            "Quinto ano do CREATE da Santos Tech. Entrada no motor profissional Unity com programação em C#. 40 aulas com editor profissional, física 2D, sprites, animação e desenvolvimento de jogo 2D completo.",
+          ageMin: 12,
+          ageMax: 13,
+          faq: FAQ,
+        })}
+      />
       <CourseHero
         theme={THEME}
         breadcrumb={{ href: "/cursos/create", label: "Programa CREATE" }}

@@ -14,26 +14,18 @@ import { Reveal } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
 import { DecorativeElements } from "@/components/decorative-elements";
 import { Img } from "@/components/img";
+import { JsonLd } from "@/components/json-ld";
+import { pageMeta, buildBreadcrumbSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/sobre/")({
   component: SobreNosPage,
-  head: () => ({
-    meta: [
-      { title: "Sobre Nós — Santos Tech" },
-      {
-        name: "description",
-        content:
-          "Conheça a Santos Tech: escola presencial de programação para crianças e jovens em Ribeirão Preto. Método próprio, gamificação por níveis e plataforma PORTAL DO ALUNO ST.",
-      },
-      { property: "og:title", content: "Sobre a Santos Tech" },
-      {
-        property: "og:description",
-        content: "A escola onde tela vira habilidade.",
-      },
-      { property: "og:url", content: "/sobre" },
-    ],
-    links: [{ rel: "canonical", href: "/sobre" }],
-  }),
+  head: () =>
+    pageMeta({
+      title: "Sobre a Santos Tech — Escola de Programação para Crianças",
+      description:
+        "A Santos Tech é uma escola presencial de programação para crianças e adolescentes em Ribeirão Preto. Método próprio com gamificação por níveis, plataforma PORTAL DO ALUNO ST e foco em formar criadores, não só consumidores de tecnologia.",
+      path: "/sobre",
+    }),
 });
 
 const WHATSAPP = WHATSAPP_URL.courses;
@@ -41,6 +33,12 @@ const WHATSAPP = WHATSAPP_URL.courses;
 function SobreNosPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbSchema([
+          { name: "Início", path: "/" },
+          { name: "Sobre", path: "/sobre" },
+        ])}
+      />
       {/* HERO */}
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#e6f1fa] via-[#f3f8fc] to-white py-16 sm:py-20">
         <div

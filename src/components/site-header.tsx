@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import logo from "@/assets/logo.png";
-import { useProgramAccent } from "@/lib/program-theme";
+import { Img } from "@/components/img";
+import { useProgramAccentDark } from "@/lib/program-theme";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 // ──────────────────────────────────────────────────────────────────────────
@@ -44,7 +44,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [programsOpen, setProgramsOpen] = useState(false);
   const [sobreOpen, setSobreOpen] = useState(false);
-  const accentColor = useProgramAccent();
+  const accentColor = useProgramAccentDark();
 
   const closeAll = () => {
     setOpen(false);
@@ -55,8 +55,15 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-3" onClick={closeAll}>
-          <img src={logo} alt="Santos Tech" className="h-12 w-12" />
+        <Link to="/" className="flex items-center gap-3" onClick={closeAll} aria-label="Santos Tech — página inicial">
+          <Img
+            name="logo"
+            alt="Logo Santos Tech"
+            priority
+            width={48}
+            height={48}
+            className="h-12 w-12"
+          />
           <span className="text-lg font-bold tracking-tight">
             SANTOS{" "}
             <span style={{ color: accentColor }} className="transition-colors">

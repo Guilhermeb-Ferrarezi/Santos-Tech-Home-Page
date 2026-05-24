@@ -726,6 +726,69 @@ CREATE → `#0067BE` · JR → `#512374` (apoio `#DEABF7`) · CAMPS → `#1C8299
 | Animação de scroll | [src/components/reveal.tsx](src/components/reveal.tsx) + [src/hooks/use-reveal.ts](src/hooks/use-reveal.ts) |
 | Utilitário `cn()` | [src/lib/utils.ts](src/lib/utils.ts) |
 | Home (referência viva) | [src/routes/index.tsx](src/routes/index.tsx) |
+| SEO + GEO helpers (schema.org, canonical) | [src/lib/seo.ts](src/lib/seo.ts) |
+| Tema por programa (acentos light/dark) | [src/lib/program-theme.ts](src/lib/program-theme.ts) |
+| Componentes compartilhados de curso | [src/components/course-page.tsx](src/components/course-page.tsx) |
+| Otimização de imagens | [scripts/optimize-images.mjs](scripts/optimize-images.mjs) + [src/components/img.tsx](src/components/img.tsx) |
+| Template pra novo curso | [templates/novo-curso.template.tsx](templates/novo-curso.template.tsx) |
+
+---
+
+## 17. Adicionar um novo curso (recipe)
+
+**Cenário comum:** vai entrar um curso novo (ex: "Informática Básico", "Programação Adultos"). Em vez de inventar, siga esta receita:
+
+1. **Copie o template:** [templates/novo-curso.template.tsx](templates/novo-curso.template.tsx) → `src/routes/cursos.<programa>.<slug>.tsx`. O instruction block no topo do template tem todos os passos.
+
+2. **Edite o path da rota** dentro de `createFileRoute(...)` pra bater com o nome do arquivo. Convenção:
+   - Arquivo: `cursos.informatica.basico.tsx`
+   - Rota: `/cursos/informatica/basico`
+
+3. **Preencha todos os blocos marcados `// TODO`** — `pageMeta`, `THEME`, `MODULES`, `FAQ`, `coursePageSchemas`, props do `<CourseHero>`, etc.
+
+4. **Adicione a URL** ao [public/sitemap.xml](public/sitemap.xml) com `<priority>0.8</priority>`.
+
+5. **Se for programa novo (não é variação do JR/CREATE/etc):**
+   - Adicione entrada em [src/lib/program-theme.ts](src/lib/program-theme.ts) (ProgramKey, ACCENT_DARK, ACCENT_SOFT, getProgramKey)
+   - Adicione link no header em [src/components/site-header.tsx](src/components/site-header.tsx) (`PROGRAMAS_PRINCIPAIS` ou `PROGRAMAS_ADICIONAIS`)
+   - Adicione tema de footer em [src/components/site-footer.tsx](src/components/site-footer.tsx) (`themes` record)
+
+6. **Rode `npm run dev` uma vez** — TanStack Router gera `src/routeTree.gen.ts` automaticamente com a nova rota.
+
+7. **Confira `npm run build`** localmente. Se passar, commit + push. Disparar deploy manual no Easypanel (ver [DEPLOY.md](DEPLOY.md)).
+
+**Por que isso importa pra SEO/GEO:** cada novo curso registrado via template já vem com `Course` schema (Google), `BreadcrumbList`, `FAQPage` e meta tags otimizadas. LLMs (ChatGPT, Perplexity, Claude) e Google entendem automaticamente o que é o curso, faixa etária, programa pai e onde fica.
+
+---
+
+## 18. SEO + GEO (Generative Engine Optimization)
+
+**SEO tradicional** (Google/Bing) e **GEO** (LLMs como ChatGPT, Perplexity, Claude com web search) compartilham as mesmas práticas. O que fizemos:
+
+### Schema.org JSON-LD
+Implementado em [src/lib/seo.ts](src/lib/seo.ts) + componente [src/components/json-ld.tsx](src/components/json-ld.tsx).
+- **Root** (todas as rotas): `Organization` (EducationalOrganization + LocalBusiness) + `WebSite`
+- **Rotas internas**: `BreadcrumbList`
+- **Páginas de curso**: `Course` schema com `typicalAgeRange`, `provider`, `courseMode`
+- **FAQs**: `FAQPage` schema (cada par Q&A vira `Question`/`Answer`)
+
+### Meta tags
+- **Canonical absoluto** (`https://santos-tech.com/cursos`) em todas as rotas via `pageMeta()` helper.
+- **Meta description rica** — diz o quê + pra quem + onde + diferencial. Max ~155 chars.
+- **GEO signals**: `geo.region`, `geo.placename`, `geo.position`, `ICBM` no `<head>`.
+- **`lang="pt-BR"`** no `<html>` (não `"en"`).
+- **`robots.txt`** + **`sitemap.xml`** em `public/`.
+
+### Copy pra LLMs
+Frases declarativas curtas (sujeito + verbo + complemento) em vez de marketing abstrato. LLMs extraem fatos, não slogans.
+
+Ruim (marketing):
+> Onde o tempo de tela vira a habilidade do futuro.
+
+Bom (factual + citável):
+> A Santos Tech é uma escola presencial de programação para crianças e adolescentes de 5 a 14 anos em Ribeirão Preto.
+
+Use AS DUAS — slogan na home grande, factual em parágrafos abaixo e em metas.
 
 ---
 

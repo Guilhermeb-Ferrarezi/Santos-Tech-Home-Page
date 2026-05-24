@@ -19,26 +19,18 @@ import {
   type ProgressionBadge,
 } from "@/components/course-page";
 import { Reveal } from "@/components/reveal";
+import { JsonLd } from "@/components/json-ld";
+import { pageMeta, coursePageSchemas } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/junior/6-7-anos")({
   component: Junior67Page,
-  head: () => ({
-    meta: [
-      { title: "JR2 (6–7 anos) — Construindo a Base · Santos Tech" },
-      {
-        name: "description",
-        content:
-          "Curso anual de programação para crianças de 6 a 7 anos em Ribeirão Preto. 40 aulas, 80h, do ScratchJr avançado ao primeiro jogo no Scratch. Mapa do Explorador com 4 insígnias.",
-      },
-      { property: "og:title", content: "JR2 · 6 a 7 anos · Santos Tech" },
-      {
-        property: "og:description",
-        content: "O ano da repetição, eventos e primeiros mini-jogos. Aulas presenciais.",
-      },
-      { property: "og:url", content: "/cursos/junior/6-7-anos" },
-    ],
-    links: [{ rel: "canonical", href: "/cursos/junior/6-7-anos" }],
-  }),
+  head: () =>
+    pageMeta({
+      title: "JR2 (6 a 7 anos) — Construindo a Base de Programação | Santos Tech",
+      description:
+        "Segundo curso do programa JR pra crianças de 6 a 7 anos em Ribeirão Preto. 40 aulas com ScratchJr avançado, robótica com lógica condicional e primeiros mini-jogos no Scratch. Mapa do Explorador com 4 insígnias.",
+      path: "/cursos/junior/6-7-anos",
+    }),
 });
 
 const WHATSAPP = WHATSAPP_URL.courses;
@@ -207,6 +199,19 @@ const FAQ: FaqItem[] = [
 function Junior67Page() {
   return (
     <>
+      <JsonLd
+        data={coursePageSchemas({
+          path: "/cursos/junior/6-7-anos",
+          programName: "JR",
+          programPath: "/cursos/junior",
+          courseName: "JR2 — Construindo a Base (6 a 7 anos)",
+          courseDescription:
+            "Segundo curso do programa JR da Santos Tech. 40 aulas anuais com ScratchJr avançado, robótica usando lógica condicional e os primeiros mini-jogos no Scratch (MIT). Mapa do Explorador com 4 insígnias de conquista.",
+          ageMin: 6,
+          ageMax: 7,
+          faq: FAQ,
+        })}
+      />
       <CourseHero
         theme={THEME}
         breadcrumb={{ href: "/cursos/junior", label: "Programa JR" }}

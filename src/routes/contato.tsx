@@ -3,19 +3,18 @@ import { MapPin, Mail, Instagram, Clock } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 import { DecorativeElements } from "@/components/decorative-elements";
+import { JsonLd } from "@/components/json-ld";
+import { pageMeta, buildBreadcrumbSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/contato")({
   component: ContactPage,
-  head: () => ({
-    meta: [
-      { title: "Contato — Santos Tech" },
-      { name: "description", content: "Fale com a Santos Tech: WhatsApp, e-mail e endereço em Ribeirão Preto. Agende uma aula experimental gratuita." },
-      { property: "og:title", content: "Contato — Santos Tech" },
-      { property: "og:description", content: "Agende uma aula experimental gratuita." },
-      { property: "og:url", content: "/contato" },
-    ],
-    links: [{ rel: "canonical", href: "/contato" }],
-  }),
+  head: () =>
+    pageMeta({
+      title: "Contato — Santos Tech | Escola de Programação em Ribeirão Preto",
+      description:
+        "Fale com a Santos Tech: WhatsApp, e-mail e endereço no Jardim América, Ribeirão Preto. Agende uma aula experimental gratuita pra conhecer nossos programas de programação para crianças.",
+      path: "/contato",
+    }),
 });
 
 const WHATSAPP = WHATSAPP_URL.courses;
@@ -23,6 +22,12 @@ const WHATSAPP = WHATSAPP_URL.courses;
 function ContactPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbSchema([
+          { name: "Início", path: "/" },
+          { name: "Contato", path: "/contato" },
+        ])}
+      />
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#e6f1fa] via-[#f3f8fc] to-white py-16 sm:py-20">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.18]"

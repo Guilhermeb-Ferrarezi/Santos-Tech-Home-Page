@@ -38,26 +38,18 @@ import {
   type ProgressionBadge,
 } from "@/components/course-page";
 import { Reveal } from "@/components/reveal";
+import { JsonLd } from "@/components/json-ld";
+import { pageMeta, coursePageSchemas } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/create/8-9-anos")({
   component: Create89Page,
-  head: () => ({
-    meta: [
-      { title: "CREATE Ano 1 (8–9 anos) — Fundamentos do Arcade · Santos Tech" },
-      {
-        name: "description",
-        content:
-          "Primeiro ano do CREATE em Ribeirão Preto. 40 aulas no MakeCode Arcade — a criança sai dos primeiros sprites a um jogo completo autoral. Trilha de Insígnias Pixel.",
-      },
-      { property: "og:title", content: "CREATE Ano 1 · 8–9 anos · Santos Tech" },
-      {
-        property: "og:description",
-        content: "1 ano de criação de jogos no MakeCode Arcade. Selo CREATE Ano 1 ao final.",
-      },
-      { property: "og:url", content: "/cursos/create/8-9-anos" },
-    ],
-    links: [{ rel: "canonical", href: "/cursos/create/8-9-anos" }],
-  }),
+  head: () =>
+    pageMeta({
+      title: "CREATE Ano 1 (8 a 9 anos) — Fundamentos do Arcade | Santos Tech",
+      description:
+        "Primeiro ano do CREATE: 40 aulas no MakeCode Arcade pra crianças de 8 a 9 anos em Ribeirão Preto. Do primeiro sprite ao jogo completo autoral. Trilha de Insígnias Pixel com 5 conquistas.",
+      path: "/cursos/create/8-9-anos",
+    }),
 });
 
 const WHATSAPP = WHATSAPP_URL.courses;
@@ -233,6 +225,19 @@ const FAQ: FaqItem[] = [
 function Create89Page() {
   return (
     <>
+      <JsonLd
+        data={coursePageSchemas({
+          path: "/cursos/create/8-9-anos",
+          programName: "CREATE",
+          programPath: "/cursos/create",
+          courseName: "CREATE Ano 1 — Fundamentos do Arcade (8 a 9 anos)",
+          courseDescription:
+            "Primeiro ano do programa CREATE da Santos Tech. 40 aulas no MakeCode Arcade ensinam crianças a criar jogos a partir do zero — do primeiro sprite ao jogo completo autoral. Inclui sistema de Insígnias Pixel.",
+          ageMin: 8,
+          ageMax: 9,
+          faq: FAQ,
+        })}
+      />
       <CourseHero
         theme={THEME}
         breadcrumb={{ href: "/cursos/create", label: "Programa CREATE" }}

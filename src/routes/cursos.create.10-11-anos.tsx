@@ -25,26 +25,18 @@ import {
   type ProgressionBadge,
 } from "@/components/course-page";
 import { Reveal } from "@/components/reveal";
+import { JsonLd } from "@/components/json-ld";
+import { pageMeta, coursePageSchemas } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/create/10-11-anos")({
   component: Create1011Page,
-  head: () => ({
-    meta: [
-      { title: "CREATE Ano 3 (10–11 anos) — Códex do Programador · Santos Tech" },
-      {
-        name: "description",
-        content:
-          "Terceiro ano do CREATE em Ribeirão Preto. 40 aulas escrevendo JavaScript do zero (texto). Variáveis, condicionais, laços, funções e arrays. Trilha Pixel: Códex do Programador.",
-      },
-      { property: "og:title", content: "CREATE Ano 3 · 10–11 anos · Santos Tech" },
-      {
-        property: "og:description",
-        content: "JavaScript escrito do zero criando jogos. Selo de Ouro do Códex do Programador.",
-      },
-      { property: "og:url", content: "/cursos/create/10-11-anos" },
-    ],
-    links: [{ rel: "canonical", href: "/cursos/create/10-11-anos" }],
-  }),
+  head: () =>
+    pageMeta({
+      title: "CREATE Ano 3 (10 a 11 anos) — Códex do Programador (JavaScript) | Santos Tech",
+      description:
+        "Terceiro ano do CREATE: 40 aulas escrevendo JavaScript do zero (texto puro). Variáveis, condicionais, laços, funções e arrays criando jogos. Pra crianças de 10 a 11 anos em Ribeirão Preto. Selo de Ouro do Códex do Programador.",
+      path: "/cursos/create/10-11-anos",
+    }),
 });
 
 const WHATSAPP = WHATSAPP_URL.courses;
@@ -218,6 +210,19 @@ const FAQ: FaqItem[] = [
 function Create1011Page() {
   return (
     <>
+      <JsonLd
+        data={coursePageSchemas({
+          path: "/cursos/create/10-11-anos",
+          programName: "CREATE",
+          programPath: "/cursos/create",
+          courseName: "CREATE Ano 3 — Códex do Programador (10 a 11 anos)",
+          courseDescription:
+            "Terceiro ano do CREATE da Santos Tech. JavaScript escrito do zero (texto puro, sem blocos). 40 aulas com variáveis, condicionais, laços, funções e arrays aplicados em jogos.",
+          ageMin: 10,
+          ageMax: 11,
+          faq: FAQ,
+        })}
+      />
       <CourseHero
         theme={THEME}
         breadcrumb={{ href: "/cursos/create", label: "Programa CREATE" }}

@@ -27,26 +27,18 @@ import {
   type ProgressionBadge,
 } from "@/components/course-page";
 import { Reveal } from "@/components/reveal";
+import { JsonLd } from "@/components/json-ld";
+import { pageMeta, coursePageSchemas } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/create/13-14-anos")({
   component: Create1314Page,
-  head: () => ({
-    meta: [
-      { title: "CREATE Ano 6 (13–14 anos) — A Arquitetura Viva · Santos Tech" },
-      {
-        name: "description",
-        content:
-          "Sexto e último ano do CREATE em Ribeirão Preto. 40 aulas de POO em C# + jogo autoral final no Unity. Trilha Pixel: A Arquitetura Viva. Título: Desenvolvedor de Jogos CREATE.",
-      },
-      { property: "og:title", content: "CREATE Ano 6 · 13–14 anos · Santos Tech" },
-      {
-        property: "og:description",
-        content: "POO em C# aprofundada + jogo autoral final. Formatura da jornada CREATE.",
-      },
-      { property: "og:url", content: "/cursos/create/13-14-anos" },
-    ],
-    links: [{ rel: "canonical", href: "/cursos/create/13-14-anos" }],
-  }),
+  head: () =>
+    pageMeta({
+      title: "CREATE Ano 6 (13 a 14 anos) — Arquitetura Viva: POO + Jogo Autoral | Santos Tech",
+      description:
+        "Sexto e último ano do CREATE pra adolescentes de 13 a 14 anos em Ribeirão Preto. 40 aulas de Programação Orientada a Objetos em C# + jogo autoral final no Unity. Formatura com título de Desenvolvedor de Jogos CREATE.",
+      path: "/cursos/create/13-14-anos",
+    }),
 });
 
 const WHATSAPP = WHATSAPP_URL.courses;
@@ -220,6 +212,19 @@ const FAQ: FaqItem[] = [
 function Create1314Page() {
   return (
     <>
+      <JsonLd
+        data={coursePageSchemas({
+          path: "/cursos/create/13-14-anos",
+          programName: "CREATE",
+          programPath: "/cursos/create",
+          courseName: "CREATE Ano 6 — Arquitetura Viva: POO + Jogo Autoral (13 a 14 anos)",
+          courseDescription:
+            "Sexto e último ano do CREATE da Santos Tech. Programação Orientada a Objetos em C# aprofundada + desenvolvimento de jogo autoral final no Unity. Formatura da trilha CREATE com título de Desenvolvedor de Jogos.",
+          ageMin: 13,
+          ageMax: 14,
+          faq: FAQ,
+        })}
+      />
       <CourseHero
         theme={THEME}
         breadcrumb={{ href: "/cursos/create", label: "Programa CREATE" }}

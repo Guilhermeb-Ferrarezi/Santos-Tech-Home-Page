@@ -33,27 +33,18 @@ import {
   type CourseTheme,
   type FaqItem,
 } from "@/components/course-page";
+import { JsonLd } from "@/components/json-ld";
+import { pageMeta, buildCourseSchema, buildBreadcrumbSchema, buildFaqSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/camps")({
   component: CampsPage,
-  head: () => ({
-    meta: [
-      { title: "CAMPS · 5 a 14 anos — Semanas Temáticas · Santos Tech" },
-      {
-        name: "description",
-        content:
-          "Férias e contraturno com semanas temáticas de programação, robótica, jogos e IA. Para crianças de 5 a 14 anos em Ribeirão Preto. Vagas limitadas por turma.",
-      },
-      { property: "og:title", content: "CAMPS · Santos Tech" },
-      {
-        property: "og:description",
-        content:
-          "Tela vira habilidade nas férias. Semanas temáticas, projeto pronto pra mostrar, novos amigos.",
-      },
-      { property: "og:url", content: "/cursos/camps" },
-    ],
-    links: [{ rel: "canonical", href: "/cursos/camps" }],
-  }),
+  head: () =>
+    pageMeta({
+      title: "Férias Tech — Semanas Temáticas de Programação (5 a 14 anos) | Santos Tech",
+      description:
+        "Férias Tech da Santos Tech: semanas temáticas de programação, robótica, jogos e inteligência artificial em Ribeirão Preto. Pra crianças de 5 a 14 anos no contraturno ou nas férias. 5 dias, 4h/dia, projeto pronto na sexta. Vagas limitadas.",
+      path: "/cursos/camps",
+    }),
 });
 
 const WHATSAPP = WHATSAPP_URL.courses;
@@ -243,6 +234,24 @@ function CampCard({ camp }: { camp: CampTheme }) {
 function CampsPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          buildBreadcrumbSchema([
+            { name: "Início", path: "/" },
+            { name: "Programas", path: "/cursos" },
+            { name: "Férias Tech", path: "/cursos/camps" },
+          ]),
+          buildCourseSchema({
+            name: "Férias Tech — Semanas Temáticas de Programação (5 a 14 anos)",
+            description:
+              "Semanas temáticas intensivas de programação, robótica, criação de jogos e inteligência artificial pra crianças de 5 a 14 anos. Formato 5 dias × 4 horas, projeto pronto na sexta. Pra férias escolares e contraturno em Ribeirão Preto.",
+            path: "/cursos/camps",
+            ageMin: 5,
+            ageMax: 14,
+          }),
+          buildFaqSchema(FAQ),
+        ]}
+      />
       <CourseHero
         theme={THEME}
         eyebrow="CAMPS · 5 a 14 anos"

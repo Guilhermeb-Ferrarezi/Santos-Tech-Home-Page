@@ -26,26 +26,18 @@ import {
   type ProgressionBadge,
 } from "@/components/course-page";
 import { Reveal } from "@/components/reveal";
+import { JsonLd } from "@/components/json-ld";
+import { pageMeta, coursePageSchemas } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/create/11-12-anos")({
   component: Create1112Page,
-  head: () => ({
-    meta: [
-      { title: "CREATE Ano 4 (11–12 anos) — Forja dos Algoritmos · Santos Tech" },
-      {
-        name: "description",
-        content:
-          "Quarto ano do CREATE em Ribeirão Preto. 40 aulas de JavaScript intermediário: objetos, coleções, funções avançadas e algoritmos. Trilha Pixel: Forja dos Algoritmos.",
-      },
-      { property: "og:title", content: "CREATE Ano 4 · 11–12 anos · Santos Tech" },
-      {
-        property: "og:description",
-        content: "JavaScript intermediário, algoritmos e IA de jogo. Título Engenheiro de Jogos Júnior.",
-      },
-      { property: "og:url", content: "/cursos/create/11-12-anos" },
-    ],
-    links: [{ rel: "canonical", href: "/cursos/create/11-12-anos" }],
-  }),
+  head: () =>
+    pageMeta({
+      title: "CREATE Ano 4 (11 a 12 anos) — Forja dos Algoritmos | Santos Tech",
+      description:
+        "Quarto ano do CREATE: 40 aulas de JavaScript intermediário pra pré-adolescentes de 11 a 12 anos em Ribeirão Preto. Objetos, coleções avançadas, IA de jogo e algoritmos aplicados. Título Engenheiro de Jogos Júnior.",
+      path: "/cursos/create/11-12-anos",
+    }),
 });
 
 const WHATSAPP = WHATSAPP_URL.courses;
@@ -219,6 +211,19 @@ const FAQ: FaqItem[] = [
 function Create1112Page() {
   return (
     <>
+      <JsonLd
+        data={coursePageSchemas({
+          path: "/cursos/create/11-12-anos",
+          programName: "CREATE",
+          programPath: "/cursos/create",
+          courseName: "CREATE Ano 4 — Forja dos Algoritmos (11 a 12 anos)",
+          courseDescription:
+            "Quarto ano do CREATE da Santos Tech. JavaScript intermediário aplicado: objetos, coleções avançadas, funções de ordem superior e IA de jogo. 40 aulas com projetos de complexidade crescente.",
+          ageMin: 11,
+          ageMax: 12,
+          faq: FAQ,
+        })}
+      />
       <CourseHero
         theme={THEME}
         breadcrumb={{ href: "/cursos/create", label: "Programa CREATE" }}
