@@ -79,6 +79,28 @@ no Windows, usar `npm run build`.
 Após mudar favicon ou seu path, browsers cacheiam por dias. Pedir hard
 refresh (Ctrl+Shift+R) ou abrir em janela anônima.
 
+### Dockerfile copia pastas seletivamente
+
+O Dockerfile copia explicitamente: `src/`, `docker/`, `public/`,
+`components.json` + alguns arquivos de config. **Se adicionar uma pasta
+top-level nova** (ex: `content/`, `.well-known/`), precisa adicionar uma
+linha `COPY` correspondente — senão `vite build` roda sem ela no
+container e nada dessa pasta vai pra produção. Detectado tarde: o
+favicon funcionava em localhost mas não em prod porque `public/` não
+estava na lista de COPY (corrigido em `56c24a1`).
+
+### Cache do Cloudflare em respostas de erro
+
+Cloudflare cacheia 404s e 500s do Cloudflare por **4 horas** (max-age
+14400). Se a VPS retornou erro uma vez, esse erro fica em cache até:
+- Você purgar manualmente em `dash.cloudflare.com → santos-tech.com → Caching → Limpeza personalizada` (cola URLs específicas)
+- Ou esperar 4 horas
+
+**Ordem certa pra debugar 404:** (1) corrige o problema na VPS, (2)
+confirma via `curl https://santos-tech.com/foo?v=$(date +%s)` que mostra
+`cf-cache-status: MISS` + status 200, (3) só DEPOIS purga o cache CF
+nas URLs afetadas.
+
 ## Configurar auto-deploy (TODO)
 
 No painel Easypanel dessa aplicação, procurar **"Webhooks"** ou toggle
