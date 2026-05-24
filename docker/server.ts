@@ -34,18 +34,29 @@ function resolvePublishedSitePath(pathname: string) {
   return resolvedPath;
 }
 
+// Padrão pra arquivos top-level do public/ (favicon.png, og-image.png, robots.txt, etc):
+// exatamente UM segment com extensão e sem ponto no início (regex exclui /.hidden).
+const TOP_LEVEL_PUBLIC_FILE = /^\/[^./][^/]*\.[^/]+$/;
+
 async function serveStaticAsset(request: Request) {
   if (request.method !== "GET" && request.method !== "HEAD") {
     return null;
   }
 
   const url = new URL(request.url);
-  if (!url.pathname.startsWith("/assets/")) {
+  const isBundledAsset = url.pathname.startsWith("/assets/");
+  const isTopLevelPublic = TOP_LEVEL_PUBLIC_FILE.test(url.pathname);
+
+  if (!isBundledAsset && !isTopLevelPublic) {
     return null;
   }
 
   const assetPath = path.resolve(clientAssetsDir, `.${url.pathname}`);
-  if (!assetPath.startsWith(path.join(clientAssetsDir, "assets"))) {
+  // Path traversal guard: resolved path precisa estar DENTRO de clientAssetsDir.
+  if (
+    assetPath !== clientAssetsDir &&
+    !assetPath.startsWith(clientAssetsDir + path.sep)
+  ) {
     return new Response("Not Found", { status: 404 });
   }
 
@@ -55,7 +66,12 @@ async function serveStaticAsset(request: Request) {
   }
 
   const headers = new Headers();
-  headers.set("Cache-Control", "public, max-age=31536000, immutable");
+  // Bundled assets têm hash no nome → cache eterno. Top-level files mudam
+  // sem invalidar URL (favicon.png continua /favicon.png) → cache curto.
+  headers.set(
+    "Cache-Control",
+    isBundledAsset ? "public, max-age=31536000, immutable" : "public, max-age=3600",
+  );
   return new Response(file, { headers });
 }
 
