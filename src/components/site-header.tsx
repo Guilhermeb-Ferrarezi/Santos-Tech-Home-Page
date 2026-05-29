@@ -95,6 +95,12 @@ export function SiteHeader() {
           </Link>
 
           <a
+            href="https://auth.santos-tech.com"
+            className="inline-flex items-center justify-center rounded-md border border-border px-5 py-2.5 text-sm font-bold text-foreground/80 transition hover:text-primary hover:border-primary"
+          >
+            Entrar
+          </a>
+          <a
             href={WHATSAPP_NUMBER}
             target="_blank"
             rel="noreferrer"
@@ -221,10 +227,16 @@ export function SiteHeader() {
             </Link>
 
             <a
+              href="https://auth.santos-tech.com"
+              className="mt-2 inline-flex items-center justify-center rounded-md border border-border px-5 py-3 text-sm font-bold text-foreground/80"
+            >
+              Entrar
+            </a>
+            <a
               href={WHATSAPP_NUMBER}
               target="_blank"
               rel="noreferrer"
-              className="mt-2 inline-flex items-center justify-center rounded-md bg-st-green px-5 py-3 text-sm font-bold text-white"
+              className="mt-1 inline-flex items-center justify-center rounded-md bg-st-green px-5 py-3 text-sm font-bold text-white"
             >
               Matricule-se
             </a>
