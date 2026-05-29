@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Img } from "@/components/img";
 import { useProgramAccentDark } from "@/lib/program-theme";
-import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 // ──────────────────────────────────────────────────────────────────────────
 // DATA
@@ -33,8 +32,6 @@ const SOBRE_ITEMS: SobreItem[] = [
   { label: "SOBRE NÓS", href: "/sobre" },
   { label: "NOSSA VISÃO", href: "/sobre/visao" },
 ];
-
-const WHATSAPP_NUMBER = WHATSAPP_URL.courses;
 
 // ──────────────────────────────────────────────────────────────────────────
 // HEADER
@@ -96,17 +93,9 @@ export function SiteHeader() {
 
           <a
             href="https://auth.santos-tech.com"
-            className="inline-flex items-center justify-center rounded-md border border-border px-5 py-2.5 text-sm font-bold text-foreground/80 transition hover:text-primary hover:border-primary"
+            className="inline-flex items-center justify-center rounded-md bg-st-green px-5 py-2.5 text-base font-bold text-white shadow-sm transition hover:scale-[1.03] glow-green"
           >
             Entrar
-          </a>
-          <a
-            href={WHATSAPP_NUMBER}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center justify-center rounded-md bg-st-green px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:scale-[1.03] glow-green"
-          >
-            Matricule-se
           </a>
         </nav>
 
@@ -228,17 +217,9 @@ export function SiteHeader() {
 
             <a
               href="https://auth.santos-tech.com"
-              className="mt-2 inline-flex items-center justify-center rounded-md border border-border px-5 py-3 text-sm font-bold text-foreground/80"
+              className="mt-2 inline-flex items-center justify-center rounded-md bg-st-green px-5 py-3 text-base font-bold text-white"
             >
               Entrar
-            </a>
-            <a
-              href={WHATSAPP_NUMBER}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-1 inline-flex items-center justify-center rounded-md bg-st-green px-5 py-3 text-sm font-bold text-white"
-            >
-              Matricule-se
             </a>
           </div>
         </div>
