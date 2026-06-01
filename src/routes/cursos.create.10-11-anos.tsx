@@ -32,9 +32,9 @@ export const Route = createFileRoute("/cursos/create/10-11-anos")({
   component: Create1011Page,
   head: () =>
     pageMeta({
-      title: "CREATE Ano 3 (10 a 11 anos) — Códex do Programador (JavaScript) | Santos Tech",
+      title: "CRIADORES Ano 3 (10 a 11 anos) — Códex do Programador (JavaScript) | Santos Tech",
       description:
-        "Terceiro ano do CREATE: 40 aulas escrevendo JavaScript do zero (texto puro). Variáveis, condicionais, laços, funções e arrays criando jogos. Pra crianças de 10 a 11 anos em Ribeirão Preto. Selo de Ouro do Códex do Programador.",
+        "Terceiro ano do CRIADORES: 40 aulas escrevendo JavaScript do zero (texto puro). Variáveis, condicionais, laços, funções e arrays criando jogos. Pra crianças de 10 a 11 anos em Ribeirão Preto. Selo de Ouro do Códex do Programador.",
       path: "/cursos/create/10-11-anos",
     }),
 });
@@ -213,11 +213,11 @@ function Create1011Page() {
       <JsonLd
         data={coursePageSchemas({
           path: "/cursos/create/10-11-anos",
-          programName: "CREATE",
+          programName: "CRIADORES",
           programPath: "/cursos/create",
-          courseName: "CREATE Ano 3 — Códex do Programador (10 a 11 anos)",
+          courseName: "CRIADORES Ano 3 — Códex do Programador (10 a 11 anos)",
           courseDescription:
-            "Terceiro ano do CREATE da Santos Tech. JavaScript escrito do zero (texto puro, sem blocos). 40 aulas com variáveis, condicionais, laços, funções e arrays aplicados em jogos.",
+            "Terceiro ano do CRIADORES da Santos Tech. JavaScript escrito do zero (texto puro, sem blocos). 40 aulas com variáveis, condicionais, laços, funções e arrays aplicados em jogos.",
           ageMin: 10,
           ageMax: 11,
           faq: FAQ,
@@ -225,8 +225,8 @@ function Create1011Page() {
       />
       <CourseHero
         theme={THEME}
-        breadcrumb={{ href: "/cursos/create", label: "Programa CREATE" }}
-        eyebrow="CREATE Ano 3 · 10 a 11 anos"
+        breadcrumb={{ href: "/cursos/create", label: "Programa CRIADORES" }}
+        eyebrow="CRIADORES Ano 3 · 10 a 11 anos"
         title={
           <>
             Códex do <br />
@@ -291,7 +291,7 @@ function Create1011Page() {
         }
         description={
           <>
-            O <strong>CREATE Ano 3</strong> é desenhado pra criança de{" "}
+            O <strong>CRIADORES Ano 3</strong> é desenhado pra criança de{" "}
             <strong>10 e 11 anos</strong> que chega do Ano 2 já confiante com
             código em texto. Aqui ela vira autora — digita cada linha do próprio
             jogo, depura erros de verdade, aprende boas práticas.
@@ -299,7 +299,7 @@ function Create1011Page() {
         }
         checklistTitle="É ideal se seu filho"
         items={[
-          "Concluiu o Ano 2 do CREATE",
+          "Concluiu o Ano 2 do CRIADORES",
           "Lê código JavaScript com confiança e fez pequenas edições",
           "Está pronto pra deixar os blocos pra trás e digitar de verdade",
           "Tem paciência pra encarar erros como parte do processo",
@@ -355,10 +355,10 @@ function Create1011Page() {
 
       <CourseCtaFinal
         theme={THEME}
-        title="Pronto pra ver o CREATE Ano 3 ao vivo?"
+        title="Pronto pra ver o CRIADORES Ano 3 ao vivo?"
         description="Aula experimental gratuita. Seu filho vai pro computador, digita JavaScript de verdade e vê o jogo responder ao código que ele escreveu."
         primaryCta={{ href: WHATSAPP, label: "Agendar aula experimental" }}
-        secondaryCta={{ href: "/cursos/create", label: "Voltar ao CREATE" }}
+        secondaryCta={{ href: "/cursos/create", label: "Voltar ao CRIADORES" }}
       />
     </>
   );

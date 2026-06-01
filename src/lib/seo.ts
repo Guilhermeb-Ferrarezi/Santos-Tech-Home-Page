@@ -54,7 +54,7 @@ export const ORG = {
   description:
     "Escola presencial de programação para crianças e adolescentes de 5 a 14 anos em Ribeirão Preto, SP. Ensina lógica, programação, criação de jogos, robótica e inteligência artificial em ambiente lúdico e estruturado.",
   shortDescription:
-    "Escola de programação para crianças e adolescentes em Ribeirão Preto. Programas CREATE, JR, Academia de Robótica, Academia de IA e Férias Tech.",
+    "Escola de programação para crianças e adolescentes em Ribeirão Preto. Programas CRIADORES, JR, Academia de Robótica, Academia de IA e Férias Tech.",
 } as const;
 
 // ──────────────────────────────────────────────────────────────────────────
@@ -148,7 +148,7 @@ export function buildWebSiteSchema(): JsonLd {
 
 /** Course schema — usar nas páginas de curso. */
 export function buildCourseSchema(input: {
-  /** Nome do curso (ex.: "CREATE 1 — 8 a 9 anos"). */
+  /** Nome do curso (ex.: "CRIADORES 1 — 8 a 9 anos"). */
   name: string;
   /** Descrição pedagógica. */
   description: string;
@@ -223,7 +223,7 @@ export function buildBreadcrumbSchema(crumbs: { name: string; path: string }[]):
 // ──────────────────────────────────────────────────────────────────────────
 
 /**
- * Helper composto pra páginas de curso individual (CREATE3, JR2, etc).
+ * Helper composto pra páginas de curso individual (CRIADORES3, JR2, etc).
  * Retorna ARRAY de schemas pra passar pro <JsonLd data={...}>.
  *
  * Inclui: BreadcrumbList (Home → Cursos → Programa → Curso),
@@ -232,11 +232,11 @@ export function buildBreadcrumbSchema(crumbs: { name: string; path: string }[]):
 export function coursePageSchemas(input: {
   /** Path do curso (ex: "/cursos/create/8-9-anos"). */
   path: string;
-  /** Nome do programa pai (ex: "CREATE"). */
+  /** Nome do programa pai (ex: "CRIADORES"). */
   programName: string;
   /** Path do programa pai (ex: "/cursos/create"). */
   programPath: string;
-  /** Nome do curso específico (ex: "CREATE Ano 1 (8 a 9 anos)"). */
+  /** Nome do curso específico (ex: "CRIADORES Ano 1 (8 a 9 anos)"). */
   courseName: string;
   /** Descrição pedagógica completa. */
   courseDescription: string;

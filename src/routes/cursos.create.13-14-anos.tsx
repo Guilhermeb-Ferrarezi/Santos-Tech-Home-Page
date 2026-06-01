@@ -34,9 +34,9 @@ export const Route = createFileRoute("/cursos/create/13-14-anos")({
   component: Create1314Page,
   head: () =>
     pageMeta({
-      title: "CREATE Ano 6 (13 a 14 anos) — Arquitetura Viva: POO + Jogo Autoral | Santos Tech",
+      title: "CRIADORES Ano 6 (13 a 14 anos) — Arquitetura Viva: POO + Jogo Autoral | Santos Tech",
       description:
-        "Sexto e último ano do CREATE pra adolescentes de 13 a 14 anos em Ribeirão Preto. 40 aulas de Programação Orientada a Objetos em C# + jogo autoral final no Unity. Formatura com título de Desenvolvedor de Jogos CREATE.",
+        "Sexto e último ano do CRIADORES pra adolescentes de 13 a 14 anos em Ribeirão Preto. 40 aulas de Programação Orientada a Objetos em C# + jogo autoral final no Unity. Formatura com título de Desenvolvedor de Jogos CRIADORES.",
       path: "/cursos/create/13-14-anos",
     }),
 });
@@ -139,8 +139,8 @@ const MODULES: Module[] = [
     duration: "10 semanas",
     hours: "20h",
     objectives:
-      "Transformar o game design em um jogo jogável. Aplicar classes, herança e sistemas. Criar conteúdo e progressão de dificuldade. Cuidar de UI, feedback, áudio e polimento. Realizar playtest e iterar. Corrigir bugs e equilibrar o jogo. Gerar build executável. Preparar portfólio e apresentar na Mostra CREATE.",
-    project: "Jogo autoral completo e jogável, construído com arquitetura orientada a objetos, exportado como build e apresentado na Mostra CREATE. Concede a insígnia Autor de Jogos e o título de formatura Desenvolvedor de Jogos CREATE — Mestre da Trilha Pixel.",
+      "Transformar o game design em um jogo jogável. Aplicar classes, herança e sistemas. Criar conteúdo e progressão de dificuldade. Cuidar de UI, feedback, áudio e polimento. Realizar playtest e iterar. Corrigir bugs e equilibrar o jogo. Gerar build executável. Preparar portfólio e apresentar na Mostra CRIADORES.",
+    project: "Jogo autoral completo e jogável, construído com arquitetura orientada a objetos, exportado como build e apresentado na Mostra CRIADORES. Concede a insígnia Autor de Jogos e o título de formatura Desenvolvedor de Jogos CRIADORES — Mestre da Trilha Pixel.",
     tool: "Unity 2D + C#",
     badge: INSIGNIAS[3],
     icon: Crown,
@@ -154,7 +154,7 @@ const MODULES: Module[] = [
       { n: 37, title: "Corrigindo bugs e equilibrando", goal: "Resolve os problemas encontrados e ajusta o equilíbrio do jogo." },
       { n: 38, title: "Build e empacotamento", goal: "Gera uma versão executável do jogo, pronta para rodar fora do editor." },
       { n: 39, title: "Portfólio e apresentação", goal: "Prepara capa, descrição e a apresentação do jogo para a Mostra." },
-      { n: 40, title: "Mostra CREATE: lançamento", goal: "Apresenta o jogo autoral, recebe a insígnia e o título de formatura e fecha a jornada CREATE de 6 anos. Conquista o título Desenvolvedor de Jogos CREATE — Mestre da Trilha Pixel." },
+      { n: 40, title: "Mostra CRIADORES: lançamento", goal: "Apresenta o jogo autoral, recebe a insígnia e o título de formatura e fecha a jornada CRIADORES de 6 anos. Conquista o título Desenvolvedor de Jogos CRIADORES — Mestre da Trilha Pixel." },
     ],
   },
 ];
@@ -185,15 +185,15 @@ const FAQ: FaqItem[] = [
   },
   {
     q: "Qual é o título de formatura?",
-    a: "Desenvolvedor de Jogos CREATE — Mestre da Trilha Pixel. Concedido na Mostra CREATE após a entrega do jogo autoral final. Marca o aluno como alguém capaz de projetar, programar e finalizar um jogo do zero, com arquitetura profissional.",
+    a: "Desenvolvedor de Jogos CRIADORES — Mestre da Trilha Pixel. Concedido na Mostra CRIADORES após a entrega do jogo autoral final. Marca o aluno como alguém capaz de projetar, programar e finalizar um jogo do zero, com arquitetura profissional.",
   },
   {
     q: "Como é o jogo autoral final?",
-    a: "É o projeto capstone do Módulo 4: 10 aulas dedicadas a planejar, construir, fazer playtest, corrigir bugs, polir e exportar uma versão executável. O aluno apresenta na Mostra CREATE e a peça vira o centro do portfólio dele.",
+    a: "É o projeto capstone do Módulo 4: 10 aulas dedicadas a planejar, construir, fazer playtest, corrigir bugs, polir e exportar uma versão executável. O aluno apresenta na Mostra CRIADORES e a peça vira o centro do portfólio dele.",
   },
   {
     q: "O que vem depois do Ano 6?",
-    a: "As Academies avançadas: Robótica e IA. São módulos para o aluno que terminou o CREATE e quer aprofundar áreas específicas. Não são obrigatórias — o CREATE é completo por si só.",
+    a: "As Academies avançadas: Robótica e IA. São módulos para o aluno que terminou o CRIADORES e quer aprofundar áreas específicas. Não são obrigatórias — o CRIADORES é completo por si só.",
   },
   {
     q: "Quanto tempo dura?",
@@ -215,11 +215,11 @@ function Create1314Page() {
       <JsonLd
         data={coursePageSchemas({
           path: "/cursos/create/13-14-anos",
-          programName: "CREATE",
+          programName: "CRIADORES",
           programPath: "/cursos/create",
-          courseName: "CREATE Ano 6 — Arquitetura Viva: POO + Jogo Autoral (13 a 14 anos)",
+          courseName: "CRIADORES Ano 6 — Arquitetura Viva: POO + Jogo Autoral (13 a 14 anos)",
           courseDescription:
-            "Sexto e último ano do CREATE da Santos Tech. Programação Orientada a Objetos em C# aprofundada + desenvolvimento de jogo autoral final no Unity. Formatura da trilha CREATE com título de Desenvolvedor de Jogos.",
+            "Sexto e último ano do CRIADORES da Santos Tech. Programação Orientada a Objetos em C# aprofundada + desenvolvimento de jogo autoral final no Unity. Formatura da trilha CRIADORES com título de Desenvolvedor de Jogos.",
           ageMin: 13,
           ageMax: 14,
           faq: FAQ,
@@ -227,8 +227,8 @@ function Create1314Page() {
       />
       <CourseHero
         theme={THEME}
-        breadcrumb={{ href: "/cursos/create", label: "Programa CREATE" }}
-        eyebrow="CREATE Ano 6 · 13 a 14 anos · Formatura"
+        breadcrumb={{ href: "/cursos/create", label: "Programa CRIADORES" }}
+        eyebrow="CRIADORES Ano 6 · 13 a 14 anos · Formatura"
         title={
           <>
             A Arquitetura <br />
@@ -238,14 +238,14 @@ function Create1314Page() {
         subtitle={
           <>
             <p>
-              O <strong>ápice da trilha CREATE</strong>. POO em C# aprofundada —
+              O <strong>ápice da trilha CRIADORES</strong>. POO em C# aprofundada —
               classes próprias, herança, polimorfismo, interfaces e arquitetura
               de sistemas.
             </p>
             <p>
               Termina o ano com um <strong>jogo autoral final</strong> exportado
-              e apresentado na Mostra CREATE. Recebe o título{" "}
-              <strong>Desenvolvedor de Jogos CREATE — Mestre da Trilha Pixel</strong>.
+              e apresentado na Mostra CRIADORES. Recebe o título{" "}
+              <strong>Desenvolvedor de Jogos CRIADORES — Mestre da Trilha Pixel</strong>.
             </p>
           </>
         }
@@ -307,12 +307,12 @@ function Create1314Page() {
         title={
           <>
             A formatura do{" "}
-            <span style={{ color: THEME.primary }}>CREATE</span>
+            <span style={{ color: THEME.primary }}>CRIADORES</span>
           </>
         }
         description={
           <>
-            O <strong>CREATE Ano 6</strong> é desenhado pro adolescente de{" "}
+            O <strong>CRIADORES Ano 6</strong> é desenhado pro adolescente de{" "}
             <strong>13 e 14 anos</strong> que terminou o Ano 5 com domínio do
             Unity. Aqui ele dá o último salto: pensar como engenheiro de
             software e levar um jogo autoral do conceito à apresentação pública.
@@ -320,7 +320,7 @@ function Create1314Page() {
         }
         checklistTitle="É ideal se seu filho"
         items={[
-          "Concluiu o Ano 5 do CREATE com bom domínio",
+          "Concluiu o Ano 5 do CRIADORES com bom domínio",
           "Programa em C# com scripts MonoBehaviour, física 2D e UI",
           "Quer aprofundar POO e arquitetura de software",
           "Está pronto pra desenvolver um jogo autoral completo de portfólio",
@@ -345,7 +345,7 @@ function Create1314Page() {
             passa a <strong>projetar a estrutura do próprio jogo</strong>.
             Cada módulo concluído entrega uma insígnia. No projeto final, o
             aluno recebe o título de formatura{" "}
-            <strong>Desenvolvedor de Jogos CREATE — Mestre da Trilha Pixel</strong>.
+            <strong>Desenvolvedor de Jogos CRIADORES — Mestre da Trilha Pixel</strong>.
           </>
         }
         badges={INSIGNIAS}
@@ -380,7 +380,7 @@ function Create1314Page() {
           <Reveal>
             <div className="rounded-2xl border-2 bg-white p-8 sm:p-10" style={{ borderColor: THEME.soft }}>
               <p className="text-xs font-black uppercase tracking-[0.25em]" style={{ color: THEME.primary }}>
-                A jornada CREATE completa
+                A jornada CRIADORES completa
               </p>
               <h3 className="mt-3 text-2xl font-black tracking-tight sm:text-3xl" style={{ color: THEME.dark }}>
                 6 anos · do primeiro sprite ao jogo de portfólio
@@ -411,10 +411,10 @@ function Create1314Page() {
 
       <CourseCtaFinal
         theme={THEME}
-        title="Pronto pra fechar a jornada CREATE?"
+        title="Pronto pra fechar a jornada CRIADORES?"
         description="Aula experimental gratuita. Seu filho vê o que separa um script de uma arquitetura — e descobre como será construir o próprio jogo de portfólio."
         primaryCta={{ href: WHATSAPP, label: "Agendar aula experimental" }}
-        secondaryCta={{ href: "/cursos/create", label: "Voltar ao CREATE" }}
+        secondaryCta={{ href: "/cursos/create", label: "Voltar ao CRIADORES" }}
       />
     </>
   );

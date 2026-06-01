@@ -22,7 +22,7 @@ import { JsonLd } from "@/components/json-ld";
 import { pageMeta, buildCourseSchema, buildBreadcrumbSchema } from "@/lib/seo";
 import { HoverWashCard } from "@/components/hover-wash-card";
 
-// Pillars do "Método CREATE" — Phosphor duotone
+// Pillars do "Método CRIADORES" — Phosphor duotone
 const GameControllerIcon = phosphor(PhGameController, "duotone");
 const CodeIcon = phosphor(PhCode, "duotone");
 const TrendUpIcon = phosphor(PhTrendUp, "duotone");
@@ -35,25 +35,25 @@ export const Route = createFileRoute("/cursos/create/")({
   component: CreatePage,
   head: () =>
     pageMeta({
-      title: "CREATE (8 a 14 anos) — Criação de Jogos | Santos Tech",
+      title: "CRIADORES (8 a 14 anos) — Criação de Jogos | Santos Tech",
       description:
-        "Programa CREATE da Santos Tech: 6 cursos anuais (CREATE1 a CREATE6) para crianças e pré-adolescentes de 8 a 14 anos. Do MakeCode Arcade ao Unity com C#. Trilha gamificada com progressão por níveis no PORTAL DO ALUNO ST. Aulas presenciais em Ribeirão Preto.",
+        "Programa CRIADORES da Santos Tech: 6 cursos anuais (CRIADORES1 a CRIADORES6) para crianças e pré-adolescentes de 8 a 14 anos. Do MakeCode Arcade ao Unity com C#. Trilha gamificada com progressão por níveis no PORTAL DO ALUNO ST. Aulas presenciais em Ribeirão Preto.",
       path: "/cursos/create",
     }),
 });
 
 const WHATSAPP = WHATSAPP_URL.courses;
 
-// Paleta CREATE (azul Santos Tech)
-const CREATE = "#0067BE";
-const CREATE_DARK = "#04325A";
-const CREATE_LIGHT = "#49A8EB";
+// Paleta CRIADORES (azul Santos Tech)
+const CRIADORES = "#0067BE";
+const CRIADORES_DARK = "#04325A";
+const CRIADORES_LIGHT = "#49A8EB";
 
 // ──────────────────────────────────────────────────────────────────────────
-// 6 Cursos CREATE (placeholders — conteúdo programático vem depois)
+// 6 Cursos CRIADORES (placeholders — conteúdo programático vem depois)
 // ──────────────────────────────────────────────────────────────────────────
 type CourseCard = {
-  id: string;          // CREATE1, CREATE2...
+  id: string;          // CRIADORES1, CRIADORES2...
   ageRange: string;    // "8 a 9 anos"
   slug: string;        // URL fragment (ex.: "8-9-anos")
   title: string;       // "[A definir]" enquanto conteúdo não chega
@@ -63,7 +63,7 @@ type CourseCard = {
 
 const COURSES: CourseCard[] = [
   {
-    id: "CREATE1",
+    id: "CRIADORES1",
     ageRange: "8 a 9 anos",
     slug: "8-9-anos",
     title: "Fundamentos do Arcade",
@@ -71,7 +71,7 @@ const COURSES: CourseCard[] = [
     ready: true,
   },
   {
-    id: "CREATE2",
+    id: "CRIADORES2",
     ageRange: "9 a 10 anos",
     slug: "9-10-anos",
     title: "Construtores de Mundos",
@@ -79,7 +79,7 @@ const COURSES: CourseCard[] = [
     ready: true,
   },
   {
-    id: "CREATE3",
+    id: "CRIADORES3",
     ageRange: "10 a 11 anos",
     slug: "10-11-anos",
     title: "Códex do Programador",
@@ -87,7 +87,7 @@ const COURSES: CourseCard[] = [
     ready: true,
   },
   {
-    id: "CREATE4",
+    id: "CRIADORES4",
     ageRange: "11 a 12 anos",
     slug: "11-12-anos",
     title: "Forja dos Algoritmos",
@@ -95,7 +95,7 @@ const COURSES: CourseCard[] = [
     ready: true,
   },
   {
-    id: "CREATE5",
+    id: "CRIADORES5",
     ageRange: "12 a 13 anos",
     slug: "12-13-anos",
     title: "Núcleo do Motor",
@@ -103,11 +103,11 @@ const COURSES: CourseCard[] = [
     ready: true,
   },
   {
-    id: "CREATE6",
+    id: "CRIADORES6",
     ageRange: "13 a 14 anos",
     slug: "13-14-anos",
     title: "A Arquitetura Viva",
-    pitch: "POO em C# aprofundada + jogo autoral final. Formatura da jornada CREATE com título de Desenvolvedor de Jogos.",
+    pitch: "POO em C# aprofundada + jogo autoral final. Formatura da jornada CRIADORES com título de Desenvolvedor de Jogos.",
     ready: true,
   },
 ];
@@ -120,7 +120,7 @@ function MethodPoint({ icon: Icon, title, children }: { icon: typeof Sparkles; t
     <div className="flex items-start gap-4">
       <div
         className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md"
-        style={{ background: `${CREATE_LIGHT}30`, color: CREATE_LIGHT }}
+        style={{ background: `${CRIADORES_LIGHT}30`, color: CRIADORES_LIGHT }}
       >
         <Icon className="h-5 w-5" />
       </div>
@@ -134,12 +134,12 @@ function MethodPoint({ icon: Icon, title, children }: { icon: typeof Sparkles; t
 
 function CourseCardItem({ course }: { course: CourseCard }) {
   const content = (
-    <HoverWashCard accent={CREATE} bubbleSize="sm">
+    <HoverWashCard accent={CRIADORES} bubbleSize="sm">
       <div className="relative flex h-full flex-col">
         <div className="flex items-center justify-between">
           <span
             className="rounded-full px-3 py-1 text-xs font-black uppercase tracking-[0.2em] text-white"
-            style={{ background: CREATE }}
+            style={{ background: CRIADORES }}
           >
             {course.id}
           </span>
@@ -148,7 +148,7 @@ function CourseCardItem({ course }: { course: CourseCard }) {
 
         <h3
           className="mt-5 text-2xl font-black tracking-tight"
-          style={{ color: CREATE_DARK }}
+          style={{ color: CRIADORES_DARK }}
         >
           {course.title}
         </h3>
@@ -157,7 +157,7 @@ function CourseCardItem({ course }: { course: CourseCard }) {
 
         <div className="mt-6 flex items-center justify-between border-t border-border pt-4">
           {course.ready ? (
-            <span className="inline-flex items-center gap-1.5 text-sm font-black uppercase tracking-wider" style={{ color: CREATE }}>
+            <span className="inline-flex items-center gap-1.5 text-sm font-black uppercase tracking-wider" style={{ color: CRIADORES }}>
               Ver currículo <ArrowRight className="h-4 w-4" />
             </span>
           ) : (
@@ -191,27 +191,27 @@ function CreatePage() {
           buildBreadcrumbSchema([
             { name: "Início", path: "/" },
             { name: "Programas", path: "/cursos" },
-            { name: "CREATE", path: "/cursos/create" },
+            { name: "CRIADORES", path: "/cursos/create" },
           ]),
           buildCourseSchema({
-            name: "CREATE — Programação e Criação de Jogos (8 a 14 anos)",
+            name: "CRIADORES — Programação e Criação de Jogos (8 a 14 anos)",
             description:
-              "Programa carro-chefe da Santos Tech: 6 cursos anuais (CREATE1 a CREATE6) que ensinam crianças e pré-adolescentes a criar seus próprios jogos. Trilha do MakeCode Arcade ao Unity com C#, com progressão por níveis no PORTAL DO ALUNO ST.",
+              "Programa carro-chefe da Santos Tech: 6 cursos anuais (CRIADORES1 a CRIADORES6) que ensinam crianças e pré-adolescentes a criar seus próprios jogos. Trilha do MakeCode Arcade ao Unity com C#, com progressão por níveis no PORTAL DO ALUNO ST.",
             path: "/cursos/create",
             ageMin: 8,
             ageMax: 14,
           }),
         ]}
       />
-      {/* HERO CREATE */}
-      <TechHero primary={CREATE} dark={CREATE_DARK} soft={CREATE_LIGHT} decor="games">
+      {/* HERO CRIADORES */}
+      <TechHero primary={CRIADORES} dark={CRIADORES_DARK} soft={CRIADORES_LIGHT} decor="games">
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <div>
               <Reveal>
                 <span
                   className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-black uppercase tracking-[0.25em] text-white"
-                  style={{ background: `${CREATE_LIGHT}30`, border: `1px solid ${CREATE_LIGHT}66` }}
+                  style={{ background: `${CRIADORES_LIGHT}30`, border: `1px solid ${CRIADORES_LIGHT}66` }}
                 >
                   <Sparkles className="h-3.5 w-3.5" />
                   Programa carro-chefe · 8 a 14 anos
@@ -220,7 +220,7 @@ function CreatePage() {
 
               <Reveal delay={120}>
                 <h1 className="mt-6 text-7xl font-black leading-[0.9] tracking-tight sm:text-8xl lg:text-9xl">
-                  CREATE
+                  CRIADORES
                 </h1>
               </Reveal>
 
@@ -232,7 +232,7 @@ function CreatePage() {
                   </p>
                   <p>
                     São <strong>6 cursos de 1 ano</strong>:{" "}
-                    <strong>CREATE1</strong> a <strong>CREATE6</strong> — um por
+                    <strong>CRIADORES1</strong> a <strong>CRIADORES6</strong> — um por
                     idade — com progressão por níveis no{" "}
                     <strong>PORTAL DO ALUNO ST</strong>.
                   </p>
@@ -259,15 +259,15 @@ function CreatePage() {
 
               <Reveal delay={480} className="mt-8 flex flex-wrap gap-6 text-sm text-white/80">
                 <span className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4" style={{ color: CREATE_LIGHT }} />
+                  <CheckCircle2 className="h-4 w-4" style={{ color: CRIADORES_LIGHT }} />
                   Plataforma própria (Portal ST)
                 </span>
                 <span className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4" style={{ color: CREATE_LIGHT }} />
+                  <CheckCircle2 className="h-4 w-4" style={{ color: CRIADORES_LIGHT }} />
                   Progressão por níveis
                 </span>
                 <span className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4" style={{ color: CREATE_LIGHT }} />
+                  <CheckCircle2 className="h-4 w-4" style={{ color: CRIADORES_LIGHT }} />
                   100% presencial
                 </span>
               </Reveal>
@@ -284,7 +284,7 @@ function CreatePage() {
                   </defs>
                   <path
                     d="M421.7,328.8Q403,407.6,326.6,440.6Q250.2,473.5,176.6,432.6Q103,391.6,82,317.3Q61,243,109.3,179.2Q157.7,115.3,239,103.2Q320.4,91,375.1,150.5Q429.9,210,425.8,275Q421.7,340,421.7,328.8Z"
-                    fill={CREATE_LIGHT}
+                    fill={CRIADORES_LIGHT}
                     opacity="0.25"
                     transform="translate(20 20)"
                   />
@@ -308,15 +308,15 @@ function CreatePage() {
       <section className="py-20">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <Reveal>
-            <p className="text-sm font-black uppercase tracking-[0.25em]" style={{ color: CREATE }}>
-              Por que o CREATE
+            <p className="text-sm font-black uppercase tracking-[0.25em]" style={{ color: CRIADORES }}>
+              Por que o CRIADORES
             </p>
             <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
               Do primeiro jogo ao{" "}
-              <span style={{ color: CREATE }}>projeto final</span>
+              <span style={{ color: CRIADORES }}>projeto final</span>
             </h2>
             <p className="mt-5 text-lg text-muted-foreground">
-              O CREATE é o programa carro-chefe da Santos Tech. Cobre dos 8 aos
+              O CRIADORES é o programa carro-chefe da Santos Tech. Cobre dos 8 aos
               14 anos com 6 cursos sequenciais — cada um construído sobre o
               anterior, sempre com mão na massa.
             </p>
@@ -327,17 +327,17 @@ function CreatePage() {
       {/* MÉTODO */}
       <section
         className="relative isolate overflow-hidden py-20"
-        style={{ background: `linear-gradient(135deg, ${CREATE} 0%, ${CREATE_DARK} 100%)` }}
+        style={{ background: `linear-gradient(135deg, ${CRIADORES} 0%, ${CRIADORES_DARK} 100%)` }}
       >
         <div className="pointer-events-none absolute inset-0 dotted-bg opacity-15" />
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center text-white">
-            <p className="text-xs font-black uppercase tracking-[0.25em]" style={{ color: CREATE_LIGHT }}>
-              O método CREATE
+            <p className="text-xs font-black uppercase tracking-[0.25em]" style={{ color: CRIADORES_LIGHT }}>
+              O método CRIADORES
             </p>
             <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-5xl">
               Construir, depurar, <br />
-              <span style={{ color: CREATE_LIGHT }}>evoluir por níveis</span>
+              <span style={{ color: CRIADORES_LIGHT }}>evoluir por níveis</span>
             </h2>
           </Reveal>
 
@@ -374,7 +374,7 @@ function CreatePage() {
       <section id="cursos" className="bg-muted/40 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-black uppercase tracking-[0.25em]" style={{ color: CREATE }}>
+            <p className="text-sm font-black uppercase tracking-[0.25em]" style={{ color: CRIADORES }}>
               6 cursos · 1 ano cada
             </p>
             <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
@@ -397,9 +397,9 @@ function CreatePage() {
           <Reveal delay={600}>
             <div
               className="mx-auto mt-10 max-w-2xl rounded-xl border bg-white p-5 text-sm text-foreground/85 shadow-sm"
-              style={{ borderColor: CREATE_LIGHT }}
+              style={{ borderColor: CRIADORES_LIGHT }}
             >
-              <strong style={{ color: CREATE_DARK }}>Jornada completa de 6 anos.</strong>{" "}
+              <strong style={{ color: CRIADORES_DARK }}>Jornada completa de 6 anos.</strong>{" "}
               Cada curso tem ementa detalhada (40 aulas), ferramentas, FAQ e
               página de venda completa. Do primeiro sprite ao jogo autoral final
               no Unity — 8 a 14 anos.
@@ -414,12 +414,12 @@ function CreatePage() {
           <Reveal>
             <div
               className="relative overflow-hidden rounded-3xl px-8 py-14 text-center text-white shadow-xl sm:px-16"
-              style={{ background: `linear-gradient(135deg, ${CREATE} 0%, ${CREATE_DARK} 100%)` }}
+              style={{ background: `linear-gradient(135deg, ${CRIADORES} 0%, ${CRIADORES_DARK} 100%)` }}
             >
               <div className="pointer-events-none absolute inset-0 dotted-bg opacity-20" />
               <div className="relative">
                 <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
-                  Pronto pra ver o CREATE ao vivo?
+                  Pronto pra ver o CRIADORES ao vivo?
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-white/90">
                   Aula experimental gratuita. Seu filho vai pro computador,

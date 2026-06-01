@@ -22,7 +22,7 @@ export const Route = createFileRoute("/cursos/")({
     pageMeta({
       title: "Programas e Cursos — Santos Tech | Programação para Crianças",
       description:
-        "Todos os cursos de programação da Santos Tech em Ribeirão Preto: JR (5–8 anos), CREATE (8–14 anos, criação de jogos), Academia de IA, Academia de Robótica e Férias Tech. Veja qual programa combina com a idade do seu filho.",
+        "Todos os cursos de programação da Santos Tech em Ribeirão Preto: JR (5–8 anos), CRIADORES (8–14 anos, criação de jogos), Academia de IA, Academia de Robótica e Férias Tech. Veja qual programa combina com a idade do seu filho.",
       path: "/cursos",
     }),
 });
@@ -63,7 +63,7 @@ const CORE: ProgramCard[] = [
     dark: "#04325A",
     soft: "#E1F0FA",
     icon: Gamepad2,
-    name: "CREATE",
+    name: "CRIADORES",
     meta: "Carro-chefe · 8 a 14 anos · 6 cursos",
     pitch: "Seu filho cria os próprios jogos. Do MakeCode Arcade ao Unity + C#, ano a ano.",
     highlights: [
@@ -71,7 +71,7 @@ const CORE: ProgramCard[] = [
       "Trilha Pixel com sistema próprio de progressão",
       "Termina com título de Desenvolvedor de Jogos",
     ],
-    cta: "Conhecer o CREATE",
+    cta: "Conhecer o CRIADORES",
   },
   {
     id: "jr",
@@ -86,7 +86,7 @@ const CORE: ProgramCard[] = [
     highlights: [
       "3 cursos anuais (5-6, 6-7, 7-8)",
       "Atividades desplugadas, robótica tangível e ScratchJr",
-      "Termina pronto pra Faixa Branca do CREATE",
+      "Termina pronto pra Faixa Branca do CRIADORES",
     ],
     cta: "Conhecer o JR",
   },
@@ -262,7 +262,7 @@ function ProgramasPage() {
               A trilha que cobre dos 5 aos 14 anos
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              JR e CREATE formam a coluna vertebral da Santos Tech. Cada um é
+              JR e CRIADORES formam a coluna vertebral da Santos Tech. Cada um é
               um programa anual sequencial — ano a ano, sua criança evolui em
               ambiente certo pra fase dela.
             </p>

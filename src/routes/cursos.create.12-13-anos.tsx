@@ -34,9 +34,9 @@ export const Route = createFileRoute("/cursos/create/12-13-anos")({
   component: Create1213Page,
   head: () =>
     pageMeta({
-      title: "CREATE Ano 5 (12 a 13 anos) — Unity + C# (Núcleo do Motor) | Santos Tech",
+      title: "CRIADORES Ano 5 (12 a 13 anos) — Unity + C# (Núcleo do Motor) | Santos Tech",
       description:
-        "Quinto ano do CREATE: entrada no Unity com C# pra adolescentes de 12 a 13 anos em Ribeirão Preto. 40 aulas com editor profissional, física 2D, sprites, animação e um jogo 2D completo. Título Desenvolvedor Unity Júnior.",
+        "Quinto ano do CRIADORES: entrada no Unity com C# pra adolescentes de 12 a 13 anos em Ribeirão Preto. 40 aulas com editor profissional, física 2D, sprites, animação e um jogo 2D completo. Título Desenvolvedor Unity Júnior.",
       path: "/cursos/create/12-13-anos",
     }),
 });
@@ -201,7 +201,7 @@ const FAQ: FaqItem[] = [
   },
   {
     q: "O que vem no Ano 6?",
-    a: "Programação Orientada a Objetos aprofundada em C# (classes próprias, herança, composição) e desenvolvimento de um jogo autoral final em Unity. O fechamento da jornada CREATE.",
+    a: "Programação Orientada a Objetos aprofundada em C# (classes próprias, herança, composição) e desenvolvimento de um jogo autoral final em Unity. O fechamento da jornada CRIADORES.",
   },
   {
     q: "Qual o investimento?",
@@ -215,11 +215,11 @@ function Create1213Page() {
       <JsonLd
         data={coursePageSchemas({
           path: "/cursos/create/12-13-anos",
-          programName: "CREATE",
+          programName: "CRIADORES",
           programPath: "/cursos/create",
-          courseName: "CREATE Ano 5 — Núcleo do Motor: Unity + C# (12 a 13 anos)",
+          courseName: "CRIADORES Ano 5 — Núcleo do Motor: Unity + C# (12 a 13 anos)",
           courseDescription:
-            "Quinto ano do CREATE da Santos Tech. Entrada no motor profissional Unity com programação em C#. 40 aulas com editor profissional, física 2D, sprites, animação e desenvolvimento de jogo 2D completo.",
+            "Quinto ano do CRIADORES da Santos Tech. Entrada no motor profissional Unity com programação em C#. 40 aulas com editor profissional, física 2D, sprites, animação e desenvolvimento de jogo 2D completo.",
           ageMin: 12,
           ageMax: 13,
           faq: FAQ,
@@ -227,8 +227,8 @@ function Create1213Page() {
       />
       <CourseHero
         theme={THEME}
-        breadcrumb={{ href: "/cursos/create", label: "Programa CREATE" }}
-        eyebrow="CREATE Ano 5 · 12 a 13 anos"
+        breadcrumb={{ href: "/cursos/create", label: "Programa CRIADORES" }}
+        eyebrow="CRIADORES Ano 5 · 12 a 13 anos"
         title={
           <>
             Núcleo <br />
@@ -312,7 +312,7 @@ function Create1213Page() {
         }
         description={
           <>
-            O <strong>CREATE Ano 5</strong> é desenhado pra adolescente de{" "}
+            O <strong>CRIADORES Ano 5</strong> é desenhado pra adolescente de{" "}
             <strong>12 e 13 anos</strong> que terminou o Ano 4 com domínio de
             objetos, coleções e algoritmos em JavaScript. Aqui ele entra num
             motor de jogo de verdade.
@@ -320,7 +320,7 @@ function Create1213Page() {
         }
         checklistTitle="É ideal se seu filho"
         items={[
-          "Concluiu o Ano 4 do CREATE com bom domínio",
+          "Concluiu o Ano 4 do CRIADORES com bom domínio",
           "Programa JavaScript com objetos, arrays e funções organizadas",
           "Quer aprender uma ferramenta profissional usada na indústria",
           "Está pensando em seguir programação como carreira ou hobby sério",
@@ -377,10 +377,10 @@ function Create1213Page() {
 
       <CourseCtaFinal
         theme={THEME}
-        title="Pronto pra ver o CREATE Ano 5 ao vivo?"
+        title="Pronto pra ver o CRIADORES Ano 5 ao vivo?"
         description="Aula experimental gratuita. Seu filho abre o Unity, edita uma cena profissional e escreve C# pela primeira vez."
         primaryCta={{ href: WHATSAPP, label: "Agendar aula experimental" }}
-        secondaryCta={{ href: "/cursos/create", label: "Voltar ao CREATE" }}
+        secondaryCta={{ href: "/cursos/create", label: "Voltar ao CRIADORES" }}
       />
     </>
   );

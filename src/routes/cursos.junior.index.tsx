@@ -473,7 +473,7 @@ function JuniorPage() {
                   4 marcos: Variáveis, Decisão, Mensagens e Transição (MakeCode).
                 </p>
                 <p className="mt-3 text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                  Termina como: <span style={{ color: JR }}>Pronto pro CREATE</span>
+                  Termina como: <span style={{ color: JR }}>Pronto pro CRIADORES</span>
                 </p>
               </div>
             </Reveal>
@@ -553,18 +553,18 @@ function JuniorPage() {
         eyebrow="JR3"
         ageRange="7 a 8 anos"
         title="Pronto pra Criar"
-        description="O ano-ponte pro CREATE. Variáveis, condicionais completas, mensagens, clones — e os primeiros jogos no MakeCode. Bússola do Criador com 4 marcos."
+        description="O ano-ponte pro CRIADORES. Variáveis, condicionais completas, mensagens, clones — e os primeiros jogos no MakeCode. Bússola do Criador com 4 marcos."
         highlights={[
           "Scratch com variáveis (placar, vidas, tempo)",
           "Condicionais completas e operadores lógicos",
           "Mensagens, clones e jogos com fases",
-          "Transição pro MakeCode (ponte pro CREATE)",
+          "Transição pro MakeCode (ponte pro CRIADORES)",
         ]}
         ferramentas={[
           "Scratch (MIT) — versão completa",
           "MakeCode Arcade (Microsoft)",
         ]}
-        outcome="Título de Criador Pronto pro CREATE — entra na Faixa Branca aos 8 anos sem salto brusco."
+        outcome="Título de Criador Pronto pro CRIADORES — entra na Faixa Branca aos 8 anos sem salto brusco."
         imageName="students-3"
         imageAlt="Criança de 7 anos programando no Scratch na Santos Tech"
         href="/cursos/junior/7-8-anos"

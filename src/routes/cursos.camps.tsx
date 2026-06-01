@@ -442,7 +442,7 @@ function CampsPage() {
             Os <strong>CAMPS</strong> são desenhados pro pai que precisa ocupar
             o tempo livre da criança com algo que valha a pena, sem cair na
             armadilha da tela infinita. Funciona pra quem nunca programou e
-            também pra quem já estuda no CREATE ou JR.
+            também pra quem já estuda no CRIADORES ou JR.
           </>
         }
         checklistTitle="É ideal se você"

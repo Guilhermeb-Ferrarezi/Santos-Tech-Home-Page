@@ -33,9 +33,9 @@ export const Route = createFileRoute("/cursos/create/9-10-anos")({
   component: Create910Page,
   head: () =>
     pageMeta({
-      title: "CREATE Ano 2 (9 a 10 anos) — Construtores de Mundos | Santos Tech",
+      title: "CRIADORES Ano 2 (9 a 10 anos) — Construtores de Mundos | Santos Tech",
       description:
-        "Segundo ano do CREATE: 40 aulas pra crianças de 9 a 10 anos em Ribeirão Preto. Tilemaps, câmera, listas, física 2D e transição do bloco pro JavaScript escrito. Insígnia Pixel Arquiteto de Mundos ao final.",
+        "Segundo ano do CRIADORES: 40 aulas pra crianças de 9 a 10 anos em Ribeirão Preto. Tilemaps, câmera, listas, física 2D e transição do bloco pro JavaScript escrito. Insígnia Pixel Arquiteto de Mundos ao final.",
       path: "/cursos/create/9-10-anos",
     }),
 });
@@ -75,7 +75,7 @@ const MODULES: Module[] = [
     badge: INSIGNIAS[0],
     icon: Map,
     lessons: [
-      { n: 1, title: "Bem-vindo de volta ao CREATE", goal: "Retoma sprites e controles do Ano 1 e descobre por que um jogo precisa de um mundo maior do que a tela." },
+      { n: 1, title: "Bem-vindo de volta ao CRIADORES", goal: "Retoma sprites e controles do Ano 1 e descobre por que um jogo precisa de um mundo maior do que a tela." },
       { n: 2, title: "Meu primeiro tilemap", goal: "Pinta um mapa com o editor de tiles e posiciona o herói dentro dele." },
       { n: 3, title: "Paredes, chão e colisão de tiles", goal: "Define quais tiles bloqueiam o jogador e quais ele pode atravessar." },
       { n: 4, title: "A câmera que segue o herói", goal: "Faz a tela acompanhar o personagem enquanto ele anda pelo mapa." },
@@ -220,11 +220,11 @@ function Create910Page() {
       <JsonLd
         data={coursePageSchemas({
           path: "/cursos/create/9-10-anos",
-          programName: "CREATE",
+          programName: "CRIADORES",
           programPath: "/cursos/create",
-          courseName: "CREATE Ano 2 — Construtores de Mundos (9 a 10 anos)",
+          courseName: "CRIADORES Ano 2 — Construtores de Mundos (9 a 10 anos)",
           courseDescription:
-            "Segundo ano do CREATE da Santos Tech. 40 aulas trabalham tilemaps, câmera, listas, física 2D e fazem a transição do MakeCode em blocos pro JavaScript escrito. Trilha Pixel: Arquiteto de Mundos.",
+            "Segundo ano do CRIADORES da Santos Tech. 40 aulas trabalham tilemaps, câmera, listas, física 2D e fazem a transição do MakeCode em blocos pro JavaScript escrito. Trilha Pixel: Arquiteto de Mundos.",
           ageMin: 9,
           ageMax: 10,
           faq: FAQ,
@@ -232,8 +232,8 @@ function Create910Page() {
       />
       <CourseHero
         theme={THEME}
-        breadcrumb={{ href: "/cursos/create", label: "Programa CREATE" }}
-        eyebrow="CREATE Ano 2 · 9 a 10 anos"
+        breadcrumb={{ href: "/cursos/create", label: "Programa CRIADORES" }}
+        eyebrow="CRIADORES Ano 2 · 9 a 10 anos"
         title={
           <>
             Construtores <br />
@@ -300,7 +300,7 @@ function Create910Page() {
         }
         description={
           <>
-            O <strong>CREATE Ano 2</strong> dá sequência direta ao Ano 1 — sem
+            O <strong>CRIADORES Ano 2</strong> dá sequência direta ao Ano 1 — sem
             repetir. A criança chega já dominando sprites, controles, eventos,
             variáveis, condicionais, colisões e laços, e pronta pra construir
             mundos inteiros.
@@ -308,7 +308,7 @@ function Create910Page() {
         }
         checklistTitle="É ideal se seu filho"
         items={[
-          "Concluiu o Ano 1 do CREATE",
+          "Concluiu o Ano 1 do CRIADORES",
           "Ou já programa jogos com sprites, regras e condicionais",
           "Quer fazer jogos maiores — com mapas, fases, física",
           "Está pronto pra começar a ler código escrito de verdade",
@@ -365,10 +365,10 @@ function Create910Page() {
 
       <CourseCtaFinal
         theme={THEME}
-        title="Pronto pra ver o CREATE Ano 2 ao vivo?"
+        title="Pronto pra ver o CRIADORES Ano 2 ao vivo?"
         description="Aula experimental gratuita. Seu filho mexe num jogo de verdade com mapa, câmera e física — e dá uma espiada no código por trás."
         primaryCta={{ href: WHATSAPP, label: "Agendar aula experimental" }}
-        secondaryCta={{ href: "/cursos/create", label: "Voltar ao CREATE" }}
+        secondaryCta={{ href: "/cursos/create", label: "Voltar ao CRIADORES" }}
       />
     </>
   );

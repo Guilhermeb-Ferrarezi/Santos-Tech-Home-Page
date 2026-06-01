@@ -292,7 +292,7 @@ function Junior67Page() {
                 <p className="mt-2 text-sm text-foreground/85">
                   O condicional simples e os mini-jogos abertos aqui preparam o
                   terreno para variáveis e condicionais completas no JR3, o
-                  ano-ponte para o CREATE.
+                  ano-ponte para o CRIADORES.
                 </p>
               </div>
             </Reveal>

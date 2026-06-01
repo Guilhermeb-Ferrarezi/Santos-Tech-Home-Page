@@ -33,9 +33,9 @@ export const Route = createFileRoute("/cursos/create/11-12-anos")({
   component: Create1112Page,
   head: () =>
     pageMeta({
-      title: "CREATE Ano 4 (11 a 12 anos) — Forja dos Algoritmos | Santos Tech",
+      title: "CRIADORES Ano 4 (11 a 12 anos) — Forja dos Algoritmos | Santos Tech",
       description:
-        "Quarto ano do CREATE: 40 aulas de JavaScript intermediário pra pré-adolescentes de 11 a 12 anos em Ribeirão Preto. Objetos, coleções avançadas, IA de jogo e algoritmos aplicados. Título Engenheiro de Jogos Júnior.",
+        "Quarto ano do CRIADORES: 40 aulas de JavaScript intermediário pra pré-adolescentes de 11 a 12 anos em Ribeirão Preto. Objetos, coleções avançadas, IA de jogo e algoritmos aplicados. Título Engenheiro de Jogos Júnior.",
       path: "/cursos/create/11-12-anos",
     }),
 });
@@ -214,11 +214,11 @@ function Create1112Page() {
       <JsonLd
         data={coursePageSchemas({
           path: "/cursos/create/11-12-anos",
-          programName: "CREATE",
+          programName: "CRIADORES",
           programPath: "/cursos/create",
-          courseName: "CREATE Ano 4 — Forja dos Algoritmos (11 a 12 anos)",
+          courseName: "CRIADORES Ano 4 — Forja dos Algoritmos (11 a 12 anos)",
           courseDescription:
-            "Quarto ano do CREATE da Santos Tech. JavaScript intermediário aplicado: objetos, coleções avançadas, funções de ordem superior e IA de jogo. 40 aulas com projetos de complexidade crescente.",
+            "Quarto ano do CRIADORES da Santos Tech. JavaScript intermediário aplicado: objetos, coleções avançadas, funções de ordem superior e IA de jogo. 40 aulas com projetos de complexidade crescente.",
           ageMin: 11,
           ageMax: 12,
           faq: FAQ,
@@ -226,8 +226,8 @@ function Create1112Page() {
       />
       <CourseHero
         theme={THEME}
-        breadcrumb={{ href: "/cursos/create", label: "Programa CREATE" }}
-        eyebrow="CREATE Ano 4 · 11 a 12 anos"
+        breadcrumb={{ href: "/cursos/create", label: "Programa CRIADORES" }}
+        eyebrow="CRIADORES Ano 4 · 11 a 12 anos"
         title={
           <>
             Forja dos <br />
@@ -296,7 +296,7 @@ function Create1112Page() {
         }
         description={
           <>
-            O <strong>CREATE Ano 4</strong> é desenhado pra criança de{" "}
+            O <strong>CRIADORES Ano 4</strong> é desenhado pra criança de{" "}
             <strong>11 e 12 anos</strong> que já tem autonomia em JavaScript
             básico. Aqui ela aprende a organizar grandes projetos, pensar em
             algoritmos e dar o passo final antes do Unity.
@@ -304,7 +304,7 @@ function Create1112Page() {
         }
         checklistTitle="É ideal se seu filho"
         items={[
-          "Concluiu o Ano 3 do CREATE",
+          "Concluiu o Ano 3 do CRIADORES",
           "Escreve código JavaScript com autonomia (variáveis, if, for, funções, arrays)",
           "Quer fazer jogos com IA de inimigo e dados estruturados",
           "Pretende seguir até o Ano 5 (Unity + C#)",
@@ -360,10 +360,10 @@ function Create1112Page() {
 
       <CourseCtaFinal
         theme={THEME}
-        title="Pronto pra ver o CREATE Ano 4 ao vivo?"
+        title="Pronto pra ver o CRIADORES Ano 4 ao vivo?"
         description="Aula experimental gratuita. Seu filho mexe num jogo com IA de inimigo de verdade — e descobre o que separa um programador de um engenheiro."
         primaryCta={{ href: WHATSAPP, label: "Agendar aula experimental" }}
-        secondaryCta={{ href: "/cursos/create", label: "Voltar ao CREATE" }}
+        secondaryCta={{ href: "/cursos/create", label: "Voltar ao CRIADORES" }}
       />
     </>
   );

@@ -16,7 +16,7 @@ type ProgramItem = {
 };
 
 const PROGRAMAS_PRINCIPAIS: ProgramItem[] = [
-  { label: "CREATE", href: "/cursos/create", color: "#187ABF" },
+  { label: "CRIADORES", href: "/cursos/create", color: "#187ABF" },
   { label: "JR", href: "/cursos/junior", color: "#512374" },
 ];
 

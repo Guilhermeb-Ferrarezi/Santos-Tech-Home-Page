@@ -27,7 +27,7 @@ export type ProgramKey = "default" | "jr" | "create" | "camps" | "academies";
 const ACCENT_DARK: Record<ProgramKey, string> = {
   default: "#04325A",   // st-blue-dark
   jr: "#3d1858",        // JR dark roxo
-  create: "#04325A",    // CREATE dark azul
+  create: "#04325A",    // CRIADORES dark azul
   camps: "#0f5a6b",     // CAMPS dark teal
   academies: "#020a6b", // ACADEMIES dark indigo
 };

@@ -101,7 +101,7 @@ const ACADEMIES: Academy[] = [
     ],
     outcome:
       "Vários protótipos funcionais ao longo do módulo + projeto final apresentado.",
-    prereq: "Nenhum (versão iniciante). Versão avançada exige CREATE 1+.",
+    prereq: "Nenhum (versão iniciante). Versão avançada exige CRIADORES 1+.",
   },
   {
     anchor: "ai",
@@ -120,7 +120,7 @@ const ACADEMIES: Academy[] = [
     ],
     outcome:
       "Coleção de mini-projetos com IA aplicada + apresentação de um caso de uso original.",
-    prereq: "Idade mínima 11 anos. Recomendado já ter base de programação (JR3+ ou CREATE 2+).",
+    prereq: "Idade mínima 11 anos. Recomendado já ter base de programação (JR3+ ou CRIADORES 2+).",
   },
 ];
 
@@ -129,11 +129,11 @@ const ACADEMIES: Academy[] = [
 // ──────────────────────────────────────────────────────────────────────────
 const FAQ: FaqItem[] = [
   {
-    q: "Qual a diferença entre ACADEMIES e CREATE?",
-    a: "O CREATE é a trilha principal de programação criando jogos, ano a ano dos 8 aos 14. As ACADEMIES são módulos paralelos de especialização — robótica física e IA — que aprofundam áreas específicas. Um aluno pode fazer só ACADEMIES, ou combinar com CREATE.",
+    q: "Qual a diferença entre ACADEMIES e CRIADORES?",
+    a: "O CRIADORES é a trilha principal de programação criando jogos, ano a ano dos 8 aos 14. As ACADEMIES são módulos paralelos de especialização — robótica física e IA — que aprofundam áreas específicas. Um aluno pode fazer só ACADEMIES, ou combinar com CRIADORES.",
   },
   {
-    q: "Meu filho precisa estar no CREATE pra entrar nas ACADEMIES?",
+    q: "Meu filho precisa estar no CRIADORES pra entrar nas ACADEMIES?",
     a: "Não. As ACADEMIES funcionam como entrada também. A Robotics Academy aceita iniciantes; a AI Academy pede idade mínima 11 anos. Conversa com a gente pra avaliar o caminho ideal.",
   },
   {
@@ -275,7 +275,7 @@ function AcademiesPage() {
               Artificial — sem mistério, com mão na massa.
             </p>
             <p>
-              Aluno avançado do CREATE ganha um próximo passo. Aluno novo
+              Aluno avançado do CRIADORES ganha um próximo passo. Aluno novo
               encontra uma <strong>porta de entrada moderna</strong> pra
               tecnologia que importa.
             </p>
@@ -304,10 +304,10 @@ function AcademiesPage() {
             </p>
             <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
               O que está {" "}
-              <span style={{ color: THEME.primary }}>além do CREATE</span>
+              <span style={{ color: THEME.primary }}>além do CRIADORES</span>
             </h2>
             <p className="mt-5 text-lg text-muted-foreground">
-              O CREATE forma o desenvolvedor de jogos. As <strong>ACADEMIES</strong>{" "}
+              O CRIADORES forma o desenvolvedor de jogos. As <strong>ACADEMIES</strong>{" "}
               formam o especialista. Robótica e IA são áreas que precisam de
               kits, ferramentas e currículo próprios — e ganham um módulo dedicado.
             </p>
@@ -315,13 +315,13 @@ function AcademiesPage() {
 
           <div className="mt-8">
             <BridgeBanner
-              title="Módulo paralelo, não substitui o CREATE"
+              title="Módulo paralelo, não substitui o CRIADORES"
               from={THEME.soft}
               to={THEME.primary}
             >
-              ACADEMIES funcionam <strong>em paralelo</strong> ao CREATE. O
-              aluno pode fazer só Academies, só CREATE, ou combinar os dois
-              caminhos. Não existe pré-requisito obrigatório do CREATE pra
+              ACADEMIES funcionam <strong>em paralelo</strong> ao CRIADORES. O
+              aluno pode fazer só Academies, só CRIADORES, ou combinar os dois
+              caminhos. Não existe pré-requisito obrigatório do CRIADORES pra
               entrar — embora ajude muito.
             </BridgeBanner>
           </div>
@@ -331,7 +331,7 @@ function AcademiesPage() {
               { icon: Wrench, t: "Mão na massa de verdade", d: "Robôs físicos, kits reais, modelos de IA treinados pela própria criança. Nada de simulação." },
               { icon: Zap, t: "Áreas que importam", d: "Robótica e IA são os pilares da próxima geração tech. Quem começa cedo sai na frente." },
               { icon: Layers, t: "Específico e profundo", d: "Em vez de cobrir vários temas superficialmente, cada Academy aprofunda uma área até dominar." },
-              { icon: GraduationCap, t: "Aluno avançado tem pra onde ir", d: "Pra quem terminou ou está no CREATE e quer um próximo passo concreto antes da carreira." },
+              { icon: GraduationCap, t: "Aluno avançado tem pra onde ir", d: "Pra quem terminou ou está no CRIADORES e quer um próximo passo concreto antes da carreira." },
             ].map((item, i) => (
               <Reveal key={item.t} delay={i * 100}>
                 <div
@@ -461,7 +461,7 @@ function AcademiesPage() {
         items={[
           "Já curte programação e quer um caminho de especialização",
           "Curioso por máquinas físicas (Robotics) ou IA generativa",
-          "Está no CREATE e quer um módulo paralelo pra aprofundar",
+          "Está no CRIADORES e quer um módulo paralelo pra aprofundar",
           "Tem entre 9 e 14 anos (Robotics 9+, IA 11+)",
         ]}
         bg="muted"

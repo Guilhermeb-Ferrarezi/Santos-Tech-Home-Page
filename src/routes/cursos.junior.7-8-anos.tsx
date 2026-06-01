@@ -27,9 +27,9 @@ export const Route = createFileRoute("/cursos/junior/7-8-anos")({
   component: Junior78Page,
   head: () =>
     pageMeta({
-      title: "JR3 (7 a 8 anos) — Pronto pra Criar (Ponte pro CREATE) | Santos Tech",
+      title: "JR3 (7 a 8 anos) — Pronto pra Criar (Ponte pro CRIADORES) | Santos Tech",
       description:
-        "Terceiro e último curso do programa JR pra crianças de 7 a 8 anos em Ribeirão Preto. 40 aulas com Scratch completo (variáveis, condicionais, clones) e introdução ao MakeCode Arcade. Bússola do Criador — preparação direta pra Faixa Branca do CREATE.",
+        "Terceiro e último curso do programa JR pra crianças de 7 a 8 anos em Ribeirão Preto. 40 aulas com Scratch completo (variáveis, condicionais, clones) e introdução ao MakeCode Arcade. Bússola do Criador — preparação direta pra Faixa Branca do CRIADORES.",
       path: "/cursos/junior/7-8-anos",
     }),
 });
@@ -131,13 +131,13 @@ const MODULES: Module[] = [
   },
   {
     n: 4,
-    name: "Ponte para o CREATE: Blocos estilo MakeCode",
+    name: "Ponte para o CRIADORES: Blocos estilo MakeCode",
     classes: "Aulas 31 a 40",
     duration: "10 semanas",
     hours: "20h",
     objectives:
       "Conhecer o MakeCode e compará-lo com o Scratch, usar \"ao iniciar\" e \"para sempre\", criar e mover sprites, recriar variáveis e condicionais no novo ambiente, programar eventos e colisões e observar como os blocos viram texto.",
-    project: "Pronto para o CREATE — mini-jogo completo no MakeCode que encerra o JR e prepara para a Faixa Branca.",
+    project: "Pronto para o CRIADORES — mini-jogo completo no MakeCode que encerra o JR e prepara para a Faixa Branca.",
     tool: "MakeCode Arcade (gratuito)",
     badge: MARCOS[3],
     icon: Cpu,
@@ -151,13 +151,13 @@ const MODULES: Module[] = [
       { n: 37, title: "Eventos e Colisões", goal: "Programa o que acontece quando dois sprites se encontram." },
       { n: 38, title: "Espiando o Código em Texto", goal: "Vê como os blocos viram texto (JavaScript), preparando a transição." },
       { n: 39, title: "Planejando meu Jogo no MakeCode", goal: "Projeta um jogo simples para fechar o ano." },
-      { n: 40, title: "Mini-projeto: Pronto para o CREATE", goal: "Cria um mini-jogo completo no MakeCode, encerrando o JR pronto pra Faixa Branca. Conquista o Marco da Transição e o título de Criador Pronto para o CREATE." },
+      { n: 40, title: "Mini-projeto: Pronto para o CRIADORES", goal: "Cria um mini-jogo completo no MakeCode, encerrando o JR pronto pra Faixa Branca. Conquista o Marco da Transição e o título de Criador Pronto para o CRIADORES." },
     ],
   },
 ];
 
 const TOOLS: Tool[] = [
-  { name: "Scratch (MIT)", type: "Gratuito", role: "Os 3 primeiros módulos. Variáveis, condicionais, mensagens, clones — toda a programação visual no nível pré-CREATE.", icon: Code2 },
+  { name: "Scratch (MIT)", type: "Gratuito", role: "Os 3 primeiros módulos. Variáveis, condicionais, mensagens, clones — toda a programação visual no nível pré-CRIADORES.", icon: Code2 },
   { name: "MakeCode Arcade (Microsoft)", type: "Gratuito", role: "O módulo final. Mesma lógica em outro ambiente — sprites, eventos, código em texto (JavaScript) por baixo dos blocos.", icon: Cpu },
 ];
 
@@ -167,8 +167,8 @@ const FAQ: FaqItem[] = [
     a: "Depende do nível. O JR3 assume Scratch básico já dominado (movimento, eventos, repetição). Se a criança nunca programou, recomendamos começar pelo JR1 ou JR2. Conversa com a gente que avaliamos.",
   },
   {
-    q: "Qual a diferença entre o JR3 e o CREATE?",
-    a: "O JR3 é a ponte. Termina o ano com a criança dominando Scratch e fazendo seus primeiros jogos no MakeCode. O CREATE pega esse aluno e leva pra programação por níveis (Faixa Branca em diante) durante 6 anos.",
+    q: "Qual a diferença entre o JR3 e o CRIADORES?",
+    a: "O JR3 é a ponte. Termina o ano com a criança dominando Scratch e fazendo seus primeiros jogos no MakeCode. O CRIADORES pega esse aluno e leva pra programação por níveis (Faixa Branca em diante) durante 6 anos.",
   },
   {
     q: "É difícil pra um aluno de 7-8 anos?",
@@ -176,15 +176,15 @@ const FAQ: FaqItem[] = [
   },
   {
     q: "Quanto tempo dura?",
-    a: "1 ano letivo: 40 aulas, 80 horas, 4 módulos. Cada módulo termina com um marco da Bússola do Criador. No fim, a criança vira Criador Pronto pra Faixa Branca do CREATE.",
+    a: "1 ano letivo: 40 aulas, 80 horas, 4 módulos. Cada módulo termina com um marco da Bússola do Criador. No fim, a criança vira Criador Pronto pra Faixa Branca do CRIADORES.",
   },
   {
     q: "Como é a frequência?",
     a: "2 horas por semana. Família escolhe: 1 aula de 2h ou 2 aulas de 1h. Conteúdo é o mesmo, dividido em Parte A + Parte B sem repetição.",
   },
   {
-    q: "Depois do JR3, ele vai pro CREATE direto?",
-    a: "Sim — entra na Faixa Branca do CREATE, voltada pra 8 anos. Como o JR3 já trabalhou MakeCode no módulo final, ele entra familiarizado com o ambiente. Sem salto brusco.",
+    q: "Depois do JR3, ele vai pro CRIADORES direto?",
+    a: "Sim — entra na Faixa Branca do CRIADORES, voltada pra 8 anos. Como o JR3 já trabalhou MakeCode no módulo final, ele entra familiarizado com o ambiente. Sem salto brusco.",
   },
   {
     q: "Qual o investimento?",
@@ -206,7 +206,7 @@ function Junior78Page() {
           programPath: "/cursos/junior",
           courseName: "JR3 — Pronto pra Criar (7 a 8 anos)",
           courseDescription:
-            "Terceiro curso do programa JR da Santos Tech. 40 aulas com Scratch (MIT) completo — variáveis, condicionais avançadas, mensagens, clones — e introdução ao MakeCode Arcade. Bússola do Criador prepara a criança pra Faixa Branca do CREATE aos 8 anos.",
+            "Terceiro curso do programa JR da Santos Tech. 40 aulas com Scratch (MIT) completo — variáveis, condicionais avançadas, mensagens, clones — e introdução ao MakeCode Arcade. Bússola do Criador prepara a criança pra Faixa Branca do CRIADORES aos 8 anos.",
           ageMin: 7,
           ageMax: 8,
           faq: FAQ,
@@ -225,13 +225,13 @@ function Junior78Page() {
         subtitle={
           <>
             <p>
-              O <strong>ano-ponte para o CREATE</strong>. Variáveis,
+              O <strong>ano-ponte para o CRIADORES</strong>. Variáveis,
               condicionais, mensagens e clones — e os primeiros jogos no{" "}
               <strong>MakeCode</strong>.
             </p>
             <p>
               A criança termina o JR pronta pra entrar na{" "}
-              <strong>Faixa Branca do CREATE</strong> aos 8 anos, sem salto
+              <strong>Faixa Branca do CRIADORES</strong> aos 8 anos, sem salto
               brusco.
             </p>
           </>
@@ -267,7 +267,7 @@ function Junior78Page() {
               estilo MakeCode. A criança domina <strong>variáveis</strong>,{" "}
               <strong>condicionais completas</strong>, <strong>mensagens</strong>{" "}
               e <strong>clones</strong>, e termina o ano pronta pra entrar na{" "}
-              <strong>Faixa Branca do CREATE</strong> aos 8 anos.
+              <strong>Faixa Branca do CRIADORES</strong> aos 8 anos.
             </p>
           </Reveal>
 
@@ -299,10 +299,10 @@ function Junior78Page() {
           </div>
 
           <div className="mt-8">
-            <BridgeBanner title="Conexão direta com o CREATE">
+            <BridgeBanner title="Conexão direta com o CRIADORES">
               Ao concluir o Módulo 4, a criança já programou jogos por blocos
               no MakeCode Arcade e viu o código virar texto (JavaScript). Ela
-              entra na <strong>Faixa Branca do CREATE</strong> (8 a 14 anos) já
+              entra na <strong>Faixa Branca do CRIADORES</strong> (8 a 14 anos) já
               familiarizada com o ambiente, sem nenhum salto brusco.
             </BridgeBanner>
           </div>
@@ -314,7 +314,7 @@ function Junior78Page() {
         title={
           <>
             O último ano do JR — porta pro{" "}
-            <span style={{ color: THEME.primary }}>CREATE</span>
+            <span style={{ color: THEME.primary }}>CRIADORES</span>
           </>
         }
         description={
@@ -331,7 +331,7 @@ function Junior78Page() {
           "Já lê com mais autonomia",
           "Tem base de Scratch ou ScratchJr",
           "Curte criar jogos com regras, fases, pontuação",
-          "Já vai completar 8 anos e quer entrar no CREATE depois",
+          "Já vai completar 8 anos e quer entrar no CRIADORES depois",
         ]}
         bg="muted"
       />
@@ -352,7 +352,7 @@ function Junior78Page() {
             (JR2), aqui a criança se torna um <strong>Criador</strong> e
             conquista um marco ao concluir cada módulo. Completando os 4
             marcos, recebe o título de{" "}
-            <strong>Criador Pronto para o CREATE</strong> — a Pré-Faixa Branca.
+            <strong>Criador Pronto para o CRIADORES</strong> — a Pré-Faixa Branca.
           </>
         }
         badges={MARCOS}
@@ -381,7 +381,7 @@ function Junior78Page() {
         title="Pronto pra ver o JR3 ao vivo?"
         description="Venha conhecer o espaço, ver uma aula e descobrir se o JR3 é o curso certo pra esse momento da jornada. Sem compromisso."
         primaryCta={{ href: WHATSAPP, label: "Agendar visita guiada grátis" }}
-        secondaryCta={{ href: "/cursos/create", label: "Conheça o CREATE" }}
+        secondaryCta={{ href: "/cursos/create", label: "Conheça o CRIADORES" }}
       />
     </>
   );

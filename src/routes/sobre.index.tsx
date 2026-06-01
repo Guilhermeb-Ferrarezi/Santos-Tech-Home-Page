@@ -95,7 +95,7 @@ function SobreNosPage() {
               ao ensino de programação para crianças e jovens de <strong>5 a 14 anos</strong>.
               Mais que aulas, oferecemos uma jornada estruturada — do primeiro
               contato lúdico com a tecnologia (JR) até o desenvolvimento de
-              jogos completos em Unity (CREATE).
+              jogos completos em Unity (CRIADORES).
             </p>
             <p className="mt-4 text-muted-foreground">
               Temos método próprio, <strong>plataforma exclusiva (PORTAL DO ALUNO ST)</strong> e

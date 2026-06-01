@@ -45,9 +45,9 @@ export const Route = createFileRoute("/cursos/create/8-9-anos")({
   component: Create89Page,
   head: () =>
     pageMeta({
-      title: "CREATE Ano 1 (8 a 9 anos) — Fundamentos do Arcade | Santos Tech",
+      title: "CRIADORES Ano 1 (8 a 9 anos) — Fundamentos do Arcade | Santos Tech",
       description:
-        "Primeiro ano do CREATE: 40 aulas no MakeCode Arcade pra crianças de 8 a 9 anos em Ribeirão Preto. Do primeiro sprite ao jogo completo autoral. Trilha de Insígnias Pixel com 5 conquistas.",
+        "Primeiro ano do CRIADORES: 40 aulas no MakeCode Arcade pra crianças de 8 a 9 anos em Ribeirão Preto. Do primeiro sprite ao jogo completo autoral. Trilha de Insígnias Pixel com 5 conquistas.",
       path: "/cursos/create/8-9-anos",
     }),
 });
@@ -169,7 +169,7 @@ const MODULES: Module[] = [
       { n: 37, title: "Tela de Início e Instruções", goal: "A criança cria o menu inicial e explica como se joga." },
       { n: 38, title: "Espiando o Código em Texto", goal: "A criança alterna para a visão em JavaScript e descobre o código por trás dos blocos." },
       { n: 39, title: "Compartilhando o Jogo", goal: "A criança publica e compartilha o jogo e prepara uma breve apresentação." },
-      { n: 40, title: "Showcase Final: Dia do Criador", goal: "A criança apresenta seu jogo completo à turma. Conquista a insígnia Pixel Criador e o Selo CREATE Ano 1." },
+      { n: 40, title: "Showcase Final: Dia do Criador", goal: "A criança apresenta seu jogo completo à turma. Conquista a insígnia Pixel Criador e o Selo CRIADORES Ano 1." },
     ],
   },
 ];
@@ -185,12 +185,12 @@ const TOOLS: Tool[] = [
 
 const FAQ: FaqItem[] = [
   {
-    q: "Meu filho não fez o JR. Pode entrar direto no CREATE Ano 1?",
+    q: "Meu filho não fez o JR. Pode entrar direto no CRIADORES Ano 1?",
     a: "Sim, mas a gente conversa antes pra avaliar. O Ano 1 assume que a criança já tem noção básica de blocos (do JR3) ou já programou um pouco. Se nunca tocou em programação, recomendamos um nivelamento.",
   },
   {
     q: "Qual a diferença pro JR3?",
-    a: "O JR3 termina com primeiros experimentos no MakeCode. O CREATE Ano 1 entra a fundo: sprites, movimento, regras de jogo, inimigos, fases e o primeiro jogo completo autoral. É a porta de entrada da trilha CREATE que vai até os 14 anos.",
+    a: "O JR3 termina com primeiros experimentos no MakeCode. O CRIADORES Ano 1 entra a fundo: sprites, movimento, regras de jogo, inimigos, fases e o primeiro jogo completo autoral. É a porta de entrada da trilha CRIADORES que vai até os 14 anos.",
   },
   {
     q: "Por que MakeCode Arcade?",
@@ -206,7 +206,7 @@ const FAQ: FaqItem[] = [
   },
   {
     q: "Como acompanho o progresso?",
-    a: "A cada módulo concluído a criança conquista uma insígnia da Trilha Pixel (Aprendiz → Construtor → Estrategista → Criador). No fim do ano, recebe o Selo CREATE Ano 1 no Showcase Final.",
+    a: "A cada módulo concluído a criança conquista uma insígnia da Trilha Pixel (Aprendiz → Construtor → Estrategista → Criador). No fim do ano, recebe o Selo CRIADORES Ano 1 no Showcase Final.",
   },
   {
     q: "E depois do Ano 1?",
@@ -228,11 +228,11 @@ function Create89Page() {
       <JsonLd
         data={coursePageSchemas({
           path: "/cursos/create/8-9-anos",
-          programName: "CREATE",
+          programName: "CRIADORES",
           programPath: "/cursos/create",
-          courseName: "CREATE Ano 1 — Fundamentos do Arcade (8 a 9 anos)",
+          courseName: "CRIADORES Ano 1 — Fundamentos do Arcade (8 a 9 anos)",
           courseDescription:
-            "Primeiro ano do programa CREATE da Santos Tech. 40 aulas no MakeCode Arcade ensinam crianças a criar jogos a partir do zero — do primeiro sprite ao jogo completo autoral. Inclui sistema de Insígnias Pixel.",
+            "Primeiro ano do programa CRIADORES da Santos Tech. 40 aulas no MakeCode Arcade ensinam crianças a criar jogos a partir do zero — do primeiro sprite ao jogo completo autoral. Inclui sistema de Insígnias Pixel.",
           ageMin: 8,
           ageMax: 9,
           faq: FAQ,
@@ -240,8 +240,8 @@ function Create89Page() {
       />
       <CourseHero
         theme={THEME}
-        breadcrumb={{ href: "/cursos/create", label: "Programa CREATE" }}
-        eyebrow="CREATE Ano 1 · 8 a 9 anos"
+        breadcrumb={{ href: "/cursos/create", label: "Programa CRIADORES" }}
+        eyebrow="CRIADORES Ano 1 · 8 a 9 anos"
         title={
           <>
             Fundamentos <br />
@@ -251,7 +251,7 @@ function Create89Page() {
         subtitle={
           <>
             <p>
-              O <strong>primeiro ano do CREATE</strong>. Seu filho entra no{" "}
+              O <strong>primeiro ano do CRIADORES</strong>. Seu filho entra no{" "}
               <strong>MakeCode Arcade</strong> e, em 40 aulas, sai do primeiro
               sprite até um <strong>jogo completo autoral</strong>.
             </p>
@@ -320,7 +320,7 @@ function Create89Page() {
         }
         description={
           <>
-            O <strong>CREATE Ano 1</strong> é desenhado pra criança de{" "}
+            O <strong>CRIADORES Ano 1</strong> é desenhado pra criança de{" "}
             <strong>8 e 9 anos</strong> que já sabe ler, é curiosa por jogos e
             quer aprender a fazer os próprios. É o início de uma trilha de 6
             anos que termina em Unity profissional.
@@ -351,7 +351,7 @@ function Create89Page() {
             Já na primeira aula seu filho recebe a insígnia{" "}
             <strong>Pixel Iniciante</strong>. A cada módulo conquista uma nova
             insígnia. No Showcase Final, fecha o ano com o{" "}
-            <strong>Selo CREATE Ano 1</strong> e está pronto pro Ano 2.
+            <strong>Selo CRIADORES Ano 1</strong> e está pronto pro Ano 2.
           </>
         }
         badges={INSIGNIAS}
@@ -382,10 +382,10 @@ function Create89Page() {
 
       <CourseCtaFinal
         theme={THEME}
-        title="Pronto pra ver o CREATE Ano 1 ao vivo?"
+        title="Pronto pra ver o CRIADORES Ano 1 ao vivo?"
         description="Aula experimental gratuita. Seu filho vai pro computador, mexe no MakeCode Arcade e sai da aula com algo que ele mesmo construiu."
         primaryCta={{ href: WHATSAPP, label: "Agendar aula experimental" }}
-        secondaryCta={{ href: "/cursos/create", label: "Voltar ao CREATE" }}
+        secondaryCta={{ href: "/cursos/create", label: "Voltar ao CRIADORES" }}
       />
     </>
   );

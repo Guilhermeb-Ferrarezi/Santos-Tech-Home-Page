@@ -1,7 +1,7 @@
 /**
  * Shared course-page components.
  *
- * Use these to assemble any program-detail or course-detail page (JR, CREATE,
+ * Use these to assemble any program-detail or course-detail page (JR, CRIADORES,
  * CAMPS, ACADEMIES). Each page becomes mostly DATA + glue: declare a
  * CourseTheme, fill the data arrays, render the sections in order.
  *
@@ -52,7 +52,7 @@ import {
 // TYPES
 // ──────────────────────────────────────────────────────────────────────────
 
-/** Palette of a single program (JR, CREATE, CAMPS, ACADEMIES). */
+/** Palette of a single program (JR, CRIADORES, CAMPS, ACADEMIES). */
 export type CourseTheme = {
   /** Main brand color (e.g. JR purple #512374). */
   primary: string;

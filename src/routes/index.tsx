@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({
     pageMeta({
       title: "Santos Tech — Escola de Programação para Crianças em Ribeirão Preto",
       description:
-        "Escola presencial de programação para crianças e adolescentes de 5 a 14 anos no Jardim América, Ribeirão Preto. Programas CREATE (criação de jogos), JR (primeira infância), Robótica, IA e Férias Tech. Aulas 100% presenciais.",
+        "Escola presencial de programação para crianças e adolescentes de 5 a 14 anos no Jardim América, Ribeirão Preto. Programas CRIADORES (criação de jogos), JR (primeira infância), Robótica, IA e Férias Tech. Aulas 100% presenciais.",
       path: "/",
     }),
 });
@@ -163,7 +163,7 @@ function Index() {
               </Reveal>
               <Reveal delay={240}>
                 <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-st-blue-dark px-5 py-2.5 text-sm font-bold text-white shadow-lg sm:text-base">
-                  CREATE · JR · ROBÓTICA · IA · FÉRIAS TECH
+                  CRIADORES · JR · ROBÓTICA · IA · FÉRIAS TECH
                 </div>
               </Reveal>
               <Reveal delay={360}>
@@ -262,12 +262,12 @@ function Index() {
           </Reveal>
         </div>
 
-        {/* CREATE — azul, programa carro-chefe */}
+        {/* CRIADORES — azul, programa carro-chefe */}
         <ProgramBand
           bg="bg-program-create"
           age="8 a 14 anos"
           brand="SANTOS TECH"
-          title="CREATE"
+          title="CRIADORES"
           description={
             <>
               <p>Nosso programa carro-chefe — para crianças e pré-adolescentes que não querem só jogar. Querem criar.</p>
@@ -282,11 +282,11 @@ function Index() {
             </>
           }
           imageName="students-1"
-          imageAlt="Aluno do CREATE programando na Santos Tech"
+          imageAlt="Aluno do CRIADORES programando na Santos Tech"
           reverse={false}
           curveTop={false}
           to="/cursos/create"
-          ctaLabel="Conheça o CREATE"
+          ctaLabel="Conheça o CRIADORES"
         />
 
         {/* JR — roxo, base inicial sem leitura */}
@@ -448,7 +448,7 @@ function Index() {
         </div>
       </section>
 
-      {/* JR vs CREATE — comparativo por faixa */}
+      {/* JR vs CRIADORES — comparativo por faixa */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
@@ -507,10 +507,10 @@ function Index() {
                   boxShadow: "0 10px 30px -10px rgba(24,122,191,0.25)",
                 }}
               >
-              <Img name="students-4" alt="Aluno do CREATE na Santos Tech" className="h-64 w-full object-cover" />
+              <Img name="students-4" alt="Aluno do CRIADORES na Santos Tech" className="h-64 w-full object-cover" />
               <div className="p-8">
                 <span className="inline-flex rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground">
-                  CREATE · 8 a 14 anos
+                  CRIADORES · 8 a 14 anos
                 </span>
                 <h3 className="mt-4 text-2xl font-black">Programa carro-chefe</h3>
                 <p className="mt-3 text-muted-foreground">
