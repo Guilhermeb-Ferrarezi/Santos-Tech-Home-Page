@@ -86,9 +86,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
-const HOMEPAGE_TITLE = "Santos Tech — Escola de Programação para Crianças em Ribeirão Preto";
+const HOMEPAGE_TITLE =
+  "Santos Tech — Cursos de Tecnologia, Programação e Informática para Crianças em Ribeirão Preto";
 const HOMEPAGE_DESCRIPTION =
-  "Escola presencial de programação para crianças e adolescentes de 5 a 14 anos em Ribeirão Preto. Programas CREATE, JR, Robótica, IA e Férias Tech. Aulas 100% presenciais no Jardim América.";
+  "Escola presencial em Ribeirão Preto: cursos de tecnologia, programação, criação de jogos (Minecraft e Roblox), impressão 3D, informática e Excel para crianças e adolescentes de 5 a 15 anos. Turmas de até 10 alunos, nota 5,0 no Google. Agende uma aula experimental grátis.";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   {

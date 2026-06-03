@@ -31,9 +31,9 @@ export const Route = createFileRoute("/cursos/camps")({
   component: ColoniaPage,
   head: () =>
     pageMeta({
-      title: "Colônia de Férias — Santos Tech | Tecnologia, Arte e Diversão (Ribeirão Preto)",
+      title: "Colônia de Férias em Ribeirão Preto — Tecnologia, Arte e Recreação | Santos Tech",
       description:
-        "A Colônia de Férias da Santos Tech resolve as férias de quem trabalha: seu filho passa o dia aprendendo e se divertindo — tecnologia, cultura, arte e recreação — de segunda a sexta, no horário em que você está no trabalho. A partir de R$ 939,90 por semana, você escolhe quantas. Em Ribeirão Preto.",
+        "Colônia de férias para crianças e adolescentes (5 a 14 anos) em Ribeirão Preto. Um curso de férias que resolve as férias escolares de quem trabalha: seu filho passa o dia aprendendo e se divertindo com tecnologia, cultura, arte e recreação, de segunda a sexta. A partir de R$ 939,90 por semana — você escolhe quantas.",
       path: "/cursos/camps",
     }),
 });
@@ -144,9 +144,9 @@ function ColoniaPage() {
             { name: "Colônia de Férias", path: "/cursos/camps" },
           ]),
           buildCourseSchema({
-            name: "Colônia de Férias — Santos Tech",
+            name: "Colônia de Férias para Crianças e Adolescentes em Ribeirão Preto",
             description:
-              "Colônia de férias em período integral, de segunda a sexta, para crianças de 5 a 14 anos em Ribeirão Preto. Cobre o horário de trabalho dos pais nas férias escolares, com atividades de tecnologia, cultura, arte e recreação. A partir de R$ 939,90 por semana.",
+              "Colônia de férias (curso de férias) em período integral, de segunda a sexta, para crianças e adolescentes de 5 a 14 anos em Ribeirão Preto. Cobre o horário de trabalho dos pais nas férias escolares, com atividades de tecnologia, cultura, arte e recreação. A partir de R$ 939,90 por semana, você escolhe quantas.",
             path: "/cursos/camps",
             ageMin: 5,
             ageMax: 14,

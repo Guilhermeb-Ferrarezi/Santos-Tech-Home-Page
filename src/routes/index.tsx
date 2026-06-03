@@ -22,6 +22,8 @@ import {
   KeyRound,
   Package,
   RefreshCw,
+  HelpCircle,
+  ChevronDown,
 } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { DecorativeElements } from "@/components/decorative-elements";
@@ -29,16 +31,18 @@ import { Img } from "@/components/img";
 import { WhatsAppIcon } from "@/components/icons";
 import { RarityBadge } from "@/components/rarity-badge";
 import { HeroCollage } from "@/components/hero-collage";
-import { pageMeta } from "@/lib/seo";
+import { Testimonials } from "@/components/testimonials";
+import { JsonLd } from "@/components/json-ld";
+import { pageMeta, buildFaqSchema, buildCourseSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   component: Index,
   head: () =>
     pageMeta({
       title:
-        "Santos Tech — Escola de Tecnologia para Crianças e Adolescentes em Ribeirão Preto",
+        "Santos Tech — Cursos de Tecnologia, Programação e Informática para Crianças em Ribeirão Preto",
       description:
-        "Escola presencial de tecnologia para crianças e adolescentes em Ribeirão Preto. Turmas de até 10 alunos, equipamentos de ponta, impressão 3D e Portal do Aluno. Seu filho aprende a criar a tecnologia — não só a usar. Agende uma aula experimental grátis.",
+        "Escola presencial em Ribeirão Preto: cursos de tecnologia, programação, criação de jogos (Minecraft e Roblox), impressão 3D, informática e Excel para crianças e adolescentes de 5 a 15 anos. Turmas de até 10 alunos, nota 5,0 no Google. Agende uma aula experimental grátis.",
       path: "/",
     }),
 });
@@ -239,12 +243,93 @@ function ProductBand({ p, reverse, curveBottom }: { p: Produto; reverse?: boolea
 }
 
 // ──────────────────────────────────────────────────────────────────────────
+// FAQ — perguntas de alta intenção (SEO: FAQPage) + objeções de venda
+// ──────────────────────────────────────────────────────────────────────────
+
+const FAQ_ITEMS: { q: string; a: string }[] = [
+  {
+    q: "Vocês têm curso de informática e Excel para crianças e adolescentes?",
+    a: "Sim. A trilha de Informática vai do domínio do computador ao Excel que calcula sozinho e ao pacote Office (Word, PowerPoint e Excel), nas turmas Júnior (5 a 9 anos) e Create (10 a 15 anos). É a base digital que prepara pra escola, pra vida e pro mercado de trabalho — 100% presencial em Ribeirão Preto.",
+  },
+  {
+    q: "Tem curso de programação e criação de jogos?",
+    a: "Tem — é o nosso carro-chefe. Na trilha de Tecnologia seu filho cria jogos no Minecraft e no Roblox, modela e imprime objetos em 3D e evolui até programação em Python, Unity e realidade virtual. Aqui ele aprende a criar a tecnologia, não só a usar.",
+  },
+  {
+    q: "Vocês têm curso de robótica em Ribeirão Preto?",
+    a: "Nosso foco é a criação digital: programação, criação de jogos, modelagem 3D e informática — habilidades de altíssima demanda que a criança usa todos os dias. Não trabalhamos com robótica de montagem, mas ensinamos a mesma base de lógica e programação que sustenta a robótica. Agende uma aula experimental gratuita e conheça as trilhas.",
+  },
+  {
+    q: "Vocês têm colônia de férias? Como funciona o curso de férias?",
+    a: "Temos! Nas férias escolares a Santos Tech abre a Colônia de Férias para crianças e adolescentes de 5 a 14 anos: período integral, de segunda a sexta, com tecnologia, arte, cultura e recreação — resolvendo as férias de quem trabalha. É por semana (a partir de R$ 939,90) e você escolhe quantas semanas. Tudo em Ribeirão Preto.",
+  },
+  {
+    q: "Quanto custa? Qual o valor da mensalidade?",
+    a: "A mensalidade é R$ 539,90 — no mesmo patamar do que muitas famílias de Ribeirão já investem em inglês ou natação de alto padrão, por uma habilidade que vale pra próxima década. Inclui turma de até 10 alunos, equipamentos de ponta, impressão 3D e o Portal do Aluno para acompanhar a evolução. Fale no WhatsApp para conhecer as condições e agendar uma aula experimental grátis.",
+  },
+  {
+    q: "A partir de qual idade? Para quais faixas etárias?",
+    a: "Atendemos crianças e adolescentes de 5 a 15 anos, em turmas separadas por idade: Júnior (5 a 9 anos) e Create (10 a 15 anos) — tanto em Tecnologia quanto em Informática. Assim cada criança aprende no nível e no ritmo certo.",
+  },
+  {
+    q: "As aulas são presenciais? Onde fica a escola?",
+    a: "São 100% presenciais — criança aprende melhor com gente ao lado, não atrás de uma tela. Ficamos na Av. Nove de Julho, 1992, Jardim América, Ribeirão Preto/SP, com fácil acesso pela zona sul. Funcionamos de segunda a sexta das 8h às 22h e aos sábados das 8h às 18h.",
+  },
+  {
+    q: "Meu filho nunca programou. Ele consegue acompanhar?",
+    a: "Com certeza. As turmas são de até 10 alunos e a evolução é por níveis, no ritmo de cada criança — começamos do zero, de um jeito lúdico. Logo na aula experimental gratuita ele já cria algo de verdade no primeiro dia.",
+  },
+  {
+    q: "Como agendo uma aula experimental ou faço a matrícula?",
+    a: "É simples: chame a gente no WhatsApp, agende a aula experimental gratuita e venha conhecer a escola. Seu filho cria algo já na primeira aula e você decide com calma, sem compromisso.",
+  },
+];
+
+// Schemas estruturados da home: Course (4 produtos) + FAQPage
+const HOME_SCHEMAS = [
+  buildCourseSchema({
+    name: "Tecnologia Júnior — Criação de jogos e impressão 3D (5 a 9 anos)",
+    description:
+      "Crianças de 5 a 9 anos criam jogos no Minecraft e no Roblox e modelam e imprimem objetos em 3D, aprendendo a criar tecnologia de forma lúdica.",
+    path: "/cursos#tecnologia",
+    ageMin: 5,
+    ageMax: 9,
+  }),
+  buildCourseSchema({
+    name: "Tecnologia Create — Programação, jogos e 3D (10 a 15 anos)",
+    description:
+      "Adolescentes de 10 a 15 anos programam e publicam jogos (Roblox com Lua e Python), modelam em 3D e exploram Unity e realidade virtual, terminando com projetos de portfólio.",
+    path: "/cursos#tecnologia",
+    ageMin: 10,
+    ageMax: 15,
+  }),
+  buildCourseSchema({
+    name: "Informática Júnior — Computador, Office e IA (5 a 9 anos)",
+    description:
+      "Crianças de 5 a 9 anos dominam o computador de verdade: Word, PowerPoint, Excel e os primeiros passos com inteligência artificial.",
+    path: "/cursos#informatica",
+    ageMin: 5,
+    ageMax: 9,
+  }),
+  buildCourseSchema({
+    name: "Informática Create — Excel avançado, Office e IA (10 a 15 anos)",
+    description:
+      "Adolescentes de 10 a 15 anos aprendem Excel avançado, organização de dados, Power BI e uso aplicado de inteligência artificial — as ferramentas que o mercado exige.",
+    path: "/cursos#informatica",
+    ageMin: 10,
+    ageMax: 15,
+  }),
+  buildFaqSchema(FAQ_ITEMS),
+];
+
+// ──────────────────────────────────────────────────────────────────────────
 // PÁGINA
 // ──────────────────────────────────────────────────────────────────────────
 
 function Index() {
   return (
     <>
+      <JsonLd data={HOME_SCHEMAS} />
       {/* ============ HERO ============ */}
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#e6f1fa] via-[#f3f8fc] to-white">
         <div
@@ -332,6 +417,9 @@ function Index() {
           ))}
         </div>
       </section>
+
+      {/* ============ DEPOIMENTOS (prova social — avaliações reais do Google) ============ */}
+      <Testimonials />
 
       {/* ============ POR QUE A SANTOS TECH ============ */}
       <section className="relative isolate overflow-hidden py-24">
@@ -499,7 +587,14 @@ function Index() {
             </p>
           </Reveal>
 
-          <div className="mt-12 grid items-stretch gap-6 md:grid-cols-2">
+          <Reveal className="mx-auto mt-7 max-w-xl">
+            <p className="flex flex-wrap items-center justify-center gap-2 rounded-full border border-amber-300 bg-amber-50 px-5 py-2.5 text-center text-sm font-bold text-amber-900">
+              <Users className="h-4 w-4 shrink-0 text-amber-600" />
+              Turmas de até 10 alunos — as vagas de cada turma são limitadas
+            </p>
+          </Reveal>
+
+          <div className="mt-8 grid items-stretch gap-6 md:grid-cols-2">
             {PRECOS.map((p) => (
               <Reveal key={p.nome}>
                 <div
@@ -575,7 +670,33 @@ function Index() {
             ))}
           </div>
 
-          <Reveal className="mx-auto mt-10 max-w-3xl">
+          <Reveal className="mx-auto mt-10 max-w-3xl space-y-4">
+            {/* Ancoragem — diluição por dia + régua premium + valor incluso */}
+            <div className="rounded-2xl border-2 border-primary/15 bg-white p-6 shadow-sm">
+              <div className="grid gap-5 text-center sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-border">
+                <div className="px-3">
+                  <p className="text-2xl font-black text-st-blue-dark">
+                    ≈ R$ 18<span className="text-base font-bold">/dia</span>
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Menos que um lanche — por uma habilidade que vale a vida toda.
+                  </p>
+                </div>
+                <div className="px-3">
+                  <p className="text-2xl font-black text-st-blue-dark">No nível do inglês</p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Mesmo patamar das atividades premium que a família já investe (inglês, natação).
+                  </p>
+                </div>
+                <div className="px-3">
+                  <p className="text-2xl font-black text-st-blue-dark">Turma de 10</p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Atenção quase individual, equipamentos de ponta e Portal do Aluno inclusos.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <div className="rounded-2xl border border-primary/15 bg-white/70 p-6 text-center backdrop-blur">
               <p className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1 text-sm text-muted-foreground">
                 <RefreshCw className="h-4 w-4 text-primary" />
@@ -588,6 +709,103 @@ function Index() {
               </p>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ============ PORTAL DO ALUNO (pilar: "o pai vê o que pagou") ============ */}
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid items-center gap-10 lg:grid-cols-2">
+            <Reveal>
+              <p className="text-sm font-black uppercase tracking-[0.25em] text-primary">
+                Portal do Aluno
+              </p>
+              <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+                Você <span className="text-gradient-hero">acompanha cada passo</span> — de casa
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                Premium de verdade é poder ver o que está sendo construído. No Portal do Aluno você
+                acompanha a evolução do seu filho quando quiser — sem depender de reunião nem de
+                ficar perguntando.
+              </p>
+              <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+                {[
+                  { icon: BarChart3, t: "Notas e evolução" },
+                  { icon: Calendar, t: "Frequência das aulas" },
+                  { icon: Gamepad2, t: "Projetos e conquistas" },
+                  { icon: BadgeCheck, t: "Acesso de pai e mãe" },
+                ].map((f) => (
+                  <li
+                    key={f.t}
+                    className="flex items-center gap-3 rounded-xl border border-border bg-card p-3"
+                  >
+                    <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                      <f.icon className="h-5 w-5" />
+                    </span>
+                    <span className="text-sm font-bold text-st-blue-dark">{f.t}</span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+
+            <Reveal delay={120}>
+              {/* Ilustração estilizada do Portal (não é captura de tela real) */}
+              <div className="relative">
+                <div className="pointer-events-none absolute -inset-4 -z-10 rounded-[2rem] bg-gradient-to-br from-[#187ABF]/15 to-[#0DB88F]/15 blur-2xl" />
+                <div className="rounded-3xl border border-border bg-card p-5 shadow-xl">
+                  <div className="flex items-center justify-between border-b border-border pb-3">
+                    <div className="flex items-center gap-2">
+                      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-st-blue-dark text-white">
+                        <BookOpen className="h-4 w-4" />
+                      </span>
+                      <span className="text-sm font-black text-st-blue-dark">Portal do Aluno</span>
+                    </div>
+                    <span className="text-xs text-muted-foreground">Olá, família 👋</span>
+                  </div>
+
+                  <div className="mt-4 space-y-3">
+                    <div>
+                      <div className="flex justify-between text-xs font-bold text-st-blue-dark">
+                        <span>Progresso — Tecnologia Create</span>
+                        <span className="text-primary">72%</span>
+                      </div>
+                      <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-muted">
+                        <div className="h-2 rounded-full bg-st-green" style={{ width: "72%" }} />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-2">
+                      {[
+                        { v: "9,4", l: "Nota" },
+                        { v: "96%", l: "Frequência" },
+                        { v: "7", l: "Projetos" },
+                      ].map((s) => (
+                        <div key={s.l} className="rounded-lg bg-muted p-3 text-center">
+                          <p className="text-lg font-black text-st-blue-dark">{s.v}</p>
+                          <p className="text-[10px] text-muted-foreground">{s.l}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="flex items-center gap-2 rounded-lg border border-border p-3">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-st-green/15 text-st-green">
+                        <CheckCircle2 className="h-4 w-4" />
+                      </span>
+                      <div>
+                        <p className="text-xs font-bold text-st-blue-dark">Novo projeto entregue</p>
+                        <p className="text-[10px] text-muted-foreground">
+                          Jogo de plataforma publicado no Roblox
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p className="mt-3 text-center text-[11px] text-muted-foreground">
+                  Ilustração do Portal do Aluno.
+                </p>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -722,6 +940,52 @@ function Index() {
                 <p className="text-sm text-muted-foreground">seguidores no Instagram</p>
               </a>
             </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ============ FAQ (SEO FAQPage + objeções) ============ */}
+      <section id="faq" className="scroll-mt-24 bg-muted/40 py-20">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="text-center">
+            <p className="text-sm font-black uppercase tracking-[0.25em] text-primary">
+              Perguntas frequentes
+            </p>
+            <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+              Tudo que os pais <span className="text-gradient-hero">perguntam</span>
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Curso de tecnologia, programação ou informática em Ribeirão Preto — as dúvidas mais
+              comuns, respondidas.
+            </p>
+          </Reveal>
+
+          <div className="mt-10 space-y-3">
+            {FAQ_ITEMS.map((item) => (
+              <Reveal key={item.q}>
+                <details className="group rounded-2xl border-2 border-primary/10 bg-card p-5 transition hover:border-primary/30">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-black text-st-blue-dark [&::-webkit-details-marker]:hidden">
+                    <span className="flex items-start gap-3">
+                      <HelpCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                      {item.q}
+                    </span>
+                    <ChevronDown className="h-5 w-5 shrink-0 text-primary transition group-open:rotate-180" />
+                  </summary>
+                  <p className="mt-3 pl-8 text-muted-foreground">{item.a}</p>
+                </details>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal className="mt-8 text-center">
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-md bg-st-green px-7 py-3.5 text-sm font-black uppercase tracking-wider text-white shadow-lg transition hover:scale-[1.03] glow-green"
+            >
+              <WhatsAppIcon className="h-4 w-4" /> Ainda tem dúvida? Fale no WhatsApp
+            </a>
           </Reveal>
         </div>
       </section>

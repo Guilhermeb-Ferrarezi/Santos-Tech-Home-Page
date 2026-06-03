@@ -52,9 +52,11 @@ export const ORG = {
   geo: { latitude: -21.1957, longitude: -47.8104 },
   // Foundational description — usada por LLMs pra entender o que somos
   description:
-    "Escola presencial de programação para crianças e adolescentes de 5 a 14 anos em Ribeirão Preto, SP. Ensina lógica, programação, criação de jogos, robótica e inteligência artificial em ambiente lúdico e estruturado.",
+    "Escola presencial de tecnologia, programação e informática para crianças e adolescentes de 5 a 15 anos em Ribeirão Preto, SP. Cursos de criação de jogos (Minecraft e Roblox), modelagem e impressão 3D e programação em Python, além de informática essencial: Excel, pacote Office e inteligência artificial. Turmas de até 10 alunos, 100% presencial no Jardim América.",
   shortDescription:
-    "Escola de programação para crianças e adolescentes em Ribeirão Preto. Programas CREATE, JR, Academia de Robótica, Academia de IA e Férias Tech.",
+    "Escola de tecnologia, programação e informática para crianças e adolescentes em Ribeirão Preto. Criação de jogos, 3D, Python, Excel e Office — turmas de até 10 alunos, 100% presencial.",
+  // Avaliação agregada real do Google (atualizar conforme crescer)
+  rating: { value: "5.0", count: 329 },
 } as const;
 
 // ──────────────────────────────────────────────────────────────────────────
@@ -102,33 +104,45 @@ export function buildOrganizationSchema(): JsonLd {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
         opens: "08:00",
-        closes: "18:00",
+        closes: "22:00",
       },
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: "Saturday",
         opens: "08:00",
-        closes: "12:00",
+        closes: "18:00",
       },
     ],
     knowsAbout: [
-      "Programação para crianças",
-      "Ensino de programação",
-      "Game design educacional",
-      "Robótica educacional",
-      "Inteligência artificial",
-      "Lógica de programação",
-      "JavaScript",
-      "Scratch",
-      "MakeCode Arcade",
-      "Unity",
-      "C#",
+      "Curso de tecnologia para crianças",
+      "Curso de programação para crianças e adolescentes",
+      "Curso de informática",
+      "Curso de Excel",
+      "Pacote Office (Word, PowerPoint, Excel)",
+      "Criação de jogos com Minecraft e Roblox",
+      "Programação em Python",
+      "Modelagem e impressão 3D",
+      "Inteligência artificial para crianças",
+      "Desenvolvimento de jogos com Roblox e Lua",
+      "Lógica de programação e pensamento computacional",
+      "Curso de tecnologia em Ribeirão Preto",
+      "Colônia de férias em Ribeirão Preto",
+      "Curso de férias para crianças e adolescentes",
+      "Acampamento e recreação nas férias escolares",
       "STEM",
     ],
     audience: [
-      { "@type": "EducationalAudience", educationalRole: "student", audienceType: "Crianças de 5 a 14 anos" },
+      { "@type": "EducationalAudience", educationalRole: "student", audienceType: "Crianças e adolescentes de 5 a 15 anos" },
       { "@type": "EducationalAudience", educationalRole: "parent", audienceType: "Pais e responsáveis" },
     ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: ORG.rating.value,
+      reviewCount: ORG.rating.count,
+      bestRating: "5",
+      worstRating: "1",
+    },
+    priceRange: "R$$$",
   };
 }
 
