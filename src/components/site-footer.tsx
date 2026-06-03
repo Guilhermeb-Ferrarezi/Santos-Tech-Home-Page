@@ -133,13 +133,13 @@ export function SiteFooter() {
             </li>
             <li>
               <a href="https://instagram.com/escolasantostech" target="_blank" rel="noreferrer" className={`flex items-center gap-2.5 ${t.links}`}>
-                <Instagram className={`h-5 w-5 shrink-0 ${t.iconColor}`} /> @escolasantostech
+                <Instagram className={`h-5 w-5 shrink-0 ${t.iconColor}`} /> escolasantostech
               </a>
             </li>
             <li className="flex items-center gap-2.5">
               <Mail className={`h-5 w-5 shrink-0 ${t.iconColor}`} />
-              <a href="mailto:ceo@santos-games.com" className={t.links}>
-                ceo@santos-games.com
+              <a href="mailto:contato@santos-tech.com" className={t.links}>
+                contato@santos-tech.com
               </a>
             </li>
           </ul>
