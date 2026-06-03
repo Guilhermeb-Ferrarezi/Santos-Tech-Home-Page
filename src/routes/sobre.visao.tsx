@@ -159,15 +159,6 @@ function NossaVisaoPage() {
                   "Empoderar mentes jovens com pensamento computacional é dar
                   a elas a chave para destravar possibilidades ilimitadas."
                 </blockquote>
-                <div className="mt-8 flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-full bg-white/15" />
-                  <div>
-                    <p className="text-base font-black">
-                      [VERIFICAR: Nome do CEO / Fundador]
-                    </p>
-                    <p className="text-sm text-white/75">CEO da Santos Tech</p>
-                  </div>
-                </div>
               </div>
             </div>
           </Reveal>

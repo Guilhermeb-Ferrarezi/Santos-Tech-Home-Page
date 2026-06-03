@@ -2,31 +2,27 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Img } from "@/components/img";
+import { RarityBadge } from "@/components/rarity-badge";
 import { useProgramAccentDark } from "@/lib/program-theme";
 
 // ──────────────────────────────────────────────────────────────────────────
-// DATA
+// DATA — 4 produtos reais, agrupados por eixo. "Também" mantém Robótica/IA
+// e Férias acessíveis (páginas no ar) como links secundários.
 // ──────────────────────────────────────────────────────────────────────────
+type NavItem = { label: string; meta?: string; href: string; color: string; badge?: boolean };
 
-// Programas dropdown — cores correspondem à identidade de cada programa.
-type ProgramItem = {
-  label: string;
-  href: string;
-  color: string;
-};
-
-const PROGRAMAS_PRINCIPAIS: ProgramItem[] = [
-  { label: "CREATE", href: "/cursos/create", color: "#187ABF" },
-  { label: "JR", href: "/cursos/junior", color: "#512374" },
+const NAV_TEC: NavItem[] = [
+  { label: "Tecnologia Júnior", meta: "5–9 anos", href: "/cursos#tecnologia", color: "#0DB88F" },
+  { label: "Tecnologia Create", meta: "10–15 anos", href: "/cursos#tecnologia", color: "#187ABF", badge: true },
+];
+const NAV_INF: NavItem[] = [
+  { label: "Informática Júnior", meta: "5–9 anos", href: "/cursos#informatica", color: "#0DB88F" },
+  { label: "Informática Create", meta: "10–15 anos", href: "/cursos#informatica", color: "#187ABF" },
+];
+const NAV_EXTRAS: NavItem[] = [
+  { label: "Colônia de Férias", href: "/cursos/camps", color: "#0E9E8E" },
 ];
 
-const PROGRAMAS_ADICIONAIS: ProgramItem[] = [
-  { label: "ACADEMIA DE IA", href: "/cursos/academies#ai", color: "#0411A0" },
-  { label: "ACADEMIA DE ROBÓTICA", href: "/cursos/academies#robotica", color: "#0411A0" },
-  { label: "FÉRIAS TECH", href: "/cursos/camps", color: "#1C8299" },
-];
-
-// Sobre dropdown — itens institucionais (cor neutra/primary).
 type SobreItem = { label: string; href: string };
 const SOBRE_ITEMS: SobreItem[] = [
   { label: "SOBRE NÓS", href: "/sobre" },
@@ -36,7 +32,6 @@ const SOBRE_ITEMS: SobreItem[] = [
 // ──────────────────────────────────────────────────────────────────────────
 // HEADER
 // ──────────────────────────────────────────────────────────────────────────
-
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [programsOpen, setProgramsOpen] = useState(false);
@@ -53,14 +48,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-3" onClick={closeAll} aria-label="Santos Tech — página inicial">
-          <Img
-            name="logo"
-            alt="Logo Santos Tech"
-            priority
-            width={48}
-            height={48}
-            className="h-12 w-12"
-          />
+          <Img name="logo" alt="Logo Santos Tech" priority width={48} height={48} className="h-12 w-12" />
           <span className="text-lg font-bold tracking-tight">
             SANTOS{" "}
             <span style={{ color: accentColor }} className="transition-colors">
@@ -131,9 +119,7 @@ export function SiteHeader() {
               aria-expanded={programsOpen}
             >
               <span>Programas</span>
-              <ChevronDown
-                className={`h-4 w-4 transition-transform ${programsOpen ? "rotate-180" : ""}`}
-              />
+              <ChevronDown className={`h-4 w-4 transition-transform ${programsOpen ? "rotate-180" : ""}`} />
             </button>
 
             {programsOpen && (
@@ -145,36 +131,9 @@ export function SiteHeader() {
                 >
                   Ver todos os programas
                 </Link>
-
-                <p className="px-3 pt-3 text-[10px] font-black uppercase tracking-[0.18em] text-muted-foreground">
-                  Programas principais
-                </p>
-                {PROGRAMAS_PRINCIPAIS.map((p) => (
-                  <Link
-                    key={p.href}
-                    to={p.href}
-                    onClick={closeAll}
-                    className="rounded-md px-3 py-2 text-sm font-black uppercase tracking-wider hover:bg-muted"
-                    style={{ color: p.color }}
-                  >
-                    {p.label}
-                  </Link>
-                ))}
-
-                <p className="px-3 pt-3 text-[10px] font-black uppercase tracking-[0.18em] text-muted-foreground">
-                  Programas adicionais
-                </p>
-                {PROGRAMAS_ADICIONAIS.map((p) => (
-                  <a
-                    key={p.href}
-                    href={p.href}
-                    onClick={closeAll}
-                    className="rounded-md px-3 py-2 text-sm font-black uppercase tracking-wider hover:bg-muted"
-                    style={{ color: p.color }}
-                  >
-                    {p.label}
-                  </a>
-                ))}
+                <NavGroup title="Tecnologia" items={NAV_TEC} onClick={closeAll} variant="mobile" />
+                <NavGroup title="Informática" items={NAV_INF} onClick={closeAll} variant="mobile" />
+                <NavGroup title="Também" items={NAV_EXTRAS} onClick={closeAll} variant="mobile" />
               </div>
             )}
 
@@ -186,9 +145,7 @@ export function SiteHeader() {
               aria-expanded={sobreOpen}
             >
               <span>Sobre</span>
-              <ChevronDown
-                className={`h-4 w-4 transition-transform ${sobreOpen ? "rotate-180" : ""}`}
-              />
+              <ChevronDown className={`h-4 w-4 transition-transform ${sobreOpen ? "rotate-180" : ""}`} />
             </button>
 
             {sobreOpen && (
@@ -229,9 +186,47 @@ export function SiteHeader() {
 }
 
 // ──────────────────────────────────────────────────────────────────────────
+// GRUPO DE LINKS (reutilizado em desktop e mobile)
+// ──────────────────────────────────────────────────────────────────────────
+function NavGroup({
+  title,
+  items,
+  onClick,
+  variant,
+}: {
+  title: string;
+  items: NavItem[];
+  onClick?: () => void;
+  variant: "desktop" | "mobile";
+}) {
+  const isDesktop = variant === "desktop";
+  return (
+    <>
+      <p className={`${isDesktop ? "px-4 pt-2" : "px-3 pt-3"} text-[10px] font-black uppercase tracking-[0.18em] text-muted-foreground`}>
+        {title}
+      </p>
+      {items.map((p) => (
+        <a
+          key={p.label}
+          href={p.href}
+          onClick={onClick}
+          className={`flex items-center justify-between gap-3 ${isDesktop ? "rounded-xl px-4 py-2" : "rounded-md px-3 py-2"} text-sm font-bold hover:bg-muted`}
+        >
+          <span style={{ color: p.color }}>{p.label}</span>
+          {p.badge ? (
+            <RarityBadge className="shrink-0" />
+          ) : (
+            p.meta && <span className="shrink-0 text-[10px] font-semibold text-muted-foreground">{p.meta}</span>
+          )}
+        </a>
+      ))}
+    </>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────────────────
 // DESKTOP DROPDOWNS — hover-based, CSS-only group transitions
 // ──────────────────────────────────────────────────────────────────────────
-
 function ProgramsDropdown() {
   return (
     <div className="group relative">
@@ -243,10 +238,9 @@ function ProgramsDropdown() {
         <ChevronDown className="h-3.5 w-3.5 transition-transform group-hover:rotate-180" />
       </button>
 
-      {/* invisible bridge to avoid hover gap */}
       <div className="absolute left-0 right-0 top-full h-3" aria-hidden />
 
-      <div className="invisible absolute left-1/2 top-[calc(100%+0.5rem)] w-72 -translate-x-1/2 rounded-lg border-2 border-primary/25 bg-white p-2 shadow-[0_12px_40px_-8px_rgba(24,122,191,0.18),0_4px_12px_rgba(0,0,0,0.04)] opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
+      <div className="invisible absolute left-1/2 top-[calc(100%+0.5rem)] w-80 -translate-x-1/2 rounded-lg border-2 border-primary/25 bg-white p-2 shadow-[0_12px_40px_-8px_rgba(24,122,191,0.18),0_4px_12px_rgba(0,0,0,0.04)] opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
         <Link
           to="/cursos"
           className="block rounded-xl px-4 py-3 text-xs font-black uppercase tracking-[0.18em] text-primary hover:bg-muted"
@@ -255,34 +249,11 @@ function ProgramsDropdown() {
         </Link>
 
         <div className="my-1 h-px bg-border" />
+        <NavGroup title="Tecnologia" items={NAV_TEC} variant="desktop" />
+        <NavGroup title="Informática" items={NAV_INF} variant="desktop" />
 
-        <p className="px-4 pt-2 text-[10px] font-black uppercase tracking-[0.18em] text-muted-foreground">
-          Programas principais
-        </p>
-        {PROGRAMAS_PRINCIPAIS.map((p) => (
-          <Link
-            key={p.href}
-            to={p.href}
-            className="block rounded-xl px-4 py-2 text-sm font-black uppercase tracking-wider hover:bg-muted"
-            style={{ color: p.color }}
-          >
-            {p.label}
-          </Link>
-        ))}
-
-        <p className="px-4 pt-3 text-[10px] font-black uppercase tracking-[0.18em] text-muted-foreground">
-          Programas adicionais
-        </p>
-        {PROGRAMAS_ADICIONAIS.map((p) => (
-          <a
-            key={p.href}
-            href={p.href}
-            className="block rounded-xl px-4 py-2 text-sm font-black uppercase tracking-wider hover:bg-muted"
-            style={{ color: p.color }}
-          >
-            {p.label}
-          </a>
-        ))}
+        <div className="my-1 h-px bg-border" />
+        <NavGroup title="Também" items={NAV_EXTRAS} variant="desktop" />
       </div>
     </div>
   );
@@ -299,7 +270,6 @@ function SobreDropdown() {
         <ChevronDown className="h-3.5 w-3.5 transition-transform group-hover:rotate-180" />
       </button>
 
-      {/* invisible bridge to avoid hover gap */}
       <div className="absolute left-0 right-0 top-full h-3" aria-hidden />
 
       <div className="invisible absolute left-1/2 top-[calc(100%+0.5rem)] w-60 -translate-x-1/2 rounded-lg border-2 border-primary/25 bg-white p-2 shadow-[0_12px_40px_-8px_rgba(24,122,191,0.18),0_4px_12px_rgba(0,0,0,0.04)] opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">

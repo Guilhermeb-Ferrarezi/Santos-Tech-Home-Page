@@ -1,33 +1,24 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 import {
+  Clock,
+  Calendar,
+  Sun,
+  Sparkles,
+  Shield,
+  Gamepad2,
+  Palette,
+  Globe,
+  Wallet,
   ArrowRight,
   CheckCircle2,
-  Gamepad2,
-  Bot,
-  Cpu,
-  Wrench,
-  Brain,
-  Sparkles,
-  Calendar,
-  Clock,
-  Users,
-  Sun,
-  Coffee,
-  type LucideIcon,
 } from "lucide-react";
 import { Reveal } from "@/components/reveal";
-import { HoverWashCard } from "@/components/hover-wash-card";
+import { WhatsAppIcon } from "@/components/icons";
+import { ColoniaPhotos } from "@/components/colonia-photos";
+import { RarityBadge } from "@/components/rarity-badge";
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import {
-  CourseHero,
   ParaQuemESection,
-  MethodologySection,
   FaqSection,
   CourseCtaFinal,
   type CourseTheme,
@@ -37,201 +28,112 @@ import { JsonLd } from "@/components/json-ld";
 import { pageMeta, buildCourseSchema, buildBreadcrumbSchema, buildFaqSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/camps")({
-  component: CampsPage,
+  component: ColoniaPage,
   head: () =>
     pageMeta({
-      title: "Férias Tech — Semanas Temáticas de Programação (5 a 14 anos) | Santos Tech",
+      title: "Colônia de Férias — Santos Tech | Tecnologia, Arte e Diversão (Ribeirão Preto)",
       description:
-        "Férias Tech da Santos Tech: semanas temáticas de programação, robótica, jogos e inteligência artificial em Ribeirão Preto. Pra crianças de 5 a 14 anos no contraturno ou nas férias. 5 dias, 4h/dia, projeto pronto na sexta. Vagas limitadas.",
+        "A Colônia de Férias da Santos Tech resolve as férias de quem trabalha: seu filho passa o dia aprendendo e se divertindo — tecnologia, cultura, arte e recreação — de segunda a sexta, no horário em que você está no trabalho. A partir de R$ 939,90 por semana, você escolhe quantas. Em Ribeirão Preto.",
       path: "/cursos/camps",
     }),
 });
 
 const WHATSAPP = WHATSAPP_URL.courses;
 
-const THEME: CourseTheme = {
-  primary: "#1C8299",
-  dark: "#0f5a6b",
-  soft: "#6EC4CC",
-};
+// Colônia atende as duas idades (5–14) → identidade no gradiente verde→azul
+const THEME: CourseTheme = { primary: "#0E9E8E", dark: "#04325A", soft: "#8FDCCF" };
 
-// ──────────────────────────────────────────────────────────────────────────
-// SEMANAS TEMÁTICAS — placeholders (validar com escola)
-// ──────────────────────────────────────────────────────────────────────────
-type CampTheme = {
-  name: string;
-  tagline: string;
-  description: string;
-  ageRange: string;
-  icon: LucideIcon;
-  color: string;
-  highlights: string[];
-};
-
-const CAMPS: CampTheme[] = [
-  {
-    name: "Roblox Studio",
-    tagline: "Criando jogos no Roblox de verdade",
-    description: "A semana inteira no Roblox Studio. A criança aprende a montar mapas, programar mecânicas e publicar uma experiência pra jogar com amigos.",
-    ageRange: "8 a 14 anos",
-    icon: Gamepad2,
-    color: "#ef4444",
-    highlights: [
-      "Construção de mapas no Roblox Studio",
-      "Programação básica em Lua",
-      "Publicação de uma experiência jogável",
-    ],
-  },
-  {
-    name: "Minecraft Education",
-    tagline: "Programando no Minecraft com Make Code",
-    description: "Edição educacional do Minecraft + MakeCode. A criança usa blocos pra automatizar construções, criar mecânicas e desafios próprios.",
-    ageRange: "7 a 14 anos",
-    icon: Cpu,
-    color: "#10b981",
-    highlights: [
-      "Minecraft Education Edition",
-      "MakeCode pra automação por blocos",
-      "Mundo próprio montado e compartilhado",
-    ],
-  },
-  {
-    name: "Robótica Maker",
-    tagline: "Robôs que se mexem, sensores que respondem",
-    description: "Semana mão-na-massa com kits de robótica educacional. Montar, programar e fazer competir.",
-    ageRange: "8 a 14 anos",
-    icon: Bot,
-    color: "#06b6d4",
-    highlights: [
-      "Kits de robótica educacional",
-      "Sensores, motores e estruturas",
-      "Mini-desafio final entre equipes",
-    ],
-  },
-  {
-    name: "IA pra Curiosos",
-    tagline: "Inteligência artificial sem mistério",
-    description: "Introdução prática ao que é IA — treinar modelos simples, brincar com geração de imagem e entender como a máquina aprende.",
-    ageRange: "10 a 14 anos",
-    icon: Brain,
-    color: "#8b5cf6",
-    highlights: [
-      "Treinar modelos simples com exemplos",
-      "Geração de imagem e texto guiada",
-      "Conversa real sobre o que IA pode e não pode",
-    ],
-  },
-  {
-    name: "Maker & Eletrônica",
-    tagline: "Da ideia ao circuito que funciona",
-    description: "Semana de inventor. Eletrônica básica com kits seguros, prototipagem e um projeto físico pra levar pra casa.",
-    ageRange: "8 a 14 anos",
-    icon: Wrench,
-    color: "#f59e0b",
-    highlights: [
-      "Eletrônica básica e prototipagem",
-      "Materiais seguros pra criança",
-      "Projeto físico finalizado",
-    ],
-  },
-  {
-    name: "Game Design Express",
-    tagline: "Inventar um jogo do zero em 5 dias",
-    description: "Imersão acelerada em criação de jogos. Conceito, regras, prototipagem em Scratch ou MakeCode, playtest e apresentação.",
-    ageRange: "8 a 14 anos",
-    icon: Sparkles,
-    color: "#ec4899",
-    highlights: [
-      "Conceito + regras do próprio jogo",
-      "Prototipagem em Scratch/MakeCode",
-      "Playtest com a turma + apresentação",
-    ],
-  },
+const METRICS = [
+  { value: "Seg–Sex", label: "no seu horário de trabalho" },
+  { value: "Dia todo", label: "período integral" },
+  { value: "Por semana", label: "você escolhe quantas" },
+  { value: "2×/ano", label: "nas férias escolares" },
 ];
 
-// ──────────────────────────────────────────────────────────────────────────
-// FAQ
-// ──────────────────────────────────────────────────────────────────────────
+const PORQUE = [
+  { icon: Clock, t: "Cobre seu horário de trabalho", d: "Segunda a sexta, no mesmo período em que ele estaria na escola. Você trabalha tranquilo." },
+  { icon: Shield, t: "Ambiente seguro e premium", d: "Equipe ao lado o tempo todo, espaço preparado. Seu filho bem cuidado o dia inteiro." },
+  { icon: Sparkles, t: "Um dia que vale a pena", d: "Em vez de passar as férias na tela, ele cria, aprende e se diverte de verdade." },
+  { icon: Wallet, t: "Você escolhe as semanas", d: "Pode ser 1 semana ou as férias inteiras — e paga só pelo período que escolher." },
+];
+
+const PILARES = [
+  { icon: Gamepad2, t: "Tecnologia", d: "Jogos, robótica, criação digital e impressão 3D — a parte que faz o olho brilhar." },
+  { icon: Palette, t: "Arte", d: "Desenho, pintura e criação manual — pra soltar a imaginação e criar com as próprias mãos." },
+  { icon: Globe, t: "Cultura", d: "Atividades culturais que ampliam o repertório da criança enquanto ela se diverte." },
+  { icon: Sun, t: "Recreação", d: "Brincadeiras, jogos e muita diversão — e novos amigos pra levar pra vida." },
+];
+
+const COMO = [
+  { icon: Calendar, t: "Duas vezes por ano", d: "Nas férias escolares (meio do ano e virada de ano). As datas de cada edição saem com antecedência." },
+  { icon: Clock, t: "Período integral, seg a sex", d: "Cobre o horário em que você está no trabalho — seu filho passa o dia inteiro aqui." },
+  { icon: Wallet, t: "Por semana, flexível", d: "Escolha quantas semanas quiser. Você paga somente pelo período escolhido, sem pacote fechado." },
+];
+
+const INCLUSO = [
+  "Período integral, de segunda a sexta",
+  "Tecnologia, arte, cultura e recreação",
+];
+
+const PRECOS = [
+  { semanas: "1 semana", tag: "Pra experimentar", preco: "R$ 939,90", porSemana: "R$ 939,90 / semana", destaque: false },
+  { semanas: "2 semanas", tag: "Mais economia", preco: "R$ 1.790,90", porSemana: "≈ R$ 895 / semana", destaque: false },
+  { semanas: "3 semanas", tag: "Melhor custo-benefício", preco: "R$ 2.490,90", porSemana: "≈ R$ 830 / semana", destaque: true },
+];
+
 const FAQ: FaqItem[] = [
   {
-    q: "Como funciona uma semana de CAMP?",
-    a: "Cada CAMP é uma semana temática de segunda a sexta. Geralmente 4 horas por dia (ex.: 8h às 12h ou 13h às 17h). No fim da semana, a criança apresenta o projeto que construiu na turma e pra família.",
+    q: "Como funciona a Colônia de Férias?",
+    a: "De segunda a sexta, no período em que seu filho estaria na escola, ele passa o dia na Santos Tech com atividades de tecnologia, arte, cultura e recreação. Acontece duas vezes por ano, nas férias escolares.",
   },
   {
-    q: "Em que épocas do ano vocês oferecem?",
-    a: "Principais temporadas: férias de janeiro, julho e dezembro. Algumas semanas temáticas também rodam no contraturno escolar ao longo do ano. Datas exatas e temas disponíveis variam por temporada — consulta a gente pra ver o calendário aberto agora.",
+    q: "Quanto custa? Preciso pagar as férias inteiras?",
+    a: "Não. O valor é por semana e você escolhe quantas quer: 1 semana R$ 939,90, 2 semanas R$ 1.790,90 e 3 semanas R$ 2.490,90. Você paga somente pelo período escolhido — pode ser uma única semana.",
   },
   {
-    q: "Meu filho nunca fez aula de programação. Pode entrar?",
-    a: "Sim. Os CAMPS são desenhados pra serem porta de entrada. Cada semana começa do zero no tema dela. Não exige experiência prévia — só interesse e a faixa etária certa.",
+    q: "Que idades podem participar?",
+    a: "De 5 a 14 anos, com as turmas organizadas por faixa etária pra cada idade aproveitar no seu ritmo.",
   },
   {
-    q: "Que idade pode participar?",
-    a: "5 a 14 anos. Cada semana indica uma faixa etária ideal (algumas são pra mais novos, outras pra mais velhos). As turmas são separadas por idade pra o conteúdo bater no ponto.",
+    q: "Meu filho não é aluno da escola. Pode participar?",
+    a: "Pode! A Colônia de Férias é aberta — não precisa ser aluno da Santos Tech nem ter feito tecnologia antes.",
   },
   {
-    q: "Quantas crianças por turma?",
-    a: "Turmas pequenas, com atenção individual. Capacidade controlada por semana e tema — quanto mais técnico, menor a turma. Vagas se esgotam rápido nas temporadas de férias.",
+    q: "Quais atividades meu filho faz?",
+    a: "Um equilíbrio entre aprender e se divertir: tecnologia (jogos, robótica, criação digital), arte, cultura e recreação. Nada de passar o dia na tela à toa.",
   },
   {
-    q: "Posso matricular meu filho em mais de uma semana?",
-    a: "Pode. Várias famílias matriculam em 2-3 semanas seguidas pra cobrir todo o recesso. Os temas não se repetem entre semanas — cada uma é um conteúdo novo.",
-  },
-  {
-    q: "Tem alimentação inclusa?",
-    a: "Não. As semanas atendem turno de meio período (4h). Recomendamos um lanche reforçado pra criança. Água sempre disponível no espaço.",
-  },
-  {
-    q: "Qual o investimento?",
-    a: "O valor varia por tema e temporada (alguns CAMPS têm kit incluso, como o de Maker e Robótica). Te passamos preços e formas de pagamento na conversa — sem compromisso.",
+    q: "Quando acontece a próxima edição?",
+    a: "Duas vezes por ano, nas férias escolares (meio do ano e virada de ano). As datas exatas de cada edição a gente divulga e confirma no WhatsApp.",
   },
 ];
 
 // ──────────────────────────────────────────────────────────────────────────
-// SUBCOMPONENTES
+// CARD genérico (Por que / Pilares / Como)
 // ──────────────────────────────────────────────────────────────────────────
-function CampCard({ camp }: { camp: CampTheme }) {
-  const Icon = camp.icon;
+function InfoCard({ item }: { item: { icon: typeof Clock; t: string; d: string } }) {
+  const Icon = item.icon;
   return (
-    <HoverWashCard accent={camp.color} bubbleSize="sm">
-      <div className="relative">
-        <div className="flex items-start justify-between gap-3">
-          <div
-            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md text-white shadow"
-            style={{ background: camp.color }}
-          >
-            <Icon className="h-6 w-6" />
-          </div>
-          <span className="rounded-full bg-muted px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-            {camp.ageRange}
-          </span>
-        </div>
-
-        <h3 className="mt-5 text-xl font-black tracking-tight" style={{ color: THEME.dark }}>
-          {camp.name}
-        </h3>
-        <p className="mt-1 text-sm font-bold" style={{ color: camp.color }}>
-          {camp.tagline}
-        </p>
-        <p className="mt-3 text-sm text-foreground/85">{camp.description}</p>
-
-        <ul className="mt-5 space-y-2 border-t border-border pt-4">
-          {camp.highlights.map((h) => (
-            <li key={h} className="flex items-start gap-2 text-sm">
-              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" style={{ color: camp.color }} />
-              <span className="text-foreground/85">{h}</span>
-            </li>
-          ))}
-        </ul>
+    <div
+      className="h-full rounded-xl border-2 bg-white p-7 transition hover:-translate-y-1"
+      style={{ borderColor: `${THEME.soft}50`, boxShadow: `0 8px 24px -8px ${THEME.primary}26` }}
+    >
+      <div
+        className="flex h-12 w-12 items-center justify-center rounded-xl"
+        style={{ background: `${THEME.soft}40`, color: THEME.primary }}
+      >
+        <Icon className="h-6 w-6" />
       </div>
-    </HoverWashCard>
+      <h3 className="mt-5 text-base font-bold">{item.t}</h3>
+      <p className="mt-2 text-sm text-muted-foreground">{item.d}</p>
+    </div>
   );
 }
 
 // ──────────────────────────────────────────────────────────────────────────
 // PAGE
 // ──────────────────────────────────────────────────────────────────────────
-function CampsPage() {
+function ColoniaPage() {
   return (
     <>
       <JsonLd
@@ -239,12 +141,12 @@ function CampsPage() {
           buildBreadcrumbSchema([
             { name: "Início", path: "/" },
             { name: "Programas", path: "/cursos" },
-            { name: "Férias Tech", path: "/cursos/camps" },
+            { name: "Colônia de Férias", path: "/cursos/camps" },
           ]),
           buildCourseSchema({
-            name: "Férias Tech — Semanas Temáticas de Programação (5 a 14 anos)",
+            name: "Colônia de Férias — Santos Tech",
             description:
-              "Semanas temáticas intensivas de programação, robótica, criação de jogos e inteligência artificial pra crianças de 5 a 14 anos. Formato 5 dias × 4 horas, projeto pronto na sexta. Pra férias escolares e contraturno em Ribeirão Preto.",
+              "Colônia de férias em período integral, de segunda a sexta, para crianças de 5 a 14 anos em Ribeirão Preto. Cobre o horário de trabalho dos pais nas férias escolares, com atividades de tecnologia, cultura, arte e recreação. A partir de R$ 939,90 por semana.",
             path: "/cursos/camps",
             ageMin: 5,
             ageMax: 14,
@@ -252,180 +154,235 @@ function CampsPage() {
           buildFaqSchema(FAQ),
         ]}
       />
-      <CourseHero
-        theme={THEME}
-        eyebrow="CAMPS · 5 a 14 anos"
-        title={
-          <>
-            Tela vira <br />
-            <span style={{ color: THEME.soft }}>habilidade nas férias</span>
-          </>
-        }
-        subtitle={
-          <>
-            <p>
-              Semanas temáticas de programação, robótica, jogos e IA. Pras{" "}
-              <strong>férias</strong> ou pro <strong>contraturno</strong> da
-              escola — segunda a sexta.
-            </p>
-            <p>
-              Seu filho sai da semana com um <strong>projeto pronto pra
-              mostrar</strong>, novos amigos e zero tempo perdido em frente ao
-              celular.
-            </p>
-          </>
-        }
-        primaryCta={{ href: WHATSAPP, label: "Reservar vaga agora" }}
-        secondaryCta={{ href: "#temas", label: "Ver semanas temáticas" }}
-        imageName="students-3"
-        imageAlt="Crianças em CAMP de programação na Santos Tech"
-        blobId="campsBlob"
-        decor="games"
-        metrics={[
-          { value: "5–14", label: "Faixa etária" },
-          { value: "5 dias", label: "Por semana" },
-          { value: "4h", label: "Por dia" },
-          { value: "1", label: "Projeto na mão" },
-        ]}
-      />
 
-      {/* POR QUE CAMPS */}
+      {/* ============ HERO (texto + 2 fotos rotativas) ============ */}
+      <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#e6f4f4] via-[#f3faf9] to-white">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.16]"
+          style={{
+            backgroundImage: "radial-gradient(rgba(14,158,142,0.4) 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
+        <div className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#0DB88F]/20 blur-3xl animate-blob" />
+        <div className="pointer-events-none absolute -right-20 bottom-10 h-80 w-80 rounded-full bg-[#187ABF]/20 blur-3xl animate-blob [animation-delay:3s]" />
+
+        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div>
+              <Reveal>
+                <span
+                  className="inline-flex items-center gap-2 rounded-full border bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] shadow-sm"
+                  style={{ borderColor: `${THEME.soft}`, color: THEME.dark }}
+                >
+                  <Sun className="h-4 w-4" /> Colônia de Férias · 5 a 14 anos
+                </span>
+              </Reveal>
+              <Reveal delay={120}>
+                <h1 className="mt-6 text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+                  Férias incríveis pro seu filho —{" "}
+                  <span style={{ color: THEME.primary }}>tranquilidade pra você</span>
+                </h1>
+              </Reveal>
+              <Reveal delay={240}>
+                <p className="mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
+                  Chegaram as férias, mas o trabalho não para e a escola fechou. Aqui seu filho
+                  passa o dia no mesmo horário em que estaria na escola —{" "}
+                  <strong>aprendendo e se divertindo muito</strong> — enquanto você trabalha
+                  tranquilo. De segunda a sexta.
+                </p>
+              </Reveal>
+              <Reveal delay={360} className="mt-8 flex flex-wrap items-center gap-3">
+                <a
+                  href={WHATSAPP}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-md bg-st-green px-8 py-4 text-sm font-black uppercase tracking-wider text-white shadow-lg transition hover:scale-[1.03] glow-green"
+                >
+                  <WhatsAppIcon className="h-4 w-4" /> Garantir a vaga
+                </a>
+                <a
+                  href="#preco"
+                  className="inline-flex items-center gap-2 rounded-full border-2 px-7 py-4 text-sm font-black uppercase tracking-wider transition"
+                  style={{ borderColor: `${THEME.primary}33`, color: THEME.dark }}
+                >
+                  Ver valores <ArrowRight className="h-4 w-4" />
+                </a>
+              </Reveal>
+              <Reveal delay={480} className="mt-8 flex flex-wrap gap-x-8 gap-y-4">
+                {METRICS.map((m) => (
+                  <div key={m.label}>
+                    <p className="text-2xl font-black" style={{ color: THEME.dark }}>{m.value}</p>
+                    <p className="text-xs text-muted-foreground">{m.label}</p>
+                  </div>
+                ))}
+              </Reveal>
+            </div>
+
+            <Reveal delay={300} y={30}>
+              <ColoniaPhotos />
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ POR QUE ============ */}
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-black uppercase tracking-[0.25em]" style={{ color: THEME.primary }}>
-              Por que CAMPS
+              A solução das férias
             </p>
             <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
-              Férias com{" "}
-              <span style={{ color: THEME.primary }}>propósito</span>
+              Você trabalhando, e o filho?{" "}
+              <span style={{ color: THEME.primary }}>A gente resolve.</span>
             </h2>
             <p className="mt-5 text-lg text-muted-foreground">
-              Recesso escolar é o tempo em que a tela do celular mais ganha. Os
-              CAMPS oferecem uma alternativa que vira esse tempo a favor da
-              criança — sem cara de aula, com mão na massa e resultado palpável
-              no fim da semana.
+              Nas férias escolares, o pai continua no trabalho — mas a criança não tem escola. A
+              Colônia de Férias cobre exatamente esse período, num lugar seguro onde seu filho
+              passa o dia muito bem cuidado.
             </p>
           </Reveal>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { icon: Sun, t: "Cobre as férias", d: "Janeiro, julho, dezembro e recessos pontuais. Resolve a logística do pai." },
-              { icon: Coffee, t: "Contraturno também", d: "Algumas semanas rodam ao longo do ano, no oposto do horário escolar." },
-              { icon: Users, t: "Faz amigos novos", d: "Turmas pequenas, projetos em grupo. Criança volta pra casa querendo voltar." },
-              { icon: Sparkles, t: "Projeto pra mostrar", d: "Cada semana entrega algo concreto — jogo, robô, animação — apresentado pra família." },
-            ].map((item, i) => (
+            {PORQUE.map((item, i) => (
               <Reveal key={item.t} delay={i * 100}>
-                <div
-                  className="h-full rounded-xl border-2 bg-white p-7"
-                  style={{
-                    borderColor: `${THEME.soft}50`,
-                    boxShadow: `0 8px 24px -8px ${THEME.primary}26`,
-                  }}
-                >
-                  <div
-                    className="flex h-12 w-12 items-center justify-center rounded-xl"
-                    style={{ background: `${THEME.soft}40`, color: THEME.primary }}
-                  >
-                    <item.icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mt-5 text-base font-bold">{item.t}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{item.d}</p>
-                </div>
+                <InfoCard item={item} />
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* AS SEMANAS TEMÁTICAS */}
-      <section id="temas" className="bg-muted/40 py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* ============ O QUE ELE FAZ (fundo colorido) ============ */}
+      <section
+        id="atividades"
+        className="relative isolate scroll-mt-24 overflow-hidden py-24 text-white"
+        style={{ background: `linear-gradient(135deg, ${THEME.primary} 0%, ${THEME.dark} 100%)` }}
+      >
+        <div className="absolute inset-0 dotted-bg opacity-20" />
+        <div className="pointer-events-none absolute -left-24 top-10 h-80 w-80 rounded-full bg-white/10 blur-3xl" />
+        <div className="pointer-events-none absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-black/20 blur-3xl" />
+
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-black uppercase tracking-[0.25em]" style={{ color: THEME.primary }}>
-              As semanas temáticas
+            <p className="text-sm font-black uppercase tracking-[0.25em]" style={{ color: THEME.soft }}>
+              O que seu filho faz
             </p>
             <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
-              Escolhe o que faz brilhar o olho dele
+              Muito além de "passar o tempo"
             </h2>
-            <p className="mt-5 text-lg text-muted-foreground">
-              Cada semana é um tema fechado, do zero ao projeto pronto. Os
-              temas disponíveis variam por temporada — consulta o calendário
-              atual pra ver o que está aberto.
+            <p className="mt-5 text-lg text-white/80">
+              Cada dia mistura quatro frentes — pra criança aprender, criar e se divertir sem nem
+              perceber que está aprendendo.
             </p>
           </Reveal>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {CAMPS.map((camp, i) => (
-              <Reveal key={camp.name} delay={i * 80}>
-                <CampCard camp={camp} />
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {PILARES.map((item, i) => (
+              <Reveal key={item.t} delay={i * 100}>
+                <InfoCard item={item} />
               </Reveal>
             ))}
           </div>
-
-          <Reveal delay={600}>
-            <div
-              className="mx-auto mt-10 max-w-2xl rounded-xl border bg-white p-5 text-sm text-foreground/85 shadow-sm"
-              style={{ borderColor: THEME.soft }}
-            >
-              <strong style={{ color: THEME.dark }}>Nem todos os temas rodam em toda temporada.</strong>{" "}
-              Fala com a gente pra saber o calendário e os temas confirmados pra
-              o período que te interessa.
-            </div>
-          </Reveal>
         </div>
       </section>
 
-      {/* COMO FUNCIONA */}
+      {/* ============ COMO FUNCIONA ============ */}
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center">
             <p className="text-sm font-black uppercase tracking-[0.25em]" style={{ color: THEME.primary }}>
-              Formato da semana
+              Como funciona
             </p>
             <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
-              Como funciona um CAMP
+              Simples e do jeito que cabe na sua rotina
             </h2>
           </Reveal>
 
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                icon: Calendar,
-                title: "5 dias seguidos",
-                desc: "Segunda a sexta. Cada CAMP é uma semana fechada, com começo, meio e fim — projeto entregue na sexta.",
-              },
-              {
-                icon: Clock,
-                title: "4h por dia",
-                desc: "Turno de meio período: 8h–12h ou 13h–17h, dependendo da temporada. Ideal pra encaixar com a rotina da família.",
-              },
-              {
-                icon: Users,
-                title: "Turmas pequenas",
-                desc: "Atenção individual e ambiente focado. Vagas limitadas por tema — quanto mais técnico (Robótica, Maker), menor a turma.",
-              },
-            ].map((item, i) => (
-              <Reveal key={item.title} delay={i * 120}>
+            {COMO.map((item, i) => (
+              <Reveal key={item.t} delay={i * 120}>
+                <InfoCard item={item} />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ PREÇO (fundo colorido + 3 cards) ============ */}
+      <section
+        id="preco"
+        className="relative isolate scroll-mt-24 overflow-hidden py-24 text-white"
+        style={{ background: `linear-gradient(135deg, ${THEME.dark} 0%, #0A6E57 100%)` }}
+      >
+        <div className="absolute inset-0 dotted-bg opacity-20" />
+        <div className="pointer-events-none absolute -right-24 top-16 h-80 w-80 rounded-full bg-[#6EC4CC]/20 blur-3xl" />
+
+        <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-black uppercase tracking-[0.25em]" style={{ color: THEME.soft }}>
+              Investimento
+            </p>
+            <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+              A partir de R$ 939,90 por semana
+            </h2>
+            <p className="mt-4 text-lg text-white/80">
+              Você escolhe quantas semanas quer deixar seu filho — e paga só pelo período escolhido.
+              Quanto mais semanas, melhor o preço por semana.
+            </p>
+          </Reveal>
+
+          <div className="mt-14 grid items-end gap-6 md:grid-cols-3">
+            {PRECOS.map((p, i) => (
+              <Reveal key={p.semanas} delay={i * 110}>
                 <div
-                  className="rounded-xl border-2 bg-white p-7"
-                  style={{
-                    borderColor: `${THEME.soft}50`,
-                    boxShadow: `0 8px 24px -8px ${THEME.primary}26`,
-                  }}
+                  className={`relative flex h-full flex-col rounded-3xl bg-white p-7 text-center text-foreground ${
+                    p.destaque ? "shadow-[0_30px_60px_-20px_rgba(0,0,0,0.6)] md:-mt-4 md:pb-9" : "shadow-xl"
+                  }`}
+                  style={p.destaque ? { boxShadow: `0 0 0 4px ${THEME.soft}, 0 30px 60px -20px rgba(0,0,0,0.6)` } : undefined}
                 >
-                  <div
-                    className="flex h-12 w-12 items-center justify-center rounded-md"
-                    style={{ background: `${THEME.soft}40`, color: THEME.primary }}
+                  {p.destaque && (
+                    <RarityBadge className="absolute -top-3 left-1/2 -translate-x-1/2" />
+                  )}
+                  <p className="text-sm font-black uppercase tracking-wider" style={{ color: THEME.primary }}>
+                    {p.semanas}
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">{p.tag}</p>
+                  <p className="mt-4 text-4xl font-black" style={{ color: THEME.dark }}>
+                    {p.preco}
+                  </p>
+                  <p className="text-xs font-semibold text-muted-foreground">{p.porSemana}</p>
+
+                  <ul className="mt-5 space-y-2 border-t border-border pt-5 text-left">
+                    {INCLUSO.map((inc) => (
+                      <li key={inc} className="flex items-start gap-2 text-sm text-foreground/85">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" style={{ color: THEME.primary }} />
+                        <span>{inc}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <a
+                    href={WHATSAPP}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3.5 text-sm font-black uppercase tracking-wider text-white shadow-md transition hover:scale-[1.02]"
+                    style={{ background: THEME.primary }}
                   >
-                    <item.icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mt-5 text-lg font-bold">{item.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{item.desc}</p>
+                    <WhatsAppIcon className="h-4 w-4" /> Quero essa
+                  </a>
                 </div>
               </Reveal>
             ))}
           </div>
+
+          <Reveal className="mx-auto mt-8 max-w-2xl text-center">
+            <p className="text-sm text-white/70">
+              Vagas limitadas por edição. Fale no WhatsApp pra confirmar as datas da próxima
+              colônia e garantir a semana do seu filho.
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -433,38 +390,34 @@ function CampsPage() {
         theme={THEME}
         title={
           <>
-            A solução de férias e{" "}
-            <span style={{ color: THEME.primary }}>contraturno</span>
+            Feita pra família que{" "}
+            <span style={{ color: THEME.primary }}>não para nas férias</span>
           </>
         }
         description={
           <>
-            Os <strong>CAMPS</strong> são desenhados pro pai que precisa ocupar
-            o tempo livre da criança com algo que valha a pena, sem cair na
-            armadilha da tela infinita. Funciona pra quem nunca programou e
-            também pra quem já estuda no CREATE ou JR.
+            A Colônia de Férias é a solução pro pai e pra mãe que continuam trabalhando quando a
+            escola fecha — sem abrir mão de um lugar seguro, produtivo e divertido pro filho.
           </>
         }
         checklistTitle="É ideal se você"
         items={[
-          "Precisa cobrir um recesso escolar (férias, feriadão, recesso)",
-          "Quer testar a Santos Tech sem se comprometer com um ano letivo",
-          "Tem filho de 5 a 14 anos curioso por tecnologia",
-          "Já é aluno e quer um tema diferente pra explorar nas férias",
+          "Trabalha e precisa de um lugar seguro pro filho nas férias",
+          "Não quer a criança o dia todo na tela ou entediada em casa",
+          "Quer que as férias também somem aprendizado e diversão",
+          "Prefere flexibilidade — escolher só as semanas que precisa",
         ]}
         bg="muted"
       />
-
-      <MethodologySection theme={THEME} />
 
       <FaqSection theme={THEME} items={FAQ} />
 
       <CourseCtaFinal
         theme={THEME}
-        title="Vaga é por semana e tema — e elas voam"
-        description="Cada temporada abre datas e temas limitados. Reserva agora pra garantir a melhor semana pra rotina da família. Sem compromisso até confirmação."
-        primaryCta={{ href: WHATSAPP, label: "Reservar vaga agora" }}
-        secondaryCta={{ href: "/cursos", label: "Ver outros programas" }}
+        title="Garanta a vaga do seu filho nas próximas férias"
+        description="As vagas por semana são limitadas e esgotam rápido nas temporadas de férias. Fale com a gente no WhatsApp pra saber as datas da próxima edição e reservar."
+        primaryCta={{ href: WHATSAPP, label: "Falar no WhatsApp" }}
+        secondaryCta={{ href: "/cursos", label: "Ver os programas" }}
       />
     </>
   );

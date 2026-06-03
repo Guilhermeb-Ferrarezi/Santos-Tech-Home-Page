@@ -36,7 +36,7 @@ export const ORG = {
   url: BASE_URL,
   logo: `${BASE_URL}/favicon.png`,
   image: `${BASE_URL}/og-image.png`,
-  email: "ceo.santosgames@gmail.com",
+  email: "ceo@santos-games.com",
   telephone: "+55-16-99257-8710",
   whatsappUrl: "https://wa.me/5516992578710",
   instagram: "https://instagram.com/escolasantostech",

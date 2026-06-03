@@ -19,16 +19,15 @@ type FooterTheme = {
 
 const themes: Record<ProgramKey, FooterTheme> = {
   default: {
-    wrapper: "border-t border-border bg-muted/40",
-    brandHeading: "text-foreground",
-    // st-blue-dark (#04325A) tem 13:1 de contraste vs muted/40 — WCAG AAA.
-    brandHeadingAccent: "text-st-blue-dark",
-    bodyText: "text-muted-foreground",
-    headings: "text-foreground",
-    links: "hover:text-primary",
-    iconColor: "text-st-blue-dark",
-    bottomBar: "border-t border-border",
-    bottomText: "text-muted-foreground",
+    wrapper: "bg-[#04325A] text-white",
+    brandHeading: "text-white",
+    brandHeadingAccent: "text-[#49A8EB]",
+    bodyText: "text-white/85",
+    headings: "text-white",
+    links: "hover:text-[#49A8EB]",
+    iconColor: "text-[#49A8EB]",
+    bottomBar: "border-t border-white/15",
+    bottomText: "text-white/70",
   },
   jr: {
     wrapper: "bg-[#512374] text-white",
@@ -139,8 +138,8 @@ export function SiteFooter() {
             </li>
             <li className="flex items-center gap-2.5">
               <Mail className={`h-5 w-5 shrink-0 ${t.iconColor}`} />
-              <a href="mailto:ceo.santosgames@gmail.com" className={t.links}>
-                ceo.santosgames@gmail.com
+              <a href="mailto:ceo@santos-games.com" className={t.links}>
+                ceo@santos-games.com
               </a>
             </li>
           </ul>

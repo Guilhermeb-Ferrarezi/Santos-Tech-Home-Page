@@ -1,125 +1,235 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import type { ReactNode } from "react";
+import { createFileRoute } from "@tanstack/react-router";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 import {
-  Award,
-  BookOpen,
-  GraduationCap,
   Users,
-  ArrowRight,
-  Gamepad2,
   Cpu,
-  Sparkles,
-  CheckCircle2,
-  MapPin,
-  TrendingUp,
   Shield,
+  BookOpen,
+  Gift,
+  Gamepad2,
+  Rocket,
+  Monitor,
+  BarChart3,
+  MessageCircle,
+  Calendar,
+  Sparkles,
+  Star,
+  MapPin,
+  Instagram,
+  ArrowRight,
+  CheckCircle2,
+  BadgeCheck,
+  KeyRound,
+  Package,
+  RefreshCw,
 } from "lucide-react";
-import { Robot as PhRobot } from "@phosphor-icons/react";
-import { phosphor } from "@/lib/phosphor";
-import { WhatsAppIcon } from "@/components/icons";
-
-// Eyebrow icon — Phosphor Robot bold (presença + delicadeza)
-const RobotIcon = phosphor(PhRobot, "duotone");
 import { Reveal } from "@/components/reveal";
 import { DecorativeElements } from "@/components/decorative-elements";
 import { Img } from "@/components/img";
+import { WhatsAppIcon } from "@/components/icons";
+import { RarityBadge } from "@/components/rarity-badge";
+import { HeroCollage } from "@/components/hero-collage";
 import { pageMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   component: Index,
   head: () =>
     pageMeta({
-      title: "Santos Tech — Escola de Programação para Crianças em Ribeirão Preto",
+      title:
+        "Santos Tech — Escola de Tecnologia para Crianças e Adolescentes em Ribeirão Preto",
       description:
-        "Escola presencial de programação para crianças e adolescentes de 5 a 14 anos no Jardim América, Ribeirão Preto. Programas CREATE (criação de jogos), JR (primeira infância), Robótica, IA e Férias Tech. Aulas 100% presenciais.",
+        "Escola presencial de tecnologia para crianças e adolescentes em Ribeirão Preto. Turmas de até 10 alunos, equipamentos de ponta, impressão 3D e Portal do Aluno. Seu filho aprende a criar a tecnologia — não só a usar. Agende uma aula experimental grátis.",
       path: "/",
     }),
 });
 
 const WHATSAPP = WHATSAPP_URL.courses;
 
-type ProgramBandProps = {
-  bg: string;
+// ──────────────────────────────────────────────────────────────────────────
+// DADOS (conteúdo real — arquivos 02 e 03 de Contexto)
+// ──────────────────────────────────────────────────────────────────────────
+
+const DIFERENCIAIS = [
+  { icon: Users, t: "Turmas de até 10", lead: "Seu filho tem nome, não número.", d: "Atenção individual de verdade: o professor sabe onde cada criança está e pra onde vai. Impossível numa sala lotada." },
+  { icon: Cpu, t: "Equipamentos de ponta", lead: "A tecnologia que ele não tem em casa.", d: "Computadores potentes, impressora 3D e ferramentas profissionais. Aqui ele cria de verdade — não simula." },
+  { icon: Shield, t: "100% presencial", lead: "Presença que vira aprendizado.", d: "Criança aprende com gente ao lado, não atrás de uma tela. Ambiente preparado e seguro, do portão à sala." },
+  { icon: BookOpen, t: "Portal do Aluno", lead: "Você acompanha cada passo.", d: "Notas, frequência, projetos e conquistas — com acesso de pai/mãe pra ver de casa o que está sendo construído." },
+  { icon: Gift, t: "Leva o que cria", lead: "O que ele cria sai pela porta com ele.", d: "Jogos, projetos e objetos impressos em 3D vão pra casa. Resultado pra ver, tocar e mostrar pros amigos." },
+];
+
+type Produto = {
+  icon: typeof Gamepad2;
+  family: string;
   age: string;
-  brand: string;
-  title: string;
-  description: ReactNode;
-  imageName: string;
+  name: string;
+  faz: string;
+  ideal: string;
+  tools: string[];
+  gradient: string;
+  image: string;
   imageAlt: string;
-  reverse?: boolean;
-  curveTop?: boolean;
-  curveBottom?: boolean;
-  to?: string;
-  ctaLabel?: string;
+  destaque?: boolean;
 };
 
-function ProgramFeatures({ items }: { items: string[] }) {
-  return (
-    <ul className="mt-5 space-y-2.5">
-      {items.map((item) => (
-        <li key={item} className="flex items-start gap-3">
-          <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-white/90" />
-          <span>{item}</span>
-        </li>
-      ))}
-    </ul>
-  );
-}
+const PRODUTOS: Produto[] = [
+  {
+    icon: Gamepad2,
+    family: "Tecnologia",
+    age: "5 a 9 anos",
+    name: "Tecnologia Júnior",
+    faz: "Cria seus primeiros jogos, personagens e objetos em 3D que saem impressos de verdade. Aprende a pensar como um criador — brincando, com Minecraft e Roblox.",
+    ideal: "Começar cedo, com diversão e as primeiras habilidades do futuro.",
+    tools: ["Minecraft", "Roblox", "Impressão 3D"],
+    gradient: "linear-gradient(135deg, #14C29A 0%, #0A6E57 100%)",
+    image: "marina-3d",
+    imageAlt: "Criança na Tecnologia Júnior da Santos Tech",
+  },
+  {
+    icon: Rocket,
+    family: "Tecnologia",
+    age: "10 a 15 anos",
+    name: "Tecnologia Create",
+    faz: "Programa de verdade: cria e publica os próprios jogos, modela em 3D e chega até a realidade virtual. Termina com projetos de portfólio.",
+    ideal: "Transformar o tempo de tela em habilidade real e profissional.",
+    tools: ["Roblox + Lua", "Python", "Unity + VR"],
+    gradient: "linear-gradient(135deg, #2E8FCF 0%, #04325A 100%)",
+    image: "students-4",
+    imageAlt: "Adolescente na Tecnologia Create da Santos Tech",
+    destaque: true,
+  },
+  {
+    icon: Monitor,
+    family: "Informática",
+    age: "5 a 9 anos",
+    name: "Informática Júnior",
+    faz: "Domina o computador de verdade — não só o celular. Cria trabalhos, joguinhos e apresentações, e dá os primeiros passos com inteligência artificial.",
+    ideal: "A base que toda criança precisa pra escola e pra vida digital.",
+    tools: ["Word", "PowerPoint", "Excel", "IA"],
+    gradient: "linear-gradient(135deg, #14C29A 0%, #0A6E57 100%)",
+    image: "marina-digitacao",
+    imageAlt: "Criança na Informática Júnior da Santos Tech",
+  },
+  {
+    icon: BarChart3,
+    family: "Informática",
+    age: "10 a 15 anos",
+    name: "Informática Create",
+    faz: "Aprende as ferramentas que todo emprego exige — Excel, apresentações, organização de dados e uso de IA. Termina com um portfólio profissional.",
+    ideal: "Preparar o adolescente pro mercado de trabalho desde cedo.",
+    tools: ["Excel avançado", "Power BI", "IA"],
+    gradient: "linear-gradient(135deg, #2E8FCF 0%, #04325A 100%)",
+    image: "students-2",
+    imageAlt: "Adolescente na Informática Create da Santos Tech",
+  },
+];
 
-function ProgramBand({ bg, age, brand, title, description, imageName, imageAlt, reverse, curveTop, curveBottom, to, ctaLabel = "Saiba mais" }: ProgramBandProps) {
+const PASSOS = [
+  { icon: MessageCircle, t: "Fale com a gente no WhatsApp", d: "Tire todas as dúvidas e já saiba os valores, sem enrolação." },
+  { icon: Calendar, t: "Agende a aula experimental grátis", d: "Seu filho vem conhecer e criar algo de verdade já no primeiro dia." },
+  { icon: Sparkles, t: "Veja o brilho no olho", d: "Se ele amar (e costuma amar), é só matricular." },
+];
+
+const PRECOS = [
+  { nome: "Tecnologia", sub: "Júnior e Create", icon: Rocket, cor: "#0DB88F", corDark: "#04325A", material: "R$ 690/ano", destaque: true },
+  { nome: "Informática", sub: "Júnior e Create", icon: Monitor, cor: "#0DB88F", corDark: "#04325A", material: "R$ 290/ano", destaque: false },
+];
+
+const MATERIAL = [
+  { icon: Monitor, t: "Portal do Aluno", d: "Trilha, videoaulas, ebooks e conteúdo sempre atualizado — vivo, nunca defasado." },
+  { icon: Package, t: "Ferramentas profissionais", d: "Os mesmos programas licenciados do mercado, liberados durante todas as aulas." },
+  { icon: Users, t: "Acesso de pai/mãe", d: "Um login só pra você acompanhar a evolução, as notas e a frequência do seu filho." },
+  { icon: Gift, t: "Impressões 3D inclusas", d: "Na Tecnologia, o filamento e as impressões entram no material — ele leva pra casa o que cria." },
+];
+
+const MATRICULA = [
+  { icon: Users, t: "Vaga numa turma de até 10", d: "Lugar reservado pro seu filho numa turma pequena, com atenção de verdade." },
+  { icon: BadgeCheck, t: "Avaliação de nivelamento", d: "Identificamos o nível certo pra ele começar — na medida, nem fácil nem difícil demais." },
+  { icon: KeyRound, t: "Acessos criados", d: "Login do aluno e o seu, de pai/mãe, no Portal do Aluno — prontos desde o primeiro dia." },
+];
+
+const STATS = [
+  { n: "5–15", l: "anos" },
+  { n: "Até 10", l: "alunos por turma" },
+  { n: "5,0★", l: "nota no Google" },
+  { n: "329", l: "avaliações" },
+];
+
+// ──────────────────────────────────────────────────────────────────────────
+// FAIXA DE PRODUTO (full-width, colorida — design premium restaurado)
+// ──────────────────────────────────────────────────────────────────────────
+
+function ProductBand({ p, reverse, curveBottom }: { p: Produto; reverse?: boolean; curveBottom?: boolean }) {
+  const Icon = p.icon;
   return (
-    <div className={`relative isolate overflow-hidden ${bg} text-white`}>
-      {curveTop && (
-        <div className="absolute -top-px left-0 right-0 leading-[0]">
-          <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="block h-[60px] w-full sm:h-[80px] rotate-180">
-            <path d="M0,40 C360,100 720,0 1080,40 C1260,60 1380,70 1440,50 L1440,80 L0,80 Z" fill="currentColor" className="text-white" />
-          </svg>
-        </div>
-      )}
-      <div className="absolute inset-0 dotted-bg opacity-30" />
+    <div className="relative isolate overflow-hidden text-white" style={{ background: p.gradient }}>
+      {/* curva branca no topo (divisor) */}
+      <div className="absolute -top-px left-0 right-0 leading-[0]">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="block h-[44px] w-full rotate-180 sm:h-[64px]">
+          <path d="M0,40 C360,100 720,0 1080,40 C1260,60 1380,70 1440,50 L1440,80 L0,80 Z" fill="#ffffff" />
+        </svg>
+      </div>
+
+      <div className="absolute inset-0 dotted-bg opacity-20" />
       <div className="pointer-events-none absolute -left-20 top-10 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
       <div className="pointer-events-none absolute -right-20 bottom-10 h-72 w-72 rounded-full bg-black/20 blur-3xl" />
 
-      <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
-        <div className={`grid items-center gap-12 lg:grid-cols-2 ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
+      <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
+        <div className={`grid items-center gap-10 lg:grid-cols-2 ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
           <Reveal y={30}>
             <div className="relative">
               <div className="absolute -inset-6 -z-10 rounded-[40%] bg-white/10 blur-2xl" />
               <div className="overflow-hidden rounded-2xl border-2 border-white/30 shadow-[0_24px_50px_-20px_rgba(0,0,0,0.5)] rotate-[-2deg] animate-float-slow">
-                <Img name={imageName} alt={imageAlt} className="h-[340px] w-full object-cover sm:h-[400px]" />
+                <Img name={p.image} alt={p.imageAlt} className="h-[320px] w-full object-cover sm:h-[380px]" />
               </div>
             </div>
           </Reveal>
+
           <Reveal delay={150} y={30}>
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-white/80">{age}</p>
-            <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-white/90">{brand}</p>
-            <h3 className="mt-2 text-6xl font-black tracking-tight sm:text-7xl lg:text-8xl">{title}</h3>
-            <div className="mt-6 max-w-lg text-base text-white/85 sm:text-lg">{description}</div>
-            {to ? (
-              <Link
-                to={to}
-                className="mt-8 inline-flex items-center gap-2 rounded-md bg-st-green px-8 py-4 text-sm font-black uppercase tracking-wider text-white shadow-xl transition hover:scale-[1.03] glow-green"
-              >
-                {ctaLabel} <ArrowRight className="h-4 w-4" />
-              </Link>
-            ) : (
-              <a
-                href={WHATSAPP}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-8 inline-flex items-center gap-2 rounded-md bg-st-green px-8 py-4 text-sm font-black uppercase tracking-wider text-white shadow-xl transition hover:scale-[1.03] glow-green"
-              >
-                {ctaLabel} <ArrowRight className="h-4 w-4" />
-              </a>
-            )}
+            <div className="flex items-center gap-3">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/15 backdrop-blur">
+                <Icon className="h-6 w-6" />
+              </span>
+              <span className="text-xs font-black uppercase tracking-[0.28em] text-white/80">{p.family}</span>
+            </div>
+
+            <div className="mt-5 flex flex-wrap items-center gap-2">
+              <span className="inline-block rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wider backdrop-blur">
+                {p.age}
+              </span>
+              {p.destaque && <RarityBadge />}
+            </div>
+            <h3 className="mt-3 text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl">{p.name}</h3>
+
+            <p className="mt-5 max-w-lg text-base text-white/90 sm:text-lg">{p.faz}</p>
+
+            <div className="mt-5 flex flex-wrap gap-2">
+              {p.tools.map((t) => (
+                <span key={t} className="rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs font-semibold backdrop-blur">
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            <p className="mt-5 flex items-start gap-2 text-sm text-white/85">
+              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
+              <span><strong className="font-bold text-white">Ideal para:</strong> {p.ideal}</span>
+            </p>
+
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-8 inline-flex items-center gap-2 rounded-md bg-st-green px-8 py-4 text-sm font-black uppercase tracking-wider text-white shadow-xl transition hover:scale-[1.03] glow-green"
+            >
+              <WhatsAppIcon className="h-4 w-4" /> Quero saber mais
+            </a>
           </Reveal>
         </div>
       </div>
 
       {curveBottom && (
         <div className="absolute bottom-0 left-0 right-0 leading-[0]">
-          <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="block h-[60px] w-full sm:h-[80px]">
+          <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="block h-[44px] w-full sm:h-[64px]">
             <path d="M0,40 C360,100 720,0 1080,40 C1260,60 1380,70 1440,50 L1440,80 L0,80 Z" fill="#ffffff" />
           </svg>
         </div>
@@ -128,10 +238,14 @@ function ProgramBand({ bg, age, brand, title, description, imageName, imageAlt, 
   );
 }
 
+// ──────────────────────────────────────────────────────────────────────────
+// PÁGINA
+// ──────────────────────────────────────────────────────────────────────────
+
 function Index() {
   return (
     <>
-      {/* HERO — fundo claro, paleta azul/verde Santos Tech */}
+      {/* ============ HERO ============ */}
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#e6f1fa] via-[#f3f8fc] to-white">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.18]"
@@ -142,8 +256,6 @@ function Index() {
         />
         <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-[#187ABF]/25 blur-3xl animate-blob" />
         <div className="pointer-events-none absolute -right-24 top-40 h-96 w-96 rounded-full bg-[#0DB88F]/20 blur-3xl animate-blob [animation-delay:3s]" />
-
-        {/* Decoração: cubos, hexágonos e sparkles flutuantes (sutis, só desktop) */}
         <DecorativeElements color="#187ABF" />
 
         <div className="relative mx-auto max-w-7xl px-4 pb-32 pt-16 sm:px-6 sm:pt-20 lg:px-8 lg:pb-40 lg:pt-24">
@@ -151,30 +263,26 @@ function Index() {
             <div>
               <Reveal>
                 <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-primary shadow-sm">
-                  <RobotIcon className="h-6 w-6 shrink-0" />
-                  Onde as crianças aprendem a programar enquanto fazem amigos e se divertem!
+                  <MapPin className="h-4 w-4 shrink-0" />
+                  Escola presencial de tecnologia · Ribeirão Preto
                 </span>
               </Reveal>
               <Reveal delay={120}>
-                <h1 className="mt-6 text-5xl font-black leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
-                  <span className="block text-st-blue-dark">O tempo de tela do seu filho</span>
-                  <span className="mt-2 block text-gradient-hero">pode virar a habilidade do futuro.</span>
+                <h1 className="mt-6 text-4xl font-black leading-[1.02] tracking-tight sm:text-5xl lg:text-6xl">
+                  <span className="block text-st-blue-dark">Onde seu filho aprende a</span>
+                  <span className="mt-1 block text-gradient-hero">criar a tecnologia</span>
+                  <span className="mt-1 block text-st-blue-dark">— não só a usar.</span>
                 </h1>
               </Reveal>
               <Reveal delay={240}>
-                <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-st-blue-dark px-5 py-2.5 text-sm font-bold text-white shadow-lg sm:text-base">
-                  CREATE · JR · ROBÓTICA · IA · FÉRIAS TECH
-                </div>
-              </Reveal>
-              <Reveal delay={360}>
                 <p className="mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
-                  A <strong>Santos Tech</strong> é uma escola presencial de
-                  programação para crianças e adolescentes de{" "}
-                  <strong>5 a 14 anos</strong> em Ribeirão Preto. Seu filho cria
-                  o próprio jogo já na primeira aula.
+                  Escola presencial de tecnologia para crianças e adolescentes em
+                  Ribeirão Preto. Turmas de até <strong>10 alunos</strong>,
+                  equipamentos de ponta e um método em que seu filho cria jogos,
+                  robôs e projetos reais <strong>desde a primeira aula</strong>.
                 </p>
               </Reveal>
-              <Reveal delay={480} className="mt-8 flex flex-wrap items-center gap-3">
+              <Reveal delay={360} className="mt-8 flex flex-wrap items-center gap-3">
                 <a
                   href={WHATSAPP}
                   target="_blank"
@@ -182,48 +290,30 @@ function Index() {
                   className="inline-flex items-center gap-2 rounded-md bg-st-green px-8 py-4 text-sm font-black uppercase tracking-wider text-white shadow-[0_12px_30px_-10px_rgba(13,184,143,0.65)] transition hover:scale-[1.03] glow-green"
                 >
                   <WhatsAppIcon className="h-4 w-4" />
-                  Agendar aula experimental grátis
+                  Agende uma aula experimental grátis
                 </a>
-                <Link
-                  to="/cursos"
+                <a
+                  href="#programas"
                   className="inline-flex items-center gap-2 rounded-full border-2 border-primary/20 bg-white px-7 py-4 text-sm font-black uppercase tracking-wider text-st-blue-dark transition hover:border-primary/60 hover:text-primary"
                 >
-                  Ver programas <ArrowRight className="h-4 w-4" />
-                </Link>
+                  Ver os programas <ArrowRight className="h-4 w-4" />
+                </a>
               </Reveal>
-              <Reveal delay={600} className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">
-                <MapPin className="h-4 w-4 text-primary" />
-                <span>Av. Nove de Julho, 1992 — Jardim América · Aulas 100% presenciais</span>
+              <Reveal delay={480} className="mt-6 flex items-center gap-2 text-sm font-semibold text-foreground/80">
+                <span className="flex items-center gap-1 text-amber-500">
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <Star key={i} className="h-4 w-4 fill-current" />
+                  ))}
+                </span>
+                <span>5,0 no Google · 329 avaliações de pais e alunos</span>
               </Reveal>
             </div>
 
-            {/* Collage */}
-            <div className="relative hidden h-[480px] lg:block">
-              <Reveal delay={400} y={30} className="absolute left-4 top-0 w-56 rotate-[-6deg]">
-                <div className="overflow-hidden rounded-2xl border-2 border-primary/25 shadow-[0_20px_40px_-15px_rgba(24,122,191,0.35),0_4px_12px_rgba(24,122,191,0.08)] animate-float-slow">
-                  <Img name="students-1" alt="Aluno Santos Tech" priority className="h-64 w-full object-cover" />
-                </div>
-              </Reveal>
-              <Reveal delay={520} y={30} className="absolute right-0 top-10 w-60 rotate-[4deg]">
-                <div className="overflow-hidden rounded-2xl border-2 border-primary/25 shadow-[0_20px_40px_-15px_rgba(24,122,191,0.35),0_4px_12px_rgba(24,122,191,0.08)] animate-float-slower">
-                  <Img name="students-2" alt="Aluna Santos Tech" priority className="h-72 w-full object-cover" />
-                </div>
-              </Reveal>
-              <Reveal delay={640} y={30} className="absolute left-16 bottom-0 w-64 rotate-[3deg]">
-                <div className="overflow-hidden rounded-2xl border-2 border-primary/25 shadow-[0_20px_40px_-15px_rgba(24,122,191,0.35),0_4px_12px_rgba(24,122,191,0.08)] animate-float-slow [animation-delay:1.4s]">
-                  <Img name="students-3" alt="Turma Santos Tech" priority className="h-56 w-full object-cover" />
-                </div>
-              </Reveal>
-              <Reveal delay={760} y={30} className="absolute right-6 bottom-6 w-52 rotate-[-5deg]">
-                <div className="overflow-hidden rounded-2xl border-2 border-primary/25 shadow-[0_20px_40px_-15px_rgba(24,122,191,0.35),0_4px_12px_rgba(24,122,191,0.08)] animate-float-slower [animation-delay:2.2s]">
-                  <Img name="students-4" alt="Aluno avançado" priority className="h-56 w-full object-cover" />
-                </div>
-              </Reveal>
-            </div>
+            {/* Colagem rotativa — alterna fotos de alunos (crianças + adolescentes) */}
+            <HeroCollage />
           </div>
         </div>
 
-        {/* Wave divider */}
         <div className="absolute bottom-0 left-0 right-0 leading-[0]">
           <svg viewBox="0 0 1440 100" preserveAspectRatio="none" className="block h-[60px] w-full sm:h-[100px]">
             <path d="M0,40 C360,120 720,0 1080,50 C1260,75 1380,90 1440,60 L1440,100 L0,100 Z" fill="#ffffff" />
@@ -231,15 +321,10 @@ function Index() {
         </div>
       </section>
 
-      {/* STATS BAR */}
+      {/* ============ STATS BAR ============ */}
       <section className="border-b border-border bg-background">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-12 sm:px-6 md:grid-cols-4 lg:px-8">
-          {[
-            { n: "5–14", l: "Faixa etária" },
-            { n: "5.0", l: "Nota no Google" },
-            { n: "300+", l: "Avaliações 5★" },
-            { n: "100%", l: "Aulas presenciais" },
-          ].map((s, i) => (
+          {STATS.map((s, i) => (
             <Reveal key={s.l} delay={i * 100} className="text-center">
               <p className="text-4xl font-black text-primary sm:text-5xl">{s.n}</p>
               <p className="mt-1 text-sm font-medium text-muted-foreground">{s.l}</p>
@@ -248,311 +333,319 @@ function Index() {
         </div>
       </section>
 
-      {/* YEAR ROUND PROGRAMS — Code Ninjas style colored sections with curved dividers */}
-      <section className="bg-white pt-16">
-        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <Reveal>
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-primary">O que oferecemos</p>
-            <h2 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl">
-              PROGRAMAS <span className="text-gradient-hero">O ANO TODO</span>
+      {/* ============ POR QUE A SANTOS TECH ============ */}
+      <section className="relative isolate overflow-hidden py-24">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white to-[#f3f8fc]" />
+        <div className="pointer-events-none absolute right-0 top-24 h-72 w-72 rounded-full bg-[#187ABF]/10 blur-3xl" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-black uppercase tracking-[0.25em] text-primary">Por que a Santos Tech</p>
+            <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+              Não é curso de computador. É o futuro do seu filho — começando agora.
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-              Quatro trilhas para acompanhar cada fase: do primeiro contato com a tecnologia até módulos avançados de Robótica e IA.
-            </p>
-          </Reveal>
-        </div>
-
-        {/* CREATE — azul, programa carro-chefe */}
-        <ProgramBand
-          bg="bg-program-create"
-          age="8 a 14 anos"
-          brand="SANTOS TECH"
-          title="CREATE"
-          description={
-            <>
-              <p>Nosso programa carro-chefe — para crianças e pré-adolescentes que não querem só jogar. Querem criar.</p>
-              <ProgramFeatures
-                items={[
-                  "Constrói os próprios jogos",
-                  "Depura código de verdade",
-                  "Evolui por níveis no PORTAL DO ALUNO ST",
-                ]}
-              />
-              <p className="mt-5">E sai da aula querendo voltar na próxima.</p>
-            </>
-          }
-          imageName="students-1"
-          imageAlt="Aluno do CREATE programando na Santos Tech"
-          reverse={false}
-          curveTop={false}
-          to="/cursos/create"
-          ctaLabel="Conheça o CREATE"
-        />
-
-        {/* JR — roxo, base inicial sem leitura */}
-        <ProgramBand
-          bg="bg-program-jr"
-          age="5 a 7 anos"
-          brand="SANTOS TECH"
-          title="JR"
-          description={
-            <>
-              <p>Seu pequeno já é fascinado por tecnologia? Aqui ele começa do jeito certo — sem precisar saber ler.</p>
-              <ProgramFeatures
-                items={[
-                  "Atividades lúdicas e estruturadas",
-                  "Lógica, criatividade e resolução de problemas",
-                  "Encontros curtos para a primeira infância",
-                ]}
-              />
-              <p className="mt-5">Uma base tecnológica sólida desde cedo.</p>
-            </>
-          }
-          imageName="capa-jr"
-          imageAlt="Aluna do JR na Santos Tech"
-          reverse
-          curveTop
-          to="/cursos/junior"
-          ctaLabel="Conheça o JR"
-        />
-
-        {/* CAMPS — teal, férias */}
-        <ProgramBand
-          bg="bg-program-camps"
-          age="5 a 14 anos"
-          brand="SANTOS TECH"
-          title="CAMPS"
-          description={
-            <>
-              <p>Transforme as férias do seu filho em uma aventura de aprendizagem.</p>
-              <ProgramFeatures
-                items={[
-                  "Semanas temáticas no contraturno e nos recessos",
-                  "Guiadas pelos nossos professores",
-                  "Habilidades reais + novos amigos",
-                ]}
-              />
-              <p className="mt-5">Diversão com propósito do início ao fim.</p>
-            </>
-          }
-          imageName="students-3"
-          imageAlt="Turma de CAMPS da Santos Tech"
-          reverse={false}
-          curveTop
-          to="/cursos/camps"
-          ctaLabel="Ver semanas temáticas"
-        />
-
-        {/* ACADEMIES — azul-marinho, módulos avançados */}
-        <ProgramBand
-          bg="bg-program-academies"
-          age="Módulos avançados"
-          brand="SANTOS TECH"
-          title="ACADEMIES"
-          description={
-            <>
-              <p>Para o aluno que já está à frente e se entedia rápido.</p>
-              <ProgramFeatures
-                items={[
-                  "Módulos multi-semanas em Robótica e IA",
-                  "Desafios reais e pensamento crítico",
-                  "Projetos com profundidade técnica",
-                ]}
-              />
-              <p className="mt-5">Habilidades que preparam para o futuro.</p>
-            </>
-          }
-          imageName="students-4"
-          imageAlt="Aluno das ACADEMIES da Santos Tech"
-          reverse
-          curveTop
-          curveBottom
-          to="/cursos/academies"
-          ctaLabel="Conhecer as Academies"
-        />
-      </section>
-
-      {/* PILLARS */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
-              Por que escolher a <span className="text-gradient-santos">Santos Tech</span>
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              Centro presencial com método próprio, plataforma exclusiva e progressão por níveis — para o aluno avançar com clareza e os pais acompanharem cada etapa.
+            <p className="mt-5 text-lg text-muted-foreground">
+              A maioria das escolas ensina a{" "}
+              <span className="font-semibold text-foreground/60 line-through decoration-2">usar</span>{" "}
+              a tecnologia. Aqui, seu filho aprende a{" "}
+              <span className="font-black text-gradient-hero">criar</span> — e sai de cada fase
+              com algo nas mãos pra provar.
             </p>
           </Reveal>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { icon: TrendingUp, t: "Progressão por níveis", d: "Gamificação estilo jogo: cada conquista é visível, cada nível é uma evolução real." },
-              { icon: BookOpen, t: "Plataforma própria", d: "PORTAL DO ALUNO ST com trilha personalizada — você vê o progresso do seu filho." },
-              { icon: Users, t: "Professores treinados", d: "Time formado para ensinar criança e jovem com método e paciência." },
-              { icon: Shield, t: "Ambiente seguro", d: "Acesso restrito a alunos e professores, turmas controladas e área de espera para pais." },
-            ].map((p, i) => (
-              <Reveal key={p.t} delay={i * 120}>
-                <div className="group h-full rounded-xl border-2 border-primary/25 bg-card p-7 shadow-[0_8px_24px_-8px_rgba(24,122,191,0.18)] transition hover:-translate-y-1 hover:border-primary/40">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
-                    <p.icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mt-5 text-lg font-bold">{p.t}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
-                </div>
-              </Reveal>
-            ))}
+          <div className="mt-14 grid gap-5 lg:grid-cols-3">
+            {DIFERENCIAIS.map((p, i) => {
+              const featured = i === 0;
+              return (
+                <Reveal key={p.t} delay={i * 90} className={featured ? "lg:col-span-2" : ""}>
+                  {featured ? (
+                    <div
+                      className="relative flex h-full flex-col justify-between overflow-hidden rounded-3xl p-8 text-white shadow-[0_24px_60px_-20px_rgba(24,122,191,0.5)]"
+                      style={{ background: "linear-gradient(135deg, #187ABF 0%, #0A6E57 100%)" }}
+                    >
+                      <div className="absolute inset-0 dotted-bg opacity-20" />
+                      <div className="pointer-events-none absolute -right-10 -top-10 h-48 w-48 rounded-full bg-white/10 blur-2xl" />
+                      <div className="relative">
+                        <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15 backdrop-blur">
+                          <p.icon className="h-7 w-7" />
+                        </span>
+                        <p className="mt-6 text-xs font-black uppercase tracking-[0.2em] text-white/70">{p.t}</p>
+                        <h3 className="mt-2 text-2xl font-black leading-tight sm:text-3xl">{p.lead}</h3>
+                        <p className="mt-3 max-w-md text-white/85">{p.d}</p>
+                      </div>
+                      <span className="relative mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wider backdrop-blur">
+                        <Sparkles className="h-3.5 w-3.5" /> Diferencial premium
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="group h-full rounded-3xl border-2 border-primary/15 bg-card p-7 shadow-[0_8px_24px_-8px_rgba(24,122,191,0.18)] transition hover:-translate-y-1 hover:border-primary/40">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
+                        <p.icon className="h-6 w-6" />
+                      </span>
+                      <p className="mt-5 text-xs font-black uppercase tracking-[0.2em] text-primary">{p.t}</p>
+                      <h3 className="mt-1 text-lg font-black leading-snug">{p.lead}</h3>
+                      <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
+                    </div>
+                  )}
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* COURSES / O QUE SE APRENDE */}
+      {/* ============ OS PROGRAMAS — intro + 4 faixas coloridas ============ */}
+      <section id="programas" className="scroll-mt-24 bg-white pt-4">
+        <div className="mx-auto max-w-3xl px-4 pb-12 text-center sm:px-6 lg:px-8">
+          <Reveal>
+            <p className="text-sm font-black uppercase tracking-[0.25em] text-primary">Os programas</p>
+            <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl">
+              Escolha o <span className="text-gradient-hero">caminho do seu filho</span>
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Dois eixos — Tecnologia e Informática — cada um com a turma certa pra idade.
+              E a cor já mostra de quem é cada um:{" "}
+              <strong style={{ color: "#0A6E57" }}>verde para as crianças</strong> e{" "}
+              <strong style={{ color: "#187ABF" }}>azul para os adolescentes</strong>.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm font-black uppercase tracking-wider">
+              <span className="inline-flex items-center gap-2">
+                <span className="h-3.5 w-3.5 rounded-full" style={{ background: "#0DB88F" }} /> Crianças · 5–9 anos
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <span className="h-3.5 w-3.5 rounded-full" style={{ background: "#187ABF" }} /> Adolescentes · 10–15 anos
+              </span>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {PRODUTOS.map((p, i) => (
+        <ProductBand
+          key={p.name}
+          p={p}
+          reverse={i % 2 === 1}
+          curveBottom={i === PRODUTOS.length - 1}
+        />
+      ))}
+
+      <section className="bg-white py-8">
+        <Reveal className="mx-auto max-w-2xl px-4 text-center text-sm text-muted-foreground sm:px-6">
+          <p>
+            Matrícula anual. Você renova a cada ano, só se quiser — e seu filho evolui por
+            níveis, no ritmo dele.
+          </p>
+        </Reveal>
+      </section>
+
+      {/* ============ COMO FUNCIONA ============ */}
       <section className="bg-muted/40 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-            <div className="max-w-2xl">
-              <p className="text-sm font-bold uppercase tracking-wider text-primary">O que o aluno aprende</p>
-              <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">
-                Habilidades reais para a nova geração
-              </h2>
-              <p className="mt-3 text-muted-foreground">
-                Programação, criação de jogos, robótica e inteligência artificial — tudo com projeto prático e progressão clara.
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="text-sm font-black uppercase tracking-[0.25em] text-primary">Como funciona</p>
+            <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+              Simples do primeiro contato à matrícula
+            </h2>
+          </Reveal>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {PASSOS.map((s, i) => (
+              <Reveal key={s.t} delay={i * 120}>
+                <div className="relative h-full rounded-xl border-2 border-primary/15 bg-card p-7">
+                  <span className="absolute -top-4 left-7 flex h-9 w-9 items-center justify-center rounded-full bg-st-blue-dark text-sm font-black text-white shadow-lg">
+                    {i + 1}
+                  </span>
+                  <div className="mt-3 flex h-12 w-12 items-center justify-center rounded-md bg-primary/10 text-primary">
+                    <s.icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="mt-4 text-lg font-bold">{s.t}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal className="mt-10 text-center">
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-md bg-st-green px-8 py-4 text-sm font-black uppercase tracking-wider text-white shadow-lg transition hover:scale-[1.03] glow-green"
+            >
+              <WhatsAppIcon className="h-4 w-4" />
+              Começar pelo WhatsApp
+            </a>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ============ INVESTIMENTO ============ */}
+      <section className="relative isolate overflow-hidden py-24">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#eef5fb] to-white" />
+        <div className="pointer-events-none absolute -left-32 top-16 h-80 w-80 rounded-full bg-[#187ABF]/10 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 bottom-16 h-80 w-80 rounded-full bg-[#0DB88F]/10 blur-3xl" />
+
+        <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-4 py-1.5 text-xs font-black uppercase tracking-[0.18em] text-primary shadow-sm">
+              <BadgeCheck className="h-4 w-4" /> Transparência total
+            </span>
+            <h2 className="mt-5 text-3xl font-black tracking-tight sm:text-4xl">
+              Sem surpresa: você sabe{" "}
+              <span className="text-gradient-hero">exatamente</span> o que vai pagar
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              A maioria das escolas esconde o preço pra te prender numa conversa.
+              A gente prefere o contrário — tudo na mesa desde o começo.
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid items-stretch gap-6 md:grid-cols-2">
+            {PRECOS.map((p) => (
+              <Reveal key={p.nome}>
+                <div
+                  className={`relative flex h-full flex-col overflow-hidden rounded-3xl bg-card transition hover:-translate-y-1 ${
+                    p.destaque
+                      ? "shadow-[0_24px_60px_-20px_rgba(24,122,191,0.45)]"
+                      : "shadow-[0_12px_36px_-16px_rgba(0,0,0,0.18)]"
+                  }`}
+                  style={{ border: `2px solid ${p.cor}55` }}
+                >
+                  {/* cabeçalho colorido */}
+                  <div
+                    className="relative overflow-hidden px-8 pb-7 pt-9 text-white"
+                    style={{ background: `linear-gradient(135deg, ${p.cor} 0%, ${p.corDark} 100%)` }}
+                  >
+                    <div className="absolute inset-0 dotted-bg opacity-20" />
+                    {p.destaque && <RarityBadge className="absolute right-5 top-2" />}
+                    <div className="relative flex items-center justify-between">
+                      <div>
+                        <h3 className="text-2xl font-black">{p.nome}</h3>
+                        <p className="text-sm font-semibold text-white/80">{p.sub}</p>
+                      </div>
+                      <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/15 backdrop-blur">
+                        <p.icon className="h-6 w-6" />
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* corpo */}
+                  <div className="flex flex-1 flex-col p-8">
+                    <div className="text-center">
+                      <p className="text-5xl font-black tracking-tight" style={{ color: p.corDark }}>
+                        R$ 539,90
+                      </p>
+                      <p className="mt-1 text-sm font-semibold text-muted-foreground">
+                        por mês · curso de 12 meses
+                      </p>
+                    </div>
+
+                    <ul className="mt-7 space-y-4 border-t border-border pt-6 text-sm">
+                      <li className="flex items-center justify-between gap-3">
+                        <span className="flex items-center gap-2 text-muted-foreground">
+                          <KeyRound className="h-4 w-4 shrink-0" style={{ color: p.cor }} />
+                          Matrícula <span className="text-xs">(única)</span>
+                        </span>
+                        <span className="font-bold text-foreground">R$ 299,90</span>
+                      </li>
+                      <li className="flex items-center justify-between gap-3">
+                        <span className="flex items-center gap-2 text-muted-foreground">
+                          <Package className="h-4 w-4 shrink-0" style={{ color: p.cor }} />
+                          Material <span className="text-xs">(3x sem juros)</span>
+                        </span>
+                        <span className="font-bold text-foreground">{p.material}</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-muted-foreground">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" style={{ color: p.cor }} />
+                        <span>Portal do Aluno e ferramentas profissionais inclusos no material.</span>
+                      </li>
+                    </ul>
+
+                    <a
+                      href={WHATSAPP}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-7 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3.5 text-sm font-black uppercase tracking-wider text-white shadow-md transition hover:scale-[1.02]"
+                      style={{ background: p.cor }}
+                    >
+                      <WhatsAppIcon className="h-4 w-4" /> Quero saber mais
+                    </a>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal className="mx-auto mt-10 max-w-3xl">
+            <div className="rounded-2xl border border-primary/15 bg-white/70 p-6 text-center backdrop-blur">
+              <p className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1 text-sm text-muted-foreground">
+                <RefreshCw className="h-4 w-4 text-primary" />
+                Renovação para o ano seguinte: rematrícula de{" "}
+                <strong className="text-foreground">R$ 149,95</strong> — metade da matrícula.
+              </p>
+              <p className="mt-4 border-t border-border pt-4 text-base font-semibold italic text-st-blue-dark">
+                “Um investimento na altura das melhores atividades da cidade — pela
+                habilidade mais valiosa da próxima década.”
               </p>
             </div>
-            <Link
-              to="/cursos"
-              className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline"
-            >
-              Ver todos os programas <ArrowRight className="h-4 w-4" />
-            </Link>
           </Reveal>
-
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { icon: Gamepad2, lang: "MakeCode · Lua", t: "Criação de Jogos", d: "Do primeiro jogo no MakeCode aos projetos completos: lógica em ação." },
-              { icon: Cpu, lang: "Lógica · Algoritmos", t: "Pensamento Computacional", d: "Resolver problemas é a habilidade do século — começa cedo, evolui sempre." },
-              { icon: RobotIcon, lang: "Robótica · IA", t: "Robótica e Inteligência Artificial", d: "Módulos avançados das ACADEMIES para o aluno que quer ir além." },
-              { icon: Sparkles, lang: "Criatividade Digital", t: "Projetos próprios", d: "Cada aluno termina o nível com algo seu — pronto para mostrar em casa." },
-            ].map((c, i) => (
-              <Reveal key={c.t} delay={i * 110}>
-                <div className="flex h-full flex-col rounded-xl border-2 border-primary/25 bg-card p-7 shadow-[0_8px_24px_-8px_rgba(24,122,191,0.18)] transition hover:-translate-y-1 hover:border-primary/40">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                    <c.icon className="h-7 w-7" />
-                  </div>
-                  <p className="mt-5 text-xs font-bold uppercase tracking-wider text-primary">{c.lang}</p>
-                  <h3 className="mt-1 text-lg font-bold">{c.t}</h3>
-                  <p className="mt-2 flex-1 text-sm text-muted-foreground">{c.d}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* JR vs CREATE — comparativo por faixa */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
-              Cada idade tem seu <span className="text-gradient-hero">programa</span>
+      {/* ============ O MATERIAL ============ */}
+      <section
+        className="relative isolate overflow-hidden py-24 text-white"
+        style={{ background: "linear-gradient(135deg, #04325A 0%, #021F3A 100%)" }}
+      >
+        <div className="absolute inset-0 dotted-bg opacity-20" />
+        <div className="pointer-events-none absolute -left-24 top-10 h-80 w-80 rounded-full bg-[#187ABF]/30 blur-3xl" />
+        <div className="pointer-events-none absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-[#0DB88F]/20 blur-3xl" />
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-black uppercase tracking-[0.25em] text-[#5AB0F0]">O material</p>
+            <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+              Material que <span className="text-[#5AB0F0]">nunca fica velho</span>
             </h2>
-            <p className="mt-4 text-muted-foreground">
-              Do primeiro contato com a tecnologia ao programa carro-chefe.
+            <p className="mt-4 text-lg text-white/80">
+              Tecnologia muda rápido demais pra caber num livro impresso. Por isso o material da
+              Santos Tech é digital e vivo — atualizado o tempo todo.
             </p>
           </Reveal>
 
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          <div className="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-2">
             <Reveal>
-              <div
-                className="overflow-hidden rounded-xl border-2 bg-card transition"
-                style={{
-                  borderColor: "rgba(81,35,116,0.25)",
-                  boxShadow: "0 10px 30px -10px rgba(81,35,116,0.25)",
-                }}
-              >
-              <Img name="capa-jr" alt="Aluno do JR na Santos Tech" className="h-64 w-full object-cover" />
-              <div className="p-8">
-                <span className="inline-flex rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider text-white" style={{ background: "#512374" }}>
-                  JR · 5 a 7 anos
+              <div className="flex h-full items-start gap-3 rounded-2xl border border-white/15 bg-white/5 p-5 backdrop-blur">
+                <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-white/60">
+                  <BookOpen className="h-4 w-4" />
                 </span>
-                <h3 className="mt-4 text-2xl font-black">Base tecnológica desde cedo</h3>
-                <p className="mt-3 text-muted-foreground">
-                  Aprendizado lúdico antes mesmo de aprender a ler. Lógica,
-                  criatividade e curiosidade transformadas em projetos
-                  visuais, com feedback claro para os pais.
+                <p className="text-sm text-white/60">
+                  <strong className="font-bold text-white/75">Apostila impressa:</strong> nasce
+                  desatualizada e encosta na estante.
                 </p>
-                <ul className="mt-5 space-y-2 text-sm">
-                  {["Não precisa saber ler", "Atividades lúdicas e estruturadas", "Acompanhamento dos pais"].map((i) => (
-                    <li key={i} className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-primary" />
-                      <span>{i}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  to="/cursos/junior"
-                  className="mt-6 inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-bold text-white transition hover:opacity-90"
-                  style={{ background: "#512374" }}
-                >
-                  Conhecer o JR <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
               </div>
             </Reveal>
-
-            <Reveal delay={150}>
-              <div
-                className="overflow-hidden rounded-xl border-2 bg-card transition"
-                style={{
-                  borderColor: "rgba(24,122,191,0.25)",
-                  boxShadow: "0 10px 30px -10px rgba(24,122,191,0.25)",
-                }}
-              >
-              <Img name="students-4" alt="Aluno do CREATE na Santos Tech" className="h-64 w-full object-cover" />
-              <div className="p-8">
-                <span className="inline-flex rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground">
-                  CREATE · 8 a 14 anos
+            <Reveal delay={100}>
+              <div className="flex h-full items-start gap-3 rounded-2xl border-2 border-[#5AB0F0]/60 bg-white/10 p-5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.4)] backdrop-blur">
+                <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#5AB0F0]/20 text-[#5AB0F0]">
+                  <RefreshCw className="h-4 w-4" />
                 </span>
-                <h3 className="mt-4 text-2xl font-black">Programa carro-chefe</h3>
-                <p className="mt-3 text-muted-foreground">
-                  Trilha gamificada com progressão por níveis no PORTAL DO
-                  ALUNO ST. O aluno constrói os próprios jogos, depura código
-                  e enxerga, nível por nível, o quanto evoluiu.
+                <p className="text-sm text-white/90">
+                  <strong className="font-bold text-[#5AB0F0]">Portal vivo:</strong> atualizado o
+                  tempo todo, sempre na última versão.
                 </p>
-                <ul className="mt-5 space-y-2 text-sm">
-                  {["Progressão por níveis", "Plataforma própria PORTAL DO ALUNO ST", "Projetos reais a cada etapa"].map((i) => (
-                    <li key={i} className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-primary" />
-                      <span>{i}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  to="/cursos"
-                  className="mt-6 inline-flex items-center gap-2 rounded-md bg-st-green px-6 py-3 text-sm font-bold text-white transition hover:scale-[1.02] glow-green"
-                >
-                  Saber mais <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
               </div>
             </Reveal>
           </div>
-        </div>
-      </section>
 
-      {/* GALLERY */}
-      <section className="bg-muted/40 py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-bold uppercase tracking-wider text-primary">Nossos alunos</p>
-            <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">
-              Quem estuda na Santos Tech
-            </h2>
-          </Reveal>
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {(["students-1", "students-2", "students-3", "students-4"] as const).map((name, i) => (
-              <Reveal key={name} delay={i * 100}>
-                <div className="overflow-hidden rounded-xl border border-border bg-card">
-                  <Img name={name} alt={`Aluno Santos Tech ${i + 1}`} className="aspect-square w-full object-cover transition duration-500 hover:scale-110" />
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {MATERIAL.map((m, i) => (
+              <Reveal key={m.t} delay={i * 90}>
+                <div className="group h-full rounded-2xl bg-white p-6 shadow-[0_16px_40px_-16px_rgba(0,0,0,0.5)] transition hover:-translate-y-1">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
+                    <m.icon className="h-6 w-6" />
+                  </span>
+                  <h3 className="mt-4 font-black text-foreground">{m.t}</h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground">{m.d}</p>
                 </div>
               </Reveal>
             ))}
@@ -560,27 +653,121 @@ function Index() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ============ MATRÍCULA ============ */}
+      <section className="py-24">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-black uppercase tracking-[0.25em] text-primary">A matrícula</p>
+            <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+              O que a sua matrícula <span className="text-gradient-hero">garante</span>
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              A matrícula é única, paga só na entrada. Ela não é uma taxa solta — é o que deixa o
+              primeiro dia do seu filho pronto.
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {MATRICULA.map((m, i) => (
+              <Reveal key={m.t} delay={i * 110}>
+                <div className="relative h-full rounded-2xl border-2 border-primary/15 bg-card p-7 shadow-[0_8px_24px_-8px_rgba(24,122,191,0.18)] transition hover:-translate-y-1 hover:border-primary/40">
+                  <span className="absolute -top-4 left-7 flex h-9 w-9 items-center justify-center rounded-full bg-st-blue-dark text-sm font-black text-white shadow-lg">
+                    {i + 1}
+                  </span>
+                  <span className="mt-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <m.icon className="h-6 w-6" />
+                  </span>
+                  <h3 className="mt-4 font-black">{m.t}</h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground">{m.d}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal className="mx-auto mt-8 max-w-2xl">
+            <div className="flex items-center justify-center gap-3 rounded-2xl border border-primary/15 bg-muted/40 px-6 py-4 text-center text-sm text-muted-foreground">
+              <BadgeCheck className="h-5 w-5 shrink-0 text-primary" />
+              <span>Sem letra miúda: você enxerga exatamente o que é cada valor, do começo ao fim.</span>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ============ PROVA SOCIAL ============ */}
+      <section className="bg-muted/40 py-20">
+        <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
+          <Reveal>
+            <p className="text-sm font-black uppercase tracking-[0.25em] text-primary">
+              Pais e alunos que já fazem parte
+            </p>
+            <div className="mt-6 flex flex-col items-center justify-center gap-8 sm:flex-row sm:gap-16">
+              <div className="flex flex-col items-center">
+                <div className="flex items-center gap-1 text-amber-500">
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <Star key={i} className="h-7 w-7 fill-current" />
+                  ))}
+                </div>
+                <p className="mt-2 text-3xl font-black text-gradient-hero">5,0 no Google</p>
+                <p className="text-sm text-muted-foreground">329 avaliações</p>
+              </div>
+              <div className="hidden h-16 w-px bg-border sm:block" />
+              <a
+                href="https://instagram.com/escolasantostech"
+                target="_blank"
+                rel="noreferrer"
+                className="flex flex-col items-center transition hover:opacity-80"
+              >
+                <Instagram className="h-9 w-9 text-primary" />
+                <p className="mt-2 text-3xl font-black text-gradient-hero">+14 mil</p>
+                <p className="text-sm text-muted-foreground">seguidores no Instagram</p>
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ============ LOCALIZAÇÃO + CTA FINAL ============ */}
       <section className="py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <Reveal className="relative overflow-hidden rounded-3xl bg-program-create px-8 py-14 text-center text-white shadow-xl sm:px-16">
             <div className="pointer-events-none absolute inset-0 dotted-bg opacity-20" />
             <div className="relative">
-            <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
-              Pronto para conhecer a Santos Tech?
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-white/90">
-              Agende uma aula experimental gratuita e descubra como transformar o tempo de tela do seu filho em habilidades reais para o futuro.
-            </p>
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-8 inline-flex items-center gap-2 rounded-md bg-st-green px-7 py-3.5 text-sm font-black uppercase tracking-wider text-white shadow-lg transition hover:scale-[1.03] glow-green"
-            >
-              <WhatsAppIcon className="h-4 w-4" />
-              Falar no WhatsApp
-            </a>
+              <h2 className="text-3xl font-black tracking-tight sm:text-4xl">Venha conhecer pessoalmente</h2>
+              <p className="mx-auto mt-4 max-w-xl text-white/90">
+                Agende uma aula experimental gratuita e veja seu filho criar algo de verdade já no
+                primeiro dia.
+              </p>
+
+              <div className="mt-8 flex justify-center">
+                <a
+                  href={WHATSAPP}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-md bg-st-green px-8 py-4 text-sm font-black uppercase tracking-wider text-white shadow-lg transition hover:scale-[1.03] glow-green"
+                >
+                  <WhatsAppIcon className="h-4 w-4" />
+                  Agende a aula experimental grátis
+                </a>
+              </div>
+
+              <div className="mt-10 grid gap-4 border-t border-white/20 pt-8 text-sm text-white/90 sm:grid-cols-2">
+                <p className="flex items-center justify-center gap-2">
+                  <MapPin className="h-4 w-4" />
+                  Av. Nove de Julho, 1992 — Jardim América, Ribeirão Preto/SP
+                </p>
+                <p className="flex items-center justify-center gap-2">
+                  <WhatsAppIcon className="h-4 w-4" />
+                  (16) 99257-8710
+                </p>
+                <p className="flex items-center justify-center gap-2">
+                  <Star className="h-4 w-4 fill-current text-amber-300" />
+                  5,0 no Google · 329 avaliações
+                </p>
+                <p className="flex items-center justify-center gap-2">
+                  <Instagram className="h-4 w-4" />
+                  @escolasantostech
+                </p>
+              </div>
             </div>
           </Reveal>
         </div>

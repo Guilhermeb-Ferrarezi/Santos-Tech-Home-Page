@@ -79,13 +79,13 @@ function ContactPage() {
                 </div>
               </div>
 
-              <a href="mailto:ceo.santosgames@gmail.com" className="flex items-start gap-4 rounded-xl border border-border bg-card p-6 transition hover:border-primary/40 hover:shadow-lg">
+              <a href="mailto:ceo@santos-games.com" className="flex items-start gap-4 rounded-xl border border-border bg-card p-6 transition hover:border-primary/40 hover:shadow-lg">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <Mail className="h-6 w-6" />
                 </div>
                 <div>
                   <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">E-mail</p>
-                  <p className="mt-1 text-lg font-bold">ceo.santosgames@gmail.com</p>
+                  <p className="mt-1 text-lg font-bold">ceo@santos-games.com</p>
                 </div>
               </a>
 
@@ -105,8 +105,8 @@ function ContactPage() {
                 </div>
                 <div>
                   <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Horários</p>
-                  <p className="mt-1 text-lg font-bold">Seg a Sex · 9h às 21h</p>
-                  <p className="text-sm text-muted-foreground">Sábados · 9h às 13h</p>
+                  <p className="mt-1 text-lg font-bold">Seg a Sex · 8h às 22h</p>
+                  <p className="text-sm text-muted-foreground">Sábado · 8h às 18h</p>
                 </div>
               </div>
             </div>
