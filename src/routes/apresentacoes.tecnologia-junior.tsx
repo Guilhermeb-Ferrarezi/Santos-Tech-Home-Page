@@ -90,22 +90,22 @@ const ANO3_MESES: MesGrade[] = [
   { mes: "Mês 12", projeto: "4/4", ferramenta: "Roblox", cor: "", foco: "Lançar o jogo voxel + Demo Day", semanas: ["Ajustes finais e correção de bugs.", "Publicar o jogo todo em Voxel Art.", "Demo Day pros pais.", "Certificado do Ano 3."] },
 ];
 
-// ── ANO 4 — Criador completo: 2 jogos, IA e itens 3D pra vender no Roblox ──────
-// Sequência: ML for Kids ×2 · PROJETO jogo #1 · Blender · Blender · Roblox ·
-// Maya · Maya · Roblox · Maya · Roblox (loja) · PROJETO jogo #2 + loja
+// ── ANO 4 — IA, itens pra vender (UGC), impressão 3D e jogo com código (Lua) ──
+// Sequência: ML for Kids ×2 · MagicaVoxel · Blender · Maya · Roblox (publica UGC)
+// · Maya · Impressão 3D · Roblox+Lua ×4 (jogo com código)
 const ANO4_MESES: MesGrade[] = [
-  { mes: "Mês 1", ferramenta: "IA (ML for Kids)", cor: "", foco: "IA que aprende", semanas: ["Treinar um modelo (texto/imagem).", "Como a IA decide — e onde ela erra.", "Usar a IA num mini-projeto.", "Um modelo de IA próprio."] },
-  { mes: "Mês 2", ferramenta: "IA (ML for Kids)", cor: "", foco: "IA dentro do jogo", semanas: ["Ideias de IA num jogo (NPC, reconhecimento).", "Conectar a IA a um projeto.", "Testar e ajustar.", "Protótipo com IA (entregável)."] },
-  { mes: "Mês 3", ferramenta: "Projeto 1 — Jogo #1", cor: "", foco: "Lançar o primeiro jogo do ano", semanas: ["Definir e planejar o jogo.", "Construir (mundo + mecânicas + IA).", "Testar e polir.", "Publicar o jogo #1 (entregável grande)."] },
-  { mes: "Mês 4", ferramenta: "Blender", cor: "", foco: "3D no Blender", semanas: ["Conhecer/avançar no Blender.", "Modelar um asset do jogo.", "Materiais e cores.", "Um modelo próprio."] },
-  { mes: "Mês 5", ferramenta: "Blender", cor: "", foco: "Modelo + Impressão 3D", semanas: ["Modelo mais elaborado.", "Preparar pro jogo e pra impressão.", "Imprimir em 3D.", "Peça impressa (entregável)."] },
-  { mes: "Mês 6", ferramenta: "Roblox + Lua", cor: "", logos: ["roblox", "lua"], foco: "Aplicar o 3D no jogo", semanas: ["Importar os modelos do Blender.", "Montar uma fase com eles.", "Scripts pra dar vida.", "Fase jogável nova."] },
-  { mes: "Mês 7", ferramenta: "Maya", cor: "", foco: "Modelar itens vendáveis", semanas: ["Modelar um item/acessório (escopo de loja).", "Proporção pro avatar.", "Vertex color / materiais.", "Um item 3D pronto."] },
-  { mes: "Mês 8", ferramenta: "Maya", cor: "", foco: "Mais itens + acabamento", semanas: ["Modelar um segundo item.", "Caprichar no acabamento.", "Preparar pro Roblox.", "Uma coleção de itens."] },
-  { mes: "Mês 9", ferramenta: "Roblox + Lua", cor: "", logos: ["roblox", "lua"], foco: "Montar o jogo com os itens", semanas: ["Trazer os itens pro mundo.", "Integrar com as mecânicas.", "Ajustes de jogabilidade.", "Jogo atualizado."] },
-  { mes: "Mês 10", ferramenta: "Maya", cor: "", foco: "Item especial da loja", semanas: ["Modelar o item principal da loja.", "Detalhes e materiais.", "Preparar pro upload.", "Item especial pronto."] },
-  { mes: "Mês 11", ferramenta: "Roblox", cor: "", foco: "Loja: publicar itens (UGC)", semanas: ["Como funciona a lojinha (UGC) do Roblox.", "Preparar e enviar um item.", "Preço e descrição.", "Item publicado na loja."] },
-  { mes: "Mês 12", ferramenta: "Projeto 2 — Jogo #2 + Loja", cor: "", foco: "Lançar tudo + portfólio + Demo Day", semanas: ["Finalizar o jogo #2 (Lua + 3D + IA).", "Publicar o jogo #2.", "Revisar os itens à venda na loja.", "Demo Day final + portfólio → ponte pro CREATE."] },
+  { mes: "Mês 1", projeto: "1/2", ferramenta: "IA (ML for Kids)", cor: "", foco: "IA que aprende", semanas: ["Treinar um modelo (texto/imagem).", "Como a IA decide — e onde ela erra.", "Usar a IA num mini-projeto.", "Um modelo de IA próprio."] },
+  { mes: "Mês 2", projeto: "2/2", ferramenta: "IA (ML for Kids)", cor: "", foco: "IA dentro do jogo", semanas: ["Ideias de IA num jogo (NPC, reconhecimento).", "Conectar a IA a um projeto.", "Testar e ajustar.", "Protótipo com IA (entregável)."] },
+  { mes: "Mês 3", projeto: "1/4", ferramenta: "MagicaVoxel", cor: "", foco: "Itens pra loja (voxel)", semanas: ["O que é a loja (UGC) do Roblox e o que ela vende.", "Modelar um item em voxel (MagicaVoxel).", "Cores e detalhes.", "Item voxel pronto pra loja."] },
+  { mes: "Mês 4", projeto: "2/4", ferramenta: "Blender", cor: "", foco: "Itens pra loja (Blender)", semanas: ["Modelar um item no Blender.", "Materiais e acabamento.", "Preparar no padrão da loja.", "Item Blender pronto pra loja."] },
+  { mes: "Mês 5", projeto: "3/4", ferramenta: "Maya", cor: "", foco: "Itens pra loja (Maya)", semanas: ["Modelar um item no Maya.", "Vertex color / materiais.", "Preparar pro upload.", "Item Maya pronto pra loja."] },
+  { mes: "Mês 6", projeto: "4/4", ferramenta: "Roblox", cor: "", foco: "Publicar os itens na loja (UGC)", semanas: ["Como funciona a lojinha (UGC) do Roblox.", "Publicar todos os itens na conta do aluno.", "Preço, descrição e a diferença entre cada ferramenta.", "Itens à venda na loja (entregável)."] },
+  { mes: "Mês 7", projeto: "1/2", ferramenta: "Maya", cor: "", foco: "Modelar itens novos pra imprimir", semanas: ["Planejar peças pra impressão 3D.", "Modelar os itens no Maya.", "Detalhes e acabamento.", "Modelos prontos pra impressão."] },
+  { mes: "Mês 8", projeto: "2/2", ferramenta: "Impressão 3D (Bambu Lab)", cor: "", foco: "Imprimir os itens em 3D", semanas: ["Preparar os arquivos no Bambu Studio (fatiar).", "Configurar e imprimir na Bambu Lab.", "Acompanhar a impressão.", "Peças impressas pra levar pra casa (entregável)."] },
+  { mes: "Mês 9", projeto: "1/4", ferramenta: "Roblox + Lua", cor: "", logos: ["roblox", "lua"], foco: "Introdução ao Lua", semanas: ["O que é a linguagem Lua (código de texto).", "Primeiros comandos em Lua no Roblox.", "Variáveis e valores.", "Um objeto que reage por código."] },
+  { mes: "Mês 10", projeto: "2/4", ferramenta: "Roblox + Lua", cor: "", logos: ["roblox", "lua"], foco: "Mais Lua: mecânicas", semanas: ["Eventos e condições no código.", "Pontuação e regras por script.", "Funções simples (com apoio).", "Uma mecânica feita pelo aluno."] },
+  { mes: "Mês 11", projeto: "3/4", ferramenta: "Roblox + Lua", cor: "", logos: ["roblox", "lua"], foco: "Montar o jogo", semanas: ["Construir o mundo do jogo.", "Aplicar as mecânicas em Lua.", "Itens, objetivos e ajustes.", "Versão jogável."] },
+  { mes: "Mês 12", projeto: "4/4", ferramenta: "Roblox + Lua", cor: "", logos: ["roblox", "lua"], foco: "Finalizar + publicar + Demo Day", semanas: ["Testar e corrigir bugs.", "Publicar o jogo final no Roblox.", "Montar o portfólio do aluno.", "Demo Day final → ponte pro CREATE."] },
 ];
 
 // ── O que a criança domina no fim de cada ano (dinâmico por aba) ─────────────
@@ -134,11 +134,11 @@ const ANO3_DOMINA = [
   "Conclui 4 projetos no ano, fechando com Demo Day + certificado.",
 ];
 const ANO4_DOMINA = [
-  "Escreve os próprios scripts em Lua: variáveis, funções e mecânicas de jogo.",
-  "Treina modelos de IA (ML for Kids) e aplica dentro do jogo.",
-  "Modela em dois softwares 3D profissionais: Maya e Blender.",
-  "Cria itens 3D e publica na lojinha (UGC) do Roblox.",
-  "Lança 2 jogos próprios ao longo do ano.",
+  "Treina uma IA (ML for Kids) e usa num projeto próprio.",
+  "Produz itens 3D pra loja (UGC) em três ferramentas — MagicaVoxel, Blender e Maya — e entende a diferença entre elas.",
+  "Publica os próprios itens à venda na loja do Roblox (UGC).",
+  "Modela e imprime itens em 3D de verdade (Maya + Bambu Lab).",
+  "Tem o primeiro contato com código de texto (Lua) e cria um jogo no Roblox.",
   "Monta um portfólio e conclui a trilha Júnior — ponte pro CREATE.",
 ];
 
@@ -146,7 +146,7 @@ const ANOS = [
   { titulo: "Ano 1", foco: "Primeiros jogos e mundos", ferramentas: "Minecraft · Scratch · Construct 3 · Aseprite · MagicaVoxel · Maya · Roblox", trofeu: "5 projetos no ano", meses: ANO1_MESES, domina: ANO1_DOMINA },
   { titulo: "Ano 2", foco: "IA, arte animada e os primeiros modelos 3D nos jogos", ferramentas: "Teachable Machine · Aseprite · Construct 3 · Maya · Roblox", trofeu: "3 projetos no ano", meses: ANO2_MESES, domina: ANO2_DOMINA },
   { titulo: "Ano 3", foco: "Modelagem 3D, impressão 3D e um jogo em Voxel Art", ferramentas: "MagicaVoxel · Blender · Bambu Lab (impressão 3D) · Roblox", trofeu: "4 projetos no ano", meses: ANO3_MESES, domina: ANO3_DOMINA },
-  { titulo: "Ano 4", foco: "Criador completo: 2 jogos, IA e itens 3D pra vender", ferramentas: "IA (ML for Kids) · Blender · Maya · Roblox + Lua", trofeu: "2 jogos + itens 3D à venda na loja + portfólio", meses: ANO4_MESES, domina: ANO4_DOMINA },
+  { titulo: "Ano 4", foco: "IA, itens pra vender na loja, impressão 3D e jogo com código", ferramentas: "ML for Kids · MagicaVoxel · Blender · Maya · Bambu Lab · Roblox + Lua", trofeu: "4 projetos no ano", meses: ANO4_MESES, domina: ANO4_DOMINA },
 ];
 
 const CONCEITOS = [
