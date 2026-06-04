@@ -17,6 +17,8 @@ for (const [path, url] of Object.entries(files)) {
 export function logoKey(ferramenta: string): string {
   const f = ferramenta.toLowerCase();
   if (f.includes("aseprite")) return "aseprite";
+  if (f.includes("construct")) return "construct";
+  if (f.includes("blender")) return "blender";
   if (f.includes("minecraft")) return "minecraft";
   if (f.includes("makecode")) return "makecode";
   if (f.includes("teachable")) return "teachable";
@@ -72,6 +74,21 @@ function fallback(name: string) {
             transform="rotate(-25 12 12)"
           />
           <circle cx="9.5" cy="10" r="1.4" fill="#fff" />
+        </>
+      );
+    case "construct":
+      return (
+        <>
+          <rect width="24" height="24" rx="5" fill="#127FBF" />
+          <path d="M9 7 L17 12 L9 17 Z" fill="#fff" />
+        </>
+      );
+    case "blender":
+      return (
+        <>
+          <circle cx="12" cy="12" r="9" fill="#E87D0D" />
+          <circle cx="12" cy="13" r="4.6" fill="#fff" />
+          <circle cx="14.6" cy="10" r="1.7" fill="#2A6FB0" />
         </>
       );
     case "ia":
