@@ -8,6 +8,7 @@ export type MesGrade = {
   foco: string; // foco do mês (1 linha)
   semanas: string[]; // tópico de cada semana
   logos?: string[]; // opcional: chaves de logo explícitas (ex.: ["ia","imageai"])
+  projeto?: string; // opcional: selo de projeto do ano (ex.: "1/4" = 1º mês de um projeto de 4 meses)
 };
 
 /**
@@ -27,7 +28,19 @@ export function MesesGrade({ meses, accent }: { meses: MesGrade[]; accent: strin
               <span className="text-[11px] font-black uppercase tracking-wider text-muted-foreground">
                 {m.mes}
               </span>
-              <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition group-open:rotate-180" />
+              <span className="flex items-center gap-1.5">
+                {m.projeto ? (
+                  <span
+                    className="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-[11px] font-black"
+                    style={{ color: accent }}
+                    title="Projeto do ano"
+                  >
+                    <ToolLogo name="projeto" className="h-4 w-4" />
+                    {m.projeto}
+                  </span>
+                ) : null}
+                <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition group-open:rotate-180" />
+              </span>
             </div>
             <div className="flex items-center gap-2.5">
               <span className="flex shrink-0 items-center gap-1">

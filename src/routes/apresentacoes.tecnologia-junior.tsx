@@ -39,18 +39,18 @@ const METODO = [
 // Aseprite · Construct · MagicaVoxel · Roblox · Maya · Roblox  (sem mês "projeto"
 // solto — o projeto nasce dentro do par de ferramentas).
 const ANO1_MESES: MesGrade[] = [
-  { mes: "Mês 1", ferramenta: "Minecraft + MakeCode", cor: "", logos: ["minecraft", "makecode"], foco: "Primeiros comandos e o Agente", semanas: ["O primeiro comando: digitar uma palavra e o jogo obedecer (evento).", "Controlar o Agente (robô) numa sequência de passos.", "Repetição (loop): o Agente faz fileiras sem cansar.", "Mini-construção feita por código."] },
-  { mes: "Mês 2", ferramenta: "Minecraft + MakeCode", cor: "", logos: ["minecraft", "makecode"], foco: "Construir e mini-jogos", semanas: ["Variável: a 'caixinha' que muda a construção.", "Condição (se/então): o jogo decide.", "Eventos do mundo + placar (pontos que sobem).", "Um mini-jogo jogável no Minecraft."] },
-  { mes: "Mês 3", ferramenta: "Scratch", cor: "", foco: "Meu primeiro jogo 2D", semanas: ["Palco, personagens e movimento.", "Eventos: reagir a cliques e teclas, com sons.", "Pontuação e mensagens na tela.", "Primeiro joguinho 2D próprio."] },
-  { mes: "Mês 4", ferramenta: "Scratch", cor: "", foco: "Jogos com regras", semanas: ["Colisão e fases.", "Vidas e fim de jogo.", "Dificuldade e sorteio (aleatório).", "Um jogo 2D com regras."] },
-  { mes: "Mês 5", ferramenta: "Construct 3", cor: "", foco: "Começar um jogo 2D de verdade", semanas: ["Conhecer o Construct: cenário e objetos.", "Eventos (regras) sem digitar: 'quando... faça...'.", "Movimento e controles do personagem.", "O esqueleto do jogo funcionando (com arte de teste)."] },
-  { mes: "Mês 6", ferramenta: "Aseprite", cor: "", foco: "Desenhar os sprites do jogo (pixel art)", semanas: ["Conhecer o Aseprite: frames e camadas.", "Paleta de cores e desenhar um objeto (16×16).", "Desenhar o personagem do jogo.", "Conjunto de sprites pro jogo do Construct."] },
-  { mes: "Mês 7", ferramenta: "Aseprite", cor: "", foco: "Dar vida: animação", semanas: ["Idle de 2 frames ('respirando') — bom timing vale mais que muitos frames.", "Onion skin pra alinhar os frames.", "Moeda girando (4 frames) e item flutuando.", "Exportar GIF / sprite sheet pro jogo."] },
-  { mes: "Mês 8", ferramenta: "Construct 3", cor: "", foco: "Montar o jogo com a arte própria", semanas: ["Trazer os sprites desenhados pro jogo.", "Pontos, vidas e tela de vitória.", "Inimigos, colisão e sons.", "Jogo 2D completo, com arte própria (entregável)."] },
-  { mes: "Mês 9", ferramenta: "MagicaVoxel", cor: "", foco: "Arte 3D em cubinhos + Impressão 3D", semanas: ["O que é 3D: girar e ver em volta (criar em voxel).", "Criar um personagem de cubinhos.", "Cores, detalhes e variações.", "Preparar e imprimir em 3D (levar pra casa)."] },
-  { mes: "Mês 10", ferramenta: "Roblox (Criador Iniciante)", cor: "", foco: "Meu mundo no Roblox", semanas: ["Roblox Studio: terreno e cenário.", "Colocar peças, objetos e decoração.", "Ponto de partida e checkpoints.", "Obstáculos simples (obby)."] },
-  { mes: "Mês 11", ferramenta: "Maya", cor: "", foco: "Primeiro contato com o 3D profissional", semanas: ["Conhecer o Maya (software da indústria) — kit travado, poucos botões.", "Formas básicas viram objetos.", "Mover, girar, escalar e colorir.", "Um objeto/asset simples pra levar pro Roblox."] },
-  { mes: "Mês 12", ferramenta: "Roblox", cor: "", foco: "Publicar meu jogo + Demo Day", semanas: ["Trazer o asset do Maya pro mundo.", "Montar o jogo e ajustar.", "Publicar o jogo.", "Demo Day pros pais + certificado do Ano 1."] },
+  { mes: "Mês 1", projeto: "1/2", ferramenta: "Minecraft + MakeCode", cor: "", logos: ["minecraft", "makecode"], foco: "Primeiros comandos e o Agente", semanas: ["O primeiro comando: digitar uma palavra e o jogo obedecer (evento).", "Controlar o Agente (robô) numa sequência de passos.", "Repetição (loop): o Agente faz fileiras sem cansar.", "Mini-construção feita por código."] },
+  { mes: "Mês 2", projeto: "2/2", ferramenta: "Minecraft + MakeCode", cor: "", logos: ["minecraft", "makecode"], foco: "Construir e mini-jogos", semanas: ["Variável: a 'caixinha' que muda a construção.", "Condição (se/então): o jogo decide.", "Eventos do mundo + placar (pontos que sobem).", "Um mini-jogo jogável no Minecraft."] },
+  { mes: "Mês 3", projeto: "1/2", ferramenta: "Scratch", cor: "", foco: "Meu primeiro jogo 2D", semanas: ["Palco, personagens e movimento.", "Eventos: reagir a cliques e teclas, com sons.", "Pontuação e mensagens na tela.", "Primeiro joguinho 2D próprio."] },
+  { mes: "Mês 4", projeto: "2/2", ferramenta: "Scratch", cor: "", foco: "Jogos com regras", semanas: ["Colisão e fases.", "Vidas e fim de jogo.", "Dificuldade e sorteio (aleatório).", "Um jogo 2D com regras."] },
+  { mes: "Mês 5", projeto: "1/4", ferramenta: "Construct 3", cor: "", foco: "Começar um jogo 2D de verdade", semanas: ["Conhecer o Construct: cenário e objetos.", "Eventos (regras) sem digitar: 'quando... faça...'.", "Movimento e controles do personagem.", "O esqueleto do jogo funcionando (com arte de teste)."] },
+  { mes: "Mês 6", projeto: "2/4", ferramenta: "Aseprite", cor: "", foco: "Desenhar os sprites do jogo (pixel art)", semanas: ["Conhecer o Aseprite: frames e camadas.", "Paleta de cores e desenhar um objeto (16×16).", "Desenhar o personagem do jogo.", "Conjunto de sprites pro jogo do Construct."] },
+  { mes: "Mês 7", projeto: "3/4", ferramenta: "Aseprite", cor: "", foco: "Dar vida: animação", semanas: ["Idle de 2 frames ('respirando') — bom timing vale mais que muitos frames.", "Onion skin pra alinhar os frames.", "Moeda girando (4 frames) e item flutuando.", "Exportar GIF / sprite sheet pro jogo."] },
+  { mes: "Mês 8", projeto: "4/4", ferramenta: "Construct 3", cor: "", foco: "Montar o jogo com a arte própria", semanas: ["Trazer os sprites desenhados pro jogo.", "Pontos, vidas e tela de vitória.", "Inimigos, colisão e sons.", "Jogo 2D completo, com arte própria (entregável)."] },
+  { mes: "Mês 9", projeto: "1/2", ferramenta: "MagicaVoxel", cor: "", foco: "Arte 3D em cubinhos + Impressão 3D", semanas: ["O que é 3D: girar e ver em volta (criar em voxel).", "Criar um personagem de cubinhos.", "Cores, detalhes e variações.", "Preparar e imprimir em 3D (levar pra casa)."] },
+  { mes: "Mês 10", projeto: "2/2", ferramenta: "Roblox (Criador Iniciante)", cor: "", foco: "Meu mundo no Roblox", semanas: ["Roblox Studio: terreno e cenário.", "Colocar peças, objetos e decoração.", "Ponto de partida e checkpoints.", "Obstáculos simples (obby)."] },
+  { mes: "Mês 11", projeto: "1/2", ferramenta: "Maya", cor: "", foco: "Primeiro contato com o 3D profissional", semanas: ["Conhecer o Maya (software da indústria) — kit travado, poucos botões.", "Formas básicas viram objetos.", "Mover, girar, escalar e colorir.", "Um objeto/asset simples pra levar pro Roblox."] },
+  { mes: "Mês 12", projeto: "2/2", ferramenta: "Roblox", cor: "", foco: "Publicar meu jogo + Demo Day", semanas: ["Trazer o asset do Maya pro mundo.", "Montar o jogo e ajustar.", "Publicar o jogo.", "Demo Day pros pais + certificado do Ano 1."] },
 ];
 
 // ── ANO 2 — IA, arte animada e os primeiros modelos 3D nos jogos ──────────────
@@ -166,6 +166,7 @@ function Chip({ icon: Icon, children }: { icon: LucideIcon; children: React.Reac
 function TecJuniorApresentacao() {
   const [ano, setAno] = useState(0);
   const atual = ANOS[ano];
+  const nProjetos = atual.meses.filter((m) => m.projeto?.startsWith("1/")).length;
 
   return (
     <div className="bg-white">
@@ -221,13 +222,14 @@ function TecJuniorApresentacao() {
         </div>
       </section>
 
-      {/* GRADE — ANO A ANO (seletor) */}
-      <section className="py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      {/* GRADE — ANO A ANO (seletor) — banda colorida */}
+      <section className="relative isolate overflow-hidden py-16 text-white" style={{ background: GREEN_GRAD }}>
+        <div className="absolute inset-0 dotted-bg opacity-20" />
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <Reveal className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.25em]" style={{ color: GREEN }}>A grade, ano a ano</p>
+            <p className="text-sm font-black uppercase tracking-[0.25em] text-white/80">A grade, ano a ano</p>
             <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Escolha o ano e veja os 12 meses</h2>
-            <p className="mt-3 text-muted-foreground">
+            <p className="mt-3 text-white/90">
               As ferramentas se intercalam de propósito: cria-se a arte/modelo numa ferramenta e
               volta-se pro motor de jogo pra aplicar — igual a um estúdio de verdade.{" "}
               <strong>Clique num mês</strong> para ver o que é trabalhado em cada semana.
@@ -244,9 +246,9 @@ function TecJuniorApresentacao() {
                   type="button"
                   onClick={() => setAno(i)}
                   className={`rounded-full px-5 py-2.5 text-sm font-black uppercase tracking-wider transition ${
-                    ativo ? "text-white shadow-md" : "border-2 text-st-blue-dark hover:bg-muted"
+                    ativo ? "bg-white shadow-md" : "border-2 border-white/40 text-white hover:bg-white/10"
                   }`}
-                  style={ativo ? { background: GREEN_GRAD } : { borderColor: `${GREEN}40` }}
+                  style={ativo ? { color: GREEN_DARK } : undefined}
                 >
                   {a.titulo}
                 </button>
@@ -255,31 +257,44 @@ function TecJuniorApresentacao() {
           </div>
 
           {/* resumo do ano ativo */}
-          <div className="mt-6 rounded-2xl border-2 p-6" style={{ borderColor: `${GREEN}25`, background: `${GREEN}0d` }}>
+          <div className="mt-6 rounded-2xl bg-white/10 p-6 backdrop-blur">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <h3 className="text-xl font-black text-st-blue-dark">{atual.titulo} — {atual.foco}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{atual.ferramentas}</p>
+                <h3 className="text-xl font-black text-white">{atual.titulo} — {atual.foco}</h3>
+                <p className="mt-1 text-sm text-white/85">{atual.ferramentas}</p>
               </div>
-              <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-bold text-white" style={{ background: GREEN_DARK }}>
+              <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-sm font-bold" style={{ color: GREEN_DARK }}>
                 <Trophy className="h-4 w-4" /> {atual.trofeu}
               </span>
             </div>
           </div>
+
+          {/* legenda do selo de projeto */}
+          {nProjetos > 0 ? (
+            <div className="mt-4 flex flex-wrap items-center gap-2.5 rounded-xl bg-white/10 px-4 py-3 text-sm text-white/90 backdrop-blur">
+              <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-white px-2 py-0.5 text-[11px] font-black" style={{ color: GREEN_DARK }}>
+                <ToolLogo name="projeto" className="h-4 w-4" /> 2/4
+              </span>
+              <span>
+                O selo mostra o <strong>projeto do ano</strong> de cada mês — ex.: <strong>2/4</strong> = 2º mês
+                de um projeto de 4 meses. São <strong>{nProjetos} projetos</strong> no {atual.titulo}.
+              </span>
+            </div>
+          ) : null}
 
           <div className="mt-8">
             <MesesGrade meses={atual.meses} accent={GREEN_DARK} />
           </div>
 
           {/* Conceitos */}
-          <Reveal className="mt-10 rounded-2xl border border-border bg-muted/40 p-6">
+          <Reveal className="mt-10 rounded-2xl bg-white/10 p-6 backdrop-blur">
             <div className="flex items-center gap-2">
-              <Sparkles className="h-5 w-5" style={{ color: GREEN }} />
-              <h3 className="font-black text-st-blue-dark">Conceitos que o aluno domina na trilha</h3>
+              <Sparkles className="h-5 w-5 text-white" />
+              <h3 className="font-black text-white">Conceitos que o aluno domina na trilha</h3>
             </div>
             <div className="mt-4 flex flex-wrap gap-2">
               {CONCEITOS.map((c) => (
-                <span key={c} className="rounded-full border px-3.5 py-1.5 text-sm font-bold" style={{ borderColor: `${GREEN}55`, color: GREEN_DARK }}>{c}</span>
+                <span key={c} className="rounded-full border border-white/40 px-3.5 py-1.5 text-sm font-bold text-white">{c}</span>
               ))}
             </div>
           </Reveal>
