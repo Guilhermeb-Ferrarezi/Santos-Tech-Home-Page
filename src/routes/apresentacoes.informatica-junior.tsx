@@ -154,6 +154,7 @@ const MESES: MesGrade[] = [
     mes: "Mês 10",
     ferramenta: "Inteligência Artificial",
     cor: COR.ia,
+    logos: ["gemini", "nanobanana"],
     foco: "Conhecendo a IA",
     semanas: [
       "O que é inteligência artificial.",
@@ -196,7 +197,7 @@ const DOMINA = [
   "Apresenta um projeto próprio no Demo Day.",
 ];
 
-const FERRAMENTAS = [
+const FERRAMENTAS: { n: string; d: string; logo?: string }[] = [
   { n: "Windows + Digitação", d: "Dominar o computador: mouse, teclado, digitação e organização de arquivos." },
   { n: "Word", d: "Criar e formatar documentos no padrão Microsoft." },
   { n: "Google Docs", d: "A versão do Google para documentos, direto na nuvem." },
@@ -204,7 +205,8 @@ const FERRAMENTAS = [
   { n: "Google Apresentações", d: "A versão do Google para apresentações, na nuvem." },
   { n: "Excel", d: "A primeira planilha: dados, contas automáticas e gráficos." },
   { n: "Google Planilhas", d: "A versão do Google para planilhas, na nuvem." },
-  { n: "Inteligência Artificial", d: "Criar imagens com IA, entendendo o que é e usando com responsabilidade." },
+  { n: "Inteligência Artificial", d: "A plataforma de IA que a turma usa (com supervisão) para aprender e criar.", logo: "gemini" },
+  { n: "IA de imagem (geradora)", d: "A ferramenta que transforma texto em imagem — a criança experimenta, sempre com supervisão.", logo: "nanobanana" },
 ];
 
 function BackLink({ light = false }: { light?: boolean }) {
@@ -293,15 +295,16 @@ function InfJuniorApresentacao() {
         </div>
       </section>
 
-      {/* O ANO — 12 MESES */}
-      <section className="py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      {/* O ANO — 12 MESES (banda colorida) */}
+      <section className="relative isolate overflow-hidden py-16 text-white" style={{ background: GREEN_GRAD }}>
+        <div className="absolute inset-0 dotted-bg opacity-20" />
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <Reveal className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.25em]" style={{ color: GREEN }}>
+            <p className="text-sm font-black uppercase tracking-[0.25em] text-white/80">
               O ano — mês a mês
             </p>
             <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Os 12 meses</h2>
-            <p className="mt-3 text-muted-foreground">
+            <p className="mt-3 text-white/90">
               Cada ferramenta tem o tempo que precisa: Word é rápido, Excel ganha mais meses.{" "}
               <strong>Clique em um mês</strong> para ver o que é trabalhado em cada semana.
             </p>
@@ -350,7 +353,7 @@ function InfJuniorApresentacao() {
             {FERRAMENTAS.map((f) => (
               <div key={f.n} className="flex items-start gap-4 rounded-2xl bg-white/10 p-5 backdrop-blur">
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm">
-                  <ToolLogo name={logoKey(f.n)} className="h-8 w-8" />
+                  <ToolLogo name={f.logo ?? logoKey(f.n)} className="h-8 w-8" />
                 </span>
                 <div>
                   <p className="font-black">{f.n}</p>

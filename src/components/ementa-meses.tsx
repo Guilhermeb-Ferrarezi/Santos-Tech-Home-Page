@@ -7,6 +7,7 @@ export type MesGrade = {
   cor: string; // cor da bolinha da ferramenta (agrupa meses da mesma ferramenta)
   foco: string; // foco do mês (1 linha)
   semanas: string[]; // tópico de cada semana
+  logos?: string[]; // opcional: chaves de logo explícitas (ex.: ["ia","imageai"])
 };
 
 /**
@@ -30,8 +31,8 @@ export function MesesGrade({ meses, accent }: { meses: MesGrade[]; accent: strin
             </div>
             <div className="flex items-center gap-2.5">
               <span className="flex shrink-0 items-center gap-1">
-                {m.ferramenta.split(" / ").map((t) => (
-                  <ToolLogo key={t} name={logoKey(t)} className="h-8 w-8" />
+                {(m.logos ?? m.ferramenta.split(" / ").map((t) => logoKey(t))).map((k) => (
+                  <ToolLogo key={k} name={k} className="h-8 w-8" />
                 ))}
               </span>
               <span className="font-black leading-tight text-st-blue-dark">{m.ferramenta}</span>

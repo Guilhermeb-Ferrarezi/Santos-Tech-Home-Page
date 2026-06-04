@@ -19,6 +19,8 @@ export function logoKey(ferramenta: string): string {
   if (f.includes("aseprite")) return "aseprite";
   if (f.includes("construct")) return "construct";
   if (f.includes("blender")) return "blender";
+  if (f.includes("gemini")) return "gemini";
+  if (f.includes("nano") && f.includes("banana")) return "nanobanana";
   if (f.includes("minecraft")) return "minecraft";
   if (f.includes("makecode")) return "makecode";
   if (f.includes("teachable")) return "teachable";
@@ -37,6 +39,7 @@ export function logoKey(ferramenta: string): string {
   if (f.includes("drive")) return "drive";
   if (f.includes("calendar") || f.includes("agenda")) return "calendar";
   if (f.includes("projeto")) return "projeto";
+  if (f.includes("imagem")) return "imageai";
   if (f.includes("computador") || f.includes("windows") || f.includes("digita")) return "pc";
   return "ia";
 }
@@ -89,6 +92,16 @@ function fallback(name: string) {
           <circle cx="12" cy="12" r="9" fill="#E87D0D" />
           <circle cx="12" cy="13" r="4.6" fill="#fff" />
           <circle cx="14.6" cy="10" r="1.7" fill="#2A6FB0" />
+        </>
+      );
+    case "imageai":
+      return (
+        <>
+          <rect width="24" height="24" rx="5" fill="#7C3AED" />
+          <rect x="5" y="7" width="14" height="10" rx="1.5" fill="#fff" />
+          <circle cx="9.5" cy="11" r="1.4" fill="#7C3AED" />
+          <path d="M6 16.5 L11 12 L14 15 L19 10.8 L19 16.5 Z" fill="#7C3AED" opacity="0.85" />
+          <path d="M18.2 4 l0.6 1.6 1.6 0.6 -1.6 0.6 -0.6 1.6 -0.6 -1.6 -1.6 -0.6 1.6 -0.6 Z" fill="#FBBF24" />
         </>
       );
     case "ia":
