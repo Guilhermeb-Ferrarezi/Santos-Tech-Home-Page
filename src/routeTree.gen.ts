@@ -15,11 +15,14 @@ import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SobreIndexRouteImport } from './routes/sobre.index'
 import { Route as CursosIndexRouteImport } from './routes/cursos.index'
+import { Route as ApresentacoesIndexRouteImport } from './routes/apresentacoes.index'
 import { Route as SobreVisaoRouteImport } from './routes/sobre.visao'
 import { Route as CursosJuniorRouteImport } from './routes/cursos.junior'
 import { Route as CursosCreateRouteImport } from './routes/cursos.create'
 import { Route as CursosCampsRouteImport } from './routes/cursos.camps'
 import { Route as CursosAcademiesRouteImport } from './routes/cursos.academies'
+import { Route as ApresentacoesTecnologiaJuniorRouteImport } from './routes/apresentacoes.tecnologia-junior'
+import { Route as ApresentacoesInformaticaJuniorRouteImport } from './routes/apresentacoes.informatica-junior'
 import { Route as CursosJuniorIndexRouteImport } from './routes/cursos.junior.index'
 import { Route as CursosCreateIndexRouteImport } from './routes/cursos.create.index'
 import { Route as CursosJunior78AnosRouteImport } from './routes/cursos.junior.7-8-anos'
@@ -62,6 +65,11 @@ const CursosIndexRoute = CursosIndexRouteImport.update({
   path: '/',
   getParentRoute: () => CursosRoute,
 } as any)
+const ApresentacoesIndexRoute = ApresentacoesIndexRouteImport.update({
+  id: '/apresentacoes/',
+  path: '/apresentacoes/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SobreVisaoRoute = SobreVisaoRouteImport.update({
   id: '/visao',
   path: '/visao',
@@ -87,6 +95,18 @@ const CursosAcademiesRoute = CursosAcademiesRouteImport.update({
   path: '/academies',
   getParentRoute: () => CursosRoute,
 } as any)
+const ApresentacoesTecnologiaJuniorRoute =
+  ApresentacoesTecnologiaJuniorRouteImport.update({
+    id: '/apresentacoes/tecnologia-junior',
+    path: '/apresentacoes/tecnologia-junior',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApresentacoesInformaticaJuniorRoute =
+  ApresentacoesInformaticaJuniorRouteImport.update({
+    id: '/apresentacoes/informatica-junior',
+    path: '/apresentacoes/informatica-junior',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CursosJuniorIndexRoute = CursosJuniorIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -148,11 +168,14 @@ export interface FileRoutesByFullPath {
   '/contato': typeof ContatoRoute
   '/cursos': typeof CursosRouteWithChildren
   '/sobre': typeof SobreRouteWithChildren
+  '/apresentacoes/informatica-junior': typeof ApresentacoesInformaticaJuniorRoute
+  '/apresentacoes/tecnologia-junior': typeof ApresentacoesTecnologiaJuniorRoute
   '/cursos/academies': typeof CursosAcademiesRoute
   '/cursos/camps': typeof CursosCampsRoute
   '/cursos/create': typeof CursosCreateRouteWithChildren
   '/cursos/junior': typeof CursosJuniorRouteWithChildren
   '/sobre/visao': typeof SobreVisaoRoute
+  '/apresentacoes/': typeof ApresentacoesIndexRoute
   '/cursos/': typeof CursosIndexRoute
   '/sobre/': typeof SobreIndexRoute
   '/cursos/create/10-11-anos': typeof CursosCreate1011AnosRoute
@@ -170,9 +193,12 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
+  '/apresentacoes/informatica-junior': typeof ApresentacoesInformaticaJuniorRoute
+  '/apresentacoes/tecnologia-junior': typeof ApresentacoesTecnologiaJuniorRoute
   '/cursos/academies': typeof CursosAcademiesRoute
   '/cursos/camps': typeof CursosCampsRoute
   '/sobre/visao': typeof SobreVisaoRoute
+  '/apresentacoes': typeof ApresentacoesIndexRoute
   '/cursos': typeof CursosIndexRoute
   '/sobre': typeof SobreIndexRoute
   '/cursos/create/10-11-anos': typeof CursosCreate1011AnosRoute
@@ -193,11 +219,14 @@ export interface FileRoutesById {
   '/contato': typeof ContatoRoute
   '/cursos': typeof CursosRouteWithChildren
   '/sobre': typeof SobreRouteWithChildren
+  '/apresentacoes/informatica-junior': typeof ApresentacoesInformaticaJuniorRoute
+  '/apresentacoes/tecnologia-junior': typeof ApresentacoesTecnologiaJuniorRoute
   '/cursos/academies': typeof CursosAcademiesRoute
   '/cursos/camps': typeof CursosCampsRoute
   '/cursos/create': typeof CursosCreateRouteWithChildren
   '/cursos/junior': typeof CursosJuniorRouteWithChildren
   '/sobre/visao': typeof SobreVisaoRoute
+  '/apresentacoes/': typeof ApresentacoesIndexRoute
   '/cursos/': typeof CursosIndexRoute
   '/sobre/': typeof SobreIndexRoute
   '/cursos/create/10-11-anos': typeof CursosCreate1011AnosRoute
@@ -219,11 +248,14 @@ export interface FileRouteTypes {
     | '/contato'
     | '/cursos'
     | '/sobre'
+    | '/apresentacoes/informatica-junior'
+    | '/apresentacoes/tecnologia-junior'
     | '/cursos/academies'
     | '/cursos/camps'
     | '/cursos/create'
     | '/cursos/junior'
     | '/sobre/visao'
+    | '/apresentacoes/'
     | '/cursos/'
     | '/sobre/'
     | '/cursos/create/10-11-anos'
@@ -241,9 +273,12 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/contato'
+    | '/apresentacoes/informatica-junior'
+    | '/apresentacoes/tecnologia-junior'
     | '/cursos/academies'
     | '/cursos/camps'
     | '/sobre/visao'
+    | '/apresentacoes'
     | '/cursos'
     | '/sobre'
     | '/cursos/create/10-11-anos'
@@ -263,11 +298,14 @@ export interface FileRouteTypes {
     | '/contato'
     | '/cursos'
     | '/sobre'
+    | '/apresentacoes/informatica-junior'
+    | '/apresentacoes/tecnologia-junior'
     | '/cursos/academies'
     | '/cursos/camps'
     | '/cursos/create'
     | '/cursos/junior'
     | '/sobre/visao'
+    | '/apresentacoes/'
     | '/cursos/'
     | '/sobre/'
     | '/cursos/create/10-11-anos'
@@ -288,6 +326,9 @@ export interface RootRouteChildren {
   ContatoRoute: typeof ContatoRoute
   CursosRoute: typeof CursosRouteWithChildren
   SobreRoute: typeof SobreRouteWithChildren
+  ApresentacoesInformaticaJuniorRoute: typeof ApresentacoesInformaticaJuniorRoute
+  ApresentacoesTecnologiaJuniorRoute: typeof ApresentacoesTecnologiaJuniorRoute
+  ApresentacoesIndexRoute: typeof ApresentacoesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -334,6 +375,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CursosIndexRouteImport
       parentRoute: typeof CursosRoute
     }
+    '/apresentacoes/': {
+      id: '/apresentacoes/'
+      path: '/apresentacoes'
+      fullPath: '/apresentacoes/'
+      preLoaderRoute: typeof ApresentacoesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sobre/visao': {
       id: '/sobre/visao'
       path: '/visao'
@@ -368,6 +416,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/cursos/academies'
       preLoaderRoute: typeof CursosAcademiesRouteImport
       parentRoute: typeof CursosRoute
+    }
+    '/apresentacoes/tecnologia-junior': {
+      id: '/apresentacoes/tecnologia-junior'
+      path: '/apresentacoes/tecnologia-junior'
+      fullPath: '/apresentacoes/tecnologia-junior'
+      preLoaderRoute: typeof ApresentacoesTecnologiaJuniorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/apresentacoes/informatica-junior': {
+      id: '/apresentacoes/informatica-junior'
+      path: '/apresentacoes/informatica-junior'
+      fullPath: '/apresentacoes/informatica-junior'
+      preLoaderRoute: typeof ApresentacoesInformaticaJuniorRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/cursos/junior/': {
       id: '/cursos/junior/'
@@ -527,6 +589,9 @@ const rootRouteChildren: RootRouteChildren = {
   ContatoRoute: ContatoRoute,
   CursosRoute: CursosRouteWithChildren,
   SobreRoute: SobreRouteWithChildren,
+  ApresentacoesInformaticaJuniorRoute: ApresentacoesInformaticaJuniorRoute,
+  ApresentacoesTecnologiaJuniorRoute: ApresentacoesTecnologiaJuniorRoute,
+  ApresentacoesIndexRoute: ApresentacoesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

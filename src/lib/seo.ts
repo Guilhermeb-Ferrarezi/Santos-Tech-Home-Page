@@ -308,3 +308,19 @@ export function pageMeta(input: {
   };
 }
 
+/**
+ * Meta para páginas PRIVADAS que não devem ser indexadas pelo Google
+ * (apresentações internas / área pedagógica). Sem canonical/OG — o objetivo é
+ * manter fora dos buscadores. Reforçar também no robots.txt e fora do sitemap.
+ */
+export function noindexMeta(input: { title: string; description?: string }) {
+  return {
+    meta: [
+      { title: input.title },
+      ...(input.description ? [{ name: "description", content: input.description }] : []),
+      { name: "robots", content: "noindex, nofollow, noarchive, noimageindex" },
+      { name: "googlebot", content: "noindex, nofollow, noarchive, noimageindex" },
+    ],
+  };
+}
+
