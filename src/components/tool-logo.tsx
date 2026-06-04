@@ -16,6 +16,7 @@ for (const [path, url] of Object.entries(files)) {
 /** Deriva a logo a partir do nome da ferramenta. */
 export function logoKey(ferramenta: string): string {
   const f = ferramenta.toLowerCase();
+  if (f.includes("canva")) return "canva";
   if (f.includes("aseprite")) return "aseprite";
   if (f.includes("construct")) return "construct";
   if (f.includes("blender")) return "blender";

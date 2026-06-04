@@ -31,6 +31,7 @@ const COR = {
   ppt: "#C43E1C",
   excel: "#217346",
   ia: "#14B8A6",
+  canva: "#00C4CC",
 } as const;
 
 const METODO = [
@@ -165,14 +166,14 @@ const MESES: MesGrade[] = [
   },
   {
     mes: "Mês 11",
-    ferramenta: "Projeto final",
-    cor: COR.ia,
-    foco: "Juntando tudo",
+    ferramenta: "Canva",
+    cor: COR.canva,
+    foco: "Criar artes no Canva",
     semanas: [
-      "Escolher um tema de projeto.",
-      "Documento no Word + apresentação no PowerPoint.",
-      "Planilha com dados e gráfico.",
-      "Incluir uma figura criada com IA.",
+      "Conhecer o Canva: modelos prontos e arrastar elementos.",
+      "Texto, cores e figurinhas para deixar bonito.",
+      "Inserir fotos e imagens nas artes.",
+      "Um cartaz, convite ou cartão próprio (entregável).",
     ],
   },
   {
@@ -181,10 +182,10 @@ const MESES: MesGrade[] = [
     cor: COR.ia,
     foco: "Projeto final + Demo Day",
     semanas: [
-      "Montar a apresentação final.",
-      "Ensaiar a apresentação.",
-      "Demo Day para os pais.",
-      "Certificado do nível.",
+      "Escolher o tema e planejar o projeto.",
+      "Criar tudo: documento, planilha com gráfico, figura com IA e arte no Canva.",
+      "Montar e ensaiar a apresentação final.",
+      "Demo Day para os pais + certificado do nível.",
     ],
   },
 ];
@@ -194,6 +195,7 @@ const DOMINA = [
   "Cria documentos, apresentações e planilhas próprios.",
   "Faz contas e gráficos no Excel / Sheets.",
   "Navega com segurança e usa IA com responsabilidade.",
+  "Cria artes simples no Canva (cartazes, convites e cartões).",
   "Apresenta um projeto próprio no Demo Day.",
 ];
 
@@ -207,6 +209,7 @@ const FERRAMENTAS: { n: string; d: string; logo?: string }[] = [
   { n: "Google Planilhas", d: "A versão do Google para planilhas, na nuvem." },
   { n: "Inteligência Artificial", d: "A plataforma de IA que a turma usa (com supervisão) para aprender e criar.", logo: "gemini" },
   { n: "IA de imagem (geradora)", d: "A ferramenta que transforma texto em imagem — a criança experimenta, sempre com supervisão.", logo: "nanobanana" },
+  { n: "Canva", d: "Design para crianças: cartazes, convites e cartões com modelos prontos, no arrastar e soltar." },
 ];
 
 function BackLink({ light = false }: { light?: boolean }) {
