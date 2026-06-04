@@ -58,18 +58,18 @@ const ANO1_MESES: MesGrade[] = [
 // Sequência: Teachable Machine · Teachable Machine · Aseprite · Construct ·
 // Aseprite · Construct · PROJETO (polir) · Maya · Roblox · Maya · Roblox · PROJETO
 const ANO2_MESES: MesGrade[] = [
-  { mes: "Mês 1", ferramenta: "Teachable Machine", cor: "", foco: "Conhecer a IA", semanas: ["O que é IA e como ela aprende com exemplos.", "Treinar a IA com imagens.", "Treinar com sons ou poses.", "Testar a IA treinada."] },
-  { mes: "Mês 2", ferramenta: "Teachable Machine + Scratch", cor: "", logos: ["teachable", "scratch"], foco: "IA num projeto", semanas: ["Conectar a IA ao Scratch.", "Controlar algo com gesto/som.", "Criar um mini-projeto que usa a IA.", "Apresentar o que a IA faz."] },
-  { mes: "Mês 3", ferramenta: "Aseprite", cor: "", foco: "Sprites pro jogo do ano", semanas: ["Revisão do Aseprite + boas práticas.", "Desenhar o personagem principal.", "Tileset simples (peças de cenário).", "Conjunto de sprites pro jogo."] },
-  { mes: "Mês 4", ferramenta: "Construct 3", cor: "", foco: "Começar o jogo 2D (mais sistemas)", semanas: ["Montar o jogo com os sprites.", "Variáveis e vários níveis.", "Power-ups e itens.", "Esqueleto do jogo com sistemas."] },
-  { mes: "Mês 5", ferramenta: "Aseprite", cor: "", foco: "Animar o jogo", semanas: ["Walk cycle de 4 frames (contato/passagem).", "Idle e uma ação (ataque/pulo).", "Efeitos: poeira e explosão (pequeno → grande).", "Exportar as animações pro jogo."] },
-  { mes: "Mês 6", ferramenta: "Construct 3", cor: "", foco: "Fechar o jogo 2D", semanas: ["Trazer as animações pro jogo.", "Inimigos, colisão e dificuldade.", "Menu, telas e recorde.", "Jogo 2D completo."] },
-  { mes: "Mês 7", ferramenta: "Projeto 1 — Polir e publicar", cor: "", foco: "Deixar o jogo redondo", semanas: ["Playtest com os colegas.", "Corrigir bugs e ajustar a dificuldade.", "Caprichar no visual e nos sons.", "Publicar e compartilhar (entregável grande)."] },
-  { mes: "Mês 8", ferramenta: "Maya", cor: "", foco: "Modelar pro jogo (vertex color)", semanas: ["Revisão do Maya + formas.", "Modelar um objeto/asset do jogo.", "Vertex color: pintar o modelo.", "Asset 3D próprio."] },
-  { mes: "Mês 9", ferramenta: "Roblox", cor: "", foco: "Aplicar o modelo no mundo", semanas: ["Trazer o asset do Maya pro Roblox.", "Montar o cenário com os modelos.", "Iluminação e clima.", "Mundo navegável com arte própria."] },
-  { mes: "Mês 10", ferramenta: "Maya", cor: "", foco: "Mais modelos + Impressão 3D", semanas: ["Modelar um personagem simples.", "Vertex color e detalhes.", "Preparar e imprimir em 3D.", "Personagem impresso (entregável)."] },
-  { mes: "Mês 11", ferramenta: "Roblox", cor: "", foco: "Jogabilidade", semanas: ["Spawns e checkpoints.", "Itens, moedas e obstáculos.", "Regra de vitória.", "Jogo jogável com os modelos."] },
-  { mes: "Mês 12", ferramenta: "Projeto 2 — Publicar no Roblox", cor: "", foco: "Lançar + Demo Day", semanas: ["Finalizar e testar o jogo.", "Publicar no Roblox.", "Demo Day pros pais.", "Certificado do Ano 2."] },
+  { mes: "Mês 1", projeto: "1/2", ferramenta: "Teachable Machine", cor: "", foco: "Conhecer a IA", semanas: ["O que é IA e como ela aprende com exemplos.", "Treinar a IA com imagens.", "Treinar com sons ou poses.", "Testar a IA treinada."] },
+  { mes: "Mês 2", projeto: "2/2", ferramenta: "Teachable Machine + Scratch", cor: "", logos: ["teachable", "scratch"], foco: "IA num projeto", semanas: ["Conectar a IA ao Scratch.", "Controlar algo com gesto/som.", "Criar um mini-projeto que usa a IA.", "Apresentar o que a IA faz."] },
+  { mes: "Mês 3", projeto: "1/4", ferramenta: "Aseprite", cor: "", foco: "Sprites pro jogo do ano", semanas: ["Revisão do Aseprite + boas práticas.", "Desenhar o personagem principal.", "Tileset simples (peças de cenário).", "Conjunto de sprites pro jogo."] },
+  { mes: "Mês 4", projeto: "2/4", ferramenta: "Construct 3", cor: "", foco: "Começar o jogo 2D (mais sistemas)", semanas: ["Montar o jogo com os sprites.", "Variáveis e vários níveis.", "Power-ups e itens.", "Esqueleto do jogo com sistemas."] },
+  { mes: "Mês 5", projeto: "3/4", ferramenta: "Aseprite", cor: "", foco: "Animar o jogo", semanas: ["Walk cycle de 4 frames (contato/passagem).", "Idle e uma ação (ataque/pulo).", "Efeitos: poeira e explosão (pequeno → grande).", "Exportar as animações pro jogo."] },
+  { mes: "Mês 6", projeto: "4/4", ferramenta: "Construct 3", cor: "", foco: "Fechar e publicar o jogo 2D", semanas: ["Trazer as animações pro jogo.", "Inimigos, colisão e dificuldade.", "Menu, telas e recorde.", "Jogo 2D completo publicado (entregável)."] },
+  { mes: "Mês 7", projeto: "1/6", ferramenta: "Maya", cor: "", foco: "Começar o jogo 3D: o cenário", semanas: ["Planejar o jogo 3D (o projeto grande do ano).", "Conhecer/revisar a modelagem no Maya.", "Modelar as primeiras peças do cenário.", "O cenário do jogo começando a tomar forma."] },
+  { mes: "Mês 8", projeto: "2/6", ferramenta: "Maya", cor: "", foco: "Modelar os itens do jogo", semanas: ["Modelar itens e objetos do jogo.", "Vertex color: pintar os modelos.", "Proporção e acabamento.", "Um conjunto de itens 3D pro jogo."] },
+  { mes: "Mês 9", projeto: "3/6", ferramenta: "Roblox", cor: "", foco: "Montar o mapa com os modelos", semanas: ["Importar os modelos do Maya pro Roblox.", "Montar o mapa com o cenário e os itens.", "Ver o que ainda falta pro jogo.", "Primeira versão do mundo navegável."] },
+  { mes: "Mês 10", projeto: "4/6", ferramenta: "Maya", cor: "", foco: "Voltar à modelagem: mais itens", semanas: ["Modelar o que faltou (personagens/itens).", "Vertex color e acabamento.", "Imprimir um modelo em 3D pra levar pra casa.", "Novos assets 3D prontos pro jogo."] },
+  { mes: "Mês 11", projeto: "5/6", ferramenta: "Roblox", cor: "", foco: "Polir a jogabilidade", semanas: ["Trazer os novos modelos pro mapa.", "Spawns, itens, moedas e obstáculos.", "Regras e objetivo do jogo.", "Jogo jogável e divertido."] },
+  { mes: "Mês 12", projeto: "6/6", ferramenta: "Roblox", cor: "", foco: "Polimento final + lançamento", semanas: ["Ajustes finais e correção de bugs.", "Publicar o jogo (mais completo) no Roblox.", "Demo Day pros pais.", "Certificado do Ano 2."] },
 ];
 
 // ── ANO 3 — Primeiro código (Lua, scripts prontos) e 3D mais sério ────────────
@@ -120,10 +120,10 @@ const ANO1_DOMINA = [
 const ANO2_DOMINA = [
   "Treina a primeira inteligência artificial (Teachable Machine) e usa num projeto.",
   "Cria um jogo 2D com arte 100% própria: sprites desenhados e animados (walk cycle, efeitos).",
-  "Modela objetos 3D no Maya e pinta com vertex color.",
-  "Leva os próprios modelos 3D pra dentro de um mundo no Roblox.",
-  "Imprime um modelo 3D autoral.",
-  "Publica um jogo completo e fecha o ano com Demo Day + certificado.",
+  "Modela cenário, itens e personagens 3D no Maya, com vertex color.",
+  "Monta e publica um jogo 3D completo no Roblox — indo e voltando entre modelar e montar.",
+  "Trabalha um projeto maior, com mais tempo pra preparar e polir o próprio jogo.",
+  "Conclui 3 projetos no ano e fecha com Demo Day + certificado.",
 ];
 const ANO3_DOMINA = [
   "Lê e edita código de verdade (Lua), a partir de scripts prontos: muda valores e comportamentos.",
@@ -144,7 +144,7 @@ const ANO4_DOMINA = [
 
 const ANOS = [
   { titulo: "Ano 1", foco: "Primeiros jogos e mundos", ferramentas: "Minecraft · Scratch · Construct 3 · Aseprite · MagicaVoxel · Maya · Roblox", trofeu: "5 projetos no ano", meses: ANO1_MESES, domina: ANO1_DOMINA },
-  { titulo: "Ano 2", foco: "IA, arte animada e os primeiros modelos 3D nos jogos", ferramentas: "Teachable Machine · Aseprite · Construct 3 · Maya · Roblox", trofeu: "Jogo 2D autoral + jogo no Roblox + 1ª IA", meses: ANO2_MESES, domina: ANO2_DOMINA },
+  { titulo: "Ano 2", foco: "IA, arte animada e os primeiros modelos 3D nos jogos", ferramentas: "Teachable Machine · Aseprite · Construct 3 · Maya · Roblox", trofeu: "3 projetos no ano", meses: ANO2_MESES, domina: ANO2_DOMINA },
   { titulo: "Ano 3", foco: "Primeiro código (Lua, scripts prontos) e 3D mais sério", ferramentas: "Aseprite · Construct 3 · Roblox + Lua · Maya", trofeu: "Jogo grande no Roblox com código (Lua) + 3D", meses: ANO3_MESES, domina: ANO3_DOMINA },
   { titulo: "Ano 4", foco: "Criador completo: 2 jogos, IA e itens 3D pra vender", ferramentas: "IA (ML for Kids) · Blender · Maya · Roblox + Lua", trofeu: "2 jogos + itens 3D à venda na loja + portfólio", meses: ANO4_MESES, domina: ANO4_DOMINA },
 ];
