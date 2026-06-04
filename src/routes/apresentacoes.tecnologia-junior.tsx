@@ -143,7 +143,7 @@ const ANO4_DOMINA = [
 ];
 
 const ANOS = [
-  { titulo: "Ano 1", foco: "Primeiros jogos e mundos (blocos → 2D com arte → 3D → Roblox)", ferramentas: "Minecraft · Scratch · Construct 3 · Aseprite · MagicaVoxel · Maya · Roblox", trofeu: "2 jogos: 2D autoral + Roblox", meses: ANO1_MESES, domina: ANO1_DOMINA },
+  { titulo: "Ano 1", foco: "Primeiros jogos e mundos", ferramentas: "Minecraft · Scratch · Construct 3 · Aseprite · MagicaVoxel · Maya · Roblox", trofeu: "5 projetos no ano", meses: ANO1_MESES, domina: ANO1_DOMINA },
   { titulo: "Ano 2", foco: "IA, arte animada e os primeiros modelos 3D nos jogos", ferramentas: "Teachable Machine · Aseprite · Construct 3 · Maya · Roblox", trofeu: "Jogo 2D autoral + jogo no Roblox + 1ª IA", meses: ANO2_MESES, domina: ANO2_DOMINA },
   { titulo: "Ano 3", foco: "Primeiro código (Lua, scripts prontos) e 3D mais sério", ferramentas: "Aseprite · Construct 3 · Roblox + Lua · Maya", trofeu: "Jogo grande no Roblox com código (Lua) + 3D", meses: ANO3_MESES, domina: ANO3_DOMINA },
   { titulo: "Ano 4", foco: "Criador completo: 2 jogos, IA e itens 3D pra vender", ferramentas: "IA (ML for Kids) · Blender · Maya · Roblox + Lua", trofeu: "2 jogos + itens 3D à venda na loja + portfólio", meses: ANO4_MESES, domina: ANO4_DOMINA },
@@ -201,7 +201,6 @@ function Chip({ icon: Icon, children }: { icon: LucideIcon; children: React.Reac
 function TecJuniorApresentacao() {
   const [ano, setAno] = useState(0);
   const atual = ANOS[ano];
-  const nProjetos = atual.meses.filter((m) => m.projeto?.startsWith("1/")).length;
 
   return (
     <div className="bg-white">
@@ -303,19 +302,6 @@ function TecJuniorApresentacao() {
               </span>
             </div>
           </div>
-
-          {/* legenda do selo de projeto */}
-          {nProjetos > 0 ? (
-            <div className="mt-4 flex flex-wrap items-center gap-2.5 rounded-xl bg-white/10 px-4 py-3 text-sm text-white/90 backdrop-blur">
-              <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-white px-2 py-0.5 text-[11px] font-black" style={{ color: GREEN_DARK }}>
-                <ToolLogo name="projeto" className="h-4 w-4" /> 2/4
-              </span>
-              <span>
-                O selo mostra o <strong>projeto do ano</strong> de cada mês — ex.: <strong>2/4</strong> = 2º mês
-                de um projeto de 4 meses. São <strong>{nProjetos} projetos</strong> no {atual.titulo}.
-              </span>
-            </div>
-          ) : null}
 
           <div className="mt-8">
             <MesesGrade meses={atual.meses} accent={GREEN_DARK} />
