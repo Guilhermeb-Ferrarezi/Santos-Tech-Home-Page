@@ -8,6 +8,7 @@ import {
   CalendarDays,
   Trophy,
   Sparkles,
+  CheckCircle2,
   type LucideIcon,
 } from "lucide-react";
 import { Reveal } from "@/components/reveal";
@@ -107,11 +108,45 @@ const ANO4_MESES: MesGrade[] = [
   { mes: "Mês 12", ferramenta: "Projeto 2 — Jogo #2 + Loja", cor: "", foco: "Lançar tudo + portfólio + Demo Day", semanas: ["Finalizar o jogo #2 (Lua + 3D + IA).", "Publicar o jogo #2.", "Revisar os itens à venda na loja.", "Demo Day final + portfólio → ponte pro CREATE."] },
 ];
 
+// ── O que a criança domina no fim de cada ano (dinâmico por aba) ─────────────
+const ANO1_DOMINA = [
+  "Entende a lógica por trás dos jogos: sequência, repetição, variável, condição e eventos.",
+  "Cria jogos 2D do zero no Scratch e no Construct 3 — montando regras, sem digitar código.",
+  "Desenha e ANIMA os próprios personagens em pixel art (Aseprite).",
+  "Modela em 3D 'de cubinhos' no MagicaVoxel e leva a criação impressa em 3D pra casa.",
+  "Tem o primeiro contato com o Maya, software 3D profissional de cinema e games.",
+  "Cria, publica e apresenta o próprio jogo no Roblox (Demo Day) — 5 projetos no ano.",
+];
+const ANO2_DOMINA = [
+  "Treina a primeira inteligência artificial (Teachable Machine) e usa num projeto.",
+  "Cria um jogo 2D com arte 100% própria: sprites desenhados e animados (walk cycle, efeitos).",
+  "Modela objetos 3D no Maya e pinta com vertex color.",
+  "Leva os próprios modelos 3D pra dentro de um mundo no Roblox.",
+  "Imprime um modelo 3D autoral.",
+  "Publica um jogo completo e fecha o ano com Demo Day + certificado.",
+];
+const ANO3_DOMINA = [
+  "Lê e edita código de verdade (Lua), a partir de scripts prontos: muda valores e comportamentos.",
+  "Monta sistemas de jogo no Roblox por script: portas, botões, pontuação e recompensas.",
+  "Cria um jogo 2D mais avançado (Construct 3 + pixel art com luz e sombra).",
+  "Modela assets e personagens 3D no Maya, com materiais e impressão 3D.",
+  "Constrói e publica um projeto grande, juntando código + modelos 3D.",
+  "Apresenta o projeto no Demo Day + certificado do Ano 3.",
+];
+const ANO4_DOMINA = [
+  "Escreve os próprios scripts em Lua: variáveis, funções e mecânicas de jogo.",
+  "Treina modelos de IA (ML for Kids) e aplica dentro do jogo.",
+  "Modela em dois softwares 3D profissionais: Maya e Blender.",
+  "Cria itens 3D e publica na lojinha (UGC) do Roblox.",
+  "Lança 2 jogos próprios ao longo do ano.",
+  "Monta um portfólio e conclui a trilha Júnior — ponte pro CREATE.",
+];
+
 const ANOS = [
-  { titulo: "Ano 1", foco: "Primeiros jogos e mundos (blocos → 2D com arte → 3D → Roblox)", ferramentas: "Minecraft · Scratch · Construct 3 · Aseprite · MagicaVoxel · Maya · Roblox", trofeu: "2 jogos: 2D autoral + Roblox", meses: ANO1_MESES },
-  { titulo: "Ano 2", foco: "IA, arte animada e os primeiros modelos 3D nos jogos", ferramentas: "Teachable Machine · Aseprite · Construct 3 · Maya · Roblox", trofeu: "Jogo 2D autoral + jogo no Roblox + 1ª IA", meses: ANO2_MESES },
-  { titulo: "Ano 3", foco: "Primeiro código (Lua, scripts prontos) e 3D mais sério", ferramentas: "Aseprite · Construct 3 · Roblox + Lua · Maya", trofeu: "Jogo grande no Roblox com código (Lua) + 3D", meses: ANO3_MESES },
-  { titulo: "Ano 4", foco: "Criador completo: 2 jogos, IA e itens 3D pra vender", ferramentas: "IA (ML for Kids) · Blender · Maya · Roblox + Lua", trofeu: "2 jogos + itens 3D à venda na loja + portfólio", meses: ANO4_MESES },
+  { titulo: "Ano 1", foco: "Primeiros jogos e mundos (blocos → 2D com arte → 3D → Roblox)", ferramentas: "Minecraft · Scratch · Construct 3 · Aseprite · MagicaVoxel · Maya · Roblox", trofeu: "2 jogos: 2D autoral + Roblox", meses: ANO1_MESES, domina: ANO1_DOMINA },
+  { titulo: "Ano 2", foco: "IA, arte animada e os primeiros modelos 3D nos jogos", ferramentas: "Teachable Machine · Aseprite · Construct 3 · Maya · Roblox", trofeu: "Jogo 2D autoral + jogo no Roblox + 1ª IA", meses: ANO2_MESES, domina: ANO2_DOMINA },
+  { titulo: "Ano 3", foco: "Primeiro código (Lua, scripts prontos) e 3D mais sério", ferramentas: "Aseprite · Construct 3 · Roblox + Lua · Maya", trofeu: "Jogo grande no Roblox com código (Lua) + 3D", meses: ANO3_MESES, domina: ANO3_DOMINA },
+  { titulo: "Ano 4", foco: "Criador completo: 2 jogos, IA e itens 3D pra vender", ferramentas: "IA (ML for Kids) · Blender · Maya · Roblox + Lua", trofeu: "2 jogos + itens 3D à venda na loja + portfólio", meses: ANO4_MESES, domina: ANO4_DOMINA },
 ];
 
 const CONCEITOS = [
@@ -298,6 +333,28 @@ function TecJuniorApresentacao() {
               ))}
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* O QUE DOMINA — dinâmico por ano */}
+      <section className="bg-muted/40 py-16">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="max-w-3xl">
+            <p className="text-sm font-black uppercase tracking-[0.25em]" style={{ color: GREEN }}>
+              No fim do {atual.titulo}
+            </p>
+            <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+              O que a criança domina
+            </h2>
+          </Reveal>
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+            {atual.domina.map((d) => (
+              <li key={d} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0" style={{ color: GREEN }} />
+                <span className="text-sm text-foreground/90">{d}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
