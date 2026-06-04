@@ -72,22 +72,22 @@ const ANO2_MESES: MesGrade[] = [
   { mes: "Mês 12", projeto: "6/6", ferramenta: "Roblox", cor: "", foco: "Polimento final + lançamento", semanas: ["Ajustes finais e correção de bugs.", "Publicar o jogo (mais completo) no Roblox.", "Demo Day pros pais.", "Certificado do Ano 2."] },
 ];
 
-// ── ANO 3 — Primeiro código (Lua, scripts prontos) e 3D mais sério ────────────
-// Sequência: Aseprite · Construct · Construct (2D avançado) · Roblox+Lua ×3
-// (projeto grande) · PROJETO (polir+lançar) · Maya · Maya · Roblox+Lua ×3
+// ── ANO 3 — Modelagem 3D, impressão 3D e um jogo em Voxel Art ─────────────────
+// Sequência: MagicaVoxel · Impressão 3D · Blender · Roblox · Blender · Roblox ·
+// Blender · Impressão 3D · MagicaVoxel ×2 · Roblox ×2 (jogo em Voxel Art)
 const ANO3_MESES: MesGrade[] = [
-  { mes: "Mês 1", ferramenta: "Aseprite", cor: "", foco: "Pixel art avançada", semanas: ["Revisão + luz e sombra na paleta.", "Tileset de cenário (peças que encaixam).", "Personagem com mais detalhes.", "Conjunto de sprites pro jogo 2D."] },
-  { mes: "Mês 2", ferramenta: "Construct 3", cor: "", foco: "Jogo 2D mais avançado", semanas: ["Montar o jogo com os sprites.", "Vários níveis e inimigos com comportamento.", "Power-ups, HUD e loja simples.", "Esqueleto do jogo avançado."] },
-  { mes: "Mês 3", ferramenta: "Construct 3", cor: "", foco: "Fechar o 2D avançado", semanas: ["Animações e efeitos.", "Balanceamento e dificuldade.", "Menu, recorde e telas.", "Jogo 2D avançado publicado (entregável)."] },
-  { mes: "Mês 4", ferramenta: "Roblox + Lua", cor: "", logos: ["roblox", "lua"], foco: "O que é código (script pronto)", semanas: ["O que é um script (vs blocos).", "Ler um script pronto e ver o que ele faz.", "Trocar valores e ver o jogo mudar.", "Um objeto que reage por script."] },
-  { mes: "Mês 5", ferramenta: "Roblox + Lua", cor: "", logos: ["roblox", "lua"], foco: "Mexer nos scripts", semanas: ["Variáveis no código.", "Mudar comportamento (velocidade, cor, tamanho).", "Juntar dois scripts prontos.", "Um sistema simples (porta, botão, armadilha)."] },
-  { mes: "Mês 6", ferramenta: "Roblox + Lua", cor: "", logos: ["roblox", "lua"], foco: "Montar o projeto grande", semanas: ["Planejar o jogo grande do ano.", "Construir o mundo (terreno, cenário).", "Aplicar os scripts nas mecânicas.", "Versão jogável inicial."] },
-  { mes: "Mês 7", ferramenta: "Projeto 1 — Polir e lançar", cor: "", foco: "Lançar o projeto grande", semanas: ["Playtest com a turma.", "Corrigir bugs e ajustar.", "Publicar o jogo grande.", "Apresentar (entregável grande)."] },
-  { mes: "Mês 8", ferramenta: "Maya", cor: "", foco: "Modelagem intermediária", semanas: ["Modelar um asset do jogo.", "Detalhes e proporção.", "Vertex color / materiais.", "Asset 3D próprio."] },
-  { mes: "Mês 9", ferramenta: "Maya", cor: "", foco: "Personagem + Impressão 3D", semanas: ["Modelar um personagem.", "Pose e materiais.", "Preparar e imprimir.", "Personagem impresso (entregável)."] },
-  { mes: "Mês 10", ferramenta: "Roblox + Lua", cor: "", logos: ["roblox", "lua"], foco: "Trazer o 3D pro jogo", semanas: ["Importar os modelos do Maya.", "Montar uma fase nova com eles.", "Scripts pra dar vida aos objetos.", "Fase nova jogável."] },
-  { mes: "Mês 11", ferramenta: "Roblox + Lua", cor: "", logos: ["roblox", "lua"], foco: "Sistemas de jogo", semanas: ["Pontuação e regras por script.", "Itens e recompensas.", "Ajustes de jogabilidade.", "Jogo mais completo."] },
-  { mes: "Mês 12", ferramenta: "Roblox + Lua", cor: "", logos: ["roblox", "lua"], foco: "Publicar + Demo Day", semanas: ["Finalizar e testar.", "Publicar a versão final.", "Demo Day pros pais.", "Certificado do Ano 3."] },
+  { mes: "Mês 1", projeto: "1/2", ferramenta: "MagicaVoxel", cor: "", foco: "Modelar em 3D (voxel)", semanas: ["Revisão do MagicaVoxel: criar em 'cubinhos'.", "Modelar um personagem ou objeto em voxel.", "Cores, detalhes e variações.", "Preparar o modelo pra impressão 3D."] },
+  { mes: "Mês 2", projeto: "2/2", ferramenta: "Impressão 3D (Bambu Lab)", cor: "", foco: "Imprimir o modelo em 3D", semanas: ["O que é impressão 3D e como funciona a impressora Bambu Lab.", "Preparar o arquivo no Bambu Studio (fatiar).", "Acompanhar a impressão de perto.", "Levar a peça impressa pra casa (entregável)."] },
+  { mes: "Mês 3", projeto: "1/4", ferramenta: "Blender", cor: "", foco: "Conhecer o Blender (3D)", semanas: ["Conhecer o Blender (3D gratuito e profissional).", "Navegar e mover objetos em 3D.", "Modelar formas básicas.", "Um objeto simples no Blender."] },
+  { mes: "Mês 4", projeto: "2/4", ferramenta: "Roblox", cor: "", foco: "Levar o 3D pro Roblox", semanas: ["Exportar o modelo do Blender.", "Importar pro Roblox Studio.", "Posicionar no mundo e ajustar.", "Cenário com o modelo próprio."] },
+  { mes: "Mês 5", projeto: "3/4", ferramenta: "Blender", cor: "", foco: "Modelar mais no Blender", semanas: ["Modelar um objeto mais elaborado.", "Materiais e cores.", "Proporção e acabamento.", "Mais assets 3D próprios."] },
+  { mes: "Mês 6", projeto: "4/4", ferramenta: "Roblox", cor: "", foco: "Montar a cena no Roblox", semanas: ["Trazer os novos modelos pro Roblox.", "Montar uma cena bonita com eles.", "Iluminação e clima.", "Cena 3D navegável (entregável)."] },
+  { mes: "Mês 7", projeto: "1/2", ferramenta: "Blender", cor: "", foco: "Modelar pra imprimir", semanas: ["Planejar uma peça pra impressão.", "Modelar com cuidado no Blender.", "Ajustes e acabamento.", "Modelo pronto pra impressão."] },
+  { mes: "Mês 8", projeto: "2/2", ferramenta: "Impressão 3D (Bambu Lab)", cor: "", foco: "Imprimir mais criações", semanas: ["Preparar os arquivos no Bambu Studio.", "Fatiar e configurar a impressão.", "Imprimir as criações na Bambu Lab.", "Peças impressas pra levar pra casa (entregável)."] },
+  { mes: "Mês 9", projeto: "1/4", ferramenta: "MagicaVoxel", cor: "", foco: "Jogo em Voxel Art: os assets", semanas: ["Planejar um jogo todo em Voxel Art.", "Modelar o cenário em voxel.", "Modelar os personagens em voxel.", "Primeiros assets do jogo."] },
+  { mes: "Mês 10", projeto: "2/4", ferramenta: "MagicaVoxel", cor: "", foco: "Mais assets voxel pro jogo", semanas: ["Modelar itens e obstáculos em voxel.", "Cores e variações.", "Exportar os modelos pro Roblox.", "Pacote de assets voxel completo."] },
+  { mes: "Mês 11", projeto: "3/4", ferramenta: "Roblox", cor: "", foco: "Montar o jogo voxel", semanas: ["Importar os assets voxel pro Roblox.", "Montar o mapa do jogo.", "Spawns, itens e regras.", "Jogo voxel jogável."] },
+  { mes: "Mês 12", projeto: "4/4", ferramenta: "Roblox", cor: "", foco: "Lançar o jogo voxel + Demo Day", semanas: ["Ajustes finais e correção de bugs.", "Publicar o jogo todo em Voxel Art.", "Demo Day pros pais.", "Certificado do Ano 3."] },
 ];
 
 // ── ANO 4 — Criador completo: 2 jogos, IA e itens 3D pra vender no Roblox ──────
@@ -126,12 +126,12 @@ const ANO2_DOMINA = [
   "Conclui 3 projetos no ano e fecha com Demo Day + certificado.",
 ];
 const ANO3_DOMINA = [
-  "Lê e edita código de verdade (Lua), a partir de scripts prontos: muda valores e comportamentos.",
-  "Monta sistemas de jogo no Roblox por script: portas, botões, pontuação e recompensas.",
-  "Cria um jogo 2D mais avançado (Construct 3 + pixel art com luz e sombra).",
-  "Modela assets e personagens 3D no Maya, com materiais e impressão 3D.",
-  "Constrói e publica um projeto grande, juntando código + modelos 3D.",
-  "Apresenta o projeto no Demo Day + certificado do Ano 3.",
+  "Modela em 3D de voxel (MagicaVoxel) e no Blender, software 3D profissional e gratuito.",
+  "Imprime as próprias criações em 3D de verdade na impressora Bambu Lab (Bambu Studio).",
+  "Leva modelos do Blender pra dentro de mundos no Roblox.",
+  "Cria um jogo completo todo em Voxel Art e publica no Roblox.",
+  "Pega prática no fluxo de um estúdio: modelar → imprimir / aplicar no jogo.",
+  "Conclui 4 projetos no ano, fechando com Demo Day + certificado.",
 ];
 const ANO4_DOMINA = [
   "Escreve os próprios scripts em Lua: variáveis, funções e mecânicas de jogo.",
@@ -145,7 +145,7 @@ const ANO4_DOMINA = [
 const ANOS = [
   { titulo: "Ano 1", foco: "Primeiros jogos e mundos", ferramentas: "Minecraft · Scratch · Construct 3 · Aseprite · MagicaVoxel · Maya · Roblox", trofeu: "5 projetos no ano", meses: ANO1_MESES, domina: ANO1_DOMINA },
   { titulo: "Ano 2", foco: "IA, arte animada e os primeiros modelos 3D nos jogos", ferramentas: "Teachable Machine · Aseprite · Construct 3 · Maya · Roblox", trofeu: "3 projetos no ano", meses: ANO2_MESES, domina: ANO2_DOMINA },
-  { titulo: "Ano 3", foco: "Primeiro código (Lua, scripts prontos) e 3D mais sério", ferramentas: "Aseprite · Construct 3 · Roblox + Lua · Maya", trofeu: "Jogo grande no Roblox com código (Lua) + 3D", meses: ANO3_MESES, domina: ANO3_DOMINA },
+  { titulo: "Ano 3", foco: "Modelagem 3D, impressão 3D e um jogo em Voxel Art", ferramentas: "MagicaVoxel · Blender · Bambu Lab (impressão 3D) · Roblox", trofeu: "4 projetos no ano", meses: ANO3_MESES, domina: ANO3_DOMINA },
   { titulo: "Ano 4", foco: "Criador completo: 2 jogos, IA e itens 3D pra vender", ferramentas: "IA (ML for Kids) · Blender · Maya · Roblox + Lua", trofeu: "2 jogos + itens 3D à venda na loja + portfólio", meses: ANO4_MESES, domina: ANO4_DOMINA },
 ];
 
@@ -172,6 +172,7 @@ const FERRAMENTAS = [
   { n: "MagicaVoxel", d: "Arte 3D em 'cubinhos' (voxel) — gratuita e divertida." },
   { n: "Maya", d: "Software 3D profissional da Autodesk (cinema e games). Do contato ao avançado, com licença pro aluno." },
   { n: "Blender", d: "Software 3D gratuito e profissional — um segundo programa de modelagem 3D." },
+  { n: "Bambu Studio", d: "O software da Bambu Lab pra preparar (fatiar) e imprimir as criações em 3D de verdade." },
   { n: "Roblox", d: "Onde a criança cria, publica e vende o próprio jogo num motor de jogo de verdade." },
   { n: "Lua", d: "A primeira linguagem de texto do aluno — programa jogos no Roblox (começa com scripts prontos)." },
   { n: "IA (Teachable Machine / ML for Kids)", d: "A criança treina uma inteligência artificial com exemplos e usa nos próprios projetos." },
