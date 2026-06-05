@@ -3,7 +3,7 @@
   <defs>
     <style>
       .cls-1 {
-        fill: #fff;
+        fill: #000;
       }
 
       .cls-2 {
@@ -22,8 +22,8 @@
     <g class="cls-3">
       <g>
         <rect class="cls-1" x="0" width="500" height="500" rx="100" ry="100"/>
-        <path d="M314,355h-43v-210h43v210Z"/>
-        <path d="M229,355h-43v-210h43v210Z"/>
+        <path fill="#fff" d="M314,355h-43v-210h43v210Z"/>
+        <path fill="#fff" d="M229,355h-43v-210h43v210Z"/>
       </g>
     </g>
   </g>
