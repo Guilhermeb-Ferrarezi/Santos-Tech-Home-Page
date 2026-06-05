@@ -18,6 +18,8 @@ export function logoKey(ferramenta: string): string {
   const f = ferramenta.toLowerCase();
   if (f.includes("canva")) return "canva";
   if (f.includes("bambu")) return "bambulab";
+  if (f.includes("capcut")) return "capcut";
+  if (f.includes("apps script") || f.includes("appsscript")) return "appsscript";
   if (f.includes("aseprite")) return "aseprite";
   if (f.includes("construct")) return "construct";
   if (f.includes("blender")) return "blender";
@@ -104,6 +106,34 @@ function fallback(name: string) {
           <circle cx="9.5" cy="11" r="1.4" fill="#7C3AED" />
           <path d="M6 16.5 L11 12 L14 15 L19 10.8 L19 16.5 Z" fill="#7C3AED" opacity="0.85" />
           <path d="M18.2 4 l0.6 1.6 1.6 0.6 -1.6 0.6 -0.6 1.6 -0.6 -1.6 -1.6 -0.6 1.6 -0.6 Z" fill="#FBBF24" />
+        </>
+      );
+    case "appsscript":
+      return (
+        <>
+          <rect width="24" height="24" rx="5" fill="#4285F4" />
+          <path
+            d="M10 8 L6.5 12 L10 16 M14 8 L17.5 12 L14 16"
+            fill="none"
+            stroke="#fff"
+            strokeWidth="1.7"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </>
+      );
+    case "calendar":
+      return (
+        <>
+          <rect x="3" y="5" width="18" height="16" rx="2.5" fill="#fff" stroke="#2E8FCF" strokeWidth="1.6" />
+          <path d="M3 9.5 H21" stroke="#2E8FCF" strokeWidth="1.6" />
+          <rect x="7" y="2.5" width="1.8" height="4" rx="0.9" fill="#2E8FCF" />
+          <rect x="15.2" y="2.5" width="1.8" height="4" rx="0.9" fill="#2E8FCF" />
+          <circle cx="8" cy="14" r="1.2" fill="#2E8FCF" />
+          <circle cx="12" cy="14" r="1.2" fill="#2E8FCF" />
+          <circle cx="16" cy="14" r="1.2" fill="#2E8FCF" />
+          <circle cx="8" cy="17.6" r="1.2" fill="#2E8FCF" />
+          <circle cx="12" cy="17.6" r="1.2" fill="#2E8FCF" />
         </>
       );
     case "ia":

@@ -23,6 +23,7 @@ import { Route as CursosCampsRouteImport } from './routes/cursos.camps'
 import { Route as CursosAcademiesRouteImport } from './routes/cursos.academies'
 import { Route as ApresentacoesTecnologiaJuniorRouteImport } from './routes/apresentacoes.tecnologia-junior'
 import { Route as ApresentacoesInformaticaJuniorRouteImport } from './routes/apresentacoes.informatica-junior'
+import { Route as ApresentacoesInformaticaCreateRouteImport } from './routes/apresentacoes.informatica-create'
 import { Route as CursosJuniorIndexRouteImport } from './routes/cursos.junior.index'
 import { Route as CursosCreateIndexRouteImport } from './routes/cursos.create.index'
 import { Route as CursosJunior78AnosRouteImport } from './routes/cursos.junior.7-8-anos'
@@ -107,6 +108,12 @@ const ApresentacoesInformaticaJuniorRoute =
     path: '/apresentacoes/informatica-junior',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApresentacoesInformaticaCreateRoute =
+  ApresentacoesInformaticaCreateRouteImport.update({
+    id: '/apresentacoes/informatica-create',
+    path: '/apresentacoes/informatica-create',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CursosJuniorIndexRoute = CursosJuniorIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -168,6 +175,7 @@ export interface FileRoutesByFullPath {
   '/contato': typeof ContatoRoute
   '/cursos': typeof CursosRouteWithChildren
   '/sobre': typeof SobreRouteWithChildren
+  '/apresentacoes/informatica-create': typeof ApresentacoesInformaticaCreateRoute
   '/apresentacoes/informatica-junior': typeof ApresentacoesInformaticaJuniorRoute
   '/apresentacoes/tecnologia-junior': typeof ApresentacoesTecnologiaJuniorRoute
   '/cursos/academies': typeof CursosAcademiesRoute
@@ -193,6 +201,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
+  '/apresentacoes/informatica-create': typeof ApresentacoesInformaticaCreateRoute
   '/apresentacoes/informatica-junior': typeof ApresentacoesInformaticaJuniorRoute
   '/apresentacoes/tecnologia-junior': typeof ApresentacoesTecnologiaJuniorRoute
   '/cursos/academies': typeof CursosAcademiesRoute
@@ -219,6 +228,7 @@ export interface FileRoutesById {
   '/contato': typeof ContatoRoute
   '/cursos': typeof CursosRouteWithChildren
   '/sobre': typeof SobreRouteWithChildren
+  '/apresentacoes/informatica-create': typeof ApresentacoesInformaticaCreateRoute
   '/apresentacoes/informatica-junior': typeof ApresentacoesInformaticaJuniorRoute
   '/apresentacoes/tecnologia-junior': typeof ApresentacoesTecnologiaJuniorRoute
   '/cursos/academies': typeof CursosAcademiesRoute
@@ -248,6 +258,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/cursos'
     | '/sobre'
+    | '/apresentacoes/informatica-create'
     | '/apresentacoes/informatica-junior'
     | '/apresentacoes/tecnologia-junior'
     | '/cursos/academies'
@@ -273,6 +284,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/contato'
+    | '/apresentacoes/informatica-create'
     | '/apresentacoes/informatica-junior'
     | '/apresentacoes/tecnologia-junior'
     | '/cursos/academies'
@@ -298,6 +310,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/cursos'
     | '/sobre'
+    | '/apresentacoes/informatica-create'
     | '/apresentacoes/informatica-junior'
     | '/apresentacoes/tecnologia-junior'
     | '/cursos/academies'
@@ -326,6 +339,7 @@ export interface RootRouteChildren {
   ContatoRoute: typeof ContatoRoute
   CursosRoute: typeof CursosRouteWithChildren
   SobreRoute: typeof SobreRouteWithChildren
+  ApresentacoesInformaticaCreateRoute: typeof ApresentacoesInformaticaCreateRoute
   ApresentacoesInformaticaJuniorRoute: typeof ApresentacoesInformaticaJuniorRoute
   ApresentacoesTecnologiaJuniorRoute: typeof ApresentacoesTecnologiaJuniorRoute
   ApresentacoesIndexRoute: typeof ApresentacoesIndexRoute
@@ -429,6 +443,13 @@ declare module '@tanstack/react-router' {
       path: '/apresentacoes/informatica-junior'
       fullPath: '/apresentacoes/informatica-junior'
       preLoaderRoute: typeof ApresentacoesInformaticaJuniorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/apresentacoes/informatica-create': {
+      id: '/apresentacoes/informatica-create'
+      path: '/apresentacoes/informatica-create'
+      fullPath: '/apresentacoes/informatica-create'
+      preLoaderRoute: typeof ApresentacoesInformaticaCreateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cursos/junior/': {
@@ -589,6 +610,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContatoRoute: ContatoRoute,
   CursosRoute: CursosRouteWithChildren,
   SobreRoute: SobreRouteWithChildren,
+  ApresentacoesInformaticaCreateRoute: ApresentacoesInformaticaCreateRoute,
   ApresentacoesInformaticaJuniorRoute: ApresentacoesInformaticaJuniorRoute,
   ApresentacoesTecnologiaJuniorRoute: ApresentacoesTecnologiaJuniorRoute,
   ApresentacoesIndexRoute: ApresentacoesIndexRoute,

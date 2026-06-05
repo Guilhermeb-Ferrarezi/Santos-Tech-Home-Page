@@ -67,6 +67,7 @@ const CURSOS: Curso[] = [
       "Domínio real do computador e criação no Office (Word, PowerPoint, Excel) + IA.",
   },
   {
+    href: "/apresentacoes/informatica-create",
     icon: BarChart3,
     nome: "Informática Create",
     faixa: "10 a 15 anos",
@@ -74,7 +75,7 @@ const CURSOS: Curso[] = [
     anos: "Trilha de 2 anos",
     gradient: TEENS,
     resumo:
-      "Excel que calcula sozinho, organização de dados, Power BI e IA aplicada.",
+      "Office + Google, Excel avançado, automação (VBA + Apps Script + IA) e produção profissional.",
   },
 ];
 
