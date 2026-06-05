@@ -35,22 +35,22 @@ const METODO = [
   { etapa: "Desafio extra + compartilhar", min: "10 min", o: "Quem termina vai além; todos mostram o que produziram." },
 ];
 
-// ── ANO 1 — Básico: fundamentos, Office + Google e primeiros passos com IA ────
-// Módulos mês a mês (sem automação): fundamentos · Excel/Planilhas · Word/Docs ·
-// Apresentações/PowerPoint · comunicação Google · manutenção do PC · ChatGPT · Gemini
+// ── ANO 1 — Básico: fundamentos, IA, Office + Google e ferramentas do dia a dia ─
+// Módulos mês a mês (sem automação): fundamentos · ChatGPT · Gemini · Excel ·
+// Planilhas · Word · Docs · PowerPoint · Apresentações · comunicação Google · manutenção
 const ANO1_MESES: MesGrade[] = [
   { mes: "Mês 1", ferramenta: "Fundamentos da informática", cor: "", logos: ["pc"], foco: "Como o computador funciona", semanas: ["Hardware × software e os periféricos.", "Arquivos: tipos, extensões e pastas.", "Salvar, copiar, mover e organizar.", "Digitação: postura e velocidade (treino)."] },
-  { mes: "Mês 2", ferramenta: "Excel", cor: "", foco: "Primeira planilha no Excel", semanas: ["Células, linhas, colunas e abas.", "Digitar dados e formatar (cores, bordas).", "Fórmulas básicas (SOMA, MÉDIA).", "Uma tabela que calcula (entregável)."] },
-  { mes: "Mês 3", ferramenta: "Google Planilhas", cor: "", foco: "Planilhas na nuvem", semanas: ["Conhecer o Google Planilhas.", "Funções e colaboração em tempo real.", "Gráficos simples.", "A mesma planilha, agora na nuvem."] },
-  { mes: "Mês 4", ferramenta: "Word", cor: "", foco: "Documentos no Word", semanas: ["Escrever e formatar (fonte, parágrafo).", "Listas, alinhamento e imagens.", "Cabeçalho, rodapé e impressão.", "Um documento bem formatado (entregável)."] },
-  { mes: "Mês 5", ferramenta: "Google Docs", cor: "", foco: "Documentos na nuvem", semanas: ["Conhecer o Google Docs.", "Colaborar, comentar e sugerir.", "Histórico de versões e modelos.", "Um documento colaborativo."] },
-  { mes: "Mês 6", ferramenta: "Google Apresentações", cor: "", foco: "Apresentações no Google", semanas: ["Slides com texto e imagem.", "Temas, transições e animações.", "Colaborar e apresentar online.", "Uma apresentação na nuvem."] },
-  { mes: "Mês 7", ferramenta: "PowerPoint", cor: "", foco: "Apresentações no PowerPoint", semanas: ["Slides e design no PowerPoint.", "Transições e animações com propósito.", "Modo apresentador.", "Uma apresentação de impacto (entregável)."] },
-  { mes: "Mês 8", ferramenta: "Gmail · Agenda · Meet", cor: "", logos: ["gmail", "calendar", "meet"], foco: "Comunicação e organização", semanas: ["Gmail: escrever e organizar e-mails.", "Google Agenda: eventos e lembretes.", "Google Meet: reuniões online.", "Tudo integrado: e-mail, agenda e reunião."] },
-  { mes: "Mês 9", ferramenta: "Earth · Maps · Drive", cor: "", logos: ["earth", "maps", "drive"], foco: "Mapas e nuvem", semanas: ["Google Drive: guardar e compartilhar arquivos.", "Google Maps: rotas e lugares.", "Google Earth: explorar o mundo em 3D.", "Usar as três no dia a dia."] },
-  { mes: "Mês 10", ferramenta: "Manutenção do PC", cor: "", logos: ["pc"], foco: "Cuidar do computador", semanas: ["Instalar programas com segurança.", "Desinstalar o que não usa.", "O que é formatar um computador.", "Boas práticas e segurança."] },
-  { mes: "Mês 11", ferramenta: "IA — ChatGPT", cor: "", foco: "Conhecer a IA (ChatGPT)", semanas: ["O que é IA e o que é o ChatGPT.", "Fazer boas perguntas (prompts).", "Pesquisar, resumir e tirar dúvidas.", "Usar com responsabilidade (só texto)."] },
-  { mes: "Mês 12", ferramenta: "IA — Gemini", cor: "", logos: ["gemini"], foco: "Conhecer a IA (Gemini)", semanas: ["Conhecer o Gemini (a IA do Google).", "Diferenças entre ChatGPT e Gemini.", "Usar o Gemini no dia a dia.", "IA com responsabilidade + certificado do Ano 1."] },
+  { mes: "Mês 2", ferramenta: "IA — ChatGPT", cor: "", foco: "Conhecer a IA (ChatGPT)", semanas: ["O que é IA e o que é o ChatGPT.", "Fazer boas perguntas (prompts).", "Pesquisar, resumir e tirar dúvidas.", "Usar com responsabilidade (só texto)."] },
+  { mes: "Mês 3", ferramenta: "IA — Gemini", cor: "", logos: ["gemini"], foco: "Conhecer a IA (Gemini)", semanas: ["Conhecer o Gemini (a IA do Google).", "Diferenças entre ChatGPT e Gemini.", "Usar o Gemini no dia a dia.", "IA com responsabilidade no dia a dia."] },
+  { mes: "Mês 4", ferramenta: "Excel", cor: "", foco: "Primeira planilha no Excel", semanas: ["Células, linhas, colunas e abas.", "Digitar dados e formatar (cores, bordas).", "Fórmulas básicas (SOMA, MÉDIA).", "Uma tabela que calcula (entregável)."] },
+  { mes: "Mês 5", ferramenta: "Google Planilhas", cor: "", foco: "Planilhas na nuvem", semanas: ["Conhecer o Google Planilhas.", "Funções e colaboração em tempo real.", "Gráficos simples.", "A mesma planilha, agora na nuvem."] },
+  { mes: "Mês 6", ferramenta: "Word", cor: "", foco: "Documentos no Word", semanas: ["Escrever e formatar (fonte, parágrafo).", "Listas, alinhamento e imagens.", "Cabeçalho, rodapé e impressão.", "Um documento bem formatado (entregável)."] },
+  { mes: "Mês 7", ferramenta: "Google Docs", cor: "", foco: "Documentos na nuvem", semanas: ["Conhecer o Google Docs.", "Colaborar, comentar e sugerir.", "Histórico de versões e modelos.", "Um documento colaborativo."] },
+  { mes: "Mês 8", ferramenta: "PowerPoint", cor: "", foco: "Apresentações no PowerPoint", semanas: ["Slides e design no PowerPoint.", "Transições e animações com propósito.", "Modo apresentador.", "Uma apresentação de impacto (entregável)."] },
+  { mes: "Mês 9", ferramenta: "Google Apresentações", cor: "", foco: "Apresentações no Google", semanas: ["Slides com texto e imagem.", "Temas, transições e animações.", "Colaborar e apresentar online.", "Uma apresentação na nuvem."] },
+  { mes: "Mês 10", ferramenta: "Gmail · Agenda · Meet", cor: "", logos: ["gmail", "calendar", "meet"], foco: "Comunicação e organização", semanas: ["Gmail: escrever e organizar e-mails.", "Google Agenda: eventos e lembretes.", "Google Meet: reuniões online.", "Tudo integrado: e-mail, agenda e reunião."] },
+  { mes: "Mês 11", ferramenta: "Earth · Maps · Drive", cor: "", logos: ["earth", "maps", "drive"], foco: "Mapas e nuvem", semanas: ["Google Drive: guardar e compartilhar arquivos.", "Google Maps: rotas e lugares.", "Google Earth: explorar o mundo em 3D.", "Usar as três no dia a dia."] },
+  { mes: "Mês 12", ferramenta: "Manutenção do PC", cor: "", logos: ["pc"], foco: "Cuidar do computador", semanas: ["Instalar programas com segurança.", "Desinstalar o que não usa.", "O que é formatar um computador.", "Boas práticas, segurança + certificado do Ano 1."] },
 ];
 
 // ── ANO 2 — Automação (VBA + Apps Script + IA), bloco profissional e produção ──
@@ -89,7 +89,7 @@ const ANO2_DOMINA = [
 ];
 
 const ANOS = [
-  { titulo: "Ano 1", foco: "Fundamentos, Office + Google e primeiros passos com IA", ferramentas: "Fundamentos · Excel/Planilhas · Word/Docs · Apresentações/PowerPoint · Google · ChatGPT · Gemini", trofeu: "Base sólida de informática", meses: ANO1_MESES, domina: ANO1_DOMINA },
+  { titulo: "Ano 1", foco: "Fundamentos, IA, Office + Google e ferramentas do dia a dia", ferramentas: "Fundamentos · IA (ChatGPT/Gemini) · Excel/Planilhas · Word/Docs · PowerPoint/Apresentações · Google · Manutenção do PC", trofeu: "Base sólida de informática", meses: ANO1_MESES, domina: ANO1_DOMINA },
   { titulo: "Ano 2", foco: "Automação (VBA + Apps Script + IA), bloco profissional e produção com IA", ferramentas: "VBA · Apps Script · Gmail · Drive · Agenda · Canva · CapCut · IA", trofeu: "4 projetos no ano", meses: ANO2_MESES, domina: ANO2_DOMINA },
 ];
 
