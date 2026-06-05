@@ -53,18 +53,18 @@ const ANO1_MESES: MesGrade[] = [
 
 // ── ANO 2 — IA criativa (imagem, áudio, vídeo) e web (HTML/CSS, JS, Python, dados) ─
 const ANO2_MESES: MesGrade[] = [
-  { mes: "Mês 1", projeto: "1/2", ferramenta: "ChatGPT + DALL-E", cor: "", logos: ["chatgpt", "dalle"], foco: "IA cria imagens", semanas: ["Gerar imagens com IA (DALL-E).", "Descrever bem (prompts visuais).", "Conceitos e arte pra projetos.", "Uma galeria de imagens com IA."] },
-  { mes: "Mês 2", projeto: "2/2", ferramenta: "Gemini + Nano Banana", cor: "", logos: ["gemini", "nanobanana"], foco: "Mais imagem com IA", semanas: ["Gerar e editar imagens (Nano Banana).", "Variações e ajustes.", "Texturas e ícones.", "Pacote de imagens próprio."] },
-  { mes: "Mês 3", projeto: "1/1", ferramenta: "Suno + ElevenLabs", cor: "", logos: ["suno", "elevenlabs"], foco: "Música e voz com IA", semanas: ["Criar música com IA (Suno).", "Gerar voz e narração (ElevenLabs).", "Efeitos sonoros.", "Trilha e voz próprias (entregável)."] },
-  { mes: "Mês 4", projeto: "1/2", ferramenta: "ChatGPT + Sora", cor: "", logos: ["chatgpt", "sora"], foco: "IA cria vídeo", semanas: ["Gerar vídeo com IA (Sora).", "Roteiro e descrição de cenas.", "Editar e finalizar.", "Um vídeo feito com IA."] },
-  { mes: "Mês 5", projeto: "2/2", ferramenta: "Gemini + Veo", cor: "", logos: ["gemini", "veo"], foco: "Mais vídeo com IA", semanas: ["Gerar vídeo com IA (Veo).", "Cenas e movimentos.", "Um trailer com IA.", "Vídeo finalizado (entregável)."] },
-  { mes: "Mês 6", projeto: "1/2", ferramenta: "CapCut", cor: "", logos: ["capcut"], foco: "Edição de vídeo", semanas: ["Conhecer o CapCut.", "Cortes, transições e ritmo.", "Juntar o que criou com IA (imagem, som, vídeo).", "Um primeiro vídeo editado."] },
-  { mes: "Mês 7", projeto: "2/2", ferramenta: "CapCut", cor: "", logos: ["capcut"], foco: "Vídeo com tudo o que criou", semanas: ["Efeitos e recursos avançados.", "Legendas e áudio (vozes da IA).", "Exportar com qualidade.", "Um vídeo profissional com a IA do ano (entregável)."] },
-  { mes: "Mês 8", projeto: "1/5", ferramenta: "Canva", cor: "", logos: ["canva"], foco: "Arte e design do jogo", semanas: ["Conceito visual do jogo.", "Personagens e cenário (arte 2D).", "Ícones e interface.", "A identidade visual do jogo."] },
-  { mes: "Mês 9", projeto: "2/5", ferramenta: "Maya", cor: "", logos: ["maya"], foco: "Modelagem 3D do jogo", semanas: ["Modelar os personagens.", "Itens e cenário.", "Materiais.", "Assets 3D do jogo."] },
-  { mes: "Mês 10", projeto: "3/5", ferramenta: "Roblox Studio + Lua", cor: "", logos: ["roblox", "lua"], foco: "Montar o jogo no Roblox", semanas: ["Roblox Studio: cenário e mundo.", "Importar a arte e os modelos.", "Lua: primeiros scripts.", "Jogo tomando forma."] },
-  { mes: "Mês 11", projeto: "4/5", ferramenta: "Maya", cor: "", logos: ["maya"], foco: "Mais assets 3D", semanas: ["Modelar mais itens e cenário.", "Acabamento e detalhes.", "Otimizar pro Roblox.", "Novos assets prontos."] },
-  { mes: "Mês 12", projeto: "5/5", ferramenta: "Roblox Studio + Lua", cor: "", logos: ["roblox", "lua"], foco: "Publicar o jogo", semanas: ["Mecânicas finais em Lua.", "Polir e balancear.", "Publicar o jogo.", "Demo Day + certificado do Ano 2."] },
+  { mes: "Mês 1", projeto: "1/4", ferramenta: "ChatGPT + Sora", cor: "", logos: ["chatgpt", "sora"], foco: "IA cria vídeo", semanas: ["Gerar vídeo com IA (Sora).", "Roteiro e descrição de cenas.", "Vários clipes.", "Material de vídeo da IA."] },
+  { mes: "Mês 2", projeto: "2/4", ferramenta: "Gemini + Veo", cor: "", logos: ["gemini", "veo"], foco: "Mais vídeo com IA", semanas: ["Gerar vídeo com IA (Veo).", "Cenas e movimentos.", "Mais clipes pro projeto.", "Banco de vídeos da IA."] },
+  { mes: "Mês 3", projeto: "3/4", ferramenta: "CapCut", cor: "", logos: ["capcut"], foco: "Editar os vídeos da IA", semanas: ["Conhecer o CapCut.", "Juntar os vídeos do Sora e do Veo.", "Cortes, transições e ritmo.", "Um vídeo montado."] },
+  { mes: "Mês 4", projeto: "4/4", ferramenta: "CapCut", cor: "", logos: ["capcut"], foco: "Vídeo profissional", semanas: ["Efeitos e recursos avançados.", "Textos e legendas.", "Trilha e exportação.", "Um vídeo profissional (entregável)."] },
+  { mes: "Mês 5", projeto: "1/1", ferramenta: "Suno + ElevenLabs", cor: "", logos: ["suno", "elevenlabs"], foco: "Som, música e voz com IA", semanas: ["Criar música com IA (Suno).", "Gerar voz e narração (ElevenLabs).", "Efeitos sonoros.", "Trilha e vozes próprias (entregável)."] },
+  { mes: "Mês 6", projeto: "1/2", ferramenta: "ChatGPT + DALL-E", cor: "", logos: ["chatgpt", "dalle"], foco: "IA cria imagens", semanas: ["Gerar imagens com IA (DALL-E).", "Prompts visuais.", "Conceitos e arte.", "Uma galeria de imagens com IA."] },
+  { mes: "Mês 7", projeto: "2/2", ferramenta: "Gemini + Nano Banana", cor: "", logos: ["gemini", "nanobanana"], foco: "Mais imagem com IA", semanas: ["Gerar e editar imagens (Nano Banana).", "Variações e ajustes.", "Texturas e ícones.", "Pacote de imagens próprio."] },
+  { mes: "Mês 8", projeto: "1/5", ferramenta: "Canva", cor: "", logos: ["canva"], foco: "UI do jogo", semanas: ["O que é a interface (UI) de um jogo.", "Menus, botões e HUD.", "Ícones e identidade visual.", "A UI do jogo pronta (Canva)."] },
+  { mes: "Mês 9", projeto: "2/5", ferramenta: "Roblox Studio + Lua", cor: "", logos: ["roblox", "lua"], foco: "Implementar a UI no jogo", semanas: ["Roblox Studio: começar o jogo.", "Trazer a UI feita no Canva.", "Lua: menus e botões funcionais.", "Interface funcionando no jogo."] },
+  { mes: "Mês 10", projeto: "3/5", ferramenta: "Maya", cor: "", logos: ["maya"], foco: "Modelar os assets 3D", semanas: ["Modelar os personagens.", "Itens e cenário.", "Materiais e acabamento.", "Assets 3D do jogo."] },
+  { mes: "Mês 11", projeto: "4/5", ferramenta: "Roblox Studio + Lua", cor: "", logos: ["roblox", "lua"], foco: "Montar e publicar o jogo", semanas: ["Trazer os modelos do Maya.", "Mecânicas em Lua.", "Testar e ajustar.", "Jogo publicado."] },
+  { mes: "Mês 12", projeto: "5/5", ferramenta: "Maya", cor: "", logos: ["maya"], foco: "Assets finais + Demo Day", semanas: ["Modelar melhorias e extras.", "Acabamento final dos assets.", "Atualizar o jogo.", "Demo Day + certificado do Ano 2."] },
 ];
 
 // ── ANO 3 — Jogo no Roblox, site completo, Python e impressão 3D ──────────────
@@ -111,12 +111,12 @@ const ANO1_DOMINA = [
   "Imprime os personagens do próprio jogo.",
 ];
 const ANO2_DOMINA = [
-  "Cria imagens com IA (DALL-E e Nano Banana).",
-  "Cria som, música e voz com IA (Suno e ElevenLabs).",
   "Cria vídeos com IA (Sora e Veo) e edita no CapCut.",
-  "Desenha a arte dos próprios jogos no Canva.",
+  "Cria som, música e voz com IA (Suno e ElevenLabs).",
+  "Cria imagens com IA (DALL-E e Nano Banana).",
+  "Desenha a interface (UI) dos jogos no Canva.",
   "Modela em 3D no Maya e monta o jogo no Roblox Studio (Lua).",
-  "Conclui 5 projetos, terminando com um jogo próprio publicado.",
+  "Conclui 4 projetos, terminando com um jogo próprio publicado.",
 ];
 const ANO3_DOMINA = [
   "Cria um jogo completo no Roblox Studio com Lua e assets 3D (Maya).",
@@ -137,7 +137,7 @@ const ANO4_DOMINA = [
 
 const ANOS = [
   { titulo: "Ano 1", foco: "3D, impressão 3D e jogos em pixel art", ferramentas: "MagicaVoxel · Bambu Studio · Maya · Orca Slicer · Blender · Aseprite · Construct 3", trofeu: "5 projetos no ano", meses: ANO1_MESES, domina: ANO1_DOMINA },
-  { titulo: "Ano 2", foco: "IA criativa (imagem, áudio, vídeo), edição no CapCut e um jogo no Roblox", ferramentas: "ChatGPT · Gemini · DALL-E · Nano Banana · Suno · ElevenLabs · Sora · Veo · CapCut · Canva · Maya · Roblox Studio + Lua", trofeu: "5 projetos no ano", meses: ANO2_MESES, domina: ANO2_DOMINA },
+  { titulo: "Ano 2", foco: "IA criativa (vídeo, áudio, imagem) e um jogo no Roblox com UI própria", ferramentas: "ChatGPT · Gemini · Sora · Veo · CapCut · Suno · ElevenLabs · DALL-E · Nano Banana · Canva · Maya · Roblox Studio + Lua", trofeu: "4 projetos no ano", meses: ANO2_MESES, domina: ANO2_DOMINA },
   { titulo: "Ano 3", foco: "Jogo no Roblox, site completo (HTML/CSS/JS + dados), Python e impressão 3D", ferramentas: "Maya · Roblox Studio + Lua · HTML/CSS · JavaScript · Banco de dados · Python · Bambu Studio", trofeu: "4 projetos no ano", meses: ANO3_MESES, domina: ANO3_DOMINA },
   { titulo: "Ano 4", foco: "Impressão 3D e os motores mais avançados: Unity (C#) e Unreal (C++)", ferramentas: "MagicaVoxel · Bambu Studio · Maya · Orca Slicer · Blender · Unity + C# · Unreal Engine + C++", trofeu: "4 projetos no ano", meses: ANO4_MESES, domina: ANO4_DOMINA },
 ];
