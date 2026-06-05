@@ -20,6 +20,9 @@ export function logoKey(ferramenta: string): string {
   if (f.includes("bambu")) return "bambulab";
   if (f.includes("capcut")) return "capcut";
   if (f.includes("apps script") || f.includes("appsscript")) return "appsscript";
+  if (f.includes("python") || f.includes("pygame")) return "python";
+  if (f.includes("realidade virtual")) return "vr";
+  if (f.includes("unity")) return "unity";
   if (f.includes("aseprite")) return "aseprite";
   if (f.includes("construct")) return "construct";
   if (f.includes("blender")) return "blender";
@@ -134,6 +137,33 @@ function fallback(name: string) {
           <circle cx="16" cy="14" r="1.2" fill="#2E8FCF" />
           <circle cx="8" cy="17.6" r="1.2" fill="#2E8FCF" />
           <circle cx="12" cy="17.6" r="1.2" fill="#2E8FCF" />
+        </>
+      );
+    case "python":
+      return (
+        <>
+          <rect x="3" y="3" width="13" height="13" rx="4" fill="#306998" />
+          <rect x="8" y="8" width="13" height="13" rx="4" fill="#FFD43B" />
+          <circle cx="6.8" cy="6.8" r="1.1" fill="#fff" />
+          <circle cx="17.2" cy="17.2" r="1.1" fill="#306998" />
+        </>
+      );
+    case "unity":
+      return (
+        <>
+          <rect width="24" height="24" rx="5" fill="#222C37" />
+          <path d="M12 4.5 L18.5 8.25 L18.5 15.75 L12 19.5 L5.5 15.75 L5.5 8.25 Z" fill="none" stroke="#fff" strokeWidth="1.2" />
+          <path d="M12 4.5 L12 12 M12 12 L18.5 15.75 M12 12 L5.5 15.75" stroke="#fff" strokeWidth="1" />
+        </>
+      );
+    case "vr":
+      return (
+        <>
+          <rect width="24" height="24" rx="5" fill="#2E8FCF" />
+          <rect x="3.5" y="9" width="17" height="8" rx="3.2" fill="#fff" />
+          <circle cx="9" cy="13" r="1.7" fill="#2E8FCF" />
+          <circle cx="15" cy="13" r="1.7" fill="#2E8FCF" />
+          <path d="M11.2 13 h1.6" stroke="#2E8FCF" strokeWidth="1" />
         </>
       );
     case "ia":

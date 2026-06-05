@@ -46,14 +46,15 @@ const CURSOS: Curso[] = [
       "Lógica e criação de jogos — do MakeCode + Minecraft ao Roblox + Lua e impressão 3D.",
   },
   {
+    href: "/apresentacoes/tecnologia-create",
     icon: Rocket,
     nome: "Tecnologia Create",
     faixa: "10 a 15 anos",
     tier: "Adolescentes",
-    anos: "Trilha de 4–5 anos",
+    anos: "Trilha de 4 anos",
     gradient: TEENS,
     resumo:
-      "Programação séria, Python, 3D profissional (Maya), Unity e Realidade Virtual.",
+      "Python, Unity (C#), 3D profissional (Maya), Estúdio de Criação com IA e Realidade Virtual.",
   },
   {
     href: "/apresentacoes/informatica-junior",
