@@ -39,6 +39,17 @@ export function logoKey(ferramenta: string): string {
   if (f.includes("perplexity")) return "perplexity";
   if (f.includes("claude")) return "claude";
   if (f.includes("notion")) return "notion";
+  if (f.includes("dall")) return "dalle";
+  if (f.includes("sora")) return "sora";
+  if (f.includes("veo")) return "veo";
+  if (f.includes("suno")) return "suno";
+  if (f.includes("eleven")) return "elevenlabs";
+  if (f.includes("unreal")) return "unreal";
+  if (f.includes("aumentada")) return "ar";
+  if (f.includes("html") || f.includes("css")) return "html";
+  if (f.includes("javascript")) return "javascript";
+  if (f.includes("banco de dados") || f.includes("database")) return "database";
+  if (f.includes("hospedagem") || f.includes("domínio") || f.includes("hosting")) return "hosting";
   if (f.includes("nano") && f.includes("banana")) return "nanobanana";
   if (f.includes("minecraft")) return "minecraft";
   if (f.includes("makecode")) return "makecode";
@@ -212,6 +223,51 @@ function fallback(name: string) {
             <circle cx="16" cy="14" r="2.7" />
             <rect x="8" y="13.4" width="8.5" height="3.6" rx="1.8" />
           </g>
+        </>
+      );
+    case "html":
+      return (
+        <>
+          <rect width="24" height="24" rx="5" fill="#E34F26" />
+          <path d="M8.5 8.5 L5.5 12 L8.5 15.5 M15.5 8.5 L18.5 12 L15.5 15.5" fill="none" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </>
+      );
+    case "javascript":
+      return (
+        <>
+          <rect width="24" height="24" rx="5" fill="#F7DF1E" />
+          <text x="12.5" y="16.5" fontSize="9" fontWeight="bold" textAnchor="middle" fill="#111">JS</text>
+        </>
+      );
+    case "database":
+      return (
+        <>
+          <ellipse cx="12" cy="6.5" rx="6.5" ry="2.5" fill="#3B6EA8" />
+          <path d="M5.5 6.5 v11 c0 1.4 2.9 2.5 6.5 2.5 s6.5 -1.1 6.5 -2.5 v-11" fill="#3B6EA8" />
+          <path d="M5.5 11 c0 1.4 2.9 2.5 6.5 2.5 s6.5 -1.1 6.5 -2.5 M5.5 15.5 c0 1.4 2.9 2.5 6.5 2.5 s6.5 -1.1 6.5 -2.5" fill="none" stroke="#fff" strokeWidth="1" opacity="0.85" />
+        </>
+      );
+    case "hosting":
+      return (
+        <>
+          <circle cx="12" cy="12" r="9" fill="none" stroke="#2E8FCF" strokeWidth="1.6" />
+          <ellipse cx="12" cy="12" rx="4" ry="9" fill="none" stroke="#2E8FCF" strokeWidth="1.3" />
+          <path d="M3.5 9.5 H20.5 M3.5 14.5 H20.5" stroke="#2E8FCF" strokeWidth="1.3" />
+        </>
+      );
+    case "unreal":
+      return (
+        <>
+          <circle cx="12" cy="12" r="10" fill="#0d1117" />
+          <text x="12" y="16.5" fontSize="11" fontWeight="bold" textAnchor="middle" fill="#fff">U</text>
+        </>
+      );
+    case "ar":
+      return (
+        <>
+          <rect width="24" height="24" rx="5" fill="#0E9E8E" />
+          <path d="M12 5 L18 8.3 L18 15.5 L12 19 L6 15.5 L6 8.3 Z" fill="none" stroke="#fff" strokeWidth="1.3" strokeLinejoin="round" />
+          <path d="M6 8.3 L12 11.6 L18 8.3 M12 11.6 L12 19" fill="none" stroke="#fff" strokeWidth="1" />
         </>
       );
     case "ia":

@@ -35,134 +35,155 @@ const METODO = [
   { etapa: "Desafio extra + compartilhar", min: "10 min", o: "Quem termina vai além; todos mostram o que criaram." },
 ];
 
-// ── ANO 1 — Programação de verdade com Python ────────────────────────────────
+// ── ANO 1 — Criação digital, IA e web (introdução / mais fácil) ───────────────
 const ANO1_MESES: MesGrade[] = [
-  { mes: "Mês 1", projeto: "1/3", ferramenta: "Python", cor: "", foco: "Lógica e primeiros programas", semanas: ["Variáveis, tipos e entrada/saída.", "Operações e expressões.", "Primeiros programas interativos.", "Um programa que conversa com o usuário."] },
-  { mes: "Mês 2", projeto: "2/3", ferramenta: "Python", cor: "", foco: "Decisões e repetição", semanas: ["Condições (if/elif/else).", "Repetição (while e for).", "Lógica (E / OU / NÃO).", "Um jogo de adivinhação ou quiz."] },
-  { mes: "Mês 3", projeto: "3/3", ferramenta: "Python", cor: "", foco: "Funções e organização", semanas: ["Funções e parâmetros.", "Retorno de valores.", "Organizar e reutilizar código.", "Um programa com funções (entregável)."] },
-  { mes: "Mês 4", projeto: "1/3", ferramenta: "Python", cor: "", foco: "Listas e dicionários", semanas: ["Listas e percursos.", "Dicionários (chave → valor).", "Strings e manipulação de texto.", "Trabalhar com coleções de dados."] },
-  { mes: "Mês 5", projeto: "2/3", ferramenta: "Python", cor: "", foco: "Dados, arquivos e módulos", semanas: ["Ler e escrever arquivos.", "Tratar e organizar dados.", "Usar bibliotecas (módulos).", "Um programa que guarda informações."] },
-  { mes: "Mês 6", projeto: "3/3", ferramenta: "Python", cor: "", foco: "Um app útil", semanas: ["Planejar um mini-app.", "Construir (calculadora / organizador).", "Testar e melhorar.", "Um app próprio (entregável)."] },
-  { mes: "Mês 7", projeto: "1/3", ferramenta: "Python + Pygame", cor: "", foco: "Meu jogo em código", semanas: ["Conhecer o Pygame: janela e loop.", "Sprites e imagens.", "Movimento e controles.", "A base de um jogo 2D rodando."] },
-  { mes: "Mês 8", projeto: "2/3", ferramenta: "Python + Pygame", cor: "", foco: "Mecânicas de jogo", semanas: ["Colisões.", "Pontuação e vidas.", "Fases e sons.", "Um jogo com regras."] },
-  { mes: "Mês 9", projeto: "3/3", ferramenta: "Python + Pygame", cor: "", foco: "Jogo 2D completo", semanas: ["Telas (menu, game over).", "Balanceamento e dificuldade.", "Polir e ajustar.", "Um jogo 2D em código (entregável)."] },
-  { mes: "Mês 10", projeto: "1/3", ferramenta: "Python", cor: "", foco: "Algoritmos e problemas", semanas: ["Pensamento computacional.", "Resolver problemas passo a passo.", "Eficiência (uma noção).", "Desafios de lógica."] },
-  { mes: "Mês 11", projeto: "2/3", ferramenta: "Python", cor: "", foco: "Projeto autoral", semanas: ["Escolher e planejar o projeto.", "Construir (jogo ou app).", "Testar com os colegas.", "Versão pronta."] },
-  { mes: "Mês 12", projeto: "3/3", ferramenta: "Python", cor: "", foco: "Finalizar + portfólio", semanas: ["Polir o projeto.", "Documentar o código.", "Montar o início do portfólio.", "Demo Day + certificado do Ano 1."] },
+  { mes: "Mês 1", ferramenta: "HTML + CSS", cor: "", logos: ["html"], foco: "A web: primeira página", semanas: ["O que é a web e como um site funciona.", "HTML: títulos, textos, imagens e links.", "Listas, tabelas e seções.", "Sua primeira página no ar."] },
+  { mes: "Mês 2", ferramenta: "HTML + CSS", cor: "", logos: ["html"], foco: "Estilo e layout (CSS)", semanas: ["CSS: cores, fontes e espaçamentos.", "Caixas e layout (box model).", "Layout responsivo (celular e PC).", "Um site bonito e organizado (entregável)."] },
+  { mes: "Mês 3", ferramenta: "Canva", cor: "", logos: ["canva"], foco: "Design no Canva", semanas: ["Conhecer o Canva.", "Posts, cartazes e capas.", "Identidade visual (cores e fontes).", "Peças visuais próprias."] },
+  { mes: "Mês 4", ferramenta: "CapCut", cor: "", logos: ["capcut"], foco: "Edição de vídeo", semanas: ["Conhecer o CapCut.", "Cortes, transições e ritmo.", "Textos, legendas e trilha.", "Um vídeo editado (entregável)."] },
+  { mes: "Mês 5", ferramenta: "ChatGPT", cor: "", logos: ["chatgpt"], foco: "IA: ChatGPT", semanas: ["O que é IA e o que é o ChatGPT.", "Bons prompts: pedir do jeito certo.", "Pesquisar, escrever e estudar com IA.", "Usar com responsabilidade."] },
+  { mes: "Mês 6", ferramenta: "Gemini", cor: "", logos: ["gemini"], foco: "IA: Gemini", semanas: ["Conhecer o Gemini (a IA do Google).", "Integração com o Google.", "Comparar respostas (ChatGPT × Gemini).", "Usar no dia a dia."] },
+  { mes: "Mês 7", ferramenta: "Claude", cor: "", logos: ["claude"], foco: "IA: Claude", semanas: ["Conhecer o Claude.", "Ler arquivos e imagens com o Claude.", "Artifacts: criar de verdade.", "Organizar com Projects."] },
+  { mes: "Mês 8", ferramenta: "Construct 3", cor: "", logos: ["construct"], foco: "Jogos sem código", semanas: ["Conhecer o Construct 3.", "Cenário, objetos e movimento.", "Eventos (regras) sem digitar.", "Um joguinho funcionando."] },
+  { mes: "Mês 9", ferramenta: "Construct 3", cor: "", logos: ["construct"], foco: "Mecânicas de jogo", semanas: ["Pontos, vidas e telas.", "Inimigos e colisões.", "Sons e efeitos.", "Um jogo 2D completo (entregável)."] },
+  { mes: "Mês 10", ferramenta: "Maya", cor: "", logos: ["maya"], foco: "Primeiro 3D no Maya", semanas: ["Conhecer o Maya (3D profissional).", "Navegar e criar formas.", "Mover, girar e escalar.", "Um objeto 3D simples."] },
+  { mes: "Mês 11", ferramenta: "Blender", cor: "", logos: ["blender"], foco: "Primeiro 3D no Blender", semanas: ["Conhecer o Blender (3D gratuito).", "Modelar formas básicas.", "Materiais e cores.", "Um modelo simples."] },
+  { mes: "Mês 12", ferramenta: "Bambu Studio", cor: "", logos: ["bambulab"], foco: "Impressão 3D", semanas: ["O que é impressão 3D (Bambu Lab).", "Preparar o modelo no Bambu Studio.", "Fatiar e imprimir.", "Peça impressa pra levar pra casa + certificado do Ano 1."] },
 ];
 
-// ── ANO 2 — Unity e o motor de jogos profissional (C#) ───────────────────────
+// ── ANO 2 — Programação e jogos (intermediário) ──────────────────────────────
 const ANO2_MESES: MesGrade[] = [
-  { mes: "Mês 1", projeto: "1/3", ferramenta: "Unity (C#)", cor: "", foco: "Conhecer o Unity", semanas: ["Interface e cena do Unity.", "GameObjects e componentes.", "Mover objetos na cena.", "O primeiro projeto no Unity."] },
-  { mes: "Mês 2", projeto: "2/3", ferramenta: "Unity (C#)", cor: "", foco: "Programar com C#", semanas: ["Scripts em C#.", "Variáveis e métodos.", "Controlar objetos por código.", "Um objeto que responde ao jogador."] },
-  { mes: "Mês 3", projeto: "3/3", ferramenta: "Unity (C#)", cor: "", foco: "Primeiro jogo 2D", semanas: ["Input do jogador.", "Física 2D e colisões.", "Pontuação simples.", "Um joguinho 2D no Unity (entregável)."] },
-  { mes: "Mês 4", projeto: "1/3", ferramenta: "Unity (C#)", cor: "", foco: "Mecânicas e sistemas", semanas: ["Prefabs e instanciar objetos.", "Inimigos e spawn.", "Power-ups e itens.", "Um jogo com mais sistemas."] },
-  { mes: "Mês 5", projeto: "2/3", ferramenta: "Unity (C#)", cor: "", foco: "UI, sons e dados", semanas: ["Menus e HUD.", "Sons e efeitos.", "Salvar pontuação/recorde.", "Um jogo com cara de jogo."] },
-  { mes: "Mês 6", projeto: "3/3", ferramenta: "Unity (C#)", cor: "", foco: "Jogo 2D completo", semanas: ["Várias fases.", "Balanceamento.", "Polir e testar.", "Um jogo 2D completo (entregável)."] },
-  { mes: "Mês 7", projeto: "1/3", ferramenta: "Blender", cor: "", foco: "Modelar pra jogos (3D)", semanas: ["Modelagem low-poly pra games.", "Materiais e cores.", "Boas práticas pra motor de jogo.", "Assets 3D próprios."] },
-  { mes: "Mês 8", projeto: "2/3", ferramenta: "Blender + Unity", cor: "", foco: "Levar o 3D pro Unity", semanas: ["Exportar do Blender.", "Importar e ajustar no Unity.", "Materiais e prefabs 3D.", "Modelos prontos no Unity."] },
-  { mes: "Mês 9", projeto: "3/3", ferramenta: "Unity (C#)", cor: "", foco: "Mundo 3D", semanas: ["Cena 3D, câmera e luz.", "Movimento 3D do personagem.", "Colisão e física 3D.", "Um mundo 3D navegável (entregável)."] },
-  { mes: "Mês 10", projeto: "1/3", ferramenta: "Unity (C#)", cor: "", foco: "Mecânicas 3D", semanas: ["Câmera de jogo (3ª pessoa).", "Interações e gatilhos.", "Objetivos do jogo.", "Mecânicas 3D funcionando."] },
-  { mes: "Mês 11", projeto: "2/3", ferramenta: "Unity (C#)", cor: "", foco: "Construir o jogo 3D", semanas: ["Montar o jogo com os assets.", "UI, áudio e efeitos.", "Ajustes e testes.", "Versão jogável."] },
-  { mes: "Mês 12", projeto: "3/3", ferramenta: "Unity (C#)", cor: "", foco: "Publicar + portfólio", semanas: ["Gerar o build do jogo.", "Publicar (web / itch.io).", "Atualizar o portfólio.", "Demo Day + certificado do Ano 2."] },
+  { mes: "Mês 1", ferramenta: "Python", cor: "", logos: ["python"], foco: "Lógica e primeiros programas", semanas: ["Variáveis, tipos e entrada/saída.", "Operações e expressões.", "Condições (if/else).", "Um programa interativo."] },
+  { mes: "Mês 2", ferramenta: "Python", cor: "", logos: ["python"], foco: "Repetição e funções", semanas: ["Loops (for e while).", "Funções e parâmetros.", "Listas e dicionários.", "Um programa organizado."] },
+  { mes: "Mês 3", ferramenta: "Python", cor: "", logos: ["python"], foco: "Mini-projeto em Python", semanas: ["Resolver problemas (algoritmos).", "Ler e tratar dados.", "Construir um mini-app ou jogo de texto.", "Projeto próprio (entregável)."] },
+  { mes: "Mês 4", ferramenta: "JavaScript", cor: "", logos: ["javascript"], foco: "Sites que reagem", semanas: ["JavaScript: o que é e onde roda.", "Variáveis, funções e eventos.", "Mudar a página ao clicar (DOM).", "Uma página interativa."] },
+  { mes: "Mês 5", ferramenta: "JavaScript", cor: "", logos: ["javascript"], foco: "Interatividade de verdade", semanas: ["Condições e loops no JS.", "Formulários e respostas.", "Um joguinho ou app web.", "Projeto JS (entregável)."] },
+  { mes: "Mês 6", ferramenta: "Unity (C#)", cor: "", logos: ["unity"], foco: "Conhecer o Unity", semanas: ["Interface e cena do Unity.", "GameObjects e componentes.", "Primeiros scripts em C#.", "Mover um personagem."] },
+  { mes: "Mês 7", ferramenta: "Unity (C#)", cor: "", logos: ["unity"], foco: "Primeiro jogo no Unity", semanas: ["Física e colisões.", "Input e mecânicas.", "UI e pontuação.", "Um jogo 2D no Unity (entregável)."] },
+  { mes: "Mês 8", ferramenta: "Maya", cor: "", logos: ["maya"], foco: "Modelagem intermediária", semanas: ["Modelagem poligonal e topologia.", "UVs e materiais.", "Modelar um asset pro jogo.", "Um modelo texturizado."] },
+  { mes: "Mês 9", ferramenta: "Blender", cor: "", logos: ["blender"], foco: "Modelagem intermediária", semanas: ["Modelar um objeto elaborado.", "Materiais e iluminação.", "Render de qualidade.", "Um modelo renderizado."] },
+  { mes: "Mês 10", ferramenta: "ChatGPT + DALL-E", cor: "", logos: ["chatgpt", "dalle"], foco: "IA cria imagens", semanas: ["Gerar imagens com IA (DALL-E).", "Descrever bem (prompts visuais).", "Conceitos e arte pra projetos.", "Uma galeria de imagens com IA."] },
+  { mes: "Mês 11", ferramenta: "Gemini + Nano Banana", cor: "", logos: ["gemini", "nanobanana"], foco: "Mais imagem com IA", semanas: ["Gerar e editar imagens (Nano Banana).", "Variações e ajustes.", "Texturas e ícones pra jogos.", "Pacote de imagens próprio."] },
+  { mes: "Mês 12", ferramenta: "Suno + ElevenLabs", cor: "", logos: ["suno", "elevenlabs"], foco: "Música e voz com IA", semanas: ["Criar música com IA (Suno).", "Gerar voz e narração (ElevenLabs).", "Efeitos e trilha pra projetos.", "Trilha e voz próprias + certificado do Ano 2."] },
 ];
 
-// ── ANO 3 — 3D profissional (Maya) + Estúdio de Criação com IA ───────────────
+// ── ANO 3 — Web completo, Unity avançado e 3D avançado (difícil) ──────────────
 const ANO3_MESES: MesGrade[] = [
-  { mes: "Mês 1", projeto: "1/3", ferramenta: "Maya", cor: "", foco: "Modelagem profissional", semanas: ["Modelagem poligonal no Maya.", "Topologia (a malha certa).", "Formas complexas.", "Um modelo bem feito."] },
-  { mes: "Mês 2", projeto: "2/3", ferramenta: "Maya", cor: "", foco: "UV e materiais", semanas: ["Abrir UVs.", "Texturas e materiais.", "Detalhes e acabamento.", "Um modelo texturizado."] },
-  { mes: "Mês 3", projeto: "3/3", ferramenta: "Maya", cor: "", foco: "Asset pro jogo", semanas: ["Modelar um personagem/asset.", "Otimizar pro motor de jogo.", "Exportar.", "Um asset profissional (entregável)."] },
-  { mes: "Mês 4", projeto: "1/3", ferramenta: "Maya", cor: "", foco: "Rigging básico", semanas: ["Esqueleto (joints).", "Skinning simples.", "Controles de pose.", "Um personagem pronto pra animar."] },
-  { mes: "Mês 5", projeto: "2/3", ferramenta: "Maya", cor: "", foco: "Animação 3D", semanas: ["Keyframes e timing.", "Ciclos (andar/idle).", "Princípios de animação.", "Uma animação própria."] },
-  { mes: "Mês 6", projeto: "3/3", ferramenta: "Maya + Unity", cor: "", foco: "Pipeline 3D pro Unity", semanas: ["Exportar modelo + animação.", "Importar no Unity.", "Configurar no motor.", "Asset animado dentro do Unity (entregável)."] },
-  { mes: "Mês 7", projeto: "1/3", ferramenta: "Estúdio de Criação com IA", cor: "", foco: "Imagem e arte com IA", semanas: ["Conceitos e referências com IA de imagem (Nano Banana).", "Texturas e ícones.", "Arte e capa no Canva.", "Pacote visual do jogo."] },
-  { mes: "Mês 8", projeto: "2/3", ferramenta: "Estúdio de Criação com IA", cor: "", foco: "Som, música e voz com IA", semanas: ["Música com IA (Suno).", "Voz e narração com IA (ElevenLabs).", "Efeitos sonoros.", "Trilha e vozes do jogo."] },
-  { mes: "Mês 9", projeto: "3/3", ferramenta: "Estúdio de Criação com IA", cor: "", foco: "Vídeo e trailer com IA", semanas: ["Vídeo com IA (Sora / Veo).", "Edição no CapCut.", "Montar o trailer do jogo.", "Trailer pronto (entregável)."] },
-  { mes: "Mês 10", projeto: "1/3", ferramenta: "Unity + Maya", cor: "", foco: "Montar o jogo", semanas: ["Integrar modelos do Maya.", "Aplicar os assets de IA.", "Cena e mecânicas.", "Jogo tomando forma."] },
-  { mes: "Mês 11", projeto: "2/3", ferramenta: "Unity (C#)", cor: "", foco: "Polir e dar vida", semanas: ["Animações no jogo.", "Áudio e efeitos.", "Ajustes de jogabilidade.", "Versão polida."] },
-  { mes: "Mês 12", projeto: "3/3", ferramenta: "Unity (C#)", cor: "", foco: "Lançar + trailer + portfólio", semanas: ["Build e publicação.", "Trailer feito com IA.", "Atualizar o portfólio.", "Demo Day + certificado do Ano 3."] },
+  { mes: "Mês 1", ferramenta: "Banco de dados", cor: "", logos: ["database"], foco: "Guardar dados", semanas: ["O que é um banco de dados.", "Tabelas, registros e consultas.", "Conectar um site aos dados.", "Um site com dados de verdade."] },
+  { mes: "Mês 2", ferramenta: "Hospedagem e domínio", cor: "", logos: ["hosting"], foco: "Colocar no ar", semanas: ["O que é hospedagem e domínio.", "Publicar um site na internet.", "Registrar um domínio.", "Seu projeto no ar pra todo mundo (entregável)."] },
+  { mes: "Mês 3", ferramenta: "Banco de dados + Hospedagem", cor: "", logos: ["database", "hosting"], foco: "Aplicação web completa", semanas: ["Juntar site + dados + hospedagem.", "Login e cadastro simples.", "Testar e ajustar.", "Uma aplicação web completa."] },
+  { mes: "Mês 4", ferramenta: "Unity (C#)", cor: "", logos: ["unity"], foco: "Unity 3D", semanas: ["Cena 3D, câmera e luz.", "Movimento 3D e física.", "Importar modelos 3D.", "Um mundo 3D navegável."] },
+  { mes: "Mês 5", ferramenta: "Unity (C#)", cor: "", logos: ["unity"], foco: "Mecânicas avançadas", semanas: ["Sistemas de jogo (inventário, vida).", "IA simples de inimigos.", "Áudio e efeitos.", "Um jogo 3D jogável."] },
+  { mes: "Mês 6", ferramenta: "Unity (C#)", cor: "", logos: ["unity"], foco: "Polir e publicar", semanas: ["UI, menus e save.", "Otimização e build.", "Publicar (web / itch).", "Um jogo publicado (entregável)."] },
+  { mes: "Mês 7", ferramenta: "Maya", cor: "", logos: ["maya"], foco: "3D avançado", semanas: ["Rigging e animação.", "Materiais avançados.", "Pipeline pro Unity.", "Um personagem animado."] },
+  { mes: "Mês 8", ferramenta: "Blender", cor: "", logos: ["blender"], foco: "3D avançado", semanas: ["Escultura e detalhes.", "Texturas e render avançado.", "Compor uma cena completa.", "Uma cena 3D profissional."] },
+  { mes: "Mês 9", ferramenta: "ChatGPT + Sora", cor: "", logos: ["chatgpt", "sora"], foco: "IA cria vídeo", semanas: ["Gerar vídeo com IA (Sora).", "Roteiro e descrição de cenas.", "Editar e finalizar (CapCut).", "Um vídeo feito com IA."] },
+  { mes: "Mês 10", ferramenta: "Gemini + Veo", cor: "", logos: ["gemini", "veo"], foco: "Mais vídeo com IA", semanas: ["Gerar vídeo com IA (Veo).", "Cenas e movimentos.", "Trailer de um projeto.", "Um trailer com IA (entregável)."] },
+  { mes: "Mês 11", ferramenta: "Realidade Virtual", cor: "", logos: ["vr"], foco: "Introdução à VR", semanas: ["O que é VR e como funciona.", "Configurar VR no Unity.", "Primeira cena imersiva.", "Olhar e se mover em VR."] },
+  { mes: "Mês 12", ferramenta: "Realidade Virtual", cor: "", logos: ["vr"], foco: "Interação em VR", semanas: ["Controles e mãos.", "Pegar e usar objetos.", "Uma experiência VR simples.", "Demo VR + certificado do Ano 3."] },
 ];
 
-// ── ANO 4 — Avançado: Realidade Virtual, IA aplicada, ética e projeto pro ────
+// ── ANO 4 — Unreal, Realidade Virtual/Aumentada e projeto profissional (difícil) ─
 const ANO4_MESES: MesGrade[] = [
-  { mes: "Mês 1", projeto: "1/3", ferramenta: "Realidade Virtual (Unity)", cor: "", foco: "Introdução à VR", semanas: ["O que é VR e como funciona.", "Configurar o projeto VR no Unity.", "A primeira cena em VR.", "Olhar em volta dentro do jogo."] },
-  { mes: "Mês 2", projeto: "2/3", ferramenta: "Realidade Virtual (Unity)", cor: "", foco: "Interação em VR", semanas: ["Controles e mãos.", "Pegar e usar objetos.", "Locomoção (teleporte).", "Interagir com o mundo VR."] },
-  { mes: "Mês 3", projeto: "3/3", ferramenta: "Realidade Virtual (Unity)", cor: "", foco: "Uma experiência VR", semanas: ["Planejar a experiência.", "Construir o ambiente.", "Testar no dispositivo.", "Uma experiência VR própria (entregável)."] },
-  { mes: "Mês 4", projeto: "1/3", ferramenta: "IA aplicada", cor: "", foco: "IA dentro do jogo", semanas: ["NPCs com comportamento.", "Decisões e estados (máquina de estados).", "IA generativa no jogo.", "Um inimigo/NPC inteligente."] },
-  { mes: "Mês 5", projeto: "2/3", ferramenta: "IA aplicada (Python)", cor: "", foco: "Usar IA por código", semanas: ["Chamar uma IA por código (API).", "Texto, imagem ou voz via IA.", "Integrar num projeto.", "Um recurso com IA de verdade."] },
-  { mes: "Mês 6", projeto: "3/3", ferramenta: "Ética e letramento em IA", cor: "", foco: "IA com responsabilidade", semanas: ["Como a IA aprende (e erra).", "Viés, privacidade e direitos autorais.", "Usar IA com ética.", "Um projeto/posicionamento crítico (entregável)."] },
-  { mes: "Mês 7", projeto: "1/3", ferramenta: "Projeto Profissional", cor: "", foco: "Planejar como estúdio", semanas: ["Ideia e conceito do projeto.", "Game Design Document (escopo).", "Cronograma e papéis.", "Projeto planejado."] },
-  { mes: "Mês 8", projeto: "2/3", ferramenta: "Projeto Profissional", cor: "", foco: "Produção", semanas: ["Construir (código + 3D + IA).", "Integrar tudo.", "Acompanhar o cronograma.", "Versão jogável inicial."] },
-  { mes: "Mês 9", projeto: "3/3", ferramenta: "Projeto Profissional", cor: "", foco: "Playtest e iteração", semanas: ["Testar com pessoas (playtest).", "Coletar feedback.", "Ajustar e melhorar.", "Versão refinada."] },
-  { mes: "Mês 10", projeto: "1/3", ferramenta: "Projeto Profissional", cor: "", foco: "Finalizar e publicar", semanas: ["Polimento final.", "Build e otimização.", "Publicar (loja / web / itch).", "Projeto publicado (entregável grande)."] },
-  { mes: "Mês 11", projeto: "2/3", ferramenta: "Portfólio profissional", cor: "", foco: "Portfólio + presença", semanas: ["Montar o portfólio.", "GitHub e itch.io.", "Trailer e apresentação.", "Portfólio pronto pro mercado."] },
-  { mes: "Mês 12", projeto: "3/3", ferramenta: "Demo Day + carreira", cor: "", foco: "Demo Day + próximos passos", semanas: ["Ensaiar a apresentação.", "Demo Day final.", "Caminhos: mercado, freela, faculdade.", "Certificado da trilha Create."] },
+  { mes: "Mês 1", ferramenta: "Unreal Engine", cor: "", logos: ["unreal"], foco: "Conhecer a Unreal", semanas: ["O motor mais avançado (Unreal).", "Interface e navegação 3D.", "Blueprints (programação visual).", "Uma cena na Unreal."] },
+  { mes: "Mês 2", ferramenta: "Unreal Engine", cor: "", logos: ["unreal"], foco: "Programar na Unreal", semanas: ["Blueprints: lógica de jogo.", "Personagem e controles.", "Física e interações.", "Mecânicas funcionando."] },
+  { mes: "Mês 3", ferramenta: "Unreal Engine", cor: "", logos: ["unreal"], foco: "Gráficos e mundo", semanas: ["Iluminação e materiais realistas.", "Montar um cenário.", "Efeitos visuais.", "Um mundo bonito na Unreal."] },
+  { mes: "Mês 4", ferramenta: "Unreal Engine", cor: "", logos: ["unreal"], foco: "Um jogo na Unreal", semanas: ["Sistemas de jogo.", "Áudio e UI.", "Testar e ajustar.", "Um jogo 3D na Unreal (entregável)."] },
+  { mes: "Mês 5", ferramenta: "Realidade Virtual", cor: "", logos: ["vr"], foco: "VR avançada", semanas: ["Experiências VR mais completas.", "Locomoção e conforto.", "Interações ricas.", "Uma experiência VR avançada."] },
+  { mes: "Mês 6", ferramenta: "Realidade Aumentada", cor: "", logos: ["ar"], foco: "Conhecer a AR", semanas: ["O que é AR e onde se usa.", "Objetos 3D no mundo real.", "AR no celular.", "Uma experiência AR."] },
+  { mes: "Mês 7", ferramenta: "Realidade Aumentada", cor: "", logos: ["ar"], foco: "AR interativa", semanas: ["Interação com objetos AR.", "Marcadores e superfícies.", "Um app AR simples.", "Projeto AR (entregável)."] },
+  { mes: "Mês 8", ferramenta: "Projeto Profissional", cor: "", logos: ["projeto"], foco: "Planejar o projeto final", semanas: ["Escolher a ideia (jogo / experiência).", "Game Design Document.", "Escopo e cronograma.", "Projeto planejado."] },
+  { mes: "Mês 9", ferramenta: "Projeto Profissional", cor: "", logos: ["projeto"], foco: "Produção", semanas: ["Construir (código + 3D + IA).", "Integrar tudo.", "Acompanhar o cronograma.", "Versão jogável inicial."] },
+  { mes: "Mês 10", ferramenta: "Projeto Profissional", cor: "", logos: ["projeto"], foco: "Playtest e polimento", semanas: ["Testar com pessoas.", "Coletar feedback e ajustar.", "Otimizar.", "Versão final."] },
+  { mes: "Mês 11", ferramenta: "Projeto Profissional", cor: "", logos: ["projeto"], foco: "Publicar", semanas: ["Build final e publicação.", "Trailer (com IA).", "Página do projeto.", "Projeto no ar (entregável grande)."] },
+  { mes: "Mês 12", ferramenta: "Portfólio + carreira", cor: "", logos: ["projeto"], foco: "Portfólio + Demo Day", semanas: ["Montar o portfólio (GitHub, itch).", "Apresentar o projeto.", "Caminhos: mercado, freela, faculdade.", "Demo Day final + certificado da trilha."] },
 ];
 
 // ── O que o aluno domina no fim de cada ano (dinâmico por aba) ────────────────
 const ANO1_DOMINA = [
-  "Programa de verdade em Python — a linguagem mais usada do mundo.",
-  "Domina lógica: variáveis, condições, loops, funções, listas e dicionários.",
-  "Cria jogos 2D em código com Pygame.",
-  "Lê e escreve dados e usa bibliotecas (módulos).",
-  "Resolve problemas com algoritmos e pensamento computacional.",
-  "Entrega projetos autorais e começa o portfólio.",
+  "Cria sites com HTML e CSS (estrutura e estilo).",
+  "Usa IA com responsabilidade: ChatGPT, Gemini e Claude.",
+  "Faz design no Canva e edita vídeo no CapCut.",
+  "Cria jogos 2D sem código no Construct 3.",
+  "Dá os primeiros passos no 3D (Maya e Blender).",
+  "Imprime as próprias criações em 3D (Bambu Studio).",
 ];
 const ANO2_DOMINA = [
-  "Usa o Unity, motor de jogos profissional da indústria.",
-  "Programa em C# (orientação a objetos na prática).",
-  "Cria jogos 2D e 3D com física, UI, sons e dados.",
-  "Modela assets 3D no Blender e integra no Unity (pipeline).",
-  "Publica um jogo (web / itch.io) e amplia o portfólio.",
-  "Pensa como desenvolvedor de games de verdade.",
+  "Programa de verdade em Python (lógica, dados, projetos).",
+  "Deixa sites interativos com JavaScript.",
+  "Cria jogos no Unity (C#), 2D e 3D.",
+  "Modela em 3D no nível intermediário (Maya e Blender).",
+  "Gera imagens com IA (DALL-E e Nano Banana).",
+  "Cria música e voz com IA (Suno e ElevenLabs).",
 ];
 const ANO3_DOMINA = [
-  "Modela, texturiza e anima em 3D profissional no Maya.",
-  "Domina o pipeline 3D: do Maya pro Unity.",
-  "Produz assets com IA: imagem (Nano Banana), música (Suno), voz (ElevenLabs) e vídeo (Sora/Veo).",
-  "Edita e finaliza com Canva e CapCut.",
-  "Cria um jogo 3D com arte e trilha próprias — e um trailer feito com IA.",
-  "Trabalha como um pequeno estúdio (arte + código + áudio).",
+  "Constrói aplicações web completas (banco de dados + hospedagem + domínio).",
+  "Domina o Unity em nível avançado e publica jogos 3D.",
+  "Modela, anima e renderiza em 3D avançado (Maya e Blender).",
+  "Gera vídeos com IA (Sora e Veo) e monta trailers.",
+  "Cria as primeiras experiências em Realidade Virtual.",
+  "Trabalha como um estúdio: código + 3D + IA.",
 ];
 const ANO4_DOMINA = [
-  "Cria experiências em Realidade Virtual (VR) no Unity.",
-  "Aplica IA dentro dos jogos (NPCs, IA generativa) e via código (Python).",
-  "Entende como a IA funciona e a usa com ética e responsabilidade.",
-  "Conduz um projeto autoral grande, como num estúdio.",
-  "Publica o projeto e monta um portfólio profissional (GitHub, trailer).",
-  "Sai preparado para os próximos passos: mercado, freela ou faculdade.",
+  "Usa a Unreal Engine, o motor mais avançado do mercado.",
+  "Cria experiências em Realidade Virtual e Aumentada (VR e AR).",
+  "Conduz um projeto autoral grande, do plano ao lançamento.",
+  "Publica o projeto e monta um portfólio profissional.",
+  "Integra tudo: programação, 3D, IA e jogos.",
+  "Sai pronto para os próximos passos: mercado, freela ou faculdade.",
 ];
 
 const ANOS = [
-  { titulo: "Ano 1", foco: "Programação de verdade com Python", ferramentas: "Python · Pygame", trofeu: "4 projetos no ano", meses: ANO1_MESES, domina: ANO1_DOMINA },
-  { titulo: "Ano 2", foco: "Unity e o motor de jogos profissional (C#)", ferramentas: "Unity · C# · Blender", trofeu: "4 projetos no ano", meses: ANO2_MESES, domina: ANO2_DOMINA },
-  { titulo: "Ano 3", foco: "3D profissional (Maya) e Estúdio de Criação com IA", ferramentas: "Maya · IA (imagem, som, vídeo) · Unity", trofeu: "4 projetos no ano", meses: ANO3_MESES, domina: ANO3_DOMINA },
-  { titulo: "Ano 4", foco: "Realidade Virtual, IA aplicada, ética e projeto profissional", ferramentas: "Unity VR · IA aplicada · Python · Portfólio", trofeu: "4 projetos no ano", meses: ANO4_MESES, domina: ANO4_DOMINA },
+  { titulo: "Ano 1", foco: "Criação digital, IA e web (introdução)", ferramentas: "HTML/CSS · Canva · CapCut · ChatGPT · Gemini · Claude · Construct 3 · Maya · Blender · Impressão 3D", trofeu: "Bases criativas e digitais", meses: ANO1_MESES, domina: ANO1_DOMINA },
+  { titulo: "Ano 2", foco: "Programação (Python, JS), Unity e IA criativa", ferramentas: "Python · JavaScript · Unity · Maya · Blender · IA de imagem e áudio", trofeu: "Programa e cria de verdade", meses: ANO2_MESES, domina: ANO2_DOMINA },
+  { titulo: "Ano 3", foco: "Web completo, Unity avançado, 3D avançado e IA de vídeo", ferramentas: "Banco de dados · Hospedagem · Unity · Maya · Blender · IA de vídeo · VR", trofeu: "Nível avançado", meses: ANO3_MESES, domina: ANO3_DOMINA },
+  { titulo: "Ano 4", foco: "Unreal, Realidade Virtual e Aumentada e projeto profissional", ferramentas: "Unreal Engine · VR · AR · Projeto + Portfólio", trofeu: "Criador profissional", meses: ANO4_MESES, domina: ANO4_DOMINA },
 ];
 
 const CONCEITOS = [
+  "Criação digital",
+  "Web (HTML, CSS, JS)",
   "Programação (Python)",
-  "Pensamento computacional",
-  "Jogos com código",
-  "Unity + C#",
-  "3D profissional (Maya)",
-  "Pipeline 3D",
-  "Estúdio de Criação com IA",
-  "Realidade Virtual",
-  "IA aplicada",
-  "Ética e letramento em IA",
-  "Publicação de jogos",
+  "Banco de dados e deploy",
+  "Jogos (Construct, Unity, Unreal)",
+  "3D (Maya, Blender)",
+  "Impressão 3D",
+  "IA (texto, imagem, áudio, vídeo)",
+  "Realidade Virtual e Aumentada",
   "Portfólio profissional",
 ];
 
 const FERRAMENTAS = [
-  { n: "Python", d: "A linguagem mais usada do mundo — programação de verdade, do zero ao projeto (e jogos com Pygame)." },
-  { n: "Unity", d: "Motor de jogos profissional (C#) usado na indústria — jogos 2D, 3D e VR." },
-  { n: "Blender", d: "Modelagem 3D gratuita e profissional para assets de jogos." },
-  { n: "Maya", d: "3D profissional da Autodesk: modelagem, textura e animação (cinema e games)." },
-  { n: "Estúdio de Criação com IA", d: "Suno (música), ElevenLabs (voz), Sora/Veo (vídeo), Nano Banana (imagem), Canva e CapCut — para produzir os assets do jogo." },
-  { n: "Realidade Virtual", d: "Criar experiências imersivas em VR dentro do Unity." },
-  { n: "IA aplicada", d: "Usar IA dentro dos jogos e via código (Python) — sempre com ética e responsabilidade." },
+  // Programação e web
+  { n: "Python", d: "A linguagem mais usada do mundo — lógica e projetos." },
+  { n: "HTML + CSS", d: "A base dos sites: estrutura e estilo." },
+  { n: "JavaScript", d: "Deixa os sites interativos e vivos." },
+  { n: "Banco de dados", d: "Guardar e consultar dados de verdade." },
+  { n: "Hospedagem e domínio", d: "Colocar o projeto no ar, na internet." },
+  // Motores de jogo
+  { n: "Construct 3", d: "Criar jogos 2D sem digitar código." },
+  { n: "Unity", d: "Motor de jogos profissional (C#) — 2D, 3D e VR." },
+  { n: "Unreal Engine", d: "O motor mais avançado, com gráficos de ponta." },
+  // 3D e impressão
+  { n: "Maya", d: "3D profissional: modelar, texturizar e animar." },
+  { n: "Blender", d: "3D gratuito e profissional." },
+  { n: "Bambu Studio", d: "Impressão 3D de verdade (Bambu Lab)." },
+  // Realidade estendida
+  { n: "Realidade Virtual", d: "Criar experiências imersivas em VR." },
+  { n: "Realidade Aumentada", d: "Objetos 3D no mundo real (AR)." },
+  // Mídia
+  { n: "Canva", d: "Design visual: posts, capas e apresentações." },
+  { n: "CapCut", d: "Edição de vídeo, do básico ao profissional." },
+  // IA
+  { n: "ChatGPT", d: "IA assistente para escrever, pesquisar e criar." },
+  { n: "Gemini", d: "A IA do Google." },
+  { n: "Claude", d: "IA robusta: arquivos, Artifacts e Projects." },
+  { n: "DALL-E", d: "Gerar imagens com IA (via ChatGPT)." },
+  { n: "Nano Banana", d: "Gerar e editar imagens com IA (via Gemini)." },
+  { n: "Sora", d: "Gerar vídeos com IA (via ChatGPT)." },
+  { n: "Veo", d: "Gerar vídeos com IA (via Gemini)." },
+  { n: "Suno", d: "Criar música com IA." },
+  { n: "ElevenLabs", d: "Gerar voz e narração com IA." },
 ];
 
 function BackLink({ light = false }: { light?: boolean }) {
@@ -208,9 +229,9 @@ function TecCreateApresentacao() {
             </div>
           </div>
           <p className="mt-5 max-w-2xl text-lg text-white/90">
-            Programação séria e produção de games de verdade: <strong>Python</strong>,{" "}
-            <strong>Unity (C#)</strong>, 3D profissional no <strong>Maya</strong>, um{" "}
-            <strong>estúdio de criação com IA</strong> e <strong>Realidade Virtual</strong>.
+            Da criação digital ao desenvolvimento profissional: <strong>web</strong>,{" "}
+            <strong>programação</strong> (Python, JS), <strong>jogos</strong> (Unity, Unreal),{" "}
+            <strong>3D</strong>, <strong>IA</strong> e <strong>Realidade Virtual e Aumentada</strong>.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Chip icon={Users}>10 a 15 anos</Chip>
@@ -253,8 +274,8 @@ function TecCreateApresentacao() {
             <p className="text-sm font-black uppercase tracking-[0.25em] text-white/80">A grade, ano a ano</p>
             <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Escolha o ano e veja os 12 meses</h2>
             <p className="mt-3 text-white/90">
-              Da lógica ao código profissional, do 3D à IA e à Realidade Virtual — construindo um
-              jogo de verdade a cada ano.{" "}
+              Do mais fácil ao mais avançado: a cada ano a turma sobe de nível, dos primeiros sites e
+              jogos até a Unreal, a IA e a Realidade Virtual.{" "}
               <strong>Clique num mês</strong> para ver o que é trabalhado em cada semana.
             </p>
           </Reveal>
