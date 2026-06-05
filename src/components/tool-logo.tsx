@@ -21,6 +21,7 @@ export function logoKey(ferramenta: string): string {
   if (f.includes("capcut")) return "capcut";
   if (f.includes("apps script") || f.includes("appsscript")) return "appsscript";
   if (f.includes("vba")) return "vba";
+  if (f.includes("power bi") || f.includes("powerbi")) return "powerbi";
   if (f.includes("forms") || f.includes("formul")) return "forms";
   if (f.includes("cloud")) return "cloud";
   if (f.includes("python") || f.includes("pygame")) return "python";
