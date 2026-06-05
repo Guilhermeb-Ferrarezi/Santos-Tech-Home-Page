@@ -240,7 +240,7 @@ function TecCreateApresentacao() {
           <p className="mt-5 max-w-2xl text-lg text-white/90">
             Da criação digital ao desenvolvimento profissional: <strong>web</strong>,{" "}
             <strong>programação</strong> (Python, JS), <strong>jogos</strong> (Unity, Unreal),{" "}
-            <strong>3D</strong>, <strong>IA</strong> e <strong>Realidade Virtual e Aumentada</strong>.
+            <strong>3D</strong>, <strong>IA</strong> e <strong>Realidade Virtual</strong>.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Chip icon={Users}>10 a 15 anos</Chip>
