@@ -67,30 +67,30 @@ const ANO2_MESES: MesGrade[] = [
   { mes: "Mês 12", projeto: "5/5", ferramenta: "Maya", cor: "", logos: ["maya"], foco: "Assets finais + Demo Day", semanas: ["Modelar melhorias e extras.", "Acabamento final dos assets.", "Atualizar o jogo.", "Demo Day + certificado do Ano 2."] },
 ];
 
-// ── ANO 3 — Jogo no Roblox, site completo, Python e impressão 3D ──────────────
-// 4 projetos: Maya↔Roblox (jogo) · web HTML/CSS/JS + dados (5m) · Python (2m) · impressão 3D
+// ── ANO 3 — Jogo no Roblox (Maya/Lua + impressão 3D), site completo e Python ──
+// 3 projetos: jogo (Maya/Roblox + Bambu, 5m) · web HTML/CSS/JS + dados (5m) · Python (2m)
 const ANO3_MESES: MesGrade[] = [
-  { mes: "Mês 1", projeto: "1/4", ferramenta: "Maya", cor: "", logos: ["maya"], foco: "Modelar os assets do jogo", semanas: ["Conhecer/revisar o Maya.", "Modelar personagens e itens.", "Detalhes e proporção.", "Primeiros assets 3D."] },
-  { mes: "Mês 2", projeto: "2/4", ferramenta: "Roblox Studio + Lua", cor: "", logos: ["roblox", "lua"], foco: "Montar o jogo no Roblox", semanas: ["Roblox Studio: cenário e mundo.", "Importar os assets do Maya.", "Lua: primeiros scripts.", "Jogo tomando forma."] },
-  { mes: "Mês 3", projeto: "3/4", ferramenta: "Maya", cor: "", logos: ["maya"], foco: "Mais assets 3D", semanas: ["Modelar mais itens e cenário.", "Materiais e acabamento.", "Otimizar pro Roblox.", "Novos assets prontos."] },
-  { mes: "Mês 4", projeto: "4/4", ferramenta: "Roblox Studio + Lua", cor: "", logos: ["roblox", "lua"], foco: "Programar e publicar", semanas: ["Mecânicas em Lua.", "Pontuação, itens e regras.", "Testar e ajustar.", "Jogo publicado (entregável)."] },
-  { mes: "Mês 5", projeto: "1/5", ferramenta: "HTML + CSS", cor: "", logos: ["html", "css"], foco: "A web: HTML e CSS", semanas: ["O que é a web e como um site funciona.", "HTML: textos, imagens e links.", "CSS: cores, fontes e espaçamentos.", "Sua primeira página no ar."] },
-  { mes: "Mês 6", projeto: "2/5", ferramenta: "HTML + CSS", cor: "", logos: ["html", "css"], foco: "HTML e CSS intermediário", semanas: ["Layout (box model e flexbox).", "Responsivo (celular e PC).", "Componentes e seções.", "Um site bonito e completo."] },
-  { mes: "Mês 7", projeto: "3/5", ferramenta: "JavaScript", cor: "", logos: ["javascript"], foco: "Sites interativos (JS)", semanas: ["JavaScript: o que é e onde roda.", "Variáveis, funções e eventos.", "Mudar a página ao clicar (DOM).", "Uma página interativa."] },
-  { mes: "Mês 8", projeto: "4/5", ferramenta: "JavaScript", cor: "", logos: ["javascript"], foco: "JavaScript intermediário", semanas: ["Condições e loops.", "Formulários e respostas.", "Deixar o site completo e interativo.", "Site interativo pronto."] },
-  { mes: "Mês 9", projeto: "5/5", ferramenta: "Banco de dados + Domínio + Hospedagem", cor: "", logos: ["database", "hosting"], foco: "Colocar o site no ar", semanas: ["Banco de dados: guardar e consultar.", "Registrar um domínio.", "Hospedar (colocar no ar).", "Seu site online pra todo mundo (entregável)."] },
-  { mes: "Mês 10", projeto: "1/2", ferramenta: "Python", cor: "", logos: ["python"], foco: "Programação com Python", semanas: ["Lógica: variáveis, condições e loops.", "Funções, listas e dicionários.", "Resolver problemas (algoritmos).", "Um programa próprio."] },
-  { mes: "Mês 11", projeto: "2/2", ferramenta: "Python", cor: "", logos: ["python"], foco: "Python intermediário", semanas: ["Trabalhar com dados e arquivos.", "Organizar o código em funções e módulos.", "Bibliotecas úteis.", "Um projeto em Python (entregável)."] },
-  { mes: "Mês 12", projeto: "1/1", ferramenta: "Bambu Studio", cor: "", logos: ["bambulab"], foco: "Imprimir as criações do ano", semanas: ["Escolher os modelos feitos no ano (Maya).", "Preparar no Bambu Studio.", "Fatiar e imprimir.", "Peças impressas pra levar pra casa + certificado do Ano 3."] },
+  { mes: "Mês 1", projeto: "1/5", ferramenta: "Maya", cor: "", logos: ["maya"], foco: "Modelar os assets do jogo", semanas: ["Conhecer/revisar o Maya.", "Modelar personagens e itens.", "Detalhes e proporção.", "Primeiros assets 3D."] },
+  { mes: "Mês 2", projeto: "2/5", ferramenta: "Roblox Studio + Lua", cor: "", logos: ["roblox", "lua"], foco: "Montar o jogo no Roblox", semanas: ["Roblox Studio: cenário e mundo.", "Importar os assets do Maya.", "Lua: primeiros scripts.", "Jogo tomando forma."] },
+  { mes: "Mês 3", projeto: "3/5", ferramenta: "Maya", cor: "", logos: ["maya"], foco: "Mais assets 3D", semanas: ["Modelar mais itens e cenário.", "Materiais e acabamento.", "Otimizar pro Roblox.", "Novos assets prontos."] },
+  { mes: "Mês 4", projeto: "4/5", ferramenta: "Roblox Studio + Lua", cor: "", logos: ["roblox", "lua"], foco: "Programar e publicar", semanas: ["Mecânicas em Lua.", "Pontuação, itens e regras.", "Testar e ajustar.", "Jogo publicado (entregável)."] },
+  { mes: "Mês 5", projeto: "5/5", ferramenta: "Bambu Studio", cor: "", logos: ["bambulab"], foco: "Imprimir os personagens do jogo", semanas: ["Pegar os modelos 3D feitos pro jogo (Maya).", "Preparar no Bambu Studio.", "Fatiar e imprimir.", "Os personagens e itens do jogo na vida real (entregável)."] },
+  { mes: "Mês 6", projeto: "1/5", ferramenta: "HTML + CSS", cor: "", logos: ["html", "css"], foco: "A web: HTML e CSS", semanas: ["O que é a web e como um site funciona.", "HTML: textos, imagens e links.", "CSS: cores, fontes e espaçamentos.", "Sua primeira página no ar."] },
+  { mes: "Mês 7", projeto: "2/5", ferramenta: "HTML + CSS", cor: "", logos: ["html", "css"], foco: "HTML e CSS intermediário", semanas: ["Layout (box model e flexbox).", "Responsivo (celular e PC).", "Componentes e seções.", "Um site bonito e completo."] },
+  { mes: "Mês 8", projeto: "3/5", ferramenta: "JavaScript", cor: "", logos: ["javascript"], foco: "Sites interativos (JS)", semanas: ["JavaScript: o que é e onde roda.", "Variáveis, funções e eventos.", "Mudar a página ao clicar (DOM).", "Uma página interativa."] },
+  { mes: "Mês 9", projeto: "4/5", ferramenta: "JavaScript", cor: "", logos: ["javascript"], foco: "JavaScript intermediário", semanas: ["Condições e loops.", "Formulários e respostas.", "Deixar o site completo e interativo.", "Site interativo pronto."] },
+  { mes: "Mês 10", projeto: "5/5", ferramenta: "Banco de dados + Domínio + Hospedagem", cor: "", logos: ["database", "hosting"], foco: "Colocar o site no ar", semanas: ["Banco de dados: guardar e consultar.", "Registrar um domínio.", "Hospedar (colocar no ar).", "Seu site online pra todo mundo (entregável)."] },
+  { mes: "Mês 11", projeto: "1/2", ferramenta: "Python", cor: "", logos: ["python"], foco: "Programação com Python", semanas: ["Lógica: variáveis, condições e loops.", "Funções, listas e dicionários.", "Resolver problemas (algoritmos).", "Um programa próprio."] },
+  { mes: "Mês 12", projeto: "2/2", ferramenta: "Python", cor: "", logos: ["python"], foco: "Python intermediário", semanas: ["Trabalhar com dados e arquivos.", "Organizar o código em funções e módulos.", "Bibliotecas úteis.", "Um projeto em Python + certificado do Ano 3."] },
 ];
 
-// ── ANO 4 — Impressão 3D e os motores mais avançados (Unity/C#, Unreal/C++) ───
-// 4 projetos: MagicaVoxel+impressão · Maya+Orca · Blender↔Unity · Maya↔Unreal
+// ── ANO 4 — Claude, Realidade Virtual e os motores avançados (Unity/C#, Unreal/C++) ─
+// 4 projetos: Claude · VR no Unity (3m) · Blender↔Unity · Maya↔Unreal
 const ANO4_MESES: MesGrade[] = [
-  { mes: "Mês 1", projeto: "1/2", ferramenta: "MagicaVoxel", cor: "", logos: ["voxel"], foco: "Arte 3D em voxel", semanas: ["Conhecer o MagicaVoxel (3D em cubinhos).", "Modelar um personagem ou objeto.", "Cores e detalhes.", "Preparar pra impressão."] },
-  { mes: "Mês 2", projeto: "2/2", ferramenta: "Bambu Studio", cor: "", logos: ["bambulab"], foco: "Imprimir o voxel em 3D", semanas: ["Preparar o arquivo no Bambu Studio.", "Fatiar e configurar.", "Imprimir.", "Peça impressa pra levar pra casa (entregável)."] },
-  { mes: "Mês 3", projeto: "1/2", ferramenta: "Maya", cor: "", logos: ["maya"], foco: "Modelagem 3D no Maya", semanas: ["Modelar um objeto/personagem.", "Detalhes e proporção.", "Materiais.", "Modelo pronto pra imprimir."] },
-  { mes: "Mês 4", projeto: "2/2", ferramenta: "Orca Slicer", cor: "", logos: ["orca"], foco: "Fatiar e imprimir (Orca Slicer)", semanas: ["Importar o modelo do Maya.", "Suportes e preenchimento.", "Fatiar e imprimir.", "Peça impressa (entregável)."] },
+  { mes: "Mês 1", projeto: "1/1", ferramenta: "Claude", cor: "", logos: ["claude"], foco: "Claude: a IA que ajuda nos projetos", semanas: ["O que é o Claude e como ele ajuda nos projetos.", "Conversar, escrever e tirar dúvidas (bons prompts).", "O Claude lê os arquivos do projeto e dá referências melhores.", "Artifacts e Projects: criar e organizar com a IA."] },
+  { mes: "Mês 2", projeto: "1/3", ferramenta: "Realidade Virtual (Unity)", cor: "", logos: ["vr", "unity"], foco: "Introdução à VR no Unity", semanas: ["O que é VR e como funciona.", "Configurar o projeto VR no Unity (C#).", "A primeira cena em VR.", "Olhar e se mover em VR."] },
+  { mes: "Mês 3", projeto: "2/3", ferramenta: "Realidade Virtual (Unity)", cor: "", logos: ["vr", "unity"], foco: "Interação em VR", semanas: ["Controles e mãos.", "Pegar e usar objetos.", "Locomoção (teleporte).", "Interagir com o mundo VR."] },
+  { mes: "Mês 4", projeto: "3/3", ferramenta: "Realidade Virtual (Unity)", cor: "", logos: ["vr", "unity"], foco: "Uma experiência VR", semanas: ["Planejar a experiência.", "Construir o ambiente.", "Testar no dispositivo.", "Uma experiência VR própria (entregável)."] },
   { mes: "Mês 5", projeto: "1/4", ferramenta: "Blender", cor: "", logos: ["blender"], foco: "Modelar pro Unity", semanas: ["Conhecer/revisar o Blender.", "Modelar assets 3D.", "Materiais.", "Assets prontos pro Unity."] },
   { mes: "Mês 6", projeto: "2/4", ferramenta: "Unity + C#", cor: "", logos: ["unity", "csharp"], foco: "Conhecer o Unity", semanas: ["Interface e cena do Unity.", "Importar os modelos do Blender.", "C#: primeiros scripts.", "Mover um personagem."] },
   { mes: "Mês 7", projeto: "3/4", ferramenta: "Blender", cor: "", logos: ["blender"], foco: "Mais 3D no Blender", semanas: ["Modelar cenário e itens.", "Render e detalhes.", "Otimizar pro Unity.", "Novos assets 3D."] },
@@ -120,26 +120,26 @@ const ANO2_DOMINA = [
 ];
 const ANO3_DOMINA = [
   "Cria um jogo completo no Roblox Studio com Lua e assets 3D (Maya).",
+  "Imprime em 3D, na vida real, os personagens e itens do próprio jogo (Bambu Studio).",
   "Constrói um site completo: HTML, CSS, JavaScript, banco de dados, domínio e hospedagem.",
   "Programa em Python (lógica e projetos).",
-  "Imprime em 3D as criações do ano (Bambu Studio).",
-  "Conduz 4 projetos do início ao fim.",
-  "Junta jogos, web e programação num só ano.",
+  "Conduz 3 grandes projetos do início ao fim.",
+  "Junta jogos, impressão 3D, web e programação num só ano.",
 ];
 const ANO4_DOMINA = [
-  "Modela em voxel e em 3D (MagicaVoxel, Maya) e imprime de verdade (Bambu Studio, Orca Slicer).",
+  "Usa o Claude como assistente de verdade: lê os arquivos do projeto e dá referências melhores.",
+  "Cria uma experiência em Realidade Virtual no Unity (C#).",
   "Cria um jogo no Unity programando em C#.",
   "Cria um jogo na Unreal Engine, o motor mais avançado, com C++.",
   "Modela os assets 3D dos próprios jogos (Blender e Maya).",
-  "Domina o fluxo de um estúdio: modelar → aplicar na engine.",
   "Conclui a trilha com 4 projetos e um portfólio de jogos.",
 ];
 
 const ANOS = [
   { titulo: "Ano 1", foco: "3D, impressão 3D e jogos em pixel art", ferramentas: "MagicaVoxel · Bambu Studio · Maya · Orca Slicer · Blender · Aseprite · Construct 3", trofeu: "5 projetos no ano", meses: ANO1_MESES, domina: ANO1_DOMINA },
   { titulo: "Ano 2", foco: "IA criativa (vídeo, áudio, imagem) e um jogo no Roblox com UI própria", ferramentas: "ChatGPT · Gemini · Sora · Veo · CapCut · Suno · ElevenLabs · DALL-E · Nano Banana · Canva · Maya · Roblox Studio + Lua", trofeu: "4 projetos no ano", meses: ANO2_MESES, domina: ANO2_DOMINA },
-  { titulo: "Ano 3", foco: "Jogo no Roblox, site completo (HTML/CSS/JS + dados), Python e impressão 3D", ferramentas: "Maya · Roblox Studio + Lua · HTML/CSS · JavaScript · Banco de dados · Python · Bambu Studio", trofeu: "4 projetos no ano", meses: ANO3_MESES, domina: ANO3_DOMINA },
-  { titulo: "Ano 4", foco: "Impressão 3D e os motores mais avançados: Unity (C#) e Unreal (C++)", ferramentas: "MagicaVoxel · Bambu Studio · Maya · Orca Slicer · Blender · Unity + C# · Unreal Engine + C++", trofeu: "4 projetos no ano", meses: ANO4_MESES, domina: ANO4_DOMINA },
+  { titulo: "Ano 3", foco: "Jogo no Roblox (Maya/Lua + impressão 3D), site completo e Python", ferramentas: "Maya · Roblox Studio + Lua · Bambu Studio · HTML/CSS · JavaScript · Banco de dados · Python", trofeu: "3 projetos no ano", meses: ANO3_MESES, domina: ANO3_DOMINA },
+  { titulo: "Ano 4", foco: "Claude, Realidade Virtual e os motores Unity (C#) e Unreal (C++)", ferramentas: "Claude · Realidade Virtual · Unity + C# · Blender · Maya · Unreal Engine + C++", trofeu: "4 projetos no ano", meses: ANO4_MESES, domina: ANO4_DOMINA },
 ];
 
 const CONCEITOS = [
@@ -178,7 +178,7 @@ const FERRAMENTAS = [
   { n: "Bambu Studio", d: "Impressão 3D de verdade (Bambu Lab)." },
   { n: "Orca Slicer", d: "Fatiar e preparar modelos para a impressão 3D." },
   // Realidade virtual
-  { n: "Realidade Virtual", d: "Experiências imersivas em VR (dentro do Unity e da Unreal)." },
+  { n: "Realidade Virtual", d: "Criar experiências imersivas em VR no Unity (C#)." },
   // Arte e mídia
   { n: "Aseprite", d: "Desenhar e animar em pixel art." },
   { n: "Canva", d: "Design visual: posts, capas e apresentações." },
