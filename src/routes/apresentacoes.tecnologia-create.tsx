@@ -51,13 +51,13 @@ const ANO1_MESES: MesGrade[] = [
   { mes: "Mês 12", projeto: "2/2", ferramenta: "Bambu Studio", cor: "", logos: ["bambulab"], foco: "Imprimir os personagens", semanas: ["Preparar os modelos no Bambu Studio.", "Fatiar e imprimir.", "Os personagens do jogo na sua mão.", "Demo + certificado do Ano 1."] },
 ];
 
-// ── ANO 2 — IA criativa (imagem, áudio, vídeo) e web (HTML/CSS, JS, Python, dados) ─
+// ── ANO 2 — IA criativa (vídeo + trilha + imagem) e um jogo no Roblox com UI ──
 const ANO2_MESES: MesGrade[] = [
-  { mes: "Mês 1", projeto: "1/4", ferramenta: "ChatGPT + Sora", cor: "", logos: ["chatgpt", "sora"], foco: "IA cria vídeo", semanas: ["Gerar vídeo com IA (Sora).", "Roteiro e descrição de cenas.", "Vários clipes.", "Material de vídeo da IA."] },
-  { mes: "Mês 2", projeto: "2/4", ferramenta: "Gemini + Veo", cor: "", logos: ["gemini", "veo"], foco: "Mais vídeo com IA", semanas: ["Gerar vídeo com IA (Veo).", "Cenas e movimentos.", "Mais clipes pro projeto.", "Banco de vídeos da IA."] },
-  { mes: "Mês 3", projeto: "3/4", ferramenta: "CapCut", cor: "", logos: ["capcut"], foco: "Editar os vídeos da IA", semanas: ["Conhecer o CapCut.", "Juntar os vídeos do Sora e do Veo.", "Cortes, transições e ritmo.", "Um vídeo montado."] },
-  { mes: "Mês 4", projeto: "4/4", ferramenta: "CapCut", cor: "", logos: ["capcut"], foco: "Vídeo profissional", semanas: ["Efeitos e recursos avançados.", "Textos e legendas.", "Trilha e exportação.", "Um vídeo profissional (entregável)."] },
-  { mes: "Mês 5", projeto: "1/1", ferramenta: "Suno + ElevenLabs", cor: "", logos: ["suno", "elevenlabs"], foco: "Som, música e voz com IA", semanas: ["Criar música com IA (Suno).", "Gerar voz e narração (ElevenLabs).", "Efeitos sonoros.", "Trilha e vozes próprias (entregável)."] },
+  { mes: "Mês 1", projeto: "1/5", ferramenta: "ChatGPT + Sora", cor: "", logos: ["chatgpt", "sora"], foco: "IA cria vídeo", semanas: ["Gerar vídeo com IA (Sora).", "Roteiro e descrição de cenas.", "Vários clipes.", "Material de vídeo da IA."] },
+  { mes: "Mês 2", projeto: "2/5", ferramenta: "Gemini + Veo", cor: "", logos: ["gemini", "veo"], foco: "Mais vídeo com IA", semanas: ["Gerar vídeo com IA (Veo).", "Cenas e movimentos.", "Mais clipes pro projeto.", "Banco de vídeos da IA."] },
+  { mes: "Mês 3", projeto: "3/5", ferramenta: "Suno + ElevenLabs", cor: "", logos: ["suno", "elevenlabs"], foco: "Som, música e voz com IA", semanas: ["Criar música com IA (Suno).", "Gerar voz e narração (ElevenLabs).", "Efeitos sonoros.", "Trilha e vozes pra usar no vídeo (e nos jogos)."] },
+  { mes: "Mês 4", projeto: "4/5", ferramenta: "CapCut", cor: "", logos: ["capcut"], foco: "Editar o vídeo (com a trilha da IA)", semanas: ["Conhecer o CapCut.", "Juntar os vídeos do Sora e do Veo.", "Adicionar a música e as vozes do Suno/ElevenLabs.", "Um vídeo montado."] },
+  { mes: "Mês 5", projeto: "5/5", ferramenta: "CapCut", cor: "", logos: ["capcut"], foco: "Vídeo profissional", semanas: ["Efeitos e transições.", "Textos e legendas.", "Exportar com qualidade.", "Um vídeo profissional (entregável)."] },
   { mes: "Mês 6", projeto: "1/2", ferramenta: "ChatGPT + DALL-E", cor: "", logos: ["chatgpt", "dalle"], foco: "IA cria imagens", semanas: ["Gerar imagens com IA (DALL-E).", "Prompts visuais.", "Conceitos e arte.", "Uma galeria de imagens com IA."] },
   { mes: "Mês 7", projeto: "2/2", ferramenta: "Gemini + Nano Banana", cor: "", logos: ["gemini", "nanobanana"], foco: "Mais imagem com IA", semanas: ["Gerar e editar imagens (Nano Banana).", "Variações e ajustes.", "Texturas e ícones.", "Pacote de imagens próprio."] },
   { mes: "Mês 8", projeto: "1/5", ferramenta: "Canva", cor: "", logos: ["canva"], foco: "UI do jogo", semanas: ["O que é a interface (UI) de um jogo.", "Menus, botões e HUD.", "Ícones e identidade visual.", "A UI do jogo pronta (Canva)."] },
@@ -111,12 +111,12 @@ const ANO1_DOMINA = [
   "Imprime os personagens do próprio jogo.",
 ];
 const ANO2_DOMINA = [
-  "Cria vídeos com IA (Sora e Veo) e edita no CapCut.",
-  "Cria som, música e voz com IA (Suno e ElevenLabs).",
+  "Cria vídeos com IA (Sora e Veo), faz a trilha sonora com IA (Suno e ElevenLabs) e edita tudo no CapCut.",
   "Cria imagens com IA (DALL-E e Nano Banana).",
   "Desenha a interface (UI) dos jogos no Canva.",
   "Modela em 3D no Maya e monta o jogo no Roblox Studio (Lua).",
-  "Conclui 4 projetos, terminando com um jogo próprio publicado.",
+  "Reaproveita a música, a voz e a arte da IA dentro dos próprios jogos.",
+  "Conclui 3 grandes projetos, terminando com um jogo próprio publicado.",
 ];
 const ANO3_DOMINA = [
   "Cria um jogo completo no Roblox Studio com Lua e assets 3D (Maya).",
@@ -137,7 +137,7 @@ const ANO4_DOMINA = [
 
 const ANOS = [
   { titulo: "Ano 1", foco: "3D, impressão 3D e jogos em pixel art", ferramentas: "MagicaVoxel · Bambu Studio · Maya · Orca Slicer · Blender · Aseprite · Construct 3", trofeu: "5 projetos no ano", meses: ANO1_MESES, domina: ANO1_DOMINA },
-  { titulo: "Ano 2", foco: "IA criativa (vídeo, áudio, imagem) e um jogo no Roblox com UI própria", ferramentas: "ChatGPT · Gemini · Sora · Veo · CapCut · Suno · ElevenLabs · DALL-E · Nano Banana · Canva · Maya · Roblox Studio + Lua", trofeu: "4 projetos no ano", meses: ANO2_MESES, domina: ANO2_DOMINA },
+  { titulo: "Ano 2", foco: "IA criativa (vídeo + trilha + imagem) e um jogo no Roblox com UI própria", ferramentas: "ChatGPT · Gemini · Sora · Veo · Suno · ElevenLabs · CapCut · DALL-E · Nano Banana · Canva · Maya · Roblox Studio + Lua", trofeu: "3 projetos no ano", meses: ANO2_MESES, domina: ANO2_DOMINA },
   { titulo: "Ano 3", foco: "Jogo no Roblox (Maya/Lua + impressão 3D), site completo e Python", ferramentas: "Maya · Roblox Studio + Lua · Bambu Studio · HTML/CSS · JavaScript · Banco de dados · Python", trofeu: "3 projetos no ano", meses: ANO3_MESES, domina: ANO3_DOMINA },
   { titulo: "Ano 4", foco: "Claude, Realidade Virtual e os motores Unity (C#) e Unreal (C++)", ferramentas: "Claude · Realidade Virtual · Unity + C# · Blender · Maya · Unreal Engine + C++", trofeu: "4 projetos no ano", meses: ANO4_MESES, domina: ANO4_DOMINA },
 ];
