@@ -18,6 +18,7 @@ export function logoKey(ferramenta: string): string {
   const f = ferramenta.toLowerCase();
   if (f.includes("canva")) return "canva";
   if (f.includes("bambu")) return "bambulab";
+  if (f.includes("orca")) return "orca";
   if (f.includes("capcut")) return "capcut";
   if (f.includes("apps script") || f.includes("appsscript")) return "appsscript";
   if (f.includes("vba")) return "vba";
@@ -46,7 +47,8 @@ export function logoKey(ferramenta: string): string {
   if (f.includes("eleven")) return "elevenlabs";
   if (f.includes("unreal")) return "unreal";
   if (f.includes("aumentada")) return "ar";
-  if (f.includes("html") || f.includes("css")) return "html";
+  if (f.includes("html")) return "html";
+  if (f.includes("css")) return "css";
   if (f.includes("javascript")) return "javascript";
   if (f.includes("banco de dados") || f.includes("database")) return "database";
   if (f.includes("hospedagem") || f.includes("domínio") || f.includes("hosting")) return "hosting";

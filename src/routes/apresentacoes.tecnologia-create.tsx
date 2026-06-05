@@ -35,36 +35,36 @@ const METODO = [
   { etapa: "Desafio extra + compartilhar", min: "10 min", o: "Quem termina vai além; todos mostram o que criaram." },
 ];
 
-// ── ANO 1 — Criação digital, IA e web (introdução / mais fácil) ───────────────
+// ── ANO 1 — 3D, impressão 3D e jogos em pixel art (intro, cria e leva pra casa) ─
 const ANO1_MESES: MesGrade[] = [
-  { mes: "Mês 1", ferramenta: "HTML + CSS", cor: "", logos: ["html"], foco: "A web: primeira página", semanas: ["O que é a web e como um site funciona.", "HTML: títulos, textos, imagens e links.", "Listas, tabelas e seções.", "Sua primeira página no ar."] },
-  { mes: "Mês 2", ferramenta: "HTML + CSS", cor: "", logos: ["html"], foco: "Estilo e layout (CSS)", semanas: ["CSS: cores, fontes e espaçamentos.", "Caixas e layout (box model).", "Layout responsivo (celular e PC).", "Um site bonito e organizado (entregável)."] },
-  { mes: "Mês 3", ferramenta: "Canva", cor: "", logos: ["canva"], foco: "Design no Canva", semanas: ["Conhecer o Canva.", "Posts, cartazes e capas.", "Identidade visual (cores e fontes).", "Peças visuais próprias."] },
-  { mes: "Mês 4", ferramenta: "CapCut", cor: "", logos: ["capcut"], foco: "Edição de vídeo", semanas: ["Conhecer o CapCut.", "Cortes, transições e ritmo.", "Textos, legendas e trilha.", "Um vídeo editado (entregável)."] },
-  { mes: "Mês 5", ferramenta: "ChatGPT", cor: "", logos: ["chatgpt"], foco: "IA: ChatGPT", semanas: ["O que é IA e o que é o ChatGPT.", "Bons prompts: pedir do jeito certo.", "Pesquisar, escrever e estudar com IA.", "Usar com responsabilidade."] },
-  { mes: "Mês 6", ferramenta: "Gemini", cor: "", logos: ["gemini"], foco: "IA: Gemini", semanas: ["Conhecer o Gemini (a IA do Google).", "Integração com o Google.", "Comparar respostas (ChatGPT × Gemini).", "Usar no dia a dia."] },
-  { mes: "Mês 7", ferramenta: "Claude", cor: "", logos: ["claude"], foco: "IA: Claude", semanas: ["Conhecer o Claude.", "Ler arquivos e imagens com o Claude.", "Artifacts: criar de verdade.", "Organizar com Projects."] },
-  { mes: "Mês 8", ferramenta: "Construct 3", cor: "", logos: ["construct"], foco: "Jogos sem código", semanas: ["Conhecer o Construct 3.", "Cenário, objetos e movimento.", "Eventos (regras) sem digitar.", "Um joguinho funcionando."] },
-  { mes: "Mês 9", ferramenta: "Construct 3", cor: "", logos: ["construct"], foco: "Mecânicas de jogo", semanas: ["Pontos, vidas e telas.", "Inimigos e colisões.", "Sons e efeitos.", "Um jogo 2D completo (entregável)."] },
-  { mes: "Mês 10", ferramenta: "Maya", cor: "", logos: ["maya"], foco: "Primeiro 3D no Maya", semanas: ["Conhecer o Maya (3D profissional).", "Navegar e criar formas.", "Mover, girar e escalar.", "Um objeto 3D simples."] },
-  { mes: "Mês 11", ferramenta: "Blender", cor: "", logos: ["blender"], foco: "Primeiro 3D no Blender", semanas: ["Conhecer o Blender (3D gratuito).", "Modelar formas básicas.", "Materiais e cores.", "Um modelo simples."] },
-  { mes: "Mês 12", ferramenta: "Bambu Studio", cor: "", logos: ["bambulab"], foco: "Impressão 3D", semanas: ["O que é impressão 3D (Bambu Lab).", "Preparar o modelo no Bambu Studio.", "Fatiar e imprimir.", "Peça impressa pra levar pra casa + certificado do Ano 1."] },
+  { mes: "Mês 1", ferramenta: "MagicaVoxel", cor: "", logos: ["voxel"], foco: "Arte 3D em voxel", semanas: ["Conhecer o MagicaVoxel (3D em cubinhos).", "Modelar um personagem ou objeto.", "Cores e detalhes.", "Preparar o modelo pra impressão."] },
+  { mes: "Mês 2", ferramenta: "Bambu Studio", cor: "", logos: ["bambulab"], foco: "Imprimir em 3D (Bambu Studio)", semanas: ["O que é impressão 3D (Bambu Lab).", "Preparar o arquivo no Bambu Studio.", "Fatiar e configurar a impressão.", "Peça impressa pra levar pra casa (entregável)."] },
+  { mes: "Mês 3", ferramenta: "Maya", cor: "", logos: ["maya"], foco: "Modelagem 3D no Maya", semanas: ["Conhecer o Maya (3D profissional).", "Navegar e modelar formas.", "Detalhes e proporção.", "Um modelo pronto pra imprimir."] },
+  { mes: "Mês 4", ferramenta: "Orca Slicer", cor: "", logos: ["orca"], foco: "Fatiar e imprimir (Orca Slicer)", semanas: ["Conhecer o Orca Slicer.", "Importar o modelo do Maya.", "Suportes, preenchimento e fatiar.", "Imprimir e levar pra casa (entregável)."] },
+  { mes: "Mês 5", ferramenta: "Blender", cor: "", logos: ["blender"], foco: "Modelagem 3D no Blender", semanas: ["Conhecer o Blender (3D gratuito).", "Modelar um objeto.", "Materiais e acabamento.", "Um modelo pronto pra imprimir."] },
+  { mes: "Mês 6", ferramenta: "Orca Slicer", cor: "", logos: ["orca"], foco: "Imprimir o modelo do Blender", semanas: ["Importar o modelo do Blender.", "Ajustes de impressão.", "Imprimir.", "Peça impressa (entregável)."] },
+  { mes: "Mês 7", ferramenta: "Aseprite", cor: "", logos: ["aseprite"], foco: "Pixel art", semanas: ["Conhecer o Aseprite.", "Desenhar sprites (16×16).", "Paleta e personagem.", "Conjunto de sprites pro jogo."] },
+  { mes: "Mês 8", ferramenta: "Construct 3", cor: "", logos: ["construct"], foco: "Meu jogo 2D", semanas: ["Conhecer o Construct 3.", "Montar o jogo com os sprites.", "Eventos (regras) e movimento.", "Um joguinho funcionando."] },
+  { mes: "Mês 9", ferramenta: "Aseprite", cor: "", logos: ["aseprite"], foco: "Animação em pixel art", semanas: ["Animar: idle e walk cycle.", "Efeitos (moeda, explosão).", "Exportar pro jogo.", "Sprites animados."] },
+  { mes: "Mês 10", ferramenta: "Construct 3", cor: "", logos: ["construct"], foco: "Fechar o jogo 2D", semanas: ["Trazer as animações.", "Pontos, vidas e telas.", "Inimigos e sons.", "Um jogo 2D completo (entregável)."] },
+  { mes: "Mês 11", ferramenta: "MagicaVoxel", cor: "", logos: ["voxel"], foco: "Personagens do jogo em voxel", semanas: ["Recriar o personagem do jogo em voxel.", "Itens e cenário em 3D.", "Cores e detalhes.", "Personagens 3D prontos."] },
+  { mes: "Mês 12", ferramenta: "Bambu Studio", cor: "", logos: ["bambulab"], foco: "Imprimir os personagens", semanas: ["Preparar os modelos no Bambu Studio.", "Fatiar e imprimir.", "Os personagens do jogo na sua mão.", "Demo + certificado do Ano 1."] },
 ];
 
-// ── ANO 2 — Programação e jogos (intermediário) ──────────────────────────────
+// ── ANO 2 — IA criativa (imagem, áudio, vídeo) e web (HTML/CSS, JS, Python, dados) ─
 const ANO2_MESES: MesGrade[] = [
-  { mes: "Mês 1", ferramenta: "Python", cor: "", logos: ["python"], foco: "Lógica e primeiros programas", semanas: ["Variáveis, tipos e entrada/saída.", "Operações e expressões.", "Condições (if/else).", "Um programa interativo."] },
-  { mes: "Mês 2", ferramenta: "Python", cor: "", logos: ["python"], foco: "Repetição e funções", semanas: ["Loops (for e while).", "Funções e parâmetros.", "Listas e dicionários.", "Um programa organizado."] },
-  { mes: "Mês 3", ferramenta: "Python", cor: "", logos: ["python"], foco: "Mini-projeto em Python", semanas: ["Resolver problemas (algoritmos).", "Ler e tratar dados.", "Construir um mini-app ou jogo de texto.", "Projeto próprio (entregável)."] },
-  { mes: "Mês 4", ferramenta: "JavaScript", cor: "", logos: ["javascript"], foco: "Sites que reagem", semanas: ["JavaScript: o que é e onde roda.", "Variáveis, funções e eventos.", "Mudar a página ao clicar (DOM).", "Uma página interativa."] },
-  { mes: "Mês 5", ferramenta: "JavaScript", cor: "", logos: ["javascript"], foco: "Interatividade de verdade", semanas: ["Condições e loops no JS.", "Formulários e respostas.", "Um joguinho ou app web.", "Projeto JS (entregável)."] },
-  { mes: "Mês 6", ferramenta: "Unity (C#)", cor: "", logos: ["unity"], foco: "Conhecer o Unity", semanas: ["Interface e cena do Unity.", "GameObjects e componentes.", "Primeiros scripts em C#.", "Mover um personagem."] },
-  { mes: "Mês 7", ferramenta: "Unity (C#)", cor: "", logos: ["unity"], foco: "Primeiro jogo no Unity", semanas: ["Física e colisões.", "Input e mecânicas.", "UI e pontuação.", "Um jogo 2D no Unity (entregável)."] },
-  { mes: "Mês 8", ferramenta: "Maya", cor: "", logos: ["maya"], foco: "Modelagem intermediária", semanas: ["Modelagem poligonal e topologia.", "UVs e materiais.", "Modelar um asset pro jogo.", "Um modelo texturizado."] },
-  { mes: "Mês 9", ferramenta: "Blender", cor: "", logos: ["blender"], foco: "Modelagem intermediária", semanas: ["Modelar um objeto elaborado.", "Materiais e iluminação.", "Render de qualidade.", "Um modelo renderizado."] },
-  { mes: "Mês 10", ferramenta: "ChatGPT + DALL-E", cor: "", logos: ["chatgpt", "dalle"], foco: "IA cria imagens", semanas: ["Gerar imagens com IA (DALL-E).", "Descrever bem (prompts visuais).", "Conceitos e arte pra projetos.", "Uma galeria de imagens com IA."] },
-  { mes: "Mês 11", ferramenta: "Gemini + Nano Banana", cor: "", logos: ["gemini", "nanobanana"], foco: "Mais imagem com IA", semanas: ["Gerar e editar imagens (Nano Banana).", "Variações e ajustes.", "Texturas e ícones pra jogos.", "Pacote de imagens próprio."] },
-  { mes: "Mês 12", ferramenta: "Suno + ElevenLabs", cor: "", logos: ["suno", "elevenlabs"], foco: "Música e voz com IA", semanas: ["Criar música com IA (Suno).", "Gerar voz e narração (ElevenLabs).", "Efeitos e trilha pra projetos.", "Trilha e voz próprias + certificado do Ano 2."] },
+  { mes: "Mês 1", ferramenta: "ChatGPT + DALL-E", cor: "", logos: ["chatgpt", "dalle"], foco: "IA cria imagens", semanas: ["Gerar imagens com IA (DALL-E).", "Descrever bem (prompts visuais).", "Conceitos e arte pra projetos.", "Uma galeria de imagens com IA."] },
+  { mes: "Mês 2", ferramenta: "Gemini + Nano Banana", cor: "", logos: ["gemini", "nanobanana"], foco: "Mais imagem com IA", semanas: ["Gerar e editar imagens (Nano Banana).", "Variações e ajustes.", "Texturas e ícones.", "Pacote de imagens próprio."] },
+  { mes: "Mês 3", ferramenta: "Suno + ElevenLabs", cor: "", logos: ["suno", "elevenlabs"], foco: "Música e voz com IA", semanas: ["Criar música com IA (Suno).", "Gerar voz e narração (ElevenLabs).", "Efeitos e trilha.", "Trilha e voz próprias."] },
+  { mes: "Mês 4", ferramenta: "ChatGPT + Sora", cor: "", logos: ["chatgpt", "sora"], foco: "IA cria vídeo", semanas: ["Gerar vídeo com IA (Sora).", "Roteiro e descrição de cenas.", "Editar e finalizar.", "Um vídeo feito com IA."] },
+  { mes: "Mês 5", ferramenta: "Gemini + Veo", cor: "", logos: ["gemini", "veo"], foco: "Mais vídeo com IA", semanas: ["Gerar vídeo com IA (Veo).", "Cenas e movimentos.", "Um trailer com IA.", "Vídeo finalizado (entregável)."] },
+  { mes: "Mês 6", ferramenta: "HTML + CSS", cor: "", logos: ["html", "css"], foco: "A web: HTML e CSS", semanas: ["O que é a web e como um site funciona.", "HTML: textos, imagens e links.", "CSS: cores, fontes e espaçamentos.", "Sua primeira página no ar."] },
+  { mes: "Mês 7", ferramenta: "HTML + CSS", cor: "", logos: ["html", "css"], foco: "HTML e CSS intermediário", semanas: ["Layout (box model e flexbox).", "Responsivo (celular e PC).", "Componentes e seções.", "Um site bonito e completo (entregável)."] },
+  { mes: "Mês 8", ferramenta: "JavaScript", cor: "", logos: ["javascript"], foco: "Sites interativos (JS)", semanas: ["JavaScript: o que é e onde roda.", "Variáveis, funções e eventos.", "Mudar a página ao clicar (DOM).", "Uma página interativa."] },
+  { mes: "Mês 9", ferramenta: "JavaScript", cor: "", logos: ["javascript"], foco: "JavaScript intermediário", semanas: ["Condições e loops.", "Formulários e respostas.", "Um joguinho ou app web.", "Projeto JS (entregável)."] },
+  { mes: "Mês 10", ferramenta: "Python", cor: "", logos: ["python"], foco: "Programação com Python", semanas: ["Lógica: variáveis, condições e loops.", "Funções, listas e dicionários.", "Resolver problemas (algoritmos).", "Um programa próprio."] },
+  { mes: "Mês 11", ferramenta: "Banco de dados", cor: "", logos: ["database"], foco: "Guardar dados", semanas: ["O que é um banco de dados.", "Tabelas, registros e consultas.", "Conectar dados a um site.", "Um site com dados de verdade."] },
+  { mes: "Mês 12", ferramenta: "Banco de dados + Domínio + Hospedagem", cor: "", logos: ["database", "hosting"], foco: "Aplicação web no ar", semanas: ["Juntar site + dados.", "Registrar um domínio.", "Hospedar (colocar no ar).", "Seu projeto online pra todo mundo + certificado do Ano 2."] },
 ];
 
 // ── ANO 3 — Web completo, Unity avançado e 3D avançado (difícil) ──────────────
@@ -101,20 +101,20 @@ const ANO4_MESES: MesGrade[] = [
 
 // ── O que o aluno domina no fim de cada ano (dinâmico por aba) ────────────────
 const ANO1_DOMINA = [
-  "Cria sites com HTML e CSS (estrutura e estilo).",
-  "Usa IA com responsabilidade: ChatGPT, Gemini e Claude.",
-  "Faz design no Canva e edita vídeo no CapCut.",
-  "Cria jogos 2D sem código no Construct 3.",
-  "Dá os primeiros passos no 3D (Maya e Blender).",
-  "Imprime as próprias criações em 3D (Bambu Studio).",
+  "Modela em 3D (MagicaVoxel, Maya e Blender) e imprime de verdade (Bambu Studio e Orca Slicer).",
+  "Leva pra casa as próprias criações impressas em 3D.",
+  "Desenha e anima em pixel art (Aseprite).",
+  "Cria um jogo 2D completo no Construct 3.",
+  "Transforma os personagens do próprio jogo em modelos 3D.",
+  "Imprime os personagens do próprio jogo.",
 ];
 const ANO2_DOMINA = [
-  "Programa de verdade em Python (lógica, dados, projetos).",
+  "Cria imagens com IA (DALL-E e Nano Banana).",
+  "Cria vídeos, música e voz com IA (Sora, Veo, Suno e ElevenLabs).",
+  "Faz sites com HTML e CSS (do básico ao intermediário).",
   "Deixa sites interativos com JavaScript.",
-  "Cria jogos no Unity (C#), 2D e 3D.",
-  "Modela em 3D no nível intermediário (Maya e Blender).",
-  "Gera imagens com IA (DALL-E e Nano Banana).",
-  "Cria música e voz com IA (Suno e ElevenLabs).",
+  "Programa em Python (lógica e projetos).",
+  "Coloca uma aplicação web no ar (banco de dados + domínio + hospedagem).",
 ];
 const ANO3_DOMINA = [
   "Constrói aplicações web completas (banco de dados + hospedagem + domínio).",
@@ -134,8 +134,8 @@ const ANO4_DOMINA = [
 ];
 
 const ANOS = [
-  { titulo: "Ano 1", foco: "Criação digital, IA e web (introdução)", ferramentas: "HTML/CSS · Canva · CapCut · ChatGPT · Gemini · Claude · Construct 3 · Maya · Blender · Impressão 3D", trofeu: "Bases criativas e digitais", meses: ANO1_MESES, domina: ANO1_DOMINA },
-  { titulo: "Ano 2", foco: "Programação (Python, JS), Unity e IA criativa", ferramentas: "Python · JavaScript · Unity · Maya · Blender · IA de imagem e áudio", trofeu: "Programa e cria de verdade", meses: ANO2_MESES, domina: ANO2_DOMINA },
+  { titulo: "Ano 1", foco: "3D, impressão 3D e jogos em pixel art", ferramentas: "MagicaVoxel · Bambu Studio · Maya · Orca Slicer · Blender · Aseprite · Construct 3", trofeu: "Cria e imprime em 3D", meses: ANO1_MESES, domina: ANO1_DOMINA },
+  { titulo: "Ano 2", foco: "IA criativa (imagem, áudio, vídeo) e web (HTML/CSS, JS, Python, dados)", ferramentas: "ChatGPT · Gemini · DALL-E · Nano Banana · Suno · ElevenLabs · Sora · Veo · HTML/CSS · JS · Python · Banco de dados", trofeu: "IA e web na prática", meses: ANO2_MESES, domina: ANO2_DOMINA },
   { titulo: "Ano 3", foco: "Web completo, Unity avançado, 3D avançado e IA de vídeo", ferramentas: "Banco de dados · Hospedagem · Unity · Maya · Blender · IA de vídeo · VR", trofeu: "Nível avançado", meses: ANO3_MESES, domina: ANO3_DOMINA },
   { titulo: "Ano 4", foco: "Unreal, Realidade Virtual e Aumentada e projeto profissional", ferramentas: "Unreal Engine · VR · AR · Projeto + Portfólio", trofeu: "Criador profissional", meses: ANO4_MESES, domina: ANO4_DOMINA },
 ];
@@ -156,7 +156,8 @@ const CONCEITOS = [
 const FERRAMENTAS = [
   // Programação e web
   { n: "Python", d: "A linguagem mais usada do mundo — lógica e projetos." },
-  { n: "HTML + CSS", d: "A base dos sites: estrutura e estilo." },
+  { n: "HTML", d: "A estrutura dos sites." },
+  { n: "CSS", d: "O estilo dos sites: cores, fontes e layout." },
   { n: "JavaScript", d: "Deixa os sites interativos e vivos." },
   { n: "Banco de dados", d: "Guardar e consultar dados de verdade." },
   { n: "Hospedagem e domínio", d: "Colocar o projeto no ar, na internet." },
@@ -167,11 +168,14 @@ const FERRAMENTAS = [
   // 3D e impressão
   { n: "Maya", d: "3D profissional: modelar, texturizar e animar." },
   { n: "Blender", d: "3D gratuito e profissional." },
+  { n: "MagicaVoxel", d: "Arte 3D em voxel (cubinhos) — gratuita e divertida." },
   { n: "Bambu Studio", d: "Impressão 3D de verdade (Bambu Lab)." },
+  { n: "Orca Slicer", d: "Fatiar e preparar modelos para a impressão 3D." },
   // Realidade estendida
   { n: "Realidade Virtual", d: "Criar experiências imersivas em VR." },
   { n: "Realidade Aumentada", d: "Objetos 3D no mundo real (AR)." },
-  // Mídia
+  // Arte e mídia
+  { n: "Aseprite", d: "Desenhar e animar em pixel art." },
   { n: "Canva", d: "Design visual: posts, capas e apresentações." },
   { n: "CapCut", d: "Edição de vídeo, do básico ao profissional." },
   // IA
