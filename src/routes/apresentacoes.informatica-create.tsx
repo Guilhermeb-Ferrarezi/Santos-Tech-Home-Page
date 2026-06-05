@@ -49,7 +49,7 @@ const ANO1_MESES: MesGrade[] = [
   { mes: "Mês 8", ferramenta: "Google Docs", cor: "", foco: "Documentos na nuvem", semanas: ["Conhecer o Google Docs.", "Colaborar, comentar e sugerir.", "Histórico de versões e modelos.", "Um documento colaborativo."] },
   { mes: "Mês 9", ferramenta: "PowerPoint", cor: "", foco: "Apresentações no PowerPoint", semanas: ["Slides e design no PowerPoint.", "Transições e animações com propósito.", "Modo apresentador.", "Uma apresentação de impacto (entregável)."] },
   { mes: "Mês 10", ferramenta: "Google Apresentações", cor: "", foco: "Apresentações no Google", semanas: ["Slides com texto e imagem.", "Temas, transições e animações.", "Colaborar e apresentar online.", "Uma apresentação na nuvem."] },
-  { mes: "Mês 11", ferramenta: "Gmail · Agenda · Meet", cor: "", logos: ["gmail", "calendar", "meet"], foco: "Comunicação e organização", semanas: ["Gmail: escrever e organizar e-mails.", "Google Agenda: eventos e lembretes.", "Google Meet: reuniões online.", "Tudo integrado: e-mail, agenda e reunião."] },
+  { mes: "Mês 11", ferramenta: "Gmail · Agenda · Meet · Notion", cor: "", logos: ["gmail", "calendar", "meet", "notion"], foco: "Comunicação e organização", semanas: ["Gmail: escrever e organizar e-mails.", "Google Agenda: eventos e lembretes.", "Google Meet: reuniões online.", "Notion: organizar notas, tarefas e estudos."] },
   { mes: "Mês 12", ferramenta: "Earth · Maps · Drive · Manutenção", cor: "", logos: ["earth", "maps", "drive", "pc"], foco: "Mapas, nuvem e manutenção", semanas: ["Google Earth: explorar o mundo em 3D.", "Google Maps: rotas e lugares.", "Google Drive: guardar e compartilhar arquivos.", "Manutenção do PC (instalar/formatar) + certificado do Ano 1."] },
 ];
 
@@ -76,7 +76,7 @@ const ANO1_DOMINA = [
   "Conhece 4 IAs (ChatGPT, Gemini, DeepSeek, Perplexity) e domina o Claude a fundo (arquivos, Artifacts e Projects).",
   "Cria planilhas (Excel e Google Planilhas) e formulários (Google Forms).",
   "Escreve documentos (Word e Google Docs) e monta apresentações (PowerPoint e Apresentações).",
-  "Usa as ferramentas do dia a dia: Gmail, Agenda, Meet, Drive, Maps e Earth.",
+  "Usa as ferramentas do dia a dia: Gmail, Agenda, Meet, Notion, Drive, Maps e Earth.",
   "Sabe instalar/desinstalar programas e o que é formatar um computador.",
 ];
 const ANO2_DOMINA = [
