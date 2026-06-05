@@ -53,21 +53,21 @@ const ANO1_MESES: MesGrade[] = [
   { mes: "Mês 12", ferramenta: "Manutenção do PC", cor: "", logos: ["pc"], foco: "Cuidar do computador", semanas: ["Instalar programas com segurança.", "Desinstalar o que não usa.", "O que é formatar um computador.", "Boas práticas, segurança + certificado do Ano 1."] },
 ];
 
-// ── ANO 2 — Automação (VBA + Apps Script + IA), bloco profissional e produção ──
-// 4 projetos: VBA (3) · Apps Script + IA (3) · Profissional Gmail/Drive/Agenda (3) · Produção+Final (3)
+// ── ANO 2 — Automação (VBA + Apps Script), edição de vídeo, Canva, formulários e nuvem ─
+// Módulos: Excel+VBA ×3 · Planilhas+Apps Script ×3 · CapCut ×2 · Canva ×2 · Formulários · Cloud
 const ANO2_MESES: MesGrade[] = [
-  { mes: "Mês 1", projeto: "1/3", ferramenta: "Excel + VBA", cor: "", foco: "Macros: o Excel sozinho", semanas: ["O que é uma macro: gravar a primeira.", "Entender o código gerado.", "Editor VBA (introdução).", "Automatizar uma tarefa repetitiva."] },
-  { mes: "Mês 2", projeto: "2/3", ferramenta: "Excel + VBA", cor: "", foco: "Programar no VBA", semanas: ["Variáveis, condições e loops.", "Mexer em células por código.", "Mensagens e botões.", "Uma automação útil."] },
-  { mes: "Mês 3", projeto: "3/3", ferramenta: "Excel + VBA", cor: "", foco: "Um sistema no Excel", semanas: ["Juntar macros num fluxo.", "Um mini-sistema (cadastro / relatório).", "Tratar erros.", "Planilha automatizada (entregável)."] },
-  { mes: "Mês 4", projeto: "1/3", ferramenta: "Google Apps Script", cor: "", foco: "Automatizar o Google", semanas: ["O que é o Apps Script.", "Automatizar o Google Sheets.", "Funções personalizadas.", "Primeiro script funcionando."] },
-  { mes: "Mês 5", projeto: "2/3", ferramenta: "Google Apps Script", cor: "", foco: "Automação na nuvem", semanas: ["Automatizar Gmail e Docs.", "Gatilhos (triggers) por tempo e evento.", "Conectar planilha + e-mail.", "Uma automação rodando sozinha."] },
-  { mes: "Mês 6", projeto: "3/3", ferramenta: "IA + automação", cor: "", foco: "IA que programa com você", semanas: ["Usar IA pra gerar macros e scripts.", "Ler e entender o código da IA.", "Corrigir e adaptar.", "Automação feita com apoio de IA (entregável)."] },
-  { mes: "Mês 7", projeto: "1/3", ferramenta: "Gmail", cor: "", foco: "E-mail profissional", semanas: ["Conta e identidade profissional.", "Escrever e-mails que funcionam (etiqueta).", "Assinatura, filtros e marcadores.", "Caixa de entrada organizada."] },
-  { mes: "Mês 8", projeto: "2/3", ferramenta: "Google Drive", cor: "", foco: "Nuvem e organização", semanas: ["Organizar arquivos e pastas.", "Compartilhar com segurança (permissões).", "Versões e backup.", "Um Drive profissional organizado."] },
-  { mes: "Mês 9", projeto: "3/3", ferramenta: "Google Agenda", cor: "", foco: "Agenda e produtividade", semanas: ["Criar eventos e lembretes.", "Reuniões e Google Meet.", "Compartilhar agenda e gerir o tempo.", "Uma rotina organizada (entregável)."] },
-  { mes: "Mês 10", projeto: "1/3", ferramenta: "Canva", cor: "", foco: "Design profissional", semanas: ["Canva para documentos e apresentações.", "Identidade visual e posts pra redes.", "Recursos de IA do Canva.", "Peças visuais profissionais."] },
-  { mes: "Mês 11", projeto: "2/3", ferramenta: "CapCut + IA", cor: "", foco: "Vídeo e conteúdo com IA", semanas: ["CapCut para vídeos curtos.", "Legendas e edição ágil.", "IA para roteiro e conteúdo.", "Um vídeo ou post profissional."] },
-  { mes: "Mês 12", projeto: "3/3", ferramenta: "Projeto — Final + Portfólio", cor: "", foco: "Portfólio + certificação", semanas: ["Projeto final integrando tudo.", "Montar o portfólio profissional.", "Conteúdo de certificação (MOS / Google).", "Demo Day + certificado → ponte pro mercado."] },
+  { mes: "Mês 1", ferramenta: "Excel + VBA", cor: "", logos: ["excel", "vba"], foco: "Macros: automatizar o Excel", semanas: ["O que é automação e o que é uma macro.", "Gravar a primeira macro.", "Entender o código gerado (VBA).", "Automatizar uma tarefa repetitiva."] },
+  { mes: "Mês 2", ferramenta: "Excel + VBA", cor: "", logos: ["excel", "vba"], foco: "Programar no VBA", semanas: ["Editor VBA e variáveis.", "Condições e loops.", "Mexer em células e planilhas por código.", "Mensagens e botões."] },
+  { mes: "Mês 3", ferramenta: "Excel + VBA", cor: "", logos: ["excel", "vba"], foco: "Um sistema no Excel", semanas: ["Juntar macros num fluxo.", "Um mini-sistema (cadastro / relatório).", "Tratar erros.", "Planilha automatizada (entregável)."] },
+  { mes: "Mês 4", ferramenta: "Planilhas + Apps Script", cor: "", logos: ["sheets", "appsscript"], foco: "Automatizar o Google", semanas: ["O que é o Google Apps Script.", "Primeiro script no Google Planilhas.", "Funções personalizadas.", "Automação simples funcionando."] },
+  { mes: "Mês 5", ferramenta: "Planilhas + Apps Script", cor: "", logos: ["sheets", "appsscript"], foco: "Apps Script na prática", semanas: ["Variáveis, condições e loops.", "Manipular a planilha por código.", "Menus e botões personalizados.", "Uma automação útil."] },
+  { mes: "Mês 6", ferramenta: "Planilhas + Apps Script", cor: "", logos: ["sheets", "appsscript"], foco: "Automação na nuvem", semanas: ["Conectar Planilhas + Gmail.", "Gatilhos (triggers) por tempo e evento.", "Uma rotina que roda sozinha.", "Automação na nuvem (entregável)."] },
+  { mes: "Mês 7", ferramenta: "CapCut", cor: "", logos: ["capcut"], foco: "Edição de vídeo", semanas: ["Conhecer o CapCut.", "Cortes, transições e ritmo.", "Textos, legendas e trilha.", "Um primeiro vídeo editado."] },
+  { mes: "Mês 8", ferramenta: "CapCut", cor: "", logos: ["capcut"], foco: "Vídeos mais profissionais", semanas: ["Efeitos e recursos avançados.", "Legendas automáticas e áudio.", "Exportar com qualidade.", "Um vídeo profissional (entregável)."] },
+  { mes: "Mês 9", ferramenta: "Canva", cor: "", logos: ["canva"], foco: "Design no Canva", semanas: ["Conhecer o Canva a fundo.", "Documentos, cartazes e posts.", "Identidade visual (cores e fontes).", "Peças visuais próprias."] },
+  { mes: "Mês 10", ferramenta: "Canva", cor: "", logos: ["canva"], foco: "Canva avançado", semanas: ["Apresentações e infográficos.", "Recursos de IA do Canva.", "Vídeo e animação no Canva.", "Um material visual completo (entregável)."] },
+  { mes: "Mês 11", ferramenta: "Google Formulários", cor: "", logos: ["forms"], foco: "Formulários e dados", semanas: ["Criar formulários e quizzes.", "Tipos de pergunta e validação.", "Coletar respostas e ver no Planilhas.", "Um formulário com análise das respostas."] },
+  { mes: "Mês 12", ferramenta: "Cloud (computação em nuvem)", cor: "", logos: ["cloud"], foco: "Computação em nuvem", semanas: ["O que é a nuvem (cloud) e como funciona.", "Armazenamento e backup na nuvem.", "Trabalhar e colaborar online.", "Segurança na nuvem + certificado do Ano 2."] },
 ];
 
 // ── O que o aluno domina no fim de cada ano (dinâmico por aba) ────────────────
@@ -81,16 +81,16 @@ const ANO1_DOMINA = [
 ];
 const ANO2_DOMINA = [
   "Automatiza o Excel com macros e VBA — o primeiro código de verdade.",
-  "Automatiza o Google Workspace com Apps Script (Sheets, Gmail, gatilhos).",
-  "Usa IA pra gerar e entender automações.",
-  "Domina o pacote profissional: e-mail, nuvem e agenda (Gmail, Drive, Agenda).",
-  "Produz conteúdo profissional com Canva e CapCut (com IA).",
-  "Monta um portfólio e fecha com conteúdo de certificação — pronto pro mercado.",
+  "Automatiza o Google Planilhas com Apps Script (e gatilhos na nuvem).",
+  "Edita vídeos do básico ao profissional (CapCut).",
+  "Domina o design visual no Canva, de forma aprofundada.",
+  "Cria formulários e quizzes e coleta dados (Google Formulários).",
+  "Entende computação em nuvem: armazenamento, backup, colaboração e segurança.",
 ];
 
 const ANOS = [
   { titulo: "Ano 1", foco: "Fundamentos, IA, Office + Google e ferramentas do dia a dia", ferramentas: "Fundamentos · IA (ChatGPT/Gemini) · Excel/Planilhas · Word/Docs · PowerPoint/Apresentações · Google · Manutenção do PC", trofeu: "Base sólida de informática", meses: ANO1_MESES, domina: ANO1_DOMINA },
-  { titulo: "Ano 2", foco: "Automação (VBA + Apps Script + IA), bloco profissional e produção com IA", ferramentas: "VBA · Apps Script · Gmail · Drive · Agenda · Canva · CapCut · IA", trofeu: "4 projetos no ano", meses: ANO2_MESES, domina: ANO2_DOMINA },
+  { titulo: "Ano 2", foco: "Automação (VBA + Apps Script), edição de vídeo, Canva, formulários e nuvem", ferramentas: "Excel + VBA · Planilhas + Apps Script · CapCut · Canva · Formulários · Cloud", trofeu: "Automação, mídia e nuvem", meses: ANO2_MESES, domina: ANO2_DOMINA },
 ];
 
 const CONCEITOS = [
@@ -109,15 +109,16 @@ const CONCEITOS = [
 ];
 
 const FERRAMENTAS = [
-  { n: "Word", d: "Documentos no padrão Microsoft — do currículo ao relatório." },
-  { n: "Excel", d: "A planilha nº 1 do mercado: fórmulas avançadas, tabelas dinâmicas, dashboards e automação (VBA)." },
-  { n: "PowerPoint", d: "Apresentações profissionais de impacto." },
-  { n: "Google Docs, Sheets e Apresentações", d: "A suíte do Google na nuvem, com colaboração em tempo real." },
-  { n: "Gmail, Drive e Agenda", d: "O pacote profissional do Google: e-mail, nuvem e agenda." },
-  { n: "Automação: VBA e Apps Script", d: "Macros no Excel e scripts no Google para automatizar tarefas — o primeiro código." },
-  { n: "IA (ChatGPT, Copilot e Gemini)", d: "Assistentes de IA para escrever, analisar dados, criar e programar — com responsabilidade." },
-  { n: "Canva", d: "Design profissional: documentos, apresentações e redes — com recursos de IA." },
-  { n: "CapCut", d: "Edição de vídeo ágil para conteúdo e redes, com IA." },
+  { n: "Excel", d: "Planilhas, fórmulas e automação com macros (VBA)." },
+  { n: "Word", d: "Documentos profissionais no padrão Microsoft." },
+  { n: "PowerPoint", d: "Apresentações de impacto." },
+  { n: "Google Planilhas, Docs e Apresentações", d: "A suíte do Google na nuvem, com colaboração em tempo real." },
+  { n: "Google Apps Script", d: "Automação do Google Workspace por código." },
+  { n: "Gmail, Drive e Agenda", d: "Comunicação e organização do dia a dia (com Google Meet)." },
+  { n: "IA (ChatGPT e Gemini)", d: "Assistentes de IA para pesquisar, escrever, resumir e aprender." },
+  { n: "Canva", d: "Design visual aprofundado: documentos, posts, apresentações e vídeo." },
+  { n: "CapCut", d: "Edição de vídeo — de cortes simples a vídeos profissionais." },
+  { n: "Google Formulários", d: "Formulários, quizzes e coleta de dados ligada às Planilhas." },
 ];
 
 function BackLink({ light = false }: { light?: boolean }) {

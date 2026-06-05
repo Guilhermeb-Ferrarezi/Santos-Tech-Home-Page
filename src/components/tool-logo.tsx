@@ -20,6 +20,9 @@ export function logoKey(ferramenta: string): string {
   if (f.includes("bambu")) return "bambulab";
   if (f.includes("capcut")) return "capcut";
   if (f.includes("apps script") || f.includes("appsscript")) return "appsscript";
+  if (f.includes("vba")) return "vba";
+  if (f.includes("forms") || f.includes("formul")) return "forms";
+  if (f.includes("cloud")) return "cloud";
   if (f.includes("python") || f.includes("pygame")) return "python";
   if (f.includes("realidade virtual")) return "vr";
   if (f.includes("unity")) return "unity";
@@ -192,6 +195,18 @@ function fallback(name: string) {
           <circle cx="12" cy="12" r="9" fill="#1A73E8" />
           <path d="M6.5 8 c3 1.6 7.5 1.6 11 0 M5.5 15 c4 -1.6 9 -1.6 13 0" fill="none" stroke="#fff" strokeWidth="0.9" opacity="0.55" />
           <path d="M9 6.5 c1.5 1.6 1 3.5 -0.5 4.5 c-1.5 1 -1 2.5 0.5 3 M16 8 c-1.5 0.5 -2.5 2 -1.5 3.5 c1 1.5 3 1 3.5 2.5" fill="#34A853" opacity="0.9" />
+        </>
+      );
+    case "cloud":
+      return (
+        <>
+          <rect width="24" height="24" rx="5" fill="#2E8FCF" />
+          <g fill="#fff">
+            <circle cx="9" cy="13" r="3.1" />
+            <circle cx="13.4" cy="11.4" r="3.7" />
+            <circle cx="16" cy="14" r="2.7" />
+            <rect x="8" y="13.4" width="8.5" height="3.6" rx="1.8" />
+          </g>
         </>
       );
     case "ia":
