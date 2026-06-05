@@ -19,6 +19,8 @@ export function logoKey(ferramenta: string): string {
   if (f.includes("canva")) return "canva";
   if (f.includes("bambu")) return "bambulab";
   if (f.includes("orca")) return "orca";
+  if (f.includes("c#") || f.includes("csharp") || f.includes("c sharp")) return "csharp";
+  if (f.includes("c++") || f.includes("cpp")) return "cpp";
   if (f.includes("capcut")) return "capcut";
   if (f.includes("apps script") || f.includes("appsscript")) return "appsscript";
   if (f.includes("vba")) return "vba";
