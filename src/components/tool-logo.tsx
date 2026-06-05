@@ -36,6 +36,7 @@ export function logoKey(ferramenta: string): string {
   if (f.includes("chatgpt")) return "chatgpt";
   if (f.includes("deepseek")) return "deepseek";
   if (f.includes("perplexity")) return "perplexity";
+  if (f.includes("claude")) return "claude";
   if (f.includes("nano") && f.includes("banana")) return "nanobanana";
   if (f.includes("minecraft")) return "minecraft";
   if (f.includes("makecode")) return "makecode";

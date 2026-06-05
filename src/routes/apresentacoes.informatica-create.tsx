@@ -35,21 +35,22 @@ const METODO = [
   { etapa: "Desafio extra + compartilhar", min: "10 min", o: "Quem termina vai além; todos mostram o que produziram." },
 ];
 
-// ── ANO 1 — Básico: fundamentos, 4 IAs, Office + Google e ferramentas do dia a dia
-// Módulos (sem automação): fundamentos · 4 IAs · Excel · Planilhas · Forms · Word ·
-// Docs · PowerPoint · Apresentações · comunicação Google · (Earth/Maps/Drive + manutenção)
+// ── ANO 1 — Básico: fundamentos, IA (4 + Claude), Office + Google e o dia a dia ──
+// Módulos (sem automação): fundamentos · 4 IAs · Claude · Excel · Planilhas · Forms ·
+// Word · Docs · PowerPoint · Apresentações · comunicação Google · (Earth/Maps/Drive + manutenção)
 const ANO1_MESES: MesGrade[] = [
   { mes: "Mês 1", ferramenta: "Fundamentos da informática", cor: "", logos: ["pc"], foco: "Como o computador funciona", semanas: ["Hardware × software e os periféricos.", "Arquivos: tipos, extensões e pastas.", "Salvar, copiar, mover e organizar.", "Digitação: postura e velocidade (treino)."] },
   { mes: "Mês 2", ferramenta: "Inteligência Artificial", cor: "", logos: ["chatgpt", "gemini", "deepseek", "perplexity"], foco: "4 IAs — 1 semana cada", semanas: ["ChatGPT: pesquisar, escrever e resumir.", "Gemini: a IA do Google.", "DeepSeek: outra IA poderosa.", "Perplexity: a IA que pesquisa com fontes."] },
-  { mes: "Mês 3", ferramenta: "Excel", cor: "", foco: "Primeira planilha no Excel", semanas: ["Células, linhas, colunas e abas.", "Digitar dados e formatar (cores, bordas).", "Fórmulas básicas (SOMA, MÉDIA).", "Uma tabela que calcula (entregável)."] },
-  { mes: "Mês 4", ferramenta: "Google Planilhas", cor: "", foco: "Planilhas na nuvem", semanas: ["Conhecer o Google Planilhas.", "Funções e colaboração em tempo real.", "Gráficos simples.", "A mesma planilha, agora na nuvem."] },
-  { mes: "Mês 5", ferramenta: "Google Forms", cor: "", logos: ["forms"], foco: "Formulários e quizzes", semanas: ["Criar um formulário do zero.", "Tipos de pergunta e validação.", "Coletar respostas.", "Ver as respostas no Planilhas."] },
-  { mes: "Mês 6", ferramenta: "Word", cor: "", foco: "Documentos no Word", semanas: ["Escrever e formatar (fonte, parágrafo).", "Listas, alinhamento e imagens.", "Cabeçalho, rodapé e impressão.", "Um documento bem formatado (entregável)."] },
-  { mes: "Mês 7", ferramenta: "Google Docs", cor: "", foco: "Documentos na nuvem", semanas: ["Conhecer o Google Docs.", "Colaborar, comentar e sugerir.", "Histórico de versões e modelos.", "Um documento colaborativo."] },
-  { mes: "Mês 8", ferramenta: "PowerPoint", cor: "", foco: "Apresentações no PowerPoint", semanas: ["Slides e design no PowerPoint.", "Transições e animações com propósito.", "Modo apresentador.", "Uma apresentação de impacto (entregável)."] },
-  { mes: "Mês 9", ferramenta: "Google Apresentações", cor: "", foco: "Apresentações no Google", semanas: ["Slides com texto e imagem.", "Temas, transições e animações.", "Colaborar e apresentar online.", "Uma apresentação na nuvem."] },
-  { mes: "Mês 10", ferramenta: "Gmail · Agenda · Meet", cor: "", logos: ["gmail", "calendar", "meet"], foco: "Comunicação e organização", semanas: ["Gmail: escrever e organizar e-mails.", "Google Agenda: eventos e lembretes.", "Google Meet: reuniões online.", "Tudo integrado: e-mail, agenda e reunião."] },
-  { mes: "Mês 11", ferramenta: "Earth · Maps · Drive · Manutenção", cor: "", logos: ["earth", "maps", "drive", "pc"], foco: "Mapas, nuvem e manutenção", semanas: ["Google Earth: explorar o mundo em 3D.", "Google Maps: rotas e lugares.", "Google Drive: guardar e compartilhar arquivos.", "Manutenção do PC (instalar/formatar) + certificado do Ano 1."] },
+  { mes: "Mês 3", ferramenta: "Claude", cor: "", logos: ["claude"], foco: "Dominar o Claude a fundo", semanas: ["Conversar, escrever, resumir e ter ideias (com bons prompts).", "Enviar arquivos e imagens: o Claude lê PDFs, fotos e planilhas e explica.", "Artifacts: criar documentos, tabelas, gráficos e até mini-apps — e editar ao lado.", "Projects e pesquisa na web: organizar trabalhos e usar a IA com responsabilidade."] },
+  { mes: "Mês 4", ferramenta: "Excel", cor: "", foco: "Primeira planilha no Excel", semanas: ["Células, linhas, colunas e abas.", "Digitar dados e formatar (cores, bordas).", "Fórmulas básicas (SOMA, MÉDIA).", "Uma tabela que calcula (entregável)."] },
+  { mes: "Mês 5", ferramenta: "Google Planilhas", cor: "", foco: "Planilhas na nuvem", semanas: ["Conhecer o Google Planilhas.", "Funções e colaboração em tempo real.", "Gráficos simples.", "A mesma planilha, agora na nuvem."] },
+  { mes: "Mês 6", ferramenta: "Google Forms", cor: "", logos: ["forms"], foco: "Formulários e quizzes", semanas: ["Criar um formulário do zero.", "Tipos de pergunta e validação.", "Coletar respostas.", "Ver as respostas no Planilhas."] },
+  { mes: "Mês 7", ferramenta: "Word", cor: "", foco: "Documentos no Word", semanas: ["Escrever e formatar (fonte, parágrafo).", "Listas, alinhamento e imagens.", "Cabeçalho, rodapé e impressão.", "Um documento bem formatado (entregável)."] },
+  { mes: "Mês 8", ferramenta: "Google Docs", cor: "", foco: "Documentos na nuvem", semanas: ["Conhecer o Google Docs.", "Colaborar, comentar e sugerir.", "Histórico de versões e modelos.", "Um documento colaborativo."] },
+  { mes: "Mês 9", ferramenta: "PowerPoint", cor: "", foco: "Apresentações no PowerPoint", semanas: ["Slides e design no PowerPoint.", "Transições e animações com propósito.", "Modo apresentador.", "Uma apresentação de impacto (entregável)."] },
+  { mes: "Mês 10", ferramenta: "Google Apresentações", cor: "", foco: "Apresentações no Google", semanas: ["Slides com texto e imagem.", "Temas, transições e animações.", "Colaborar e apresentar online.", "Uma apresentação na nuvem."] },
+  { mes: "Mês 11", ferramenta: "Gmail · Agenda · Meet", cor: "", logos: ["gmail", "calendar", "meet"], foco: "Comunicação e organização", semanas: ["Gmail: escrever e organizar e-mails.", "Google Agenda: eventos e lembretes.", "Google Meet: reuniões online.", "Tudo integrado: e-mail, agenda e reunião."] },
+  { mes: "Mês 12", ferramenta: "Earth · Maps · Drive · Manutenção", cor: "", logos: ["earth", "maps", "drive", "pc"], foco: "Mapas, nuvem e manutenção", semanas: ["Google Earth: explorar o mundo em 3D.", "Google Maps: rotas e lugares.", "Google Drive: guardar e compartilhar arquivos.", "Manutenção do PC (instalar/formatar) + certificado do Ano 1."] },
 ];
 
 // ── ANO 2 — Automação (VBA + Apps Script), edição de vídeo, Canva, formulários e nuvem ─
@@ -72,7 +73,7 @@ const ANO2_MESES: MesGrade[] = [
 // ── O que o aluno domina no fim de cada ano (dinâmico por aba) ────────────────
 const ANO1_DOMINA = [
   "Entende o computador por dentro: arquivos, hardware, software, periféricos e digitação.",
-  "Dá os primeiros passos com 4 IAs: ChatGPT, Gemini, DeepSeek e Perplexity.",
+  "Conhece 4 IAs (ChatGPT, Gemini, DeepSeek, Perplexity) e domina o Claude a fundo (arquivos, Artifacts e Projects).",
   "Cria planilhas (Excel e Google Planilhas) e formulários (Google Forms).",
   "Escreve documentos (Word e Google Docs) e monta apresentações (PowerPoint e Apresentações).",
   "Usa as ferramentas do dia a dia: Gmail, Agenda, Meet, Drive, Maps e Earth.",
@@ -88,7 +89,7 @@ const ANO2_DOMINA = [
 ];
 
 const ANOS = [
-  { titulo: "Ano 1", foco: "Fundamentos, 4 IAs, Office + Google e ferramentas do dia a dia", ferramentas: "Fundamentos · 4 IAs · Excel/Planilhas · Forms · Word/Docs · PowerPoint/Apresentações · Google · Manutenção", trofeu: "Base sólida de informática", meses: ANO1_MESES, domina: ANO1_DOMINA },
+  { titulo: "Ano 1", foco: "Fundamentos, IA (4 + Claude), Office + Google e o dia a dia", ferramentas: "Fundamentos · 4 IAs · Claude · Excel/Planilhas · Forms · Word/Docs · PowerPoint/Apresentações · Google · Manutenção", trofeu: "Base sólida de informática", meses: ANO1_MESES, domina: ANO1_DOMINA },
   { titulo: "Ano 2", foco: "Automação (VBA + Apps Script), edição de vídeo, Canva, formulários e nuvem", ferramentas: "Excel + VBA · Planilhas + Apps Script · CapCut · Canva · Formulários · Cloud", trofeu: "Automação, mídia e nuvem", meses: ANO2_MESES, domina: ANO2_DOMINA },
 ];
 
@@ -206,7 +207,7 @@ function InfCreateApresentacao() {
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <Reveal className="max-w-3xl">
             <p className="text-sm font-black uppercase tracking-[0.25em] text-white/80">A grade, ano a ano</p>
-            <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Escolha o ano e veja a grade mês a mês</h2>
+            <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Escolha o ano e veja os 12 meses</h2>
             <p className="mt-3 text-white/90">
               Cada habilidade é trabalhada na versão <strong>Microsoft</strong> e na do{" "}
               <strong>Google</strong> — do jeito que o mercado usa.{" "}
