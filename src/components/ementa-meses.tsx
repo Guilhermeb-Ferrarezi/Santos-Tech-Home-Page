@@ -23,7 +23,7 @@ export function MesesGrade({ meses, accent }: { meses: MesGrade[]; accent: strin
           key={m.mes}
           className="group rounded-2xl border border-border bg-card shadow-sm transition open:shadow-md hover:border-primary/30"
         >
-          <summary className="flex cursor-pointer list-none flex-col gap-2 p-5 [&::-webkit-details-marker]:hidden">
+          <summary className="flex min-h-[150px] cursor-pointer list-none flex-col gap-2 p-5 [&::-webkit-details-marker]:hidden">
             <div className="flex items-center justify-between">
               <span className="text-[11px] font-black uppercase tracking-wider text-muted-foreground">
                 {m.mes}

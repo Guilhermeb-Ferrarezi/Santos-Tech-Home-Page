@@ -109,16 +109,32 @@ const CONCEITOS = [
 ];
 
 const FERRAMENTAS = [
+  // Inteligência Artificial
+  { n: "ChatGPT", d: "A IA da OpenAI para pesquisar, escrever, resumir e tirar dúvidas." },
+  { n: "Gemini", d: "A IA do Google, integrada ao dia a dia." },
+  { n: "Claude", d: "IA robusta: lê arquivos e imagens, cria com Artifacts e organiza com Projects." },
+  { n: "DeepSeek", d: "Mais uma IA poderosa para comparar e usar." },
+  { n: "Perplexity", d: "A IA que pesquisa na web e mostra as fontes." },
+  // Microsoft Office
+  { n: "Word", d: "Documentos no padrão Microsoft." },
   { n: "Excel", d: "Planilhas, fórmulas e automação com macros (VBA)." },
-  { n: "Word", d: "Documentos profissionais no padrão Microsoft." },
   { n: "PowerPoint", d: "Apresentações de impacto." },
-  { n: "Google Planilhas, Docs e Apresentações", d: "A suíte do Google na nuvem, com colaboração em tempo real." },
+  // Google Workspace
+  { n: "Google Docs", d: "Documentos na nuvem, com colaboração em tempo real." },
+  { n: "Google Planilhas", d: "Planilhas na nuvem (e automação com Apps Script)." },
+  { n: "Google Apresentações", d: "Apresentações na nuvem." },
+  { n: "Google Forms", d: "Formulários, quizzes e coleta de dados." },
+  { n: "Gmail", d: "E-mail profissional e organizado." },
+  { n: "Google Agenda", d: "Eventos, lembretes e gestão do tempo." },
+  { n: "Google Meet", d: "Reuniões online." },
+  { n: "Google Drive", d: "Arquivos e backup na nuvem." },
+  { n: "Google Maps", d: "Rotas, lugares e mapas." },
+  { n: "Google Earth", d: "Explorar o mundo em 3D." },
   { n: "Google Apps Script", d: "Automação do Google Workspace por código." },
-  { n: "Gmail, Drive e Agenda", d: "Comunicação e organização do dia a dia (com Google Meet)." },
-  { n: "IA (ChatGPT e Gemini)", d: "Assistentes de IA para pesquisar, escrever, resumir e aprender." },
-  { n: "Canva", d: "Design visual aprofundado: documentos, posts, apresentações e vídeo." },
-  { n: "CapCut", d: "Edição de vídeo — de cortes simples a vídeos profissionais." },
-  { n: "Google Formulários", d: "Formulários, quizzes e coleta de dados ligada às Planilhas." },
+  // Produção e organização
+  { n: "Canva", d: "Design visual: documentos, posts, apresentações e vídeo." },
+  { n: "CapCut", d: "Edição de vídeo, do básico ao profissional." },
+  { n: "Notion", d: "Organizar notas, tarefas e estudos." },
 ];
 
 function BackLink({ light = false }: { light?: boolean }) {
