@@ -35,21 +35,22 @@ const METODO = [
   { etapa: "Desafio extra + compartilhar", min: "10 min", o: "Quem termina vai além; todos mostram o que produziram." },
 ];
 
-// ── ANO 1 — Office + Google, Excel avançado e IA na produtividade ─────────────
-// 5 projetos: Documentos (2) · Apresentações (2) · Excel/Sheets (4) · IA (2) · Projeto+MOS (2)
+// ── ANO 1 — Básico: fundamentos, Office + Google e primeiros passos com IA ────
+// Módulos mês a mês (sem automação): fundamentos · Excel/Planilhas · Word/Docs ·
+// Apresentações/PowerPoint · comunicação Google · manutenção do PC · ChatGPT · Gemini
 const ANO1_MESES: MesGrade[] = [
-  { mes: "Mês 1", projeto: "1/2", ferramenta: "Word", cor: "", foco: "Documentos profissionais", semanas: ["Estilos e formatação avançada.", "Sumário automático, seções, cabeçalho e rodapé.", "Tabelas, imagens e referências.", "Um documento profissional (relatório ou currículo)."] },
-  { mes: "Mês 2", projeto: "2/2", ferramenta: "Google Docs", cor: "", foco: "Documentos na nuvem", semanas: ["Criar e colaborar em tempo real.", "Comentários, sugestões e histórico de versões.", "Modelos e complementos.", "O mesmo documento, agora colaborativo."] },
-  { mes: "Mês 3", projeto: "1/2", ferramenta: "PowerPoint", cor: "", foco: "Apresentações de impacto", semanas: ["Slide mestre e design consistente.", "Transições e animações com propósito.", "Gráficos e elementos visuais.", "Uma apresentação profissional."] },
-  { mes: "Mês 4", projeto: "2/2", ferramenta: "Google Apresentações", cor: "", foco: "Apresentar na nuvem", semanas: ["Montar na nuvem e colaborar.", "Incorporar dados, links e vídeos.", "Modo apresentador e apresentar online.", "Apresentar para a turma (entregável)."] },
-  { mes: "Mês 5", projeto: "1/4", ferramenta: "Excel", cor: "", foco: "Excel: a base sólida", semanas: ["Células, tabelas e formatação condicional.", "Fórmulas essenciais (SOMA, MÉDIA, SE).", "Organização e boas práticas.", "Uma planilha bem estruturada."] },
-  { mes: "Mês 6", projeto: "2/4", ferramenta: "Google Sheets", cor: "", foco: "Planilhas na nuvem", semanas: ["Funções no Sheets e colaboração.", "Importar e limpar dados.", "Gráficos na nuvem.", "Um painel colaborativo."] },
-  { mes: "Mês 7", projeto: "3/4", ferramenta: "Excel", cor: "", foco: "Fórmulas que resolvem", semanas: ["PROCV / PROCX e busca de dados.", "SE aninhado, SOMASE e CONT.SE.", "Validação de dados e intervalos nomeados.", "Uma planilha inteligente."] },
-  { mes: "Mês 8", projeto: "4/4", ferramenta: "Excel", cor: "", foco: "Tabelas dinâmicas e dashboards", semanas: ["Tabela dinâmica do zero.", "Gráficos dinâmicos e segmentação.", "Montar um dashboard.", "Um painel de dados (entregável)."] },
-  { mes: "Mês 9", projeto: "1/2", ferramenta: "IA na produtividade", cor: "", foco: "Trabalhar com IA", semanas: ["O que a IA faz (ChatGPT, Copilot, Gemini).", "Escrever, resumir e revisar com IA.", "Criar prompts eficientes.", "Usar a IA com responsabilidade."] },
-  { mes: "Mês 10", projeto: "2/2", ferramenta: "IA na produtividade", cor: "", foco: "IA dentro do trabalho", semanas: ["IA pra montar planilhas e fórmulas.", "IA pra criar apresentações e textos.", "Revisar e melhorar com IA.", "Um trabalho turbinado por IA."] },
-  { mes: "Mês 11", projeto: "1/2", ferramenta: "Projeto — Integrado", cor: "", foco: "Juntar tudo num projeto", semanas: ["Escolher um tema real.", "Produzir documento + planilha + apresentação.", "Usar IA no processo.", "Montar tudo (entregável grande)."] },
-  { mes: "Mês 12", projeto: "2/2", ferramenta: "Projeto — Certificação (MOS)", cor: "", foco: "Apresentar + certificação", semanas: ["Apresentar o projeto integrado.", "Conteúdo das certificações Microsoft (Word, Excel, PowerPoint).", "Simulado e treino de prova.", "Certificado do Ano 1."] },
+  { mes: "Mês 1", ferramenta: "Fundamentos da informática", cor: "", logos: ["pc"], foco: "Como o computador funciona", semanas: ["Hardware × software e os periféricos.", "Arquivos: tipos, extensões e pastas.", "Salvar, copiar, mover e organizar.", "Digitação: postura e velocidade (treino)."] },
+  { mes: "Mês 2", ferramenta: "Excel", cor: "", foco: "Primeira planilha no Excel", semanas: ["Células, linhas, colunas e abas.", "Digitar dados e formatar (cores, bordas).", "Fórmulas básicas (SOMA, MÉDIA).", "Uma tabela que calcula (entregável)."] },
+  { mes: "Mês 3", ferramenta: "Google Planilhas", cor: "", foco: "Planilhas na nuvem", semanas: ["Conhecer o Google Planilhas.", "Funções e colaboração em tempo real.", "Gráficos simples.", "A mesma planilha, agora na nuvem."] },
+  { mes: "Mês 4", ferramenta: "Word", cor: "", foco: "Documentos no Word", semanas: ["Escrever e formatar (fonte, parágrafo).", "Listas, alinhamento e imagens.", "Cabeçalho, rodapé e impressão.", "Um documento bem formatado (entregável)."] },
+  { mes: "Mês 5", ferramenta: "Google Docs", cor: "", foco: "Documentos na nuvem", semanas: ["Conhecer o Google Docs.", "Colaborar, comentar e sugerir.", "Histórico de versões e modelos.", "Um documento colaborativo."] },
+  { mes: "Mês 6", ferramenta: "Google Apresentações", cor: "", foco: "Apresentações no Google", semanas: ["Slides com texto e imagem.", "Temas, transições e animações.", "Colaborar e apresentar online.", "Uma apresentação na nuvem."] },
+  { mes: "Mês 7", ferramenta: "PowerPoint", cor: "", foco: "Apresentações no PowerPoint", semanas: ["Slides e design no PowerPoint.", "Transições e animações com propósito.", "Modo apresentador.", "Uma apresentação de impacto (entregável)."] },
+  { mes: "Mês 8", ferramenta: "Gmail · Agenda · Meet", cor: "", logos: ["gmail", "calendar", "meet"], foco: "Comunicação e organização", semanas: ["Gmail: escrever e organizar e-mails.", "Google Agenda: eventos e lembretes.", "Google Meet: reuniões online.", "Tudo integrado: e-mail, agenda e reunião."] },
+  { mes: "Mês 9", ferramenta: "Earth · Maps · Drive", cor: "", logos: ["earth", "maps", "drive"], foco: "Mapas e nuvem", semanas: ["Google Drive: guardar e compartilhar arquivos.", "Google Maps: rotas e lugares.", "Google Earth: explorar o mundo em 3D.", "Usar as três no dia a dia."] },
+  { mes: "Mês 10", ferramenta: "Manutenção do PC", cor: "", logos: ["pc"], foco: "Cuidar do computador", semanas: ["Instalar programas com segurança.", "Desinstalar o que não usa.", "O que é formatar um computador.", "Boas práticas e segurança."] },
+  { mes: "Mês 11", ferramenta: "IA — ChatGPT", cor: "", foco: "Conhecer a IA (ChatGPT)", semanas: ["O que é IA e o que é o ChatGPT.", "Fazer boas perguntas (prompts).", "Pesquisar, resumir e tirar dúvidas.", "Usar com responsabilidade (só texto)."] },
+  { mes: "Mês 12", ferramenta: "IA — Gemini", cor: "", logos: ["gemini"], foco: "Conhecer a IA (Gemini)", semanas: ["Conhecer o Gemini (a IA do Google).", "Diferenças entre ChatGPT e Gemini.", "Usar o Gemini no dia a dia.", "IA com responsabilidade + certificado do Ano 1."] },
 ];
 
 // ── ANO 2 — Automação (VBA + Apps Script + IA), bloco profissional e produção ──
@@ -71,12 +72,12 @@ const ANO2_MESES: MesGrade[] = [
 
 // ── O que o aluno domina no fim de cada ano (dinâmico por aba) ────────────────
 const ANO1_DOMINA = [
-  "Cria documentos, planilhas e apresentações profissionais — no Office e no Google.",
-  "Domina o Excel: fórmulas avançadas (PROCX, SE, SOMASE), tabelas dinâmicas e dashboards.",
-  "Trabalha na nuvem e colabora em tempo real (Google Workspace).",
-  "Usa IA (ChatGPT, Copilot, Gemini) pra produzir mais e melhor, com responsabilidade.",
-  "Entrega um projeto integrado: documento + planilha + apresentação.",
-  "Tem contato com o conteúdo das certificações Microsoft (MOS).",
+  "Entende o computador por dentro: arquivos, hardware, software, periféricos e digitação.",
+  "Cria planilhas no Excel e no Google Planilhas.",
+  "Escreve documentos no Word e no Google Docs.",
+  "Monta apresentações no PowerPoint e no Google Apresentações.",
+  "Usa as ferramentas do dia a dia: Gmail, Agenda, Meet, Drive, Maps e Earth.",
+  "Instala e desinstala programas, entende o que é formatar — e dá os primeiros passos com IA (ChatGPT e Gemini).",
 ];
 const ANO2_DOMINA = [
   "Automatiza o Excel com macros e VBA — o primeiro código de verdade.",
@@ -88,7 +89,7 @@ const ANO2_DOMINA = [
 ];
 
 const ANOS = [
-  { titulo: "Ano 1", foco: "Domínio do Office e do Google, Excel avançado e IA na produtividade", ferramentas: "Word · Docs · PowerPoint · Apresentações · Excel · Sheets · IA", trofeu: "5 projetos no ano", meses: ANO1_MESES, domina: ANO1_DOMINA },
+  { titulo: "Ano 1", foco: "Fundamentos, Office + Google e primeiros passos com IA", ferramentas: "Fundamentos · Excel/Planilhas · Word/Docs · Apresentações/PowerPoint · Google · ChatGPT · Gemini", trofeu: "Base sólida de informática", meses: ANO1_MESES, domina: ANO1_DOMINA },
   { titulo: "Ano 2", foco: "Automação (VBA + Apps Script + IA), bloco profissional e produção com IA", ferramentas: "VBA · Apps Script · Gmail · Drive · Agenda · Canva · CapCut · IA", trofeu: "4 projetos no ano", meses: ANO2_MESES, domina: ANO2_DOMINA },
 ];
 

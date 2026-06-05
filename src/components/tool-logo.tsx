@@ -23,6 +23,9 @@ export function logoKey(ferramenta: string): string {
   if (f.includes("python") || f.includes("pygame")) return "python";
   if (f.includes("realidade virtual")) return "vr";
   if (f.includes("unity")) return "unity";
+  if (f.includes("meet")) return "meet";
+  if (f.includes("maps")) return "maps";
+  if (f.includes("earth")) return "earth";
   if (f.includes("aseprite")) return "aseprite";
   if (f.includes("construct")) return "construct";
   if (f.includes("blender")) return "blender";
@@ -164,6 +167,30 @@ function fallback(name: string) {
           <circle cx="9" cy="13" r="1.7" fill="#2E8FCF" />
           <circle cx="15" cy="13" r="1.7" fill="#2E8FCF" />
           <path d="M11.2 13 h1.6" stroke="#2E8FCF" strokeWidth="1" />
+        </>
+      );
+    case "meet":
+      return (
+        <>
+          <rect width="24" height="24" rx="5" fill="#00832D" />
+          <rect x="4.5" y="8" width="9.5" height="8" rx="1.6" fill="#fff" />
+          <path d="M15 11 L19.5 8.2 L19.5 15.8 L15 13 Z" fill="#fff" />
+        </>
+      );
+    case "maps":
+      return (
+        <>
+          <rect width="24" height="24" rx="5" fill="#fff" />
+          <path d="M12 3.2 C8.7 3.2 6.2 5.8 6.2 9 C6.2 13.4 12 20.5 12 20.5 C12 20.5 17.8 13.4 17.8 9 C17.8 5.8 15.3 3.2 12 3.2 Z" fill="#EA4335" />
+          <circle cx="12" cy="9" r="2.3" fill="#fff" />
+        </>
+      );
+    case "earth":
+      return (
+        <>
+          <circle cx="12" cy="12" r="9" fill="#1A73E8" />
+          <path d="M6.5 8 c3 1.6 7.5 1.6 11 0 M5.5 15 c4 -1.6 9 -1.6 13 0" fill="none" stroke="#fff" strokeWidth="0.9" opacity="0.55" />
+          <path d="M9 6.5 c1.5 1.6 1 3.5 -0.5 4.5 c-1.5 1 -1 2.5 0.5 3 M16 8 c-1.5 0.5 -2.5 2 -1.5 3.5 c1 1.5 3 1 3.5 2.5" fill="#34A853" opacity="0.9" />
         </>
       );
     case "ia":
