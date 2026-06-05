@@ -10,13 +10,30 @@ import { aula as m1a8 } from "./m01-aula-08";
 
 const GREEN = "#0DB88F";
 
+/** Ilustrações didáticas por aula (id referencia o registro em ilustracoes-aula.tsx). */
+const ILUSTRACOES_M1: Record<number, { id: string; legenda: string }[]> = {
+  1: [{ id: "partes-computador", legenda: "As quatro partes principais do computador." }],
+  2: [{ id: "botoes-mouse", legenda: "Os botões do mouse e para que serve cada um." }],
+  3: [{ id: "teclas-principais", legenda: "As teclas mais importantes para começar." }],
+  4: [{ id: "botoes-janela", legenda: "Os três botões no canto da janela." }],
+  5: [{ id: "abrir-programa", legenda: "Dois jeitos de abrir um programa." }],
+  6: [{ id: "caixa-salvar", legenda: "A caixa que pergunta se você quer salvar." }],
+  7: [{ id: "home-row", legenda: "A linha de base: onde os dedos descansam." }],
+  8: [{ id: "home-row", legenda: "A posição das mãos para digitar nos jogos." }],
+};
+
+const aulasM1 = [m1a1, m1a2, m1a3, m1a4, m1a5, m1a6, m1a7, m1a8].map((a) => ({
+  ...a,
+  ilustracoes: ILUSTRACOES_M1[a.numero] ?? a.ilustracoes,
+}));
+
 /** Mês 1 — detalhado aula por aula (modelo aprovado). */
 export const MES_1: MesEmenta = {
   mes: "Mês 1",
   ferramenta: "Dominando o computador",
   foco: "Conhecendo o computador",
   cor: GREEN,
-  aulas: [m1a1, m1a2, m1a3, m1a4, m1a5, m1a6, m1a7, m1a8],
+  aulas: aulasM1,
 };
 
 /** Meses já detalhados (prontos para os professores). */

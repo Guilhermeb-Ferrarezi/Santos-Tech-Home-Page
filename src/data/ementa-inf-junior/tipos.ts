@@ -43,6 +43,8 @@ export type Aula = {
   materiais: string[];
   /** Conceitos-chave / mini-glossário (formato "Termo — definição simples."). */
   conceitosChave: string[];
+  /** Ilustrações didáticas (diagramas) que apoiam a aula. `id` referencia o registro em ilustracoes-aula.tsx. */
+  ilustracoes?: { id: string; legenda: string }[];
   /** Texto de treinamento: tutorial passo a passo para o professor (técnico + teórico). */
   treinamento: string;
   /** As 5 "munições" da aula — sempre 5 exercícios. */
