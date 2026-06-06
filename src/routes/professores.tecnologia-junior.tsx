@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, Lock, Clock, BookOpen, Target, Gamepad2, Trophy, CircleCheck } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { MesEmentaView } from "@/components/aula-detalhada";
-import { MESES_TEC_JUNIOR_ANO1, ANO1_INFO } from "@/data/ementa-tec-junior";
+import { ANOS_TEC_JUNIOR } from "@/data/ementa-tec-junior";
 import { noindexMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/professores/tecnologia-junior")({
@@ -26,8 +26,10 @@ const RITMO = [
 ];
 
 function MaterialTecJunior() {
-  const [mesAtivo, setMesAtivo] = useState(0);
-  const mes = MESES_TEC_JUNIOR_ANO1[mesAtivo];
+  const [anoIdx, setAnoIdx] = useState(0);
+  const [mesIdx, setMesIdx] = useState(0);
+  const ano = ANOS_TEC_JUNIOR[anoIdx];
+  const mes = ano.meses[mesIdx];
 
   return (
     <main className="min-h-screen bg-slate-50">
@@ -47,20 +49,45 @@ function MaterialTecJunior() {
             Tecnologia Júnior — Material do Professor
           </h1>
           <p className="mt-2 inline-flex items-center gap-2 text-[15px] font-bold text-white/90">
-            <Gamepad2 className="h-4 w-4" /> Ano 1 · {ANO1_INFO.foco}
+            <Gamepad2 className="h-4 w-4" /> {ano.titulo} · {ano.foco}
           </p>
           <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-white/90">
-            Ementa detalhada aula por aula (1 hora cada, 2 aulas por semana). Cada aula traz
-            descrição, um treinamento passo a passo para o professor e 5 atividades com gabarito —
-            pensado para que mesmo um professor iniciante conduza a aula com segurança.
+            Ementa detalhada aula por aula (1 hora cada, 2 aulas por semana) — trilha de 4 anos de
+            criação de games. Cada aula traz descrição, treinamento passo a passo para o professor e
+            5 atividades com gabarito.
           </p>
           <p className="mt-2 text-[13px] text-white/70">
-            Público: crianças de 5 a 9 anos (início da trilha) · {ANO1_INFO.trofeu}
+            Público: crianças de 5 a 9 anos · {ano.trofeu}
           </p>
         </div>
       </header>
 
-      <div className="mx-auto max-w-5xl space-y-10 px-5 py-10 sm:py-14">
+      <div className="mx-auto max-w-5xl space-y-8 px-5 py-10 sm:py-14">
+        {/* SELETOR DE ANO */}
+        <Reveal>
+          <div className="flex flex-wrap gap-2">
+            {ANOS_TEC_JUNIOR.map((a, i) => {
+              const ativo = i === anoIdx;
+              return (
+                <button
+                  key={a.titulo}
+                  type="button"
+                  onClick={() => {
+                    setAnoIdx(i);
+                    setMesIdx(0);
+                  }}
+                  className={`rounded-xl px-4 py-2 text-sm font-black transition ${
+                    ativo ? "text-white shadow-sm" : "bg-white text-slate-600 ring-1 ring-slate-200 hover:bg-slate-50"
+                  }`}
+                  style={ativo ? { background: GREEN_DARK } : undefined}
+                >
+                  {a.titulo}
+                </button>
+              );
+            })}
+          </div>
+        </Reveal>
+
         {/* COMO USAR */}
         <Reveal>
           <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
@@ -79,7 +106,6 @@ function MaterialTecJunior() {
                 quantas couberem — se usar só 3, tudo bem.
               </p>
             </div>
-
             <p className="mt-5 text-[12px] font-extrabold uppercase tracking-wide text-slate-400">
               Ritmo sugerido de cada aula de 1 hora
             </p>
@@ -97,14 +123,14 @@ function MaterialTecJunior() {
           </section>
         </Reveal>
 
-        {/* O QUE A CRIANÇA DOMINA NO ANO 1 */}
-        <Reveal>
+        {/* DOMINA DO ANO */}
+        <Reveal key={`dom-${ano.titulo}`}>
           <section className="rounded-2xl border border-emerald-100 bg-emerald-50/50 p-5 sm:p-6">
             <h2 className="flex items-center gap-2 text-lg font-black text-slate-800">
-              <Trophy className="h-5 w-5" style={{ color: GREEN_DARK }} /> O que a criança domina no Ano 1
+              <Trophy className="h-5 w-5" style={{ color: GREEN_DARK }} /> O que a criança domina no {ano.titulo}
             </h2>
             <ul className="mt-3 grid gap-2 sm:grid-cols-2">
-              {ANO1_INFO.domina.map((d, i) => (
+              {ano.domina.map((d, i) => (
                 <li key={i} className="flex items-start gap-2 text-[13.5px] text-slate-700">
                   <CircleCheck className="mt-0.5 h-4 w-4 shrink-0" style={{ color: GREEN }} />
                   {d}
@@ -118,21 +144,19 @@ function MaterialTecJunior() {
         <Reveal>
           <section>
             <h2 className="mb-3 text-sm font-black uppercase tracking-wide text-slate-400">
-              Escolha o mês
+              {ano.titulo} — escolha o mês
             </h2>
             <div className="flex flex-wrap gap-2">
-              {MESES_TEC_JUNIOR_ANO1.map((m, i) => {
-                const ativo = i === mesAtivo;
+              {ano.meses.map((m, i) => {
+                const ativo = i === mesIdx;
                 const vazio = m.aulas.length === 0;
                 return (
                   <button
                     key={m.mes}
                     type="button"
-                    onClick={() => setMesAtivo(i)}
+                    onClick={() => setMesIdx(i)}
                     className={`rounded-xl border px-3 py-2 text-left transition ${
-                      ativo
-                        ? "border-transparent text-white shadow-sm"
-                        : "border-slate-200 bg-white hover:bg-slate-50"
+                      ativo ? "border-transparent text-white shadow-sm" : "border-slate-200 bg-white hover:bg-slate-50"
                     }`}
                     style={ativo ? { background: GREEN_DARK } : undefined}
                   >
@@ -153,11 +177,11 @@ function MaterialTecJunior() {
         </Reveal>
 
         {/* MÊS SELECIONADO */}
-        <Reveal key={mes.mes}>
+        <Reveal key={`${ano.titulo}-${mes.mes}`}>
           <section>
             <div className="mb-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
               <span className="rounded-lg px-2.5 py-1 text-sm font-black text-white" style={{ background: GREEN_DARK }}>
-                {mes.mes}
+                {ano.titulo} · {mes.mes}
               </span>
               <h2 className="text-xl font-black text-slate-800">{mes.ferramenta}</h2>
               <span className="text-sm font-semibold text-slate-500">— {mes.foco}</span>
