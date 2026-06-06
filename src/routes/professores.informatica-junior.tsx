@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Lock, Clock, BookOpen, Target, Sparkles } from "lucide-react";
+import { ArrowLeft, Lock, Clock, BookOpen, Target, Monitor, Trophy, CircleCheck } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { MesEmentaView } from "@/components/aula-detalhada";
-import { MESES_DETALHADOS, MESES_PENDENTES } from "@/data/ementa-inf-junior";
+import { MESES_INF_JUNIOR, INF_JUNIOR_INFO } from "@/data/ementa-inf-junior";
 import { noindexMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/professores/informatica-junior")({
@@ -25,6 +26,9 @@ const RITMO = [
 ];
 
 function MaterialInfJunior() {
+  const [mesAtivo, setMesAtivo] = useState(0);
+  const mes = MESES_INF_JUNIOR[mesAtivo];
+
   return (
     <main className="min-h-screen bg-slate-50">
       {/* HERO */}
@@ -42,6 +46,9 @@ function MaterialInfJunior() {
           <h1 className="mt-4 text-3xl font-black leading-tight sm:text-4xl">
             Informática Júnior — Material do Professor
           </h1>
+          <p className="mt-2 inline-flex items-center gap-2 text-[15px] font-bold text-white/90">
+            <Monitor className="h-4 w-4" /> {INF_JUNIOR_INFO.foco}
+          </p>
           <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-white/90">
             Ementa detalhada aula por aula (1 hora cada, 2 aulas por semana). Cada aula traz
             descrição, um treinamento passo a passo para o professor e 5 atividades com gabarito —
@@ -61,8 +68,8 @@ function MaterialInfJunior() {
             <div className="mt-3 grid gap-2 text-[14px] text-slate-600 sm:grid-cols-2">
               <p className="flex items-start gap-2">
                 <Clock className="mt-0.5 h-4 w-4 shrink-0" style={{ color: GREEN }} /> Cada{" "}
-                <strong className="font-bold text-slate-800">aula dura 1 hora</strong>. São 2 aulas
-                por semana (clique em cada aula para abrir).
+                <strong className="font-bold text-slate-800">aula dura 1 hora</strong> (2 aulas por
+                semana). Clique numa aula para abrir.
               </p>
               <p className="flex items-start gap-2">
                 <Target className="mt-0.5 h-4 w-4 shrink-0" style={{ color: GREEN }} /> Cada aula tem{" "}
@@ -88,54 +95,79 @@ function MaterialInfJunior() {
           </section>
         </Reveal>
 
-        {/* MESES DETALHADOS */}
-        {MESES_DETALHADOS.map((mes) => (
-          <Reveal key={mes.mes}>
-            <section>
-              <div className="mb-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                <span
-                  className="rounded-lg px-2.5 py-1 text-sm font-black text-white"
-                  style={{ background: GREEN_DARK }}
-                >
-                  {mes.mes}
-                </span>
-                <h2 className="text-xl font-black text-slate-800">{mes.ferramenta}</h2>
-                <span className="text-sm font-semibold text-slate-500">— {mes.foco}</span>
-                <span className="ml-auto text-[13px] font-bold text-slate-400">
-                  {mes.aulas.length} aulas
-                </span>
-              </div>
-              <MesEmentaView mes={mes} accent={GREEN_DARK} accentDark={GREEN_DARK} />
-            </section>
-          </Reveal>
-        ))}
+        {/* O QUE A CRIANÇA DOMINA */}
+        <Reveal>
+          <section className="rounded-2xl border border-emerald-100 bg-emerald-50/50 p-5 sm:p-6">
+            <h2 className="flex items-center gap-2 text-lg font-black text-slate-800">
+              <Trophy className="h-5 w-5" style={{ color: GREEN_DARK }} /> O que a criança domina no ano
+            </h2>
+            <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+              {INF_JUNIOR_INFO.domina.map((d, i) => (
+                <li key={i} className="flex items-start gap-2 text-[13.5px] text-slate-700">
+                  <CircleCheck className="mt-0.5 h-4 w-4 shrink-0" style={{ color: GREEN }} />
+                  {d}
+                </li>
+              ))}
+            </ul>
+          </section>
+        </Reveal>
 
-        {/* MESES EM BREVE */}
-        {MESES_PENDENTES.length > 0 && (
-          <Reveal>
-            <section>
-              <h2 className="flex items-center gap-2 text-sm font-black uppercase tracking-wide text-slate-400">
-                <Sparkles className="h-4 w-4" /> Próximos meses (em produção)
-              </h2>
-              <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {MESES_PENDENTES.map((m) => (
-                  <div
+        {/* SELETOR DE MÊS */}
+        <Reveal>
+          <section>
+            <h2 className="mb-3 text-sm font-black uppercase tracking-wide text-slate-400">
+              Escolha o mês
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {MESES_INF_JUNIOR.map((m, i) => {
+                const ativo = i === mesAtivo;
+                const vazio = m.aulas.length === 0;
+                return (
+                  <button
                     key={m.mes}
-                    className="rounded-xl border border-dashed border-slate-300 bg-white/60 p-4"
+                    type="button"
+                    onClick={() => setMesAtivo(i)}
+                    className={`rounded-xl border px-3 py-2 text-left transition ${
+                      ativo ? "border-transparent text-white shadow-sm" : "border-slate-200 bg-white hover:bg-slate-50"
+                    }`}
+                    style={ativo ? { background: GREEN_DARK } : undefined}
                   >
-                    <div className="text-[13px] font-black" style={{ color: GREEN_DARK }}>
+                    <span className={`block text-[12px] font-black ${ativo ? "text-white" : ""}`} style={ativo ? undefined : { color: GREEN_DARK }}>
                       {m.mes}
-                    </div>
-                    <div className="mt-0.5 text-[14px] font-extrabold text-slate-700">
+                    </span>
+                    <span className={`block text-[11.5px] font-semibold ${ativo ? "text-white/85" : "text-slate-500"}`}>
                       {m.ferramenta}
-                    </div>
-                    <div className="mt-0.5 text-[12.5px] text-slate-500">{m.foco}</div>
-                  </div>
-                ))}
+                    </span>
+                    <span className={`block text-[10.5px] ${ativo ? "text-white/70" : vazio ? "text-amber-500" : "text-slate-400"}`}>
+                      {vazio ? "em produção" : `${m.aulas.length} aulas`}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+        </Reveal>
+
+        {/* MÊS SELECIONADO */}
+        <Reveal key={mes.mes}>
+          <section>
+            <div className="mb-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <span className="rounded-lg px-2.5 py-1 text-sm font-black text-white" style={{ background: GREEN_DARK }}>
+                {mes.mes}
+              </span>
+              <h2 className="text-xl font-black text-slate-800">{mes.ferramenta}</h2>
+              <span className="text-sm font-semibold text-slate-500">— {mes.foco}</span>
+              <span className="ml-auto text-[13px] font-bold text-slate-400">{mes.aulas.length} aulas</span>
+            </div>
+            {mes.aulas.length > 0 ? (
+              <MesEmentaView mes={mes} accent={GREEN_DARK} accentDark={GREEN_DARK} />
+            ) : (
+              <div className="rounded-2xl border border-dashed border-slate-300 bg-white/60 p-8 text-center text-sm text-slate-500">
+                As aulas deste mês ainda estão em produção.
               </div>
-            </section>
-          </Reveal>
-        )}
+            )}
+          </section>
+        </Reveal>
 
         <div className="pt-2">
           <Link
