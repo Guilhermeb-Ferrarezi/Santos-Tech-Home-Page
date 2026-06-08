@@ -41,7 +41,7 @@ Aquecimento (10 min): pergunte à turma como eles acham um vídeo ou um jogo na 
 
 Conteúdo novo guiado (15 min): explique a dupla nome e número. Diga que o computador usa um número como 142.250.0.1 (o endereço IP), mas a gente usa o nome porque é mais fácil, e o DNS faz a tradução. Agora demonstre a pesquisa de disponibilidade: abra o registro.br, digite um nome de teste como meujogo no campo de busca e mostre o resultado dizendo se está livre ou ocupado. Repita com .com em um site internacional. Compare na tela: .com (mundo) e .com.br (Brasil). Por fim, mostre como anotar a escolha em um arquivo simples. Abra o editor e escreva um comentário em HTML para registrar a decisão, sem código que execute nada:
 
-<!-- Meu dominio -->
+<!-- Meu domínio -->
 <!-- Opcao 1: meujogo.com -->
 <!-- Opcao 2: meujogo.com.br -->
 <!-- Opcao 3: jogodoaluno.com -->

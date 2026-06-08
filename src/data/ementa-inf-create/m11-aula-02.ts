@@ -16,7 +16,7 @@ Ao final, cada aluno terá enviado um e-mail completo e bem escrito, criado pelo
   materiais: [
     `Computadores com o Gmail aberto e cada aluno logado na própria conta Google (Gmail, Google Agenda, Google Meet e Notion disponíveis)`,
     `Projetor ou tela grande para o professor demonstrar cada passo ao vivo`,
-    `Arquivo de exemplo para anexar (um PDF ou imagem leve, por exemplo "trabalho-historia.pdf"), salvo na pasta de Downloads de cada máquina`,
+    `Arquivo de exemplo para anexar (um PDF ou imagem leve, por exemplo "trabalho-história.pdf"), salvo na pasta de Downloads de cada máquina`,
     `Lista com 3 ou 4 endereços de e-mail seguros para os alunos escreverem entre si (colegas da turma ou o e-mail do professor)`,
     `Roteiro impresso ou no quadro com a estrutura do e-mail: assunto, saudação, mensagem, despedida`,
     `Conexão estável com a internet e contas Google já criadas e testadas antes da aula`,
@@ -67,7 +67,7 @@ Muitos esquecem o assunto ou deixam o campo "Para" vazio e o Gmail avisa com um 
       tempo: `7 min`,
       guiaProfessor: `Garanta que cada máquina tenha o arquivo de exemplo na pasta Downloads. Mostre o ícone de clipe de papel e lembre os alunos de esperar a barra de carregamento completar antes de enviar.`,
       atividade: `Escreva um novo e-mail e clique no ícone de clipe de papel para anexar o arquivo de exemplo da pasta Downloads. Espere o arquivo terminar de carregar e envie.`,
-      gabarito: `E-mail enviado com o anexo aparecendo abaixo do corpo da mensagem (nome do arquivo visível, por exemplo "trabalho-historia.pdf"), enviado só depois que a barra de carregamento completou.`,
+      gabarito: `E-mail enviado com o anexo aparecendo abaixo do corpo da mensagem (nome do arquivo visível, por exemplo "trabalho-história.pdf"), enviado só depois que a barra de carregamento completou.`,
     },
     {
       titulo: `Marcadores coloridos`,

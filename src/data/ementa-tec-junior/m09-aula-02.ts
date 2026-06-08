@@ -31,7 +31,7 @@ Ao longo da hora cada aluno vai praticar bastante, errar sem medo, apagar, refaz
     `Lado a lado — colocar cubinhos um do lado do outro para a construção ficar mais larga.`,
     `Girar para conferir — rodar a cena para olhar a construção por trás, por cima e dos lados.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 No MagicaVoxel tudo é feito de voxels, que são cubinhos 3D. Pense neles como pixels com volume, ou como peças de LEGO que se encaixam sempre certinho numa grade invisível. A criança nunca coloca um cubinho torto: a grade segura tudo no lugar. Isso é ótimo para a idade, porque tira a frustração de "ficou desalinhado".
 
@@ -43,13 +43,13 @@ Para colocar um cubinho a criança clica na face de um cubinho que já existe e 
 
 Aquecimento (10 min): Mostre os cubos de LEGO de verdade na mesa. Construa uma torrezinha empilhando e diga "hoje vamos fazer isso, mas dentro do computador". Relembre a Aula 1: peça que todos girem a cena com o botão direito arrastando.
 
-Conteudo novo guiado (15 min): No projetor, com sua tela espelhada, mostre o painel de ferramentas e aponte "Attach" (Adicionar). Clique na face de cima do bloco base e diga "olha, nasceu um cubinho!". Clique de novo em cima do que acabou de nascer: a torre cresce. Depois clique na lateral: aparece um do lado. Agora selecione "Erase" (Apagar) e clique num cubinho para ele sumir. Mostre o Ctrl+Z para desfazer. Gire a cena com o botão direito para ver por trás.
+Conteúdo novo guiado (15 min): No projetor, com sua tela espelhada, mostre o painel de ferramentas e aponte "Attach" (Adicionar). Clique na face de cima do bloco base e diga "olha, nasceu um cubinho!". Clique de novo em cima do que acabou de nascer: a torre cresce. Depois clique na lateral: aparece um do lado. Agora selecione "Erase" (Apagar) e clique num cubinho para ele sumir. Mostre o Ctrl+Z para desfazer. Gire a cena com o botão direito para ver por trás.
 
-Mao na massa (25 min): Cada criança no seu computador. Primeiro só colocar cinco cubinhos e apagar todos. Depois empilhar uma torre de cinco a oito andares. Em seguida fazer uma fileira lado a lado. Por fim, escolha livre: torre alta ou caixinha (quadrado oco). Circule pela sala, elogie e lembre sempre: "gire para conferir".
+Mão na massa (25 min): Cada criança no seu computador. Primeiro só colocar cinco cubinhos e apagar todos. Depois empilhar uma torre de cinco a oito andares. Em seguida fazer uma fileira lado a lado. Por fim, escolha livre: torre alta ou caixinha (quadrado oco). Circule pela sala, elogie e lembre sempre: "gire para conferir".
 
 Desafio e compartilhar (10 min): Desafio: cada um faz a construção mais alta que conseguir sem cair (a grade não deixa cair, então a meta é só altura). Depois, roda rápida: cada criança gira a própria cena e mostra a torre para os colegas. Cole um adesivo de "primeira criação".
 
-## Como explicar para criancas de 5 a 9 (analogias e linguagem)
+## Como explicar para crianças de 5 a 9 (analogias e linguagem)
 
 Use sempre a palavra "cubinho", não "voxel". Diga que o computador tem uma "caixa de cubinhos mágicos que nunca acabam". Colocar é "fazer nascer um cubinho"; apagar é "soprar e ele some". A grade é o "tabuleiro mágico que deixa tudo certinho". Empilhar é "fazer a torre subir até o céu"; lado a lado é "fazer a fila de cubinhos". Girar para conferir é "espiar por trás para ver se não esqueceu nada". Comemore cada clique certo com entusiasmo de verdade.
 

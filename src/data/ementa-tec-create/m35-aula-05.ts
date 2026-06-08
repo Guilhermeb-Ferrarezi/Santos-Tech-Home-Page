@@ -93,15 +93,15 @@ O erro mais comum é querer digitar código direto sem plano nenhum; insista que
       tempo: `12 minutos`,
       guiaProfessor: `Cobre o plano antes do código: o aluno escreve o pseudocódigo no papel e só depois digita. Lembre dos dois pontos, da indentação e do uso de int no input.`,
       atividade: `Escreva o pseudocódigo e depois o programa em Python que pergunta a idade da pessoa e escreve na tela se ela pode tirar a carteira de motorista (idade 18 ou mais) ou se ainda não pode.`,
-      gabarito: `Pseudocódigo: LER idade; SE idade for maior ou igual a 18 ESCREVER "pode tirar carteira" SENAO ESCREVER "ainda nao pode". Código solução em Python:
+      gabarito: `Pseudocódigo: LER idade; SE idade for maior ou igual a 18 ESCREVER "pode tirar carteira" SENAO ESCREVER "ainda não pode". Código solução em Python:
 
 idade = int(input("Digite sua idade: "))
 if idade >= 18:
     print("pode tirar carteira")
 else:
-    print("ainda nao pode")
+    print("ainda não pode")
 
-Resultado esperado: ao digitar 18 ou mais, aparece "pode tirar carteira"; ao digitar menos de 18, aparece "ainda nao pode".`,
+Resultado esperado: ao digitar 18 ou mais, aparece "pode tirar carteira"; ao digitar menos de 18, aparece "ainda não pode".`,
     },
     {
       titulo: `Decompondo um problema maior`,

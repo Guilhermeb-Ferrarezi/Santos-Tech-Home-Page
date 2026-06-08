@@ -103,7 +103,7 @@ Ao clicar em Play e encostar o personagem na peça, a janela Output mostra a men
       tempo: `8 minutos`,
       guiaProfessor: `Reforce que só a parte entre aspas muda; o resto da linha continua igual. Mostre onde ficam as aspas e peça aspas retas. Incentive personalização para a criança sentir que o código é dela.`,
       atividade: `Mude a frase dentro do print para uma mensagem sua, por exemplo o seu nome ou um aviso engraçado. Teste de novo com Play, encostando na peça, e veja a sua nova mensagem aparecer no Output.`,
-      gabarito: `A criança deve alterar apenas o texto entre as aspas. Exemplo válido: print("Voce pisou na armadilha do Joao!"). A estrutura print("...") precisa continuar com os dois parênteses e as duas aspas. Erro comum: apagar uma aspa ou um parêntese, o que faz o Output mostrar erro em vermelho; basta recolocar o que faltou.`,
+      gabarito: `A criança deve alterar apenas o texto entre as aspas. Exemplo válido: print("Você pisou na armadilha do Joao!"). A estrutura print("...") precisa continuar com os dois parênteses e as duas aspas. Erro comum: apagar uma aspa ou um parêntese, o que faz o Output mostrar erro em vermelho; basta recolocar o que faltou.`,
     },
     {
       titulo: `Dois avisos no mesmo toque`,

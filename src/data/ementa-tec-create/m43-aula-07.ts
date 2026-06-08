@@ -17,7 +17,7 @@ Ao final, cada aluno terá uma coleção limpa, conferida e quase pronta para a 
     `Computadores com o Blender instalado e aberto, um por aluno`,
     `Projetor ou TV para o professor demonstrar cada passo ao vivo`,
     `Acesso ao Claude (claude.ai) em uma aba do navegador, um por aluno`,
-    `Arquivo de exemplo (.blend) com tres ou quatro assets desorganizados (nomes ruins, escalas diferentes) para servir de antes e depois`,
+    `Arquivo de exemplo (.blend) com três ou quatro assets desorganizados (nomes ruins, escalas diferentes) para servir de antes e depois`,
     `Folha impressa com o padrao de nomes da turma (prefixo, separador, exemplos)`,
     `Os arquivos de assets que cada aluno produziu nas aulas anteriores deste mes`,
   ],
@@ -40,13 +40,13 @@ Aquecimento (10 min): peça que cada aluno abra os próprios assets do mês na m
 
 Conteúdo novo guiado (15 min): no Outliner, dê um clique duplo em cada nome de objeto e renomeie seguindo o padrão, como SM_Cadeira, SM_Mesa, SM_Luminaria. Depois selecione um objeto, abra o menu Object maior que Apply maior que Scale (ou Ctrl A, opção Scale) e mostre que a escala no painel lateral (tecla N) voltou para 1.0. Em seguida, com o objeto selecionado, vá em Object maior que Set Origin maior que Origin to Geometry para centralizar a origem. Por fim, abra a aba de materiais (ícone de esfera no painel de Propriedades) e renomeie o material para algo como M_Madeira.
 
-Mão na massa (25 min): cada aluno aplica os quatro passos a todos os seus assets: renomear objetos, aplicar escala (Ctrl A maior que Scale), ajustar a origem e nomear os materiais. Circule pela sala e confira o painel N de cada um para ver se a escala está em 1.0. Quem terminar, abre o Claude e cola o seguinte pedido para gerar a checklist: Sou aluno de modelagem 3D e tenho uma colecao de assets para um jogo. Liste uma checklist de qualidade para eu conferir no Blender antes de exportar em FBX, incluindo nomes, escala, origem, materiais e poligonos. O aluno então percorre a lista item por item dentro do Blender.
+Mão na massa (25 min): cada aluno aplica os quatro passos a todos os seus assets: renomear objetos, aplicar escala (Ctrl A maior que Scale), ajustar a origem e nomear os materiais. Circule pela sala e confira o painel N de cada um para ver se a escala está em 1.0. Quem terminar, abre o Claude e cola o seguinte pedido para gerar a checklist: Sou aluno de modelagem 3D e tenho uma colecao de assets para um jogo. Liste uma checklist de qualidade para eu conferir no Blender antes de exportar em FBX, incluindo nomes, escala, origem, materiais e polígonos. O aluno então percorre a lista item por item dentro do Blender.
 
 Desafio e compartilhar (10 min): peça que cada aluno marque, na checklist do Claude, quais itens já estão verdes e quais ainda faltam. Projete uma ou duas coleções organizadas e celebre o capricho. Salve o arquivo com Ctrl S.
 
 ## Como explicar de forma clara (linguagem para a idade)
 
-Use a ideia de organizar o quarto antes de receber visita: os brinquedos (assets) já existem, mas precisam ter nome na caixa, estar do mesmo tamanho de prateleira e nada largado fora do lugar. Para padronização de nomes, diga que é como o sobrenome da família: todo objeto da coleção carrega o mesmo prefixo para a gente saber que são parentes. Para aplicar escala, explique que é como ajustar o zoom de uma foto e depois salvar: por fora nada muda, mas por dentro o número volta a 1, e isso evita bagunça lá na frente. Para a checklist do Claude, fale que é como um colega que pergunta voce já conferiu isto? antes de entregar a prova.
+Use a ideia de organizar o quarto antes de receber visita: os brinquedos (assets) já existem, mas precisam ter nome na caixa, estar do mesmo tamanho de prateleira e nada largado fora do lugar. Para padronização de nomes, diga que é como o sobrenome da família: todo objeto da coleção carrega o mesmo prefixo para a gente saber que são parentes. Para aplicar escala, explique que é como ajustar o zoom de uma foto e depois salvar: por fora nada muda, mas por dentro o número volta a 1, e isso evita bagunça lá na frente. Para a checklist do Claude, fale que é como um colega que pergunta você já conferiu isto? antes de entregar a prova.
 
 ## Erros comuns e como ajudar
 
@@ -81,7 +81,7 @@ O erro mais comum é renomear o material no slot errado e acabar trocando o nome
       tipo: `uso do Claude`,
       tempo: `12 minutos`,
       guiaProfessor: `Oriente um prompt claro, em que o aluno diz o contexto (coleção de assets para um jogo) e pede uma checklist antes de exportar FBX. Reforce que o aluno deve conferir cada item dentro do Blender, e não apenas ler. Circule lendo as listas geradas.`,
-      atividade: `Abra o Claude e escreva um pedido como: Sou aluno de modelagem 3D e tenho uma colecao de assets para um jogo. Liste uma checklist de qualidade para eu conferir no Blender antes de exportar em FBX, incluindo nomes, escala, origem, materiais e poligonos. Depois, percorra cada item da lista dentro do Blender e marque quais já estão prontos.`,
+      atividade: `Abra o Claude e escreva um pedido como: Sou aluno de modelagem 3D e tenho uma colecao de assets para um jogo. Liste uma checklist de qualidade para eu conferir no Blender antes de exportar em FBX, incluindo nomes, escala, origem, materiais e polígonos. Depois, percorra cada item da lista dentro do Blender e marque quais já estão prontos.`,
       gabarito: `O aluno deve obter do Claude uma checklist com pelo menos cinco itens cobrindo nomes padronizados, escala aplicada, origem correta, materiais nomeados e contagem de polígonos. Em seguida, deve registrar quais itens estão prontos e quais ainda faltam, mostrando que conferiu cada ponto no Blender e não apenas copiou a resposta.`,
     },
     {

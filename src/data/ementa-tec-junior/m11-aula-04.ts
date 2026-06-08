@@ -31,7 +31,7 @@ Esta aula prepara o terreno para as próximas, quando as crianças vão aprender
     `Encaixar — juntar várias formas pertinho umas das outras para virarem um objeto só, como peças de montar.`,
     `Mover — arrastar uma forma de um lugar para outro usando a setinha colorida que aparece nela.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 No Maya, as formas prontas chamam-se "primitivas poligonais" (em inglês, "polygon primitives"). Na aula 3 a turma usou o cubo; hoje você apresenta mais três: esfera, cilindro e cone. Todas ficam no mesmo lugar. No menu superior, com o conjunto de menus "Modeling" ativo (o seletor fica no canto superior esquerdo, escrito "Modeling"), abra "Create" e depois "Polygon Primitives". Ali aparece a lista: Sphere (esfera), Cylinder (cilindro), Cone (cone), entre outras. Ao clicar no nome, o Maya cria a forma no centro da cena.
 
@@ -41,7 +41,7 @@ Há também a "Shelf" (a barra de ícones logo acima da viewport), aba "Poly Mod
 
 Aquecimento (10 min): receba a turma e abra o arquivo "boneco_de_neve.mb" no projetor. Pergunte: "Quantas bolas vocês veem? Que objeto é esse?". Relembre o cubo da aula passada criando um rapidinho com Create, Polygon Primitives, Cube. Diga que hoje vêm três amigos novos.
 
-Conteudo novo guiado (15 min): no seu computador, no projetor, mostre devagar. Clique em "Create", desça até "Polygon Primitives" e clique em "Sphere": surge a bolinha. Diga o nome em voz alta: "esfera". Repita criando "Cylinder" (o tubo) e "Cone" (o chapeuzinho). Aperte W e mostre as setinhas, arrastando uma forma para o lado para não ficarem todas grudadas no mesmo ponto.
+Conteúdo novo guiado (15 min): no seu computador, no projetor, mostre devagar. Clique em "Create", desça até "Polygon Primitives" e clique em "Sphere": surge a bolinha. Diga o nome em voz alta: "esfera". Repita criando "Cylinder" (o tubo) e "Cone" (o chapeuzinho). Aperte W e mostre as setinhas, arrastando uma forma para o lado para não ficarem todas grudadas no mesmo ponto.
 
 Mao na massa (25 min): cada criança no seu computador. Peça que criem uma esfera, depois um cilindro, depois um cone, usando os ícones da Shelf "Poly Modeling" ou o menu Create. Em seguida, com a tecla W e as setinhas, devem arrastar as formas para montar algo: um foguete (cilindro embaixo, cone em cima), um sorvete (cone embaixo, esfera em cima) ou um boneco de neve (três esferas). Circule pela sala, elogiando e ajudando um por um.
 

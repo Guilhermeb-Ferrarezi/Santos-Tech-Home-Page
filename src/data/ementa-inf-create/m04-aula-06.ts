@@ -2,7 +2,7 @@ import type { Aula } from "./tipos";
 
 export const aula: Aula = {
   numero: 6,
-  titulo: "SOMA e MEDIA: o computador calcula por voce",
+  titulo: "SOMA e MÉDIA: o computador calcula por você",
   semana: "Semana 3",
   duracao: "1 hora",
   objetivo: `Usar a função SOMA com intervalos (por exemplo =SOMA(B2:B10)) e a função MÉDIA para calcular totais e médias de notas ou gastos, e entender por que a planilha recalcula sozinha quando os dados mudam.`,

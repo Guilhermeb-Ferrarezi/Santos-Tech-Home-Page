@@ -31,7 +31,7 @@ O treino é guiado e tranquilo: o professor mostra primeiro, no projetor, e depo
     `Selecionar — clicar na forma uma vez para escolher quem vai obedecer antes de mexer.`,
     `Desfazer — o botão mágico (Ctrl + Z) que volta no tempo quando a forma vai parar no lugar errado.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 No Maya, qualquer objeto 3D pode sofrer três transformações básicas: translação (mover), rotação (girar) e escala (escalar). Cada uma tem uma ferramenta própria, com atalhos de teclado que vale a pena decorar: W = Mover (Move Tool), E = Girar (Rotate Tool), R = Escalar (Scale Tool). Quando você seleciona um objeto e ativa uma dessas ferramentas, aparece um "manipulador" colorido grudado no objeto. As cores seguem um padrão fixo: vermelho é o eixo X, verde é o eixo Y (altura) e azul é o eixo Z (profundidade). Para a criança, não fale "eixo" — fale "seta vermelha, verde e azul".
 
@@ -41,7 +41,7 @@ Antes da aula, abra o Maya, crie um projeto novo, faça um cubo (menu Create, Po
 
 Aquecimento (10 min): Reúna a turma na frente do projetor. Relembre as formas da aula passada apontando o cubo no centro da cena. Pergunte: "E se a gente quiser tirar ele daqui e levar pra lá?" Mostre que a forma está paradinha e diga que hoje vamos aprender a mexer nela.
 
-Conteudo novo guiado (15 min): No seu Maya, clique uma vez no cubo para selecionar (ele fica com contorno verde). Aperte W: aparecem as setas coloridas. Puxe devagar só a seta vermelha para o lado e diga "olha, ele andou!". Volte com Ctrl + Z. Agora aperte E: aparecem círculos coloridos; puxe um devagar e diga "olha, ele virou!". Desfaça. Por fim aperte R: aparecem alças com quadradinhos; puxe o quadradinho do meio e diga "olha, ele cresceu!". Mostre uma ação de cada vez, sempre desfazendo antes da próxima, para não acumular bagunça.
+Conteúdo novo guiado (15 min): No seu Maya, clique uma vez no cubo para selecionar (ele fica com contorno verde). Aperte W: aparecem as setas coloridas. Puxe devagar só a seta vermelha para o lado e diga "olha, ele andou!". Volte com Ctrl + Z. Agora aperte E: aparecem círculos coloridos; puxe um devagar e diga "olha, ele virou!". Desfaça. Por fim aperte R: aparecem alças com quadradinhos; puxe o quadradinho do meio e diga "olha, ele cresceu!". Mostre uma ação de cada vez, sempre desfazendo antes da próxima, para não acumular bagunça.
 
 Mao na massa (25 min): Cada criança vai para o seu computador com o cubo já na tela. Faça uma ação por vez, todos juntos. Primeiro: "Aperta a letra W e arrasta a seta vermelha até o seu alvo." Passe nas mesas ajudando. Depois: "Aperta E e gira só um pouquinho." Por último: "Aperta R e puxa o quadradinho do meio pra deixar maior." Repita o ciclo se houver tempo. Lembre sempre do Ctrl + Z como botão de voltar no tempo.
 

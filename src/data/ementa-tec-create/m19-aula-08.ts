@@ -26,7 +26,7 @@ Para o professor, esta aula é menos sobre ensinar uma ferramenta nova e mais so
     `Formato de arquivo — o tipo do arquivo de imagem; PNG guarda transparência, JPG é mais leve para fundos e fotos.`,
     `Fundo transparente — área "vazia" da imagem (sem cor) que deixa o cenário do jogo aparecer atrás do ícone ou elemento.`,
     `Resolução — o tamanho da imagem em pixels; quanto maior, mais nítida, mas também mais pesada.`,
-    `Nomeação de arquivos — dar nomes claros e organizados (por exemplo "icone-vida" em vez de "imagem3") para achar tudo depois.`,
+    `Nomeação de arquivos — dar nomes claros e organizados (por exemplo "ícone-vida" em vez de "imagem3") para achar tudo depois.`,
     `Reaproveitamento — usar a mesma arte criada com IA dentro do jogo no Roblox, em vez de gerar tudo de novo.`,
     `Apresentação — mostrar e explicar o próprio trabalho de forma curta e clara para os colegas.`,
   ],
@@ -36,7 +36,7 @@ Você não precisa ser especialista. Esta aula reúne o que os alunos já fizera
 
 ## Passo a passo da aula (ritmo 10/15/25/10)
 
-Aquecimento (10 min): faça uma roda rápida. Cada aluno diz, em uma frase, qual é a imagem favorita do pacote dele e por quê. Projete o pacote-modelo e mostre a diferença entre uma pasta bagunçada ("imagem1, imagem2, foto final final2") e uma pasta organizada ("icone-vida.png", "fundo-floresta.jpg", "textura-pedra.png").
+Aquecimento (10 min): faça uma roda rápida. Cada aluno diz, em uma frase, qual é a imagem favorita do pacote dele e por quê. Projete o pacote-modelo e mostre a diferença entre uma pasta bagunçada ("imagem1, imagem2, foto final final2") e uma pasta organizada ("ícone-vida.png", "fundo-floresta.jpg", "textura-pedra.png").
 
 Conteúdo novo guiado (15 min): apresente a lista de verificação. No Gemini, mostre como reabrir uma imagem antiga (role a conversa ou use o histórico no menu lateral). Demonstre como conferir o formato: ao baixar, o nome do arquivo termina em ".png" ou ".jpg". Mostre como pedir uma correção rápida pelo próprio chat, por exemplo: "Deixe esta imagem mais nítida e com fundo transparente, em PNG". Explique quando usar cada formato: PNG transparente para ícones e elementos soltos; JPG ou PNG para fundos e cenários.
 
@@ -58,7 +58,7 @@ Use a ideia de "kit": "Vocês montaram um kit de arte do seu jogo, como um kit d
       tempo: `10 min`,
       guiaProfessor: `Entregue a lista de verificação e peça que cada aluno passe por todas as suas imagens marcando cada item. Circule e confira se eles abrem os arquivos baixados para ver o formato.`,
       atividade: `Abra o seu pacote e confira imagem por imagem: está nítida? Está no formato certo (PNG transparente para ícones, JPG ou PNG para fundos)? O nome do arquivo está claro? Marque cada item na lista.`,
-      gabarito: `Pacote conferido com todos os itens marcados: imagens nítidas, ícones em PNG transparente, fundos em JPG ou PNG, e cada arquivo com nome claro (por exemplo "icone-vida.png"). Espera-se que o aluno identifique pelo menos uma imagem que precisa de ajuste.`,
+      gabarito: `Pacote conferido com todos os itens marcados: imagens nítidas, ícones em PNG transparente, fundos em JPG ou PNG, e cada arquivo com nome claro (por exemplo "ícone-vida.png"). Espera-se que o aluno identifique pelo menos uma imagem que precisa de ajuste.`,
     },
     {
       titulo: `Corrigindo o detalhe que falta`,

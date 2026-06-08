@@ -31,7 +31,7 @@ O professor não precisa ser especialista em Scratch. Este material é um tutori
     `Encostou no inimigo — o momento em que o herói toca o inimigo e perde uma vidinha.`,
     `Quando bandeira clicada — o bloco que faz tudo começar e zera as vidas para três de novo.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 Uma variável é apenas uma caixinha que guarda um número e lembra dele. No Scratch, ela vive na aba "Variáveis", na coluna de blocos à esquerda (categoria laranja-escuro). Hoje criaremos uma única variável chamada "vidas". Ela precisa de três comportamentos: começar valendo 3 quando o jogo inicia, aparecer na tela e perder 1 quando o herói encosta no inimigo.
 

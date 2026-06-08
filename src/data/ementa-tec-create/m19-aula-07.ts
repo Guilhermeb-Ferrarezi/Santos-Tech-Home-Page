@@ -17,7 +17,7 @@ Ao final da aula, cada aluno terá uma pasta organizada no computador, com as me
     `Computadores com acesso ao Gemini (gemini.google.com) e ao Nano Banana já liberado, cada aluno com sua conta Google logada`,
     `Navegador atualizado (Chrome ou Edge) e gerenciador de arquivos do sistema (Explorador de Arquivos no Windows)`,
     `Projetor ou TV para o professor demonstrar a criação de pastas e a renomeação dos arquivos`,
-    `Pasta de exemplo já organizada pelo professor (com subpastas "cenas", "texturas" e "icones" e arquivos bem nomeados) para servir de modelo`,
+    `Pasta de exemplo já organizada pelo professor (com subpastas "cenas", "texturas" e "ícones" e arquivos bem nomeados) para servir de modelo`,
     `Todas as imagens que cada aluno gerou nas semanas anteriores do mês (no histórico do Gemini e/ou já baixadas)`,
     `Folha ou documento digital com uma tabela simples de "checklist do pacote" para anotar o que falta`,
     `Espaço livre no disco e, se houver, um pen drive ou pasta na nuvem para backup do pacote`,
@@ -43,7 +43,7 @@ No computador (Windows), criar pasta é com o botão direito numa área vazia, "
 
 10 min - Aquecimento e revisão: Mostre no projetor uma pasta toda bagunçada, com nomes como "image (7).png", e ao lado a sua pasta-modelo organizada. Pergunte: "Em qual delas você acha o ícone da moeda em três segundos?" Conduza a turma a perceber que organização economiza tempo. Liste no quadro os três tipos de imagem do mês: cenas, texturas e ícones.
 
-15 min - Conteúdo novo guiado: No projetor, crie ao vivo a pasta-mãe (ex.: "PacoteImagens_Joao"), e dentro dela três subpastas: "cenas", "texturas" e "icones" (sem acento e sem espaço nos nomes, para evitar problemas no jogo). Baixe uma imagem do Gemini, mova-a para a subpasta certa e renomeie com a convenção combinada: tipo_descricao_numero, como "icone_moeda_01.png". Repita com mais uma imagem de outro tipo para fixar.
+15 min - Conteúdo novo guiado: No projetor, crie ao vivo a pasta-mãe (ex.: "PacoteImagens_Joao"), e dentro dela três subpastas: "cenas", "texturas" e "ícones" (sem acento e sem espaço nos nomes, para evitar problemas no jogo). Baixe uma imagem do Gemini, mova-a para a subpasta certa e renomeie com a convenção combinada: tipo_descricao_numero, como "icone_moeda_01.png". Repita com mais uma imagem de outro tipo para fixar.
 
 25 min - Mão na massa: Cada aluno cria a própria pasta-mãe e as três subpastas, revisita o histórico do Gemini, baixa as melhores imagens do mês e as distribui nas subpastas, renomeando cada uma. Enquanto organizam, marcam no checklist o que está fora do estilo. Quem terminar de organizar volta ao Gemini com o Nano Banana para regenerar uma imagem que não combina. Circule conferindo nomes e pastas.
 
@@ -62,8 +62,8 @@ O erro mais comum é usar acentos e espaços nos nomes de pasta e arquivo; expli
       tipo: `prática na ferramenta`,
       tempo: `7 min`,
       guiaProfessor: `Acompanhe cada aluno criando a pasta-mãe e as três subpastas. Confira que os nomes não têm acento nem espaço. Use o botão direito, "Novo", "Pasta".`,
-      atividade: `No computador, crie uma pasta-mãe com seu nome (ex.: "PacoteImagens_Maria") e, dentro dela, três subpastas: "cenas", "texturas" e "icones". Não use acentos nem espaços nos nomes.`,
-      gabarito: `Está correto quando existe uma pasta-mãe contendo exatamente três subpastas chamadas "cenas", "texturas" e "icones", todas sem acento e sem espaço. Exemplo aceito: a pasta "PacoteImagens_Maria" com as três subpastas vazias prontas para receber as imagens.`,
+      atividade: `No computador, crie uma pasta-mãe com seu nome (ex.: "PacoteImagens_Maria") e, dentro dela, três subpastas: "cenas", "texturas" e "ícones". Não use acentos nem espaços nos nomes.`,
+      gabarito: `Está correto quando existe uma pasta-mãe contendo exatamente três subpastas chamadas "cenas", "texturas" e "ícones", todas sem acento e sem espaço. Exemplo aceito: a pasta "PacoteImagens_Maria" com as três subpastas vazias prontas para receber as imagens.`,
     },
     {
       titulo: `Baixando e nomeando as melhores`,
@@ -71,7 +71,7 @@ O erro mais comum é usar acentos e espaços nos nomes de pasta e arquivo; expli
       tempo: `12 min`,
       guiaProfessor: `Mostre como abrir o histórico do Gemini e baixar imagens (ícone de download ou botão direito, "Salvar imagem como"). Reforce a convenção tipo_descricao_numero e a seleção das melhores versões.`,
       atividade: `Abra o histórico do Gemini, escolha suas melhores cenas, texturas e ícones do mês, baixe cada uma, mova para a subpasta certa e renomeie no formato tipo_descricao_numero (ex.: "cena_floresta_01.png", "textura_pedra_02.png", "icone_moeda_01.png").`,
-      gabarito: `Está correto quando cada subpasta tem pelo menos uma imagem selecionada (uma boa versão, não borrada) e todos os arquivos seguem o padrão tipo_descricao_numero. Exemplo válido: na subpasta "icones", o arquivo "icone_vida_01.png"; na subpasta "texturas", "textura_madeira_01.png".`,
+      gabarito: `Está correto quando cada subpasta tem pelo menos uma imagem selecionada (uma boa versão, não borrada) e todos os arquivos seguem o padrão tipo_descricao_numero. Exemplo válido: na subpasta "ícones", o arquivo "icone_vida_01.png"; na subpasta "texturas", "textura_madeira_01.png".`,
     },
     {
       titulo: `Caça aos arquivos`,

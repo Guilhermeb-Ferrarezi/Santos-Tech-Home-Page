@@ -43,9 +43,9 @@ Conteúdo novo guiado (15 min): no projetor, abra o script.js e digite junto com
 
 var idade = 15;
 if (idade >= 13) {
-  console.log("Pode acessar o conteudo teen.");
+  console.log("Pode acessar o conteúdo teen.");
 } else {
-  console.log("Conteudo apenas para maiores de 13.");
+  console.log("Conteúdo apenas para maiores de 13.");
 }
 
 Explique: a primeira linha guarda o número na variável idade. A segunda pergunta "idade é maior ou igual a 13?". As chaves marcam o que roda se for verdade. O else é o plano B. Salve, recarregue a página e mostre a mensagem no Console. Depois mude idade para 10 e mostre a outra mensagem. Agora apresente o else if com três faixas:

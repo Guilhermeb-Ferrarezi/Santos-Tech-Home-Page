@@ -51,7 +51,7 @@ Antes da aula, abra o arquivo de exemplo pronto no navegador e role a página de
   <h2>Bem-vindo ao meu mundo!</h2>
   <a href="#" class="botao">Ver projetos</a>
 </section>
-<main class="conteudo">
+<main class="conteúdo">
   <div class="card">Projeto 1</div>
   <div class="card">Projeto 2</div>
 </main>
@@ -61,14 +61,14 @@ Antes da aula, abra o arquivo de exemplo pronto no navegador e role a página de
 
 Agora abra o estilo.css e escreva as regras que dão respiro e cor a cada área:
 
-.topo, .hero, .conteudo, .rodape {
+.topo, .hero, .conteúdo, .rodape {
   padding: 40px;
 }
 .hero {
   background-color: lightblue;
   text-align: center;
 }
-.conteudo {
+.conteúdo {
   background-color: white;
   display: flex;
   gap: 20px;
@@ -111,7 +111,7 @@ O erro mais comum é esquecer de fechar a etiqueta, abrindo section ou main e n�
 
 <header class="topo"><h1>Meu Site</h1></header>
 <section class="hero"><h2>Bem-vindo!</h2></section>
-<main class="conteudo"><h2>Projetos</h2></main>
+<main class="conteúdo"><h2>Projetos</h2></main>
 <footer class="rodape"><p>Rodape</p></footer>
 
 Acertou quem usou as etiquetas semânticas header, section, main e footer na ordem correta e fechou todas com a barra.`,
@@ -124,9 +124,9 @@ Acertou quem usou as etiquetas semânticas header, section, main e footer na ord
       atividade: `No seu estilo.css, dê padding de 40px nas quatro seções e coloque cores de fundo diferentes em pelo menos duas seções vizinhas, para que o olho perceba a divisão. Salve e atualize o navegador.`,
       gabarito: `O código correto é:
 
-.topo, .hero, .conteudo, .rodape { padding: 40px; }
+.topo, .hero, .conteúdo, .rodape { padding: 40px; }
 .hero { background-color: lightblue; }
-.conteudo { background-color: white; }
+.conteúdo { background-color: white; }
 .rodape { background-color: navy; color: white; }
 
 Acertou quem aplicou o padding em todas as seções e usou cores de fundo diferentes entre seções vizinhas, vendo o respiro e a divisão aparecerem na tela.`,
@@ -138,8 +138,8 @@ Acertou quem aplicou o padding em todas as seções e usou cores de fundo difere
       guiaProfessor: `Hora de reusar o trabalho da aula anterior. O botão vai para o hero e os cards vão para a área de conteúdo. Mostre que basta reaproveitar as classes já existentes no CSS. Use display flex e gap no conteúdo para os cards ficarem lado a lado.`,
       atividade: `Coloque um link com a classe botao dentro da sua section hero e crie três div com a classe card dentro do main de conteúdo. No conteúdo, use display flex e gap de 20px para os cards ficarem lado a lado.`,
       gabarito: `No HTML, dentro do hero: <a href="#" class="botao">Ver projetos</a>
-Dentro do conteudo: <div class="card">1</div> <div class="card">2</div> <div class="card">3</div>
-No CSS: .conteudo { display: flex; gap: 20px; }
+Dentro do conteúdo: <div class="card">1</div> <div class="card">2</div> <div class="card">3</div>
+No CSS: .conteúdo { display: flex; gap: 20px; }
 
 Acertou quem reaproveitou as classes botao e card já existentes e deixou os três cards lado a lado com flex e gap.`,
     },

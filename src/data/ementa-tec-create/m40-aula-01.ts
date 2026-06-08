@@ -39,11 +39,11 @@ Você não precisa dominar Realidade Virtual nem o Unity para dar esta aula. Hoj
 
 10 min, aquecimento e revisão. Pergunte à turma: qual a diferença entre jogar num celular e estar dentro de um jogo? Conduza até a ideia de que na VR você entra no mundo. Se houver óculos VR, deixe um ou dois alunos experimentarem por trinta segundos enquanto os outros observam. Apresente as três palavras na lousa: imersão, presença, interação em 360 graus.
 
-15 min, conteúdo novo guiado. Mostre no projetor os três vídeos de exemplo, um de cada tipo: visita, jogo e simulação. Depois de cada vídeo, pergunte: que tipo é esse e por que dá sensação de presença? Em seguida, abra o Claude na tela grande e digite uma mensagem como esta, exatamente assim: Liste 6 ideias de experiencia em Realidade Virtual para um adolescente fazer no Unity em poucas aulas, dizendo o tema, o objetivo e o tipo (visita, jogo ou simulacao) de cada uma. Leia as respostas com a turma. Depois mostre como refinar, enviando uma segunda mensagem: Escolha a ideia 3 e deixe ela mais simples de construir e mais divertida, explicando em 4 frases curtas. Mostre que a segunda resposta fica mais clara que a primeira.
+15 min, conteúdo novo guiado. Mostre no projetor os três vídeos de exemplo, um de cada tipo: visita, jogo e simulação. Depois de cada vídeo, pergunte: que tipo é esse e por que dá sensação de presença? Em seguida, abra o Claude na tela grande e digite uma mensagem como esta, exatamente assim: Liste 6 ideias de experiência em Realidade Virtual para um adolescente fazer no Unity em poucas aulas, dizendo o tema, o objetivo e o tipo (visita, jogo ou simulacao) de cada uma. Leia as respostas com a turma. Depois mostre como refinar, enviando uma segunda mensagem: Escolha a ideia 3 e deixe ela mais simples de construir e mais divertida, explicando em 4 frases curtas. Mostre que a segunda resposta fica mais clara que a primeira.
 
 25 min, mão na massa. Cada aluno usa o Claude no próprio computador (ou em duplas, se faltar acesso) para gerar suas ideias e depois refinar a favorita. Oriente a sequência: primeiro pedir 5 a 6 ideias, depois escolher uma e pedir para refinar. Em seguida, cada aluno preenche a ficha de conceito com três campos: tema (sobre o que é), objetivo (o que o jogador faz ou sente) e tipo (visita, jogo ou simulação). Circule pela sala ajudando quem travar e puxando para baixo ideias grandes demais.
 
-10 min, desafio e compartilhar. Desafio: cada aluno escreve uma frase única que descreve a experiência, no formato "Uma experiencia de [tipo] onde o jogador [objetivo] em [tema]". Compartilhar: faça uma rodada rápida em que cada aluno lê sua frase para a turma. Guarde as fichas, pois serão a base do roteiro na Aula 2.
+10 min, desafio e compartilhar. Desafio: cada aluno escreve uma frase única que descreve a experiência, no formato "Uma experiência de [tipo] onde o jogador [objetivo] em [tema]". Compartilhar: faça uma rodada rápida em que cada aluno lê sua frase para a turma. Guarde as fichas, pois serão a base do roteiro na Aula 2.
 
 ## Como explicar de forma clara (linguagem para a idade)
 
@@ -75,7 +75,7 @@ O erro mais comum é escolher uma ideia grande demais, como recriar uma cidade i
       tempo: `12 minutos`,
       guiaProfessor: `Mostre antes na tela grande como escrever um bom pedido. Reforce que a pergunta deve incluir o contexto: adolescente, Unity, poucas aulas, dizer tema, objetivo e tipo. Circule para garantir que cada aluno gere e leia as ideias.`,
       atividade: `Peça ao Claude pelo menos 5 ideias de experiência VR para você fazer no Unity. Na mensagem, peça que cada ideia traga tema, objetivo e tipo (visita, jogo ou simulação). Leia as respostas e marque as duas que mais gostou.`,
-      gabarito: `Exemplo de mensagem correta: Liste 5 ideias de experiencia em Realidade Virtual para um adolescente fazer no Unity em poucas aulas, com tema, objetivo e tipo (visita, jogo ou simulacao) de cada uma. O resultado esperado é uma lista com 5 ou mais ideias, cada uma com os três campos preenchidos, e o aluno marcando duas favoritas. Se as ideias vierem vagas, o pedido não tinha contexto suficiente: oriente a reescrever incluindo Unity, poucas aulas e os três campos.`,
+      gabarito: `Exemplo de mensagem correta: Liste 5 ideias de experiência em Realidade Virtual para um adolescente fazer no Unity em poucas aulas, com tema, objetivo e tipo (visita, jogo ou simulacao) de cada uma. O resultado esperado é uma lista com 5 ou mais ideias, cada uma com os três campos preenchidos, e o aluno marcando duas favoritas. Se as ideias vierem vagas, o pedido não tinha contexto suficiente: oriente a reescrever incluindo Unity, poucas aulas e os três campos.`,
     },
     {
       titulo: `Refinando a ideia favorita`,
@@ -90,8 +90,8 @@ O erro mais comum é escolher uma ideia grande demais, como recriar uma cidade i
       tipo: `projeto curto`,
       tempo: `12 minutos`,
       guiaProfessor: `Distribua a ficha com os campos tema, objetivo e tipo. Confira que cada aluno preenche os três e termina com a frase-resumo no formato pedido. Recolha as fichas para usar na Aula 2.`,
-      atividade: `Preencha sua ficha de conceito com três campos: tema (sobre o que é), objetivo (o que o jogador faz ou sente) e tipo (visita, jogo ou simulação). No fim, escreva uma frase única no formato: Uma experiencia de [tipo] onde o jogador [objetivo] em [tema].`,
-      gabarito: `A ficha deve ter os três campos preenchidos e coerentes entre si. Exemplo completo e válido: tema "fundo do mar"; objetivo "encontrar e fotografar 3 peixes raros nadando ao redor"; tipo "visita". Frase-resumo correspondente: Uma experiencia de visita onde o jogador fotografa peixes raros no fundo do mar. A frase deve usar exatamente os três campos da ficha. Ficha incompleta (sem objetivo ou sem tipo) ou frase que não bate com os campos devem ser ajustadas antes de recolher.`,
+      atividade: `Preencha sua ficha de conceito com três campos: tema (sobre o que é), objetivo (o que o jogador faz ou sente) e tipo (visita, jogo ou simulação). No fim, escreva uma frase única no formato: Uma experiência de [tipo] onde o jogador [objetivo] em [tema].`,
+      gabarito: `A ficha deve ter os três campos preenchidos e coerentes entre si. Exemplo completo e válido: tema "fundo do mar"; objetivo "encontrar e fotografar 3 peixes raros nadando ao redor"; tipo "visita". Frase-resumo correspondente: Uma experiência de visita onde o jogador fotografa peixes raros no fundo do mar. A frase deve usar exatamente os três campos da ficha. Ficha incompleta (sem objetivo ou sem tipo) ou frase que não bate com os campos devem ser ajustadas antes de recolher.`,
     },
   ],
 };

@@ -66,7 +66,7 @@ O erro mais frequente é querer começar a modelar logo e pular o planejamento; 
       tempo: `8 min`,
       guiaProfessor: `Mostre como escrever um pedido específico, com tema, quantidade e unidade. Reforce que o Claude ajuda a pensar, mas não modela.`,
       atividade: `Escreva ao Claude um pedido claro pedindo referências reais e o tamanho aproximado, em centímetros, de cada objeto que falta na sua cena. Anote a resposta.`,
-      gabarito: `Um bom pedido tem tema, quantidade e unidade. Exemplo de pedido: Preciso completar a cena de uma oficina num jogo; liste 5 objetos com uma referencia real de cada e o tamanho aproximado em centimetros. A resposta esperada traz objetos com referência e medidas, como caixote (40 cm), luminária de teto (30 cm), bancada (90 cm de altura).`,
+      gabarito: `Um bom pedido tem tema, quantidade e unidade. Exemplo de pedido: Preciso completar a cena de uma oficina num jogo; liste 5 objetos com uma referência real de cada e o tamanho aproximado em centimetros. A resposta esperada traz objetos com referência e medidas, como caixote (40 cm), luminária de teto (30 cm), bancada (90 cm de altura).`,
     },
     {
       titulo: `Montando a lista de modelagem`,
@@ -74,7 +74,7 @@ O erro mais frequente é querer começar a modelar logo e pular o planejamento; 
       tempo: `12 min`,
       guiaProfessor: `Garanta que cada linha da lista tenha os quatro campos: item, prioridade, referência e tamanho em cm. Confira se as prioridades fazem sentido.`,
       atividade: `Monte sua lista de modelagem com pelo menos cinco itens. Para cada um, registre: nome do item, prioridade (alta, média ou baixa), uma referência e o tamanho esperado em centímetros.`,
-      gabarito: `A lista final tem cinco ou mais linhas completas. Exemplo de linha: Item: caixote de madeira | Prioridade: alta | Referencia: caixote de feira | Tamanho: 40 x 40 x 40 cm. Os itens de prioridade alta são os mais visíveis ou mais usados na cena.`,
+      gabarito: `A lista final tem cinco ou mais linhas completas. Exemplo de linha: Item: caixote de madeira | Prioridade: alta | Referência: caixote de feira | Tamanho: 40 x 40 x 40 cm. Os itens de prioridade alta são os mais visíveis ou mais usados na cena.`,
     },
     {
       titulo: `Configurando as unidades do Maya`,

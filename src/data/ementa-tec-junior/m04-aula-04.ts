@@ -30,7 +30,7 @@ No final da aula, cada criança vai ter um jogo que de fato termina: o personage
     `Sempre verificar — usar o bloco "sempre" para o jogo ficar olhando o tempo todo se as vidas já acabaram, sem nunca cansar.`,
     `Trocar fantasia/cenário — mudar o desenho que aparece na tela, do jogo normal para a tela de "Fim".`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 Nesta aula você vai fechar o ciclo do jogo. Na aula anterior a turma criou uma variável chamada "vidas" (geralmente começando em 3) que diminui quando o personagem encosta no inimigo. O problema é que, quando "vidas" chega a 0, o jogo não faz nada. Hoje você ensina o jogo a reagir a esse momento.
 

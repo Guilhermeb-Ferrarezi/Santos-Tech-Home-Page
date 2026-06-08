@@ -90,7 +90,7 @@ O erro mais comum é o personagem ficar rosa: isso quer dizer que o material per
       tempo: `4 minutos`,
       guiaProfessor: `Reforce como descrever um problema de forma clara: o que aconteceu, em qual ferramenta e o que já tentou. Leia algumas perguntas em voz alta e avalie com a turma se estão claras.`,
       atividade: `Imagine que a textura do personagem sumiu depois de importar do Blender. Escreva uma pergunta clara para o Claude pedindo ajuda, dizendo o que aconteceu, em qual programa e o que você já tentou.`,
-      gabarito: `Exemplo de pergunta esperada: Importei meu personagem do Blender para o Unity e a textura nao apareceu, o modelo ficou rosa. Ja conferi que o arquivo de imagem esta na pasta Assets. O que pode estar causando isso e como faco para a textura voltar a aparecer no material? A pergunta diz o problema, a ferramenta (Unity), o sintoma (modelo rosa) e o que ja foi tentado.`,
+      gabarito: `Exemplo de pergunta esperada: Importei meu personagem do Blender para o Unity e a textura não apareceu, o modelo ficou rosa. Ja conferi que o arquivo de imagem esta na pasta Assets. O que pode estar causando isso e como faco para a textura voltar a aparecer no material? A pergunta diz o problema, a ferramenta (Unity), o sintoma (modelo rosa) e o que ja foi tentado.`,
     },
   ],
 };

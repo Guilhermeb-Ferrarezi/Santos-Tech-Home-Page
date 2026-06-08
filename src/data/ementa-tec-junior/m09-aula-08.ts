@@ -31,7 +31,7 @@ O objetivo desta aula não é técnico, e sim emocional e de fechamento. As cria
     `Protótipo — a primeira versão do brinquedo, feita para a gente ver, testar e ter orgulho.`,
     `Criador — a pessoa que imagina e constrói; nesta aula, cada criança é a criadora do seu personagem.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 Esta aula é de celebração e fechamento, não de novos comandos no MagicaVoxel. Sua função é conduzir a emoção do momento e explicar, em palavras simples, o que a impressora 3D faz. A impressão 3D funciona por deposição de camadas: a impressora derrete um fio de plástico (o filamento) e o deposita camada por camada, de baixo para cima, até montar o objeto sólido. Pense em empilhar muitas panquecas finíssimas. O modelo que a criança fez no MagicaVoxel foi exportado (na Aula 7) para um arquivo que a impressora entende. Você não precisa dominar a máquina; basta saber explicar a ideia e garantir a segurança.
 

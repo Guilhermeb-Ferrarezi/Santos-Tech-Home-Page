@@ -31,7 +31,7 @@ A aula termina com um pequeno desafio em que cada criança faz o Agente dar algu
     `Frente do Agente — o lado para onde o rostinho dele aponta; é para lá que ele anda quando mandamos ir em frente.`,
     `Bloco — a pecinha colorida do MakeCode que a gente encaixa para escrever um comando, como uma peça de montar.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 O Agente é uma entidade especial do Minecraft pensada para ensinar programação. Ele não é controlado pelas teclas: ele só obedece a blocos de código do MakeCode. Pense nele como um robô de estimação dentro do jogo. Antes da aula, abra o Minecraft, entre num mundo plano em modo criativo e abra o editor MakeCode pressionando a tecla "C" (em alguns computadores o ícone fica numa barra; basta clicar nele). O MakeCode abre numa janela com uma paleta de categorias coloridas à esquerda (Player, Blocks, Agent, Loops, etc.) e uma área branca à direita onde você encaixa os blocos.
 
@@ -49,7 +49,7 @@ Importante: o Agente anda em "casas" do mapa (1 bloco = 1 quadrado). "Forward" �
 
 10 min — Desafio + compartilhar: cada criança faz o Agente dar três passos curtos e uma virada, e mostra para a turma no projetor ou na própria tela. Dê adesivo a quem conseguir.
 
-## Como explicar para criancas de 5 a 9 (analogias e linguagem)
+## Como explicar para crianças de 5 a 9 (analogias e linguagem)
 
 Chame o Agente de "robô de estimação". Diga que ele é tímido: só aparece quando chamamos (invocar = "chamar o amigo"). Compare cada passo a andar numa amarelinha: "uma casa de cada vez". Para virar, peça que as crianças girem o próprio corpo: "vire como quem vai olhar a janela". Reforce que o robô nunca erra de propósito — se ele foi para o lugar errado, foi porque o nosso comando pediu aquilo; então é só consertar o comando. Use sempre a fala "eu mando, ele faz".
 

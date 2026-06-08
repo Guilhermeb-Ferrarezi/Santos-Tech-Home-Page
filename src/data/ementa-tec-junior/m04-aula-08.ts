@@ -16,7 +16,7 @@ Nesta aula o professor é menos um instrutor de blocos novos e mais um mestre de
   materiais: [
     `Computadores ligados, um por criança, com o projeto Scratch de cada aluno já aberto (o mesmo arquivo das semanas anteriores).`,
     `Projetor ou TV grande para a hora das apresentações, ligado e testado antes da turma chegar.`,
-    `Um cartão "Pronto pra Jogar" por criança (papel com tres quadradinhos para marcar: começa, dá para jogar, tem fim) e lápis de cor.`,
+    `Um cartão "Pronto pra Jogar" por criança (papel com três quadradinhos para marcar: começa, dá para jogar, tem fim) e lápis de cor.`,
     `Crachás ou plaquinhas com o nome de cada jogo, feitos rapidamente no início ou já prontos.`,
     `Adesivos ou carimbos de estrelinha para premiar quem testou e apresentou.`,
     `Um cronômetro grande visível (pode ser o do projetor) para marcar os tempos do rodízio.`,
@@ -31,7 +31,7 @@ Nesta aula o professor é menos um instrutor de blocos novos e mais um mestre de
     `Elogio gentil — falar uma coisa boa do jogo do colega, como "eu adorei a sua fase azul".`,
     `Versão final — o jogo já pronto, testado e arrumado, do jeito que a gente quer mostrar para todo mundo.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 Esta aula consolida o projeto do mês, então não há bloco novo para ensinar: o seu papel é ajudar cada criança a deixar o jogo jogável do começo ao fim e a apresentá-lo. Tecnicamente, você precisa dominar três ações simples no Scratch. Primeiro, a bandeira verde (ícone verde no topo direito do palco): ela reinicia o jogo e é a forma certa de testar tudo de novo. Segundo, salvar: menu "Arquivo" (canto superior esquerdo) e opção "Salvar agora" se estiver logado, ou "Salvar no seu computador" para baixar o arquivo .sb3. Terceiro, o modo de tela cheia: o ícone de quatro setinhas para fora, logo acima do palco, que aumenta o jogo para a apresentação no projetor. Um jogo "pronto" aqui significa: começa ao clicar na bandeira verde, dá para jogar com as setas ou o mouse, e tem um fim (ganhou, perdeu ou "Fim de Jogo"). Não persiga perfeição; persiga "funciona e é divertido".
 
@@ -39,9 +39,9 @@ Esta aula consolida o projeto do mês, então não há bloco novo para ensinar: 
 
 Aquecimento (10 min): receba a turma com a tela grande mostrando um jogo simples rodando. Clique na bandeira verde na frente deles e pergunte: "O que acontece quando aperto aqui?". Relembre vidas, fim de jogo e velocidade das aulas anteriores. Anuncie o dia: "Hoje a gente termina, testa e MOSTRA o nosso jogo!".
 
-Conteúdo guiado (15 min): no seu computador projetado, demonstre o ritual de teste. Clique na bandeira verde, jogue até o fim de propósito, e mostre como achar um "bug" (um monstrinho escondido). Demonstre salvar: clique em "Arquivo" e depois em "Salvar". Demonstre a tela cheia clicando nas quatro setinhas acima do palco. Entregue o cartão "Pronto pra Jogar" e explique os tres quadradinhos: começa, dá para jogar, tem fim.
+Conteúdo guiado (15 min): no seu computador projetado, demonstre o ritual de teste. Clique na bandeira verde, jogue até o fim de propósito, e mostre como achar um "bug" (um monstrinho escondido). Demonstre salvar: clique em "Arquivo" e depois em "Salvar". Demonstre a tela cheia clicando nas quatro setinhas acima do palco. Entregue o cartão "Pronto pra Jogar" e explique os três quadradinhos: começa, dá para jogar, tem fim.
 
-Mão na massa (25 min): cada criança testa o próprio jogo clicando na bandeira verde, marca os quadradinhos do cartão e arruma um errinho com a sua ajuda. Depois, faça o rodízio: ao seu sinal, todos levantam e sentam na cadeira da direita para jogar o jogo do colega por dois minutos; repita umas tres vezes. Lembre a regra de ouro: "mão só no teclado, boca só pra elogio". Garanta que todos salvaram clicando em "Arquivo" e "Salvar".
+Mão na massa (25 min): cada criança testa o próprio jogo clicando na bandeira verde, marca os quadradinhos do cartão e arruma um errinho com a sua ajuda. Depois, faça o rodízio: ao seu sinal, todos levantam e sentam na cadeira da direita para jogar o jogo do colega por dois minutos; repita umas três vezes. Lembre a regra de ouro: "mão só no teclado, boca só pra elogio". Garanta que todos salvaram clicando em "Arquivo" e "Salvar".
 
 Desafio e compartilhar (10 min): hora das apresentações. Chame as crianças uma a uma ao projetor. Cada uma clica na tela cheia, na bandeira verde, joga dez segundos e diz uma frase: "Meu jogo é o... e a parte que eu mais gostei foi...". A turma bate palma e você entrega a estrelinha. Encerre celebrando que todos terminaram o projeto do mês.
 
@@ -65,15 +65,15 @@ O erro mais comum é a criança esquecer de salvar e perder o trabalho; circule 
       titulo: `Cartão Pronto pra Jogar`,
       tipo: `desenho/papel`,
       tempo: `7 minutos`,
-      guiaProfessor: `Entregue o cartão com os tres quadradinhos e explique cada um devagar, apontando: começa, dá para jogar, tem fim. Mostre no seu jogo projetado como cada item é verdadeiro ou não. Peça que marquem com X apenas o que já funciona e desenhem uma carinha do seu personagem no cantinho.`,
+      guiaProfessor: `Entregue o cartão com os três quadradinhos e explique cada um devagar, apontando: começa, dá para jogar, tem fim. Mostre no seu jogo projetado como cada item é verdadeiro ou não. Peça que marquem com X apenas o que já funciona e desenhem uma carinha do seu personagem no cantinho.`,
       atividade: `No seu cartão, teste o seu jogo e marque um X em cada coisa que já funciona: (1) o jogo COMEÇA quando clico na bandeira verde; (2) DÁ PARA JOGAR mexendo no personagem; (3) o jogo TEM FIM (ganha, perde ou aparece Fim de Jogo). Depois desenhe o seu personagem favorito no cantinho do cartão.`,
-      gabarito: `O cartão está correto quando os quadradinhos marcados batem com a realidade do jogo ao ser testado na frente do professor. O ideal é os tres marcados; se faltar algum, o professor usa o cartão para ajudar a criança a completar aquela parte. Sucesso é a criança saber dizer qual quadradinho ainda falta.`,
+      gabarito: `O cartão está correto quando os quadradinhos marcados batem com a realidade do jogo ao ser testado na frente do professor. O ideal é os três marcados; se faltar algum, o professor usa o cartão para ajudar a criança a completar aquela parte. Sucesso é a criança saber dizer qual quadradinho ainda falta.`,
     },
     {
       titulo: `Cadeira Musical dos Jogos`,
       tipo: `jogo`,
       tempo: `10 minutos`,
-      guiaProfessor: `Organize as cadeiras para que dê para girar de lugar facilmente. Explique a regra de ouro antes de começar: "mão só no teclado, boca só pra elogio". Ao seu sinal, todos trocam de cadeira para a direita e jogam o jogo do colega por dois minutos. Use o cronômetro grande e faça umas tres rodadas, sempre relembrando a gentileza.`,
+      guiaProfessor: `Organize as cadeiras para que dê para girar de lugar facilmente. Explique a regra de ouro antes de começar: "mão só no teclado, boca só pra elogio". Ao seu sinal, todos trocam de cadeira para a direita e jogam o jogo do colega por dois minutos. Use o cronômetro grande e faça umas três rodadas, sempre relembrando a gentileza.`,
       atividade: `Quando o professor der o sinal, levante e sente na cadeira da direita. Jogue o jogo do colega por dois minutinhos sem mexer nos blocos, só brincando. Antes de trocar de novo, fale UM elogio gentil para o dono do jogo, como "eu adorei a sua fase" ou "que som legal". Repita até voltar para a sua cadeira.`,
       gabarito: `Deu certo quando cada criança jogou pelo menos dois jogos diferentes, respeitou a regra de não mexer nos blocos e disse pelo menos um elogio gentil de verdade. O professor observa se houve cuidado com o trabalho do colega e fala respeitosa; esse é o sinal de acerto, não pontuação no jogo.`,
     },

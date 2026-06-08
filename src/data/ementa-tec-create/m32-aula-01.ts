@@ -17,7 +17,7 @@ Ao final, cada aluno já terá visto o Console do navegador, o lugar onde o Java
     `Computadores com um navegador moderno instalado (Chrome ou Edge), um por aluno`,
     `Editor de código instalado (VS Code) para abrir os arquivos de exemplo`,
     `Projetor ou TV para o professor demonstrar os exemplos ao vivo`,
-    `Arquivo de exemplo "exemplo-tres-camadas" com três versões da mesma página: só HTML, HTML + CSS e HTML + CSS + JavaScript`,
+    `Arquivo de exemplo "exemplo-três-camadas" com três versões da mesma página: só HTML, HTML + CSS e HTML + CSS + JavaScript`,
     `Conexão com a internet para visitar dois ou três sites interativos conhecidos dos alunos`,
     `Quadro branco para desenhar a comparação esqueleto (HTML), roupa (CSS) e cérebro (JavaScript)`,
     `Folha impressa com a frase-chave do dia: "JavaScript roda no navegador e faz a página reagir"`,

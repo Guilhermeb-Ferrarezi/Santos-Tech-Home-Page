@@ -17,7 +17,7 @@ Por fim, esta aula reforça a importância de dar nomes claros às variáveis. U
     `Computadores com navegador moderno (Chrome ou Edge) e acesso ao console (tecla F12)`,
     `Editor de código instalado (VS Code) com um arquivo HTML básico já preparado`,
     `Projetor ou tela grande para o professor demonstrar o console ao vivo`,
-    `Arquivo de exemplo "variaveis-modelo.html" com a estrutura pronta e a tag script vazia`,
+    `Arquivo de exemplo "variáveis-modelo.html" com a estrutura pronta e a tag script vazia`,
     `Folha impressa com a "tabela de tipos": texto (string), número (number), verdadeiro/falso (boolean)`,
     `Quadro branco ou flip chart para desenhar a metáfora das caixinhas com etiquetas`,
   ],

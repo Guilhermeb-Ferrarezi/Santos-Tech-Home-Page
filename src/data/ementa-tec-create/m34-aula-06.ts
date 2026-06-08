@@ -51,7 +51,7 @@ Use a comparação da mudança de casa. Diga: "Seu site morava no seu computador
 
 ## Erros comuns e como ajudar
 
-O erro mais comum é subir os arquivos no lugar errado, fora de public_html; o site não aparece. Confira sempre se eles estão dentro dessa pasta. O segundo é o arquivo principal com nome errado, como Index.html ou pagina.html; ensine que precisa ser index.html minúsculo. O terceiro é o caminho da imagem ou do CSS começar com C: ou com barra; mostre que no servidor só funcionam caminhos relativos, do lado do arquivo. Imagem que não aparece quase sempre é nome trocado, com maiúscula onde devia ser minúscula, pois o servidor diferencia Logo.png de logo.png. Por fim, se o domínio ainda mostrar página de "em construção", pode ser que ele esteja apontando para outra hospedagem; confirme no painel que o domínio está ligado àquela conta.`,
+O erro mais comum é subir os arquivos no lugar errado, fora de public_html; o site não aparece. Confira sempre se eles estão dentro dessa pasta. O segundo é o arquivo principal com nome errado, como Index.html ou página.html; ensine que precisa ser index.html minúsculo. O terceiro é o caminho da imagem ou do CSS começar com C: ou com barra; mostre que no servidor só funcionam caminhos relativos, do lado do arquivo. Imagem que não aparece quase sempre é nome trocado, com maiúscula onde devia ser minúscula, pois o servidor diferencia Logo.png de logo.png. Por fim, se o domínio ainda mostrar página de "em construção", pode ser que ele esteja apontando para outra hospedagem; confirme no painel que o domínio está ligado àquela conta.`,
   exercicios: [
     {
       titulo: `Enviando o primeiro arquivo`,

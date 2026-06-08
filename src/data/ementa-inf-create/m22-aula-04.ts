@@ -33,13 +33,13 @@ O objetivo não é decorar o código, e sim entender a lógica: ler uma célula,
   ],
   treinamento: `## O que o professor precisa saber
 
-Você não precisa ser programador. Toda esta aula gira em torno de quatro ideias: ler uma célula, descobrir a próxima linha vazia, escrever nela e limpar o formulário. O código do botão Salvar é curto. Primeiro, descobrimos onde a tabela termina com a linha proxima = Cells(Rows.Count, 1).End(xlUp).Row + 1. Em português, isso quer dizer: vá até o fim da coluna 1, suba até a última célula preenchida, pegue o número dela e some 1 para cair na linha de baixo, que está vazia. Depois, gravamos cada campo: Cells(proxima, 1).Value = Range("Nome").Value. Pratique o arquivo uma vez antes da aula, salvando-o sempre como .xlsm (Habilitada para Macros), e você estará pronto.
+Você não precisa ser programador. Toda esta aula gira em torno de quatro ideias: ler uma célula, descobrir a próxima linha vazia, escrever nela e limpar o formulário. O código do botão Salvar é curto. Primeiro, descobrimos onde a tabela termina com a linha próxima = Cells(Rows.Count, 1).End(xlUp).Row + 1. Em português, isso quer dizer: vá até o fim da coluna 1, suba até a última célula preenchida, pegue o número dela e some 1 para cair na linha de baixo, que está vazia. Depois, gravamos cada campo: Cells(próxima, 1).Value = Range("Nome").Value. Pratique o arquivo uma vez antes da aula, salvando-o sempre como .xlsm (Habilitada para Macros), e você estará pronto.
 
 ## Passo a passo da aula (ritmo 10/15/25/10)
 
 Aquecimento (10 min): abra o "mini-sistema.xlsm" no projetor e mostre a aba Formulário e a aba Banco. Pergunte à turma: "se eu digitar um nome aqui e clicar num botão, como o Excel sabe em qual linha guardar?". Deixe-os palpitar. Mostre que rolar a planilha na mão é lento e que o código vai descobrir a linha sozinho.
 
-Conteúdo novo guiado (15 min): abra o editor do VBA com o atalho Alt + F11. Dê um clique duplo na planilha Formulário, à esquerda, ou insira um módulo pelo menu Inserir, depois Módulo. Digite, devagar e em voz alta, o código do Salvar: Sub Salvar(), depois Dim proxima As Long, depois proxima = Cells(Rows.Count, 1).End(xlUp).Row + 1 (digite isso na aba Banco ou use Sheets("Banco")). Em seguida, três linhas de gravação: Sheets("Banco").Cells(proxima, 1).Value = Range("Nome").Value, e o mesmo para Idade na coluna 2 e Turma na coluna 3. Feche com End Sub. Volte ao Excel, vá em Inserir, depois Formas ou use um botão; clique com o botão direito no botão da aula passada e escolha Atribuir Macro, ligando-o ao Salvar.
+Conteúdo novo guiado (15 min): abra o editor do VBA com o atalho Alt + F11. Dê um clique duplo na planilha Formulário, à esquerda, ou insira um módulo pelo menu Inserir, depois Módulo. Digite, devagar e em voz alta, o código do Salvar: Sub Salvar(), depois Dim próxima As Long, depois próxima = Cells(Rows.Count, 1).End(xlUp).Row + 1 (digite isso na aba Banco ou use Sheets("Banco")). Em seguida, três linhas de gravação: Sheets("Banco").Cells(próxima, 1).Value = Range("Nome").Value, e o mesmo para Idade na coluna 2 e Turma na coluna 3. Feche com End Sub. Volte ao Excel, vá em Inserir, depois Formas ou use um botão; clique com o botão direito no botão da aula passada e escolha Atribuir Macro, ligando-o ao Salvar.
 
 Mão na massa (25 min): cada aluno digita o código do Salvar no próprio arquivo, atribui ao botão e testa cadastrando dois nomes. Circule pela sala conferindo se gravou na linha certa. Quando a maioria conseguir, mostre na tela o botão Limpar: Sub Limpar(), depois Range("Nome").Value = "", o mesmo para Idade e Turma, e End Sub. Peça que criem o segundo botão e o atribuam ao Limpar.
 
@@ -58,8 +58,8 @@ O erro mais frequente é salvar o arquivo como .xlsx comum, o que apaga as macro
       tipo: `Prática na ferramenta`,
       tempo: `7 minutos`,
       guiaProfessor: `Garanta que cada aluno está com o "mini-sistema.xlsm" aberto e o editor VBA acessível por Alt + F11. Mostre onde digitar a linha e relembre que a coluna 1 é onde os nomes ficam.`,
-      atividade: `No editor do VBA, escreva uma linha que descubra a próxima linha vazia da coluna 1 da aba Banco e guarde esse número numa variável chamada proxima. Em seguida, mostre esse número numa caixa de mensagem para conferir.`,
-      gabarito: `proxima = Sheets("Banco").Cells(Rows.Count, 1).End(xlUp).Row + 1 e, para conferir, MsgBox proxima. Se a tabela tem 3 fichas com cabeçalho na linha 1, o resultado deve ser 5.`,
+      atividade: `No editor do VBA, escreva uma linha que descubra a próxima linha vazia da coluna 1 da aba Banco e guarde esse número numa variável chamada próxima. Em seguida, mostre esse número numa caixa de mensagem para conferir.`,
+      gabarito: `próxima = Sheets("Banco").Cells(Rows.Count, 1).End(xlUp).Row + 1 e, para conferir, MsgBox próxima. Se a tabela tem 3 fichas com cabeçalho na linha 1, o resultado deve ser 5.`,
     },
     {
       titulo: `O botão Salvar funcionando`,
@@ -67,14 +67,14 @@ O erro mais frequente é salvar o arquivo como .xlsx comum, o que apaga as macro
       tempo: `9 minutos`,
       guiaProfessor: `Acompanhe de perto a gravação dos três campos. Relembre que cada campo vai numa coluna diferente (1, 2 e 3) e que é preciso indicar a aba Banco antes do Cells. Peça que testem cadastrando um nome real.`,
       atividade: `Complete a macro Salvar para que ela grave Nome, Idade e Turma do formulário na próxima linha vazia da aba Banco. Atribua a macro ao botão Salvar e teste com um cadastro.`,
-      gabarito: `Sub Salvar() / Dim proxima As Long / proxima = Sheets("Banco").Cells(Rows.Count, 1).End(xlUp).Row + 1 / Sheets("Banco").Cells(proxima, 1).Value = Range("Nome").Value / Sheets("Banco").Cells(proxima, 2).Value = Range("Idade").Value / Sheets("Banco").Cells(proxima, 3).Value = Range("Turma").Value / End Sub. Depois, botão direito no botão, Atribuir Macro, escolher Salvar.`,
+      gabarito: `Sub Salvar() / Dim próxima As Long / próxima = Sheets("Banco").Cells(Rows.Count, 1).End(xlUp).Row + 1 / Sheets("Banco").Cells(próxima, 1).Value = Range("Nome").Value / Sheets("Banco").Cells(próxima, 2).Value = Range("Idade").Value / Sheets("Banco").Cells(próxima, 3).Value = Range("Turma").Value / End Sub. Depois, botão direito no botão, Atribuir Macro, escolher Salvar.`,
     },
     {
       titulo: `Lendo o código em dupla`,
       tipo: `Em dupla / roda de conversa`,
       tempo: `8 minutos`,
       guiaProfessor: `Forme duplas e projete a linha da próxima linha vazia. Peça que conversem e expliquem, com as próprias palavras, o que cada pedaço faz antes de responder. Valorize o raciocínio, não só a resposta certa.`,
-      atividade: `Olhem juntos a linha proxima = Sheets("Banco").Cells(Rows.Count, 1).End(xlUp).Row + 1 e expliquem: o que faz o End(xlUp)? Por que somamos + 1 no final?`,
+      atividade: `Olhem juntos a linha próxima = Sheets("Banco").Cells(Rows.Count, 1).End(xlUp).Row + 1 e expliquem: o que faz o End(xlUp)? Por que somamos + 1 no final?`,
       gabarito: `O End(xlUp) parte do fim da coluna 1 e sobe até a última célula preenchida, devolvendo o número da linha onde a tabela termina. O + 1 desce uma linha, para cair na primeira linha vazia logo abaixo, evitando escrever em cima da última ficha.`,
     },
     {

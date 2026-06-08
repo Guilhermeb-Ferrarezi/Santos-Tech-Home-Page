@@ -41,7 +41,7 @@ Aquecimento (10 min): retome a aula passada. Pergunte: "O que é um evento?" e "
 
 Conteúdo novo guiado (15 min): no projetor, crie um Part. Clique com o botão direito sobre ele, "Insert Object", depois "Script". No Script, mostre linha por linha. Linha 1: local pontos = 0 (cria a gaveta começando em zero). Linha 2: o evento, ligando o toque no bloco a uma função. Dentro dela: pontos = pontos + 1 (soma um) e print(pontos) (mostra na tela). Aperte "Play" e encoste o personagem no bloco. Mostre o Output: 1, depois 2, depois 3. Pergunte: "De onde veio o número 2?". Eles vão perceber que o computador lembrou do 1 e somou.
 
-Mão na massa (25 min): cada aluno cria seu Part, insere o Script e digita o código. Ande pela sala. Quem terminar rápido, peça para trocar a mensagem do print por algo como "Voce ganhou um ponto!" junto com o número.
+Mão na massa (25 min): cada aluno cria seu Part, insere o Script e digita o código. Ande pela sala. Quem terminar rápido, peça para trocar a mensagem do print por algo como "Você ganhou um ponto!" junto com o número.
 
 Desafio e compartilhar (10 min): peça que mudem o ponto por ação de 1 para 5 (pontos = pontos + 5). Quem conseguir, mostra o Output no projetor para a turma e conta quantos toques deu.
 
@@ -110,12 +110,12 @@ end)`,
       tipo: `Desafio criativo`,
       tempo: `10 minutos`,
       guiaProfessor: `Desafio final para quem já fez o básico. Os alunos mudam quanto cada toque vale e melhoram a mensagem do print. Deixe-os escolher o valor (5, 10 ou 100). No fim, alguns mostram o Output no projetor e contam para a turma quantos toques deram e qual total alcançaram.`,
-      atividade: `Mude o seu código para que cada toque no bloco valha 5 pontos em vez de 1. Além do número, faça o print mostrar uma mensagem animada junto, como "Voce fez 5 pontos!". Teste e veja o total pular de 5 em 5.`,
+      atividade: `Mude o seu código para que cada toque no bloco valha 5 pontos em vez de 1. Além do número, faça o print mostrar uma mensagem animada junto, como "Você fez 5 pontos!". Teste e veja o total pular de 5 em 5.`,
       gabarito: `local pontos = 0
 
 script.Parent.Touched:Connect(function()
 	pontos = pontos + 5
-	print("Voce fez " .. pontos .. " pontos!")
+	print("Você fez " .. pontos .. " pontos!")
 end)
 
 Cada toque agora soma 5, então o Output mostra 5, 10, 15. A linha usa pontos = pontos + 5 e o print junta o texto com o número usando os dois pontinhos (..).`,

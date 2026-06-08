@@ -31,7 +31,7 @@ A aula termina em festa. Cada criança mostra rapidinho o seu jogo no ar para os
     `Funcionando — quando o personagem aparece, dá para andar e o cenário está todo lá, sem nada quebrado.`,
     `Comemorar — bater palma e festejar quando o jogo de um colega entra no ar, porque foi uma conquista grande.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 Esta aula fecha o ciclo de publicação iniciado na Aula 5. Na aula anterior a turma conheceu o botão de publicar; aqui o objetivo é concluir a publicação de quem ainda não terminou e, principalmente, abrir o jogo publicado para confirmar que funciona. No Roblox Studio o caminho é o menu File, opção Publish to Roblox (ou Publish to Roblox As, se for a primeira vez). Aparece uma janela onde se preenche o Name (nome do jogo) e a Description (descrição), e clica-se no botão azul Create ou Save. Pronto: o jogo passa a existir no servidor do Roblox e ganha uma página própria.
 
@@ -47,7 +47,7 @@ Mão na massa (25 min): cada criança no seu computador. Acompanhe um por um. Qu
 
 Desafio e compartilhar (10 min): cada criança mostra rapidinho a sua página de jogo no projetor ou na própria tela. A turma bate palma e toca o sininho a cada jogo que entra no ar. Finalize colando o nome de cada um no mural Jogo no Ar.
 
-## Como explicar para criancas de 5 a 9 (analogias e linguagem)
+## Como explicar para crianças de 5 a 9 (analogias e linguagem)
 
 Use a ideia de mandar uma carta: o jogo estava guardado na gaveta do computador; apertar publicar é como colocar na caixa de correio para ele viajar até o Roblox e ganhar uma casa só dele. A página do jogo é a casinha com o nome na porta. Outra analogia: é como pendurar o seu desenho no mural da escola, onde todo mundo pode ver. Fale sempre no concreto: aperta aqui, o nome aparece ali, o botão verde é o de jogar. Evite palavras como servidor ou publicação; prefira no ar, casinha do jogo e botão de jogar.
 

@@ -44,7 +44,7 @@ Antes da aula, faça o teste uma vez: peça ao Claude "crie um documento de game
 
 25 min - Mão na massa: Cada aluno faz dois passos. Primeiro, cria um Artifact: pede ao Claude um documento de game design de uma página para um dos seus jogos da trilha, e usa uma edição para melhorar uma parte. Depois, cria um Project dedicado a esse mesmo jogo: dá um nome, escreve duas ou três linhas de instruções dizendo a engine, a linguagem e o estilo, e anexa um arquivo de contexto (pode ser o documento que acabou de gerar, salvo em texto). Circule pela sala conferindo se o Artifact abriu e se o Project foi salvo com instruções.
 
-10 min - Desafio e compartilhar: Cada aluno abre uma conversa nova dentro do seu Project e faz uma pergunta simples sem repetir o contexto, por exemplo: "Sugira tres nomes para o meu jogo." A turma observa que o Claude já responde sabendo a engine e o estilo. Dois voluntários mostram no projetor.
+10 min - Desafio e compartilhar: Cada aluno abre uma conversa nova dentro do seu Project e faz uma pergunta simples sem repetir o contexto, por exemplo: "Sugira três nomes para o meu jogo." A turma observa que o Claude já responde sabendo a engine e o estilo. Dois voluntários mostram no projetor.
 
 ## Como explicar de forma clara (linguagem para a idade)
 
@@ -59,7 +59,7 @@ O erro mais comum é o aluno achar que o Artifact não apareceu, quando na verda
       tipo: `prática na ferramenta`,
       tempo: `8 min`,
       guiaProfessor: `Confira se o painel do Artifact abre à direita para cada aluno. Se não abrir, peça que cliquem no cartão do resultado dentro da conversa para expandir.`,
-      atividade: `No Claude, peça um documento de game design de uma página para um dos seus jogos da trilha. Use este pedido: "Crie um documento de game design de uma pagina para o meu jogo, com ideia, objetivo, personagem, mecanica principal e estilo visual." Observe o Artifact abrir ao lado da conversa.`,
+      atividade: `No Claude, peça um documento de game design de uma página para um dos seus jogos da trilha. Use este pedido: "Crie um documento de game design de uma página para o meu jogo, com ideia, objetivo, personagem, mecanica principal e estilo visual." Observe o Artifact abrir ao lado da conversa.`,
       gabarito: `O aluno acerta quando o painel do Artifact aparece à direita com um documento organizado contendo os cinco itens pedidos: ideia, objetivo, personagem, mecânica principal e estilo visual. Ele deve localizar os botões de copiar e baixar no canto do painel.`,
     },
     {
@@ -75,7 +75,7 @@ O erro mais comum é o aluno achar que o Artifact não apareceu, quando na verda
       tipo: `projeto curto`,
       tempo: `10 min`,
       guiaProfessor: `Acompanhe a criação do Project no menu lateral. O ponto crítico é o campo de instruções: confira se cada aluno escreveu a engine, a linguagem e o estilo do jogo escolhido.`,
-      atividade: `No menu lateral, abra "Projects" e clique em criar um novo projeto. Dê um nome ao seu jogo da trilha (por exemplo, "Meu Jogo Unity VR"). No campo de instruções, escreva duas ou três linhas dizendo a engine, a linguagem e o estilo. Exemplo: "Faco uma experiencia de Realidade Virtual no Unity em C#. Estilo realista. Responda sempre considerando VR no Unity."`,
+      atividade: `No menu lateral, abra "Projects" e clique em criar um novo projeto. Dê um nome ao seu jogo da trilha (por exemplo, "Meu Jogo Unity VR"). No campo de instruções, escreva duas ou três linhas dizendo a engine, a linguagem e o estilo. Exemplo: "Faco uma experiência de Realidade Virtual no Unity em C#. Estilo realista. Responda sempre considerando VR no Unity."`,
       gabarito: `O Project está montado quando tem um nome ligado a um jogo da trilha e o campo de instruções está preenchido com engine, linguagem e estilo. Exemplo aceito de instrução: "Faco um jogo no Unity em C# com assets do Blender, estilo cartoon. Considere sempre essa engine e linguagem nas respostas." O Project deve aparecer salvo na lista de Projects.`,
     },
     {
@@ -91,7 +91,7 @@ O erro mais comum é o aluno achar que o Artifact não apareceu, quando na verda
       tipo: `em dupla`,
       tempo: `10 min`,
       guiaProfessor: `Garanta que a nova conversa seja aberta de dentro do Project, e não na tela inicial. Em duplas, cada aluno mostra ao colega que o Claude responde sem precisar repetir engine e estilo.`,
-      atividade: `Abra uma conversa nova de dentro do seu Project e faça uma pergunta curta sem repetir o contexto. Exemplo: "Sugira tres nomes para o meu jogo." Mostre ao colega que a resposta já leva em conta a engine e o estilo que estão nas instruções. Depois troquem e observe o jogo do colega.`,
+      atividade: `Abra uma conversa nova de dentro do seu Project e faça uma pergunta curta sem repetir o contexto. Exemplo: "Sugira três nomes para o meu jogo." Mostre ao colega que a resposta já leva em conta a engine e o estilo que estão nas instruções. Depois troquem e observe o jogo do colega.`,
       gabarito: `O exercício é válido quando o aluno abre a conversa dentro do Project e o Claude responde já considerando o contexto salvo, sem o aluno repetir engine ou estilo. Exemplo de prova: ao pedir nomes para um jogo de VR realista no Unity, as sugestões combinam com esse estilo. Cada aluno da dupla deve dar ao colega um elogio e uma sugestão sobre a resposta obtida.`,
     },
   ],

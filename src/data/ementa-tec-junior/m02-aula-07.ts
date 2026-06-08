@@ -31,7 +31,7 @@ O foco do professor não é ensinar nada totalmente novo, e sim ligar as peças.
     `Regra principal — a regra mais importante do jogo, aquela que diz como se ganha ponto.`,
     `Cenário — o lugar do jogo, com os blocos especiais espalhados para a caça começar.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 Um mini-jogo é só a soma de quatro peças que a turma já viu. A variável é uma caixinha que guarda um número; aqui ela guarda os pontos. O evento é o gatilho: no MakeCode existe o bloco "ao quebrar bloco" (em inglês "on block broken"), que dispara toda vez que um jogador destrói um bloco. O se/então é o bloco "se ... então" (no MakeCode fica na gaveta "Lógica", chamada "Logic"). O placar é mostrar o número na tela com o bloco "say" (dizer) ou "print", que escreve no chat do jogo.
 
@@ -41,7 +41,7 @@ A montagem é assim: criamos uma variável chamada "pontos". No bloco "ao quebra
 
 Aquecimento (10 min): mostre os quatro cartões de papel (variável, se/então, evento, placar) e pergunte o que cada um faz. Deixe as crianças responderem com as próprias palavras. Diga a novidade do dia: "Hoje a gente junta tudo num jogo só!".
 
-Conteudo novo guiado (15 min): no projetor, abra o Minecraft e o MakeCode lado a lado (botão "C" no jogo abre o MakeCode, ou o ícone do agente, dependendo da versão). Na gaveta "Variáveis" ("Variables"), clique em "Criar uma variável" e nomeie "pontos". Arraste o bloco "ao quebrar bloco" da gaveta "Jogador" ("Player"). Dentro dele, encaixe um "se/então" da gaveta "Lógica". Na condição, use "o bloco quebrado é igual a" e escolha ouro. Dentro do então, arraste "mudar pontos por 1" e depois "dizer" mostrando a variável pontos. Volte ao jogo, quebre um bloco de ouro e mostre o número subir no chat. Comemore junto.
+Conteúdo novo guiado (15 min): no projetor, abra o Minecraft e o MakeCode lado a lado (botão "C" no jogo abre o MakeCode, ou o ícone do agente, dependendo da versão). Na gaveta "Variáveis" ("Variables"), clique em "Criar uma variável" e nomeie "pontos". Arraste o bloco "ao quebrar bloco" da gaveta "Jogador" ("Player"). Dentro dele, encaixe um "se/então" da gaveta "Lógica". Na condição, use "o bloco quebrado é igual a" e escolha ouro. Dentro do então, arraste "mudar pontos por 1" e depois "dizer" mostrando a variável pontos. Volte ao jogo, quebre um bloco de ouro e mostre o número subir no chat. Comemore junto.
 
 Mao na massa (25 min): cada aluno (ou dupla) repete os passos no próprio computador. Circule sem pressa. Primeiro todos criam a variável "pontos". Depois montam o "ao quebrar bloco" com o "se/então". Por fim, cada um espalha de 8 a 10 blocos de ouro pelo mundo plano para virar a caça. Quem terminar testa quebrando os blocos e vendo os pontos subirem. Não exija perfeição; o objetivo é cada jogo dar ponto pelo menos uma vez.
 

@@ -31,7 +31,7 @@ Na prática, o professor vai mostrar onde clicar no Maya para fazer o cubo nasce
     `Menu — a listinha de palavras no alto da tela onde a gente clica para mandar o computador fazer coisas.`,
     `Selecionar — clicar em cima de um objeto para escolher ele, deixando ele "aceso" e pronto para mexer.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 No Maya, todo objeto 3D começa como uma forma pronta, que o programa chama de "primitiva" (primitive). As primitivas são formas geométricas básicas já prontas para usar: cubo, esfera, cilindro, cone e outras. Nesta aula só usamos o cubo, que no Maya se chama "Cube" e fica no menu de criação de poligonais. Você não precisa dominar o Maya inteiro; precisa só saber criar um cubo com segurança e repetir o caminho várias vezes com calma.
 

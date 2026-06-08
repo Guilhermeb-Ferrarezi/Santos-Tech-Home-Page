@@ -45,7 +45,7 @@ idade = 14
 if idade >= 12:
     print("Pode jogar")
 else:
-    print("Ainda nao pode")
+    print("Ainda não pode")
 
 Explique que >= significa maior ou igual, que os dois-pontos abrem o bloco e que o print recuado só roda quando a condição é verdadeira. Em seguida acrescente o elif:
 
@@ -88,12 +88,12 @@ O erro número um é esquecer a indentação ou misturar Tab com espaços, geran
       tipo: `Prática guiada`,
       tempo: `4 min`,
       guiaProfessor: `Faça junto no projetor. Reforce o uso de >= e da indentação. Peça que troquem o valor da idade e rodem de novo.`,
-      atividade: `Crie uma variável chamada idade com um número. Use if e else para imprimir "Pode jogar" se a idade for maior ou igual a 12, e "Ainda nao pode" caso contrário.`,
+      atividade: `Crie uma variável chamada idade com um número. Use if e else para imprimir "Pode jogar" se a idade for maior ou igual a 12, e "Ainda não pode" caso contrário.`,
       gabarito: `idade = 13
 if idade >= 12:
     print("Pode jogar")
 else:
-    print("Ainda nao pode")`,
+    print("Ainda não pode")`,
     },
     {
       titulo: `Classificando a nota`,
@@ -135,7 +135,7 @@ print("Fim")`,
       tipo: `Projeto da aula`,
       tempo: `6 min`,
       guiaProfessor: `Este exercício junta tudo: variável, while e if. Explique que int() transforma o texto digitado em número. Teste com chutes errados e o certo. Se sobrar tempo, peça para mudar o número secreto.`,
-      atividade: `Crie um número secreto guardado em uma variável. Use um loop while que continue pedindo um chute ao jogador até ele acertar. Dentro do loop, use if e else para avisar se o número secreto é maior ou menor que o chute. Quando acertar, imprima "Voce acertou!".`,
+      atividade: `Crie um número secreto guardado em uma variável. Use um loop while que continue pedindo um chute ao jogador até ele acertar. Dentro do loop, use if e else para avisar se o número secreto é maior ou menor que o chute. Quando acertar, imprima "Você acertou!".`,
       gabarito: `secreto = 7
 chute = int(input("Adivinhe o numero: "))
 while chute != secreto:
@@ -144,7 +144,7 @@ while chute != secreto:
     else:
         print("O numero secreto e menor")
     chute = int(input("Tente de novo: "))
-print("Voce acertou!")`,
+print("Você acertou!")`,
     },
   ],
 };

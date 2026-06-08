@@ -17,7 +17,7 @@ Por fim, o aluno aprende a espiar o DOM com as próprias ferramentas do navegado
     `Computadores com um navegador moderno (Chrome ou Edge), um por aluno, com o console e a aba Elements disponíveis`,
     `Editor de código (VS Code) instalado para abrir e editar os arquivos de exemplo`,
     `Projetor ou TV para o professor demonstrar a inspeção do DOM ao vivo`,
-    `Arquivo de exemplo "pagina-dom" com um título com id, um parágrafo e um botão, já ligado a um arquivo JavaScript vazio para os testes`,
+    `Arquivo de exemplo "página-dom" com um título com id, um parágrafo e um botão, já ligado a um arquivo JavaScript vazio para os testes`,
     `Quadro branco para desenhar a árvore do DOM (documento, cabeçalho, corpo e seus filhos)`,
     `Folha impressa com a "cola" dos seletores: id usa cerquilha, classe usa ponto, tag usa só o nome`,
     `Cartões com nomes de elementos para um jogo rápido de "ache o elemento" na árvore desenhada`,

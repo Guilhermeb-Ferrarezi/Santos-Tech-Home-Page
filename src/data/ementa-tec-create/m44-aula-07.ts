@@ -14,7 +14,7 @@ Além de gerar o arquivo, a aula reserva tempo para o teste do executável. Roda
 
 Por fim, a aula trabalha a correção de problemas de exportação. Cena faltando na build, jogo abrindo em uma cena errada, tela preta, controles que não respondem em tela cheia: são erros típicos e todos têm solução simples quando o professor sabe onde olhar. Ao final, cada aluno termina com um executável funcional do próprio jogo, pronto para a Aula 8, em que ele será publicado e entregue no portfólio.`,
   materiais: [
-    `Computadores com Unity instalado, o modulo de build para Windows e o projeto do jogo do aluno`,
+    `Computadores com Unity instalado, o módulo de build para Windows e o projeto do jogo do aluno`,
     `Projetor ou TV para o professor demonstrar a janela Build Settings passo a passo`,
     `Pasta vazia preparada em cada computador para receber o build (ex.: Documentos/Builds)`,
     `Projeto de exemplo do professor com pelo menos duas cenas, para mostrar a lista de cenas na build`,
@@ -24,7 +24,7 @@ Por fim, a aula trabalha a correção de problemas de exportação. Cena faltand
   conceitosChave: [
     `Build — o processo de transformar o projeto do Unity em um aplicativo final que roda sozinho, sem o editor.`,
     `Executável — o arquivo do jogo pronto para abrir (no Windows tem extensão .exe) que o jogador clica para jogar.`,
-    `Build Settings — a janela do Unity onde voce escolhe a plataforma, monta a lista de cenas e manda gerar o jogo.`,
+    `Build Settings — a janela do Unity onde você escolhe a plataforma, monta a lista de cenas e manda gerar o jogo.`,
     `Plataforma de destino — o sistema onde o jogo vai rodar (Windows, Android, etc.); cada uma gera um tipo de arquivo.`,
     `Scenes In Build — a lista ordenada de cenas que entram no jogo; a primeira da lista é a que abre quando o jogo inicia.`,
     `Player Settings — as configurações do jogo final, como nome, ícone, resolução e se abre em tela cheia.`,

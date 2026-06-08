@@ -50,7 +50,7 @@ Conteúdo novo guiado (15 min): demonstre a publicação ao vivo com a pasta de 
       </head>
       <body>
         <h1>Bem-vindo ao meu site!</h1>
-        <p>Esta pagina esta no ar.</p>
+        <p>Esta página esta no ar.</p>
       </body>
     </html>
 
@@ -81,8 +81,8 @@ Arquivo com nome errado: se o principal não se chama index.html, o link mostra 
       tipo: `Prática na ferramenta`,
       tempo: `8 min`,
       guiaProfessor: `Este é o passo que evita a maioria dos erros na publicação. Mostre no projetor onde aparece o nome do arquivo e como renomear no editor ou no explorador de arquivos. Verifique aluno por aluno antes de liberar a publicação, pois um nome errado faz o site não abrir.`,
-      atividade: `Abra a pasta do seu site e confira o nome do arquivo principal. Ele precisa estar escrito exatamente assim: index.html, tudo em letras minúsculas. Se estiver diferente (por exemplo Index.html, pagina.html ou index.HTML), renomeie para index.html. Confira também que a pasta tem o arquivo de CSS e a pasta de imagens dentro dela.`,
-      gabarito: `O aluno acertou quando a pasta do site contém um arquivo chamado exatamente index.html (minúsculo), junto com o arquivo de CSS e a pasta de imagens. Nomes como Index.html ou pagina.html devem ser corrigidos, pois o servidor procura justamente por index.html ao abrir o endereço.`,
+      atividade: `Abra a pasta do seu site e confira o nome do arquivo principal. Ele precisa estar escrito exatamente assim: index.html, tudo em letras minúsculas. Se estiver diferente (por exemplo Index.html, página.html ou index.HTML), renomeie para index.html. Confira também que a pasta tem o arquivo de CSS e a pasta de imagens dentro dela.`,
+      gabarito: `O aluno acertou quando a pasta do site contém um arquivo chamado exatamente index.html (minúsculo), junto com o arquivo de CSS e a pasta de imagens. Nomes como Index.html ou página.html devem ser corrigidos, pois o servidor procura justamente por index.html ao abrir o endereço.`,
     },
     {
       titulo: `Publicando com o Netlify Drop`,

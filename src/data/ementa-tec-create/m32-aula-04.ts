@@ -43,7 +43,7 @@ Um evento é um acontecimento que o navegador percebe. O clique é o mais comum.
 2. Conteúdo novo guiado (15 min). Abra o arquivo aula04-inicio.html, que já tem um botão. No projetor, escreva o JavaScript junto com a turma, explicando cada linha:
 
    function mostrarMensagem() {
-     alert("Voce clicou no botao!");
+     alert("Você clicou no botao!");
    }
 
    var botao = document.getElementById("meuBotao");

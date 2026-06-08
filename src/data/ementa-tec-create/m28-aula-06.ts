@@ -76,7 +76,7 @@ O erro mais comum é o aluno mudar o valor na variável do topo mas esquecer de 
 local humano = personagem:WaitForChild("Humanoid")
 humano.WalkSpeed = VELOCIDADE_JOGADOR
 
--- O valor agora mora numa variavel no topo; basta mudar uma linha para reequilibrar a velocidade.`,
+-- O valor agora mora numa variável no topo; basta mudar uma linha para reequilibrar a velocidade.`,
     },
     {
       titulo: `Pontos no painel de controle`,
@@ -90,7 +90,7 @@ local function aoColetar(jogador)
     jogador.leaderstats.Pontos.Value = jogador.leaderstats.Pontos.Value + PONTOS_POR_ITEM
 end
 
--- Trocar o valor de PONTOS_POR_ITEM no topo (de 10 para 25) muda a recompensa sem mexer no resto do codigo.`,
+-- Trocar o valor de PONTOS_POR_ITEM no topo (de 10 para 25) muda a recompensa sem mexer no resto do código.`,
     },
     {
       titulo: `Caçando o bug que sobrou`,
@@ -98,7 +98,7 @@ end
       tempo: `10 minutos`,
       guiaProfessor: `Retome a lista de bugs da aula anterior. Ajude o aluno a usar print para localizar onde o código se perde. Um bug clássico é o nome de objeto ou variável escrito errado.`,
       atividade: `Escolha um bug da lista da aula passada. Use print para descobrir onde o jogo se comporta errado e corrija o problema. Teste para confirmar que sumiu.`,
-      gabarito: `-- Exemplo: a pontuacao nao subia porque o nome estava errado (Ponto em vez de Pontos).
+      gabarito: `-- Exemplo: a pontuacao não subia porque o nome estava errado (Ponto em vez de Pontos).
 local function aoColetar(jogador)
     print("Tentando dar pontos para:", jogador.Name)
     jogador.leaderstats.Pontos.Value = jogador.leaderstats.Pontos.Value + PONTOS_POR_ITEM
@@ -124,7 +124,7 @@ end
 local TEMPO_DE_RODADA = 60   -- antes
 local TEMPO_DE_RODADA = 90   -- depois, deixando o tempo final no topo do script
 
--- O aluno deve trocar apenas a variavel de configuracao, testar a partida e perceber que a rodada ficou mais justa. Vale qualquer melhoria coerente com o feedback recebido (velocidade, pontos, tempo ou dificuldade), desde que feita por uma variavel no topo e testada antes e depois.`,
+-- O aluno deve trocar apenas a variável de configuracao, testar a partida e perceber que a rodada ficou mais justa. Vale qualquer melhoria coerente com o feedback recebido (velocidade, pontos, tempo ou dificuldade), desde que feita por uma variável no topo e testada antes e depois.`,
     },
   ],
 };

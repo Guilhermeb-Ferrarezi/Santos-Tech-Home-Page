@@ -42,7 +42,7 @@ O erro mais comum nesta idade é querer fazer grande demais. Reforce sempre: mel
 
 15 min, conteúdo novo guiado: projete o modelo de documento de design e explique cada seção. Use um exemplo simples para a turma toda, por exemplo uma experiência chamada Jardim Mágico. Preencha junto com eles, em voz alta, este modelo no projetor:
 
-Titulo: Jardim Magico
+Titulo: Jardim Mágico
 Ambiente: um jardim a noite, com vaga-lumes e uma fonte no centro.
 Jornada do usuario: o usuario aparece perto da fonte, olha em volta, pega uma semente, planta no canteiro e ve a flor crescer.
 Interacoes principais: 1) pegar a semente com a mao; 2) plantar tocando o canteiro; 3) regar puxando uma alavanca.
@@ -52,7 +52,7 @@ Mostre que a lista de assets nasce direto da jornada: cada coisa citada vira um 
 
 25 min, mão na massa: cada aluno preenche o próprio documento de design no editor de texto, usando o template. Depois desenha o esboço do espaço no papel: uma vista de cima mostrando onde o usuário começa e onde ficam os objetos. Circule pela sala ajudando a cortar escopo. Quando o documento estiver pronto, o aluno cola o texto no Claude e usa este pedido:
 
-Voce e um designer de VR experiente. Leia meu plano de experiencia abaixo e me diga: o plano esta claro? Quais desafios tecnicos posso ter no Unity? Alguma interacao e dificil demais para um iniciante? Sugira como simplificar. Aqui esta o plano: (colar o plano)
+Você e um designer de VR experiente. Leia meu plano de experiência abaixo e me diga: o plano esta claro? Quais desafios técnicos posso ter no Unity? Alguma interacao e difícil demais para um iniciante? Sugira como simplificar. Aqui esta o plano: (colar o plano)
 
 Peça que o aluno leia a resposta do Claude e ajuste pelo menos um ponto do plano com base nela.
 

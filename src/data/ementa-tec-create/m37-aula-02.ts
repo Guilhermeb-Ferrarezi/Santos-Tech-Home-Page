@@ -18,7 +18,7 @@ Ao final, cada aluno terá um pequeno registro com os três pedidos que fez, as 
     `Unity instalado e um projeto de exemplo aberto, para o aluno testar o que a IA explicar`,
     `Projetor ou TV para o professor mostrar a tela e demonstrar cada pedido ao Claude`,
     `Arquivo de exemplo com um trecho de código C# que contém um erro proposital (entregue ao aluno em texto ou em um script)`,
-    `Folha impressa ou slide com a tabela de registro: pedido, resposta, eu confiaria? (sim/nao) e por que`,
+    `Folha impressa ou slide com a tabela de registro: pedido, resposta, eu confiaria? (sim/não) e por que`,
     `Slide com dois exemplos prontos: uma resposta boa e uma resposta fraca para o mesmo pedido, para a comparação inicial`,
   ],
   conceitosChave: [
@@ -38,22 +38,22 @@ Você não precisa dominar o Claude nem o Unity para dar esta aula. O foco é o 
 
 Aquecimento (10 min): Retome a aula anterior. Pergunte: o que o Claude fez de útil para vocês? Mostre no projetor o slide com duas respostas para o mesmo pedido, uma boa e uma fraca. Pergunte qual é melhor e por que. Conduza a turma a notar que a boa tem exemplo e explica o porquê.
 
-Conteúdo novo guiado (15 min): Faça os três pedidos ao vivo no projetor. Primeiro, uma explicação de conceito. Digite na caixa do Claude: Explique de forma simples, para um adolescente, o que e o metodo Update() em um script do Unity em C#, e quando ele e chamado. De um exemplo curto. Mostre a resposta e o exemplo que ela traz, parecido com isto:
+Conteúdo novo guiado (15 min): Faça os três pedidos ao vivo no projetor. Primeiro, uma explicação de conceito. Digite na caixa do Claude: Explique de forma simples, para um adolescente, o que e o método Update() em um script do Unity em C#, e quando ele e chamado. De um exemplo curto. Mostre a resposta e o exemplo que ela traz, parecido com isto:
 
 void Update()
 {
     transform.Translate(Vector3.forward * Time.deltaTime);
 }
 
-Explique que esse codigo roda a cada quadro e move o objeto para a frente. Segundo, peca ideias: Sugira 3 ideias de mecanica para um jogo de plataforma 2D feito por iniciantes no Unity. Para cada ideia, diga em uma frase como ela funciona. Terceiro, resuma um problema: cole o trecho de codigo de exemplo (com erro) e peca: Resuma em poucas linhas qual e o provavel problema deste codigo e o que verificar. Depois de cada resposta, faca a pergunta-chave: eu confiaria nisso? Mostre como verificar no Unity.
+Explique que esse código roda a cada quadro e move o objeto para a frente. Segundo, peca ideias: Sugira 3 ideias de mecanica para um jogo de plataforma 2D feito por iniciantes no Unity. Para cada ideia, diga em uma frase como ela funciona. Terceiro, resuma um problema: cole o trecho de código de exemplo (com erro) e peca: Resuma em poucas linhas qual e o provavel problema deste código e o que verificar. Depois de cada resposta, faca a pergunta-chave: eu confiaria nisso? Mostre como verificar no Unity.
 
-Mão na massa (25 min): Cada aluno faz os três pedidos no seu computador e preenche a tabela de registro: o pedido, um resumo da resposta e uma nota dizendo se confiaria (sim ou nao) e por que. Oriente que, no pedido do código, eles testem no Unity para ver se a sugestão da IA bate com a realidade. Circule pela sala ajudando a melhorar pedidos vagos.
+Mão na massa (25 min): Cada aluno faz os três pedidos no seu computador e preenche a tabela de registro: o pedido, um resumo da resposta e uma nota dizendo se confiaria (sim ou não) e por que. Oriente que, no pedido do código, eles testem no Unity para ver se a sugestão da IA bate com a realidade. Circule pela sala ajudando a melhorar pedidos vagos.
 
 Desafio + compartilhar (10 min): Cada aluno apresenta ao colega do lado o pedido que rendeu a melhor resposta e um pedido que rendeu uma resposta fraca, explicando a diferença. Dois ou três voluntários mostram no projetor.
 
 ## Como explicar de forma clara
 
-Use a comparação do colega experiente. Diga que o Claude é como um amigo mais velho que já fez muitos jogos: ele dá dicas ótimas, mas às vezes erra ou chuta, então você sempre confere antes de seguir. Para resposta boa e fraca, use a ideia da receita de bolo: uma receita boa diz a quantidade de cada coisa e a ordem; uma fraca só diz misture tudo. Repita a frase a IA sugere, voce decide até virar bordão da turma. Sempre mostre na tela antes de pedir que façam.
+Use a comparação do colega experiente. Diga que o Claude é como um amigo mais velho que já fez muitos jogos: ele dá dicas ótimas, mas às vezes erra ou chuta, então você sempre confere antes de seguir. Para resposta boa e fraca, use a ideia da receita de bolo: uma receita boa diz a quantidade de cada coisa e a ordem; uma fraca só diz misture tudo. Repita a frase a IA sugere, você decide até virar bordão da turma. Sempre mostre na tela antes de pedir que façam.
 
 ## Erros comuns e como ajudar
 
@@ -113,7 +113,7 @@ public class Jogador : MonoBehaviour
       tipo: `desafio`,
       tempo: `6 minutos`,
       guiaProfessor: `Recolha as tabelas de registro. Conduza a turma a justificar cada nota de confiança com base em verificação, não em achismo. Destaque um caso em que a IA errou.`,
-      atividade: `Na sua tabela, dê uma nota de confiança (sim ou nao) para as três respostas que você recebeu e escreva, em uma frase, por que confiaria ou não em cada uma.`,
+      atividade: `Na sua tabela, dê uma nota de confiança (sim ou não) para as três respostas que você recebeu e escreva, em uma frase, por que confiaria ou não em cada uma.`,
       gabarito: `A tabela tem as três respostas com uma nota cada e uma justificativa baseada em evidência. Exemplo de boa justificativa: confio na explicação do Start() porque testei no Unity e funcionou; não confio totalmente na ideia de mecânica porque ela não cabe no meu jogo; só confio no resumo do código depois de conferir no Unity que a correção resolveu. O ponto-chave é que o aluno verificou antes de confiar.`,
     },
   ],

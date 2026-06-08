@@ -31,7 +31,7 @@ No fim, cada criança terá o seu idle ajustado no tempo que ela mesma achou mai
     `Ritmo — a batida da animação; dá para bater palma junto, como numa música.`,
     `Velocidade da animação — o quão depressa o boneco se mexe; muda quando a gente muda o tempo dos quadros.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 A grande ideia da aula é simples: animação boa não é animação com muitos quadros, é animação com o tempo certo em cada quadro. Esse "tempo certo" os profissionais chamam de timing. No Aseprite, cada quadro tem uma duração medida em milissegundos (ms). 100 ms é um décimo de segundo. Quanto menor o número, mais rápido o quadro passa; quanto maior, mais tempo ele fica parado na tela.
 

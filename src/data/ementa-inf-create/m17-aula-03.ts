@@ -39,7 +39,7 @@ Você não precisa ser programador para dar esta aula. O Apps Script é o editor
 
 Aquecimento (10 min). Receba a turma com uma pergunta: "Quem já desejou que a planilha fizesse a tarefa chata sozinha?" Relembre rapidamente o PROCX e o SE das aulas anteriores. Explique que hoje vamos conhecer um robô que mora dentro do Google Planilhas e obedece a ordens em código.
 
-Conteúdo novo guiado (15 min). No projetor, abra a planilha de exemplo. Vá ao menu superior e clique em Extensões e depois em Apps Script. Uma nova aba do navegador abre o editor de código. Mostre as três partes: à esquerda o menu lateral com os ícones (Visão geral, Editor, com o símbolo de chaves); no centro a área onde fica o código, com um arquivo chamado Codigo.gs; e no topo a barra com os botões Salvar (ícone de disquete) e Executar. Explique que esse texto que parece estranho é JavaScript, uma linguagem de programação de verdade, a mesma dos sites. Apague o conteúdo que vier escrito e digite junto com a turma:
+Conteúdo novo guiado (15 min). No projetor, abra a planilha de exemplo. Vá ao menu superior e clique em Extensões e depois em Apps Script. Uma nova aba do navegador abre o editor de código. Mostre as três partes: à esquerda o menu lateral com os ícones (Visão geral, Editor, com o símbolo de chaves); no centro a área onde fica o código, com um arquivo chamado Código.gs; e no topo a barra com os botões Salvar (ícone de disquete) e Executar. Explique que esse texto que parece estranho é JavaScript, uma linguagem de programação de verdade, a mesma dos sites. Apague o conteúdo que vier escrito e digite junto com a turma:
 
 function meuPrimeiroRobo() {
   Browser.msgBox("Olá! Eu sou o robô da planilha.");
@@ -65,7 +65,7 @@ O erro mais frequente é o aluno digitar Browser ou msgBox com letra diferente, 
       tempo: `5 minutos`,
       guiaProfessor: `Atividade de aquecimento individual. Garanta que todos estejam com a planilha de exemplo aberta. O objetivo é apenas localizar o caminho até o editor, sem digitar código ainda.`,
       atividade: `Abra a planilha de exemplo. Encontre no menu superior o caminho que abre o editor de código do Apps Script. Anote em uma célula qual menu você usou e em qual opção clicou.`,
-      gabarito: `O caminho é o menu Extensões e depois a opção Apps Script. Ao clicar, abre-se uma nova aba do navegador com o editor de código e um arquivo chamado Codigo.gs.`,
+      gabarito: `O caminho é o menu Extensões e depois a opção Apps Script. Ao clicar, abre-se uma nova aba do navegador com o editor de código e um arquivo chamado Código.gs.`,
     },
     {
       titulo: `Fórmula ou automação?`,

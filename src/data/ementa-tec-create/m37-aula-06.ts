@@ -40,7 +40,7 @@ Aquecimento (10 min): Retome a Aula 5, em que o Claude leu arquivos para entende
 
 Conteúdo novo guiado (15 min): No projetor, mostre o anexo na prática. Clique no ícone de clipe de papel, selecione um print da cena de VR e escreva um pedido direcionado. Sugestão de prompt para projetar e os alunos copiarem:
 
-"Anexei um print da minha cena de VR no Unity. Aponte tres melhorias de composicao e iluminacao e sugira dois tipos de asset que combinariam com o estilo atual."
+"Anexei um print da minha cena de VR no Unity. Aponte três melhorias de composicao e iluminacao e sugira dois tipos de asset que combinariam com o estilo atual."
 
 Mostre como a resposta agora cita elementos reais da imagem. Em seguida, mostre o caso de código. Cole um trecho simples de C# e peça feedback. Use este código de exemplo (note que ele usa concatenacao com mais, sem string interpolada):
 
@@ -76,7 +76,7 @@ Aluno faz pedido vago mesmo com o arquivo: ajude a deixar específico, pedindo u
       tipo: `Discussão em dupla`,
       tempo: `5 min`,
       guiaProfessor: `Projete dois pedidos e peça que as duplas classifiquem qual gera resposta genérica e qual gera resposta direcionada. Foque em por que o segundo é melhor.`,
-      atividade: `Leia os dois pedidos: A) "Como melhorar um jogo de VR?" B) "Anexei um print da minha cena de VR; aponte tres melhorias de iluminacao." Diga qual traz resposta mais útil e explique o motivo.`,
+      atividade: `Leia os dois pedidos: A) "Como melhorar um jogo de VR?" B) "Anexei um print da minha cena de VR; aponte três melhorias de iluminacao." Diga qual traz resposta mais útil e explique o motivo.`,
       gabarito: `O pedido B é o mais útil. Ele anexa um arquivo real e pede um número definido de melhorias com foco (iluminação), então o Claude responde sobre a cena específica do aluno. O pedido A é genérico: sem arquivo e sem foco, a resposta serviria para qualquer jogo e não ajuda no projeto real.`,
     },
     {
@@ -84,7 +84,7 @@ Aluno faz pedido vago mesmo com o arquivo: ajude a deixar específico, pedindo u
       tipo: `Prática guiada`,
       tempo: `8 min`,
       guiaProfessor: `Garanta que cada aluno encontre o ícone de clipe de papel e veja o arquivo aparecer acima da caixa de texto antes de enviar. Circule conferindo.`,
-      atividade: `Abra o Claude, clique no ícone de anexar, selecione um print da sua cena de VR e escreva: "Descreva o que voce ve nesta imagem da minha cena." Envie e leia a resposta.`,
+      atividade: `Abra o Claude, clique no ícone de anexar, selecione um print da sua cena de VR e escreva: "Descreva o que você ve nesta imagem da minha cena." Envie e leia a resposta.`,
       gabarito: `O aluno deve conseguir anexar a imagem (o nome do arquivo aparece acima do campo de texto) e enviar. A resposta esperada do Claude descreve elementos reais da cena, como objetos, cores e iluminação visíveis no print, provando que ele leu o arquivo. Se a descrição for genérica, o arquivo não foi anexado.`,
     },
     {
@@ -92,7 +92,7 @@ Aluno faz pedido vago mesmo com o arquivo: ajude a deixar específico, pedindo u
       tipo: `Investigação prática`,
       tempo: `12 min`,
       guiaProfessor: `Este é o exercício central. Garanta que o aluno faça o MESMO pedido duas vezes, primeiro sem anexo e depois com anexo, e registre as duas respostas para comparar.`,
-      atividade: `Escolha uma lista de assets do Blender ou do Maya do seu jogo. Faça o pedido "sugira tres assets que combinariam com o meu jogo" duas vezes: a primeira sem anexar nada e a segunda anexando a lista. Copie as duas respostas lado a lado e marque qual foi mais precisa.`,
+      atividade: `Escolha uma lista de assets do Blender ou do Maya do seu jogo. Faça o pedido "sugira três assets que combinariam com o meu jogo" duas vezes: a primeira sem anexar nada e a segunda anexando a lista. Copie as duas respostas lado a lado e marque qual foi mais precisa.`,
       gabarito: `A resposta COM o arquivo anexado é a mais precisa. Sem o anexo, o Claude sugere assets genéricos que poderiam servir a qualquer jogo. Com a lista anexada, ele sugere assets que combinam com o estilo e o tema já presentes, cita itens da lista e evita repetir o que o aluno já tem. A conclusão correta: anexar o arquivo aumenta a precisão e a utilidade.`,
     },
     {
@@ -100,7 +100,7 @@ Aluno faz pedido vago mesmo com o arquivo: ajude a deixar específico, pedindo u
       tipo: `Programação em C#`,
       tempo: `12 min`,
       guiaProfessor: `Peça que o aluno cole um trecho real de C# do projeto (ou o exemplo abaixo) e peça melhorias. Verifique se ele entende cada sugestão antes de aplicar.`,
-      atividade: `Cole este script no Claude e peça: "Aponte melhorias e reescreva o codigo mais claro." Código de partida: using UnityEngine; public class GiraCubo : MonoBehaviour { public float velocidade = 30f; void Update() { transform.Rotate(0f, velocidade * Time.deltaTime, 0f); } }`,
+      atividade: `Cole este script no Claude e peça: "Aponte melhorias e reescreva o código mais claro." Código de partida: using UnityEngine; public class GiraCubo : MonoBehaviour { public float velocidade = 30f; void Update() { transform.Rotate(0f, velocidade * Time.deltaTime, 0f); } }`,
       gabarito: `Uma melhoria esperada é adicionar comentários, validar a velocidade e deixar o eixo de rotação configurável. Código-solução possível:
 
 using UnityEngine;

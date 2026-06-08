@@ -16,7 +16,7 @@ O grande momento é ver o arquivo virar página. Quando o aluno aperta salvar e 
   materiais: [
     `Computadores com um editor de código instalado (VS Code) e um navegador, um por aluno`,
     `Projetor ou TV para o professor mostrar o editor e o navegador lado a lado`,
-    `Arquivo de exemplo pronto (pagina-exemplo.html) para mostrar o resultado final esperado`,
+    `Arquivo de exemplo pronto (página-exemplo.html) para mostrar o resultado final esperado`,
     `Folha impressa com a estrutura básica do HTML (html, head, body) como cola de consulta`,
     `Quadro branco ou flip chart para desenhar a ideia de "tag que abre e tag que fecha"`,
     `Lista curta de tags da aula no projetor: html, head, title, body, h1 a h6, p`,
@@ -45,11 +45,11 @@ Toda página HTML tem o mesmo esqueleto. Decore esta sequência, pois você vai 
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Minha primeira pagina</title>
+    <title>Minha primeira página</title>
   </head>
   <body>
     <h1>Ola, mundo!</h1>
-    <p>Esta e a minha primeira pagina na web.</p>
+    <p>Esta e a minha primeira página na web.</p>
   </body>
 </html>
 
@@ -80,32 +80,32 @@ O erro mais comum é esquecer a barra na tag de fechamento ou não fechar a tag;
       tipo: `prática na ferramenta`,
       tempo: `9 minutos`,
       guiaProfessor: `Garanta que cada aluno crie o arquivo e o salve como index.html antes de digitar. Circule conferindo se as tags estão fechadas. Lembre de salvar e atualizar o navegador para ver o resultado.`,
-      atividade: `No editor de código, crie um arquivo, salve como index.html e digite a estrutura básica completa: a declaração de HTML, a tag html, a head com um title chamado "Minha pagina", e a body com um h1 escrito "Bem-vindo" e um parágrafo qualquer. Salve e abra no navegador.`,
+      atividade: `No editor de código, crie um arquivo, salve como index.html e digite a estrutura básica completa: a declaração de HTML, a tag html, a head com um title chamado "Minha página", e a body com um h1 escrito "Bem-vindo" e um parágrafo qualquer. Salve e abra no navegador.`,
       gabarito: `<!DOCTYPE html>
 <html>
   <head>
-    <title>Minha pagina</title>
+    <title>Minha página</title>
   </head>
   <body>
     <h1>Bem-vindo</h1>
-    <p>Esta e a minha pagina.</p>
+    <p>Esta e a minha página.</p>
   </body>
 </html>
-Ao abrir no navegador, a aba mostra "Minha pagina", e na tela aparecem o título grande "Bem-vindo" e o parágrafo abaixo dele.`,
+Ao abrir no navegador, a aba mostra "Minha página", e na tela aparecem o título grande "Bem-vindo" e o parágrafo abaixo dele.`,
     },
     {
       titulo: `Caça ao erro, em dupla`,
       tipo: `em dupla`,
       tempo: `9 minutos`,
       guiaProfessor: `Entregue o código com erros (no projetor ou impresso). Cada dupla encontra e corrige. Peça que digam em voz alta qual era o erro e por que quebrava a página. Confira par a par.`,
-      atividade: `Em dupla, leiam este código e encontrem os três erros. Depois reescrevam certo no editor: <html> <head> <title>Teste<title> </head> <body> <h1>Minha pagina <p>Texto aqui</p> </body>`,
+      atividade: `Em dupla, leiam este código e encontrem os três erros. Depois reescrevam certo no editor: <html> <head> <title>Teste<title> </head> <body> <h1>Minha página <p>Texto aqui</p> </body>`,
       gabarito: `Erros: 1) o title não foi fechado corretamente (estava <title> em vez de </title>); 2) o h1 não foi fechado (faltou </h1>); 3) faltou a tag de fechamento </html> no final. Versão correta:
 <html>
   <head>
     <title>Teste</title>
   </head>
   <body>
-    <h1>Minha pagina</h1>
+    <h1>Minha página</h1>
     <p>Texto aqui</p>
   </body>
 </html>`,
@@ -131,11 +131,11 @@ O h1 deve aparecer maior, e os h2 menores que ele, mostrando a hierarquia. Cada 
       tipo: `projeto curto`,
       tempo: `12 minutos`,
       guiaProfessor: `Peça uma página completa e bem fechada, com estrutura básica correta. Avalie se há um h1, ao menos um h2 e parágrafos com sentido. Valorize quem personalizar o conteúdo e confira o title da aba.`,
-      atividade: `Monte sua página de apresentação do zero, com a estrutura básica completa. No title coloque "Pagina de [seu nome]". Na body, use um h1 com seu nome, um h2 escrito "Sobre mim", dois parágrafos se apresentando e outro h2 escrito "Meus gostos" com um parágrafo. Salve e abra no navegador.`,
+      atividade: `Monte sua página de apresentação do zero, com a estrutura básica completa. No title coloque "Página de [seu nome]". Na body, use um h1 com seu nome, um h2 escrito "Sobre mim", dois parágrafos se apresentando e outro h2 escrito "Meus gostos" com um parágrafo. Salve e abra no navegador.`,
       gabarito: `<!DOCTYPE html>
 <html>
   <head>
-    <title>Pagina de Ana</title>
+    <title>Página de Ana</title>
   </head>
   <body>
     <h1>Ana</h1>
@@ -143,7 +143,7 @@ O h1 deve aparecer maior, e os h2 menores que ele, mostrando a hierarquia. Cada 
     <p>Tenho 12 anos e estudo na Santos Tech.</p>
     <p>Adoro criar jogos e desenhar.</p>
     <h2>Meus gostos</h2>
-    <p>Gosto de games, musica e andar de bicicleta.</p>
+    <p>Gosto de games, música e andar de bicicleta.</p>
   </body>
 </html>
 O nome no title e no h1 muda conforme o aluno. O importante é a estrutura básica correta, todas as tags fechadas e o title aparecendo na aba do navegador.`,

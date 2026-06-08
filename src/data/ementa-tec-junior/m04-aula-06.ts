@@ -31,7 +31,7 @@ Ao longo da hora, o professor demonstra no projetor como encontrar e encaixar o 
     `Partida — cada vez que a gente aperta a bandeira verde e o jogo começa de novo.`,
     `Coordenada x e y — os dois numerozinhos que dizem para onde o objeto vai: x é o lado, y é em cima ou embaixo.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 Aleatoriedade é a capacidade de o computador escolher um valor que não dá para prever. No Scratch isso vive num bloco verde-claro (categoria Operadores) chamado "número aleatório entre ___ e ___". Você digita dois números nos campinhos e, toda vez que o jogo passa por ali, o Scratch sorteia um valor entre eles, incluindo as pontas. Por exemplo, "número aleatório entre 1 e 6" funciona como um dado.
 

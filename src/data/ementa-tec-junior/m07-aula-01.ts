@@ -30,7 +30,7 @@ Ao final, cada criança sabe explicar, com as próprias palavras, que movimento 
     `Reproduzir (play) — é apertar o botão que faz os frames passarem rápido para a gente ver o desenho ganhar vida.`,
     `Flipbook — é um caderninho de desenhos que vira animação quando a gente folheia depressa com o dedo.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 Animação é uma ilusão dos olhos. Quando imagens parecidas trocam muito rápido (umas doze ou mais por segundo), o cérebro não vê desenhos separados, vê movimento contínuo. Cada uma dessas imagens chama-se frame (quadro). Um conjunto de frames em fila forma a animação. Essa é a única teoria que você precisa dominar hoje, e ela cabe numa frase: movimento é feito de muitos desenhos parecidos passando rápido.
 
@@ -40,13 +40,13 @@ No Aseprite, os frames vivem na parte de baixo da tela, na chamada Timeline (lin
 
 10 min, aquecimento: receba a turma e pergunte quem já viu desenho animado. Pegue o seu flipbook de papel e folheie rápido na frente deles; o bonequinho parece respirar. Pergunte: como ele se mexeu se é só papel? Deixe-os adivinhar. Folheie devagar para mostrar que são vários desenhos.
 
-15 min, conteudo novo guiado: no projetor, abra os GIFs de exemplo. Mostre o coração batendo e a chama tremendo. Diga a frase mágica: movimento é feito de muitos desenhos parecidos. Agora abra o Aseprite no projetor. Aponte para a fileira de quadradinhos embaixo e diga: aqui moram os frames. Se não aparecer, aperte Tab ou vá em View e marque Timeline. Clique no botão de + (ou Alt+N) e crie o frame 2, depois o frame 3. Aperte Enter para tocar; aperte de novo para parar. Repita o nome FRAME várias vezes apontando a tela.
+15 min, conteúdo novo guiado: no projetor, abra os GIFs de exemplo. Mostre o coração batendo e a chama tremendo. Diga a frase mágica: movimento é feito de muitos desenhos parecidos. Agora abra o Aseprite no projetor. Aponte para a fileira de quadradinhos embaixo e diga: aqui moram os frames. Se não aparecer, aperte Tab ou vá em View e marque Timeline. Clique no botão de + (ou Alt+N) e crie o frame 2, depois o frame 3. Aperte Enter para tocar; aperte de novo para parar. Repita o nome FRAME várias vezes apontando a tela.
 
-25 min, mao na massa: cada criança no seu computador, com o Aseprite já aberto. Peça que encontrem a fileira de frames embaixo (passe de mesa em mesa ajudando a achar). Depois peça que cliquem no botão de + para criar mais um frame, e mais outro, até terem três ou quatro quadradinhos. Por fim, todos apertam Enter ao mesmo tempo para ver os quadradinhos piscando. Não precisa desenhar nada de bonito hoje; o objetivo é localizar e criar frames.
+25 min, mão na massa: cada criança no seu computador, com o Aseprite já aberto. Peça que encontrem a fileira de frames embaixo (passe de mesa em mesa ajudando a achar). Depois peça que cliquem no botão de + para criar mais um frame, e mais outro, até terem três ou quatro quadradinhos. Por fim, todos apertam Enter ao mesmo tempo para ver os quadradinhos piscando. Não precisa desenhar nada de bonito hoje; o objetivo é localizar e criar frames.
 
 10 min, desafio e compartilhar: desafie cada um a criar cinco frames e contar em voz alta quantos quadradinhos tem na fila. Faça uma rodinha: cada criança aponta para a Timeline na própria tela e diz a frase do dia. Dê um carimbo a quem explicar o que é um frame.
 
-## Como explicar para criancas de 5 a 9 (analogias e linguagem)
+## Como explicar para crianças de 5 a 9 (analogias e linguagem)
 
 Use o flipbook como metáfora central: o Aseprite é um caderninho mágico, e cada folha é um frame. Diga que o desenho animado é como um monte de fotos do mesmo pulo, uma atrás da outra. Outra analogia boa: piscar os olhos bem rápido olhando para figurinhas. Evite a palavra ilusão; prefira mágica dos olhos. Fale pouco e mostre muito. Repita FRAME até virar música. Comemore cada quadradinho novo com entusiasmo grande.
 

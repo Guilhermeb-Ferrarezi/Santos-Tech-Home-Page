@@ -41,7 +41,7 @@ O comando certo é assim: a palavra print, depois um parêntese que abre, depois
 
 10 min — aquecimento e revisão: Receba a turma com a luneta de detetive na mão. Relembre o print da aula passada e peça que cada criança escreva um print com o próprio nome e clique em Play para ver aparecer no Output. Anuncie: hoje a gente vai escrever vários e virar caçadores de bugs.
 
-15 min — conteúdo novo guiado: No projetor, escreva três prints em sequência, um embaixo do outro (por exemplo print com Oi, print com Eu sou um robo, print com Tchau). Rode e mostre as três frases aparecendo na ordem, de cima para baixo. Agora apague de propósito uma aspa de um print e rode. A tela fica vermelha. Leia a mensagem em voz alta, aponte o número da linha e diga: o computador está dizendo onde se perdeu. Conserte na frente deles. Repita tirando um parêntese e depois trocando uma letra de print.
+15 min — conteúdo novo guiado: No projetor, escreva três prints em sequência, um embaixo do outro (por exemplo print com Oi, print com Eu sou um robô, print com Tchau). Rode e mostre as três frases aparecendo na ordem, de cima para baixo. Agora apague de propósito uma aspa de um print e rode. A tela fica vermelha. Leia a mensagem em voz alta, aponte o número da linha e diga: o computador está dizendo onde se perdeu. Conserte na frente deles. Repita tirando um parêntese e depois trocando uma letra de print.
 
 25 min — mão na massa: Junte a turma em duplas. Entregue a folha impressa com o código doentinho e a luneta. Primeiro, sem computador, as duplas circulam a lápis os erros que acham na folha. Depois abrem o Script doentinho no computador, rodam, leem o vermelho no Output e consertam um bug de cada vez, rodando de novo a cada conserto até a tela parar de ficar vermelha. Circule pela sala ajudando a ler o número da linha.
 
@@ -60,8 +60,8 @@ O erro mais comum é a criança ter medo do vermelho e querer apagar tudo. Acalm
       tipo: `Prática na ferramenta`,
       tempo: `5 minutos`,
       guiaProfessor: `No projetor, mostre como escrever três comandos print, um embaixo do outro, dentro do mesmo Script. Reforce que o computador lê de cima para baixo. Peça que cada criança copie e clique em Play para ver as três frases aparecerem na ordem no Output.`,
-      atividade: `Escreva três comandos print, um em cada linha, com as frases que você quiser (por exemplo: Oi, Eu sou um robo, Tchau). Clique em Play e veja as três frases aparecerem na janela Output, na ordem de cima para baixo.`,
-      gabarito: `Acertou quem tiver três comandos print, cada um com a palavra print, parêntese que abre, aspas, texto, aspas e parêntese que fecha, e que ao clicar em Play mostra as três frases no Output na mesma ordem em que foram escritas. Exemplo correto: print("Oi") na primeira linha, print("Eu sou um robo") na segunda e print("Tchau") na terceira.`,
+      atividade: `Escreva três comandos print, um em cada linha, com as frases que você quiser (por exemplo: Oi, Eu sou um robô, Tchau). Clique em Play e veja as três frases aparecerem na janela Output, na ordem de cima para baixo.`,
+      gabarito: `Acertou quem tiver três comandos print, cada um com a palavra print, parêntese que abre, aspas, texto, aspas e parêntese que fecha, e que ao clicar em Play mostra as três frases no Output na mesma ordem em que foram escritas. Exemplo correto: print("Oi") na primeira linha, print("Eu sou um robô") na segunda e print("Tchau") na terceira.`,
     },
     {
       titulo: `O caso da aspa sumida`,

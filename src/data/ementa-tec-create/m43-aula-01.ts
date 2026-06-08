@@ -39,7 +39,7 @@ Você não precisa dominar o Blender para dar esta aula, porque hoje só usamos 
 
 Aquecimento (10 min): projete o blockout de exemplo e pergunte à turma o que cada caixa cinza representa. Explique que estúdios reais começam assim, com formas simples, antes de gastar tempo em detalhes. Relembre que esses assets vão para o jogo do Unity e que tamanho importa.
 
-Conteúdo novo guiado (15 min): com o projetor ligado, abra o Claude e mostre como pedir o planejamento. Digite um pedido claro, por exemplo: Crie uma lista de 8 assets 3D para um cenario de sala de controle de nave espacial, com escala aproximada em metros para cada um e uma sugestao de referencia visual. Leia a resposta com a turma e mostre como ajustar pedindo mais detalhe. Em seguida, abra o Blender e demonstre o blockout: apague o cubo inicial (clique nele e pressione X, depois confirme), adicione um plano grande para o chão (Add > Mesh > Plane) e escale com S digitando 10 e Enter. Adicione um cubo (Add > Mesh > Cube), mova com G e ajuste a altura no painel de transformação (tecla N abre a barra lateral com posição, rotação e escala em metros). Salve com Ctrl+S.
+Conteúdo novo guiado (15 min): com o projetor ligado, abra o Claude e mostre como pedir o planejamento. Digite um pedido claro, por exemplo: Crie uma lista de 8 assets 3D para um cenario de sala de controle de nave espacial, com escala aproximada em metros para cada um e uma sugestao de referência visual. Leia a resposta com a turma e mostre como ajustar pedindo mais detalhe. Em seguida, abra o Blender e demonstre o blockout: apague o cubo inicial (clique nele e pressione X, depois confirme), adicione um plano grande para o chão (Add > Mesh > Plane) e escale com S digitando 10 e Enter. Adicione um cubo (Add > Mesh > Cube), mova com G e ajuste a altura no painel de transformação (tecla N abre a barra lateral com posição, rotação e escala em metros). Salve com Ctrl+S.
 
 Mão na massa (25 min): cada aluno escolhe um tema de cenário, pede ao Claude a lista de assets com escala e cola esse plano no documento de planejamento. Depois monta o blockout no Blender posicionando de cinco a oito primitivas no tamanho aproximado da lista (Add > Mesh para cada forma, G para mover, S para escalar, painel N para conferir os metros). Circule pela sala garantindo que cada um salve o arquivo .blend e respeite a escala em metros.
 
@@ -57,7 +57,7 @@ O erro mais comum é ignorar a escala e criar objetos gigantes ou minúsculos; e
       tempo: `7 minutos`,
       guiaProfessor: `Conduza com o projetor mostrando um pedido modelo. Garanta que cada aluno inclua tema, quantidade e escala em metros no próprio pedido antes de aceitar a resposta.`,
       atividade: `Escolha um tema de cenário e peça ao Claude uma lista de 6 a 8 assets 3D com a escala aproximada de cada um em metros e uma referência visual para cada item. Cole a resposta no seu documento de planejamento.`,
-      gabarito: `Exemplo de pedido eficaz: Crie uma lista de 8 assets 3D para um cenario de oficina mecanica, com escala aproximada em metros e uma sugestao de referencia visual para cada item. O documento deve conter de 6 a 8 itens, cada um com nome, escala em metros e referência.`,
+      gabarito: `Exemplo de pedido eficaz: Crie uma lista de 8 assets 3D para um cenario de oficina mecanica, com escala aproximada em metros e uma sugestao de referência visual para cada item. O documento deve conter de 6 a 8 itens, cada um com nome, escala em metros e referência.`,
     },
     {
       titulo: `Preparando a cena para o blockout`,

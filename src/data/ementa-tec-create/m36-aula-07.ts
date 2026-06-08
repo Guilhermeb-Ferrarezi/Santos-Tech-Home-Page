@@ -42,7 +42,7 @@ CONTEÚDO NOVO GUIADO (15 min). Ensine o ciclo PLANEJAR antes de PROGRAMAR. No p
 
 # Projeto: Gerenciador de Pontuacoes
 # O que faz: guarda nomes e pontos dos jogadores
-# Funcoes: mostrar_menu, adicionar_pontuacao, listar_pontuacoes, salvar, carregar
+# Funções: mostrar_menu, adicionar_pontuacao, listar_pontuacoes, salvar, carregar
 # Arquivo de dados: pontuacoes.txt
 
 Depois transforme o plano em esqueleto. Explique que cada função começa vazia, só com pass:
@@ -102,7 +102,7 @@ O erro mais comum é escolher um projeto grande demais. Ajude a cortar para algo
       guiaProfessor: `Verifique se o aluno listou de 3 a 5 funções com nomes claros, escritos sem acento e sem espaço (use sublinhado).`,
       atividade: `No topo do arquivo projeto.py, escreva em comentários o nome de cada função que o seu projeto vai precisar. Comece cada linha com o sinal de tralha (#).`,
       gabarito: `# Projeto: Jogo de Adivinhar Numero
-# Funcoes que vou precisar:
+# Funções que vou precisar:
 # sortear_numero
 # pedir_palpite
 # dar_dica

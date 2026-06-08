@@ -36,7 +36,7 @@ Você não precisa ser especialista em VR para dar esta aula. O segredo é enten
 
 ## Passo a passo da aula (ritmo 10/15/25/10)
 
-Aquecimento (10 min). Abra a cena CenaMaosVR. Peça que cada aluno coloque os óculos e mexa os controles, observando que eles aparecem mas ainda nao fazem nada. Pergunte: o que voce gostaria que o gatilho fizesse? Anote ideias no quadro (luz, som, gesto). Isso conecta a aula passada com a de hoje.
+Aquecimento (10 min). Abra a cena CenaMaosVR. Peça que cada aluno coloque os óculos e mexa os controles, observando que eles aparecem mas ainda não fazem nada. Pergunte: o que você gostaria que o gatilho fizesse? Anote ideias no quadro (luz, som, gesto). Isso conecta a aula passada com a de hoje.
 
 Conteúdo novo guiado (15 min). No projetor, crie um asset de Input Actions: clique direito na pasta, Create, Input Actions, e nomeie ControlesVR. Abra com dois cliques, adicione um Action Map chamado Maos, e dentro dele duas ações: Disparar (tipo Button) e Agarrar (tipo Value, Axis). Faça o binding: em Disparar use o caminho do trigger do controle direito; em Agarrar use o grip. Salve com Save Asset. Explique que cada ação agora tem um nome próprio e não depende do modelo do óculos.
 

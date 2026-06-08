@@ -31,7 +31,7 @@ A aula 8 será o "Joga e Mostra", então hoje o foco é MONTAR e deixar o jogo f
     `Colisão — o momento em que dois personagens se encostam, igual a dois carrinhos batendo.`,
     `Montar o jogo — juntar herói, inimigo, cenário e regras na mesma tela para virar um brinquedo que funciona.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 Hoje você não ensina nenhum bloco novo: você ajuda a criança a JUNTAR o que ela já viu. Pense nesta aula como montar um sanduíche com ingredientes que a turma já provou separados. Os ingredientes são: colisão (o "tocando em"), fases (trocar de cenário), vidas (uma variável que diminui), fim de jogo (parar tudo quando a vida acaba), dificuldade (deixar mais rápido) e sorteio (o bloco "número aleatório entre").
 

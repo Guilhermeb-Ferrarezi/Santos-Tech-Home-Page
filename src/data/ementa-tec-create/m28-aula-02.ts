@@ -120,7 +120,7 @@ end
 
 plataforma.Touched:Connect(aoTocar)
 
--- Touched dispara no toque; Connect liga o evento a funcao aoTocar, que escreve a mensagem.`,
+-- Touched dispara no toque; Connect liga o evento a função aoTocar, que escreve a mensagem.`,
     },
     {
       titulo: `Personagem mais veloz`,
@@ -155,7 +155,7 @@ end
 
 plataforma.Touched:Connect(aoTocar)
 
--- No toque, a funcao troca a propriedade BrickColor da peca para verde.`,
+-- No toque, a função troca a propriedade BrickColor da peca para verde.`,
     },
     {
       titulo: `Só reage a jogadores`,

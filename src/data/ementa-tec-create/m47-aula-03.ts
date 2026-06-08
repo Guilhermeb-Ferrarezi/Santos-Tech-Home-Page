@@ -89,7 +89,7 @@ Erro 1: bevel com valor altíssimo que deforma tudo. Peça para desfazer com Ctr
       tipo: `Uso do Claude e autoavaliação`,
       tempo: `10 min`,
       guiaProfessor: `Mostre como abrir Poly Count (Display, Heads Up Display, Poly Count) e como visualizar n-gons. Oriente um prompt claro para o Claude e reforce que a verificação final na malha é responsabilidade do aluno.`,
-      atividade: `Peça ao Claude uma checklist curta para revisar uma malha de jogo. Use um prompt como: "Liste 5 itens para checar se minha malha 3D para jogo esta limpa (quads, n-gons, historico, contagem de poligonos, bordas de apoio)." Depois confira cada item no seu modelo.`,
+      atividade: `Peça ao Claude uma checklist curta para revisar uma malha de jogo. Use um prompt como: "Liste 5 itens para checar se minha malha 3D para jogo esta limpa (quads, n-gons, historico, contagem de polígonos, bordas de apoio)." Depois confira cada item no seu modelo.`,
       gabarito: `Checklist-modelo esperada: 1) Só faces de quatro lados (quads), evitando n-gons; 2) Nenhuma face com mais de quatro lados visível em Display, Polygons; 3) Histórico apagado em Delete by Type, History; 4) Contagem de polígonos sob controle no Poly Count, sem exagero de detalhes; 5) Support edges presentes nas bordas que precisam permanecer firmes na suavização. Aluno aprovado quando confere os cinco itens no próprio modelo e corrige ao menos um problema encontrado.`,
     },
   ],

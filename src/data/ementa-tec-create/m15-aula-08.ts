@@ -33,7 +33,7 @@ Ao final, cada aluno terá um pacote de áudio completo e nomeado, com os arquiv
   ],
   treinamento: `## O que o professor precisa saber
 
-Você não precisa ser especialista em áudio para dar esta aula, mas teste antes o caminho de download em cada ferramenta. No Suno, abra uma música pronta, passe o mouse sobre ela na lista, clique nos três pontinhos (menu) e escolha Download e depois MP3 Audio; o arquivo cai na pasta de Downloads do navegador. No ElevenLabs, na tela onde a voz foi gerada, clique no ícone de Download (uma setinha para baixo) ao lado do áudio para baixar o MP3. Antes da aula, crie no computador modelo uma pasta chamada "audio_meujogo" com três subpastas: "musica", "vozes" e "efeitos". Deixe um arquivo de exemplo em cada uma, já renomeado, para mostrar o resultado final. Lembre o limite do Roblox: arquivos de áudio curtos funcionam melhor, e cada som é enviado pelo Asset Manager virando um ID. O objetivo da aula é simples: baixar tudo, nomear bem e guardar nas subpastas certas.
+Você não precisa ser especialista em áudio para dar esta aula, mas teste antes o caminho de download em cada ferramenta. No Suno, abra uma música pronta, passe o mouse sobre ela na lista, clique nos três pontinhos (menu) e escolha Download e depois MP3 Audio; o arquivo cai na pasta de Downloads do navegador. No ElevenLabs, na tela onde a voz foi gerada, clique no ícone de Download (uma setinha para baixo) ao lado do áudio para baixar o MP3. Antes da aula, crie no computador modelo uma pasta chamada "audio_meujogo" com três subpastas: "música", "vozes" e "efeitos". Deixe um arquivo de exemplo em cada uma, já renomeado, para mostrar o resultado final. Lembre o limite do Roblox: arquivos de áudio curtos funcionam melhor, e cada som é enviado pelo Asset Manager virando um ID. O objetivo da aula é simples: baixar tudo, nomear bem e guardar nas subpastas certas.
 
 ## Passo a passo da aula (ritmo 10/15/25/10)
 
@@ -41,7 +41,7 @@ Aquecimento (10 min): retome o mês inteiro. Pergunte: que sons vocês criaram n
 
 Conteúdo novo guiado (15 min): no projetor, abra o Suno e mostre o caminho do download: três pontinhos na música, Download, MP3 Audio. Depois abra o ElevenLabs e mostre o ícone de Download da voz. Em seguida, crie ao vivo a pasta "audio_meujogo" com as três subpastas e arraste um arquivo baixado para a subpasta certa, renomeando para "musica_fase1_loop". Por fim, abra o Asset Manager do Roblox Studio e mostre rapidamente como um som é enviado e vira um ID. Explique cada passo apontando na tela.
 
-Mão na massa (25 min): cada aluno cria a própria pasta "audio_seunome_jogo" com as subpastas musica, vozes e efeitos. Passo 1: voltar ao Suno e baixar as melhores músicas em MP3. Passo 2: voltar ao ElevenLabs e baixar as vozes e narrações em MP3. Passo 3: mover cada arquivo para a subpasta certa e renomear seguindo o padrão (tipo_uso_detalhe). Caminhe entre as duplas, ajude quem se perdeu nos downloads e confira os nomes dos arquivos.
+Mão na massa (25 min): cada aluno cria a própria pasta "audio_seunome_jogo" com as subpastas música, vozes e efeitos. Passo 1: voltar ao Suno e baixar as melhores músicas em MP3. Passo 2: voltar ao ElevenLabs e baixar as vozes e narrações em MP3. Passo 3: mover cada arquivo para a subpasta certa e renomear seguindo o padrão (tipo_uso_detalhe). Caminhe entre as duplas, ajude quem se perdeu nos downloads e confira os nomes dos arquivos.
 
 Desafio e compartilhar (10 min): cada aluno escolhe os três melhores sons do pacote e apresenta em 30 segundos, dizendo o nome do arquivo e onde ele será usado (vídeo ou jogo). A turma aplaude e o professor confirma se o pacote está organizado.
 
@@ -58,8 +58,8 @@ O erro mais comum é o aluno baixar o áudio e deixar com o nome automático che
       tipo: `prática na ferramenta`,
       tempo: `6 minutos`,
       guiaProfessor: `Mostre no projetor como criar a pasta principal e as três subpastas. Caminhe conferindo se cada aluno criou as subpastas com os nomes certos antes de começar a baixar os áudios. Esse passo organiza todo o resto da aula.`,
-      atividade: `No seu computador, crie uma pasta chamada "audio_seunome_jogo". Dentro dela, crie três subpastas com estes nomes exatos: "musica", "vozes" e "efeitos". Deixe a pasta aberta numa janela para usar durante toda a aula.`,
-      gabarito: `O aluno deve ter uma pasta principal nomeada com seu nome (por exemplo "audio_ana_jogo") contendo exatamente três subpastas chamadas musica, vozes e efeitos, escritas sem acentos e sem espaços. Considera-se correto quando a estrutura está pronta e aberta na tela, servindo de destino para os downloads das etapas seguintes.`,
+      atividade: `No seu computador, crie uma pasta chamada "audio_seunome_jogo". Dentro dela, crie três subpastas com estes nomes exatos: "música", "vozes" e "efeitos". Deixe a pasta aberta numa janela para usar durante toda a aula.`,
+      gabarito: `O aluno deve ter uma pasta principal nomeada com seu nome (por exemplo "audio_ana_jogo") contendo exatamente três subpastas chamadas música, vozes e efeitos, escritas sem acentos e sem espaços. Considera-se correto quando a estrutura está pronta e aberta na tela, servindo de destino para os downloads das etapas seguintes.`,
     },
     {
       titulo: `Baixando no Formato Certo`,
@@ -90,7 +90,7 @@ O erro mais comum é o aluno baixar o áudio e deixar com o nome automático che
       tipo: `projeto curto`,
       tempo: `12 minutos`,
       guiaProfessor: `Atividade de fechamento do mês. Cada aluno finaliza o pacote movendo todos os arquivos para as subpastas certas, com os nomes no padrão, e depois apresenta os três melhores sons em 30 segundos. Recolha (ou registre) o estado de cada pacote para retomar nas aulas de vídeo e de Roblox.`,
-      atividade: `Finalize o seu pacote de áudio: mova cada arquivo baixado para a subpasta certa (musica, vozes ou efeitos) e confira que todos seguem o padrão de nomes. Depois, escolha os seus três melhores sons e apresente em 30 segundos para a turma, dizendo o nome de cada arquivo e onde ele será usado: no vídeo, no jogo, ou nos dois.`,
+      atividade: `Finalize o seu pacote de áudio: mova cada arquivo baixado para a subpasta certa (música, vozes ou efeitos) e confira que todos seguem o padrão de nomes. Depois, escolha os seus três melhores sons e apresente em 30 segundos para a turma, dizendo o nome de cada arquivo e onde ele será usado: no vídeo, no jogo, ou nos dois.`,
       gabarito: `Pacote completo exige: a pasta principal com as três subpastas, cada arquivo movido para a subpasta correta, todos em MP3 e nomeados no padrão tipo_uso_detalhe (sem acentos nem espaços). A apresentação está correta quando o aluno mostra três sons reais do pacote, fala o nome de cada arquivo e explica de forma clara onde cada um será usado. Um pacote bem organizado e apresentado é o entregável do mês, pronto para ser reaproveitado nos vídeos do CapCut e dentro dos jogos no Roblox Studio.`,
     },
   ],

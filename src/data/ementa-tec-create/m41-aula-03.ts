@@ -16,9 +16,9 @@ Ao final, cada aluno terá escolhido um objeto simples (uma arma, um item ou um 
   materiais: [
     `Computadores com Blender instalado (versão atual), um por aluno`,
     `Projetor ou tela grande para o professor demonstrar passo a passo`,
-    `Arquivo de exemplo blender com tres blocagens prontas (espada, barril e bau) para referencia`,
-    `Folha de referencia impressa com a silhueta de 3 objetos para os alunos escolherem`,
-    `Mouse com tres botoes (essencial para navegar e orbitar no Blender)`,
+    `Arquivo de exemplo blender com três blocagens prontas (espada, barril e bau) para referência`,
+    `Folha de referência impressa com a silhueta de 3 objetos para os alunos escolherem`,
+    `Mouse com três botoes (essencial para navegar e orbitar no Blender)`,
     `Bloco de notas ou caderno para o aluno rascunhar a ideia do asset antes de modelar`,
   ],
   conceitosChave: [
@@ -74,7 +74,7 @@ O aluno extruda sem querer e gera faces duplicadas no mesmo lugar: ensine a aper
       titulo: `Inset e bevel no topo`,
       tipo: `Prática no computador`,
       tempo: `10 min`,
-      guiaProfessor: `Aqui o aluno combina duas ferramentas novas na mesma peça. Circule lembrando que o Inset (I) nao muda o contorno externo, so cria uma face interna.`,
+      guiaProfessor: `Aqui o aluno combina duas ferramentas novas na mesma peça. Circule lembrando que o Inset (I) não muda o contorno externo, so cria uma face interna.`,
       atividade: `No mesmo bloco da atividade anterior, selecione a face de cima e use Inserir Face (I) para criar uma face menor dentro dela. Depois selecione as arestas de um canto e aplique Bevel (Ctrl B) para arredondá-lo.`,
       gabarito: `Passos esperados: 1. Selecionar a face de topo. 2. Tecla I, arrastar para dentro, clicar para confirmar (surge uma face menor centralizada). 3. Tecla 2 para modo Arestas. 4. Selecionar uma aresta de canto. 5. Ctrl B, arrastar e rolar o scroll para 2 ou 3 segmentos, clicar para confirmar. Resultado: topo com recorte interno e canto arredondado.`,
     },

@@ -19,7 +19,7 @@ O foco do mês é aprender a usar o Claude nos projetos, e esta aula é o moment
     `Arquivo de exemplo em C# pronto numa pasta da máquina (por exemplo PlayerMovement.cs) para quem ainda não tiver script próprio à mão`,
     `Acesso aos scripts de Unity dos projetos dos alunos (na pasta Assets do projeto ou numa cópia em uma pasta de fácil acesso)`,
     `Um arquivo de notas de design curto em texto (design.txt) com a ideia de um jogo, para o exercício de contexto`,
-    `Uma imagem de referência (referencia.png ou .jpg) de cenário ou personagem para anexar como exemplo`,
+    `Uma imagem de referência (referência.png ou .jpg) de cenário ou personagem para anexar como exemplo`,
     `Editor de código aberto (Visual Studio ou VS Code) para o aluno conferir e aplicar as melhorias no Unity`,
   ],
   conceitosChave: [
@@ -39,7 +39,7 @@ Você não precisa dominar o Claude nem programar em C#. Precisa saber uma coisa
 
 10 min, aquecimento e revisão. Retome a Aula 4: aprendemos a refinar a conversa com palavras. Pergunte: quando você descreve um bug de memória, o Claude às vezes erra o nome da variável, certo? Por quê? Conduza até a resposta: porque ele não está vendo o seu código. Anuncie que hoje vamos deixar o Claude ler o arquivo de verdade.
 
-15 min, conteúdo novo guiado. Em tela grande, abra o Claude. Mostre o ícone de clipe na caixa de mensagem, clique nele e escolha o arquivo de exemplo PlayerMovement.cs. O cartão do arquivo aparece. Agora escreva e envie o seguinte prompt: Leia o arquivo anexado e me explique, em linguagem simples, o que cada parte deste script faz. Leiam juntos a resposta. Em seguida, no mesmo chat, peça uma melhoria com este prompt: Com base nesse mesmo arquivo, sugira uma melhoria no codigo e me mostre apenas o trecho alterado, explicando o que mudou e por que. Mostre como o Claude usa os nomes reais do arquivo. Reforce a regra de ouro: a gente lê, entende e decide; não copia de olhos fechados.
+15 min, conteúdo novo guiado. Em tela grande, abra o Claude. Mostre o ícone de clipe na caixa de mensagem, clique nele e escolha o arquivo de exemplo PlayerMovement.cs. O cartão do arquivo aparece. Agora escreva e envie o seguinte prompt: Leia o arquivo anexado e me explique, em linguagem simples, o que cada parte deste script faz. Leiam juntos a resposta. Em seguida, no mesmo chat, peça uma melhoria com este prompt: Com base nesse mesmo arquivo, sugira uma melhoria no código e me mostre apenas o trecho alterado, explicando o que mudou e por que. Mostre como o Claude usa os nomes reais do arquivo. Reforce a regra de ouro: a gente lê, entende e decide; não copia de olhos fechados.
 
 25 min, mão na massa. Cada aluno anexa um script do próprio jogo (ou o arquivo de exemplo) e faz os dois pedidos: explicação e melhoria. Circule pela sala. Depois, peça que anexem o arquivo de notas de design (design.txt) e perguntem: com base nessas notas, sugira uma ideia que combine com o clima do meu jogo. Por fim, quem quiser anexa a imagem de referência e pede ao Claude para descrever o estilo visual dela.
 
@@ -59,7 +59,7 @@ O erro mais comum é o aluno colar o texto do código na mensagem em vez de anex
       tempo: `8 minutos`,
       guiaProfessor: `Garanta que cada aluno encontre o ícone de clipe na caixa de mensagem e selecione um arquivo .cs. Reforce que, depois de anexar, é preciso escrever o pedido antes de enviar.`,
       atividade: `Abra o Claude. Clique no ícone de clipe e anexe um script de Unity (o seu ou o arquivo de exemplo PlayerMovement.cs). Depois escreva o pedido: Leia o arquivo anexado e me explique, em linguagem simples, o que este script faz. Envie e leia a resposta.`,
-      gabarito: `O aluno deve conseguir ver o cartão do arquivo acima da caixa de mensagem e receber uma explicação que cita os nomes reais do código (por exemplo, nomes de variaveis e metodos do arquivo). Caminho correto: ícone de clipe, escolher o arquivo, escrever o pedido, enviar. Se a resposta vier genérica e sem citar nada do arquivo, o anexo não foi enviado ou o aluno colou texto em vez de anexar.`,
+      gabarito: `O aluno deve conseguir ver o cartão do arquivo acima da caixa de mensagem e receber uma explicação que cita os nomes reais do código (por exemplo, nomes de variáveis e métodos do arquivo). Caminho correto: ícone de clipe, escolher o arquivo, escrever o pedido, enviar. Se a resposta vier genérica e sem citar nada do arquivo, o anexo não foi enviado ou o aluno colou texto em vez de anexar.`,
     },
     {
       titulo: `Genérico contra sob medida`,
@@ -74,14 +74,14 @@ O erro mais comum é o aluno colar o texto do código na mensagem em vez de anex
       tipo: `desafio`,
       tempo: `12 minutos`,
       guiaProfessor: `Oriente o aluno a pedir apenas o trecho alterado, não o arquivo inteiro. Reforce a revisão crítica: ler, entender e só então testar no Unity. Lembre que o jogo é do aluno.`,
-      atividade: `Com o mesmo script anexado, peça uma melhoria com este prompt: Com base nesse arquivo, sugira uma melhoria no codigo e mostre apenas o trecho alterado, explicando o que mudou e por que. Leia a explicação e diga ao professor se faz sentido para o seu jogo.`,
+      atividade: `Com o mesmo script anexado, peça uma melhoria com este prompt: Com base nesse arquivo, sugira uma melhoria no código e mostre apenas o trecho alterado, explicando o que mudou e por que. Leia a explicação e diga ao professor se faz sentido para o seu jogo.`,
       gabarito: `O Claude deve devolver um trecho de código C# usando os nomes do arquivo do aluno, mais uma explicação do que mudou e por quê. Exemplo de melhoria válida: transformar um número solto em uma variável pública para ajustar pelo Inspector da Unity, como em public float velocidade = 5f; em vez do número fixo dentro do método. O aluno deve mostrar que leu e entendeu, e identificar se a sugestão cabe no jogo dele antes de aplicar.`,
     },
     {
       titulo: `Contexto criativo: notas de design e imagem`,
       tipo: `em dupla`,
       tempo: `12 minutos`,
-      guiaProfessor: `Forme duplas. Mostre que o Claude também lê texto comum (notas de design) e olha imagens. Use o arquivo design.txt e a imagem referencia.png preparados. Peça pedidos curtos e claros.`,
+      guiaProfessor: `Forme duplas. Mostre que o Claude também lê texto comum (notas de design) e olha imagens. Use o arquivo design.txt e a imagem referência.png preparados. Peça pedidos curtos e claros.`,
       atividade: `Em dupla, anexem o arquivo design.txt com as notas de design de um jogo e peçam: Com base nessas notas, sugira uma ideia de fase que combine com o clima do jogo. Depois anexem a imagem de referência e peçam ao Claude para descrever o estilo visual dela (cores e clima). Anotem a melhor ideia.`,
       gabarito: `Para as notas, o Claude deve sugerir uma ideia coerente com o clima descrito no texto (por exemplo, se o design fala de um jogo de terror numa floresta, uma fase escura com névoa e sons de galhos). Para a imagem, ele deve descrever cores e clima visíveis (por exemplo, tons frios e azulados, clima sombrio). A dupla acerta quando a resposta da IA se liga claramente ao conteúdo do arquivo e da imagem anexados, e não a um tema aleatório.`,
     },

@@ -17,7 +17,7 @@ Ao final da aula, cada aluno terá pelo menos dois arquivos trabalhando juntos: 
     `Computadores (1 por aluno) com Python instalado e um editor de código (VS Code ou Thonny) aberto`,
     `Projetor ou TV para o professor mostrar a tela e digitar o código ao vivo`,
     `Arquivos de exemplo prontos: utilidades.py e principal.py para o professor demonstrar o import`,
-    `Pasta vazia chamada projeto-modulos para cada aluno guardar os arquivos da aula no mesmo lugar`,
+    `Pasta vazia chamada projeto-módulos para cada aluno guardar os arquivos da aula no mesmo lugar`,
     `Terminal aberto no editor para rodar os programas com o comando python`,
     `Folha-resumo impressa com a sintaxe do import e o bloco if __name__ == "__main__"`,
   ],
@@ -58,12 +58,12 @@ print(utilidades.dobro(5))
 Rode principal.py no terminal com python principal.py e mostre o resultado. Depois apresente a outra forma: from utilidades import saudacao, explicando que agora pode chamar só saudacao("Joao"). Por fim, no utilidades.py, adicione no final:
 
 if __name__ == "__main__":
-    print("Testando o modulo utilidades")
+    print("Testando o módulo utilidades")
     print(saudacao("teste"))
 
 Rode utilidades.py direto (aparece o teste) e depois rode principal.py (o teste NÃO aparece). Esse contraste é o coração da aula.
 
-3. Mão na massa (25 min): cada aluno cria a pasta projeto-modulos, o arquivo utilidades.py com ao menos duas funções próprias (ex.: uma que soma dois números e outra que devolve um nome em letras maiúsculas usando .upper()), e o arquivo principal.py que importa e usa as duas. Circule pela sala conferindo se os arquivos estão na mesma pasta e se o import está escrito com o nome certo.
+3. Mão na massa (25 min): cada aluno cria a pasta projeto-módulos, o arquivo utilidades.py com ao menos duas funções próprias (ex.: uma que soma dois números e outra que devolve um nome em letras maiúsculas usando .upper()), e o arquivo principal.py que importa e usa as duas. Circule pela sala conferindo se os arquivos estão na mesma pasta e se o import está escrito com o nome certo.
 
 4. Desafio e compartilhar (10 min): cada aluno adiciona um bloco if __name__ == "__main__" no utilidades.py com um teste e mostra à turma que o teste roda sozinho, mas some quando importado. Salve a pasta para a aula seguinte.
 
@@ -154,10 +154,10 @@ def soma(a, b):
     return a + b
 
 if __name__ == "__main__":
-    print("Testando o modulo utilidades")
+    print("Testando o módulo utilidades")
     print(soma(2, 2))
 
-Ao rodar utilidades.py direto, aparece: Testando o modulo utilidades e depois 4. Ao rodar principal.py, esse teste NÃO aparece, porque ao ser importado a variável __name__ deixa de valer "__main__". O aluno acerta quando o teste roda sozinho mas some na importação, mostrando que entendeu para que serve o bloco.`,
+Ao rodar utilidades.py direto, aparece: Testando o módulo utilidades e depois 4. Ao rodar principal.py, esse teste NÃO aparece, porque ao ser importado a variável __name__ deixa de valer "__main__". O aluno acerta quando o teste roda sozinho mas some na importação, mostrando que entendeu para que serve o bloco.`,
     },
   ],
 };

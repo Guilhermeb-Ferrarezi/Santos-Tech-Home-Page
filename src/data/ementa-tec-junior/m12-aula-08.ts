@@ -31,7 +31,7 @@ Como é a última aula do ano, o foco não é aprender nada novo de técnica, e 
     `Celebrar — comemorar junto, com palmas e alegria, a conquista de todo mundo da turma.`,
     `Demonstração — o momento de clicar em Jogar e mostrar ao vivo o seu jogo funcionando.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 Esta aula é a festa de encerramento do ano. Tecnicamente, ela é simples: nenhum jogo novo será construído. O que você precisa garantir é que o jogo de cada criança abra rápido e sem susto na frente da família. Antes da aula, abra você mesmo o Roblox em cada computador, entre na conta do aluno (ou na conta da escola onde os jogos foram publicados) e teste o botão verde Jogar (Play) de cada projeto. Deixe a página de cada jogo aberta numa aba ou salva nos Favoritos, para não perder tempo procurando na hora.
 
@@ -43,7 +43,7 @@ Sua função principal hoje é de apresentador e mestre de cerimônia. A técnic
 
 10 min — Aquecimento e boas-vindas: receba as crianças e os pais. Mostre a sala montada como um palco, com o projetor ligado. Faça a turma respirar fundo junto e diga a frase do dia: hoje cada um é uma estrela. Reveja rapidinho a ordem das apresentações lendo a lista de nomes.
 
-15 min — Conteudo guiado (o ensaio): explique como vai funcionar. Você mesmo faz uma apresentação de exemplo: abra o Roblox, clique no jogo de demonstração, aperte o botão verde Jogar (Play) e mostre na tela do projetor. Fale em voz alta: meu jogo se chama assim, nele você faz isso. Peça que cada criança ensaie uma frase curta: o nome do jogo e uma coisa que ela mais gosta nele.
+15 min — Conteúdo guiado (o ensaio): explique como vai funcionar. Você mesmo faz uma apresentação de exemplo: abra o Roblox, clique no jogo de demonstração, aperte o botão verde Jogar (Play) e mostre na tela do projetor. Fale em voz alta: meu jogo se chama assim, nele você faz isso. Peça que cada criança ensaie uma frase curta: o nome do jogo e uma coisa que ela mais gosta nele.
 
 25 min — Mao na massa (as apresentacoes): chame uma criança por vez pelo nome. Ajude-a a sentar no computador ligado ao projetor, abrir a página do jogo no Roblox e clicar no botão verde Jogar (Play). Deixe a criança falar a frase ensaiada e, se quiser, deixe a família jogar trinta segundos. Puxe as palmas no fim de cada uma. Mantenha o ritmo para todos terem a sua vez.
 

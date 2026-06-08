@@ -41,13 +41,13 @@ Você não precisa dominar Unreal nem C++ para conduzir esta aula, porque ela é
 
 15 min — Conteúdo novo guiado. Mostre no projetor a estrutura do pitch em três partes: abertura (uma frase forte que diz o que é o jogo), meio (a ideia central e a melhor mecânica) e fecho (por que vale a pena jogar e o que você aprendeu). Em seguida, mostre como o Claude ajuda a organizar. Projete um exemplo de pedido (prompt):
 
-Sou aluno e fiz um jogo na Unreal Engine. Me ajude a montar um roteiro de pitch de um minuto com tres partes: abertura, ideia central e fecho. Aqui estao minhas anotacoes soltas sobre o jogo: [cole aqui]. Deixe a fala curta e clara.
+Sou aluno e fiz um jogo na Unreal Engine. Me ajude a montar um roteiro de pitch de um minuto com três partes: abertura, ideia central e fecho. Aqui estao minhas anotacoes soltas sobre o jogo: [cole aqui]. Deixe a fala curta e clara.
 
 Explique que o Claude devolve um rascunho organizado, e que o aluno deve ajustar para soar como ele mesmo.
 
 25 min — Mão na massa. Cada aluno faz três tarefas, nesta ordem. Primeiro, escreve as anotações do próprio jogo e pede ao Claude para virar roteiro de pitch; depois lê em voz alta e cronometra (a meta é por volta de um minuto). Segundo, abre o jogo empacotado e escolhe o trecho da demo, marcando onde começa e onde termina, sem depender de sorte. Terceiro, atualiza o portfólio com os quatro projetos da trilha (VR no Unity, jogo no Unity com Blender, jogo na Unreal com Maya e o jogo final), pedindo ao Claude para revisar a descrição de cada um. Mostre um prompt de revisão:
 
-Revise esta descricao de projeto para o meu portfolio. Deixe clara e sem erros, em ate tres frases, dizendo o que e o projeto, a ferramenta usada e o que eu aprendi: [cole aqui].
+Revise esta descricao de projeto para o meu portfolio. Deixe clara e sem erros, em ate três frases, dizendo o que e o projeto, a ferramenta usada e o que eu aprendi: [cole aqui].
 
 10 min — Desafio e compartilhar. Cada aluno faz o pitch de um minuto para um colega, que cronometra e dá um elogio e uma sugestão. Quem quiser apresenta para a turma. Reforce que amanhã é o Demo Day e que ensaiar hoje deixa todos mais tranquilos.
 

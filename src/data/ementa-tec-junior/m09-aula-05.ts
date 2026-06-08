@@ -31,7 +31,7 @@ A aula não pede que o personagem fique perfeito. A meta é que cada criança pi
     `Mirar com cuidado — apontar o mouse certinho no cubinho que você quer, para não pintar o vizinho sem querer.`,
     `Capricho — pintar devagar e com atenção, deixando cada parte bem-feita.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 No MagicaVoxel, cada modelo é feito de pequenos cubos chamados voxels. Cada voxel guarda duas informações: onde ele está e qual é a sua cor. Quando as crianças construíram o personagem, todos os voxels nasceram com a mesma cor padrão (um cinza claro). Pintar é simplesmente mudar a cor de um voxel já existente, sem apagar nem criar cubo nenhum.
 

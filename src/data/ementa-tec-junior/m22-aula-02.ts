@@ -91,7 +91,7 @@ As crianças costumam: 1) criar a forma e perder ela de vista ao girar a câmera
       titulo: `Salvando o Meu Asset`,
       tipo: `Prática na ferramenta`,
       tempo: `6 minutos`,
-      guiaProfessor: `Mostre File > Save Scene (ou Ctrl+S) e ensine a digitar o nome do arquivo com o nome da criança e do item, por exemplo "robo-da-ana". Passe em cada computador conferindo que o modelo foi salvo de verdade antes de encerrar.`,
+      guiaProfessor: `Mostre File > Save Scene (ou Ctrl+S) e ensine a digitar o nome do arquivo com o nome da criança e do item, por exemplo "robô-da-ana". Passe em cada computador conferindo que o modelo foi salvo de verdade antes de encerrar.`,
       atividade: `Cada criança salva o seu modelo com File > Save Scene, escrevendo no nome do arquivo o próprio nome e o item feito, deixando o asset guardado e pronto para receber cor na próxima aula.`,
       gabarito: `Acertou quem salvou a cena com um nome que identifica a criança e o item. Se o arquivo aparece guardado e o título da janela mostra o nome dado, o asset está pronto e correto.`,
     },

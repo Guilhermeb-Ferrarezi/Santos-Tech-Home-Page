@@ -37,15 +37,15 @@ Você não precisa ser especialista em IA para conduzir esta aula. Precisa enten
 
 ## Passo a passo da aula (ritmo 10/15/25/10)
 
-10 min, aquecimento e revisão. Lembre a turma do que vem pela frente no ano: VR no Unity, um jogo em C# e um jogo em C++ na Unreal. Pergunte: quando voce travou em um projeto, com quem voce pediu ajuda? Conduza até a ideia de um assistente que está sempre disponível. Mostre os óculos de VR só como motivação do destino do ano.
+10 min, aquecimento e revisão. Lembre a turma do que vem pela frente no ano: VR no Unity, um jogo em C# e um jogo em C++ na Unreal. Pergunte: quando você travou em um projeto, com quem você pediu ajuda? Conduza até a ideia de um assistente que está sempre disponível. Mostre os óculos de VR só como motivação do destino do ano.
 
 15 min, conteúdo novo guiado. No projetor, abra o Claude. Mostre as três áreas: o campo de mensagem embaixo, a área da resposta no centro e a lista de conversas na lateral. Faça a primeira conversa ao vivo. Digite no campo de mensagem o prompt exato abaixo e envie:
 
-Voce e um assistente que ajuda alunos de games. Explique em 3 frases curtas o que e o motor de jogo Unity, para um adolescente iniciante.
+Você e um assistente que ajuda alunos de games. Explique em 3 frases curtas o que e o motor de jogo Unity, para um adolescente iniciante.
 
 Leia a resposta em voz alta. Em seguida, mostre um limite: digite outro prompt e mostre que a IA pode errar.
 
-Liste 3 atalhos de teclado do Unity. Eu vou conferir cada um, entao seja honesto se nao tiver certeza.
+Liste 3 atalhos de teclado do Unity. Eu vou conferir cada um, então seja honesto se não tiver certeza.
 
 Explique que vamos sempre testar o que a IA disser. Mostre como começar uma conversa nova (botão de nova conversa) e como voltar a uma conversa antiga pela lateral.
 
@@ -55,7 +55,7 @@ Explique que vamos sempre testar o que a IA disser. Mostre como começar uma con
 
 ## Como explicar de forma clara (linguagem para a idade)
 
-Use comparações do dia a dia. Diga: o Claude é como um colega muito lido que está sempre disponível para conversar, mas que às vezes chuta a resposta com confiança, então a gente confere. Para prompt, diga: é o jeito que voce pede; pedir mal traz resposta ruim, pedir com detalhe traz resposta boa, igual a um pedido de lanche. Para copiloto, use a imagem do avião ou do kart: o copiloto ajuda e avisa, mas quem está no volante é voce. Evite termos difíceis sem traduzir; fale alucinação e logo explique como inventar uma resposta errada com cara de certa. Conecte sempre com os jogos do aluno: o Claude vai ajudar a entender erros de C#, a planejar a cena de VR e a organizar ideias.
+Use comparações do dia a dia. Diga: o Claude é como um colega muito lido que está sempre disponível para conversar, mas que às vezes chuta a resposta com confiança, então a gente confere. Para prompt, diga: é o jeito que você pede; pedir mal traz resposta ruim, pedir com detalhe traz resposta boa, igual a um pedido de lanche. Para copiloto, use a imagem do avião ou do kart: o copiloto ajuda e avisa, mas quem está no volante é você. Evite termos difíceis sem traduzir; fale alucinação e logo explique como inventar uma resposta errada com cara de certa. Conecte sempre com os jogos do aluno: o Claude vai ajudar a entender erros de C#, a planejar a cena de VR e a organizar ideias.
 
 ## Erros comuns e como ajudar
 
@@ -74,7 +74,7 @@ O erro mais comum é o aluno achar que tudo o que a IA diz é verdade; reforce a
       tipo: `exploração guiada`,
       tempo: `8 minutos`,
       guiaProfessor: `Peça que apontem cada área na própria tela. Confira se todos acham o botão de nova conversa e a lista de conversas na lateral.`,
-      atividade: `Sem digitar nada novo, encontre e anote no caderno três áreas da tela do Claude: 1) onde voce escreve a mensagem; 2) onde aparece a resposta; 3) onde fica a lista de conversas anteriores. Depois, clique no botão de nova conversa e diga o que mudou na tela.`,
+      atividade: `Sem digitar nada novo, encontre e anote no caderno três áreas da tela do Claude: 1) onde você escreve a mensagem; 2) onde aparece a resposta; 3) onde fica a lista de conversas anteriores. Depois, clique no botão de nova conversa e diga o que mudou na tela.`,
       gabarito: `As três áreas corretas são: o campo de mensagem na parte de baixo, a área de resposta no centro e a lista de conversas na lateral. Ao clicar em nova conversa, a área central fica vazia e começa um chat novo, sem o histórico da conversa anterior. O aluno acerta se identificar as três áreas e perceber que a nova conversa começa em branco.`,
     },
     {

@@ -31,7 +31,7 @@ O objetivo não é decorar nomes difíceis, e sim que a criança termine a aula 
     `Viewport — a janelona do meio do Maya onde a cena 3D aparece; é o nosso "aquário" para olhar.`,
     `Enquadrar (focar) — apertar uma tecla para a câmera voltar a olhar bem para o objeto quando a gente se perde.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 No Maya, a área grande do meio onde a cena aparece chama-se viewport. Tudo que a criança vê ali é mostrado por uma câmera virtual. A criança nunca anda dentro da cena; ela move essa câmera. Existem três movimentos básicos, todos feitos segurando a tecla Alt mais um botão do mouse:
 

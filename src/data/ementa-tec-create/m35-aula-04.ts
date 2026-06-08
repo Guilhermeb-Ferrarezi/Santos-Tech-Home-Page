@@ -34,7 +34,7 @@ Nesta aula os alunos juntam tudo o que já viram no mês — variáveis, decisõ
 
 Listas e dicionários são duas formas de guardar muitos dados em uma única variável. A lista usa colchetes e guarda valores em ordem, acessados por um número de posição chamado índice. Atenção a um ponto que confunde iniciantes: o índice começa em zero, então o primeiro item é o de número 0. O dicionário usa chaves e guarda pares de chave e valor, acessados pelo nome da chave em vez de por um número. Pense na lista como uma fila de caixas numeradas e no dicionário como uma agenda em que cada nome aponta para uma informação.
 
-Antes da aula, abra o editor e teste rodar um arquivo Python simples. Para imprimir um valor junto de um texto, use a vírgula dentro do print, assim: print("Texto", variavel). Evite f-strings nesta aula para manter o código simples e previsível. Tenha o arquivo cadastro_pronto.py aberto numa janela só sua, para consultar caso travar.
+Antes da aula, abra o editor e teste rodar um arquivo Python simples. Para imprimir um valor junto de um texto, use a vírgula dentro do print, assim: print("Texto", variável). Evite f-strings nesta aula para manter o código simples e previsível. Tenha o arquivo cadastro_pronto.py aberto numa janela só sua, para consultar caso travar.
 
 ## Passo a passo da aula (ritmo 10 / 15 / 25 / 10)
 

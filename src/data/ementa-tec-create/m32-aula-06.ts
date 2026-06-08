@@ -17,7 +17,7 @@ Vale reforçar que esta aula prepara o terreno para o entregável do mês, a pá
     `Computadores com um navegador moderno instalado (Chrome ou Edge), um por aluno`,
     `Editor de código instalado (VS Code) para escrever HTML, CSS e JavaScript`,
     `Projetor ou TV para o professor demonstrar os efeitos ao vivo`,
-    `Arquivo de exemplo "pagina-clique" com um HTML pronto contendo um título, uma caixa colorida, um aviso e três botões`,
+    `Arquivo de exemplo "página-clique" com um HTML pronto contendo um título, uma caixa colorida, um aviso e três botões`,
     `Folha impressa com a receita do dia: pegar o elemento, ouvir o clique, mudar a página`,
     `Quadro branco para desenhar o fluxo clique, função, mudança no DOM`,
   ],
@@ -45,7 +45,7 @@ Conteúdo novo guiado (15 min): com o projetor, abra o arquivo de exemplo. Mostr
 var titulo = document.getElementById("titulo");
 var botao1 = document.getElementById("botao1");
 botao1.addEventListener("click", function () {
-  titulo.textContent = "Voce clicou no botao!";
+  titulo.textContent = "Você clicou no botao!";
 });
 
 Explique linha a linha: pegamos o título e o botão; addEventListener diz ao botão para ouvir o clique; dentro da função, textContent troca o texto. Clique e mostre a mágica. Depois faça o segundo efeito, mudar a cor:
@@ -95,7 +95,7 @@ Erro 1: o id do JavaScript não bate com o do HTML e nada acontece; peça para c
       gabarito: `var titulo = document.getElementById("titulo");
 var botao1 = document.getElementById("botao1");
 botao1.addEventListener("click", function () {
-  titulo.textContent = "Bem-vindo a minha pagina!";
+  titulo.textContent = "Bem-vindo a minha página!";
 });
 
 Qualquer frase própria do aluno vale, desde que dentro das aspas. Ao clicar, o texto do título troca na hora.`,

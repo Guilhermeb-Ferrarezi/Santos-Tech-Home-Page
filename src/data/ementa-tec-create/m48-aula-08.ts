@@ -39,7 +39,7 @@ Tecnicamente, você só precisa saber abrir a build e, se for o caso, mostrar o 
 
 Antes de as famílias chegarem, monte o cenário: o projetor testado, a pasta da build de cada aluno aberta ou fácil de localizar, os certificados em ordem alfabética, a câmera carregada e a lista de apresentação na mão. Deixe cada jogo pronto para abrir com dois cliques, para não procurar arquivo na frente de todos.
 
-## Passo a passo da aula (ritmo 10/15/25/10, com o codigo exato)
+## Passo a passo da aula (ritmo 10/15/25/10, com o código exato)
 
 1. Acolhimento e preparação (10 min). Receba a turma e as famílias e acomode a plateia. Com os alunos, confira juntos que cada build abre: localize a pasta, ache o arquivo .exe e teste um clique duplo. Combine as regras de plateia (silêncio durante a fala do colega, palmas no fim) e tranquilize quem estiver nervoso.
 

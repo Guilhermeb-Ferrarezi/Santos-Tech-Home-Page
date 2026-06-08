@@ -16,7 +16,7 @@ Ao final, cada aluno terá escrito sozinho uma pequena macro que guarda dados em
   materiais: [
     `Computadores (1 por aluno) com Microsoft Excel instalado e o Editor VBA já testado pelo professor (guia Desenvolvedor habilitada)`,
     `Projetor ou TV conectado ao computador do professor para mostrar cada linha de código sendo digitada`,
-    `Arquivo de exemplo "variaveis-modelo.xlsm" preparado pelo professor, com um módulo vazio pronto e o nome da turma na primeira aba`,
+    `Arquivo de exemplo "variáveis-modelo.xlsm" preparado pelo professor, com um módulo vazio pronto e o nome da turma na primeira aba`,
     `Cartão impresso ou slide com a "tabela dos quatro tipos": String (texto), Integer (inteiro), Double (com vírgula), Boolean (verdadeiro/falso)`,
     `Quadro branco ou flip chart para desenhar as "caixinhas" com nome e conteúdo durante a explicação`,
     `Lista impressa com 3 exemplos de código prontos para copiar, caso algum aluno trave na digitação`,
@@ -40,7 +40,7 @@ Aquecimento (10 min): No quadro, desenhe três caixas com etiquetas: nome, idade
 
 Conteúdo novo guiado (15 min): Com o projetor ligado, em Inserir > Módulo, digite linha a linha, explicando cada parte. Comece com: Sub MinhaPrimeiraVariavel() na primeira linha. Depois Dim nome As String e explique: "Dim cria a caixinha, nome é a etiqueta, As String diz que guarda texto". Em seguida nome = "Ana" e diga "o igual coloca o valor dentro; texto vai entre aspas". Adicione Dim idade As Integer e idade = 12 (sem aspas, é número). Depois MsgBox nome e rode com F5 para mostrar "Ana" na tela. Mostre a soma: Dim pontos As Integer / pontos = 7 + 3 / MsgBox pontos. Por fim, junte texto e número com o sinal &: MsgBox nome & " tem " & idade & " anos". Feche o procedimento com End Sub.
 
-Mão na massa (25 min): Os alunos abrem o "variaveis-modelo.xlsm", entram no Editor (Alt + F11) e no módulo já existente escrevem a própria macro. Tarefa: declarar quatro variáveis (uma de cada tipo) com os próprios dados, fazer uma soma com Integer e exibir uma frase com MsgBox juntando nome e idade usando &. Circule pela sala — turma de 10 permite atenção individual. Confira se cada um usou Dim, escolheu o tipo certo e rodou com F5.
+Mão na massa (25 min): Os alunos abrem o "variáveis-modelo.xlsm", entram no Editor (Alt + F11) e no módulo já existente escrevem a própria macro. Tarefa: declarar quatro variáveis (uma de cada tipo) com os próprios dados, fazer uma soma com Integer e exibir uma frase com MsgBox juntando nome e idade usando &. Circule pela sala — turma de 10 permite atenção individual. Confira se cada um usou Dim, escolheu o tipo certo e rodou com F5.
 
 Desafio e compartilhar (10 min): Cada aluno mostra sua macro rodando para o colega ao lado, lendo a frase que apareceu na tela. Dois ou três voluntários projetam a própria mensagem para a turma. Pergunte por que escolheram cada tipo.
 
@@ -65,7 +65,7 @@ O erro mais comum é esquecer as aspas no texto: "Ana" funciona, Ana sem aspas d
       tipo: `Prática na ferramenta`,
       tempo: `8 min`,
       guiaProfessor: `Mostre projetado o caminho antes de soltar a turma. Reforce a sequência: Alt + F11 para abrir o Editor, Inserir > Módulo, escrever a macro e rodar com F5. Circule conferindo se cada aluno achou o módulo e usou Dim corretamente.`,
-      atividade: `No arquivo "variaveis-modelo.xlsm", abra o Editor VBA (Alt + F11) e, dentro do módulo, escreva uma macro que cria uma variável de texto com o seu nome e mostra esse nome numa mensagem. Rode com F5. Use este modelo: Sub MeuNome() / Dim nome As String / nome = "seu nome aqui" / MsgBox nome / End Sub.`,
+      atividade: `No arquivo "variáveis-modelo.xlsm", abra o Editor VBA (Alt + F11) e, dentro do módulo, escreva uma macro que cria uma variável de texto com o seu nome e mostra esse nome numa mensagem. Rode com F5. Use este modelo: Sub MeuNome() / Dim nome As String / nome = "seu nome aqui" / MsgBox nome / End Sub.`,
       gabarito: `A macro deve começar com Sub e um nome, declarar Dim nome As String, atribuir o texto entre aspas (nome = "Lucas"), exibir com MsgBox nome e terminar com End Sub. Ao rodar com F5, uma janelinha mostra o nome digitado. Correto quando o texto está entre aspas e a mensagem aparece na tela sem erro.`,
     },
     {

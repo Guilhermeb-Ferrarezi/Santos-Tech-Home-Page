@@ -31,7 +31,7 @@ Esta aula importa porque é onde a criatividade individual aparece de verdade. E
     `Cubinho extra — um voxel novo que a gente adiciona em cima do personagem para criar um detalhe.`,
     `Simetria — quando os dois lados ficam iguais, como dois olhos ou duas orelhas no mesmo lugar dos dois lados.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 Nesta aula nada de novo é construído do zero: o personagem já existe. O foco é adicionar pequenos detalhes e brincar com variações. Tecnicamente, você só precisa dominar três ações no MagicaVoxel: adicionar voxels, trocar a cor de um voxel e desfazer.
 
@@ -43,7 +43,7 @@ Um detalhe é só um ou dois cubinhos colocados em cima do personagem: dois cubi
 
 Aquecimento (10 min): Receba a turma e abra no projetor o personagem de exemplo, ainda sem detalhes. Pergunte: "O que falta para ele ficar mais legal?" Anote as ideias (olhos, chapéu, bochechas). Relembre rapidamente como pintar: clique em "Paint", escolha uma cor na paleta da direita e clique num cubinho.
 
-Conteudo novo guiado (15 min): No seu computador, mostre ao vivo como adicionar um detalhe. Clique no botão "Attach", escolha uma cor escura na paleta e clique em dois pontos da carinha para criar olhos. Depois escolha rosa e adicione bochechas. Para o chapéu, gire o personagem (botão direito do mouse arrastando) até ver o topo da cabeça e adicione uma fileira de cubinhos. Mostre o Ctrl + Z apagando o último cubinho. Faça devagar, nomeando cada botão em voz alta.
+Conteúdo novo guiado (15 min): No seu computador, mostre ao vivo como adicionar um detalhe. Clique no botão "Attach", escolha uma cor escura na paleta e clique em dois pontos da carinha para criar olhos. Depois escolha rosa e adicione bochechas. Para o chapéu, gire o personagem (botão direito do mouse arrastando) até ver o topo da cabeça e adicione uma fileira de cubinhos. Mostre o Ctrl + Z apagando o último cubinho. Faça devagar, nomeando cada botão em voz alta.
 
 Mao na massa (25 min): Cada criança abre o seu próprio personagem e adiciona pelo menos dois detalhes à escolha. Circule entre as mesas. Incentive a testar variações: "E se o chapéu fosse amarelo?" Use "Paint" para trocar a cor sem refazer tudo. Garanta que cada um salve no fim (menu, "Save").
 

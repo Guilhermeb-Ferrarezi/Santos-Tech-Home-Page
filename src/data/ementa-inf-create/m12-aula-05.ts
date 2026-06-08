@@ -40,7 +40,7 @@ Aquecimento (10 min): pergunte "Onde vocês guardam suas fotos e trabalhos? E se
 
 Conteúdo novo guiado (15 min): com o projetor ligado, abra drive.google.com. Mostre o menu à esquerda e a área central. Clique em "+ Novo" e demonstre "Nova pasta", criando uma chamada "Minhas Matérias". Depois clique em "+ Novo" > "Upload de arquivo", escolha uma imagem da área de trabalho e mostre o arquivo aparecendo no Drive. Clique com o botão direito nele e use "Renomear" para dar um nome claro. Arraste o arquivo para dentro da pasta. Por fim, aponte o medidor de "Armazenamento" no rodapé esquerdo.
 
-Mão na massa (25 min): cada aluno abre o Drive e refaz os passos. Primeiro cria três pastas: "Minhas Matérias", "Fotos" e "Trabalhos". Depois faz upload dos arquivos de exemplo da área de trabalho. Em seguida renomeia cada arquivo com um nome que faça sentido (por exemplo, "foto-viagem" ou "trabalho-de-historia"). Por fim, arrasta cada arquivo para a pasta correta. Circule pela sala ajudando quem se perder no botão "+ Novo" ou no arrastar.
+Mão na massa (25 min): cada aluno abre o Drive e refaz os passos. Primeiro cria três pastas: "Minhas Matérias", "Fotos" e "Trabalhos". Depois faz upload dos arquivos de exemplo da área de trabalho. Em seguida renomeia cada arquivo com um nome que faça sentido (por exemplo, "foto-viagem" ou "trabalho-de-história"). Por fim, arrasta cada arquivo para a pasta correta. Circule pela sala ajudando quem se perder no botão "+ Novo" ou no arrastar.
 
 Desafio e compartilhar (10 min): proponha o desafio "Drive arrumado": cada aluno deixa o "Meu Drive" sem nenhum arquivo solto, tudo dentro de pastas. Quem terminar, descobre quanto espaço já usou olhando o medidor. Feche com uma roda rápida: "Por que organizar a nuvem facilita a vida?".
 

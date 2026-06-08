@@ -31,7 +31,7 @@ O foco é a alegria de construir e a liberdade de criar. Não existe cenário "e
     `Pintar (Color) — escolher uma cor na paleta e dar para o bloco, para deixar o cenário bonito e colorido.`,
     `Encaixar — juntar dois blocos bem pertinho, um do lado ou em cima do outro, sem deixar buraco no meio.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 No Roblox Studio, tudo que aparece no mundo do jogo é feito de objetos. Os mais simples chamam-se "Parts" (blocos). Um Part é uma caixa que a gente pode mover, esticar, virar e pintar. Com vários Parts a criança constrói o cenário inteiro: o chão é um Part bem largo e baixinho; as plataformas são Parts no alto; os obstáculos são Parts no caminho.
 
@@ -49,7 +49,7 @@ Mão na massa (25 min): Agora é a vez deles. Peça para cada criança: 1) criar
 
 Desafio + compartilhar (10 min): Lance o desafio "Uma cor especial": cada criança escolhe UMA cor diferente para o obstáculo, para ele ficar bem fácil de ver. Depois, faça a "volta da galeria": cada um mostra rapidinho o seu cenário no projetor ou no próprio monitor e diz uma frase: "No meu mundo tem...".
 
-## Como explicar para criancas de 5 a 9 (analogias e linguagem)
+## Como explicar para crianças de 5 a 9 (analogias e linguagem)
 
 Use a analogia do Lego o tempo todo: "Cada bloquinho é uma peça de Lego. A gente empilha e encaixa para construir o mundo." Chame o chão de "o chão para o boneco não cair no buraco" e as plataformas de "degraus mágicos no ar para subir". O obstáculo é "a pedra no caminho que o herói precisa pular". Pintar é "dar banho de tinta no bloco". Para mover, diga "puxe a setinha"; para esticar, "puxe a bolinha". Comemore cada bloco colocado.
 

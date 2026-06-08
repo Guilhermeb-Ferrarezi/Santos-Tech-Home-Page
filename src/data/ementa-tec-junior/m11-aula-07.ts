@@ -31,7 +31,7 @@ Esse brinquedo é importante porque será o asset que a criança vai querer leva
     `Cena — a tela escura onde a gente constrói, como uma mesa vazia onde a criança monta o brinquedo dela.`,
     `Salvar — guardar o brinquedo no computador para ele não sumir e poder voltar na próxima aula.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 Esta aula junta tudo do mês: criar formas, mover, girar, redimensionar e aplicar cor. Você não precisa ser especialista em Maya — só precisa dominar quatro ações simples e repeti-las com calma.
 

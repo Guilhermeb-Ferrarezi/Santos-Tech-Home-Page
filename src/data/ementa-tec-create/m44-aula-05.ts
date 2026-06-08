@@ -41,11 +41,11 @@ Antes da aula, abra um projeto em casa, adicione uma linha Debug.Log dentro de u
 
 Aquecimento (10 min): com o projetor ligado, jogue rapidamente o jogo de exemplo e finja não notar um bug, depois pergunte: "Vocês viram algo errado?". Conduza para a ideia de que jogo bom é jogo testado. Escreva no quadro "Reproduzir, Localizar, Corrigir".
 
-Conteúdo novo guiado (15 min): no seu Unity, abra a janela Console pelo menu Window, depois Analysis, depois Console. Mostre que ela fica vazia até o jogo rodar. Abra um script qualquer com duplo clique e, dentro do metodo Update ou Start, adicione esta linha de codigo:
+Conteúdo novo guiado (15 min): no seu Unity, abra a janela Console pelo menu Window, depois Analysis, depois Console. Mostre que ela fica vazia até o jogo rodar. Abra um script qualquer com duplo clique e, dentro do método Update ou Start, adicione esta linha de código:
 
 Debug.Log("Cheguei aqui no Update e a vida vale " + vida);
 
-Explique cada parte: Debug.Log e o comando; o texto entre aspas e a mensagem; o sinal de mais junta o texto com o valor da variavel vida (usamos concatenacao com mais, nunca interpolacao). Salve o arquivo, volte ao Unity, aperte Play e mostre a mensagem aparecendo no Console a cada quadro. Depois cause um erro vermelho de proposito (remova um ponto e virgula), aponte o stack trace e mostre que ao dar duplo clique no erro o Unity abre o arquivo na linha exata.
+Explique cada parte: Debug.Log e o comando; o texto entre aspas e a mensagem; o sinal de mais junta o texto com o valor da variável vida (usamos concatenacao com mais, nunca interpolacao). Salve o arquivo, volte ao Unity, aperte Play e mostre a mensagem aparecendo no Console a cada quadro. Depois cause um erro vermelho de proposito (remova um ponto e virgula), aponte o stack trace e mostre que ao dar duplo clique no erro o Unity abre o arquivo na linha exata.
 
 Mão na massa (25 min): cada aluno joga o próprio jogo do início ao fim preenchendo o Relatório de Bug a cada problema encontrado. Em seguida, adiciona pelo menos um Debug.Log num ponto suspeito, roda o jogo e observa o Console. Quem encontrar um erro vermelho copia a mensagem e descreve ao Claude o que fez, o que esperava e o que aconteceu, pedindo sugestão de correção. Circule pela sala. O objetivo mínimo é cada aluno registrar ao menos um bug e usar um Debug.Log.
 
@@ -64,16 +64,16 @@ O erro número um é esquecer de salvar o script antes de voltar ao Unity, e ent
       tipo: `Prática na ferramenta`,
       tempo: `8 minutos`,
       guiaProfessor: `Acompanhe cada aluno até abrir a janela Console e adicionar um Debug.Log dentro de uma função do próprio jogo. Garanta que salvem o script antes de apertar Play e confira que a mensagem aparece no Console.`,
-      atividade: `Abra a janela Console pelo menu Window, depois Analysis, depois Console. Em um script do seu jogo, dentro do metodo Start, adicione uma linha de Debug.Log com uma mensagem sua. Salve, aperte Play e veja a mensagem no Console.`,
-      gabarito: `Dentro do metodo Start o aluno escreve: Debug.Log("O jogo comecou"); . Apos salvar o script e apertar Play, a mensagem "O jogo comecou" aparece uma vez na janela Console assim que a cena inicia.`,
+      atividade: `Abra a janela Console pelo menu Window, depois Analysis, depois Console. Em um script do seu jogo, dentro do método Start, adicione uma linha de Debug.Log com uma mensagem sua. Salve, aperte Play e veja a mensagem no Console.`,
+      gabarito: `Dentro do método Start o aluno escreve: Debug.Log("O jogo comecou"); . Apos salvar o script e apertar Play, a mensagem "O jogo comecou" aparece uma vez na janela Console assim que a cena inicia.`,
     },
     {
       titulo: `Espiando o valor de uma variável`,
       tipo: `Desafio individual`,
       tempo: `8 minutos`,
       guiaProfessor: `Peça que o aluno mostre no Console o valor de uma variável real do jogo, como vida ou pontuação, usando concatenação com o sinal de mais. Reforce que nunca usamos interpolação com cifrão; sempre juntamos texto e valor com mais.`,
-      atividade: `Escolha uma variável do seu jogo, como vida ou pontos. Dentro do metodo Update, escreva um Debug.Log que mostre um texto junto com o valor dessa variável usando o sinal de mais. Rode o jogo e observe o valor mudar no Console.`,
-      gabarito: `Supondo uma variavel chamada pontos, o aluno escreve dentro do Update: Debug.Log("Pontos agora: " + pontos); . Ao rodar e ganhar pontos no jogo, o numero exibido no Console muda em tempo real, mostrando o valor atual da variavel.`,
+      atividade: `Escolha uma variável do seu jogo, como vida ou pontos. Dentro do método Update, escreva um Debug.Log que mostre um texto junto com o valor dessa variável usando o sinal de mais. Rode o jogo e observe o valor mudar no Console.`,
+      gabarito: `Supondo uma variável chamada pontos, o aluno escreve dentro do Update: Debug.Log("Pontos agora: " + pontos); . Ao rodar e ganhar pontos no jogo, o numero exibido no Console muda em tempo real, mostrando o valor atual da variável.`,
     },
     {
       titulo: `Caça ao erro vermelho em dupla`,
@@ -81,7 +81,7 @@ O erro número um é esquecer de salvar o script antes de voltar ao Unity, e ent
       tempo: `7 minutos`,
       guiaProfessor: `Forme duplas e entregue o projeto de exemplo com um erro vermelho proposital (por exemplo, um ponto e vírgula faltando ou um nome de variável escrito errado). As duplas devem ler o Console, dar duplo clique no erro para ir até a linha e corrigir.`,
       atividade: `Em dupla, abra o projeto com defeito que o professor entregou e aperte Play. Leia a mensagem vermelha no Console, dê duplo clique nela para abrir o arquivo na linha exata, descubra o erro e corrija. Rode de novo para confirmar.`,
-      gabarito: `O erro tipico e um ponto e virgula faltando no fim de uma linha ou um nome de variavel digitado errado. O Console mostra o arquivo e a linha; ao dar duplo clique, o Unity abre o codigo nesse ponto. A correcao e adicionar o ponto e virgula que falta ou corrigir o nome da variavel. Depois disso o erro vermelho some e o jogo roda.`,
+      gabarito: `O erro tipico e um ponto e virgula faltando no fim de uma linha ou um nome de variável digitado errado. O Console mostra o arquivo e a linha; ao dar duplo clique, o Unity abre o código nesse ponto. A correcao e adicionar o ponto e virgula que falta ou corrigir o nome da variável. Depois disso o erro vermelho some e o jogo roda.`,
     },
     {
       titulo: `Relatório de bug bem escrito`,
@@ -89,7 +89,7 @@ O erro número um é esquecer de salvar o script antes de voltar ao Unity, e ent
       tempo: `5 minutos`,
       guiaProfessor: `Reúna a turma em roda. Conduza para que cada aluno descreva um bug do próprio jogo nos três passos: o que fiz, o que esperava, o que aconteceu. Reforce que descrever bem é o primeiro passo para corrigir e para pedir ajuda ao Claude.`,
       atividade: `Conte para a turma um bug que você encontrou no seu jogo, respondendo aos três campos do relatório: o que eu fiz, o que eu esperava que acontecesse e o que de fato aconteceu.`,
-      gabarito: `Um relatorio valido separa claramente os tres campos. Exemplo: "Eu fiz: pulei perto da parede. Eu esperava: bater na parede e cair. Aconteceu: o personagem atravessou a parede." A resposta e boa quando da para outra pessoa reproduzir o bug so de ler.`,
+      gabarito: `Um relatorio valido separa claramente os três campos. Exemplo: "Eu fiz: pulei perto da parede. Eu esperava: bater na parede e cair. Aconteceu: o personagem atravessou a parede." A resposta e boa quando da para outra pessoa reproduzir o bug so de ler.`,
     },
     {
       titulo: `Detetive com o Claude: encontrar e corrigir`,
@@ -97,7 +97,7 @@ O erro número um é esquecer de salvar o script antes de voltar ao Unity, e ent
       tempo: `12 minutos`,
       guiaProfessor: `Deixe o aluno escolher um bug real do próprio jogo, descrevê-lo ao Claude com o relatório e a mensagem do Console, aplicar a sugestão e testar. Oriente a entender a sugestão antes de aplicar, em vez de só colar o código. Ajude quem não conseguir reproduzir o bug.`,
       atividade: `Escolha um bug do seu jogo. Copie a mensagem do Console (se houver) e descreva ao Claude o que fez, o que esperava e o que aconteceu, pedindo uma sugestão de correção. Aplique a sugestão, rode o jogo de novo e confirme se o bug sumiu.`,
-      gabarito: `O aluno entrega o ciclo completo: reproduziu o bug, descreveu com clareza ao Claude (com o texto do Console quando havia erro vermelho), aplicou a correcao sugerida entendendo o que mudou e testou novamente. O resultado correto e o bug resolvido e o jogo funcionando como esperado. Exemplo de correcao: trocar uma comparacao errada por uma condicao certa, ou adicionar um collider que faltava para o personagem parar de atravessar a parede.`,
+      gabarito: `O aluno entrega o ciclo completo: reproduziu o bug, descreveu com clareza ao Claude (com o texto do Console quando havia erro vermelho), aplicou a correcao sugerida entendendo o que mudou e testou novamente. O resultado correto e o bug resolvido e o jogo funcionando como esperado. Exemplo de correcao: trocar uma comparacao errada por uma condição certa, ou adicionar um collider que faltava para o personagem parar de atravessar a parede.`,
     },
   ],
 };

@@ -46,7 +46,7 @@ Antes da aula, abra o programa de exemplo bem-acabado e rode algumas vezes para 
 idade = input("Digite sua idade: ")
 try:
     idade = int(idade)
-    print("Ano que vem voce tera", idade + 1)
+    print("Ano que vem você tera", idade + 1)
 except ValueError:
     print("Ops! Digite apenas numeros, por favor.")
 
@@ -93,7 +93,7 @@ try:
     valor = int(valor)
     print("O dobro e", valor * 2)
 except ValueError:
-    print("Isso nao e um numero. Tente de novo.")
+    print("Isso não e um numero. Tente de novo.")
 
 Resposta esperada: ao digitar uma letra, o programa mostra o aviso amigável e não quebra; ao digitar um número, funciona normalmente.`,
     },

@@ -51,7 +51,7 @@ Use a comparação da casa o tempo todo: o domínio é o endereço escrito no en
 
 ## Erros comuns e como ajudar
 
-O erro mais comum é o arquivo principal ter outro nome (Index.html com I maiúsculo, ou pagina.html). Ensine que precisa ser index.html, tudo minúsculo. Outro erro frequente é o caminho do CSS ou do JS estar errado (href apontando para um nome que não existe), e o site abre sem cor; mostre como comparar o nome no código com o nome real do arquivo na pasta. Alguns alunos confundem domínio com hospedagem; reforce a comparação endereço x casa. Há quem queira já publicar agora; explique com calma que hoje é preparação e que a publicação é na próxima aula. Por fim, muitos deixam arquivos de rascunho na pasta; oriente a deixar só o necessário para o envio ficar limpo.`,
+O erro mais comum é o arquivo principal ter outro nome (Index.html com I maiúsculo, ou página.html). Ensine que precisa ser index.html, tudo minúsculo. Outro erro frequente é o caminho do CSS ou do JS estar errado (href apontando para um nome que não existe), e o site abre sem cor; mostre como comparar o nome no código com o nome real do arquivo na pasta. Alguns alunos confundem domínio com hospedagem; reforce a comparação endereço x casa. Há quem queira já publicar agora; explique com calma que hoje é preparação e que a publicação é na próxima aula. Por fim, muitos deixam arquivos de rascunho na pasta; oriente a deixar só o necessário para o envio ficar limpo.`,
   exercicios: [
     {
       titulo: `Casa, endereço ou porteiro?`,
@@ -75,7 +75,7 @@ O erro mais comum é o arquivo principal ter outro nome (Index.html com I maiús
       tempo: `6 minutos`,
       guiaProfessor: `Confira se cada aluno tem um arquivo chamado exatamente index.html, tudo minúsculo. Mostre como renomear no VS Code clicando com o botão direito e escolhendo Renomear (Rename).`,
       atividade: `Abra a pasta do seu site no VS Code e confirme que existe um arquivo chamado index.html, tudo em letras minúsculas. Se o nome estiver diferente, renomeie para index.html.`,
-      gabarito: `A pasta passa a ter um arquivo chamado exatamente index.html, em letras minúsculas. Não há mais nomes como Index.html, home.html ou pagina.html ocupando o lugar do arquivo principal.`,
+      gabarito: `A pasta passa a ter um arquivo chamado exatamente index.html, em letras minúsculas. Não há mais nomes como Index.html, home.html ou página.html ocupando o lugar do arquivo principal.`,
     },
     {
       titulo: `Caminhos certos do CSS e do JS`,

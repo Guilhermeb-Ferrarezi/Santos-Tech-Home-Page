@@ -31,7 +31,7 @@ Na prática, a turma vai montar pelo menos um par evento + ação no MakeCode e 
     `Categoria Jogador (Player) — a gavetinha colorida do MakeCode onde moram os blocos de eventos que reagem ao que o jogador faz.`,
     `Provocar o evento — fazer de propósito a ação que dispara o gatilho, como quebrar um bloco só para ver o que acontece.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 Um evento é um momento que o jogo fica "escutando": quebrar um bloco, andar, bater, digitar no chat. No MakeCode esses gatilhos ficam na categoria "Jogador" (Player), de cor avermelhada. O mais fácil e visual é "ao quebrar bloco" (em inglês "on block broken"). Ele tem um formato de tampa que abre por cima: tudo que você encaixa dentro dele só acontece quando o jogador quebra um bloco no Minecraft. A regra de ouro para a criança é: primeiro vem o evento (quando), depois vem a ação (o quê). Você não precisa dominar Minecraft: basta saber abrir o MakeCode pelo "Code Connection" (no Education é o ícone do agente/lápis ou o comando de código), arrastar blocos da esquerda para a área central e clicar em "Reproduzir/Play" para a mudança valer no jogo. Tenha pronto, antes da aula, um mundo plano em modo criativo e um exemplo seu já funcionando para mostrar o resultado primeiro e despertar o "uau".
 
@@ -39,7 +39,7 @@ Um evento é um momento que o jogo fica "escutando": quebrar um bloco, andar, ba
 
 10 min — Aquecimento: reúna a turma na frente do projetor. Relembre a aula passada do "se isto, então aquilo". Diga: "Hoje o mundo vai reagir ao que VOCÊS fazem!" Quebre um bloco no seu Minecraft de exemplo e deixe cair uma chuva de galinhas. Pergunte: "O que eu fiz para isso acontecer?"
 
-15 min — Conteudo novo guiado: na sua tela, abra o MakeCode pelo Code Connection. Clique na categoria "Jogador" (Player). Arraste o bloco "ao quebrar bloco" para o centro. Vá na categoria "Mobs/Animais", arraste "gerar/spawn animal", escolha a galinha e encaixe dentro do gatilho. Mostre que ficou dentro da tampa. Clique em "Reproduzir". Volte ao Minecraft, quebre um bloco e comemore as galinhas. Faça devagar, nomeando cada clique em voz alta.
+15 min — Conteúdo novo guiado: na sua tela, abra o MakeCode pelo Code Connection. Clique na categoria "Jogador" (Player). Arraste o bloco "ao quebrar bloco" para o centro. Vá na categoria "Mobs/Animais", arraste "gerar/spawn animal", escolha a galinha e encaixe dentro do gatilho. Mostre que ficou dentro da tampa. Clique em "Reproduzir". Volte ao Minecraft, quebre um bloco e comemore as galinhas. Faça devagar, nomeando cada clique em voz alta.
 
 25 min — Mao na massa: cada criança (ou dupla) repete os passos no seu computador. Circule pela sala. Ajude a achar a categoria "Jogador", a encaixar o bloco de reação dentro da tampa e a clicar em "Reproduzir". Depois que funcionar, desafie a trocar a reação: em vez de galinha, soltar muitos animais, tocar um som ou (no modo criativo) soltar fogos. Deixe cada um provocar o evento várias vezes e observar.
 

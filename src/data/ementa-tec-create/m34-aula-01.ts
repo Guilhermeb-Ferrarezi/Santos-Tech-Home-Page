@@ -99,7 +99,7 @@ O erro mais comum é confundir linha com coluna. Reforce sempre apontando para a
       tempo: `7 minutos`,
       guiaProfessor: `Peça que o aluno acrescente à tabela uma coluna nova que torne o site mais útil e explique por que ela é importante. Valorize a justificativa, não só a coluna em si.`,
       atividade: `Adicione mais uma coluna à sua tabela que deixe o site mais esperto e escreva uma frase explicando para que ela serve.`,
-      gabarito: `Resposta varia. Exemplos bons: na tabela mensagens, acrescentar uma coluna data TEXT para saber quando a mensagem chegou; na tabela pontuacoes, acrescentar nivel INTEGER para mostrar a fase em que o jogador estava. Aceite qualquer coluna com tipo coerente e uma justificativa clara de utilidade.`,
+      gabarito: `Resposta varia. Exemplos bons: na tabela mensagens, acrescentar uma coluna data TEXT para saber quando a mensagem chegou; na tabela pontuacoes, acrescentar nível INTEGER para mostrar a fase em que o jogador estava. Aceite qualquer coluna com tipo coerente e uma justificativa clara de utilidade.`,
     },
   ],
 };

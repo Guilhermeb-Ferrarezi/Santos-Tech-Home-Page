@@ -48,7 +48,7 @@ local function pegarItem()
   pontos = pontos + 1
   print("Pontos:", pontos)
   if pontos >= pontosParaVencer then
-    print("Voce venceu!")
+    print("Você venceu!")
   else
     print("Continue coletando!")
   end
@@ -87,8 +87,8 @@ O erro mais frequente é esquecer um "end": cada "if" precisa de um "end" e cada
       tipo: `Leitura de código e resposta oral`,
       tempo: `5 minutos`,
       guiaProfessor: `Mostre o bloco no projetor e peça que cada aluno diga em voz alta o que o jogo faz em cada caso. Não precisa digitar nada; o objetivo é entender o fluxo do "if" e do "else".`,
-      atividade: `Observe o código abaixo e responda: o que aparece se "pontos" for 10? E se for 4?\n\nif pontos >= 10 then\n  print("Voce venceu!")\nelse\n  print("Continue coletando!")\nend`,
-      gabarito: `Se "pontos" for 10, a condição "pontos >= 10" é verdadeira, então aparece "Voce venceu!". Se "pontos" for 4, a condição é falsa, então o "else" roda e aparece "Continue coletando!".`,
+      atividade: `Observe o código abaixo e responda: o que aparece se "pontos" for 10? E se for 4?\n\nif pontos >= 10 then\n  print("Você venceu!")\nelse\n  print("Continue coletando!")\nend`,
+      gabarito: `Se "pontos" for 10, a condição "pontos >= 10" é verdadeira, então aparece "Você venceu!". Se "pontos" for 4, a condição é falsa, então o "else" roda e aparece "Continue coletando!".`,
     },
     {
       titulo: `Dando a recompensa certa`,
@@ -111,8 +111,8 @@ O erro mais frequente é esquecer um "end": cada "if" precisa de um "end" e cada
       tipo: `Escrita de condição com else`,
       tempo: `12 minutos`,
       guiaProfessor: `Agora o aluno adiciona uma condição de derrota. Apresente a variável "tempo" e peça que ele decida o que acontece quando o tempo acaba antes da meta. Reforce a contagem dos "end".`,
-      atividade: `Escreva um "if/else" que mostre "Voce venceu!" quando os pontos chegarem a 10 e "Tempo esgotado, voce perdeu!" quando o tempo for 0 sem atingir a meta. Use as variáveis "pontos" e "tempo".`,
-      gabarito: `if pontos >= 10 then\n  print("Voce venceu!")\nelse\n  if tempo <= 0 then\n    print("Tempo esgotado, voce perdeu!")\n  else\n    print("Continue coletando!")\n  end\nend\n\nPrimeiro o jogo testa a vitória. Se ainda não venceu, testa se o tempo acabou; senão, manda continuar coletando.`,
+      atividade: `Escreva um "if/else" que mostre "Você venceu!" quando os pontos chegarem a 10 e "Tempo esgotado, você perdeu!" quando o tempo for 0 sem atingir a meta. Use as variáveis "pontos" e "tempo".`,
+      gabarito: `if pontos >= 10 then\n  print("Você venceu!")\nelse\n  if tempo <= 0 then\n    print("Tempo esgotado, você perdeu!")\n  else\n    print("Continue coletando!")\n  end\nend\n\nPrimeiro o jogo testa a vitória. Se ainda não venceu, testa se o tempo acabou; senão, manda continuar coletando.`,
     },
     {
       titulo: `Regras do seu próprio jogo`,

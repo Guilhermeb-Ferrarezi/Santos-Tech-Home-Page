@@ -31,7 +31,7 @@ O segredo da aula é o TESTE das duas situações. Não basta montar a regra: a 
     `Prêmio — a recompensa que aparece quando a criança acerta a condição (ganha uma maçã, um efeito, uma mensagem feliz).`,
     `Testar — quebrar os dois tipos de bloco para ver, com os próprios olhos, os dois caminhos da regra acontecendo.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 O coração desta aula é um bloco do MakeCode chamado "if... else" (em português, "se... senão"). Na aula 3 a turma usou só o "se... então": uma regra de um caminho só. Hoje a gente abre o lado "senão" do mesmo bloco, e ele passa a ter DOIS caminhos. O jogo testa uma condição: se ela for verdadeira, executa o que está na parte de cima (então); se for falsa, executa o que está na parte de baixo (senão). Nunca os dois ao mesmo tempo: sempre um ou o outro.
 
@@ -49,7 +49,7 @@ MÃO NA MASSA (25 min): cada criança monta a sua. Faça em voz alta, um bloco d
 
 DESAFIO + COMPARTILHAR (10 min): desafie a trocar o prêmio do "então" por algo melhor (dar uma maçã com o comando "give"/"dar"). No fim, dois ou três alunos mostram a regra rodando no projetor, quebrando os dois blocos para a turma ver os dois caminhos.
 
-## Como explicar para criancas de 5 a 9
+## Como explicar para crianças de 5 a 9
 
 Use a analogia da bifurcação: "A regra é uma estradinha que se divide em duas. Se você acertar o bloco, vai pelo caminho do prêmio. SENÃO, vai pelo outro caminho." Outra analogia: o porteiro. "Se você tem o crachá certo, ENTÃO entra; SENÃO, fica do lado de fora." Fale sempre "então" apontando para cima e "senão" apontando para baixo, do mesmo jeito que os dois andares do bloco aparecem na tela. Repita o mantra: "um OU o outro, nunca os dois juntos".
 

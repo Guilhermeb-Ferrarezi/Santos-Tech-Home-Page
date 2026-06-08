@@ -46,8 +46,8 @@ with open("notas.txt", "w") as f:
 Explique: open abre o arquivo notas.txt no modo "w" (escrever); o as f dá o apelido f ao arquivo; f.write escreve o texto; e quando o bloco indentado termina, o arquivo fecha sozinho. Rode e mostre o arquivo aparecendo na pasta. Agora mostre a leitura:
 
 with open("notas.txt", "r") as f:
-    conteudo = f.read()
-print(conteudo)
+    conteúdo = f.read()
+print(conteúdo)
 
 Explique que "r" lê, read() devolve todo o texto, e print mostra na tela. Por fim, mostre o modo append:
 

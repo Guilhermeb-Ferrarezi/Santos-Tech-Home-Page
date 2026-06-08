@@ -31,7 +31,7 @@ Ao longo da hora, o professor vai guiar passo a passo: adicionar um segundo fund
     `Bloco "mude o fundo para" — o comando que manda o palco trocar de fantasia e mudar a fase.`,
     `Bandeira verde — o botão que faz o jogo começar do início para a gente testar.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 Em Scratch, o fundo do jogo fica no Palco. Você o encontra no canto inferior direito da tela, no quadradinho separado dos personagens (que são chamados de atores ou sprites). O Palco pode ter vários fundos diferentes, e cada um se chama "fantasia". Trocar de fase, na prática, é mandar o Palco trocar de fantasia. O bloco que faz isso é "mude o fundo para [nome]", da categoria roxa "Aparência".
 

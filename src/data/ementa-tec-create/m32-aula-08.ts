@@ -17,7 +17,7 @@ O fechamento é a apresentação. Cada aluno mostra a própria página funcionan
     `Computadores com navegador moderno (Chrome ou Edge) e editor de código (VS Code), um por aluno`,
     `O projeto da página interativa de cada aluno, salvo das aulas anteriores, com os arquivos index.html, style.css e script.js`,
     `Projetor ou TV para cada aluno apresentar a própria página à turma`,
-    `Arquivo de exemplo "pagina-interativa-pronta" (HTML + CSS + JavaScript) como referência de uma página finalizada`,
+    `Arquivo de exemplo "página-interativa-pronta" (HTML + CSS + JavaScript) como referência de uma página finalizada`,
     `Folha impressa "Lista de testes" com uma tabela para o aluno marcar cada botão testado e anotar erros encontrados`,
     `Folha impressa "Roteiro de apresentação" com três perguntas-guia: qual é o evento, qual é a função e o que muda na página`,
     `Quadro branco para anotar os erros mais comuns que aparecerem na sala e como cada um foi resolvido`,
@@ -33,7 +33,7 @@ O fechamento é a apresentação. Cada aluno mostra a própria página funcionan
   ],
   treinamento: `## O que o professor precisa saber
 
-Você não precisa dominar JavaScript para conduzir esta aula. Ela não traz conteúdo novo: é uma aula de finalização, teste e apresentação. Seu papel é organizar o tempo, ajudar a ler os erros do console e dar segurança para cada aluno mostrar o trabalho. Antes da aula, abra o arquivo de exemplo "pagina-interativa-pronta" no navegador, clique nos botões e veja a página reagir. Treine abrir o console com a tecla F12 e localizar a aba Console: é ali que a mensagem vermelha aparece quando algo dá errado. Saiba que um erro comum é o nome do botão no HTML não bater com o nome usado no JavaScript — é a primeira coisa a conferir.
+Você não precisa dominar JavaScript para conduzir esta aula. Ela não traz conteúdo novo: é uma aula de finalização, teste e apresentação. Seu papel é organizar o tempo, ajudar a ler os erros do console e dar segurança para cada aluno mostrar o trabalho. Antes da aula, abra o arquivo de exemplo "página-interativa-pronta" no navegador, clique nos botões e veja a página reagir. Treine abrir o console com a tecla F12 e localizar a aba Console: é ali que a mensagem vermelha aparece quando algo dá errado. Saiba que um erro comum é o nome do botão no HTML não bater com o nome usado no JavaScript — é a primeira coisa a conferir.
 
 ## Passo a passo da aula
 
@@ -43,7 +43,7 @@ Conteúdo novo guiado (15 min): no projetor, mostre como testar com método usan
 
 const botao = document.getElementById("meuBotao");
 function aoClicar() {
-  document.getElementById("mensagem").textContent = "Voce clicou!";
+  document.getElementById("mensagem").textContent = "Você clicou!";
 }
 botao.addEventListener("click", aoClicar);
 

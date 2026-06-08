@@ -31,7 +31,7 @@ O foco é simples e não avança para configurações técnicas de fatiamento (i
     `Camadinha — a impressora monta o boneco empilhando camadas finas de baixo para cima, igual a empilhar panquecas.`,
     `Inspetor de boneco — o nosso papel de hoje: girar, olhar por todos os lados e procurar o que precisa de conserto.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 A impressora 3D constrói o objeto de baixo para cima, depositando material em camadas finas (como empilhar panquecas). Três coisas atrapalham esse processo e são exatamente o que vamos caçar nesta aula: (1) peças flutuantes — voxels soltos longe do corpo, que a impressora não tem como sustentar; (2) buracos vazados — aberturas que deixam o modelo "oco" de um jeito ruim; e (3) base instável — um boneco que encosta na mesa por uma área pequena demais e tomba.
 
@@ -43,7 +43,7 @@ Antes da aula: abra o MagicaVoxel, carregue o projeto de cada criança e deixe p
 
 Aquecimento (10 min): receba a turma e relembre o boneco pintado da aula passada. Pegue o boneco de massinha e mostre ao vivo: solte um pedacinho no ar e diga "a impressora não consegue imprimir isso, cai!". Depois apoie tudo na mesa: "agora sim, firme!".
 
-Conteudo novo guiado (15 min): no projetor, abra o exemplo "errado". Mostre como girar a câmera: segure o botão direito do mouse e arraste para o personagem girar (ou use as setas do cubo de visão no canto superior direito). Gire devagar e diga "vamos espiar por todos os lados". Aponte um cubinho solto boiando e um buraco. Conserte na frente deles: clique na ferramenta Attach (no painel de ferramentas à esquerda), escolha a cor e clique para tampar o buraco; clique em Erase e clique no cubinho solto para apagá-lo. Mostre o exemplo "consertado" para comparar o antes e o depois.
+Conteúdo novo guiado (15 min): no projetor, abra o exemplo "errado". Mostre como girar a câmera: segure o botão direito do mouse e arraste para o personagem girar (ou use as setas do cubo de visão no canto superior direito). Gire devagar e diga "vamos espiar por todos os lados". Aponte um cubinho solto boiando e um buraco. Conserte na frente deles: clique na ferramenta Attach (no painel de ferramentas à esquerda), escolha a cor e clique para tampar o buraco; clique em Erase e clique no cubinho solto para apagá-lo. Mostre o exemplo "consertado" para comparar o antes e o depois.
 
 Mao na massa (25 min): cada criança abre o próprio boneco e vira "inspetor". Passo a passo na tela: 1) girar com o botão direito do mouse e olhar de frente, de costas, de cima e de baixo; 2) achar cubinhos soltos e apagar com a ferramenta Erase; 3) tampar buracos com a ferramenta Attach, sempre na mesma cor da vizinhança; 4) conferir se a barriga/os pés encostam bem na base lá embaixo. Circule pelas mesas; alunos pequenos não enxergam o "de baixo" sozinhos — ajude a girar. Ao final, cada um salva em File, Save.
 

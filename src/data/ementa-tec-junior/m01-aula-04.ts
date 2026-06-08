@@ -31,7 +31,7 @@ Ao longo da hora, os alunos vão arrastar blocos de comando no MakeCode (anda pa
     `Objetivo — o lugar que a gente combinou que o Agente precisa alcançar no final do caminho.`,
     `Consertar (depurar) — quando o robô vai para o lugar errado, a gente olha a sequência, acha o passo trocado e arruma.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 Sequência é o conceito de que um programa executa comandos um de cada vez, de cima para baixo, na ordem em que estão. O Agente do Minecraft é controlado por blocos do MakeCode (o "Code Builder"). Para esta aula você usa três blocos da categoria Agent: "agent move forward 1" (anda para frente), "agent turn right" (vira à direita) e "agent turn left" (vira à esquerda). Importante entender: "virar" NÃO move o Agente de quadrado; ele só gira para outro lado. Quem move é o "andar para frente", e ele sempre anda na direção para a qual o Agente está olhando. Por isso a ordem muda tudo: virar antes ou depois de andar leva a destinos diferentes. Antes da aula, abra o Minecraft num mundo plano, digite o comando de invocar o Agente (ou tenha-o já no mundo) e coloque um objetivo (um bloco colorido) alguns quadrados à frente. Teste o caminho certo você mesmo uma vez.
 
@@ -45,7 +45,7 @@ MÃO NA MASSA (25 min): Cada aluno (ou dupla) no seu computador. Peça que monte
 
 DESAFIO + COMPARTILHAR (10 min): Coloque o objetivo um pouco mais longe, exigindo duas viradas. Quem chegar mostra a tela para os colegas e conta a ordem dos passos em voz alta.
 
-## Como explicar para criancas de 5 a 9 (analogias e linguagem)
+## Como explicar para crianças de 5 a 9 (analogias e linguagem)
 
 Use a analogia da receita: "Para fazer um sanduíche a gente faz na ordem: primeiro o pão, depois o recheio. Se começar pelo recheio na mão, dá bagunça!" Outra analogia: dança ou "siga o mestre" — os passos têm uma ordem. Chame o virar de "girar como um pião, sem sair do quadrado" e o andar de "dar um pulo para frente". Repita sempre: "primeiro isso, DEPOIS aquilo". Evite a palavra "algoritmo"; use "caminho" e "fila de passos". Mostre com o dedo na tela cada bloco enquanto o Agente anda, para ligar o comando ao movimento.
 

@@ -31,7 +31,7 @@ Por que isso importa? Porque ensina o conceito mais importante dos games: intera
     `Velocidade (Speed) — o quão rápido ou devagar o personagem corre quando a gente manda ele andar.`,
     `Sprite — a figura do nosso personagem que aparece e se mexe dentro do jogo.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 No Construct 3, fazer um objeto se mover tem dois caminhos: criar eventos manualmente (mais trabalhoso) ou usar um "behavior" (comportamento) pronto. Para crianças desta faixa, sempre o comportamento pronto. O comportamento que usaremos é o "8 Direction": ele faz o objeto andar nas oito direções respondendo automaticamente às setas do teclado, sem precisar de nenhum evento. Isso é perfeito: a criança adiciona o comportamento e o personagem já anda.
 
@@ -41,15 +41,15 @@ Você pode ajustar a velocidade: com o sprite selecionado, no painel de Propried
 
 ## Passo a passo da aula (ritmo 10/15/25/10, dizendo onde clicar em Construct 3)
 
-10 min - Aquecimento/revisao: receba a turma e pergunte o que fizeram nas aulas passadas (colocaram objetos, criaram regras). Faça a brincadeira "estátua": as crianças andam pela sala e param quando você diz "parou". Conecte: "Hoje nosso personagem vai sair da estátua e ANDAR de verdade no jogo!".
+10 min - Aquecimento/revisão: receba a turma e pergunte o que fizeram nas aulas passadas (colocaram objetos, criaram regras). Faça a brincadeira "estátua": as crianças andam pela sala e param quando você diz "parou". Conecte: "Hoje nosso personagem vai sair da estátua e ANDAR de verdade no jogo!".
 
-15 min - Conteudo novo guiado: no projetor, mostre seu Construct 3. Clique no personagem no layout para selecioná-lo (aparece uma borda nele). Aponte o painel "Properties" à esquerda. Role até "Behaviors" e clique. Na janelinha, clique no "+", escolha "8 Direction", confirme. Feche. Agora clique no botão de Preview (play) ou aperte F5. Mostre o personagem andando com as setas e comemore bem alto para contagiar a turma.
+15 min - Conteúdo novo guiado: no projetor, mostre seu Construct 3. Clique no personagem no layout para selecioná-lo (aparece uma borda nele). Aponte o painel "Properties" à esquerda. Role até "Behaviors" e clique. Na janelinha, clique no "+", escolha "8 Direction", confirme. Feche. Agora clique no botão de Preview (play) ou aperte F5. Mostre o personagem andando com as setas e comemore bem alto para contagiar a turma.
 
-25 min - Mao na massa: cada criança repete nos seus computadores. Caminhe pela sala. Garanta que cada uma: 1) clica no próprio personagem, 2) acha "Behaviors" nas Propriedades, 3) adiciona "8 Direction", 4) aperta Preview e testa as setas. Celebre cada herói que começar a andar. Quem terminar pode testar diferentes velocidades.
+25 min - Mão na massa: cada criança repete nos seus computadores. Caminhe pela sala. Garanta que cada uma: 1) clica no próprio personagem, 2) acha "Behaviors" nas Propriedades, 3) adiciona "8 Direction", 4) aperta Preview e testa as setas. Celebre cada herói que começar a andar. Quem terminar pode testar diferentes velocidades.
 
 10 min - Desafio + compartilhar: proponha mudar a velocidade (campo "Max speed") para o personagem ficar bem rápido ou bem lento. Depois faça a roda: cada criança mostra na tela o seu herói andando e diz uma palavra de como se sente.
 
-## Como explicar para criancas de 5 a 9 (analogias e linguagem)
+## Como explicar para crianças de 5 a 9 (analogias e linguagem)
 
 Use a analogia do superpoder: "O comportamento é como dar uma capa mágica pro nosso boneco. Sem a capa ele fica paradinho. Com a capa de andar, ele corre quando a gente manda!". Outra: "É como apertar o controle de um carrinho de brinquedo." Evite a palavra "código". Fale "ajudinha pronta", "superpoder", "botão de play". Mostre sempre antes de pedir; demonstre o clique no telão e só depois solte a turma. Comemore muito: a emoção fixa o aprendizado.
 

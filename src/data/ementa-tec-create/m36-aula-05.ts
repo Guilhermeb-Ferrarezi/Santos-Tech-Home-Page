@@ -101,7 +101,7 @@ Compare a biblioteca padrão com um armário cheio de gavetas que já vem com a 
       atividade: `Crie um arquivo dado.py que importe o módulo random e imprima na tela um número sorteado de 1 a 6, como se fosse a rolagem de um dado. Rode o programa três vezes e observe os resultados.`,
       gabarito: `import random
 numero = random.randint(1, 6)
-print("Voce tirou:", numero)
+print("Você tirou:", numero)
 
 O aluno deve perceber que o número muda a cada execução, porque random sorteia um valor novo toda vez.`,
     },
@@ -142,7 +142,7 @@ A raiz de 81 dá 9.0 e a área dá aproximadamente 78.5. Aceite também o uso de
 import random
 
 hoje = datetime.date.today()
-frases = ["Hoje vai dar tudo certo!", "Voce vai aprender muito!", "Dia de criar algo novo!"]
+frases = ["Hoje vai dar tudo certo!", "Você vai aprender muito!", "Dia de criar algo novo!"]
 mensagem = random.choice(frases)
 print("Data de hoje:", hoje)
 print("Mensagem da sorte:", mensagem)

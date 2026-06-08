@@ -31,7 +31,7 @@ O que será feito na prática: o professor mostra no projetor como criar um coma
     `Testar — apertar para ver se funcionou; se não deu certo, a gente arruma e tenta de novo.`,
     `Encaixar — juntar uma pecinha na outra no MakeCode, como peça de montar, para o comando ficar pronto.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 Nesta aula a criança aprende a criar um "comando de chat". No Minecraft, o chat é a caixinha de texto que abre quando se aperta a tecla T (ou o botão de chat no tablet). Tudo que começa com uma barra "/" é um comando que o jogo entende. O MakeCode deixa a gente INVENTAR comandos novos. O bloco mágico se chama "ao digitar comando de chat" (em inglês, "on chat command"). Ele tem um campo de texto onde escrevemos a palavra (por exemplo, "chuva"). Dentro do bloco, encaixamos uma ação. Quando a criança abre o chat no jogo e digita a barra mais a palavra (por exemplo, /chuva), o jogo executa a ação. Importante: a palavra é o GATILHO e a ação é a RESPOSTA. Esse é o coração da aula.
 
@@ -47,7 +47,7 @@ MÃO NA MASSA (25 min): Cada criança repete no seu computador. Guie em voz alta
 
 DESAFIO + COMPARTILHAR (10 min): Desafie cada um a inventar UMA palavra nova (o nome do bichinho, uma comida) ligada a qualquer ação. Cada criança mostra o comando dela no projetor ou para o colega do lado. Entregue o adesivo "Programador do Dia".
 
-## Como explicar para criancas de 5 a 9 (analogias e linguagem)
+## Como explicar para crianças de 5 a 9 (analogias e linguagem)
 
 Use a ideia de "palavra mágica de feiticeiro": "Você é um mago e essa é a sua varinha. Quando você fala a palavra certa, o mundo obedece!" Chame o bloco de "caixinha de mágica" e a ação encaixada de "o que a mágica faz". Diga: "Primeiro escolhemos a palavra, depois colocamos o presente dentro da caixinha." Evite as palavras "evento" e "função"; fale "quando eu digito" e "o que o jogo faz". Compare encaixar blocos com peças de montar: "se não encaixou direitinho, a mágica não funciona".
 

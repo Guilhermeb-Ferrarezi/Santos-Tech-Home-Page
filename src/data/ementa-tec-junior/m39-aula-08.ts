@@ -53,7 +53,7 @@ Use a analogia da confeitaria: "Salvar é guardar o bolo na geladeira para termi
 
 ## Erros comuns e como ajudar
 
-A criança salva por cima do trabalho de outra: combine que cada um usa o próprio nome no arquivo (por exemplo, "robo-da-ana"). A criança confunde salvar com exportar: volte ao quadro e à musiquinha "guardar para continuar, gerar para mostrar". A criança quer recomeçar o item do zero: explique com carinho que hoje é dia de finalizar, não de recomeçar, e que o item dela já está ótimo. A criança não acha o botão "save" ou o menu de exportar: deixe os projetos já abertos e faça o caminho junto com ela uma vez. A criança fica tímida na galeria: aponte o cartão das três frases e leia a primeira palavra com ela ("Meu item se chama...").`,
+A criança salva por cima do trabalho de outra: combine que cada um usa o próprio nome no arquivo (por exemplo, "robô-da-ana"). A criança confunde salvar com exportar: volte ao quadro e à musiquinha "guardar para continuar, gerar para mostrar". A criança quer recomeçar o item do zero: explique com carinho que hoje é dia de finalizar, não de recomeçar, e que o item dela já está ótimo. A criança não acha o botão "save" ou o menu de exportar: deixe os projetos já abertos e faça o caminho junto com ela uma vez. A criança fica tímida na galeria: aponte o cartão das três frases e leia a primeira palavra com ela ("Meu item se chama...").`,
   exercicios: [
     {
       titulo: `Salvar ou exportar?`,

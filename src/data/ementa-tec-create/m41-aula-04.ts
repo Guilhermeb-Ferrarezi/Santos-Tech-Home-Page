@@ -34,7 +34,7 @@ No fim, o aluno usa o Claude como assistente: descreve o tipo de objeto e a cont
 
 Você não precisa ser modelador profissional. Precisa entender uma ideia central: no jogo, cada polígono custa desempenho, então low-poly significa usar poucos polígonos bem colocados. Guarde três comandos do Blender que resolvem quase tudo nesta aula. Primeiro, a contagem de polígonos: ative em Edit, depois Preferences, aba Interface, e marque "Statistics"; ou clique no menu de sobreposições (Overlays, o ícone de dois círculos no topo da janela 3D) e ligue "Statistics". Os números de vértices, arestas e faces aparecem no canto. Segundo, o Merge by Distance, que junta vértices grudados. Terceiro, apagar faces e vértices com a tecla X no Modo de Edição. Antes da aula, abra um cubo, entre no Modo de Edição com a tecla Tab, selecione tudo com a tecla A e teste o Merge by Distance uma vez para ganhar confiança.
 
-## Passo a passo da aula (ritmo 10/15/25/10, com o codigo exato)
+## Passo a passo da aula (ritmo 10/15/25/10, com o código exato)
 
 10 min, aquecimento e revisão. Mostre na tela grande dois modelos do mesmo objeto: um com 200 faces e outro com 20 mil faces. Pergunte qual roda melhor no jogo. Conduza a turma até a resposta: o leve. Relembre que na Aula 3 eles montaram o bloco 3D e que hoje vão refinar a forma sem deixar pesado.
 
@@ -42,7 +42,7 @@ Você não precisa ser modelador profissional. Precisa entender uma ideia centra
 
 25 min, mão na massa. Cada aluno termina a silhueta do próprio asset e faz a limpeza: aplica Merge by Distance em tudo, apaga faces escondidas que ninguém vai ver (como o fundo de uma caixa) e remove arestas que não ajudam na forma. Peça que anotem a contagem de faces antes e depois. Circule pela sala conferindo se entraram no Modo de Edição (tecla Tab) e se a malha continua fechada, sem buracos. Estimule cortes conscientes: detalhe fino fica para a textura na Aula 6.
 
-10 min, desafio e compartilhar. Cada aluno abre o Claude e cola uma mensagem de revisão. Sugira este texto exato para o aluno enviar: "Estou modelando um (tipo do objeto) low-poly para o Unity. Ele tem (numero) faces. Esse total esta adequado para um asset de jogo leve? Onde posso cortar poligonos sem perder a forma?" O aluno lê a resposta, escolhe uma sugestão e a aplica. Depois, em uma frase, conta para o colega quantos polígonos economizou.
+10 min, desafio e compartilhar. Cada aluno abre o Claude e cola uma mensagem de revisão. Sugira este texto exato para o aluno enviar: "Estou modelando um (tipo do objeto) low-poly para o Unity. Ele tem (numero) faces. Esse total esta adequado para um asset de jogo leve? Onde posso cortar polígonos sem perder a forma?" O aluno lê a resposta, escolhe uma sugestão e a aplica. Depois, em uma frase, conta para o colega quantos polígonos economizou.
 
 ## Como explicar de forma clara (linguagem para a idade)
 
@@ -66,7 +66,7 @@ O erro mais comum é o aluno apagar com a tecla X e escolher a opção errada, a
       tempo: `9 minutos`,
       guiaProfessor: `Reforce que primeiro é preciso selecionar tudo com a tecla A. Mostre o caminho do menu Mesh, Clean Up, Merge by Distance. Avise para deixar o valor de distância pequeno (o padrão).`,
       atividade: `No seu modelo, selecione toda a malha com a tecla A. Aplique o comando Merge by Distance pelo menu Mesh, Clean Up. Observe a contagem de vértices antes e depois e diga ao professor quantos vértices foram juntados.`,
-      gabarito: `Caminho correto: tecla A para selecionar tudo, menu "Mesh", "Clean Up", "Merge by Distance". A contagem de vértices deve cair (ou ficar igual, se não houver duplicados). O Blender mostra uma mensagem do tipo "Removed X vertices". Resposta esperada: o aluno informa a diferença entre o número de vértices de antes e o de depois. Se a forma deformar, a distância estava alta demais e deve voltar ao valor padrão.`,
+      gabarito: `Caminho correto: tecla A para selecionar tudo, menu "Mesh", "Clean Up", "Merge by Distance". A contagem de vértices deve cair (ou ficar igual, se não houver duplicados). O Blender mostra uma mensagem do tipo "Removed X vértices". Resposta esperada: o aluno informa a diferença entre o número de vértices de antes e o de depois. Se a forma deformar, a distância estava alta demais e deve voltar ao valor padrão.`,
     },
     {
       titulo: `Apagar com cuidado: face ou aresta?`,
@@ -81,7 +81,7 @@ O erro mais comum é o aluno apagar com a tecla X e escolher a opção errada, a
       tipo: `pesquisa com assistente de IA`,
       tempo: `12 minutos`,
       guiaProfessor: `Mostre o texto sugerido na tela grande. Reforce que o Claude é revisor, não modelador: ele sugere, o aluno decide. Peça que apliquem pelo menos uma sugestão depois de ler a resposta.`,
-      atividade: `Abra o Claude e envie esta mensagem, trocando os dados pelos do seu modelo: "Estou modelando um (tipo do objeto) low-poly para o Unity. Ele tem (numero) faces. Esse total esta adequado para um asset de jogo leve? Onde posso cortar poligonos sem perder a forma?" Leia a resposta, escolha uma sugestão e aplique no Blender.`,
+      atividade: `Abra o Claude e envie esta mensagem, trocando os dados pelos do seu modelo: "Estou modelando um (tipo do objeto) low-poly para o Unity. Ele tem (numero) faces. Esse total esta adequado para um asset de jogo leve? Onde posso cortar polígonos sem perder a forma?" Leia a resposta, escolha uma sugestão e aplique no Blender.`,
       gabarito: `O aluno deve apresentar a conversa com o Claude e o modelo já ajustado com pelo menos uma sugestão aplicada. Uma boa mensagem do aluno contém o tipo do objeto e o número exato de faces. Uma boa resposta do Claude comenta se o total é alto, médio ou baixo para a categoria do objeto e aponta áreas para reduzir (por exemplo, faces escondidas, arredondamentos exagerados, partes que a textura pode resolver). O critério de acerto é o aluno saber justificar a mudança que fez: "O Claude disse que 5 mil faces era muito para uma caixa, então removi o fundo e os detalhes pequenos e cheguei a 800 faces."`,
     },
     {

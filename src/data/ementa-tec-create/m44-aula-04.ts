@@ -163,7 +163,7 @@ public class SomAcao : MonoBehaviour
     }
 }
 
-A musica de fundo nao precisa de codigo: basta marcar Loop e Play On Awake no AudioSource. O efeito de acao toca por codigo com efeito.Play(), chamado no momento da acao. O if evita erro se o campo estiver vazio.`,
+A música de fundo não precisa de código: basta marcar Loop e Play On Awake no AudioSource. O efeito de acao toca por código com efeito.Play(), chamado no momento da acao. O if evita erro se o campo estiver vazio.`,
     },
     {
       titulo: `HUD completo ligado às mecânicas`,

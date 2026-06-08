@@ -31,7 +31,7 @@ O objetivo não é fazer um jogo completo hoje, e sim plantar a semente: "quando
     `Herói — é o personagem principal, que a criança controla e que vai reagir ao toque.`,
     `Reagir — é fazer alguma coisa em resposta, como mudar de cara e fazer barulho ao encostar.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 Colisão é a deteção de quando dois objetos se tocam. No Scratch isso é feito pelo bloco sensor "tocando em...?", que fica na categoria roxo-azulada chamada "Sensores". Esse bloco tem formato de losango (hexágono pontudo), o que significa que ele não funciona sozinho: ele é um "sim ou não" que precisa entrar dentro de outro bloco. O bloco que recebe essa resposta é o "se ... então", da categoria amarela "Controle". Pense no losango como uma pergunta e no "se ... então" como a decisão: a pergunta entra no buraquinho do "se", e o que você quer que aconteça fica dentro do "então". Para a pergunta ser feita o tempo todo, colocamos tudo dentro de um bloco "sempre" (laço de repetição), também do Controle. Resumo da estrutura que você vai montar com a turma: quando bandeira verde clicada, dentro de um "sempre", um "se tocando no objeto então" e, dentro dele, "toque o som" mais "mude para a fantasia". Domine montar isso em casa antes da aula; leva dois minutos depois que você pega o jeito.
 

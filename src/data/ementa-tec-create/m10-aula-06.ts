@@ -2,10 +2,10 @@ import type { Aula } from "./tipos";
 
 export const aula: Aula = {
   numero: 6,
-  titulo: "Som no jogo: efeitos e musica",
+  titulo: "Som no jogo: efeitos e música",
   semana: "Semana 3",
   duracao: "1 hora",
-  objetivo: `Adicionar efeitos sonoros para pulo, coleta, dano e derrota de inimigos, mais uma musica de fundo em loop, importando audios e disparando sons por eventos no Construct 3.`,
+  objetivo: `Adicionar efeitos sonoros para pulo, coleta, dano e derrota de inimigos, mais uma música de fundo em loop, importando audios e disparando sons por eventos no Construct 3.`,
   descricao: `Nesta aula o jogo ganha vida pelos ouvidos. Ate aqui os alunos construiram personagem, score, vidas, telas e inimigos, mas tudo isso acontecia em silencio. Som e a camada que transforma um protótipo bonito em um jogo que parece de verdade: um pulo com "boing", uma moeda com "pling", um dano com "ai" e uma música animada no fundo mudam totalmente a sensação de jogar. O objetivo da aula é ensinar como o Construct 3 trata áudio e como disparar o som certo no momento certo.
 
 No Construct 3, todo o áudio é controlado por um plugin chamado Audio. Ele não aparece sozinho: o professor precisa adicioná-lo ao projeto antes de qualquer som tocar. Os arquivos de áudio ficam na pasta Sounds (efeitos curtos, que podem tocar várias vezes ao mesmo tempo) ou na pasta Music (faixas longas, em streaming, ideais para a música de fundo em loop). Entender essa diferença evita o erro clássico de jogar a música dentro de Sounds e travar o jogo.
@@ -17,7 +17,7 @@ Por fim, a aula trabalha equilíbrio de volume. Música de fundo muito alta engo
     `Computadores com o Construct 3 aberto, cada aluno com o próprio projeto do jogo 2D em andamento`,
     `Projetor para o professor demonstrar a importação de áudio e a Event Sheet passo a passo`,
     `Pasta com arquivos de áudio de exemplo prontos (pulo.wav, moeda.wav, dano.wav, inimigo.wav) em formato curto`,
-    `Arquivo de música de fundo em loop (musica-fundo.ogg ou .m4a) já testado`,
+    `Arquivo de música de fundo em loop (música-fundo.ogg ou .m4a) já testado`,
     `Fone de ouvido por aluno (ou caixinhas de som baixas) para não virar bagunça sonora na sala`,
     `Slide ou folha de apoio com a tabela "evento - som" para os alunos preencherem`,
   ],
@@ -38,7 +38,7 @@ Antes da aula, garanta três coisas no seu próprio Construct 3. Primeiro, o pro
 
 AQUECIMENTO (10 min): com o projetor, abra um jogo conhecido sem som e depois com som, e pergunte qual parece mais divertido. Revise rapidamente a Event Sheet, lembrando que som será uma "reação" a eventos que eles já criaram (pulo, colisão, dano, inimigo destruído).
 
-CONTEÚDO NOVO GUIADO (15 min): demonstre no projetor. 1) Insira o plugin Audio (botão direito no Layout, "Insert new object", "Audio"). 2) Importe os efeitos: clique com o botão direito na pasta "Sounds" no painel Project, escolha "Import sounds", selecione pulo.wav, moeda.wav, dano.wav e inimigo.wav e confirme em "Import". 3) Importe a música: botão direito na pasta "Music", "Import music", escolha musica-fundo. 4) Abra a Event Sheet. No evento "On start of layout" (ou crie um), adicione a ação: clique em "Add action", escolha o objeto Audio, ação "Play", selecione a música, marque "Looping" como "Looping" e Volume 0. 5) No evento do pulo já existente, "Add action", Audio, "Play", som pulo, "Not looping". Mostre como o nome do arquivo aparece na lista.
+CONTEÚDO NOVO GUIADO (15 min): demonstre no projetor. 1) Insira o plugin Audio (botão direito no Layout, "Insert new object", "Audio"). 2) Importe os efeitos: clique com o botão direito na pasta "Sounds" no painel Project, escolha "Import sounds", selecione pulo.wav, moeda.wav, dano.wav e inimigo.wav e confirme em "Import". 3) Importe a música: botão direito na pasta "Music", "Import music", escolha música-fundo. 4) Abra a Event Sheet. No evento "On start of layout" (ou crie um), adicione a ação: clique em "Add action", escolha o objeto Audio, ação "Play", selecione a música, marque "Looping" como "Looping" e Volume 0. 5) No evento do pulo já existente, "Add action", Audio, "Play", som pulo, "Not looping". Mostre como o nome do arquivo aparece na lista.
 
 MÃO NA MASSA (25 min): os alunos repetem nos próprios projetos. Peça que adicionem, nesta ordem: música de fundo em loop; som de pulo; som de moeda no evento de coleta; som de dano quando o personagem é atingido; som no evento em que o inimigo é destruído. Circule pela sala. Quando todos tiverem som, peça que ajustem o volume da música para algo entre -8 e -12 dB para os efeitos ficarem audíveis.
 

@@ -19,7 +19,7 @@ Ao final, cada aluno terá um pequeno conjunto de ícones unificado, com pelo me
     `Projetor ou TV para o professor demonstrar cada passo na tela do Gemini`,
     `Pasta com exemplos de bons sets de ícones de jogos (coração de vida, moeda, botão de play, estrela) para mostrar o que é consistência`,
     `Folha impressa ou slide com o prompt-base de estilo pronto para os alunos copiarem e adaptarem`,
-    `Pasta no computador, organizada e com nome (por exemplo, "icones-do-jogo"), para salvar as imagens exportadas`,
+    `Pasta no computador, organizada e com nome (por exemplo, "ícones-do-jogo"), para salvar as imagens exportadas`,
   ],
   conceitosChave: [
     `Ícone — desenho pequeno da interface que comunica algo sem texto, como o coração da vida ou a moeda.`,
@@ -40,7 +40,7 @@ Aquecimento (10 min): Mostre no projetor dois jogos de celular, um com ícones b
 
 Conteúdo novo guiado (15 min): Abra o Gemini no projetor. Cole na barra de mensagem o prompt-base, por exemplo: "Ícone de jogo estilo cartoon, contorno grosso preto, cores vivas, fundo branco liso, objeto centralizado com espaço em volta, alta qualidade: um coração vermelho de vida". Gere e mostre o resultado. Agora troque só o final do prompt para "uma moeda dourada" e gere de novo: mostre que sai no mesmo estilo. Aponte como baixar a imagem (ícone de download) e como nomear o arquivo. Explique por que escolhemos PNG.
 
-Mão na massa (25 min): Cada aluno copia o prompt-base e gera pelo menos quatro ícones, trocando só o objeto: vida, moeda, um botão (por exemplo, play ou pausa) e um item do jogo (espada, poção, chave). Devem manter o mesmo começo de prompt em todos. Em seguida, baixam cada imagem como PNG e salvam na pasta "icones-do-jogo" com nomes claros, como "vida.png", "moeda.png". Circule conferindo a consistência e o fundo limpo.
+Mão na massa (25 min): Cada aluno copia o prompt-base e gera pelo menos quatro ícones, trocando só o objeto: vida, moeda, um botão (por exemplo, play ou pausa) e um item do jogo (espada, poção, chave). Devem manter o mesmo começo de prompt em todos. Em seguida, baixam cada imagem como PNG e salvam na pasta "ícones-do-jogo" com nomes claros, como "vida.png", "moeda.png". Circule conferindo a consistência e o fundo limpo.
 
 Desafio + compartilhar (10 min): Cada aluno coloca os quatro ícones lado a lado na tela e mostra ao colega. A turma vota: o conjunto parece "da mesma família"? Dois voluntários apresentam no projetor.
 
@@ -73,7 +73,7 @@ O erro mais comum é mudar o estilo a cada ícone: o aluno reescreve o prompt in
       tipo: `desafio`,
       tempo: `5 minutos`,
       guiaProfessor: `Ensine a baixar como PNG e a nomear cada arquivo. Confira se tudo foi salvo na pasta certa com nomes claros.`,
-      atividade: `Baixe os quatro ícones como PNG e salve-os na pasta "icones-do-jogo" com nomes simples, como "vida.png", "moeda.png", "botao.png" e "item.png".`,
+      atividade: `Baixe os quatro ícones como PNG e salve-os na pasta "ícones-do-jogo" com nomes simples, como "vida.png", "moeda.png", "botao.png" e "item.png".`,
       gabarito: `A pasta contém quatro arquivos PNG nomeados de forma clara, um para cada ícone, todos com fundo limpo e prontos para a UI.`,
     },
     {

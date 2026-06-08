@@ -31,7 +31,7 @@ No fim da aula, cada aluno terá um esqueleto jogável salvo: um personagem que 
     `Apresentar — mostrar o seu jogo para a turma e contar o que você fez.`,
     `Salvar — guardar o jogo no computador para ele não se perder.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 Esta aula não traz recurso novo: ela consolida tudo do mês. Seu papel é de "mecânico de jogos" — ajudar cada criança a testar e arrumar o esqueleto que ela já montou. Antes da aula, abra cada projeto e clique no botão Preview (o ícone de "play", um triângulo no topo direito do Construct 3). Confirme que o personagem aparece, anda e responde às setas. Anote num papel quem está com problema, para priorizar esses alunos.
 

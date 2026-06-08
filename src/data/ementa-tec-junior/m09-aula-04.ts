@@ -31,7 +31,7 @@ No fim da aula, cada criança deve ter um bonequinho de cubinhos completo: corpo
     `Carinha — os olhos e a boca feitos com pouquinhos cubinhos na frente da cabeça, para o boneco mostrar sentimento.`,
     `Base (chão) — a linha de baixo onde os pés se apoiam, igual ao chão onde a gente fica em pé.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 O MagicaVoxel é um programa de desenho em três dimensões onde tudo é feito de cubinhos, chamados voxels. Imagine montar com Lego, só que dentro do computador. Nesta aula você vai continuar um boneco que já tem corpo e cabeça e ajudar a turma a colar cubinhos para formar braços, pernas, pés e uma carinha.
 
@@ -43,7 +43,7 @@ Um ponto técnico importante: os braços e as pernas devem grudar no corpo, enco
 
 Aquecimento (10 min): com o projetor ligado, abra um boneco de exemplo e gire-o segurando o botão direito do mouse. Peça que as crianças abram o próprio projeto da Aula 3 (você já deixou cada arquivo carregado). Faça todos girarem o boneco de frente, de lado e de trás, só para reaquecer a mão.
 
-Conteudo novo guiado (15 min): mostre no projetor o boneco completo de exemplo. Aponte braços, pernas, pés e carinha usando o boneco de plástico. Demonstre, devagar, como colar um braço: confira que o pincel está em Attach, escolha uma cor na paleta de cima, e clique ao lado do corpo, na altura do ombro, empilhando uns três ou quatro cubinhos para baixo. Gire a cena e faça o outro braço igual. Repita para as pernas, embaixo do corpo, e os pés, virando dois cubinhos para a frente na ponta de cada perna.
+Conteúdo novo guiado (15 min): mostre no projetor o boneco completo de exemplo. Aponte braços, pernas, pés e carinha usando o boneco de plástico. Demonstre, devagar, como colar um braço: confira que o pincel está em Attach, escolha uma cor na paleta de cima, e clique ao lado do corpo, na altura do ombro, empilhando uns três ou quatro cubinhos para baixo. Gire a cena e faça o outro braço igual. Repita para as pernas, embaixo do corpo, e os pés, virando dois cubinhos para a frente na ponta de cada perna.
 
 Mao na massa (25 min): cada criança constrói os braços, pernas e pés no seu boneco. Circule pela sala. Lembre sempre: "gire para ver se os dois lados estão iguais". No meio do tempo, ensine a carinha: dois cubinhos para os olhos e uma fileirinha para a boca, na frente da cabeça.
 

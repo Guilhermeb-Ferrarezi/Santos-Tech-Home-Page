@@ -17,7 +17,7 @@ Ao final, cada aluno terá adicionado ao seu projeto do mês botões que realmen
     `Computadores com editor de código instalado (VS Code) e um navegador moderno (Chrome ou Edge), um por aluno`,
     `Projetor ou TV para o professor mostrar o código e o resultado lado a lado`,
     `Arquivo de exemplo "site-reage-modelo.html" com os botões interativos já funcionando, para inspiração`,
-    `Arquivo inicial "pagina-inicio.html" com a estrutura básica pronta (um título, um parágrafo e uma seção), para o aluno só adicionar os botões`,
+    `Arquivo inicial "página-inicio.html" com a estrutura básica pronta (um título, um parágrafo e uma seção), para o aluno só adicionar os botões`,
     `Extensão Live Server no VS Code (ou o recurso de abrir o arquivo no navegador) para ver as mudanças rápido`,
     `Folha impressa de apoio com os três comandos do dia: getElementById, textContent e classList, com um exemplo curto de cada`,
     `Navegador com o Console aberto (tecla F12) para mostrar mensagens de erro quando algo não funciona`,
@@ -37,7 +37,7 @@ Você não precisa dominar JavaScript. A ideia central é uma só: o JavaScript 
 
 ## Passo a passo da aula
 
-Aquecimento e revisão (10 min): peça que abram o arquivo "pagina-inicio.html". Relembre a Aula 4 perguntando: "o que é um evento?" Conduza até a resposta: é algo que o usuário faz, como clicar. Mostre o modelo pronto no projetor e clique nos botões para criar curiosidade.
+Aquecimento e revisão (10 min): peça que abram o arquivo "página-inicio.html". Relembre a Aula 4 perguntando: "o que é um evento?" Conduza até a resposta: é algo que o usuário faz, como clicar. Mostre o modelo pronto no projetor e clique nos botões para criar curiosidade.
 
 Conteúdo novo guiado (15 min): no projetor, no HTML, dê um id ao título e crie um botão: abre tag button com id igual a "btnTexto", escreva Trocar título, feche a tag. No final do body, abra uma tag script e digite, linha a linha, explicando cada parte. Linha 1: var titulo = document.getElementById("titulo"); isso guarda o título numa variável. Linha 2: var botao = document.getElementById("btnTexto"); guarda o botão. Linha 3: function trocar() abre chave; dentro escreva titulo.textContent = "Site interativo!"; e feche a chave; essa função muda o texto. Linha 4: botao.addEventListener("click", trocar); isso liga o clique do botão à função. Salve e clique no botão no navegador. Depois mostre a cor: crie outro botão "btnCor" e uma função que faça document.body.style.backgroundColor = "lightblue";.
 
@@ -57,7 +57,7 @@ O erro mais comum é o script vir antes do elemento no HTML; aí o getElementByI
       titulo: `Dando nome aos elementos (id)`,
       tipo: `prática guiada`,
       tempo: `6 minutos`,
-      guiaProfessor: `Garanta que cada aluno abriu o arquivo "pagina-inicio.html". O foco é só colocar ids corretos, ainda sem JavaScript. Confira a grafia exata dos ids e ajude quem confunde aspas.`,
+      guiaProfessor: `Garanta que cada aluno abriu o arquivo "página-inicio.html". O foco é só colocar ids corretos, ainda sem JavaScript. Confira a grafia exata dos ids e ajude quem confunde aspas.`,
       atividade: `No seu HTML, dê um id ao título principal escrevendo id="titulo" dentro da tag h1, e um id ao parágrafo escrevendo id="paragrafo" dentro da tag p. Salve o arquivo e abra no navegador para confirmar que a página continua igual e sem erros no Console (F12).`,
       gabarito: `O HTML fica com a tag de título assim: abre h1 com id igual a "titulo", o texto do título, fecha h1. E o parágrafo assim: abre p com id igual a "paragrafo", o texto, fecha p. A página aparece normal e o Console (F12) não mostra erros em vermelho. Os ids estão escritos exatamente como pedido, entre aspas.`,
     },

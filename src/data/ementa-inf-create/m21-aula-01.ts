@@ -17,7 +17,7 @@ Esta aula não exige decorar nada complicado. O foco é familiaridade e confian�
     `Computadores com Microsoft Excel instalado, um por aluno, com permissão para ativar a aba Desenvolvedor e abrir o Editor VBA`,
     `Projetor ou tela grande para o professor mostrar cada clique ao vivo`,
     `Aba Desenvolvedor já ativada na máquina do professor (verificar antes da aula) e, se possível, nas máquinas dos alunos`,
-    `Arquivo de exemplo "primeiro-codigo-base.xlsm" salvo como Pasta de Trabalho Habilitada para Macros`,
+    `Arquivo de exemplo "primeiro-código-base.xlsm" salvo como Pasta de Trabalho Habilitada para Macros`,
     `Slide ou cartaz com a frase "VBA = Excel que obedece ao que você escreve" e o atalho Alt+F11 em destaque`,
     `Folha de apoio impressa com o passo para ativar a aba Desenvolvedor e o modelo do primeiro Sub com MsgBox`,
   ],

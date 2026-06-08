@@ -35,7 +35,7 @@ O terceiro ponto é olhar com olho clínico para as partes frágeis: espadas fin
 
 Você não precisa dominar impressão 3D. Precisa entender três ideias e decorar quatro botões. As três ideias: tamanho (escala), apoio (base) e fragilidade (partes finas). Os quatro botões ficam na barra de ferramentas à esquerda do Bambu Studio: a setinha de Mover (Move), a seta curva de Girar (Rotate), a caixa de Escala (Scale) e a opção de colocar a peça na mesa, chamada "Place on Face" ou "Drop to bed". Ao selecionar o modelo com um clique, aparecem caixas com números em milímetros; é ali que se digita o tamanho. Antes da aula, abra o Bambu Studio, importe um modelo, clique na ferramenta Scale e mude o tamanho uma vez para ganhar confiança. Lembre que a mesa da maioria das impressoras tem por volta de 256 por 256 milímetros, então a peça precisa caber nesse quadrado.
 
-## Passo a passo da aula (ritmo 10/15/25/10, com o codigo exato)
+## Passo a passo da aula (ritmo 10/15/25/10, com o código exato)
 
 10 min, aquecimento e revisão. Mostre na tela grande o personagem de um aluno importado no Bambu Studio. Pergunte: "Esse tamanho está bom? Ele vai ficar de pé na mesa? Tem alguma parte que pode quebrar?" Mostre a peça impressa de exemplo e, se tiver, a peça quebrada na parte fina. Aqui não há código de programação; o "código" da impressão é a sequência exata de cliques que vem a seguir.
 

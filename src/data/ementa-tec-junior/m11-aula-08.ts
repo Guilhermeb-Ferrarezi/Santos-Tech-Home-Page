@@ -31,7 +31,7 @@ A palavra-chave do dia é viagem: o brinquedo 3D está pronto para fazer as mala
     `Roblox — o lugar mágico onde os jogos moram e onde o nosso brinquedo vai viajar no próximo mês.`,
     `Posição — o lugar onde a peça fica parada na tela, que pode ser ajeitado para ficar bem no centro.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 Esta aula não introduz ferramentas novas: ela consolida o que a turma já aprendeu e cria o hábito de finalizar e salvar. Você precisa saber três coisas no Maya. Primeira: trocar a cor de um objeto. Selecione a forma com clique esquerdo, clique com o botão direito sobre ela e segure para abrir o menu radial, escolha "Assign New Material", selecione "Lambert" e clique no quadradinho ao lado de "Color" para abrir o seletor de cores. Segunda: ajeitar a posição. Aperte a tecla W para ligar a ferramenta Move (a setinha de mover) e arraste o objeto para o centro, ou digite zero nos campos Translate X, Y e Z no painel Channel Box, do lado direito, para centralizar. Terceira e mais importante: salvar. Vá no menu "File" (canto superior esquerdo), clique em "Save Scene As", escolha a pasta da turma, digite o nome do arquivo (o nome da criança) e clique em "Save". O Maya salva no formato ".mb". Faça você mesmo o teste antes da aula, salvando o arquivo de exemplo, para não travar na frente da turma. Lembre-se: nesta idade, o professor é quem clica no salvar; a criança aponta e ajuda.
 
@@ -39,7 +39,7 @@ Esta aula não introduz ferramentas novas: ela consolida o que a turma já apren
 
 Aquecimento (10 min): receba a turma com clima de festa. Projete o arquivo de exemplo já pronto e pergunte: "O que vocês fizeram com o Maya esse mês?". Relembre rapidinho mexer, virar, crescer e pintar. Diga que hoje é o dia de deixar tudo prontinho para a viagem ao Roblox.
 
-Conteudo novo guiado (15 min): no projetor, mostre os três retoques. Troque a cor de uma peça do exemplo (botão direito segurado, "Assign New Material", "Lambert", quadradinho de "Color"). Centralize com a tecla W arrastando, ou zerando o Translate no Channel Box. Depois, com calma, mostre o salvar: "File" e "Save Scene As", a pasta da turma, o nome, "Save". Repita o salvar duas vezes para grudar na cabeça.
+Conteúdo novo guiado (15 min): no projetor, mostre os três retoques. Troque a cor de uma peça do exemplo (botão direito segurado, "Assign New Material", "Lambert", quadradinho de "Color"). Centralize com a tecla W arrastando, ou zerando o Translate no Channel Box. Depois, com calma, mostre o salvar: "File" e "Save Scene As", a pasta da turma, o nome, "Save". Repita o salvar duas vezes para grudar na cabeça.
 
 Mao na massa (25 min): cada criança abre o seu brinquedo, dá os retoques de cor e ajeita a posição. Passe de mesa em mesa. Quando o aluno disser que terminou, sente ao lado e salve juntos: a criança aponta o menu "File", você clica, ela digita o nome com a sua ajuda e aperta "Save". Comemore cada arquivo salvo com um joinha.
 

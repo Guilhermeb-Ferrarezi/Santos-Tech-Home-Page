@@ -51,7 +51,7 @@ Use analogias do dia a dia. Diga que exportar em STL é como tirar uma foto da c
 
 ## Erros comuns e como ajudar
 
-O erro mais comum é exportar sem selecionar a peça primeiro: o STL sai vazio. Sempre clique na peça antes de "Export Selection" e confira se ela ficou destacada. Outro erro é usar acento ou espaço no nome do arquivo, o que pode dar problema na impressora; peça nomes simples como "robo-ana". Algumas crianças confundem "Save" com "Export" e acham que já exportaram só porque salvaram; mostre a diferença na pasta, onde aparecem os dois arquivos. Tem quem feche o Maya sem salvar e perca o trabalho; lembre todos de salvar antes de exportar. Por fim, alguém pode esquecer de guardar o STL na pasta combinada; confira a pasta junto com a criança antes de ela apresentar.`,
+O erro mais comum é exportar sem selecionar a peça primeiro: o STL sai vazio. Sempre clique na peça antes de "Export Selection" e confira se ela ficou destacada. Outro erro é usar acento ou espaço no nome do arquivo, o que pode dar problema na impressora; peça nomes simples como "robô-ana". Algumas crianças confundem "Save" com "Export" e acham que já exportaram só porque salvaram; mostre a diferença na pasta, onde aparecem os dois arquivos. Tem quem feche o Maya sem salvar e perca o trabalho; lembre todos de salvar antes de exportar. Por fim, alguém pode esquecer de guardar o STL na pasta combinada; confira a pasta junto com a criança antes de ela apresentar.`,
   exercicios: [
     {
       titulo: `Caça ao formato certo`,

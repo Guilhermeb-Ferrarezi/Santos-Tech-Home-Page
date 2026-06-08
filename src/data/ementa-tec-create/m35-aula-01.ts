@@ -115,11 +115,11 @@ O int() transforma o texto vindo do input em número inteiro, permitindo a soma 
       atividade: `Em dupla, criem um programa que monte a ficha de um personagem de jogo: pergunte o nome do personagem, o tipo (texto) e o nível (número inteiro). No final, mostre uma ficha organizada com os três dados.`,
       gabarito: `nome = input("Nome do personagem: ")
 tipo = input("Tipo (mago, guerreiro, arqueiro): ")
-nivel = int(input("Nível: "))
+nível = int(input("Nível: "))
 print("=== FICHA DO PERSONAGEM ===")
 print("Nome:", nome)
 print("Tipo:", tipo)
-print("Nível:", nivel)
+print("Nível:", nível)
 
 O programa usa dois textos (nome e tipo) e um número inteiro (nível, convertido com int()). Os prints organizam a ficha em linhas separadas com um título no topo.`,
     },

@@ -31,7 +31,7 @@ Na prática, cada aluno vai montar um bloco de evento no MakeCode (por exemplo, 
     `Mostrar na tela — fazer o computador escrever o número dos pontos num aviso para todo mundo ver.`,
     `Começar do zero — deixar o placar em zero no início para a contagem ser justa.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 O placar é só uma variável que recebe pequenos aumentos. A variável é uma caixinha que guarda um número; o evento é o sinal que dispara uma ação; somar mais um é a ação. Junte os três e você tem um placar. No MakeCode, a variável guarda o valor entre uma ação e outra, então quando você soma mais um, o programa lembra o número anterior e o aumenta. Você não precisa dominar Minecraft: basta saber abrir o Code Builder (tecla C dentro do jogo, ou o ícone do Agente/lápis), arrastar blocos coloridos e clicar em jogar. Os blocos que importam hoje moram em três gavetas: na gaveta Player está "on broke block" (ao quebrar bloco); na gaveta Variables ficam "set" (definir), "change ... by 1" (mudar por 1) e o nome da sua variável; na gaveta Player também está "print" (escrever na tela). Faça o teste sozinho antes da aula até ver o número subir.
 
@@ -39,7 +39,7 @@ O placar é só uma variável que recebe pequenos aumentos. A variável é uma c
 
 Aquecimento (10 min): reúna a turma perto do projetor. Conte alto: "um, dois, três, quatro!" como se cada palmada fosse um ponto. Relembre a caixinha mágica e os eventos das aulas passadas. Pergunte: "E se a caixinha guardasse pontos e subisse sozinha?" Mostre o placar de um jogo conhecido.
 
-Conteudo novo guiado (15 min): no seu computador, entre no mundo Minecraft, aperte C para abrir o Code Builder e escolha MakeCode. Clique em New Project. Vá na gaveta Variables, clique em Make a Variable e digite Pontos. Arraste "on start" da gaveta Player e, dentro dele, ponha "set Pontos to 0" para o placar começar do zero. Agora arraste o evento "on broke block" da gaveta Player. Dentro dele, da gaveta Variables, encaixe "change Pontos by 1". Logo abaixo, arraste "print" e coloque a variável Pontos lá dentro. Volte ao jogo, quebre um bloco e mostre o número subindo. Faça devagar, nomeando cada gaveta e botão.
+Conteúdo novo guiado (15 min): no seu computador, entre no mundo Minecraft, aperte C para abrir o Code Builder e escolha MakeCode. Clique em New Project. Vá na gaveta Variables, clique em Make a Variable e digite Pontos. Arraste "on start" da gaveta Player e, dentro dele, ponha "set Pontos to 0" para o placar começar do zero. Agora arraste o evento "on broke block" da gaveta Player. Dentro dele, da gaveta Variables, encaixe "change Pontos by 1". Logo abaixo, arraste "print" e coloque a variável Pontos lá dentro. Volte ao jogo, quebre um bloco e mostre o número subindo. Faça devagar, nomeando cada gaveta e botão.
 
 Mao na massa (25 min): cada aluno repete no seu computador. Passe de mesa em mesa garantindo que: criaram a variável Pontos, o "on start" zera o placar, o evento "on broke block" tem o "change Pontos by 1" dentro, e o "print" mostra Pontos. Depois deixe-os quebrarem ou coletarem vários blocos e contarem em voz alta a cada ponto. Quem terminar pode trocar o "+1" por "+2" e ver a diferença.
 

@@ -31,7 +31,7 @@ O professor conduz como um diretor de teatro carinhoso: dá o roteiro, mostra o 
     `Demo Day — é o dia da grande festa em que cada um mostra o seu jogo para a família ver.`,
     `Carregar — é o tempinho que o computador leva para preparar o jogo antes de ele começar de verdade.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 Nesta aula você não vai ensinar a construir nada novo no Roblox Studio. O foco é a apresentação. Mesmo assim, você precisa dominar dois caminhos técnicos simples para guiar a turma com segurança.
 

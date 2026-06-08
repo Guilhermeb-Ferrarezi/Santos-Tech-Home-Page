@@ -83,7 +83,7 @@ O erro mais frequente é esquecer os dois pontos no fim da linha do def ou esque
       guiaProfessor: `Garanta que todos digitem os dois pontos no fim do def e recuem a linha do print com quatro espaços. Confira se a função foi de fato chamada depois de definida.`,
       atividade: `Crie uma função chamada apresentar que mostre na tela a frase: Eu estou aprendendo funções! Depois, chame a função duas vezes para a frase aparecer duas vezes.`,
       gabarito: `def apresentar():
-    print("Eu estou aprendendo funcoes!")
+    print("Eu estou aprendendo funções!")
 
 apresentar()
 apresentar()

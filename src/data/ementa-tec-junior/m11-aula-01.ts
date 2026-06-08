@@ -31,7 +31,7 @@ Nesta primeira hora ninguém precisa construir nada complicado. As crianças vã
     `Kit travado — a tela arrumada pelo professor que mostra só os botões certos, para ninguém se perder no meio de tantos.`,
     `Profissional — a pessoa adulta que trabalha de verdade fazendo filmes e jogos usando esse mesmo programa.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 O Maya, da Autodesk, é um software profissional de modelagem, animação e renderização em 3D. Ele é robusto e cheio de painéis, o que intimida iniciantes, então a nossa estratégia o ano todo é o "kit travado": uma cena pré-configurada que você abre antes da aula, deixando à mostra apenas a viewport e dois ou três controles. Você não precisa dominar o Maya para dar esta aula; precisa apenas saber abrir o arquivo e mexer a câmera.
 

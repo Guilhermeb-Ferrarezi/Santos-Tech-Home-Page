@@ -102,7 +102,7 @@ void AMeuPersonagem::BeginPlay()
     UE_LOG(LogTemp, Warning, TEXT("Jogo iniciado"));
 }
 
-Aqui o detalhe que faltava era o ponto e virgula ao final da linha que declara a variavel Pontos. Resultado esperado: o aluno explica o erro lido no log, mostra o trecho corrigido e obtem a mensagem BUILD SUCCESSFUL no novo empacotamento, entendendo que ler o log e o caminho para resolver falhas de build.`,
+Aqui o detalhe que faltava era o ponto e virgula ao final da linha que declara a variável Pontos. Resultado esperado: o aluno explica o erro lido no log, mostra o trecho corrigido e obtem a mensagem BUILD SUCCESSFUL no novo empacotamento, entendendo que ler o log e o caminho para resolver falhas de build.`,
     },
   ],
 };

@@ -137,7 +137,7 @@ Ao clicar em Play, a Part muda de cor e o Output mostra as duas mensagens. Se a 
       atividade: `Melhore o exercício anterior: crie uma variável chamada corEscolhida que guarda o nome de uma cor. Use essa variável para trocar a cor da Part, em vez de escrever a cor direto na linha. Adicione um comentário explicando o que o código faz.`,
       gabarito: `Exemplo de solução:
 
--- Este script muda a cor da Part usando uma variavel
+-- Este script muda a cor da Part usando uma variável
 local minhaParte = script.Parent
 local corEscolhida = "Lime green"
 print("A cor escolhida foi:", corEscolhida)

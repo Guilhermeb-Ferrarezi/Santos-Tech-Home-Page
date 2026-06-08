@@ -31,7 +31,7 @@ Esta é a penúltima aula do mês. Ela prepara o terreno para a aula 8, quando a
     `Construção por código — quando a gente escreve a ordem e o Agente ergue a parede ou o quadrado sozinho.`,
     `Avançar — o passinho do Agente para o lado, para o próximo bloco não nascer em cima do anterior.`,
   ],
-  treinamento: `## O que o professor precisa saber (a teoria + a base tecnica)
+  treinamento: `## O que o professor precisa saber (a teoria + a base técnica)
 
 Esta aula reúne três peças que a turma já viu: o comando que dispara o código, o Agente e o loop. A grande novidade é combiná-las para construir. No MakeCode, todo programa do Agente começa com um bloco de evento, geralmente "ao digitar comando" (em inglês, "on chat command"). Esse bloco fica no gaveteiro "Player" e funciona como o gatilho: quando a criança digita a palavra escolhida no chat do Minecraft, tudo que estiver dentro dele roda.
 
@@ -49,7 +49,7 @@ Antes da aula, deixe o mundo em modo criativo, dia travado e plano. Teste a sua 
 
 10 min — Desafio e compartilhar: proponha trocar a cor do bloco ou aumentar o loop para 8. Cada criança mostra a sua parede no projetor ou para o coleguinha. Entregue o adesivo de Mestre Construtor.
 
-## Como explicar para criancas de 5 a 9 (analogias e linguagem)
+## Como explicar para crianças de 5 a 9 (analogias e linguagem)
 
 Use a analogia da fila de tijolos: "O Agente é um pedreirinho. Cada vez que ele coloca um tijolo, precisa dar um passinho para o lado, senão o tijolo novo cai em cima do velho." Para o loop, diga: "O repetir é uma máquina de fazer igual. A gente fala uma vez e ela faz cinco." Mostre com o corpo: bata palma e ande um passo, repita, e diga que é exatamente isso que o Agente faz. Evite palavras técnicas; fale "caixinha que repete" em vez de "loop", "robôzinho" em vez de "Agente" e "começar" em vez de "evento".
 

@@ -10,7 +10,7 @@ export const aula: Aula = {
 
 O foco prático da aula é a exportação. Exportar é pegar o que está dentro do Canva e gerar um arquivo de imagem para o computador. Para a UI de um jogo usamos o formato PNG, porque ele aceita fundo transparente, o que é essencial para botões e ícones se encaixarem por cima do cenário sem aquele quadrado branco em volta. Os alunos vão aprender onde fica o botão de exportar, qual tipo escolher, quando marcar a transparência e como baixar página por página ou tudo de uma vez.
 
-Depois de exportar, vem a organização. Um projeto bem cuidado tem uma pasta com nomes claros: cada PNG nomeado pelo que ele é (por exemplo, botao-jogar, hud-vida, icone-moeda), em vez de nomes soltos como imagem1, imagem2. Isso parece detalhe, mas é o que vai poupar tempo lá na frente, quando o aluno precisar arrastar cada arquivo para o Roblox Studio. Organizar é parte do trabalho de quem cria tecnologia de verdade.
+Depois de exportar, vem a organização. Um projeto bem cuidado tem uma pasta com nomes claros: cada PNG nomeado pelo que ele é (por exemplo, botao-jogar, hud-vida, ícone-moeda), em vez de nomes soltos como imagem1, imagem2. Isso parece detalhe, mas é o que vai poupar tempo lá na frente, quando o aluno precisar arrastar cada arquivo para o Roblox Studio. Organizar é parte do trabalho de quem cria tecnologia de verdade.
 
 Por fim, a aula é também uma celebração. Cada aluno apresenta sua UI pronta no projetor, conta as escolhas que fez e recebe um feedback gentil dos colegas. Esse momento fecha a Etapa 1 de 5 do projeto do jogo com a interface concluída e dá orgulho do que foi construído. Nas próximas etapas, essa mesma arte vai ganhar vida dentro do Roblox.`,
   materiais: [
@@ -74,7 +74,7 @@ O erro mais comum é exportar em JPG e perder a transparência: mostre que o tip
       tipo: `desafio`,
       tempo: `6 minutos`,
       guiaProfessor: `Ensine a criar uma pasta nova e renomear arquivos com nomes claros. Reforce nomes que dizem o que a imagem é, sem espaços ou acentos.`,
-      atividade: `Crie uma pasta chamada UI-do-meu-jogo, mova todos os PNGs para dentro e renomeie cada um pelo que ele é (por exemplo, botao-jogar, hud-vida, icone-moeda).`,
+      atividade: `Crie uma pasta chamada UI-do-meu-jogo, mova todos os PNGs para dentro e renomeie cada um pelo que ele é (por exemplo, botao-jogar, hud-vida, ícone-moeda).`,
       gabarito: `Existe uma pasta única com todos os PNGs dentro, cada arquivo com nome claro que diz o que ele é. Não há nomes soltos como imagem1 nem arquivos espalhados fora da pasta.`,
     },
     {

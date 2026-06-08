@@ -40,7 +40,7 @@ Relembre os passos essenciais. Para criar um Project: na barra lateral esquerda,
 
 1. Aquecimento e revisão (10 min). Pergunte à turma o que cada aula do mês ensinou e vá listando na lousa: pedir ajuda, prompt bom, refinar, dar contexto com arquivos, gerar referências, Artifacts e Projects. Diga que hoje todas essas peças viram um kit só.
 
-2. Conteúdo novo guiado (15 min). No projetor, monte um Project do zero. Clique em Projects, depois em New project, e nomeie como Jogo Unity Ano 4. Abra Instructions e cole um texto de contexto, por exemplo: "Voce e meu assistente de programacao de games. Estou criando um jogo no Unity com C# e assets do Blender. Responda em portugues, com passos curtos e o codigo comentado." Em seguida, clique em Add content e anexe um arquivo de exemplo, como um script C#. Mostre que esse contexto vale para todas as conversas dali.
+2. Conteúdo novo guiado (15 min). No projetor, monte um Project do zero. Clique em Projects, depois em New project, e nomeie como Jogo Unity Ano 4. Abra Instructions e cole um texto de contexto, por exemplo: "Você e meu assistente de programacao de games. Estou criando um jogo no Unity com C# e assets do Blender. Responda em portugues, com passos curtos e o código comentado." Em seguida, clique em Add content e anexe um arquivo de exemplo, como um script C#. Mostre que esse contexto vale para todas as conversas dali.
 
 3. Mão na massa (25 min). Cada aluno monta o próprio kit: cria o Project, escreve as instruções, anexa pelo menos um arquivo e salva um prompt que costuma usar. Depois faz o fluxo completo a partir de um problema real. Como exemplo de pedido de código, peça ao Claude um script simples de movimento do jogador no Unity. Um resultado típico que ele pode gerar como Artifact:
 
@@ -90,12 +90,12 @@ Para adolescentes, compare o Project a um vestiário de time: é o lugar onde vo
       titulo: `Escrevendo as instruções do Project`,
       tipo: `Prática na ferramenta`,
       tempo: `8 min`,
-      guiaProfessor: `Mostre como abrir as instruções: dentro do Project, clique em Instructions (ou "Set instructions"). Explique que esse texto é fixo e vale para todas as conversas daquele Project. Peça que cada aluno escreva quem é, qual jogo está criando e como quer a resposta. Ofereça um modelo na lousa, como: "Voce e meu assistente de programacao de games. Estou criando um jogo no Unity com C# e assets do Blender. Responda em portugues, com passos curtos e o codigo comentado." Circule ajudando a deixar as instruções específicas, não genéricas.`,
+      guiaProfessor: `Mostre como abrir as instruções: dentro do Project, clique em Instructions (ou "Set instructions"). Explique que esse texto é fixo e vale para todas as conversas daquele Project. Peça que cada aluno escreva quem é, qual jogo está criando e como quer a resposta. Ofereça um modelo na lousa, como: "Você e meu assistente de programacao de games. Estou criando um jogo no Unity com C# e assets do Blender. Responda em portugues, com passos curtos e o código comentado." Circule ajudando a deixar as instruções específicas, não genéricas.`,
       atividade: `1. Dentro do seu Project, clique em Instructions.
 2. Escreva quem você é e qual jogo está criando (Unity, Unreal ou VR).
 3. Diga como quer a resposta: em português, com passos curtos e código comentado.
 4. Salve e confira se o texto ficou guardado nas instruções.`,
-      gabarito: `Acertou quem escreve instruções específicas com os três pontos: quem é o aluno, qual o jogo e como o Claude deve responder. Exemplo de instrução correta: "Voce e meu assistente de programacao de games. Estou criando um jogo no Unity com C# e assets do Blender. Responda em portugues, com passos curtos e o codigo comentado." Instruções genéricas como "me ajude" não contam; o objetivo é dar contexto fixo e útil ao Project.`,
+      gabarito: `Acertou quem escreve instruções específicas com os três pontos: quem é o aluno, qual o jogo e como o Claude deve responder. Exemplo de instrução correta: "Você e meu assistente de programacao de games. Estou criando um jogo no Unity com C# e assets do Blender. Responda em portugues, com passos curtos e o código comentado." Instruções genéricas como "me ajude" não contam; o objetivo é dar contexto fixo e útil ao Project.`,
     },
     {
       titulo: `Anexando um arquivo de referência ao Knowledge`,
