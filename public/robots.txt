@@ -8,5 +8,11 @@ Allow: /
 Disallow: /assets/
 Disallow: /api/
 
+# Área de apresentações / ementa — conteúdo pedagógico privado (não indexar)
+Disallow: /apresentacoes
+
+# Área de professores — material didático restrito (não indexar)
+Disallow: /professores
+
 # Sitemap principal — listado pros crawlers descobrirem rotas.
 Sitemap: https://santos-tech.com/sitemap.xml
