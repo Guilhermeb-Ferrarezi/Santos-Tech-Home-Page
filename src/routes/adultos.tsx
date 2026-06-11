@@ -1,297 +1,383 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { WHATSAPP_URL } from "@/lib/whatsapp";
+import { createFileRoute, Outlet, Link, useRouterState } from "@tanstack/react-router";
+import { useState } from "react";
 import {
-  Users,
-  Monitor,
-  Shield,
-  Cpu,
-  Star,
-  MapPin,
-  TrendingUp,
-  Code2,
+  Home,
+  Menu,
+  X,
+  MessageCircle,
+  ChevronDown,
+  BookOpen,
+  PanelLeftClose,
+  PanelLeftOpen,
+  Sun,
+  Moon,
+  LogIn,
 } from "lucide-react";
-import { Reveal } from "@/components/reveal";
-import { DecorativeElements } from "@/components/decorative-elements";
-import { WhatsAppIcon } from "@/components/icons";
-import { pageMeta } from "@/lib/seo";
+import { Img } from "@/components/img";
+import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 export const Route = createFileRoute("/adultos")({
-  component: AdultosPage,
-  head: () =>
-    pageMeta({
-      title:
-        "Cursos de Tecnologia e Programação para Adultos em Ribeirão Preto — Santos Tech",
-      description:
-        "Cursos presenciais de Excel avançado, programação Python e informática profissional para adultos em Ribeirão Preto. Turmas de até 10 alunos. Agende uma conversa pelo WhatsApp.",
-      path: "/adultos",
-    }),
+  component: AdultosLayout,
 });
 
-const WHATSAPP = WHATSAPP_URL.courses;
-
-const EIXOS = [
+const GRUPOS: { id: string; label: string; cursos: { slug: string; nome: string }[] }[] = [
   {
-    icon: Monitor,
-    nome: "Informática Profissional",
-    descricao: "Domine as ferramentas que o trabalho exige de verdade.",
-    aprende: [
-      "Excel avançado e fórmulas",
-      "Power BI e dashboards",
-      "Office completo",
-      "IA aplicada ao dia a dia",
-    ],
-    paraQuem:
-      "Para quem precisa ser mais produtivo e se destacar no trabalho.",
-    gradient: "linear-gradient(135deg, #187ABF 0%, #04325A 100%)",
+    id: "informatica",
+    label: "Informática",
+    cursos: [{ slug: "informatica", nome: "Informática" }],
   },
   {
-    icon: Code2,
-    nome: "Programação",
-    descricao: "Aprenda a programar do zero — sem precisar de experiência anterior.",
-    aprende: [
-      "Lógica de programação",
-      "Python na prática",
-      "Projetos reais",
-      "Portfólio para mostrar",
+    id: "office",
+    label: "Office",
+    cursos: [
+      { slug: "office", nome: "Pacote Office" },
+      { slug: "excel", nome: "Excel" },
+      { slug: "word", nome: "Word" },
+      { slug: "powerpoint", nome: "PowerPoint" },
+      { slug: "power-bi", nome: "Power BI" },
     ],
-    paraQuem:
-      "Para quem quer entrar na área de tecnologia ou entender como as coisas funcionam.",
-    gradient: "linear-gradient(135deg, #14C29A 0%, #0A6E57 100%)",
+  },
+  {
+    id: "ia",
+    label: "Inteligência Artificial",
+    cursos: [{ slug: "ia", nome: "Inteligência Artificial" }],
+  },
+  {
+    id: "programacao",
+    label: "Programação",
+    cursos: [
+      { slug: "logica", nome: "Lógica de Programação" },
+      { slug: "python", nome: "Python para Automações" },
+      { slug: "n8n", nome: "Automações + N8N" },
+      { slug: "frontend", nome: "Desenvolvimento Web Front-End" },
+      { slug: "backend", nome: "Desenvolvimento Web Back-End" },
+      { slug: "fullstack", nome: "Full Stack" },
+      { slug: "mobile", nome: "Desenvolvimento de Aplicativos" },
+      { slug: "jogos", nome: "Desenvolvimento de Jogos" },
+      { slug: "ads", nome: "ADS — Formação Profissional" },
+    ],
+  },
+  {
+    id: "ti",
+    label: "T.I.",
+    cursos: [
+      { slug: "suporte", nome: "Suporte Técnico / Help Desk" },
+      { slug: "manutencao", nome: "Montagem e Manutenção" },
+      { slug: "redes", nome: "Redes e Infraestrutura" },
+      { slug: "ciberseguranca", nome: "Cibersegurança" },
+      { slug: "linux", nome: "Linux Essencial" },
+    ],
+  },
+  {
+    id: "3d",
+    label: "Universo 3D",
+    cursos: [
+      { slug: "modelagem-3d", nome: "Modelagem 3D" },
+      { slug: "impressao-3d", nome: "Impressão 3D" },
+      { slug: "autocad", nome: "AutoCAD" },
+      { slug: "revit", nome: "Revit" },
+    ],
+  },
+  {
+    id: "design",
+    label: "Design & Criação",
+    cursos: [
+      { slug: "canva", nome: "Canva Pro" },
+      { slug: "photoshop", nome: "Photoshop + Illustrator" },
+      { slug: "capcut", nome: "Edição de Vídeo — CapCut" },
+      { slug: "davinci", nome: "DaVinci Resolve / Premiere" },
+    ],
+  },
+  {
+    id: "marketing",
+    label: "Marketing & Negócios",
+    cursos: [
+      { slug: "marketing", nome: "Marketing Digital" },
+      { slug: "redes-sociais", nome: "Gestão de Redes Sociais" },
+      { slug: "ecommerce", nome: "E-commerce & Vendas Online" },
+    ],
   },
 ];
 
-const DIFERENCIAIS = [
-  {
-    icon: Users,
-    t: "Turmas de até 10",
-    d: "Atenção de verdade — não uma sala lotada.",
-  },
-  {
-    icon: Shield,
-    t: "100% presencial",
-    d: "Aprenda com um professor ao seu lado, não sozinho numa tela.",
-  },
-  {
-    icon: Cpu,
-    t: "Ferramentas reais",
-    d: "Os mesmos programas que o mercado usa — sem simulações.",
-  },
-  {
-    icon: TrendingUp,
-    t: "Do zero ao avançado",
-    d: "Começa do começo, vai até onde você quiser chegar.",
-  },
-];
+function AdultosLayout() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
+  const [cursosOpen, setCursosOpen] = useState(true);
+  const [gruposOpen, setGruposOpen] = useState<Record<string, boolean>>({});
+  const [dark, setDark] = useState(false);
 
-function AdultosPage() {
+  const toggleGrupo = (id: string) =>
+    setGruposOpen((prev) => ({ ...prev, [id]: !prev[id] }));
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  const navItem = (active: boolean) =>
+    [
+      "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold transition-colors",
+      active
+        ? "bg-[#0DB88F]/10 text-[#0DB88F]"
+        : "text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white",
+    ].join(" ");
+
+  const iconCls = (active: boolean) =>
+    active ? "text-[#0DB88F]" : "text-neutral-400 dark:text-neutral-500";
+
+  const label = (text: string) => (
+    <span
+      className={[
+        "whitespace-nowrap overflow-hidden transition-[opacity,max-width] duration-300",
+        collapsed ? "max-w-0 opacity-0" : "max-w-[200px] opacity-100",
+      ].join(" ")}
+    >
+      {text}
+    </span>
+  );
+
   return (
-    <>
-      {/* ============ HERO ============ */}
-      <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#e6f1fa] via-[#f3f8fc] to-white">
+    <div className={dark ? "dark" : ""}>
+    <div className={`flex h-screen overflow-hidden ${dark ? "bg-neutral-950" : "bg-neutral-50"}`}>
+      {/* Overlay mobile */}
+      {mobileOpen && (
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.18]"
-          style={{
-            backgroundImage:
-              "radial-gradient(rgba(24,122,191,0.35) 1px, transparent 1px)",
-            backgroundSize: "24px 24px",
-          }}
+          className="fixed inset-0 z-40 bg-black/40 lg:hidden"
+          onClick={() => setMobileOpen(false)}
         />
-        <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-[#187ABF]/25 blur-3xl animate-blob" />
-        <div className="pointer-events-none absolute -right-24 top-40 h-96 w-96 rounded-full bg-[#0DB88F]/20 blur-3xl animate-blob [animation-delay:3s]" />
-        <DecorativeElements color="#187ABF" />
+      )}
 
-        <div className="relative mx-auto max-w-4xl px-4 pb-32 pt-16 text-center sm:px-6 sm:pt-20 lg:px-8 lg:pb-40 lg:pt-24">
-          <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-primary shadow-sm">
-              <MapPin className="h-4 w-4 shrink-0" />
-              Escola presencial de tecnologia · Ribeirão Preto
-            </span>
-          </Reveal>
-          <Reveal delay={120}>
-            <h1 className="mt-6 text-4xl font-black leading-[1.02] tracking-tight sm:text-5xl lg:text-6xl">
-              <span className="block text-st-blue-dark">Tecnologia pra</span>
-              <span className="mt-1 block text-gradient-hero">
-                quem já cresceu.
-              </span>
-            </h1>
-          </Reveal>
-          <Reveal delay={240}>
-            <p className="mx-auto mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
-              Cursos presenciais para adultos em Ribeirão Preto. Turmas de até{" "}
-              <strong>10 alunos</strong>, ferramentas profissionais e conteúdo
-              que você aplica no trabalho.
-            </p>
-          </Reveal>
-          <Reveal
-            delay={360}
-            className="mt-8 flex flex-wrap items-center justify-center gap-3"
+      {/* ── SIDEBAR ── */}
+      <aside
+        className={[
+          "fixed inset-y-0 left-0 z-50 flex flex-col border-r overflow-hidden",
+          "bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800",
+          // Mobile: slide transform, largura fixa
+          "w-64 -translate-x-full transition-transform duration-300 ease-in-out",
+          mobileOpen && "translate-x-0",
+          // Desktop: sempre visível, anima largura
+          "lg:static lg:translate-x-0 lg:transition-[width] lg:duration-300 lg:ease-in-out",
+          collapsed ? "lg:w-[60px]" : "lg:w-64",
+        ].filter(Boolean).join(" ")}
+      >
+        {/* Cabeçalho */}
+        <div className="flex h-16 shrink-0 items-center gap-2 border-b border-neutral-200 dark:border-neutral-800 px-3">
+          {/* Logo — sempre visível */}
+          <Img name="logo" alt="Santos Tech" width={32} height={32} className="h-8 w-8 shrink-0" />
+
+          {/* Texto — some quando colapsado */}
+          <div
+            className={[
+              "flex min-w-0 flex-1 items-center gap-1.5 overflow-hidden transition-[opacity,max-width] duration-300",
+              collapsed ? "max-w-0 opacity-0" : "max-w-[200px] opacity-100",
+            ].join(" ")}
           >
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md bg-st-green px-8 py-4 text-sm font-black uppercase tracking-wider text-white shadow-[0_12px_30px_-10px_rgba(13,184,143,0.65)] transition hover:scale-[1.03] glow-green"
+            <span className="whitespace-nowrap text-xs font-black tracking-tight text-neutral-900 dark:text-white">
+              SANTOS TECH
+            </span>
+            <span className="shrink-0 rounded-sm bg-neutral-900 dark:bg-white px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-white dark:text-neutral-900">
+              adultos
+            </span>
+          </div>
+
+          {/* Botão recolher — só aparece no DOM quando expandido */}
+          {!collapsed && (
+            <button
+              type="button"
+              onClick={() => setCollapsed(true)}
+              aria-label="Recolher menu"
+              className="ml-auto hidden lg:flex shrink-0 rounded-md p-1.5 text-neutral-400 dark:text-neutral-500 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
             >
-              <WhatsAppIcon className="h-4 w-4" />
-              Quero saber mais
-            </a>
-          </Reveal>
-          <Reveal
-            delay={480}
-            className="mt-6 flex items-center justify-center gap-2 text-sm font-semibold text-foreground/80"
+              <PanelLeftClose className="h-4 w-4" />
+            </button>
+          )}
+        </div>
+
+        {/* Nav */}
+        <nav className="flex-1 overflow-y-auto overflow-x-hidden px-2 py-4 space-y-0.5">
+          {/* Expandir — só aparece quando colapsado */}
+          {collapsed && (
+            <button
+              type="button"
+              onClick={() => setCollapsed(false)}
+              aria-label="Expandir menu"
+              className="hidden lg:flex w-full items-center justify-center rounded-lg p-2 text-neutral-400 dark:text-neutral-500 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors mb-1"
+            >
+              <PanelLeftOpen className="h-4 w-4" />
+            </button>
+          )}
+
+          {/* Início */}
+          <Link
+            to="/adultos"
+            onClick={() => setMobileOpen(false)}
+            title={collapsed ? "Início" : undefined}
+            className={navItem(pathname === "/adultos")}
           >
-            <span className="flex items-center gap-1 text-amber-500">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <Star key={i} className="h-4 w-4 fill-current" />
-              ))}
+            <Home className={`h-4 w-4 shrink-0 ${iconCls(pathname === "/adultos")}`} />
+            {label("Início")}
+          </Link>
+
+          <div className="my-3 h-px bg-neutral-100 dark:bg-neutral-800" />
+
+          {/* Cursos dropdown */}
+          <button
+            type="button"
+            onClick={() => {
+              if (collapsed) {
+                setCollapsed(false);
+                setCursosOpen(true);
+              } else {
+                setCursosOpen((o) => !o);
+              }
+            }}
+            title={collapsed ? "Cursos — clique para expandir" : undefined}
+            className="w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
+          >
+            <BookOpen className="h-4 w-4 shrink-0 text-neutral-400 dark:text-neutral-500" />
+            <span
+              className={[
+                "flex-1 text-left whitespace-nowrap overflow-hidden transition-[opacity,max-width] duration-300",
+                collapsed ? "max-w-0 opacity-0" : "max-w-[200px] opacity-100",
+              ].join(" ")}
+            >
+              Cursos
             </span>
-            <span>5,0 no Google · 329 avaliações</span>
-          </Reveal>
-        </div>
-
-        <div className="absolute bottom-0 left-0 right-0 leading-[0]">
-          <svg
-            viewBox="0 0 1440 100"
-            preserveAspectRatio="none"
-            className="block h-[60px] w-full sm:h-[100px]"
-          >
-            <path
-              d="M0,40 C360,120 720,0 1080,50 C1260,75 1380,90 1440,60 L1440,100 L0,100 Z"
-              fill="#ffffff"
+            <ChevronDown
+              className={[
+                "h-4 w-4 shrink-0 text-neutral-400 dark:text-neutral-500 transition-all duration-300",
+                collapsed ? "max-w-0 opacity-0" : "max-w-[20px] opacity-100",
+                cursosOpen ? "rotate-180" : "rotate-0",
+              ].join(" ")}
             />
-          </svg>
-        </div>
-      </section>
+          </button>
 
-      {/* ============ OS DOIS EIXOS ============ */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-primary">
-              Os cursos
-            </p>
-            <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
-              Escolha{" "}
-              <span className="text-gradient-hero">o seu caminho</span>
-            </h2>
-          </Reveal>
+          {/* Dropdown — grupos com sub-dropdowns */}
+          <div
+            className={[
+              "grid transition-[grid-template-rows] duration-300 ease-in-out",
+              cursosOpen && !collapsed ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+            ].join(" ")}
+          >
+            <div className="overflow-hidden">
+              <div className="ml-3 border-l border-neutral-200 dark:border-neutral-800 pl-2 pt-1 pb-1 space-y-0.5">
+                {GRUPOS.map(({ id, label: lbl, cursos }) => (
+                  <div key={id}>
+                    {/* Botão do grupo */}
+                    <button
+                      type="button"
+                      onClick={() => toggleGrupo(id)}
+                      className="w-full flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-black uppercase tracking-wider text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-white/[0.07] transition-colors"
+                    >
+                      <span className="flex-1 text-left truncate">{lbl}</span>
+                      <ChevronDown
+                        className={[
+                          "h-3 w-3 shrink-0 transition-transform duration-200",
+                          gruposOpen[id] ? "rotate-180" : "rotate-0",
+                        ].join(" ")}
+                      />
+                    </button>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {EIXOS.map((e, i) => {
-              const Icon = e.icon;
-              return (
-                <Reveal key={e.nome} delay={i * 120}>
-                  <div
-                    className="relative flex h-full flex-col overflow-hidden rounded-3xl p-8 text-white shadow-lg"
-                    style={{ background: e.gradient }}
-                  >
-                    <div className="absolute inset-0 dotted-bg opacity-20" />
-                    <div className="relative flex h-full flex-col">
-                      <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/15 backdrop-blur">
-                        <Icon className="h-6 w-6" />
-                      </span>
-                      <h3 className="mt-5 text-2xl font-black">{e.nome}</h3>
-                      <p className="mt-2 text-white/85">{e.descricao}</p>
-                      <ul className="mt-5 flex-1 space-y-2">
-                        {e.aprende.map((item) => (
-                          <li
-                            key={item}
-                            className="flex items-center gap-2 text-sm text-white/90"
-                          >
-                            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-white/60" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                      <p className="mt-6 rounded-xl bg-white/10 px-4 py-3 text-sm font-semibold text-white/90 backdrop-blur">
-                        {e.paraQuem}
-                      </p>
-                      <a
-                        href={WHATSAPP}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="mt-6 inline-flex items-center gap-2 rounded-md bg-white px-6 py-3 text-sm font-black uppercase tracking-wider text-st-blue-dark shadow transition hover:scale-[1.02]"
-                      >
-                        <WhatsAppIcon className="h-4 w-4 text-st-green" />{" "}
-                        Quero saber mais
-                      </a>
+                    {/* Links do grupo — animação grid */}
+                    <div
+                      className={[
+                        "grid transition-[grid-template-rows] duration-200 ease-in-out",
+                        gruposOpen[id] ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+                      ].join(" ")}
+                    >
+                      <div className="overflow-hidden">
+                        <div className="ml-2 border-l border-neutral-100 dark:border-neutral-800/60 pl-2 pb-1 space-y-0.5">
+                          {cursos.map(({ slug, nome }) => (
+                            <a
+                              key={slug}
+                              href={`/adultos/cursos/${slug}`}
+                              onClick={() => setMobileOpen(false)}
+                              className="flex min-w-0 items-center rounded-lg px-3 py-1.5 text-sm font-medium text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
+                            >
+                              <span className="truncate">{nome}</span>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </Reveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ============ DIFERENCIAIS ============ */}
-      <section className="bg-muted/40 py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-primary">
-              Por que a Santos Tech
-            </p>
-            <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
-              Aula de verdade, não mais um curso online
-            </h2>
-          </Reveal>
-
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {DIFERENCIAIS.map((d, i) => (
-              <Reveal key={d.t} delay={i * 90}>
-                <div className="group h-full rounded-2xl border-2 border-primary/15 bg-card p-7 shadow-sm transition hover:-translate-y-1 hover:border-primary/40">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
-                    <d.icon className="h-6 w-6" />
-                  </span>
-                  <h3 className="mt-4 font-black text-st-blue-dark">{d.t}</h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground">{d.d}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ============ CTA FINAL ============ */}
-      <section className="py-20">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <div className="relative overflow-hidden rounded-3xl bg-program-create px-8 py-14 text-center text-white shadow-xl sm:px-16">
-              <div className="pointer-events-none absolute inset-0 dotted-bg opacity-20" />
-              <div className="relative">
-                <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
-                  Pronto pra começar?
-                </h2>
-                <p className="mx-auto mt-4 max-w-xl text-white/90">
-                  Fale com a gente pelo WhatsApp, tire suas dúvidas e descubra
-                  qual curso é o certo pra você.
-                </p>
-                <div className="mt-8 flex justify-center">
-                  <a
-                    href={WHATSAPP}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-md bg-st-green px-8 py-4 text-sm font-black uppercase tracking-wider text-white shadow-lg transition hover:scale-[1.03] glow-green"
-                  >
-                    <WhatsAppIcon className="h-4 w-4" />
-                    Falar no WhatsApp
-                  </a>
-                </div>
-                <div className="mt-10 grid gap-4 border-t border-white/20 pt-8 text-sm text-white/90 sm:grid-cols-2 sm:gap-0">
-                  <p className="flex items-center justify-center gap-2">
-                    <MapPin className="h-4 w-4" />
-                    Av. Nove de Julho, 1992 — Jardim América, Ribeirão Preto/SP
-                  </p>
-                  <p className="flex items-center justify-center gap-2">
-                    <WhatsAppIcon className="h-4 w-4" />
-                    (16) 99257-8710
-                  </p>
-                </div>
+                ))}
               </div>
             </div>
-          </Reveal>
+          </div>
+
+          <div className="my-3 h-px bg-neutral-100 dark:bg-neutral-800" />
+
+          {/* Suporte */}
+          <a
+            href={WHATSAPP_URL.courses}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => setMobileOpen(false)}
+            title={collapsed ? "Falar no WhatsApp" : undefined}
+            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
+          >
+            <MessageCircle className="h-4 w-4 shrink-0 text-neutral-400 dark:text-neutral-500" />
+            {label("Falar no WhatsApp")}
+          </a>
+
+          <Link
+            to="/"
+            onClick={() => setMobileOpen(false)}
+            title={collapsed ? "Site principal" : undefined}
+            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
+          >
+            <Home className="h-4 w-4 shrink-0 text-neutral-400 dark:text-neutral-500" />
+            {label("Site principal")}
+          </Link>
+        </nav>
+
+        {/* Rodapé */}
+        <div className="shrink-0 border-t border-neutral-200 dark:border-neutral-800 p-3 space-y-2">
+          <button
+            type="button"
+            onClick={() => setDark((d) => !d)}
+            title={collapsed ? (dark ? "Modo claro" : "Modo escuro") : undefined}
+            className="w-full flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
+          >
+            {dark
+              ? <Sun className="h-4 w-4 shrink-0 text-neutral-400 dark:text-neutral-500" />
+              : <Moon className="h-4 w-4 shrink-0 text-neutral-400 dark:text-neutral-500" />}
+            {label(dark ? "Modo claro" : "Modo escuro")}
+          </button>
+
+          <a
+            href="https://auth.santos-tech.com"
+            title={collapsed ? "Entrar na conta" : undefined}
+            className={[
+              "flex items-center justify-center gap-2 rounded-lg bg-[#0DB88F] text-sm font-bold text-white transition hover:bg-[#0aaa82] active:scale-[0.98]",
+              collapsed ? "px-2 py-2.5" : "px-4 py-2.5",
+            ].join(" ")}
+          >
+            {collapsed ? <LogIn className="h-4 w-4" /> : "Entrar na conta"}
+          </a>
         </div>
-      </section>
-    </>
+      </aside>
+
+      {/* ── CONTEÚDO ── */}
+      <div className="flex flex-1 flex-col overflow-hidden">
+        {/* Topbar mobile */}
+        <div className="flex h-14 shrink-0 items-center gap-3 border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-4 lg:hidden">
+          <button
+            type="button"
+            onClick={() => setMobileOpen((o) => !o)}
+            aria-label="Abrir menu"
+            className="rounded-md p-1.5 text-neutral-500 hover:bg-neutral-100 dark:hover:bg-white/[0.07] dark:text-neutral-400 transition-colors"
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+          <span className="text-sm font-black text-neutral-900 dark:text-white">SANTOS TECH</span>
+          <span className="rounded-sm bg-neutral-900 dark:bg-white px-1.5 py-0.5 text-[9px] font-black uppercase tracking-widest text-white dark:text-neutral-900">
+            adultos
+          </span>
+        </div>
+
+        <main className="flex-1 overflow-y-auto">
+          <Outlet />
+        </main>
+      </div>
+    </div>
+    </div>
   );
 }

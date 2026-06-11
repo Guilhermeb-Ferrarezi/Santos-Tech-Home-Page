@@ -7,7 +7,7 @@ Stack de produção, fluxo de atualização e armadilhas conhecidas.
 | Camada | Tecnologia |
 |---|---|
 | **Hospedagem** | VPS Contabo (Henrique) |
-| **PaaS** | [Easypanel](https://easypanel.io/) (auto-hospedado na própria VPS) |
+| **PaaS** | [Coolify](https://coolify.io) (auto-hospedado na própria VPS) |
 | **Build** | Docker (`Dockerfile` na raiz) |
 | **Runtime** | Bun 1.3.14 alpine |
 | **Web server** | `docker/server.ts` rodando em `Bun.serve` na porta 3000 |

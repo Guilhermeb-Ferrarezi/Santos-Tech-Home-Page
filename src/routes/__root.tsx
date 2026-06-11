@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -164,28 +165,33 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isAdultosRoute = pathname.startsWith("/adultos");
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Skip-to-content link — a11y. Aparece só ao receber foco (Tab). */}
-      <a
-        href="#conteudo"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-primary-foreground focus:shadow-lg"
-      >
-        Pular para o conteúdo
-      </a>
-
-      {/* JSON-LD institucional — aplicado em todas as rotas (Organization + WebSite). */}
       <JsonLd data={[buildOrganizationSchema(), buildWebSiteSchema()]} />
 
-      <div className="flex min-h-screen flex-col bg-background">
-        <SiteHeader />
-        <main id="conteudo" className="flex-1">
-          <Outlet />
-        </main>
-        <SiteFooter />
-        <WhatsAppFab />
-      </div>
+      {isAdultosRoute ? (
+        <Outlet />
+      ) : (
+        <>
+          <a
+            href="#conteudo"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-primary-foreground focus:shadow-lg"
+          >
+            Pular para o conteúdo
+          </a>
+          <div className="flex min-h-screen flex-col bg-background">
+            <SiteHeader />
+            <main id="conteudo" className="flex-1">
+              <Outlet />
+            </main>
+            <SiteFooter />
+            <WhatsAppFab />
+          </div>
+        </>
+      )}
     </QueryClientProvider>
   );
 }
