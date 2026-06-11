@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as CursosRouteImport } from './routes/cursos'
 import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as AdultosRouteImport } from './routes/adultos'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SobreIndexRouteImport } from './routes/sobre.index'
 import { Route as CursosIndexRouteImport } from './routes/cursos.index'
@@ -54,6 +55,11 @@ const CursosRoute = CursosRouteImport.update({
 const ContatoRoute = ContatoRouteImport.update({
   id: '/contato',
   path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdultosRoute = AdultosRouteImport.update({
+  id: '/adultos',
+  path: '/adultos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -207,6 +213,7 @@ const CursosCreate1011AnosRoute = CursosCreate1011AnosRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/adultos': typeof AdultosRoute
   '/contato': typeof ContatoRoute
   '/cursos': typeof CursosRouteWithChildren
   '/sobre': typeof SobreRouteWithChildren
@@ -240,6 +247,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/adultos': typeof AdultosRoute
   '/contato': typeof ContatoRoute
   '/apresentacoes/informatica-create': typeof ApresentacoesInformaticaCreateRoute
   '/apresentacoes/informatica-junior': typeof ApresentacoesInformaticaJuniorRoute
@@ -270,6 +278,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/adultos': typeof AdultosRoute
   '/contato': typeof ContatoRoute
   '/cursos': typeof CursosRouteWithChildren
   '/sobre': typeof SobreRouteWithChildren
@@ -305,6 +314,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/adultos'
     | '/contato'
     | '/cursos'
     | '/sobre'
@@ -338,6 +348,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/adultos'
     | '/contato'
     | '/apresentacoes/informatica-create'
     | '/apresentacoes/informatica-junior'
@@ -367,6 +378,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/adultos'
     | '/contato'
     | '/cursos'
     | '/sobre'
@@ -401,6 +413,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdultosRoute: typeof AdultosRoute
   ContatoRoute: typeof ContatoRoute
   CursosRoute: typeof CursosRouteWithChildren
   SobreRoute: typeof SobreRouteWithChildren
@@ -436,6 +449,13 @@ declare module '@tanstack/react-router' {
       path: '/contato'
       fullPath: '/contato'
       preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/adultos': {
+      id: '/adultos'
+      path: '/adultos'
+      fullPath: '/adultos'
+      preLoaderRoute: typeof AdultosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -712,6 +732,7 @@ const SobreRouteWithChildren = SobreRoute._addFileChildren(SobreRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdultosRoute: AdultosRoute,
   ContatoRoute: ContatoRoute,
   CursosRoute: CursosRouteWithChildren,
   SobreRoute: SobreRouteWithChildren,
@@ -728,13 +749,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
