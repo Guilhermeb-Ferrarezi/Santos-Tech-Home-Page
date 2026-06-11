@@ -114,6 +114,7 @@ export function SiteFooter() {
             <li><Link to="/cursos" className={t.links}>Cursos</Link></li>
             <li><Link to="/sobre" className={t.links}>Sobre</Link></li>
             <li><Link to="/contato" className={t.links}>Contato</Link></li>
+            <li><Link to="/adultos" className={t.links}>Cursos para Adultos</Link></li>
           </ul>
         </div>
 
