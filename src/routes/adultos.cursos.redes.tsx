@@ -18,7 +18,7 @@ export const Route = createFileRoute("/adultos/cursos/redes")({
 
 const COURSE_DATA: CourseData = {
   nome: "Redes e Infraestrutura",
-  categoria: "T.I.",
+  categoria: "T.I",
   tagline: "Configure redes corporativas do zero com certificação CompTIA Network+",
   targetAudience: [
     "Trabalha em TI e quer subir de nível saindo do suporte para infraestrutura",

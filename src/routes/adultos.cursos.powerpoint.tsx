@@ -190,7 +190,7 @@ const COURSE_DATA: CourseData = {
             "Desenvolvimento do roteiro com mapa de mensagens por slide",
             "Aplicação do template corporativo com Slide Mestre completo",
             "Animações Morph e interatividade estratégica",
-            "Apresentação ao vivo com feedback da turma e versão final entregável",
+            "Apresentação ao vivo com feedback do professor e versão final entregável",
           ],
         },
       ],

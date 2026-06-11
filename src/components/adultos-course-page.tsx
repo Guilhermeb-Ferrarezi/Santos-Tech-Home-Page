@@ -46,7 +46,7 @@ const DIFERENCIAIS = [
   {
     icon: User,
     title: "Aula Individual",
-    desc: "Sem turma, atenção total do professor.",
+    desc: "Só você e o professor — foco total.",
   },
   {
     icon: CalendarClock,
@@ -115,7 +115,7 @@ function TierTabs({
         <button
           key={t.label}
           onClick={() => onSelect(i)}
-          className={`rounded-full border px-5 py-2 text-sm font-bold transition-all duration-200 ${
+          className={`rounded-lg border px-5 py-2 text-sm font-bold transition-all duration-200 ${
             selected === i
               ? dark
                 ? "border-[#0DB88F] bg-[#0DB88F]/20 text-[#0DB88F]"
@@ -179,7 +179,7 @@ export function AdultosCursosPage({
 
         <div className="relative mx-auto max-w-4xl px-4 pb-24 pt-14 text-center sm:px-6 sm:pt-18 lg:px-8 lg:pb-32 lg:pt-20">
           <Reveal>
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm">
               <span className="h-2 w-2 rounded-full bg-[#0DB88F]" />
               <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
                 Santos Tech · Adultos · {course.categoria}
@@ -249,7 +249,7 @@ export function AdultosCursosPage({
           </Reveal>
 
           <Reveal delay={150} className="mt-10">
-            <div className="mx-auto max-w-3xl rounded-2xl border border-neutral-200 bg-neutral-50 p-8 dark:border-neutral-800 dark:bg-neutral-900">
+            <div className="mx-auto max-w-3xl rounded-xl border border-neutral-200 bg-neutral-50 p-8 dark:border-neutral-800 dark:bg-neutral-900">
               <ul className="grid gap-4 md:grid-cols-2">
                 {course.targetAudience.map((item) => (
                   <li key={item} className="flex items-start gap-3">
@@ -317,7 +317,7 @@ export function AdultosCursosPage({
                 {tier.tools.map((tool) => (
                   <span
                     key={tool}
-                    className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
+                    className="rounded-md bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
                   >
                     {tool}
                   </span>
@@ -392,7 +392,7 @@ export function AdultosCursosPage({
               const Icon = card.icon;
               return (
                 <Reveal key={card.title} delay={i * 120}>
-                  <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm">
+                  <div className="flex h-full flex-col rounded-xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm">
                     <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#0DB88F]/10 text-[#0DB88F]">
                       <Icon className="h-5 w-5" />
                     </span>
@@ -429,7 +429,7 @@ export function AdultosCursosPage({
           >
             {course.tiers.map((t, i) => (
               <Reveal key={t.label} delay={i * 120}>
-                <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+                <div className="flex h-full flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
                   <div className="border-b border-neutral-100 px-6 py-5 dark:border-neutral-800">
                     <span className="text-xs font-black uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
                       {t.label}
@@ -446,7 +446,7 @@ export function AdultosCursosPage({
 
                     {/* Preço placeholder — substituir quando definido */}
                     <div className="flex items-center gap-2">
-                      <span className="animate-pulse rounded-full bg-amber-100 px-4 py-1.5 text-sm font-black text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
+                      <span className="animate-pulse rounded-lg bg-amber-100 px-4 py-1.5 text-sm font-black text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
                         R$ [a definir]
                       </span>
                       <span className="text-xs text-neutral-400">/ mensalidade</span>
@@ -473,7 +473,7 @@ export function AdultosCursosPage({
       <section className="bg-white py-20 dark:bg-neutral-950">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <div className="relative overflow-hidden rounded-3xl bg-neutral-900 px-8 py-14 text-center text-white shadow-xl sm:px-16">
+            <div className="relative overflow-hidden rounded-xl bg-neutral-900 px-8 py-14 text-center text-white shadow-xl sm:px-16">
               <div
                 className="pointer-events-none absolute inset-0 opacity-[0.06]"
                 style={{

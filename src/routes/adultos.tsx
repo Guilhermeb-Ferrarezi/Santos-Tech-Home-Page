@@ -59,7 +59,7 @@ const GRUPOS: { id: string; label: string; cursos: { slug: string; nome: string 
   },
   {
     id: "ti",
-    label: "T.I.",
+    label: "T.I",
     cursos: [
       { slug: "suporte", nome: "Suporte Técnico / Help Desk" },
       { slug: "manutencao", nome: "Montagem e Manutenção" },
@@ -157,27 +157,44 @@ function AdultosLayout() {
         ].filter(Boolean).join(" ")}
       >
         {/* Cabeçalho */}
-        <div className="flex h-16 shrink-0 items-center gap-2 border-b border-neutral-200 dark:border-neutral-800 px-3">
-          {/* Logo — sempre visível */}
-          <Img name="logo" alt="Santos Tech" width={32} height={32} className="h-8 w-8 shrink-0" />
+        <div
+          className={[
+            "flex shrink-0 border-b border-neutral-200 dark:border-neutral-800",
+            collapsed
+              ? "flex-col items-center gap-2 px-2 py-3"
+              : "h-16 flex-row items-center gap-2 px-3",
+          ].join(" ")}
+        >
+          {/* Logo — tamanho maior quando colapsado para melhor resolução */}
+          <Img
+            name="logo"
+            alt="Santos Tech"
+            width={192}
+            height={192}
+            sizesAttr="40px"
+            className={collapsed ? "h-10 w-10 shrink-0" : "h-8 w-8 shrink-0"}
+          />
 
           {/* Texto — some quando colapsado */}
           <div
             className={[
-              "flex min-w-0 flex-1 items-center gap-1.5 overflow-hidden transition-[opacity,max-width] duration-300",
+              "flex min-w-0 flex-1 flex-col items-start leading-none overflow-hidden transition-[opacity,max-width] duration-300",
               collapsed ? "max-w-0 opacity-0" : "max-w-[200px] opacity-100",
             ].join(" ")}
           >
-            <span className="whitespace-nowrap text-xs font-black tracking-tight text-neutral-900 dark:text-white">
-              SANTOS TECH
-            </span>
-            <span className="shrink-0 rounded-sm bg-neutral-900 dark:bg-white px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-white dark:text-neutral-900">
-              adultos
-            </span>
+            <span className="whitespace-nowrap text-[8px] font-light uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-500 mb-0.5">Escola</span>
+            <div className="flex items-center gap-1.5">
+              <span className="whitespace-nowrap text-xs font-black tracking-tight text-neutral-900 dark:text-white">
+                SANTOS TECH
+              </span>
+              <span className="shrink-0 inline-flex items-center rounded-md bg-neutral-900 dark:bg-white px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-white dark:text-neutral-900">
+                para adultos
+              </span>
+            </div>
           </div>
 
-          {/* Botão recolher — só aparece no DOM quando expandido */}
-          {!collapsed && (
+          {/* Botão recolher (expandido) ou expandir (colapsado) — sempre no cabeçalho */}
+          {!collapsed ? (
             <button
               type="button"
               onClick={() => setCollapsed(true)}
@@ -186,22 +203,20 @@ function AdultosLayout() {
             >
               <PanelLeftClose className="h-4 w-4" />
             </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setCollapsed(false)}
+              aria-label="Expandir menu"
+              className="hidden lg:flex items-center justify-center rounded-lg p-1.5 text-neutral-400 dark:text-neutral-500 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
+            >
+              <PanelLeftOpen className="h-4 w-4" />
+            </button>
           )}
         </div>
 
         {/* Nav */}
         <nav className="flex-1 overflow-y-auto overflow-x-hidden px-2 py-4 space-y-0.5">
-          {/* Expandir — só aparece quando colapsado */}
-          {collapsed && (
-            <button
-              type="button"
-              onClick={() => setCollapsed(false)}
-              aria-label="Expandir menu"
-              className="hidden lg:flex w-full items-center justify-center rounded-lg p-2 text-neutral-400 dark:text-neutral-500 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors mb-1"
-            >
-              <PanelLeftOpen className="h-4 w-4" />
-            </button>
-          )}
 
           {/* Início */}
           <Link
@@ -358,19 +373,40 @@ function AdultosLayout() {
       {/* ── CONTEÚDO ── */}
       <div className="flex flex-1 flex-col overflow-hidden">
         {/* Topbar mobile */}
-        <div className="flex h-14 shrink-0 items-center gap-3 border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-4 lg:hidden">
+        <div className="flex h-14 shrink-0 items-center border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-4 lg:hidden">
+          {/* Logo + nome — esquerda */}
+          <div className="flex items-center gap-2">
+            <Img name="logo" alt="Santos Tech" width={28} height={28} className="h-7 w-7 shrink-0" />
+            <div className="flex flex-col items-start leading-none">
+              <span className="text-[8px] font-light uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-500 mb-0.5">Escola</span>
+              <div className="flex items-center gap-1.5">
+                <span className="text-sm font-black text-neutral-900 dark:text-white">SANTOS TECH</span>
+                <span className="inline-flex items-center rounded-md bg-neutral-900 dark:bg-white px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-white dark:text-neutral-900">
+                  para adultos
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex-1" />
+
+          {/* Login — direita */}
+          <a
+            href="https://auth.santos-tech.com"
+            className="rounded-lg bg-neutral-900 dark:bg-white px-4 py-1.5 text-xs font-bold text-white dark:text-neutral-900 transition hover:bg-neutral-700 dark:hover:bg-neutral-100"
+          >
+            Login
+          </a>
+
+          {/* Hambúrguer — direita */}
           <button
             type="button"
             onClick={() => setMobileOpen((o) => !o)}
             aria-label="Abrir menu"
-            className="rounded-md p-1.5 text-neutral-500 hover:bg-neutral-100 dark:hover:bg-white/[0.07] dark:text-neutral-400 transition-colors"
+            className="ml-2 rounded-md p-1.5 text-neutral-500 hover:bg-neutral-100 dark:hover:bg-white/[0.07] dark:text-neutral-400 transition-colors"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
-          <span className="text-sm font-black text-neutral-900 dark:text-white">SANTOS TECH</span>
-          <span className="rounded-sm bg-neutral-900 dark:bg-white px-1.5 py-0.5 text-[9px] font-black uppercase tracking-widest text-white dark:text-neutral-900">
-            adultos
-          </span>
         </div>
 
         <main className="flex-1 overflow-y-auto">

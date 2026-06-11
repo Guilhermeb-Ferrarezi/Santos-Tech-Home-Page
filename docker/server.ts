@@ -37,6 +37,8 @@ function resolvePublishedSitePath(pathname: string) {
 // Padrão pra arquivos top-level do public/ (favicon.png, og-image.png, robots.txt, etc):
 // exatamente UM segment com extensão e sem ponto no início (regex exclui /.hidden).
 const TOP_LEVEL_PUBLIC_FILE = /^\/[^./][^/]*\.[^/]+$/;
+// Subdiretórios explicitamente permitidos dentro de public/ (path traversal guard abaixo).
+const PUBLIC_SUBDIRS = ["/courses/"];
 
 async function serveStaticAsset(request: Request) {
   if (request.method !== "GET" && request.method !== "HEAD") {
@@ -46,8 +48,9 @@ async function serveStaticAsset(request: Request) {
   const url = new URL(request.url);
   const isBundledAsset = url.pathname.startsWith("/assets/");
   const isTopLevelPublic = TOP_LEVEL_PUBLIC_FILE.test(url.pathname);
+  const isPublicSubdir = PUBLIC_SUBDIRS.some((dir) => url.pathname.startsWith(dir));
 
-  if (!isBundledAsset && !isTopLevelPublic) {
+  if (!isBundledAsset && !isTopLevelPublic && !isPublicSubdir) {
     return null;
   }
 
@@ -66,8 +69,8 @@ async function serveStaticAsset(request: Request) {
   }
 
   const headers = new Headers();
-  // Bundled assets têm hash no nome → cache eterno. Top-level files mudam
-  // sem invalidar URL (favicon.png continua /favicon.png) → cache curto.
+  // Bundled assets têm hash no nome → cache eterno. Public files (top-level
+  // ou subpastas permitidas) mudam sem invalidar URL → cache curto.
   headers.set(
     "Cache-Control",
     isBundledAsset ? "public, max-age=31536000, immutable" : "public, max-age=3600",
