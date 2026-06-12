@@ -31,4 +31,7 @@ COPY --from=build /app/docker ./docker
 
 EXPOSE 3000
 
+HEALTHCHECK --interval=15s --timeout=10s --retries=5 --start-period=30s \
+  CMD wget -q -O /dev/null http://localhost:3000/ || exit 1
+
 CMD ["bun", "run", "./docker/server.ts"]
