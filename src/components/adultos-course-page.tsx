@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
+import { AdultosFaq } from "@/components/adultos-faq";
 
 // ── Types ─────────────────────────────────────────────────────────────────
 
@@ -468,6 +469,8 @@ export function AdultosCursosPage({
           </div>
         </div>
       </section>
+
+      <AdultosFaq whatsappUrl={whatsappUrl} />
 
       {/* ── 7. CTA FINAL ────────────────────────────────────────────────── */}
       <section className="bg-white py-20 dark:bg-neutral-950">

@@ -16,6 +16,7 @@ import {
 import { Reveal } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
 import { Img } from "@/components/img";
+import { AdultosFaq } from "@/components/adultos-faq";
 import { pageMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/adultos/")({
@@ -410,6 +411,56 @@ function AdultosPage() {
         </div>
       </section>
 
+      {/* ============ RITMO ============ */}
+      <section className="py-20 bg-neutral-900">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            <Reveal>
+              <p className="text-xs font-black uppercase tracking-[0.25em] text-[#0DB88F]">
+                Flexibilidade total
+              </p>
+              <h2 className="mt-3 text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl leading-[1.1]">
+                Você define<br />
+                <span className="text-[#0DB88F]">o calendário</span>
+              </h2>
+              <p className="mt-5 text-base leading-relaxed text-white/55">
+                Sem turmas fixas, sem horários impostos. Você escolhe o dia,
+                o horário e a frequência que encaixam na sua vida — e nós
+                garantimos que o professor estará aqui.
+              </p>
+              <ul className="mt-6 space-y-3">
+                {[
+                  "Segunda a sábado, das 8h às 22h",
+                  "1 ou 2 aulas por semana — ou mais, se quiser",
+                  "Aulas individuais: o ritmo é o seu",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-white/70">
+                    <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#0DB88F]" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { value: "1h", label: "por aula" },
+                { value: "24", label: "aulas por curso" },
+                { value: "3 meses", label: "no ritmo padrão (2×/sem)" },
+                { value: "1 mês", label: "no ritmo intensivo" },
+              ].map((stat, i) => (
+                <Reveal key={stat.label} delay={i * 80}>
+                  <div className="rounded-xl border border-white/10 bg-white/5 p-6 text-center">
+                    <p className="text-3xl font-black text-white">{stat.value}</p>
+                    <p className="mt-1 text-xs text-white/40">{stat.label}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ============ CURSOS MAIS POPULARES ============ */}
       <section className="py-20 bg-white dark:bg-neutral-950">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -473,6 +524,8 @@ function AdultosPage() {
           )}
         </div>
       </section>
+
+      <AdultosFaq whatsappUrl={WHATSAPP} />
 
       {/* ============ CTA FINAL ============ */}
       <section className="py-20 bg-neutral-50 dark:bg-neutral-950">
