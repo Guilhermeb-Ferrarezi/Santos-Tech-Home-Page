@@ -1,5 +1,6 @@
 import path from "node:path";
 import { promises as fs } from "node:fs";
+import { gzipSync, brotliCompressSync } from "node:zlib";
 
 import app from "../dist/server/index.js";
 
@@ -71,9 +72,18 @@ async function serveStaticAsset(request: Request) {
   const headers = new Headers();
   // Bundled assets têm hash no nome → cache eterno. Public files (top-level
   // ou subpastas permitidas) mudam sem invalidar URL → cache curto.
+  const isLongLivedStatic =
+    url.pathname === "/robots.txt" ||
+    url.pathname === "/sitemap.xml" ||
+    url.pathname === "/sitemap-0.xml";
+
   headers.set(
     "Cache-Control",
-    isBundledAsset ? "public, max-age=31536000, immutable" : "public, max-age=3600",
+    isBundledAsset
+      ? "public, max-age=31536000, immutable"
+      : isLongLivedStatic
+        ? "public, max-age=604800"
+        : "public, max-age=3600",
   );
   return new Response(file, { headers });
 }
@@ -107,6 +117,33 @@ async function servePublishedSite(request: Request) {
   return new Response(indexFile);
 }
 
+const COMPRESSIBLE = /text\/html|text\/css|application\/javascript|application\/json|image\/svg\+xml/;
+
+async function compressWorkerResponse(request: Request, response: Response): Promise<Response> {
+  const ct = response.headers.get("content-type") ?? "";
+  if (!COMPRESSIBLE.test(ct)) return response;
+  if (response.headers.has("content-encoding")) return response;
+  if (!response.body) return response;
+
+  const accept = request.headers.get("accept-encoding") ?? "";
+  let encoding: "br" | "gzip" | null = null;
+  if (accept.includes("br")) encoding = "br";
+  else if (accept.includes("gzip")) encoding = "gzip";
+  if (!encoding) return response;
+
+  const body = Buffer.from(await response.arrayBuffer());
+  // Skip compression for very large payloads to avoid blocking
+  if (body.byteLength > 4 * 1024 * 1024) return response;
+
+  const compressed = encoding === "br" ? brotliCompressSync(body) : gzipSync(body);
+  const headers = new Headers(response.headers);
+  headers.set("content-encoding", encoding);
+  headers.set("vary", "Accept-Encoding");
+  headers.delete("content-length");
+
+  return new Response(compressed, { status: response.status, statusText: response.statusText, headers });
+}
+
 Bun.serve({
   port,
   hostname,
@@ -121,7 +158,7 @@ Bun.serve({
       return publishedSiteResponse;
     }
 
-    return worker.fetch(
+    const workerResponse = await worker.fetch(
       request,
       {},
       {
@@ -130,5 +167,7 @@ Bun.serve({
         },
       },
     );
+
+    return compressWorkerResponse(request, workerResponse);
   },
 });

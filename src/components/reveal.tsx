@@ -20,7 +20,7 @@ export function Reveal({ children, className, delay = 0, as: Tag = "div", y = 24
   return (
     <Tag
       ref={ref as never}
-      className={cn("transition-all duration-700 ease-out will-change-transform", className)}
+      className={cn("transition-[transform,opacity] duration-700 ease-out will-change-transform", className)}
       style={style}
     >
       {children}
