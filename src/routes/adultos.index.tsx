@@ -527,6 +527,56 @@ function AdultosPage() {
 
       <AdultosFaq whatsappUrl={WHATSAPP} />
 
+      {/* ============ COMO CHEGAR ============ */}
+      <section className="py-20 bg-neutral-50 dark:bg-neutral-900">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="mb-10 text-center">
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#0DB88F]">Onde estamos</p>
+            <h2 className="mt-3 text-3xl font-black tracking-tight text-neutral-900 dark:text-white sm:text-4xl">
+              Venha nos conhecer
+            </h2>
+          </Reveal>
+
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+            <Reveal>
+              <div className="space-y-4">
+                <div className="flex items-start gap-4 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 p-5">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#0DB88F]/10 text-[#0DB88F]">
+                    <MapPin className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-wider text-neutral-400">Endereço</p>
+                    <p className="mt-1 font-black text-neutral-900 dark:text-white">Av. Nove de Julho, 1992</p>
+                    <p className="text-sm text-neutral-500">Jardim América — Ribeirão Preto, SP</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 p-5">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#0DB88F]/10 text-[#0DB88F]">
+                    <Users className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-wider text-neutral-400">Horário de atendimento</p>
+                    <p className="mt-1 font-black text-neutral-900 dark:text-white">Seg a Sáb · 8h às 22h</p>
+                    <p className="text-sm text-neutral-500">Aulas individuais com horário flexível</p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={120}>
+              <div className="overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700 shadow-md">
+                <iframe
+                  title="Localização Santos Tech"
+                  src="https://www.google.com/maps?q=Av.+Nove+de+Julho%2C+1992+-+Jardim+Am%C3%A9rica%2C+Ribeir%C3%A3o+Preto+-+SP&output=embed"
+                  className="h-72 w-full"
+                  loading="lazy"
+                />
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* ============ CTA FINAL ============ */}
       <section className="py-20 bg-neutral-50 dark:bg-neutral-950">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">

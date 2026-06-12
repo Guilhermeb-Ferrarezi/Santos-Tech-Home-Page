@@ -990,6 +990,56 @@ function Index() {
         </div>
       </section>
 
+      {/* ============ COMO CHEGAR ============ */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="mb-10 text-center">
+            <p className="text-sm font-black uppercase tracking-[0.25em] text-primary">Onde estamos</p>
+            <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+              Venha nos <span className="text-gradient-hero">conhecer</span>
+            </h2>
+          </Reveal>
+
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+            <Reveal>
+              <div className="space-y-4">
+                <div className="flex items-start gap-4 rounded-2xl border-2 border-primary/15 bg-card p-5">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <MapPin className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-wider text-muted-foreground">Endereço</p>
+                    <p className="mt-1 font-black text-foreground">Av. Nove de Julho, 1992</p>
+                    <p className="text-sm text-muted-foreground">Jardim América — Ribeirão Preto, SP</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 rounded-2xl border-2 border-primary/15 bg-card p-5">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <MessageCircle className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-wider text-muted-foreground">WhatsApp</p>
+                    <p className="mt-1 font-black text-foreground">(16) 99257-8710</p>
+                    <p className="text-sm text-muted-foreground">Seg a Sáb · 8h às 22h</p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={120}>
+              <div className="overflow-hidden rounded-3xl border-2 border-primary/15 shadow-md">
+                <iframe
+                  title="Localização Santos Tech"
+                  src="https://www.google.com/maps?q=Av.+Nove+de+Julho%2C+1992+-+Jardim+Am%C3%A9rica%2C+Ribeir%C3%A3o+Preto+-+SP&output=embed"
+                  className="h-72 w-full"
+                  loading="lazy"
+                />
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* ============ LOCALIZAÇÃO + CTA FINAL ============ */}
       <section className="py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
