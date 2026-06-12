@@ -29,11 +29,11 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Profissional + IA",
-      levelName: "Profissional",
-      totalHours: "72h",
+      label: "Intermediário",
+      levelName: "Intermediário",
+      totalHours: "48h",
       outcome:
-        "Desenvolver apps completos com React Native e Flutter: autenticação, consumo de APIs, acesso a recursos nativos do dispositivo e gerenciamento de estado robusto",
+        "Desenvolver apps completos com React Native e Expo — navegação, estado global, autenticação e recursos nativos — pronto para publicar o primeiro app",
       modules: [
         {
           title: "Fundamentos do Desenvolvimento Mobile",
@@ -87,15 +87,6 @@ const COURSE_DATA = {
             "Geolocalização com expo-location e integração com React Native Maps",
             "Push Notifications com Expo Notifications e Firebase Cloud Messaging",
             "Sensores: acelerômetro, giroscópio e bússola com expo-sensors",
-          ],
-        },
-        {
-          title: "Introdução ao Flutter e Dart",
-          topics: [
-            "Sintaxe do Dart: tipos, funções, classes e null safety",
-            "Widgets stateless e stateful: diferenças e uso correto",
-            "Layout com Column, Row, Container, Expanded e Stack",
-            "Comparativo prático: quando usar Flutter vs React Native",
           ],
         },
       ],
@@ -109,72 +100,16 @@ const COURSE_DATA = {
         "Firebase",
         "expo-camera",
         "React Native Maps",
-        "Flutter",
-        "Dart",
         "VS Code",
       ],
     },
     {
-      label: "6 meses",
-      levelName: "Avançado",
-      totalHours: "120h",
+      label: "Profissional + IA",
+      levelName: "Profissional + IA",
+      totalHours: "72h",
       outcome:
-        "Publicar apps completos nas lojas com performance otimizada, testes automatizados, CI/CD mobile e recursos de IA integrados — com domínio de React Native e Flutter em nível profissional",
+        "Dominar Flutter com Riverpod, publicar apps nas lojas via CI/CD automatizado, otimizar performance e integrar IA em apps — portfólio completo de desenvolvedor mobile",
       modules: [
-        {
-          title: "Fundamentos do Desenvolvimento Mobile",
-          topics: [
-            "Diferença entre apps nativos, híbridos e cross-platform",
-            "Configuração do ambiente com Node.js, Expo CLI e Expo Go",
-            "Estrutura de um projeto Expo: pastas, arquivos e fluxo de execução",
-            "Hot reload e debugging com Expo Dev Tools e React DevTools",
-          ],
-        },
-        {
-          title: "React Native Core Components",
-          topics: [
-            "View, Text, Image, ScrollView, FlatList e SectionList",
-            "Estilização com StyleSheet: Flexbox no contexto mobile",
-            "TouchableOpacity, Pressable e feedback visual ao toque",
-            "TextInput, teclado virtual e gerenciamento de foco",
-          ],
-        },
-        {
-          title: "Navegação e Estrutura de App",
-          topics: [
-            "Expo Router: file-based routing e estrutura de pastas",
-            "Stack Navigator: telas empilhadas e passagem de parâmetros",
-            "Tab Navigator: barra inferior com ícones customizados",
-            "Deep linking: abrir telas específicas via URL",
-          ],
-        },
-        {
-          title: "Gerenciamento de Estado e Dados",
-          topics: [
-            "useState e useContext para estado local e compartilhado",
-            "Zustand: store global simples e performático",
-            "React Query (TanStack Query): cache de dados, refetch e loading states",
-            "AsyncStorage: persistência de dados locais no dispositivo",
-          ],
-        },
-        {
-          title: "Autenticação e Segurança",
-          topics: [
-            "Autenticação com JWT: login, logout e refresh token",
-            "SecureStore do Expo para armazenamento seguro de tokens",
-            "Login social com Google e Apple via Expo AuthSession",
-            "Proteção de rotas e redirecionamento por estado de autenticação",
-          ],
-        },
-        {
-          title: "Recursos Nativos do Dispositivo",
-          topics: [
-            "Câmera: captura de fotos e vídeos com expo-camera",
-            "Geolocalização com expo-location e integração com React Native Maps",
-            "Push Notifications com Expo Notifications e Firebase Cloud Messaging",
-            "Sensores: acelerômetro, giroscópio e bússola com expo-sensors",
-          ],
-        },
         {
           title: "Introdução ao Flutter e Dart",
           topics: [
@@ -232,18 +167,11 @@ const COURSE_DATA = {
         },
       ],
       tools: [
-        "React Native",
-        "Expo",
-        "Expo Go",
-        "Expo Router",
-        "Zustand",
-        "React Query",
-        "Firebase",
-        "expo-camera",
-        "React Native Maps",
         "Flutter",
         "Dart",
         "Riverpod",
+        "Firebase",
+        "Supabase",
         "EAS Build",
         "Google Play Console",
         "App Store Connect",
