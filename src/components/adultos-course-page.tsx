@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useRouterState } from "@tanstack/react-router";
 import {
   CheckCircle2,
   Clock,
@@ -18,7 +19,9 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
-import { AdultosFaq } from "@/components/adultos-faq";
+import { AdultosFaq, ADULTOS_FAQ_ITEMS } from "@/components/adultos-faq";
+import { JsonLd } from "@/components/json-ld";
+import { buildAdultPageSchemas } from "@/lib/seo";
 
 // ── Types ─────────────────────────────────────────────────────────────────
 
@@ -238,9 +241,23 @@ export function AdultosCursosPage({
   const [selectedTier, setSelectedTier] = useState(0);
   const tier = course.tiers[selectedTier];
   const multiTier = course.tiers.length > 1;
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  const schemas = buildAdultPageSchemas({
+    courseName: course.nome,
+    courseDescription: course.tagline,
+    path: pathname,
+    tiers: course.tiers.map((t) => ({
+      levelName: t.levelName,
+      totalHours: t.totalHours,
+      outcome: t.outcome,
+    })),
+    faq: ADULTOS_FAQ_ITEMS.map(({ q, a }) => ({ q, a })),
+  });
 
   return (
     <>
+      <JsonLd data={schemas} />
       {/* ── 1. HERO ─────────────────────────────────────────────────────── */}
       <section className="relative isolate overflow-hidden bg-neutral-900">
         <div

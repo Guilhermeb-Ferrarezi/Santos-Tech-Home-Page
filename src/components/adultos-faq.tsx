@@ -3,7 +3,7 @@ import { ChevronDown } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 import { WhatsAppIcon } from "@/components/icons"
 
-const FAQ = [
+export const ADULTOS_FAQ_ITEMS = [
   {
     q: "Quais são os horários de aula?",
     a: "Atendemos de segunda a sábado, das 8h às 22h. Você escolhe o horário que melhor encaixa na sua rotina — basta combinar com a gente pelo WhatsApp.",
@@ -37,6 +37,7 @@ interface AdultosFaqProps {
 
 export function AdultosFaq({ whatsappUrl }: AdultosFaqProps) {
   const [open, setOpen] = useState<number | null>(null)
+  const FAQ = ADULTOS_FAQ_ITEMS
 
   return (
     <section className="py-20 bg-neutral-50 dark:bg-neutral-900">
