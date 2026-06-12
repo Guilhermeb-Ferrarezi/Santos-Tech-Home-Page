@@ -525,6 +525,25 @@ export function AdultosCursosPage({
                   Boleto parcelado de acordo com a duração do seu curso.
                 </p>
               </div>
+
+              {/* Trilha personalizada */}
+              <div className="rounded-xl border border-[#0DB88F]/30 bg-[#0DB88F]/5 p-6 dark:bg-[#0DB88F]/10">
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#0DB88F]">
+                  Não se encaixa em nenhum nível?
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
+                  Não importa se você está no zero absoluto, já domina parte do conteúdo ou quer pular etapas que já conhece. Como as aulas são individuais, o professor avalia o seu nível na primeira aula e monta o percurso certo pra você — sem revisitar o que você já sabe, sem pular o que você ainda precisa aprender.
+                </p>
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 rounded-lg bg-[#0DB88F] px-5 py-2.5 text-sm font-black text-white transition hover:bg-[#0aaa82]"
+                >
+                  <WhatsAppIcon className="h-4 w-4" />
+                  Falar sobre o meu caso
+                </a>
+              </div>
             </div>
           </Reveal>
         </div>
