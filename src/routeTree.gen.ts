@@ -43,32 +43,43 @@ import { Route as CursosCreate1213AnosRouteImport } from './routes/cursos.create
 import { Route as CursosCreate1112AnosRouteImport } from './routes/cursos.create.11-12-anos'
 import { Route as CursosCreate1011AnosRouteImport } from './routes/cursos.create.10-11-anos'
 import { Route as AdultosCursosWordRouteImport } from './routes/adultos.cursos.word'
+import { Route as AdultosCursosTiktokAdsRouteImport } from './routes/adultos.cursos.tiktok-ads'
 import { Route as AdultosCursosSuporteRouteImport } from './routes/adultos.cursos.suporte'
+import { Route as AdultosCursosSqlRouteImport } from './routes/adultos.cursos.sql'
+import { Route as AdultosCursosSeoRouteImport } from './routes/adultos.cursos.seo'
 import { Route as AdultosCursosRevitRouteImport } from './routes/adultos.cursos.revit'
 import { Route as AdultosCursosRedesSociaisRouteImport } from './routes/adultos.cursos.redes-sociais'
 import { Route as AdultosCursosRedesRouteImport } from './routes/adultos.cursos.redes'
 import { Route as AdultosCursosPythonRouteImport } from './routes/adultos.cursos.python'
 import { Route as AdultosCursosPowerpointRouteImport } from './routes/adultos.cursos.powerpoint'
 import { Route as AdultosCursosPowerBiRouteImport } from './routes/adultos.cursos.power-bi'
+import { Route as AdultosCursosPowerAppsRouteImport } from './routes/adultos.cursos.power-apps'
 import { Route as AdultosCursosPhotoshopRouteImport } from './routes/adultos.cursos.photoshop'
 import { Route as AdultosCursosOfficeRouteImport } from './routes/adultos.cursos.office'
 import { Route as AdultosCursosN8nRouteImport } from './routes/adultos.cursos.n8n'
 import { Route as AdultosCursosModelagem3dRouteImport } from './routes/adultos.cursos.modelagem-3d'
 import { Route as AdultosCursosMobileRouteImport } from './routes/adultos.cursos.mobile'
+import { Route as AdultosCursosMetaAdsRouteImport } from './routes/adultos.cursos.meta-ads'
 import { Route as AdultosCursosMarketingRouteImport } from './routes/adultos.cursos.marketing'
 import { Route as AdultosCursosManutencaoRouteImport } from './routes/adultos.cursos.manutencao'
+import { Route as AdultosCursosMakeRouteImport } from './routes/adultos.cursos.make'
 import { Route as AdultosCursosLogicaRouteImport } from './routes/adultos.cursos.logica'
 import { Route as AdultosCursosLinuxRouteImport } from './routes/adultos.cursos.linux'
 import { Route as AdultosCursosJogosRouteImport } from './routes/adultos.cursos.jogos'
 import { Route as AdultosCursosInformaticaRouteImport } from './routes/adultos.cursos.informatica'
 import { Route as AdultosCursosImpressao3dRouteImport } from './routes/adultos.cursos.impressao-3d'
 import { Route as AdultosCursosIaRouteImport } from './routes/adultos.cursos.ia'
+import { Route as AdultosCursosGoogleAdsRouteImport } from './routes/adultos.cursos.google-ads'
+import { Route as AdultosCursosFunilVendasRouteImport } from './routes/adultos.cursos.funil-vendas'
 import { Route as AdultosCursosFullstackRouteImport } from './routes/adultos.cursos.fullstack'
 import { Route as AdultosCursosFrontendRouteImport } from './routes/adultos.cursos.frontend'
 import { Route as AdultosCursosExcelRouteImport } from './routes/adultos.cursos.excel'
 import { Route as AdultosCursosEcommerceRouteImport } from './routes/adultos.cursos.ecommerce'
 import { Route as AdultosCursosDavinciRouteImport } from './routes/adultos.cursos.davinci'
+import { Route as AdultosCursosCopywritingRouteImport } from './routes/adultos.cursos.copywriting'
+import { Route as AdultosCursosConteudoIaRouteImport } from './routes/adultos.cursos.conteudo-ia'
 import { Route as AdultosCursosCibersegurancaRouteImport } from './routes/adultos.cursos.ciberseguranca'
+import { Route as AdultosCursosChatgptRouteImport } from './routes/adultos.cursos.chatgpt'
 import { Route as AdultosCursosCapcutRouteImport } from './routes/adultos.cursos.capcut'
 import { Route as AdultosCursosCanvaRouteImport } from './routes/adultos.cursos.canva'
 import { Route as AdultosCursosBackendRouteImport } from './routes/adultos.cursos.backend'
@@ -253,9 +264,24 @@ const AdultosCursosWordRoute = AdultosCursosWordRouteImport.update({
   path: '/cursos/word',
   getParentRoute: () => AdultosRoute,
 } as any)
+const AdultosCursosTiktokAdsRoute = AdultosCursosTiktokAdsRouteImport.update({
+  id: '/cursos/tiktok-ads',
+  path: '/cursos/tiktok-ads',
+  getParentRoute: () => AdultosRoute,
+} as any)
 const AdultosCursosSuporteRoute = AdultosCursosSuporteRouteImport.update({
   id: '/cursos/suporte',
   path: '/cursos/suporte',
+  getParentRoute: () => AdultosRoute,
+} as any)
+const AdultosCursosSqlRoute = AdultosCursosSqlRouteImport.update({
+  id: '/cursos/sql',
+  path: '/cursos/sql',
+  getParentRoute: () => AdultosRoute,
+} as any)
+const AdultosCursosSeoRoute = AdultosCursosSeoRouteImport.update({
+  id: '/cursos/seo',
+  path: '/cursos/seo',
   getParentRoute: () => AdultosRoute,
 } as any)
 const AdultosCursosRevitRoute = AdultosCursosRevitRouteImport.update({
@@ -289,6 +315,11 @@ const AdultosCursosPowerBiRoute = AdultosCursosPowerBiRouteImport.update({
   path: '/cursos/power-bi',
   getParentRoute: () => AdultosRoute,
 } as any)
+const AdultosCursosPowerAppsRoute = AdultosCursosPowerAppsRouteImport.update({
+  id: '/cursos/power-apps',
+  path: '/cursos/power-apps',
+  getParentRoute: () => AdultosRoute,
+} as any)
 const AdultosCursosPhotoshopRoute = AdultosCursosPhotoshopRouteImport.update({
   id: '/cursos/photoshop',
   path: '/cursos/photoshop',
@@ -315,6 +346,11 @@ const AdultosCursosMobileRoute = AdultosCursosMobileRouteImport.update({
   path: '/cursos/mobile',
   getParentRoute: () => AdultosRoute,
 } as any)
+const AdultosCursosMetaAdsRoute = AdultosCursosMetaAdsRouteImport.update({
+  id: '/cursos/meta-ads',
+  path: '/cursos/meta-ads',
+  getParentRoute: () => AdultosRoute,
+} as any)
 const AdultosCursosMarketingRoute = AdultosCursosMarketingRouteImport.update({
   id: '/cursos/marketing',
   path: '/cursos/marketing',
@@ -323,6 +359,11 @@ const AdultosCursosMarketingRoute = AdultosCursosMarketingRouteImport.update({
 const AdultosCursosManutencaoRoute = AdultosCursosManutencaoRouteImport.update({
   id: '/cursos/manutencao',
   path: '/cursos/manutencao',
+  getParentRoute: () => AdultosRoute,
+} as any)
+const AdultosCursosMakeRoute = AdultosCursosMakeRouteImport.update({
+  id: '/cursos/make',
+  path: '/cursos/make',
   getParentRoute: () => AdultosRoute,
 } as any)
 const AdultosCursosLogicaRoute = AdultosCursosLogicaRouteImport.update({
@@ -357,6 +398,17 @@ const AdultosCursosIaRoute = AdultosCursosIaRouteImport.update({
   path: '/cursos/ia',
   getParentRoute: () => AdultosRoute,
 } as any)
+const AdultosCursosGoogleAdsRoute = AdultosCursosGoogleAdsRouteImport.update({
+  id: '/cursos/google-ads',
+  path: '/cursos/google-ads',
+  getParentRoute: () => AdultosRoute,
+} as any)
+const AdultosCursosFunilVendasRoute =
+  AdultosCursosFunilVendasRouteImport.update({
+    id: '/cursos/funil-vendas',
+    path: '/cursos/funil-vendas',
+    getParentRoute: () => AdultosRoute,
+  } as any)
 const AdultosCursosFullstackRoute = AdultosCursosFullstackRouteImport.update({
   id: '/cursos/fullstack',
   path: '/cursos/fullstack',
@@ -382,12 +434,28 @@ const AdultosCursosDavinciRoute = AdultosCursosDavinciRouteImport.update({
   path: '/cursos/davinci',
   getParentRoute: () => AdultosRoute,
 } as any)
+const AdultosCursosCopywritingRoute =
+  AdultosCursosCopywritingRouteImport.update({
+    id: '/cursos/copywriting',
+    path: '/cursos/copywriting',
+    getParentRoute: () => AdultosRoute,
+  } as any)
+const AdultosCursosConteudoIaRoute = AdultosCursosConteudoIaRouteImport.update({
+  id: '/cursos/conteudo-ia',
+  path: '/cursos/conteudo-ia',
+  getParentRoute: () => AdultosRoute,
+} as any)
 const AdultosCursosCibersegurancaRoute =
   AdultosCursosCibersegurancaRouteImport.update({
     id: '/cursos/ciberseguranca',
     path: '/cursos/ciberseguranca',
     getParentRoute: () => AdultosRoute,
   } as any)
+const AdultosCursosChatgptRoute = AdultosCursosChatgptRouteImport.update({
+  id: '/cursos/chatgpt',
+  path: '/cursos/chatgpt',
+  getParentRoute: () => AdultosRoute,
+} as any)
 const AdultosCursosCapcutRoute = AdultosCursosCapcutRouteImport.update({
   id: '/cursos/capcut',
   path: '/cursos/capcut',
@@ -442,32 +510,43 @@ export interface FileRoutesByFullPath {
   '/adultos/cursos/backend': typeof AdultosCursosBackendRoute
   '/adultos/cursos/canva': typeof AdultosCursosCanvaRoute
   '/adultos/cursos/capcut': typeof AdultosCursosCapcutRoute
+  '/adultos/cursos/chatgpt': typeof AdultosCursosChatgptRoute
   '/adultos/cursos/ciberseguranca': typeof AdultosCursosCibersegurancaRoute
+  '/adultos/cursos/conteudo-ia': typeof AdultosCursosConteudoIaRoute
+  '/adultos/cursos/copywriting': typeof AdultosCursosCopywritingRoute
   '/adultos/cursos/davinci': typeof AdultosCursosDavinciRoute
   '/adultos/cursos/ecommerce': typeof AdultosCursosEcommerceRoute
   '/adultos/cursos/excel': typeof AdultosCursosExcelRoute
   '/adultos/cursos/frontend': typeof AdultosCursosFrontendRoute
   '/adultos/cursos/fullstack': typeof AdultosCursosFullstackRoute
+  '/adultos/cursos/funil-vendas': typeof AdultosCursosFunilVendasRoute
+  '/adultos/cursos/google-ads': typeof AdultosCursosGoogleAdsRoute
   '/adultos/cursos/ia': typeof AdultosCursosIaRoute
   '/adultos/cursos/impressao-3d': typeof AdultosCursosImpressao3dRoute
   '/adultos/cursos/informatica': typeof AdultosCursosInformaticaRoute
   '/adultos/cursos/jogos': typeof AdultosCursosJogosRoute
   '/adultos/cursos/linux': typeof AdultosCursosLinuxRoute
   '/adultos/cursos/logica': typeof AdultosCursosLogicaRoute
+  '/adultos/cursos/make': typeof AdultosCursosMakeRoute
   '/adultos/cursos/manutencao': typeof AdultosCursosManutencaoRoute
   '/adultos/cursos/marketing': typeof AdultosCursosMarketingRoute
+  '/adultos/cursos/meta-ads': typeof AdultosCursosMetaAdsRoute
   '/adultos/cursos/mobile': typeof AdultosCursosMobileRoute
   '/adultos/cursos/modelagem-3d': typeof AdultosCursosModelagem3dRoute
   '/adultos/cursos/n8n': typeof AdultosCursosN8nRoute
   '/adultos/cursos/office': typeof AdultosCursosOfficeRoute
   '/adultos/cursos/photoshop': typeof AdultosCursosPhotoshopRoute
+  '/adultos/cursos/power-apps': typeof AdultosCursosPowerAppsRoute
   '/adultos/cursos/power-bi': typeof AdultosCursosPowerBiRoute
   '/adultos/cursos/powerpoint': typeof AdultosCursosPowerpointRoute
   '/adultos/cursos/python': typeof AdultosCursosPythonRoute
   '/adultos/cursos/redes': typeof AdultosCursosRedesRoute
   '/adultos/cursos/redes-sociais': typeof AdultosCursosRedesSociaisRoute
   '/adultos/cursos/revit': typeof AdultosCursosRevitRoute
+  '/adultos/cursos/seo': typeof AdultosCursosSeoRoute
+  '/adultos/cursos/sql': typeof AdultosCursosSqlRoute
   '/adultos/cursos/suporte': typeof AdultosCursosSuporteRoute
+  '/adultos/cursos/tiktok-ads': typeof AdultosCursosTiktokAdsRoute
   '/adultos/cursos/word': typeof AdultosCursosWordRoute
   '/cursos/create/10-11-anos': typeof CursosCreate1011AnosRoute
   '/cursos/create/11-12-anos': typeof CursosCreate1112AnosRoute
@@ -504,32 +583,43 @@ export interface FileRoutesByTo {
   '/adultos/cursos/backend': typeof AdultosCursosBackendRoute
   '/adultos/cursos/canva': typeof AdultosCursosCanvaRoute
   '/adultos/cursos/capcut': typeof AdultosCursosCapcutRoute
+  '/adultos/cursos/chatgpt': typeof AdultosCursosChatgptRoute
   '/adultos/cursos/ciberseguranca': typeof AdultosCursosCibersegurancaRoute
+  '/adultos/cursos/conteudo-ia': typeof AdultosCursosConteudoIaRoute
+  '/adultos/cursos/copywriting': typeof AdultosCursosCopywritingRoute
   '/adultos/cursos/davinci': typeof AdultosCursosDavinciRoute
   '/adultos/cursos/ecommerce': typeof AdultosCursosEcommerceRoute
   '/adultos/cursos/excel': typeof AdultosCursosExcelRoute
   '/adultos/cursos/frontend': typeof AdultosCursosFrontendRoute
   '/adultos/cursos/fullstack': typeof AdultosCursosFullstackRoute
+  '/adultos/cursos/funil-vendas': typeof AdultosCursosFunilVendasRoute
+  '/adultos/cursos/google-ads': typeof AdultosCursosGoogleAdsRoute
   '/adultos/cursos/ia': typeof AdultosCursosIaRoute
   '/adultos/cursos/impressao-3d': typeof AdultosCursosImpressao3dRoute
   '/adultos/cursos/informatica': typeof AdultosCursosInformaticaRoute
   '/adultos/cursos/jogos': typeof AdultosCursosJogosRoute
   '/adultos/cursos/linux': typeof AdultosCursosLinuxRoute
   '/adultos/cursos/logica': typeof AdultosCursosLogicaRoute
+  '/adultos/cursos/make': typeof AdultosCursosMakeRoute
   '/adultos/cursos/manutencao': typeof AdultosCursosManutencaoRoute
   '/adultos/cursos/marketing': typeof AdultosCursosMarketingRoute
+  '/adultos/cursos/meta-ads': typeof AdultosCursosMetaAdsRoute
   '/adultos/cursos/mobile': typeof AdultosCursosMobileRoute
   '/adultos/cursos/modelagem-3d': typeof AdultosCursosModelagem3dRoute
   '/adultos/cursos/n8n': typeof AdultosCursosN8nRoute
   '/adultos/cursos/office': typeof AdultosCursosOfficeRoute
   '/adultos/cursos/photoshop': typeof AdultosCursosPhotoshopRoute
+  '/adultos/cursos/power-apps': typeof AdultosCursosPowerAppsRoute
   '/adultos/cursos/power-bi': typeof AdultosCursosPowerBiRoute
   '/adultos/cursos/powerpoint': typeof AdultosCursosPowerpointRoute
   '/adultos/cursos/python': typeof AdultosCursosPythonRoute
   '/adultos/cursos/redes': typeof AdultosCursosRedesRoute
   '/adultos/cursos/redes-sociais': typeof AdultosCursosRedesSociaisRoute
   '/adultos/cursos/revit': typeof AdultosCursosRevitRoute
+  '/adultos/cursos/seo': typeof AdultosCursosSeoRoute
+  '/adultos/cursos/sql': typeof AdultosCursosSqlRoute
   '/adultos/cursos/suporte': typeof AdultosCursosSuporteRoute
+  '/adultos/cursos/tiktok-ads': typeof AdultosCursosTiktokAdsRoute
   '/adultos/cursos/word': typeof AdultosCursosWordRoute
   '/cursos/create/10-11-anos': typeof CursosCreate1011AnosRoute
   '/cursos/create/11-12-anos': typeof CursosCreate1112AnosRoute
@@ -572,32 +662,43 @@ export interface FileRoutesById {
   '/adultos/cursos/backend': typeof AdultosCursosBackendRoute
   '/adultos/cursos/canva': typeof AdultosCursosCanvaRoute
   '/adultos/cursos/capcut': typeof AdultosCursosCapcutRoute
+  '/adultos/cursos/chatgpt': typeof AdultosCursosChatgptRoute
   '/adultos/cursos/ciberseguranca': typeof AdultosCursosCibersegurancaRoute
+  '/adultos/cursos/conteudo-ia': typeof AdultosCursosConteudoIaRoute
+  '/adultos/cursos/copywriting': typeof AdultosCursosCopywritingRoute
   '/adultos/cursos/davinci': typeof AdultosCursosDavinciRoute
   '/adultos/cursos/ecommerce': typeof AdultosCursosEcommerceRoute
   '/adultos/cursos/excel': typeof AdultosCursosExcelRoute
   '/adultos/cursos/frontend': typeof AdultosCursosFrontendRoute
   '/adultos/cursos/fullstack': typeof AdultosCursosFullstackRoute
+  '/adultos/cursos/funil-vendas': typeof AdultosCursosFunilVendasRoute
+  '/adultos/cursos/google-ads': typeof AdultosCursosGoogleAdsRoute
   '/adultos/cursos/ia': typeof AdultosCursosIaRoute
   '/adultos/cursos/impressao-3d': typeof AdultosCursosImpressao3dRoute
   '/adultos/cursos/informatica': typeof AdultosCursosInformaticaRoute
   '/adultos/cursos/jogos': typeof AdultosCursosJogosRoute
   '/adultos/cursos/linux': typeof AdultosCursosLinuxRoute
   '/adultos/cursos/logica': typeof AdultosCursosLogicaRoute
+  '/adultos/cursos/make': typeof AdultosCursosMakeRoute
   '/adultos/cursos/manutencao': typeof AdultosCursosManutencaoRoute
   '/adultos/cursos/marketing': typeof AdultosCursosMarketingRoute
+  '/adultos/cursos/meta-ads': typeof AdultosCursosMetaAdsRoute
   '/adultos/cursos/mobile': typeof AdultosCursosMobileRoute
   '/adultos/cursos/modelagem-3d': typeof AdultosCursosModelagem3dRoute
   '/adultos/cursos/n8n': typeof AdultosCursosN8nRoute
   '/adultos/cursos/office': typeof AdultosCursosOfficeRoute
   '/adultos/cursos/photoshop': typeof AdultosCursosPhotoshopRoute
+  '/adultos/cursos/power-apps': typeof AdultosCursosPowerAppsRoute
   '/adultos/cursos/power-bi': typeof AdultosCursosPowerBiRoute
   '/adultos/cursos/powerpoint': typeof AdultosCursosPowerpointRoute
   '/adultos/cursos/python': typeof AdultosCursosPythonRoute
   '/adultos/cursos/redes': typeof AdultosCursosRedesRoute
   '/adultos/cursos/redes-sociais': typeof AdultosCursosRedesSociaisRoute
   '/adultos/cursos/revit': typeof AdultosCursosRevitRoute
+  '/adultos/cursos/seo': typeof AdultosCursosSeoRoute
+  '/adultos/cursos/sql': typeof AdultosCursosSqlRoute
   '/adultos/cursos/suporte': typeof AdultosCursosSuporteRoute
+  '/adultos/cursos/tiktok-ads': typeof AdultosCursosTiktokAdsRoute
   '/adultos/cursos/word': typeof AdultosCursosWordRoute
   '/cursos/create/10-11-anos': typeof CursosCreate1011AnosRoute
   '/cursos/create/11-12-anos': typeof CursosCreate1112AnosRoute
@@ -641,32 +742,43 @@ export interface FileRouteTypes {
     | '/adultos/cursos/backend'
     | '/adultos/cursos/canva'
     | '/adultos/cursos/capcut'
+    | '/adultos/cursos/chatgpt'
     | '/adultos/cursos/ciberseguranca'
+    | '/adultos/cursos/conteudo-ia'
+    | '/adultos/cursos/copywriting'
     | '/adultos/cursos/davinci'
     | '/adultos/cursos/ecommerce'
     | '/adultos/cursos/excel'
     | '/adultos/cursos/frontend'
     | '/adultos/cursos/fullstack'
+    | '/adultos/cursos/funil-vendas'
+    | '/adultos/cursos/google-ads'
     | '/adultos/cursos/ia'
     | '/adultos/cursos/impressao-3d'
     | '/adultos/cursos/informatica'
     | '/adultos/cursos/jogos'
     | '/adultos/cursos/linux'
     | '/adultos/cursos/logica'
+    | '/adultos/cursos/make'
     | '/adultos/cursos/manutencao'
     | '/adultos/cursos/marketing'
+    | '/adultos/cursos/meta-ads'
     | '/adultos/cursos/mobile'
     | '/adultos/cursos/modelagem-3d'
     | '/adultos/cursos/n8n'
     | '/adultos/cursos/office'
     | '/adultos/cursos/photoshop'
+    | '/adultos/cursos/power-apps'
     | '/adultos/cursos/power-bi'
     | '/adultos/cursos/powerpoint'
     | '/adultos/cursos/python'
     | '/adultos/cursos/redes'
     | '/adultos/cursos/redes-sociais'
     | '/adultos/cursos/revit'
+    | '/adultos/cursos/seo'
+    | '/adultos/cursos/sql'
     | '/adultos/cursos/suporte'
+    | '/adultos/cursos/tiktok-ads'
     | '/adultos/cursos/word'
     | '/cursos/create/10-11-anos'
     | '/cursos/create/11-12-anos'
@@ -703,32 +815,43 @@ export interface FileRouteTypes {
     | '/adultos/cursos/backend'
     | '/adultos/cursos/canva'
     | '/adultos/cursos/capcut'
+    | '/adultos/cursos/chatgpt'
     | '/adultos/cursos/ciberseguranca'
+    | '/adultos/cursos/conteudo-ia'
+    | '/adultos/cursos/copywriting'
     | '/adultos/cursos/davinci'
     | '/adultos/cursos/ecommerce'
     | '/adultos/cursos/excel'
     | '/adultos/cursos/frontend'
     | '/adultos/cursos/fullstack'
+    | '/adultos/cursos/funil-vendas'
+    | '/adultos/cursos/google-ads'
     | '/adultos/cursos/ia'
     | '/adultos/cursos/impressao-3d'
     | '/adultos/cursos/informatica'
     | '/adultos/cursos/jogos'
     | '/adultos/cursos/linux'
     | '/adultos/cursos/logica'
+    | '/adultos/cursos/make'
     | '/adultos/cursos/manutencao'
     | '/adultos/cursos/marketing'
+    | '/adultos/cursos/meta-ads'
     | '/adultos/cursos/mobile'
     | '/adultos/cursos/modelagem-3d'
     | '/adultos/cursos/n8n'
     | '/adultos/cursos/office'
     | '/adultos/cursos/photoshop'
+    | '/adultos/cursos/power-apps'
     | '/adultos/cursos/power-bi'
     | '/adultos/cursos/powerpoint'
     | '/adultos/cursos/python'
     | '/adultos/cursos/redes'
     | '/adultos/cursos/redes-sociais'
     | '/adultos/cursos/revit'
+    | '/adultos/cursos/seo'
+    | '/adultos/cursos/sql'
     | '/adultos/cursos/suporte'
+    | '/adultos/cursos/tiktok-ads'
     | '/adultos/cursos/word'
     | '/cursos/create/10-11-anos'
     | '/cursos/create/11-12-anos'
@@ -770,32 +893,43 @@ export interface FileRouteTypes {
     | '/adultos/cursos/backend'
     | '/adultos/cursos/canva'
     | '/adultos/cursos/capcut'
+    | '/adultos/cursos/chatgpt'
     | '/adultos/cursos/ciberseguranca'
+    | '/adultos/cursos/conteudo-ia'
+    | '/adultos/cursos/copywriting'
     | '/adultos/cursos/davinci'
     | '/adultos/cursos/ecommerce'
     | '/adultos/cursos/excel'
     | '/adultos/cursos/frontend'
     | '/adultos/cursos/fullstack'
+    | '/adultos/cursos/funil-vendas'
+    | '/adultos/cursos/google-ads'
     | '/adultos/cursos/ia'
     | '/adultos/cursos/impressao-3d'
     | '/adultos/cursos/informatica'
     | '/adultos/cursos/jogos'
     | '/adultos/cursos/linux'
     | '/adultos/cursos/logica'
+    | '/adultos/cursos/make'
     | '/adultos/cursos/manutencao'
     | '/adultos/cursos/marketing'
+    | '/adultos/cursos/meta-ads'
     | '/adultos/cursos/mobile'
     | '/adultos/cursos/modelagem-3d'
     | '/adultos/cursos/n8n'
     | '/adultos/cursos/office'
     | '/adultos/cursos/photoshop'
+    | '/adultos/cursos/power-apps'
     | '/adultos/cursos/power-bi'
     | '/adultos/cursos/powerpoint'
     | '/adultos/cursos/python'
     | '/adultos/cursos/redes'
     | '/adultos/cursos/redes-sociais'
     | '/adultos/cursos/revit'
+    | '/adultos/cursos/seo'
+    | '/adultos/cursos/sql'
     | '/adultos/cursos/suporte'
+    | '/adultos/cursos/tiktok-ads'
     | '/adultos/cursos/word'
     | '/cursos/create/10-11-anos'
     | '/cursos/create/11-12-anos'
@@ -1067,11 +1201,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdultosCursosWordRouteImport
       parentRoute: typeof AdultosRoute
     }
+    '/adultos/cursos/tiktok-ads': {
+      id: '/adultos/cursos/tiktok-ads'
+      path: '/cursos/tiktok-ads'
+      fullPath: '/adultos/cursos/tiktok-ads'
+      preLoaderRoute: typeof AdultosCursosTiktokAdsRouteImport
+      parentRoute: typeof AdultosRoute
+    }
     '/adultos/cursos/suporte': {
       id: '/adultos/cursos/suporte'
       path: '/cursos/suporte'
       fullPath: '/adultos/cursos/suporte'
       preLoaderRoute: typeof AdultosCursosSuporteRouteImport
+      parentRoute: typeof AdultosRoute
+    }
+    '/adultos/cursos/sql': {
+      id: '/adultos/cursos/sql'
+      path: '/cursos/sql'
+      fullPath: '/adultos/cursos/sql'
+      preLoaderRoute: typeof AdultosCursosSqlRouteImport
+      parentRoute: typeof AdultosRoute
+    }
+    '/adultos/cursos/seo': {
+      id: '/adultos/cursos/seo'
+      path: '/cursos/seo'
+      fullPath: '/adultos/cursos/seo'
+      preLoaderRoute: typeof AdultosCursosSeoRouteImport
       parentRoute: typeof AdultosRoute
     }
     '/adultos/cursos/revit': {
@@ -1116,6 +1271,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdultosCursosPowerBiRouteImport
       parentRoute: typeof AdultosRoute
     }
+    '/adultos/cursos/power-apps': {
+      id: '/adultos/cursos/power-apps'
+      path: '/cursos/power-apps'
+      fullPath: '/adultos/cursos/power-apps'
+      preLoaderRoute: typeof AdultosCursosPowerAppsRouteImport
+      parentRoute: typeof AdultosRoute
+    }
     '/adultos/cursos/photoshop': {
       id: '/adultos/cursos/photoshop'
       path: '/cursos/photoshop'
@@ -1151,6 +1313,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdultosCursosMobileRouteImport
       parentRoute: typeof AdultosRoute
     }
+    '/adultos/cursos/meta-ads': {
+      id: '/adultos/cursos/meta-ads'
+      path: '/cursos/meta-ads'
+      fullPath: '/adultos/cursos/meta-ads'
+      preLoaderRoute: typeof AdultosCursosMetaAdsRouteImport
+      parentRoute: typeof AdultosRoute
+    }
     '/adultos/cursos/marketing': {
       id: '/adultos/cursos/marketing'
       path: '/cursos/marketing'
@@ -1163,6 +1332,13 @@ declare module '@tanstack/react-router' {
       path: '/cursos/manutencao'
       fullPath: '/adultos/cursos/manutencao'
       preLoaderRoute: typeof AdultosCursosManutencaoRouteImport
+      parentRoute: typeof AdultosRoute
+    }
+    '/adultos/cursos/make': {
+      id: '/adultos/cursos/make'
+      path: '/cursos/make'
+      fullPath: '/adultos/cursos/make'
+      preLoaderRoute: typeof AdultosCursosMakeRouteImport
       parentRoute: typeof AdultosRoute
     }
     '/adultos/cursos/logica': {
@@ -1207,6 +1383,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdultosCursosIaRouteImport
       parentRoute: typeof AdultosRoute
     }
+    '/adultos/cursos/google-ads': {
+      id: '/adultos/cursos/google-ads'
+      path: '/cursos/google-ads'
+      fullPath: '/adultos/cursos/google-ads'
+      preLoaderRoute: typeof AdultosCursosGoogleAdsRouteImport
+      parentRoute: typeof AdultosRoute
+    }
+    '/adultos/cursos/funil-vendas': {
+      id: '/adultos/cursos/funil-vendas'
+      path: '/cursos/funil-vendas'
+      fullPath: '/adultos/cursos/funil-vendas'
+      preLoaderRoute: typeof AdultosCursosFunilVendasRouteImport
+      parentRoute: typeof AdultosRoute
+    }
     '/adultos/cursos/fullstack': {
       id: '/adultos/cursos/fullstack'
       path: '/cursos/fullstack'
@@ -1242,11 +1432,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdultosCursosDavinciRouteImport
       parentRoute: typeof AdultosRoute
     }
+    '/adultos/cursos/copywriting': {
+      id: '/adultos/cursos/copywriting'
+      path: '/cursos/copywriting'
+      fullPath: '/adultos/cursos/copywriting'
+      preLoaderRoute: typeof AdultosCursosCopywritingRouteImport
+      parentRoute: typeof AdultosRoute
+    }
+    '/adultos/cursos/conteudo-ia': {
+      id: '/adultos/cursos/conteudo-ia'
+      path: '/cursos/conteudo-ia'
+      fullPath: '/adultos/cursos/conteudo-ia'
+      preLoaderRoute: typeof AdultosCursosConteudoIaRouteImport
+      parentRoute: typeof AdultosRoute
+    }
     '/adultos/cursos/ciberseguranca': {
       id: '/adultos/cursos/ciberseguranca'
       path: '/cursos/ciberseguranca'
       fullPath: '/adultos/cursos/ciberseguranca'
       preLoaderRoute: typeof AdultosCursosCibersegurancaRouteImport
+      parentRoute: typeof AdultosRoute
+    }
+    '/adultos/cursos/chatgpt': {
+      id: '/adultos/cursos/chatgpt'
+      path: '/cursos/chatgpt'
+      fullPath: '/adultos/cursos/chatgpt'
+      preLoaderRoute: typeof AdultosCursosChatgptRouteImport
       parentRoute: typeof AdultosRoute
     }
     '/adultos/cursos/capcut': {
@@ -1294,32 +1505,43 @@ interface AdultosRouteChildren {
   AdultosCursosBackendRoute: typeof AdultosCursosBackendRoute
   AdultosCursosCanvaRoute: typeof AdultosCursosCanvaRoute
   AdultosCursosCapcutRoute: typeof AdultosCursosCapcutRoute
+  AdultosCursosChatgptRoute: typeof AdultosCursosChatgptRoute
   AdultosCursosCibersegurancaRoute: typeof AdultosCursosCibersegurancaRoute
+  AdultosCursosConteudoIaRoute: typeof AdultosCursosConteudoIaRoute
+  AdultosCursosCopywritingRoute: typeof AdultosCursosCopywritingRoute
   AdultosCursosDavinciRoute: typeof AdultosCursosDavinciRoute
   AdultosCursosEcommerceRoute: typeof AdultosCursosEcommerceRoute
   AdultosCursosExcelRoute: typeof AdultosCursosExcelRoute
   AdultosCursosFrontendRoute: typeof AdultosCursosFrontendRoute
   AdultosCursosFullstackRoute: typeof AdultosCursosFullstackRoute
+  AdultosCursosFunilVendasRoute: typeof AdultosCursosFunilVendasRoute
+  AdultosCursosGoogleAdsRoute: typeof AdultosCursosGoogleAdsRoute
   AdultosCursosIaRoute: typeof AdultosCursosIaRoute
   AdultosCursosImpressao3dRoute: typeof AdultosCursosImpressao3dRoute
   AdultosCursosInformaticaRoute: typeof AdultosCursosInformaticaRoute
   AdultosCursosJogosRoute: typeof AdultosCursosJogosRoute
   AdultosCursosLinuxRoute: typeof AdultosCursosLinuxRoute
   AdultosCursosLogicaRoute: typeof AdultosCursosLogicaRoute
+  AdultosCursosMakeRoute: typeof AdultosCursosMakeRoute
   AdultosCursosManutencaoRoute: typeof AdultosCursosManutencaoRoute
   AdultosCursosMarketingRoute: typeof AdultosCursosMarketingRoute
+  AdultosCursosMetaAdsRoute: typeof AdultosCursosMetaAdsRoute
   AdultosCursosMobileRoute: typeof AdultosCursosMobileRoute
   AdultosCursosModelagem3dRoute: typeof AdultosCursosModelagem3dRoute
   AdultosCursosN8nRoute: typeof AdultosCursosN8nRoute
   AdultosCursosOfficeRoute: typeof AdultosCursosOfficeRoute
   AdultosCursosPhotoshopRoute: typeof AdultosCursosPhotoshopRoute
+  AdultosCursosPowerAppsRoute: typeof AdultosCursosPowerAppsRoute
   AdultosCursosPowerBiRoute: typeof AdultosCursosPowerBiRoute
   AdultosCursosPowerpointRoute: typeof AdultosCursosPowerpointRoute
   AdultosCursosPythonRoute: typeof AdultosCursosPythonRoute
   AdultosCursosRedesRoute: typeof AdultosCursosRedesRoute
   AdultosCursosRedesSociaisRoute: typeof AdultosCursosRedesSociaisRoute
   AdultosCursosRevitRoute: typeof AdultosCursosRevitRoute
+  AdultosCursosSeoRoute: typeof AdultosCursosSeoRoute
+  AdultosCursosSqlRoute: typeof AdultosCursosSqlRoute
   AdultosCursosSuporteRoute: typeof AdultosCursosSuporteRoute
+  AdultosCursosTiktokAdsRoute: typeof AdultosCursosTiktokAdsRoute
   AdultosCursosWordRoute: typeof AdultosCursosWordRoute
 }
 
@@ -1330,32 +1552,43 @@ const AdultosRouteChildren: AdultosRouteChildren = {
   AdultosCursosBackendRoute: AdultosCursosBackendRoute,
   AdultosCursosCanvaRoute: AdultosCursosCanvaRoute,
   AdultosCursosCapcutRoute: AdultosCursosCapcutRoute,
+  AdultosCursosChatgptRoute: AdultosCursosChatgptRoute,
   AdultosCursosCibersegurancaRoute: AdultosCursosCibersegurancaRoute,
+  AdultosCursosConteudoIaRoute: AdultosCursosConteudoIaRoute,
+  AdultosCursosCopywritingRoute: AdultosCursosCopywritingRoute,
   AdultosCursosDavinciRoute: AdultosCursosDavinciRoute,
   AdultosCursosEcommerceRoute: AdultosCursosEcommerceRoute,
   AdultosCursosExcelRoute: AdultosCursosExcelRoute,
   AdultosCursosFrontendRoute: AdultosCursosFrontendRoute,
   AdultosCursosFullstackRoute: AdultosCursosFullstackRoute,
+  AdultosCursosFunilVendasRoute: AdultosCursosFunilVendasRoute,
+  AdultosCursosGoogleAdsRoute: AdultosCursosGoogleAdsRoute,
   AdultosCursosIaRoute: AdultosCursosIaRoute,
   AdultosCursosImpressao3dRoute: AdultosCursosImpressao3dRoute,
   AdultosCursosInformaticaRoute: AdultosCursosInformaticaRoute,
   AdultosCursosJogosRoute: AdultosCursosJogosRoute,
   AdultosCursosLinuxRoute: AdultosCursosLinuxRoute,
   AdultosCursosLogicaRoute: AdultosCursosLogicaRoute,
+  AdultosCursosMakeRoute: AdultosCursosMakeRoute,
   AdultosCursosManutencaoRoute: AdultosCursosManutencaoRoute,
   AdultosCursosMarketingRoute: AdultosCursosMarketingRoute,
+  AdultosCursosMetaAdsRoute: AdultosCursosMetaAdsRoute,
   AdultosCursosMobileRoute: AdultosCursosMobileRoute,
   AdultosCursosModelagem3dRoute: AdultosCursosModelagem3dRoute,
   AdultosCursosN8nRoute: AdultosCursosN8nRoute,
   AdultosCursosOfficeRoute: AdultosCursosOfficeRoute,
   AdultosCursosPhotoshopRoute: AdultosCursosPhotoshopRoute,
+  AdultosCursosPowerAppsRoute: AdultosCursosPowerAppsRoute,
   AdultosCursosPowerBiRoute: AdultosCursosPowerBiRoute,
   AdultosCursosPowerpointRoute: AdultosCursosPowerpointRoute,
   AdultosCursosPythonRoute: AdultosCursosPythonRoute,
   AdultosCursosRedesRoute: AdultosCursosRedesRoute,
   AdultosCursosRedesSociaisRoute: AdultosCursosRedesSociaisRoute,
   AdultosCursosRevitRoute: AdultosCursosRevitRoute,
+  AdultosCursosSeoRoute: AdultosCursosSeoRoute,
+  AdultosCursosSqlRoute: AdultosCursosSqlRoute,
   AdultosCursosSuporteRoute: AdultosCursosSuporteRoute,
+  AdultosCursosTiktokAdsRoute: AdultosCursosTiktokAdsRoute,
   AdultosCursosWordRoute: AdultosCursosWordRoute,
 }
 
