@@ -108,8 +108,8 @@ const DIFERENCIAIS = [
   },
   {
     icon: TrendingUp,
-    t: "Do zero ao avançado",
-    d: "Começa do começo, vai até onde você quiser chegar.",
+    t: "Conteúdo Sempre Atualizado",
+    d: "Currículo revisado continuamente para refletir o que o mercado exige hoje.",
   },
 ];
 

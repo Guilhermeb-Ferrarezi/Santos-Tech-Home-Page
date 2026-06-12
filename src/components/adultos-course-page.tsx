@@ -5,16 +5,16 @@ import {
   MapPin,
   User,
   CalendarClock,
-  Ban,
   Video,
   Award,
   Dumbbell,
   Route,
   BookOpen,
-  Gauge,
   RefreshCw,
   Wrench,
   Building2,
+  Wifi,
+  TrendingUp,
 } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
@@ -55,22 +55,27 @@ const DIFERENCIAIS = [
   {
     icon: User,
     title: "Aula Individual",
-    desc: "Só você e o professor — foco total.",
+    desc: "Só você e o professor — foco total, sem fila de dúvidas.",
   },
   {
     icon: CalendarClock,
     title: "Horário Flexível",
-    desc: "Você escolhe o dia e horário.",
+    desc: "Você define o dia, o horário e a frequência — sua rotina manda.",
   },
   {
-    icon: Ban,
-    title: "Sem Faltas",
-    desc: "Avisa e remarcamos sem custo.",
+    icon: RefreshCw,
+    title: "Reagendamento sem Custo",
+    desc: "Precisou faltar? Avisa e remarcamos — sem burocracia, sem penalidade.",
   },
   {
     icon: Video,
-    title: "Aulas Gravadas",
-    desc: "Grave qualquer aula para revisar depois.",
+    title: "Aulas Gravadas a Pedido",
+    desc: "Solicite a gravação de qualquer aula e revise quando quiser.",
+  },
+  {
+    icon: Wifi,
+    title: "Aula Online se Precisar",
+    desc: "Se não puder vir presencialmente, a aula acontece online ao vivo — ou é gravada e enviada.",
   },
   {
     icon: Award,
@@ -89,18 +94,13 @@ const DIFERENCIAIS = [
   },
   {
     icon: BookOpen,
-    title: "Material + Exercícios Semanais",
-    desc: "Repetição é parte do método.",
+    title: "Exercícios Contextualizados",
+    desc: "Exercícios semanais alinhados ao tópico da sua aula — você pratica exatamente o que acabou de aprender.",
   },
   {
-    icon: Gauge,
-    title: "Seu Ritmo",
-    desc: "Sem comparação com outros alunos.",
-  },
-  {
-    icon: RefreshCw,
-    title: "Reagendamento Simples",
-    desc: "Sem burocracia.",
+    icon: TrendingUp,
+    title: "Conteúdo Sempre Atualizado",
+    desc: "Currículo revisado continuamente para refletir o que o mercado realmente exige hoje.",
   },
 ];
 
