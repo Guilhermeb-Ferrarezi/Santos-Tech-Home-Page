@@ -19,6 +19,7 @@ const COURSE_DATA = {
   nome: "Inteligência Artificial: do Essencial ao Profissional com Agentes",
   categoria: "Inteligência Artificial",
   tagline: "Domine IA na prática e multiplique sua produtividade no trabalho real",
+  pricePerAula: 109.90,
   targetAudience: [
     "Você usa ferramentas digitais no trabalho mas ainda não adotou IA no dia a dia",
     "Você quer parar de perder horas em tarefas que o ChatGPT poderia fazer em minutos",
@@ -164,8 +165,8 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "Tier 3",
-      levelName: "Profissional",
+      label: "Profissional + IA",
+      levelName: "Profissional + IA",
       totalHours: "72h",
       outcome:
         "Arquitetar e implementar agentes de IA autônomos, sistemas multiagentes e automações de nível profissional com LangChain, LangGraph e CrewAI, entregando um projeto real pronto para produção",

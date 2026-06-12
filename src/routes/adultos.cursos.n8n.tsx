@@ -135,6 +135,93 @@ const COURSE_DATA = {
         "Airtable",
       ],
     },
+    {
+      label: "Profissional + IA",
+      levelName: "Profissional + IA",
+      totalHours: "72h",
+      outcome:
+        "Construir agentes de IA com N8N AI Agent Node, orquestrar sistemas multiagentes, integrar MCP (Model Context Protocol), deployar N8N em VPS e entregar automações de IA como serviço para clientes",
+      modules: [
+        {
+          title: "N8N AI Agent Node — Agentes Nativos",
+          topics: [
+            "AI Agent Node: como funciona o loop de raciocínio ReAct no N8N",
+            "Conectar OpenAI, Anthropic Claude e Google Gemini como LLM provider",
+            "Ferramentas (tools) nativas: Code, HTTP Request, Google Sheets, Calculadora",
+            "Memória de sessão e memória de janela para agentes com contexto",
+            "Subagentes: chamar um AI Agent de dentro de outro Agent",
+            "Depurar o raciocínio do agente com o painel de execução do N8N",
+          ],
+        },
+        {
+          title: "Model Context Protocol (MCP) no N8N",
+          topics: [
+            "O que é MCP e por que se tornou o padrão para ferramentas de IA em 2025",
+            "N8N como servidor MCP: expor workflows como ferramentas para agentes externos",
+            "Conectar Claude Desktop e Cursor ao N8N via MCP",
+            "N8N como cliente MCP: consumir ferramentas de servidores MCP externos",
+            "Autenticação e segurança em servidores MCP",
+            "Casos de uso: agente que acessa banco de dados, CRM e e-mail via MCP",
+          ],
+        },
+        {
+          title: "RAG e Bases de Conhecimento com N8N",
+          topics: [
+            "Embeddings no N8N: gerar e armazenar vetores com OpenAI e Supabase pgvector",
+            "Vector Store Node: Pinecone, Qdrant e Supabase como bases vetoriais",
+            "Pipeline de ingestão: carregar PDFs, Notion e websites na base de conhecimento",
+            "Retrieval no N8N: busca semântica integrada ao AI Agent Node",
+            "Atualização incremental da base de conhecimento via webhook",
+            "Projeto: chatbot corporativo que responde a partir dos documentos da empresa",
+          ],
+        },
+        {
+          title: "Sistemas Multiagentes com N8N",
+          topics: [
+            "Padrão Orchestrator-Worker: agente gestor delega para sub-agentes especialistas",
+            "Agente pesquisador + agente redator + agente revisor em pipeline",
+            "Comunicação entre agentes via HTTP Request e Webhook internos",
+            "Controle de estado e contexto compartilhado entre agentes",
+            "Avaliador automático de qualidade no loop de agentes",
+            "Projeto: sistema de geração de relatórios com 3 agentes em cadeia",
+          ],
+        },
+        {
+          title: "Deploy e N8N em Produção",
+          topics: [
+            "Deploy do N8N self-hosted em VPS com Docker Compose e Nginx",
+            "Configuração de SSL com Let's Encrypt e domínio próprio",
+            "Variáveis de ambiente, secrets e boas práticas de segurança",
+            "Backup automático de workflows e banco de dados N8N",
+            "Monitoramento com UptimeRobot e alertas de falha por Telegram",
+            "Escalabilidade: N8N em modo queue com Redis para alta demanda",
+          ],
+        },
+        {
+          title: "Automação de IA como Serviço (AaaS)",
+          topics: [
+            "Modelo de negócio: vender automações de IA para pequenas empresas",
+            "Precificação por setup, mensalidade e número de execuções",
+            "Criar white-label de N8N para clientes com domínio próprio",
+            "Contratos, SLA e gestão de múltiplos clientes com N8N",
+            "Apresentar ROI de automações: horas economizadas, custo por tarefa",
+            "Portfólio de automações mais vendidas: atendimento, relatórios e marketing",
+          ],
+        },
+      ],
+      tools: [
+        "N8N",
+        "N8N AI Agent Node",
+        "MCP Protocol",
+        "OpenAI API",
+        "Anthropic Claude API",
+        "Pinecone",
+        "Supabase pgvector",
+        "Docker",
+        "Nginx",
+        "Redis",
+      ],
+    },
   ],
 }
 

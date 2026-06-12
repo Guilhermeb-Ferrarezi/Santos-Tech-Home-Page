@@ -42,6 +42,7 @@ export type CourseData = {
   tagline: string;
   targetAudience: string[];
   tiers: Tier[];
+  pricePerAula?: number;
 };
 
 // ── Preços e ritmo por nível ───────────────────────────────────────────────
@@ -583,7 +584,13 @@ export function AdultosCursosPage({
             }`}
           >
             {course.tiers.map((t, i) => {
-              const meta = TIER_META[t.levelName];
+              const base = TIER_META[t.levelName];
+              const meta = course.pricePerAula && base
+                ? {
+                    ...base,
+                    price: `R$ ${Math.round(parseInt(t.totalHours) * course.pricePerAula).toLocaleString("pt-BR")}`,
+                  }
+                : base;
               return (
                 <Reveal key={t.levelName} delay={i * 120}>
                   <div className="flex h-full flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">

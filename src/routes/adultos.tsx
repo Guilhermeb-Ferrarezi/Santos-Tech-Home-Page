@@ -43,6 +43,9 @@ const GRUPOS: { id: string; label: string; cursos: { slug: string; nome: string 
     label: "Inteligência Artificial",
     cursos: [
       { slug: "ia", nome: "Inteligência Artificial" },
+      { slug: "agentes-ia", nome: "Agentes de IA com N8N e LLMs" },
+      { slug: "rag", nome: "RAG — IA com seus Próprios Dados" },
+      { slug: "ia-visual", nome: "IA para Criadores: Imagem, Vídeo e Áudio" },
       { slug: "chatgpt", nome: "ChatGPT e IA para Profissionais" },
       { slug: "conteudo-ia", nome: "Criação de Conteúdo com IA" },
     ],
@@ -53,6 +56,9 @@ const GRUPOS: { id: string; label: string; cursos: { slug: string; nome: string 
     cursos: [
       { slug: "logica", nome: "Lógica de Programação" },
       { slug: "python", nome: "Python para Automações" },
+      { slug: "python-apis", nome: "APIs e Integrações com Python" },
+      { slug: "typescript", nome: "TypeScript para Desenvolvimento Moderno" },
+      { slug: "git", nome: "Git e GitHub para Profissionais" },
       { slug: "n8n", nome: "Automações + N8N" },
       { slug: "make", nome: "Automações No-Code Make" },
       { slug: "sql", nome: "Banco de Dados com SQL" },
