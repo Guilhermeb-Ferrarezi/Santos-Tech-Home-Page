@@ -491,17 +491,40 @@ export function AdultosCursosPage({
           </div>
 
           <Reveal delay={200} className="mt-10">
-            <div className="mx-auto max-w-2xl rounded-xl border border-neutral-200 bg-white p-6 text-center dark:border-neutral-800 dark:bg-neutral-900">
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
-                Formas de pagamento
-              </p>
-              <p className="mt-3 text-sm font-semibold text-neutral-700 dark:text-neutral-300">
-                Pix · Crédito · Débito · Boleto · Dinheiro em espécie
-              </p>
-              <p className="mt-2 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
-                Combinações aceitas — entrada no Pix e o restante no crédito, por exemplo.
-                Boleto parcelado de acordo com a duração do seu curso.
-              </p>
+            <div className="mx-auto max-w-2xl space-y-4">
+              {/* Custos únicos */}
+              <div className="rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
+                  Custos únicos — pagos uma vez só
+                </p>
+                <div className="mt-4 grid grid-cols-2 gap-4">
+                  <div className="rounded-lg bg-neutral-50 p-4 dark:bg-neutral-800/50">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">Matrícula</p>
+                    <p className="mt-1 text-xl font-black text-neutral-900 dark:text-white">R$ 199,90</p>
+                  </div>
+                  <div className="rounded-lg bg-neutral-50 p-4 dark:bg-neutral-800/50">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">Material didático</p>
+                    <p className="mt-1 text-xl font-black text-neutral-900 dark:text-white">R$ 389,90</p>
+                  </div>
+                </div>
+                <p className="mt-3 text-xs text-neutral-400 dark:text-neutral-500">
+                  Independente do curso escolhido — e não se repetem se você fizer mais de um curso.
+                </p>
+              </div>
+
+              {/* Formas de pagamento */}
+              <div className="rounded-xl border border-neutral-200 bg-white p-6 text-center dark:border-neutral-800 dark:bg-neutral-900">
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
+                  Formas de pagamento
+                </p>
+                <p className="mt-3 text-sm font-semibold text-neutral-700 dark:text-neutral-300">
+                  Pix · Crédito · Débito · Boleto · Dinheiro em espécie
+                </p>
+                <p className="mt-2 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+                  Combinações aceitas — entrada no Pix e o restante no crédito, por exemplo.
+                  Boleto parcelado de acordo com a duração do seu curso.
+                </p>
+              </div>
             </div>
           </Reveal>
         </div>
