@@ -29,9 +29,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "1 mês",
+      label: "Essencial",
       levelName: "Essencial",
-      totalHours: "20h",
+      totalHours: "24h",
       outcome:
         "Conectar fontes de dados, criar relatórios interativos e publicar seu primeiro dashboard no Power BI Service",
       modules: [
@@ -79,9 +79,9 @@ const COURSE_DATA = {
       tools: ["Power BI Desktop", "Power BI Service", "Microsoft Excel"],
     },
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Dominar DAX para criar métricas complexas, construir dashboards executivos e conectar a bancos de dados reais",
       modules: [
@@ -145,9 +145,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "3 meses",
+      label: "Profissional + IA",
       levelName: "Profissional + IA",
-      totalHours: "60h",
+      totalHours: "72h",
       outcome:
         "Dominar DAX avançado, modelagem enterprise, integração com Python e IA, e entregar um projeto de BI completo como portfólio",
       modules: [

@@ -30,9 +30,9 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Desenvolve APIs seguras com autenticação JWT, conectadas a PostgreSQL, com testes automatizados, upload de arquivos e deploy em nuvem; domina tanto Node.js quanto FastAPI em Python",
       modules: [
@@ -132,9 +132,9 @@ const COURSE_DATA: CourseData = {
       ],
     },
     {
-      label: "3 meses",
+      label: "Profissional + IA",
       levelName: "Profissional + IA",
-      totalHours: "60h",
+      totalHours: "72h",
       outcome:
         "Arquiteta sistemas back-end escaláveis com NestJS, filas assíncronas, cache com Redis, monitoramento em produção e integração com IA generativa; entrega uma API completa de SaaS com multi-tenancy e documentação profissional",
       modules: [

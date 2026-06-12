@@ -30,9 +30,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Desenvolve aplicações React com estado, rotas e consumo de APIs reais; domina Tailwind CSS e entrega projetos com design profissional deployados na Vercel",
       modules: [
@@ -91,9 +91,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "3 meses",
+      label: "Profissional + IA",
       levelName: "Profissional + IA",
-      totalHours: "60h",
+      totalHours: "72h",
       outcome:
         "Domina o ecossistema React avançado com TypeScript, gerenciamento de estado global, Next.js e testes automatizados; usa IA como copiloto de código e entrega um SaaS front-end completo com autenticação",
       modules: [

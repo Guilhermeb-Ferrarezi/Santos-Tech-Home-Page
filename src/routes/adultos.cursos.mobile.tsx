@@ -29,9 +29,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "3 meses",
+      label: "Profissional + IA",
       levelName: "Profissional",
-      totalHours: "60h",
+      totalHours: "72h",
       outcome:
         "Desenvolver apps completos com React Native e Flutter: autenticação, consumo de APIs, acesso a recursos nativos do dispositivo e gerenciamento de estado robusto",
       modules: [

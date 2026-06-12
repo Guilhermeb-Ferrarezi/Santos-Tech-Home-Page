@@ -31,9 +31,9 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "1 mês",
+      label: "Essencial",
       levelName: "Essencial",
-      totalHours: "20h",
+      totalHours: "24h",
       outcome:
         "Criar apresentações visualmente consistentes com hierarquia clara, boa tipografia e narrativa estruturada",
       modules: [
@@ -81,9 +81,9 @@ const COURSE_DATA: CourseData = {
       tools: ["Microsoft PowerPoint 365", "Unsplash", "Flaticon"],
     },
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Dominar animações profissionais, transição Morph, slides interativos e apresentações de alto impacto para diferentes contextos",
       modules: [
@@ -147,9 +147,9 @@ const COURSE_DATA: CourseData = {
       ],
     },
     {
-      label: "3 meses",
+      label: "Profissional + IA",
       levelName: "Profissional + IA",
-      totalHours: "60h",
+      totalHours: "72h",
       outcome:
         "Criar apresentações de nível consultoria com Figma, IA generativa e storytelling avançado, e entregar um deck de projeto completo como portfólio",
       modules: [

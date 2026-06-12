@@ -28,9 +28,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "1 mês",
+      label: "Essencial",
       levelName: "Essencial",
-      totalHours: "20h",
+      totalHours: "24h",
       outcome:
         "Criar um modelo arquitetônico residencial básico no Revit com plantas, cortes, fachadas e pranchas técnicas",
       modules: [
@@ -82,9 +82,9 @@ const COURSE_DATA = {
       tools: ["Revit 2025", "Autodesk Drive", "IFC Viewer (BIMcollab Zoom)"],
     },
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Executar projeto residencial ou comercial completo com famílias paramétricas, schedules avançados e coordenação multidisciplinar básica",
       modules: [
@@ -142,9 +142,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "3 meses",
+      label: "Profissional + IA",
       levelName: "Profissional + IA",
-      totalHours: "60h",
+      totalHours: "72h",
       outcome:
         "Atuar como projetista ou coordenador BIM sênior, dominando Dynamo, IA generativa, coordenação multidisciplinar e entregando projeto executivo completo",
       modules: [

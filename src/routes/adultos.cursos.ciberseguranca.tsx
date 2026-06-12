@@ -29,9 +29,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "1 mês",
+      label: "Essencial",
       levelName: "Essencial",
-      totalHours: "20h",
+      totalHours: "24h",
       outcome:
         "Entender os principais vetores de ataque, aplicar proteções básicas e usar ferramentas de segurança em ambiente controlado",
       modules: [
@@ -72,9 +72,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Realizar varreduras e análises de vulnerabilidade, monitorar eventos de segurança e aplicar controles em ambientes corporativos",
       modules: [
@@ -126,9 +126,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "3 meses",
+      label: "Profissional + IA",
       levelName: "Profissional + IA",
-      totalHours: "60h",
+      totalHours: "72h",
       outcome:
         "Realizar testes de penetração completos, operar um SOC básico, redigir relatório técnico de pentest e estar preparado para CompTIA Security+ ou eJPT",
       modules: [

@@ -28,9 +28,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "1 mês",
+      label: "Essencial",
       levelName: "Essencial",
-      totalHours: "20h",
+      totalHours: "24h",
       outcome:
         "Usar Excel com segurança no dia a dia: fórmulas essenciais, tabelas dinâmicas e gráficos profissionais",
       modules: [
@@ -78,9 +78,9 @@ const COURSE_DATA = {
       tools: ["Microsoft Excel 365", "OneDrive"],
     },
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Automatizar relatórios com Power Query, criar dashboards avançados e iniciar em macros VBA",
       modules: [
@@ -143,9 +143,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "3 meses",
+      label: "Profissional + IA",
       levelName: "Profissional + IA",
-      totalHours: "60h",
+      totalHours: "72h",
       outcome:
         "Dominar VBA completo, integrar Excel com Power BI e IA, e entregar um sistema de gestão funcional como projeto final",
       modules: [

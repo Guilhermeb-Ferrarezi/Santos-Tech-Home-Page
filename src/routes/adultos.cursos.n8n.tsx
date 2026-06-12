@@ -29,9 +29,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "1 mês",
+      label: "Essencial",
       levelName: "Essencial",
-      totalHours: "20h",
+      totalHours: "24h",
       outcome:
         "Capaz de criar workflows funcionais no N8N conectando Google Sheets, e-mail, Telegram e WhatsApp, com lógica condicional e agendamento automático",
       modules: [
@@ -77,9 +77,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Constrói automações com Webhook, HTTP Request para qualquer API, lógica avançada com Switch e Merge, e integra N8N com CRMs, WhatsApp Business e bancos de dados",
       modules: [

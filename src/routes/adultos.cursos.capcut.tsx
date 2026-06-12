@@ -28,9 +28,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "1 mês",
+      label: "Essencial",
       levelName: "Essencial",
-      totalHours: "20h",
+      totalHours: "24h",
       outcome:
         "Editar vídeos para Reels, TikTok e Shorts com qualidade profissional usando CapCut no celular e no computador.",
       modules: [

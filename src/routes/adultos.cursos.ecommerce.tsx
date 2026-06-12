@@ -28,9 +28,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "1 mês",
+      label: "Essencial",
       levelName: "Essencial",
-      totalHours: "20h",
+      totalHours: "24h",
       outcome:
         "Criar e configurar uma loja virtual funcional no Shopify ou WooCommerce com produtos, meios de pagamento e logística prontos para vender.",
       modules: [
@@ -83,9 +83,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Operar uma loja virtual com tráfego pago, automação de marketing, gestão de estoque e análise de métricas para crescimento consistente de vendas.",
       modules: [

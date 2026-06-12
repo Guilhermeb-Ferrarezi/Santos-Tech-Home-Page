@@ -41,6 +41,14 @@ export type CourseData = {
   tiers: Tier[];
 };
 
+// ── Preços e ritmo por nível ───────────────────────────────────────────────
+
+const TIER_META: Record<string, { price: string; aulas: string; intensivo: string; padrao: string }> = {
+  Essencial: { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
+  Intermediário: { price: "R$ 3.940", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Profissional + IA": { price: "R$ 5.910", aulas: "72 aulas", intensivo: "~3 meses", padrao: "~9 meses" },
+};
+
 // ── Diferenciais hardcoded ─────────────────────────────────────────────────
 
 const DIFERENCIAIS = [
@@ -114,7 +122,7 @@ function TierTabs({
     <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
       {tiers.map((t, i) => (
         <button
-          key={t.label}
+          key={t.levelName}
           onClick={() => onSelect(i)}
           className={`rounded-lg border px-5 py-2 text-sm font-bold transition-all duration-200 ${
             selected === i
@@ -126,8 +134,7 @@ function TierTabs({
                 : "border-neutral-300 bg-white text-neutral-500 hover:border-neutral-400 hover:text-neutral-700 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-400"
           }`}
         >
-          {t.label}
-          <span className="ml-1.5 text-xs opacity-70">{t.levelName}</span>
+          {t.levelName}
         </button>
       ))}
     </div>
@@ -291,7 +298,7 @@ export function AdultosCursosPage({
             {/* Outcome em destaque */}
             <div className="mt-8 rounded-xl border border-[#0DB88F]/30 bg-[#0DB88F]/5 px-6 py-5 dark:border-[#0DB88F]/20 dark:bg-[#0DB88F]/10">
               <p className="text-xs font-black uppercase tracking-[0.2em] text-[#0DB88F]">
-                Ao final de {tier.label} ({tier.totalHours})
+                Nível {tier.levelName} · {TIER_META[tier.levelName]?.aulas ?? tier.totalHours}
               </p>
               <p className="mt-1.5 text-base font-semibold text-neutral-800 dark:text-neutral-200">
                 {tier.outcome}
@@ -428,45 +435,75 @@ export function AdultosCursosPage({
                   : "md:grid-cols-3"
             }`}
           >
-            {course.tiers.map((t, i) => (
-              <Reveal key={t.label} delay={i * 120}>
-                <div className="flex h-full flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
-                  <div className="border-b border-neutral-100 px-6 py-5 dark:border-neutral-800">
-                    <span className="text-xs font-black uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
-                      {t.label}
-                    </span>
-                    <h3 className="mt-1 text-xl font-black text-neutral-900 dark:text-white">{t.levelName}</h3>
-                    <div className="mt-2 flex items-center gap-1.5 text-xs text-neutral-500 dark:text-neutral-400">
-                      <Clock className="h-3.5 w-3.5" />
-                      {t.totalHours}
-                    </div>
-                  </div>
-
-                  <div className="flex flex-1 flex-col gap-5 p-6">
-                    <p className="text-sm text-neutral-600 dark:text-neutral-400">{t.outcome}</p>
-
-                    {/* Preço placeholder — substituir quando definido */}
-                    <div className="flex items-center gap-2">
-                      <span className="animate-pulse rounded-lg bg-amber-100 px-4 py-1.5 text-sm font-black text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
-                        R$ [a definir]
-                      </span>
-                      <span className="text-xs text-neutral-400">/ mensalidade</span>
+            {course.tiers.map((t, i) => {
+              const meta = TIER_META[t.levelName];
+              return (
+                <Reveal key={t.levelName} delay={i * 120}>
+                  <div className="flex h-full flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+                    <div className="border-b border-neutral-100 px-6 py-5 dark:border-neutral-800">
+                      <h3 className="text-xl font-black text-neutral-900 dark:text-white">{t.levelName}</h3>
+                      <div className="mt-2 flex items-center gap-1.5 text-xs text-neutral-500 dark:text-neutral-400">
+                        <Clock className="h-3.5 w-3.5" />
+                        {meta?.aulas ?? t.totalHours}
+                      </div>
                     </div>
 
-                    <a
-                      href={whatsappUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-auto inline-flex items-center justify-center gap-2 rounded-lg bg-[#0DB88F] px-5 py-3 text-sm font-black uppercase tracking-wider text-white shadow-[0_6px_18px_-6px_rgba(13,184,143,0.5)] transition hover:scale-[1.02] hover:bg-[#0aaa82] active:scale-[0.99]"
-                    >
-                      <WhatsAppIcon className="h-4 w-4" />
-                      Quero {t.label}
-                    </a>
+                    <div className="flex flex-1 flex-col gap-5 p-6">
+                      <p className="text-sm text-neutral-600 dark:text-neutral-400">{t.outcome}</p>
+
+                      <div>
+                        <p className="text-3xl font-black tracking-tight text-neutral-900 dark:text-white">
+                          {meta?.price ?? "—"}
+                        </p>
+                        <p className="mt-0.5 text-xs text-neutral-400">preço total do curso</p>
+                      </div>
+
+                      {meta && (
+                        <div className="space-y-2.5 rounded-lg border border-neutral-100 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-800/50">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-1.5">
+                              <span className="text-xs font-black text-[#0DB88F]">Intensivo</span>
+                              <span className="rounded bg-[#0DB88F]/10 px-1.5 py-0.5 text-[10px] font-bold text-[#0DB88F]">sugerido</span>
+                            </div>
+                            <span className="text-sm font-bold text-neutral-900 dark:text-white">{meta.intensivo}</span>
+                          </div>
+                          <div className="flex items-center justify-between border-t border-neutral-100 pt-2.5 dark:border-neutral-700">
+                            <span className="text-xs text-neutral-500 dark:text-neutral-400">Padrão (2×/semana)</span>
+                            <span className="text-sm text-neutral-500 dark:text-neutral-400">{meta.padrao}</span>
+                          </div>
+                        </div>
+                      )}
+
+                      <a
+                        href={whatsappUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-auto inline-flex items-center justify-center gap-2 rounded-lg bg-[#0DB88F] px-5 py-3 text-sm font-black uppercase tracking-wider text-white shadow-[0_6px_18px_-6px_rgba(13,184,143,0.5)] transition hover:scale-[1.02] hover:bg-[#0aaa82] active:scale-[0.99]"
+                      >
+                        <WhatsAppIcon className="h-4 w-4" />
+                        Quero o {t.levelName}
+                      </a>
+                    </div>
                   </div>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              );
+            })}
           </div>
+
+          <Reveal delay={200} className="mt-10">
+            <div className="mx-auto max-w-2xl rounded-xl border border-neutral-200 bg-white p-6 text-center dark:border-neutral-800 dark:bg-neutral-900">
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
+                Formas de pagamento
+              </p>
+              <p className="mt-3 text-sm font-semibold text-neutral-700 dark:text-neutral-300">
+                Pix · Crédito · Débito · Boleto · Dinheiro em espécie
+              </p>
+              <p className="mt-2 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+                Combinações aceitas — entrada no Pix e o restante no crédito, por exemplo.
+                Boleto parcelado de acordo com a duração do seu curso.
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 

@@ -28,9 +28,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "1 mês",
+      label: "Essencial",
       levelName: "Essencial",
-      totalHours: "20h",
+      totalHours: "24h",
       outcome:
         "Entender o funil de marketing digital e criar campanhas básicas no Google Ads e Meta Ads com resultado mensurável.",
       modules: [
@@ -82,9 +82,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Gerenciar campanhas pagas completas no Google e Meta com otimização de ROAS, além de executar estratégia de conteúdo e e-mail marketing integrados.",
       modules: [
@@ -139,9 +139,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "3 meses",
+      label: "Profissional + IA",
       levelName: "Profissional + IA",
-      totalHours: "60h",
+      totalHours: "72h",
       outcome:
         "Planejar e executar estratégias completas de marketing digital com IA, gerenciar budgets de clientes, criar relatórios executivos e atuar como especialista em tráfego pago ou gestor de marketing.",
       modules: [

@@ -29,9 +29,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "1 mês",
+      label: "Essencial",
       levelName: "Essencial",
-      totalHours: "20h",
+      totalHours: "24h",
       outcome:
         "Criar e apresentar modelos 3D básicos em Blender e SketchUp para uso imediato em projetos",
       modules: [
@@ -82,9 +82,9 @@ const COURSE_DATA = {
       tools: ["Blender 4.x", "SketchUp Pro 2025", "3D Warehouse"],
     },
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Produzir renders fotorrealistas, escultura orgânica e apresentações profissionais de projeto com V-Ray ou Lumion",
       modules: [
@@ -163,9 +163,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "3 meses",
+      label: "Profissional + IA",
       levelName: "Profissional + IA",
-      totalHours: "60h",
+      totalHours: "72h",
       outcome:
         "Dominar pipeline completo de modelagem, animação, IA generativa e entrega de projeto 3D profissional com portfólio publicável",
       modules: [

@@ -30,9 +30,9 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Configurar switches gerenciáveis com VLANs, implementar roteamento estático e dinâmico e monitorar a rede",
       modules: [
@@ -81,9 +81,9 @@ const COURSE_DATA: CourseData = {
       ],
     },
     {
-      label: "3 meses",
+      label: "Profissional + IA",
       levelName: "Profissional + IA",
-      totalHours: "60h",
+      totalHours: "72h",
       outcome:
         "Projetar e implementar redes corporativas completas, estar preparado para CompTIA Network+ e usar ferramentas de automação e IA",
       modules: [

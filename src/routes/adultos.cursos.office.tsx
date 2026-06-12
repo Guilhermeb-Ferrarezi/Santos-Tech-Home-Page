@@ -29,9 +29,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "1 mês",
+      label: "Essencial",
       levelName: "Essencial",
-      totalHours: "20h",
+      totalHours: "24h",
       outcome:
         "Criar documentos, planilhas e apresentações com aparência profissional e funcionalidade prática — prontos para usar no trabalho desde a primeira semana após o curso",
       modules: [
@@ -80,9 +80,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Dominar os recursos intermediários e avançados do Word, Excel e PowerPoint — com capacidade de criar relatórios formatados, planilhas com fórmulas complexas e apresentações com design profissional que se destacam no mercado",
       modules: [
@@ -177,9 +177,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "3 meses",
+      label: "Profissional + IA",
       levelName: "Profissional + IA",
-      totalHours: "60h",
+      totalHours: "72h",
       outcome:
         "Dominar o ecossistema Microsoft 365 com fluência profissional — incluindo Power BI para análise de dados e Microsoft Copilot (IA) integrado ao Word, Excel e PowerPoint — e entregar um projeto final que comprova essas competências para o mercado",
       modules: [

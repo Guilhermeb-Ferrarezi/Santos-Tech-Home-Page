@@ -28,9 +28,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Executar projetos completos de identidade visual, direção de arte e peças publicitárias com qualidade de agência usando Adobe Photoshop e Illustrator.",
       modules: [
@@ -118,9 +118,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "3 meses",
+      label: "Profissional + IA",
       levelName: "Profissional + IA",
-      totalHours: "60h",
+      totalHours: "72h",
       outcome:
         "Dominar Photoshop, Illustrator e Adobe Firefly com IA para executar projetos de qualquer complexidade, montar portfólio competitivo e atuar como designer sênior ou freelancer.",
       modules: [

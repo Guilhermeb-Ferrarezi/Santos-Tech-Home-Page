@@ -29,9 +29,9 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "1 mês",
+      label: "Essencial",
       levelName: "Essencial",
-      totalHours: "20h",
+      totalHours: "24h",
       outcome:
         "Criar peças profissionais para redes sociais, apresentações e materiais de divulgação sem experiência prévia em design.",
       modules: [

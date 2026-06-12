@@ -30,9 +30,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "1 mês",
+      label: "Essencial",
       levelName: "Essencial",
-      totalHours: "20h",
+      totalHours: "24h",
       outcome:
         "Capaz de escrever scripts Python para manipular arquivos, automatizar tarefas no Excel com openpyxl e enviar e-mails programaticamente",
       modules: [
@@ -72,9 +72,9 @@ const COURSE_DATA = {
       tools: ["Python 3.12", "VS Code", "openpyxl", "smtplib", "schedule", "pip"],
     },
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Desenvolve bots de web scraping com Selenium e Playwright, processa dados com Pandas e integra com APIs REST externas, entregando um dashboard de monitoramento automatizado",
       modules: [
@@ -132,9 +132,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "3 meses",
+      label: "Profissional + IA",
       levelName: "Profissional",
-      totalHours: "60h",
+      totalHours: "72h",
       outcome:
         "Arquiteta automações robustas e escaláveis com tratamento de erros, logging e agendamento em servidor; cria APIs com FastAPI; integra IA generativa (OpenAI) em pipelines de automação e entrega um projeto completo deployado",
       modules: [

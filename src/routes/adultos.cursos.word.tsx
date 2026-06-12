@@ -28,9 +28,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "1 mês",
+      label: "Essencial",
       levelName: "Essencial",
-      totalHours: "20h",
+      totalHours: "24h",
       outcome:
         "Produzir documentos profissionais com formatação consistente, sumário automático e revisão eficiente",
       modules: [
@@ -78,9 +78,9 @@ const COURSE_DATA = {
       tools: ["Microsoft Word 365", "OneDrive"],
     },
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Criar templates corporativos, dominar mala direta e produzir documentos técnicos com automação",
       modules: [
@@ -143,9 +143,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "3 meses",
+      label: "Profissional + IA",
       levelName: "Profissional + IA",
-      totalHours: "60h",
+      totalHours: "72h",
       outcome:
         "Dominar Word como ferramenta corporativa completa, integrar IA na redação e entregar um manual técnico como projeto final",
       modules: [

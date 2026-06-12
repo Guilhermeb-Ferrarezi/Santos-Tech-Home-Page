@@ -30,9 +30,9 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "1 mês",
+      label: "Essencial",
       levelName: "Essencial",
-      totalHours: "20h",
+      totalHours: "24h",
       outcome:
         "Usar o computador com autonomia no dia a dia: navegar, criar arquivos, escrever documentos simples e se comunicar por e-mail e plataformas digitais sem precisar pedir ajuda",
       modules: [
@@ -73,9 +73,9 @@ const COURSE_DATA: CourseData = {
       tools: ["Windows 11", "Google Chrome", "Gmail", "TypingClub"],
     },
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Criar documentos, planilhas e apresentações profissionais no Microsoft Office e no Google Workspace, e se comunicar e colaborar com equipes em ambiente digital com competência real",
       modules: [
@@ -180,9 +180,9 @@ const COURSE_DATA: CourseData = {
       ],
     },
     {
-      label: "3 meses",
+      label: "Profissional + IA",
       levelName: "Profissional + IA",
-      totalHours: "60h",
+      totalHours: "72h",
       outcome:
         "Dominar o computador, o pacote Office e as ferramentas de IA de produtividade com fluência profissional — e entregar um projeto final real que demonstra as competências para o mercado de trabalho",
       modules: [

@@ -31,7 +31,7 @@ const COURSE_DATA = {
     {
       label: "Tier 1",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Desenvolver jogos 2D e 3D com física avançada, animações, áudio e sistema de save usando Unity e Godot",
       modules: [
@@ -78,7 +78,7 @@ const COURSE_DATA = {
     {
       label: "Tier 2",
       levelName: "Profissional + IA",
-      totalHours: "60h",
+      totalHours: "72h",
       outcome:
         "Criar e publicar jogos comerciais completos com shaders, multiplayer, IA de inimigos avançada e estratégias de monetização",
       modules: [

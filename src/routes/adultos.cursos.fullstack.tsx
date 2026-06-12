@@ -29,9 +29,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "4 meses",
-      levelName: "Completo",
-      totalHours: "80h",
+      label: "Essencial",
+      levelName: "Essencial",
+      totalHours: "24h",
       outcome:
         "Construir SPAs com React, criar APIs REST com Node.js conectadas a banco de dados PostgreSQL e publicar aplicações online com autenticação e segurança",
       modules: [
@@ -124,9 +124,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "6 meses",
-      levelName: "Avançado",
-      totalHours: "120h",
+      label: "Intermediário",
+      levelName: "Intermediário",
+      totalHours: "48h",
       outcome:
         "Entregar aplicações full stack completas em produção com Next.js, Docker, CI/CD, testes automatizados e integração com IA generativa, prontas para o mercado nacional e internacional",
       modules: [

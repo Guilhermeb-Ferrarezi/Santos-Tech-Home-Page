@@ -29,9 +29,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "1 mês",
+      label: "Essencial",
       levelName: "Essencial",
-      totalHours: "20h",
+      totalHours: "24h",
       outcome:
         "Atender chamados básicos, instalar sistemas e periféricos, e entender o fluxo de um Help Desk",
       modules: [
@@ -66,9 +66,9 @@ const COURSE_DATA = {
       tools: ["Freshdesk", "Windows 10/11", "Prompt de Comando"],
     },
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Atuar como técnico N1/N2, resolver problemas de rede local, gerenciar Active Directory e documentar soluções",
       modules: [
@@ -127,9 +127,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "3 meses",
+      label: "Profissional + IA",
       levelName: "Profissional + IA",
-      totalHours: "60h",
+      totalHours: "72h",
       outcome:
         "Estar preparado para a certificação CompTIA A+, atuar como N2/N3 e automatizar tarefas repetitivas de suporte com PowerShell e IA",
       modules: [

@@ -28,9 +28,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Executar projetos completos de edição com color grading profissional, efeitos visuais e motion graphics no DaVinci Resolve e Adobe Premiere.",
       modules: [
@@ -102,9 +102,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "3 meses",
+      label: "Profissional + IA",
       levelName: "Profissional + IA",
-      totalHours: "60h",
+      totalHours: "72h",
       outcome:
         "Dominar DaVinci Resolve e Adobe Premiere em nível profissional completo, incluindo efeitos visuais, IA e entrega para cinema, TV e streaming, atuando como editor ou colorista sênior.",
       modules: [

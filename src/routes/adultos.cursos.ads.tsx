@@ -30,9 +30,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "6 meses",
-      levelName: "Avançado",
-      totalHours: "120h",
+      label: "Essencial",
+      levelName: "Essencial",
+      totalHours: "24h",
       outcome:
         "Dominar lógica de programação, banco de dados relacional, front-end, POO com Java e desenvolvimento de APIs RESTful com Spring Boot — pronto para posições de desenvolvedor júnior",
       modules: [
@@ -131,9 +131,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "12 meses",
-      levelName: "Profissional Intensivo",
-      totalHours: "240h",
+      label: "Intermediário",
+      levelName: "Intermediário",
+      totalHours: "48h",
       outcome:
         "Projetar e liderar o desenvolvimento de sistemas complexos com DevOps, microsserviços, IA generativa integrada e projeto de conclusão entregável ao mercado — pronto para posições plenas e sênior em TI",
       modules: [

@@ -28,9 +28,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "1 mês",
+      label: "Essencial",
       levelName: "Essencial",
-      totalHours: "20h",
+      totalHours: "24h",
       outcome:
         "Gerir perfis profissionais no Instagram, TikTok e LinkedIn com estratégia de conteúdo e análise de métricas básica.",
       modules: [
@@ -84,9 +84,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Gerenciar múltiplos clientes como Social Media profissional, criar estratégia de conteúdo, planejar campanhas pagas e entregar relatórios executivos.",
       modules: [

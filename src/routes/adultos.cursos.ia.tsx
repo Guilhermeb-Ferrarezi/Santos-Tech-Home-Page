@@ -31,7 +31,7 @@ const COURSE_DATA = {
     {
       label: "Tier 1",
       levelName: "Essencial",
-      totalHours: "20h",
+      totalHours: "24h",
       outcome:
         "Usar ChatGPT, Gemini e Copilot com técnicas reais de prompting para acelerar tarefas do dia a dia profissional e entregar mais resultados em menos tempo",
       modules: [
@@ -90,7 +90,7 @@ const COURSE_DATA = {
     {
       label: "Tier 2",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Integrar IA em fluxos de trabalho complexos, dominar ferramentas avançadas de produtividade e construir automações simples com n8n e Make para eliminar trabalho repetitivo da sua rotina profissional",
       modules: [
@@ -166,7 +166,7 @@ const COURSE_DATA = {
     {
       label: "Tier 3",
       levelName: "Profissional",
-      totalHours: "60h",
+      totalHours: "72h",
       outcome:
         "Arquitetar e implementar agentes de IA autônomos, sistemas multiagentes e automações de nível profissional com LangChain, LangGraph e CrewAI, entregando um projeto real pronto para produção",
       modules: [

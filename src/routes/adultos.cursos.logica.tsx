@@ -28,9 +28,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "1 mês",
+      label: "Essencial",
       levelName: "Essencial",
-      totalHours: "20h",
+      totalHours: "24h",
       outcome:
         "Capaz de ler e escrever algoritmos em pseudocódigo e Portugol, resolver problemas com condicionais e loops, e construir um mini-jogo em JavaScript no navegador",
       modules: [
@@ -79,9 +79,9 @@ const COURSE_DATA = {
       tools: ["Portugol IDE", "VisuAlg", "JavaScript (browser console)"],
     },
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Domina estruturas de dados lineares, recursão e boas práticas de código limpo; entrega um sistema de cadastro funcional em JavaScript com manipulação de arrays e objetos",
       modules: [

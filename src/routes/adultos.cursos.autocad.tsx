@@ -28,9 +28,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "1 mês",
+      label: "Essencial",
       levelName: "Essencial",
-      totalHours: "20h",
+      totalHours: "24h",
       outcome:
         "Executar plantas baixas e cortes 2D com precisão, gerenciar layers e plotar pranchas técnicas formatadas",
       modules: [
@@ -83,9 +83,9 @@ const COURSE_DATA = {
       tools: ["AutoCAD 2025", "Autodesk Account (licença estudantil)"],
     },
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Executar projetos completos 2D com alta produtividade, iniciar modelagem 3D sólida e usar recursos avançados de automação",
       modules: [
@@ -153,9 +153,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "3 meses",
+      label: "Profissional + IA",
       levelName: "Profissional + IA",
-      totalHours: "60h",
+      totalHours: "72h",
       outcome:
         "Dominar AutoCAD 2D/3D completo, especialidades Civil 3D ou Mechanical, automação com LISP e IA, e entregar projeto executivo profissional",
       modules: [

@@ -29,9 +29,9 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "1 mês",
+      label: "Essencial",
       levelName: "Essencial",
-      totalHours: "20h",
+      totalHours: "24h",
       outcome:
         "Navegar no terminal com confiança, gerenciar arquivos e processos, e configurar um servidor Linux básico",
       modules: [
@@ -71,9 +71,9 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "2 meses",
+      label: "Intermediário",
       levelName: "Intermediário",
-      totalHours: "40h",
+      totalHours: "48h",
       outcome:
         "Administrar um servidor Linux em produção, configurar serviços web, banco de dados e automatizar tarefas com shell script",
       modules: [
