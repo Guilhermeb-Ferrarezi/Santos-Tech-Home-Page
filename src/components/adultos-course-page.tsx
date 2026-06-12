@@ -367,6 +367,71 @@ export function AdultosCursosPage({
         </div>
       </section>
 
+      {/* ── 4b. PROFESSORES + CERTIFICADO ───────────────────────────────── */}
+      <section className="border-y border-neutral-100 bg-neutral-50 py-20 dark:border-neutral-800 dark:bg-neutral-900/40">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-6 lg:grid-cols-2">
+
+            {/* Professores */}
+            <Reveal>
+              <div className="flex h-full flex-col rounded-xl border border-neutral-200 bg-white p-8 dark:border-neutral-800 dark:bg-neutral-900">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#0DB88F]/10 text-[#0DB88F]">
+                  <User className="h-5 w-5" />
+                </span>
+                <h3 className="mt-5 text-xl font-black text-neutral-900 dark:text-white">
+                  Quem está do outro lado da mesa
+                </h3>
+                <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
+                  Critério rigoroso de contratação — não contratamos por disponibilidade.
+                </p>
+                <ul className="mt-5 space-y-3">
+                  {[
+                    "Competência técnica comprovada nas ferramentas que ensina",
+                    "Experiência prática no mercado — não só teoria",
+                    "Habilidade pedagógica exigida: não basta saber, precisa saber ensinar",
+                    "Atualização contínua com as demandas reais do mercado",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm text-neutral-700 dark:text-neutral-300">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#0DB88F]" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+
+            {/* Certificado */}
+            <Reveal delay={120}>
+              <div className="flex h-full flex-col rounded-xl border border-neutral-200 bg-white p-8 dark:border-neutral-800 dark:bg-neutral-900">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#0DB88F]/10 text-[#0DB88F]">
+                  <Award className="h-5 w-5" />
+                </span>
+                <h3 className="mt-5 text-xl font-black text-neutral-900 dark:text-white">
+                  O que você recebe ao concluir
+                </h3>
+                <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
+                  Certificado emitido pela Santos Tech, reconhecido em todo o território nacional.
+                </p>
+                <p className="mt-4 flex-1 text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
+                  Mas o que realmente importa é o que você consegue fazer depois. Cada aula é
+                  projetada pra entregar habilidade aplicável — o certificado é a consequência
+                  natural de quem chegou lá.
+                </p>
+                <div className="mt-5 rounded-lg border border-[#0DB88F]/20 bg-[#0DB88F]/5 p-4 dark:bg-[#0DB88F]/10">
+                  <p className="text-xs font-black uppercase tracking-[0.2em] text-[#0DB88F]">
+                    O papel prova que você concluiu
+                  </p>
+                  <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-300">
+                    A habilidade prova que você aprendeu.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+
+          </div>
+        </div>
+      </section>
+
       {/* ── 5. SOBRE O CURSO ────────────────────────────────────────────── */}
       <section className="bg-neutral-900 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

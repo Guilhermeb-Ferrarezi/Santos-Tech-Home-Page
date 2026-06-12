@@ -116,9 +116,9 @@ const DIFERENCIAIS = [
 const EXPERIENCIA = [
   {
     icon: Briefcase,
-    titulo: "Professores que atuam no mercado",
+    titulo: "Professores selecionados com critério",
     texto:
-      "Aprenda com quem já fez. Nossos professores têm experiência prática nas ferramentas que ensinam — não apenas conhecimento teórico.",
+      "Competência técnica comprovada e habilidade de ensinar — as duas são exigidas. Não basta dominar a ferramenta: o professor precisa saber transmitir. Cada contratação passa por avaliação técnica e pedagógica.",
   },
   {
     icon: Monitor,
