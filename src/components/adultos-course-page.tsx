@@ -508,7 +508,7 @@ export function AdultosCursosPage({
                   </div>
                 </div>
                 <p className="mt-3 text-xs text-neutral-400 dark:text-neutral-500">
-                  Independente do curso escolhido — e não se repetem se você fizer mais de um curso.
+                  Cobrados uma única vez por curso, junto com o investimento no curso.
                 </p>
               </div>
 
