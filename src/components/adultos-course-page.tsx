@@ -104,6 +104,14 @@ const DIFERENCIAIS = [
   },
 ];
 
+// ── Guia de orientação por nível ──────────────────────────────────────────
+
+const TIER_GUIDE: Record<string, string> = {
+  Essencial: "Nunca usei, sei muito pouco ou quero construir uma base sólida do zero",
+  Intermediário: "Já uso no dia a dia, mas quero ir mais fundo e trabalhar de forma mais eficiente",
+  "Profissional + IA": "Quero dominar tudo — incluindo os recursos de inteligência artificial",
+};
+
 // ── Subcomponents ──────────────────────────────────────────────────────────
 
 function TierTabs({
@@ -137,6 +145,65 @@ function TierTabs({
           {t.levelName}
         </button>
       ))}
+    </div>
+  );
+}
+
+function TierGuide({
+  tiers,
+  selected,
+  onSelect,
+}: {
+  tiers: Tier[];
+  selected: number;
+  onSelect: (i: number) => void;
+}) {
+  if (tiers.length <= 1) return null;
+  return (
+    <div className="mt-8">
+      <p className="mb-4 text-center text-xs font-black uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
+        Por onde começar?
+      </p>
+      <div
+        className={`grid gap-3 ${
+          tiers.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-3"
+        }`}
+      >
+        {tiers.map((t, i) => {
+          const isSelected = selected === i;
+          const guide = TIER_GUIDE[t.levelName] ?? "";
+          return (
+            <button
+              key={t.levelName}
+              type="button"
+              onClick={() => onSelect(i)}
+              className={`rounded-xl border p-4 text-left transition-all duration-200 ${
+                isSelected
+                  ? "border-[#0DB88F] bg-[#0DB88F]/5 dark:bg-[#0DB88F]/10"
+                  : "border-neutral-200 bg-white hover:border-[#0DB88F]/40 hover:bg-[#0DB88F]/[0.02] dark:border-neutral-700 dark:bg-neutral-900"
+              }`}
+            >
+              <p
+                className={`text-sm font-black ${
+                  isSelected
+                    ? "text-[#0DB88F]"
+                    : "text-neutral-900 dark:text-white"
+                }`}
+              >
+                {t.levelName}
+              </p>
+              <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+                {guide}
+              </p>
+              {isSelected && (
+                <span className="mt-3 inline-block rounded bg-[#0DB88F] px-2 py-0.5 text-[10px] font-black uppercase tracking-wide text-white">
+                  selecionado
+                </span>
+              )}
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }
@@ -188,7 +255,6 @@ export function AdultosCursosPage({
         <div className="relative mx-auto max-w-4xl px-4 pb-24 pt-14 text-center sm:px-6 sm:pt-18 lg:px-8 lg:pb-32 lg:pt-20">
           <Reveal>
             <div className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm">
-              <span className="h-2 w-2 rounded-full bg-[#0DB88F]" />
               <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
                 Santos Tech · Adultos · {course.categoria}
               </span>
@@ -285,11 +351,10 @@ export function AdultosCursosPage({
 
           {multiTier && (
             <Reveal delay={100}>
-              <TierTabs
+              <TierGuide
                 tiers={course.tiers}
                 selected={selectedTier}
                 onSelect={setSelectedTier}
-                dark={false}
               />
             </Reveal>
           )}
