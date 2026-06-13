@@ -42,7 +42,7 @@ export const Route = createFileRoute("/")({
       title:
         "Santos Tech — Cursos de Tecnologia, Programação e Informática para Crianças em Ribeirão Preto",
       description:
-        "Escola presencial em Ribeirão Preto: cursos de tecnologia, programação, criação de jogos (Minecraft e Roblox), impressão 3D, informática e Excel para crianças e adolescentes de 5 a 15 anos. Turmas de até 10 alunos, nota 5,0 no Google. Agende uma aula experimental grátis.",
+        "Escola presencial em Ribeirão Preto especializada em tecnologia para crianças e adolescentes de 5 a 15 anos: programação, criação de jogos (Minecraft e Roblox), impressão 3D, informática e Excel, em turmas de até 10 alunos. Nota 5,0 no Google. Também oferecemos cursos individuais de tecnologia para adultos. Agende uma aula experimental grátis.",
       path: "/",
     }),
 });
