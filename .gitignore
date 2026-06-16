@@ -32,8 +32,9 @@ dist-ssr
 *.sln
 *.sw?
 
-# Claude Code local config
+# Claude Code local config — ignora tudo exceto settings de projeto
 .claude/
+!.claude/settings.json
 
 # Documentos internos de contexto (estratégia de vendas, pesquisa de mercado)
 # — material de apoio, não deve ir para o repositório do site
