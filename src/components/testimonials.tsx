@@ -1,5 +1,7 @@
+import { useLayoutEffect, useRef, useState } from "react";
 import { Star, Quote } from "lucide-react";
 import { Reveal } from "@/components/reveal";
+import { useScrollScrub } from "@/hooks/use-scroll-scrub";
 
 type Review = { quote: string; name: string; role: string };
 
@@ -69,6 +71,8 @@ const REVIEWS: Review[] = [
 const GOOGLE_REVIEWS_URL =
   "https://www.google.com/maps/search/?api=1&query=Escola+Santos+Tech+Ribeir%C3%A3o+Preto";
 
+const clamp = (v: number, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+
 function Stars({ className = "" }: { className?: string }) {
   return (
     <span className={`inline-flex ${className}`} aria-label="5 de 5 estrelas">
@@ -79,54 +83,139 @@ function Stars({ className = "" }: { className?: string }) {
   );
 }
 
-export function Testimonials() {
+function ReviewCard({ r }: { r: Review }) {
   return (
-    <section id="depoimentos" className="scroll-mt-24 bg-white py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Reveal className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-black uppercase tracking-[0.25em] text-primary">
-            Depoimentos
-          </p>
-          <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
-            O que as famílias e alunos <span className="text-gradient-hero">dizem</span>
-          </h2>
-          <div className="mt-5 inline-flex items-center gap-2.5 rounded-full border-2 border-amber-200 bg-amber-50 px-5 py-2">
-            <Stars />
-            <span className="font-black text-st-blue-dark">5,0</span>
-            <span className="text-sm text-muted-foreground">· 329 avaliações no Google</span>
-          </div>
-        </Reveal>
+    <figure className="flex h-full flex-col rounded-2xl border border-border bg-card p-5 shadow-sm">
+      <div className="flex items-center justify-between">
+        <Stars />
+        <Quote className="h-6 w-6 text-primary/15" />
+      </div>
+      <blockquote className="mt-3 line-clamp-5 flex-1 text-sm leading-relaxed text-foreground/90">
+        {r.quote}
+      </blockquote>
+      <figcaption className="mt-4 border-t border-border pt-3">
+        <p className="text-sm font-black text-st-blue-dark">{r.name}</p>
+        <p className="text-xs text-muted-foreground">{r.role}</p>
+      </figcaption>
+    </figure>
+  );
+}
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {REVIEWS.map((r) => (
-            <Reveal key={r.name}>
-              <figure className="flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
-                <div className="flex items-center justify-between">
-                  <Stars />
-                  <Quote className="h-7 w-7 text-primary/15" />
-                </div>
-                <blockquote className="mt-3 flex-1 text-sm leading-relaxed text-foreground/90">
-                  {r.quote}
-                </blockquote>
-                <figcaption className="mt-5 border-t border-border pt-4">
-                  <p className="font-black text-st-blue-dark">{r.name}</p>
-                  <p className="text-xs text-muted-foreground">{r.role}</p>
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
+function Header() {
+  return (
+    <div className="mx-auto max-w-3xl px-4 text-center">
+      <p className="text-sm font-black uppercase tracking-[0.25em] text-primary">Depoimentos</p>
+      <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+        O que as famílias e alunos <span className="text-gradient-hero">dizem</span>
+      </h2>
+      <div className="mt-5 inline-flex items-center gap-2.5 rounded-full border-2 border-amber-200 bg-amber-50 px-5 py-2">
+        <Stars />
+        <span className="font-black text-st-blue-dark">5,0</span>
+        <span className="text-sm text-muted-foreground">· 329 avaliações no Google</span>
+      </div>
+    </div>
+  );
+}
+
+function GoogleButton() {
+  return (
+    <a
+      href={GOOGLE_REVIEWS_URL}
+      target="_blank"
+      rel="noreferrer"
+      className="inline-flex items-center gap-2 rounded-full border-2 border-border px-7 py-3 text-sm font-bold text-st-blue-dark transition hover:border-primary/40 hover:bg-muted"
+    >
+      <Stars className="scale-90" /> Ver as 329 avaliações no Google
+    </a>
+  );
+}
+
+// Máscara de fade nas duas pontas (efeito premium).
+const EDGE_MASK = "[mask-image:linear-gradient(to_right,transparent,#000_5%,#000_95%,transparent)]";
+
+export function Testimonials() {
+  const [enhanced, setEnhanced] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const hintRef = useRef<HTMLParagraphElement>(null);
+  // distância horizontal a percorrer — cacheada, só recalcula no resize.
+  const distRef = useRef(0);
+  const lastWidthRef = useRef(-1);
+
+  useLayoutEffect(() => {
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) setEnhanced(true);
+  }, []);
+
+  // Mapeia o progresso vertical da seção em deslocamento horizontal da faixa.
+  function applyProgress() {
+    const root = rootRef.current;
+    const track = trackRef.current;
+    if (!root || !track) return;
+    // recalcula a largura só quando a viewport muda (evita reflow por frame)
+    if (lastWidthRef.current !== window.innerWidth) {
+      lastWidthRef.current = window.innerWidth;
+      distRef.current = Math.max(0, track.scrollWidth - window.innerWidth);
+    }
+    const rect = root.getBoundingClientRect();
+    const total = rect.height - window.innerHeight;
+    const p = total > 0 ? clamp(-rect.top / total) : 0;
+    track.style.transform = `translate3d(${(-p * distRef.current).toFixed(1)}px,0,0)`;
+    if (hintRef.current) hintRef.current.style.opacity = `${1 - clamp((p - 0.8) / 0.2)}`;
+  }
+
+  useLayoutEffect(() => {
+    if (enhanced) applyProgress();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [enhanced]);
+
+  useScrollScrub(enhanced, rootRef, applyProgress);
+
+  // ── Fallback (SSR / sem-JS / reduced-motion): esteira automática em CSS ──
+  // Sem JS o CSS ainda anima; com reduced-motion vira scroll lateral manual.
+  if (!enhanced) {
+    return (
+      <section id="depoimentos" className="scroll-mt-24 bg-white py-20">
+        <Reveal>
+          <Header />
+        </Reveal>
+        <div className={`mt-12 overflow-hidden ${EDGE_MASK} motion-reduce:overflow-x-auto`}>
+          <ul className="flex w-max animate-marquee gap-5 px-4 motion-reduce:animate-none">
+            {[...REVIEWS, ...REVIEWS].map((r, i) => (
+              <li key={i} aria-hidden={i >= REVIEWS.length} className="w-[300px] shrink-0 sm:w-[330px]">
+                <ReviewCard r={r} />
+              </li>
+            ))}
+          </ul>
         </div>
+        <div className="mt-10 text-center">
+          <GoogleButton />
+        </div>
+      </section>
+    );
+  }
 
-        <Reveal className="mt-10 text-center">
-          <a
-            href={GOOGLE_REVIEWS_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border-2 border-border px-7 py-3 text-sm font-bold text-st-blue-dark transition hover:border-primary/40 hover:bg-muted"
-          >
-            <Stars className="scale-90" /> Ver as 329 avaliações no Google
-          </a>
-        </Reveal>
+  // ── Modo scroll-driven: a seção prende e a faixa desliza pelo scroll ─────
+  return (
+    <section id="depoimentos" className="scroll-mt-24 bg-white">
+      <div ref={rootRef} className="relative" style={{ height: "300vh" }}>
+        <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden bg-white">
+          <Header />
+          <div className={`mt-10 overflow-hidden ${EDGE_MASK}`}>
+            <div ref={trackRef} className="flex w-max gap-5 px-[8vw] will-change-transform">
+              {REVIEWS.map((r, i) => (
+                <div key={i} className="w-[300px] shrink-0 sm:w-[340px]">
+                  <ReviewCard r={r} />
+                </div>
+              ))}
+            </div>
+          </div>
+          <p ref={hintRef} className="mt-8 text-center text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+            role para ver mais ↓
+          </p>
+        </div>
+      </div>
+      <div className="bg-white pb-20 text-center">
+        <GoogleButton />
       </div>
     </section>
   );

@@ -38,3 +38,6 @@ dist-ssr
 # Documentos internos de contexto (estratégia de vendas, pesquisa de mercado)
 # — material de apoio, não deve ir para o repositório do site
 Contexto/
+
+# Visual companion (brainstorming)
+.superpowers/

@@ -24,6 +24,9 @@ import {
   RefreshCw,
   HelpCircle,
   ChevronDown,
+  Brain,
+  Bot,
+  Smartphone,
 } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { DecorativeElements } from "@/components/decorative-elements";
@@ -31,6 +34,7 @@ import { Img } from "@/components/img";
 import { WhatsAppIcon } from "@/components/icons";
 import { RarityBadge } from "@/components/rarity-badge";
 import { HeroCollage } from "@/components/hero-collage";
+import { ScrollStage } from "@/components/scroll-stage";
 import { Testimonials } from "@/components/testimonials";
 import { JsonLd } from "@/components/json-ld";
 import { pageMeta, buildFaqSchema, buildCourseSchema } from "@/lib/seo";
@@ -405,6 +409,24 @@ function Index() {
           </svg>
         </div>
       </section>
+
+      {/* ============ SCROLL STAGE (efeito estilo Apple) ============ */}
+      <ScrollStage
+        heading={
+          <>
+            Uma escola pra formar
+            <br />
+            criadores de tecnologia
+          </>
+        }
+        photo={{ name: "marina-roblox", alt: "Aluna da Santos Tech criando um jogo no Roblox" }}
+        features={[
+          { icon: Brain, title: "Lógica desde cedo", desc: "Pensamento computacional dos 5 aos 14 anos, na medida certa pra cada idade." },
+          { icon: Bot, title: "Robótica, games e IA", desc: "Projetos reais que ganham vida — do bloco ao código de verdade." },
+          { icon: Users, title: "Professores presentes", desc: "Turmas pequenas e acompanhamento de perto, aula após aula." },
+          { icon: Smartphone, title: "Portal pra família", desc: "O pai acompanha notas, presença e projetos na palma da mão." },
+        ]}
+      />
 
       {/* ============ STATS BAR ============ */}
       <section className="border-b border-border bg-background">
