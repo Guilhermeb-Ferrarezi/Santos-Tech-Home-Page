@@ -1,6 +1,10 @@
 import path from "node:path";
 import { promises as fs } from "node:fs";
 import { gzipSync, brotliCompressSync } from "node:zlib";
+import { initBlogDb } from "./blog-db";
+
+// Inicializa banco do blog antes de servir qualquer requisição
+initBlogDb();
 
 import app from "../dist/server/index.js";
 

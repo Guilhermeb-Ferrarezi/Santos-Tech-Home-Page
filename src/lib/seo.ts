@@ -399,6 +399,41 @@ export function buildAdultPageSchemas(input: {
   ];
 }
 
+/** BlogPosting schema — usar nas páginas de post do blog. */
+export function buildBlogPostingSchema(post: {
+  title: string;
+  excerpt: string;
+  slug: string;
+  author: string;
+  published_at: string;
+  updated_at?: string;
+  cover_url?: string | null;
+}): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": absoluteUrl(`/blog/${post.slug}#post`),
+    headline: post.title,
+    description: post.excerpt,
+    url: absoluteUrl(`/blog/${post.slug}`),
+    image: post.cover_url ?? `${BASE_URL}/og-image.png`,
+    author: {
+      "@type": "Person",
+      name: post.author,
+      worksFor: { "@id": `${BASE_URL}/#organization` },
+    },
+    publisher: { "@id": `${BASE_URL}/#organization` },
+    datePublished: post.published_at,
+    dateModified: post.updated_at ?? post.published_at,
+    inLanguage: "pt-BR",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": absoluteUrl(`/blog/${post.slug}`),
+    },
+  };
+}
+
+
 /** Gera meta tags básicas + canonical pra uma rota. */
 export function pageMeta(input: {
   title: string;

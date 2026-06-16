@@ -72,6 +72,14 @@ export function SiteHeader() {
           <SobreDropdown />
 
           <Link
+            to="/blog"
+            className="text-sm font-semibold text-foreground/80 transition-colors hover:text-primary"
+            activeProps={{ className: "text-primary" }}
+          >
+            Blog
+          </Link>
+
+          <Link
             to="/contato"
             className="text-sm font-semibold text-foreground/80 transition-colors hover:text-primary"
             activeProps={{ className: "text-primary" }}
@@ -162,6 +170,15 @@ export function SiteHeader() {
                 ))}
               </div>
             )}
+
+            <Link
+              to="/blog"
+              onClick={closeAll}
+              className="rounded-md px-3 py-2 text-base font-semibold text-foreground/80 hover:bg-muted hover:text-primary"
+              activeProps={{ className: "text-primary bg-muted" }}
+            >
+              Blog
+            </Link>
 
             <Link
               to="/contato"
