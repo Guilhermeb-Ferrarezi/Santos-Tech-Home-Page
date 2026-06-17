@@ -149,7 +149,10 @@ export function SiteFooter() {
       <div className={t.bottomBar}>
         <div className={`mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 text-xs sm:flex-row sm:px-6 lg:px-8 ${t.bottomText}`}>
           <p>© {new Date().getFullYear()} Santos Tech. Todos os direitos reservados.</p>
-          <p>Escola de programação · Ribeirão Preto</p>
+          <div className="flex items-center gap-4">
+            <Link to="/privacidade" className={t.links}>Política de Privacidade</Link>
+            <Link to="/termos" className={t.links}>Termos de Uso</Link>
+          </div>
         </div>
       </div>
     </footer>

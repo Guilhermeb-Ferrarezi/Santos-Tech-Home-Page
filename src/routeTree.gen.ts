@@ -9,7 +9,9 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermosRouteImport } from './routes/termos'
 import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as CursosRouteImport } from './routes/cursos'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as AdultosRouteImport } from './routes/adultos'
@@ -93,9 +95,19 @@ import { Route as AdultosCursosAutocadRouteImport } from './routes/adultos.curso
 import { Route as AdultosCursosAgentesIaRouteImport } from './routes/adultos.cursos.agentes-ia'
 import { Route as AdultosCursosAdsRouteImport } from './routes/adultos.cursos.ads'
 
+const TermosRoute = TermosRouteImport.update({
+  id: '/termos',
+  path: '/termos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
   path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacidadeRoute = PrivacidadeRouteImport.update({
+  id: '/privacidade',
+  path: '/privacidade',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CursosRoute = CursosRouteImport.update({
@@ -530,7 +542,9 @@ export interface FileRoutesByFullPath {
   '/adultos': typeof AdultosRouteWithChildren
   '/contato': typeof ContatoRoute
   '/cursos': typeof CursosRouteWithChildren
+  '/privacidade': typeof PrivacidadeRoute
   '/sobre': typeof SobreRouteWithChildren
+  '/termos': typeof TermosRoute
   '/apresentacoes/informatica-create': typeof ApresentacoesInformaticaCreateRoute
   '/apresentacoes/informatica-junior': typeof ApresentacoesInformaticaJuniorRoute
   '/apresentacoes/tecnologia-create': typeof ApresentacoesTecnologiaCreateRoute
@@ -613,6 +627,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
+  '/privacidade': typeof PrivacidadeRoute
+  '/termos': typeof TermosRoute
   '/apresentacoes/informatica-create': typeof ApresentacoesInformaticaCreateRoute
   '/apresentacoes/informatica-junior': typeof ApresentacoesInformaticaJuniorRoute
   '/apresentacoes/tecnologia-create': typeof ApresentacoesTecnologiaCreateRoute
@@ -696,7 +712,9 @@ export interface FileRoutesById {
   '/adultos': typeof AdultosRouteWithChildren
   '/contato': typeof ContatoRoute
   '/cursos': typeof CursosRouteWithChildren
+  '/privacidade': typeof PrivacidadeRoute
   '/sobre': typeof SobreRouteWithChildren
+  '/termos': typeof TermosRoute
   '/apresentacoes/informatica-create': typeof ApresentacoesInformaticaCreateRoute
   '/apresentacoes/informatica-junior': typeof ApresentacoesInformaticaJuniorRoute
   '/apresentacoes/tecnologia-create': typeof ApresentacoesTecnologiaCreateRoute
@@ -783,7 +801,9 @@ export interface FileRouteTypes {
     | '/adultos'
     | '/contato'
     | '/cursos'
+    | '/privacidade'
     | '/sobre'
+    | '/termos'
     | '/apresentacoes/informatica-create'
     | '/apresentacoes/informatica-junior'
     | '/apresentacoes/tecnologia-create'
@@ -866,6 +886,8 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/contato'
+    | '/privacidade'
+    | '/termos'
     | '/apresentacoes/informatica-create'
     | '/apresentacoes/informatica-junior'
     | '/apresentacoes/tecnologia-create'
@@ -948,7 +970,9 @@ export interface FileRouteTypes {
     | '/adultos'
     | '/contato'
     | '/cursos'
+    | '/privacidade'
     | '/sobre'
+    | '/termos'
     | '/apresentacoes/informatica-create'
     | '/apresentacoes/informatica-junior'
     | '/apresentacoes/tecnologia-create'
@@ -1034,7 +1058,9 @@ export interface RootRouteChildren {
   AdultosRoute: typeof AdultosRouteWithChildren
   ContatoRoute: typeof ContatoRoute
   CursosRoute: typeof CursosRouteWithChildren
+  PrivacidadeRoute: typeof PrivacidadeRoute
   SobreRoute: typeof SobreRouteWithChildren
+  TermosRoute: typeof TermosRoute
   ApresentacoesInformaticaCreateRoute: typeof ApresentacoesInformaticaCreateRoute
   ApresentacoesInformaticaJuniorRoute: typeof ApresentacoesInformaticaJuniorRoute
   ApresentacoesTecnologiaCreateRoute: typeof ApresentacoesTecnologiaCreateRoute
@@ -1048,11 +1074,25 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/termos': {
+      id: '/termos'
+      path: '/termos'
+      fullPath: '/termos'
+      preLoaderRoute: typeof TermosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sobre': {
       id: '/sobre'
       path: '/sobre'
       fullPath: '/sobre'
       preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacidade': {
+      id: '/privacidade'
+      path: '/privacidade'
+      fullPath: '/privacidade'
+      preLoaderRoute: typeof PrivacidadeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cursos': {
@@ -1821,7 +1861,9 @@ const rootRouteChildren: RootRouteChildren = {
   AdultosRoute: AdultosRouteWithChildren,
   ContatoRoute: ContatoRoute,
   CursosRoute: CursosRouteWithChildren,
+  PrivacidadeRoute: PrivacidadeRoute,
   SobreRoute: SobreRouteWithChildren,
+  TermosRoute: TermosRoute,
   ApresentacoesInformaticaCreateRoute: ApresentacoesInformaticaCreateRoute,
   ApresentacoesInformaticaJuniorRoute: ApresentacoesInformaticaJuniorRoute,
   ApresentacoesTecnologiaCreateRoute: ApresentacoesTecnologiaCreateRoute,
