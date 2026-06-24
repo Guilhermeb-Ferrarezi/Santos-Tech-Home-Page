@@ -25,6 +25,7 @@ ENV PORT=3000
 ENV HOST=0.0.0.0
 
 RUN mkdir -p /srv/site-routes
+RUN mkdir -p /data
 
 COPY --from=build /app/dist ./dist
 COPY --from=build /app/docker ./docker

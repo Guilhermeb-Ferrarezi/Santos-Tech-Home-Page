@@ -14,10 +14,12 @@ import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as CursosRouteImport } from './routes/cursos'
 import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AdultosRouteImport } from './routes/adultos'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SobreIndexRouteImport } from './routes/sobre.index'
 import { Route as CursosIndexRouteImport } from './routes/cursos.index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as ApresentacoesIndexRouteImport } from './routes/apresentacoes.index'
 import { Route as AdultosIndexRouteImport } from './routes/adultos.index'
 import { Route as SobreVisaoRouteImport } from './routes/sobre.visao'
@@ -29,12 +31,16 @@ import { Route as CursosJuniorRouteImport } from './routes/cursos.junior'
 import { Route as CursosCreateRouteImport } from './routes/cursos.create'
 import { Route as CursosCampsRouteImport } from './routes/cursos.camps'
 import { Route as CursosAcademiesRouteImport } from './routes/cursos.academies'
+import { Route as BlogEntrarRouteImport } from './routes/blog.entrar'
+import { Route as BlogAdminRouteImport } from './routes/blog.admin'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as ApresentacoesTecnologiaJuniorRouteImport } from './routes/apresentacoes.tecnologia-junior'
 import { Route as ApresentacoesTecnologiaCreateRouteImport } from './routes/apresentacoes.tecnologia-create'
 import { Route as ApresentacoesInformaticaJuniorRouteImport } from './routes/apresentacoes.informatica-junior'
 import { Route as ApresentacoesInformaticaCreateRouteImport } from './routes/apresentacoes.informatica-create'
 import { Route as CursosJuniorIndexRouteImport } from './routes/cursos.junior.index'
 import { Route as CursosCreateIndexRouteImport } from './routes/cursos.create.index'
+import { Route as BlogAdminIndexRouteImport } from './routes/blog.admin.index'
 import { Route as CursosJunior78AnosRouteImport } from './routes/cursos.junior.7-8-anos'
 import { Route as CursosJunior67AnosRouteImport } from './routes/cursos.junior.6-7-anos'
 import { Route as CursosJunior56AnosRouteImport } from './routes/cursos.junior.5-6-anos'
@@ -44,6 +50,7 @@ import { Route as CursosCreate1314AnosRouteImport } from './routes/cursos.create
 import { Route as CursosCreate1213AnosRouteImport } from './routes/cursos.create.12-13-anos'
 import { Route as CursosCreate1112AnosRouteImport } from './routes/cursos.create.11-12-anos'
 import { Route as CursosCreate1011AnosRouteImport } from './routes/cursos.create.10-11-anos'
+import { Route as BlogAdminNovoRouteImport } from './routes/blog.admin.novo'
 import { Route as AdultosCursosWordRouteImport } from './routes/adultos.cursos.word'
 import { Route as AdultosCursosTypescriptRouteImport } from './routes/adultos.cursos.typescript'
 import { Route as AdultosCursosTiktokAdsRouteImport } from './routes/adultos.cursos.tiktok-ads'
@@ -94,6 +101,7 @@ import { Route as AdultosCursosBackendRouteImport } from './routes/adultos.curso
 import { Route as AdultosCursosAutocadRouteImport } from './routes/adultos.cursos.autocad'
 import { Route as AdultosCursosAgentesIaRouteImport } from './routes/adultos.cursos.agentes-ia'
 import { Route as AdultosCursosAdsRouteImport } from './routes/adultos.cursos.ads'
+import { Route as BlogAdminIdEditarRouteImport } from './routes/blog.admin.$id.editar'
 
 const TermosRoute = TermosRouteImport.update({
   id: '/termos',
@@ -120,6 +128,11 @@ const ContatoRoute = ContatoRouteImport.update({
   path: '/contato',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdultosRoute = AdultosRouteImport.update({
   id: '/adultos',
   path: '/adultos',
@@ -139,6 +152,11 @@ const CursosIndexRoute = CursosIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => CursosRoute,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BlogRoute,
 } as any)
 const ApresentacoesIndexRoute = ApresentacoesIndexRouteImport.update({
   id: '/apresentacoes/',
@@ -199,6 +217,21 @@ const CursosAcademiesRoute = CursosAcademiesRouteImport.update({
   path: '/academies',
   getParentRoute: () => CursosRoute,
 } as any)
+const BlogEntrarRoute = BlogEntrarRouteImport.update({
+  id: '/entrar',
+  path: '/entrar',
+  getParentRoute: () => BlogRoute,
+} as any)
+const BlogAdminRoute = BlogAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => BlogRoute,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
 const ApresentacoesTecnologiaJuniorRoute =
   ApresentacoesTecnologiaJuniorRouteImport.update({
     id: '/apresentacoes/tecnologia-junior',
@@ -232,6 +265,11 @@ const CursosCreateIndexRoute = CursosCreateIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => CursosCreateRoute,
+} as any)
+const BlogAdminIndexRoute = BlogAdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BlogAdminRoute,
 } as any)
 const CursosJunior78AnosRoute = CursosJunior78AnosRouteImport.update({
   id: '/7-8-anos',
@@ -277,6 +315,11 @@ const CursosCreate1011AnosRoute = CursosCreate1011AnosRouteImport.update({
   id: '/10-11-anos',
   path: '/10-11-anos',
   getParentRoute: () => CursosCreateRoute,
+} as any)
+const BlogAdminNovoRoute = BlogAdminNovoRouteImport.update({
+  id: '/novo',
+  path: '/novo',
+  getParentRoute: () => BlogAdminRoute,
 } as any)
 const AdultosCursosWordRoute = AdultosCursosWordRouteImport.update({
   id: '/cursos/word',
@@ -536,10 +579,16 @@ const AdultosCursosAdsRoute = AdultosCursosAdsRouteImport.update({
   path: '/cursos/ads',
   getParentRoute: () => AdultosRoute,
 } as any)
+const BlogAdminIdEditarRoute = BlogAdminIdEditarRouteImport.update({
+  id: '/$id/editar',
+  path: '/$id/editar',
+  getParentRoute: () => BlogAdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/adultos': typeof AdultosRouteWithChildren
+  '/blog': typeof BlogRouteWithChildren
   '/contato': typeof ContatoRoute
   '/cursos': typeof CursosRouteWithChildren
   '/privacidade': typeof PrivacidadeRoute
@@ -549,6 +598,9 @@ export interface FileRoutesByFullPath {
   '/apresentacoes/informatica-junior': typeof ApresentacoesInformaticaJuniorRoute
   '/apresentacoes/tecnologia-create': typeof ApresentacoesTecnologiaCreateRoute
   '/apresentacoes/tecnologia-junior': typeof ApresentacoesTecnologiaJuniorRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/blog/admin': typeof BlogAdminRouteWithChildren
+  '/blog/entrar': typeof BlogEntrarRoute
   '/cursos/academies': typeof CursosAcademiesRoute
   '/cursos/camps': typeof CursosCampsRoute
   '/cursos/create': typeof CursosCreateRouteWithChildren
@@ -560,6 +612,7 @@ export interface FileRoutesByFullPath {
   '/sobre/visao': typeof SobreVisaoRoute
   '/adultos/': typeof AdultosIndexRoute
   '/apresentacoes/': typeof ApresentacoesIndexRoute
+  '/blog/': typeof BlogIndexRoute
   '/cursos/': typeof CursosIndexRoute
   '/sobre/': typeof SobreIndexRoute
   '/adultos/cursos/ads': typeof AdultosCursosAdsRoute
@@ -612,6 +665,7 @@ export interface FileRoutesByFullPath {
   '/adultos/cursos/tiktok-ads': typeof AdultosCursosTiktokAdsRoute
   '/adultos/cursos/typescript': typeof AdultosCursosTypescriptRoute
   '/adultos/cursos/word': typeof AdultosCursosWordRoute
+  '/blog/admin/novo': typeof BlogAdminNovoRoute
   '/cursos/create/10-11-anos': typeof CursosCreate1011AnosRoute
   '/cursos/create/11-12-anos': typeof CursosCreate1112AnosRoute
   '/cursos/create/12-13-anos': typeof CursosCreate1213AnosRoute
@@ -621,8 +675,10 @@ export interface FileRoutesByFullPath {
   '/cursos/junior/5-6-anos': typeof CursosJunior56AnosRoute
   '/cursos/junior/6-7-anos': typeof CursosJunior67AnosRoute
   '/cursos/junior/7-8-anos': typeof CursosJunior78AnosRoute
+  '/blog/admin/': typeof BlogAdminIndexRoute
   '/cursos/create/': typeof CursosCreateIndexRoute
   '/cursos/junior/': typeof CursosJuniorIndexRoute
+  '/blog/admin/$id/editar': typeof BlogAdminIdEditarRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -633,6 +689,8 @@ export interface FileRoutesByTo {
   '/apresentacoes/informatica-junior': typeof ApresentacoesInformaticaJuniorRoute
   '/apresentacoes/tecnologia-create': typeof ApresentacoesTecnologiaCreateRoute
   '/apresentacoes/tecnologia-junior': typeof ApresentacoesTecnologiaJuniorRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/blog/entrar': typeof BlogEntrarRoute
   '/cursos/academies': typeof CursosAcademiesRoute
   '/cursos/camps': typeof CursosCampsRoute
   '/professores/informatica-create': typeof ProfessoresInformaticaCreateRoute
@@ -642,6 +700,7 @@ export interface FileRoutesByTo {
   '/sobre/visao': typeof SobreVisaoRoute
   '/adultos': typeof AdultosIndexRoute
   '/apresentacoes': typeof ApresentacoesIndexRoute
+  '/blog': typeof BlogIndexRoute
   '/cursos': typeof CursosIndexRoute
   '/sobre': typeof SobreIndexRoute
   '/adultos/cursos/ads': typeof AdultosCursosAdsRoute
@@ -694,6 +753,7 @@ export interface FileRoutesByTo {
   '/adultos/cursos/tiktok-ads': typeof AdultosCursosTiktokAdsRoute
   '/adultos/cursos/typescript': typeof AdultosCursosTypescriptRoute
   '/adultos/cursos/word': typeof AdultosCursosWordRoute
+  '/blog/admin/novo': typeof BlogAdminNovoRoute
   '/cursos/create/10-11-anos': typeof CursosCreate1011AnosRoute
   '/cursos/create/11-12-anos': typeof CursosCreate1112AnosRoute
   '/cursos/create/12-13-anos': typeof CursosCreate1213AnosRoute
@@ -703,13 +763,16 @@ export interface FileRoutesByTo {
   '/cursos/junior/5-6-anos': typeof CursosJunior56AnosRoute
   '/cursos/junior/6-7-anos': typeof CursosJunior67AnosRoute
   '/cursos/junior/7-8-anos': typeof CursosJunior78AnosRoute
+  '/blog/admin': typeof BlogAdminIndexRoute
   '/cursos/create': typeof CursosCreateIndexRoute
   '/cursos/junior': typeof CursosJuniorIndexRoute
+  '/blog/admin/$id/editar': typeof BlogAdminIdEditarRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/adultos': typeof AdultosRouteWithChildren
+  '/blog': typeof BlogRouteWithChildren
   '/contato': typeof ContatoRoute
   '/cursos': typeof CursosRouteWithChildren
   '/privacidade': typeof PrivacidadeRoute
@@ -719,6 +782,9 @@ export interface FileRoutesById {
   '/apresentacoes/informatica-junior': typeof ApresentacoesInformaticaJuniorRoute
   '/apresentacoes/tecnologia-create': typeof ApresentacoesTecnologiaCreateRoute
   '/apresentacoes/tecnologia-junior': typeof ApresentacoesTecnologiaJuniorRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/blog/admin': typeof BlogAdminRouteWithChildren
+  '/blog/entrar': typeof BlogEntrarRoute
   '/cursos/academies': typeof CursosAcademiesRoute
   '/cursos/camps': typeof CursosCampsRoute
   '/cursos/create': typeof CursosCreateRouteWithChildren
@@ -730,6 +796,7 @@ export interface FileRoutesById {
   '/sobre/visao': typeof SobreVisaoRoute
   '/adultos/': typeof AdultosIndexRoute
   '/apresentacoes/': typeof ApresentacoesIndexRoute
+  '/blog/': typeof BlogIndexRoute
   '/cursos/': typeof CursosIndexRoute
   '/sobre/': typeof SobreIndexRoute
   '/adultos/cursos/ads': typeof AdultosCursosAdsRoute
@@ -782,6 +849,7 @@ export interface FileRoutesById {
   '/adultos/cursos/tiktok-ads': typeof AdultosCursosTiktokAdsRoute
   '/adultos/cursos/typescript': typeof AdultosCursosTypescriptRoute
   '/adultos/cursos/word': typeof AdultosCursosWordRoute
+  '/blog/admin/novo': typeof BlogAdminNovoRoute
   '/cursos/create/10-11-anos': typeof CursosCreate1011AnosRoute
   '/cursos/create/11-12-anos': typeof CursosCreate1112AnosRoute
   '/cursos/create/12-13-anos': typeof CursosCreate1213AnosRoute
@@ -791,14 +859,17 @@ export interface FileRoutesById {
   '/cursos/junior/5-6-anos': typeof CursosJunior56AnosRoute
   '/cursos/junior/6-7-anos': typeof CursosJunior67AnosRoute
   '/cursos/junior/7-8-anos': typeof CursosJunior78AnosRoute
+  '/blog/admin/': typeof BlogAdminIndexRoute
   '/cursos/create/': typeof CursosCreateIndexRoute
   '/cursos/junior/': typeof CursosJuniorIndexRoute
+  '/blog/admin/$id/editar': typeof BlogAdminIdEditarRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/adultos'
+    | '/blog'
     | '/contato'
     | '/cursos'
     | '/privacidade'
@@ -808,6 +879,9 @@ export interface FileRouteTypes {
     | '/apresentacoes/informatica-junior'
     | '/apresentacoes/tecnologia-create'
     | '/apresentacoes/tecnologia-junior'
+    | '/blog/$slug'
+    | '/blog/admin'
+    | '/blog/entrar'
     | '/cursos/academies'
     | '/cursos/camps'
     | '/cursos/create'
@@ -819,6 +893,7 @@ export interface FileRouteTypes {
     | '/sobre/visao'
     | '/adultos/'
     | '/apresentacoes/'
+    | '/blog/'
     | '/cursos/'
     | '/sobre/'
     | '/adultos/cursos/ads'
@@ -871,6 +946,7 @@ export interface FileRouteTypes {
     | '/adultos/cursos/tiktok-ads'
     | '/adultos/cursos/typescript'
     | '/adultos/cursos/word'
+    | '/blog/admin/novo'
     | '/cursos/create/10-11-anos'
     | '/cursos/create/11-12-anos'
     | '/cursos/create/12-13-anos'
@@ -880,8 +956,10 @@ export interface FileRouteTypes {
     | '/cursos/junior/5-6-anos'
     | '/cursos/junior/6-7-anos'
     | '/cursos/junior/7-8-anos'
+    | '/blog/admin/'
     | '/cursos/create/'
     | '/cursos/junior/'
+    | '/blog/admin/$id/editar'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -892,6 +970,8 @@ export interface FileRouteTypes {
     | '/apresentacoes/informatica-junior'
     | '/apresentacoes/tecnologia-create'
     | '/apresentacoes/tecnologia-junior'
+    | '/blog/$slug'
+    | '/blog/entrar'
     | '/cursos/academies'
     | '/cursos/camps'
     | '/professores/informatica-create'
@@ -901,6 +981,7 @@ export interface FileRouteTypes {
     | '/sobre/visao'
     | '/adultos'
     | '/apresentacoes'
+    | '/blog'
     | '/cursos'
     | '/sobre'
     | '/adultos/cursos/ads'
@@ -953,6 +1034,7 @@ export interface FileRouteTypes {
     | '/adultos/cursos/tiktok-ads'
     | '/adultos/cursos/typescript'
     | '/adultos/cursos/word'
+    | '/blog/admin/novo'
     | '/cursos/create/10-11-anos'
     | '/cursos/create/11-12-anos'
     | '/cursos/create/12-13-anos'
@@ -962,12 +1044,15 @@ export interface FileRouteTypes {
     | '/cursos/junior/5-6-anos'
     | '/cursos/junior/6-7-anos'
     | '/cursos/junior/7-8-anos'
+    | '/blog/admin'
     | '/cursos/create'
     | '/cursos/junior'
+    | '/blog/admin/$id/editar'
   id:
     | '__root__'
     | '/'
     | '/adultos'
+    | '/blog'
     | '/contato'
     | '/cursos'
     | '/privacidade'
@@ -977,6 +1062,9 @@ export interface FileRouteTypes {
     | '/apresentacoes/informatica-junior'
     | '/apresentacoes/tecnologia-create'
     | '/apresentacoes/tecnologia-junior'
+    | '/blog/$slug'
+    | '/blog/admin'
+    | '/blog/entrar'
     | '/cursos/academies'
     | '/cursos/camps'
     | '/cursos/create'
@@ -988,6 +1076,7 @@ export interface FileRouteTypes {
     | '/sobre/visao'
     | '/adultos/'
     | '/apresentacoes/'
+    | '/blog/'
     | '/cursos/'
     | '/sobre/'
     | '/adultos/cursos/ads'
@@ -1040,6 +1129,7 @@ export interface FileRouteTypes {
     | '/adultos/cursos/tiktok-ads'
     | '/adultos/cursos/typescript'
     | '/adultos/cursos/word'
+    | '/blog/admin/novo'
     | '/cursos/create/10-11-anos'
     | '/cursos/create/11-12-anos'
     | '/cursos/create/12-13-anos'
@@ -1049,13 +1139,16 @@ export interface FileRouteTypes {
     | '/cursos/junior/5-6-anos'
     | '/cursos/junior/6-7-anos'
     | '/cursos/junior/7-8-anos'
+    | '/blog/admin/'
     | '/cursos/create/'
     | '/cursos/junior/'
+    | '/blog/admin/$id/editar'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdultosRoute: typeof AdultosRouteWithChildren
+  BlogRoute: typeof BlogRouteWithChildren
   ContatoRoute: typeof ContatoRoute
   CursosRoute: typeof CursosRouteWithChildren
   PrivacidadeRoute: typeof PrivacidadeRoute
@@ -1109,6 +1202,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContatoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/adultos': {
       id: '/adultos'
       path: '/adultos'
@@ -1136,6 +1236,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/cursos/'
       preLoaderRoute: typeof CursosIndexRouteImport
       parentRoute: typeof CursosRoute
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof BlogRoute
     }
     '/apresentacoes/': {
       id: '/apresentacoes/'
@@ -1214,6 +1321,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CursosAcademiesRouteImport
       parentRoute: typeof CursosRoute
     }
+    '/blog/entrar': {
+      id: '/blog/entrar'
+      path: '/entrar'
+      fullPath: '/blog/entrar'
+      preLoaderRoute: typeof BlogEntrarRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/blog/admin': {
+      id: '/blog/admin'
+      path: '/admin'
+      fullPath: '/blog/admin'
+      preLoaderRoute: typeof BlogAdminRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
     '/apresentacoes/tecnologia-junior': {
       id: '/apresentacoes/tecnologia-junior'
       path: '/apresentacoes/tecnologia-junior'
@@ -1255,6 +1383,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/cursos/create/'
       preLoaderRoute: typeof CursosCreateIndexRouteImport
       parentRoute: typeof CursosCreateRoute
+    }
+    '/blog/admin/': {
+      id: '/blog/admin/'
+      path: '/'
+      fullPath: '/blog/admin/'
+      preLoaderRoute: typeof BlogAdminIndexRouteImport
+      parentRoute: typeof BlogAdminRoute
     }
     '/cursos/junior/7-8-anos': {
       id: '/cursos/junior/7-8-anos'
@@ -1318,6 +1453,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/cursos/create/10-11-anos'
       preLoaderRoute: typeof CursosCreate1011AnosRouteImport
       parentRoute: typeof CursosCreateRoute
+    }
+    '/blog/admin/novo': {
+      id: '/blog/admin/novo'
+      path: '/novo'
+      fullPath: '/blog/admin/novo'
+      preLoaderRoute: typeof BlogAdminNovoRouteImport
+      parentRoute: typeof BlogAdminRoute
     }
     '/adultos/cursos/word': {
       id: '/adultos/cursos/word'
@@ -1669,6 +1811,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdultosCursosAdsRouteImport
       parentRoute: typeof AdultosRoute
     }
+    '/blog/admin/$id/editar': {
+      id: '/blog/admin/$id/editar'
+      path: '/$id/editar'
+      fullPath: '/blog/admin/$id/editar'
+      preLoaderRoute: typeof BlogAdminIdEditarRouteImport
+      parentRoute: typeof BlogAdminRoute
+    }
   }
 }
 
@@ -1783,6 +1932,38 @@ const AdultosRouteChildren: AdultosRouteChildren = {
 const AdultosRouteWithChildren =
   AdultosRoute._addFileChildren(AdultosRouteChildren)
 
+interface BlogAdminRouteChildren {
+  BlogAdminNovoRoute: typeof BlogAdminNovoRoute
+  BlogAdminIndexRoute: typeof BlogAdminIndexRoute
+  BlogAdminIdEditarRoute: typeof BlogAdminIdEditarRoute
+}
+
+const BlogAdminRouteChildren: BlogAdminRouteChildren = {
+  BlogAdminNovoRoute: BlogAdminNovoRoute,
+  BlogAdminIndexRoute: BlogAdminIndexRoute,
+  BlogAdminIdEditarRoute: BlogAdminIdEditarRoute,
+}
+
+const BlogAdminRouteWithChildren = BlogAdminRoute._addFileChildren(
+  BlogAdminRouteChildren,
+)
+
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+  BlogAdminRoute: typeof BlogAdminRouteWithChildren
+  BlogEntrarRoute: typeof BlogEntrarRoute
+  BlogIndexRoute: typeof BlogIndexRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+  BlogAdminRoute: BlogAdminRouteWithChildren,
+  BlogEntrarRoute: BlogEntrarRoute,
+  BlogIndexRoute: BlogIndexRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
+
 interface CursosCreateRouteChildren {
   CursosCreate1011AnosRoute: typeof CursosCreate1011AnosRoute
   CursosCreate1112AnosRoute: typeof CursosCreate1112AnosRoute
@@ -1859,6 +2040,7 @@ const SobreRouteWithChildren = SobreRoute._addFileChildren(SobreRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdultosRoute: AdultosRouteWithChildren,
+  BlogRoute: BlogRouteWithChildren,
   ContatoRoute: ContatoRoute,
   CursosRoute: CursosRouteWithChildren,
   PrivacidadeRoute: PrivacidadeRoute,
