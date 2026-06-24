@@ -1,5 +1,5 @@
 import { createFileRoute, Outlet, Link, useRouterState } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Home,
   Menu,
@@ -19,6 +19,8 @@ import { WHATSAPP_URL } from "@/lib/whatsapp";
 export const Route = createFileRoute("/adultos")({
   component: AdultosLayout,
 });
+
+const DARK_KEY = "adultos:dark";
 
 const GRUPOS: { id: string; label: string; cursos: { slug: string; nome: string }[] }[] = [
   {
@@ -125,6 +127,18 @@ function AdultosLayout() {
   const [cursosOpen, setCursosOpen] = useState(true);
   const [gruposOpen, setGruposOpen] = useState<Record<string, boolean>>({});
   const [dark, setDark] = useState(false);
+
+  // Lê a preferência salva no mount (inicia em false p/ casar com o SSR e evitar mismatch).
+  useEffect(() => {
+    setDark(localStorage.getItem(DARK_KEY) === "true");
+  }, []);
+
+  const toggleDark = () =>
+    setDark((d) => {
+      const next = !d;
+      localStorage.setItem(DARK_KEY, String(next));
+      return next;
+    });
 
   const toggleGrupo = (id: string) =>
     setGruposOpen((prev) => ({ ...prev, [id]: !prev[id] }));
@@ -319,14 +333,14 @@ function AdultosLayout() {
                       <div className="overflow-hidden">
                         <div className="ml-2 border-l border-neutral-100 dark:border-neutral-800/60 pl-2 pb-1 space-y-0.5">
                           {cursos.map(({ slug, nome }) => (
-                            <a
+                            <Link
                               key={slug}
-                              href={`/adultos/cursos/${slug}`}
+                              to={`/adultos/cursos/${slug}`}
                               onClick={() => setMobileOpen(false)}
                               className="flex min-w-0 items-center rounded-lg px-3 py-1.5 text-sm font-medium text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
                             >
                               <span className="truncate">{nome}</span>
-                            </a>
+                            </Link>
                           ))}
                         </div>
                       </div>
@@ -367,7 +381,7 @@ function AdultosLayout() {
         <div className="shrink-0 border-t border-neutral-200 dark:border-neutral-800 p-3 space-y-2">
           <button
             type="button"
-            onClick={() => setDark((d) => !d)}
+            onClick={toggleDark}
             title={collapsed ? (dark ? "Modo claro" : "Modo escuro") : undefined}
             className="w-full flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
           >
