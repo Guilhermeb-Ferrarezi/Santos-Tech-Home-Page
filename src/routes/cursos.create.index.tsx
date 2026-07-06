@@ -5,7 +5,6 @@ import {
   ArrowRight,
   Sparkles,
   CheckCircle2,
-  Cpu,
   Lock,
 } from "lucide-react";
 import {

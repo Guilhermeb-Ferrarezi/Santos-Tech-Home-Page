@@ -139,7 +139,6 @@ export function ScrollStage({ heading, features, photo, heightVh = 340 }: Scroll
   // Aplica o estado inicial antes do paint (evita flash).
   useLayoutEffect(() => {
     if (enhanced) applyProgress();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [enhanced]);
 
   // Loop eficiente: só roda enquanto há scroll e a seção está visível.

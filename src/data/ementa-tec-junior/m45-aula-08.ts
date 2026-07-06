@@ -81,7 +81,7 @@ O erro mais comum é esquecer um dos três ingredientes; por isso o cartão de c
       tempo: `8 minutos`,
       guiaProfessor: `Mostre o código do objeto de exemplo no projetor. Vá apontando linha por linha e peça que as crianças levantem a mão quando virem cada ingrediente. Não corrija ainda nada; só ajude a localizar.`,
       atividade: `Olhando o código do objeto de exemplo, aponte qual linha cria a variável, qual linha tem o print e qual linha muda uma propriedade da peça.`,
-      gabarito: `A linha que cria a variável é "local vezes = 0". As linhas com print são "print(\"O objeto reagiu! Vezes: \")" e "print(vezes)". A linha que muda a propriedade é "peca.Color = Color3.new(1, 0, 0)", que pinta a peça de vermelho. A criança acerta ao indicar corretamente pelo menos a variável, um print e a mudança de cor.`,
+      gabarito: `A linha que cria a variável é "local vezes = 0". As linhas com print são "print("O objeto reagiu! Vezes: ")" e "print(vezes)". A linha que muda a propriedade é "peca.Color = Color3.new(1, 0, 0)", que pinta a peça de vermelho. A criança acerta ao indicar corretamente pelo menos a variável, um print e a mudança de cor.`,
     },
     {
       titulo: `Montar o meu objeto que reage`,

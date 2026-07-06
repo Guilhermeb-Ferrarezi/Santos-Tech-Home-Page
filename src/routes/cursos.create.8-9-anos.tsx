@@ -6,7 +6,6 @@ import {
   Sword as PhSword,
   Trophy as PhTrophy,
   GameController as PhGameController,
-  Sparkle as PhSparkle,
 } from "@phosphor-icons/react";
 import { phosphor } from "@/lib/phosphor";
 
@@ -18,7 +17,6 @@ const Trophy = phosphor(PhTrophy, "bold");
 
 // Ícones de módulo — duotone (containers tintados claros)
 const Gamepad2 = phosphor(PhGameController, "duotone");
-const Sparkles = phosphor(PhSparkle, "duotone");
 import {
   CourseHero,
   ProgressionTrail,

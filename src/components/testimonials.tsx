@@ -165,7 +165,6 @@ export function Testimonials() {
 
   useLayoutEffect(() => {
     if (enhanced) applyProgress();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [enhanced]);
 
   useScrollScrub(enhanced, rootRef, applyProgress);
