@@ -35,6 +35,7 @@ const GRUPOS: { id: string; label: string; cursos: { slug: string; nome: string 
       { slug: "office", nome: "Pacote Office" },
       { slug: "excel-power-bi", nome: "Excel + Power BI" },
       { slug: "excel", nome: "Excel" },
+      { slug: "excel-ia", nome: "Excel + IA" },
       { slug: "word", nome: "Word" },
       { slug: "powerpoint", nome: "PowerPoint" },
       { slug: "power-bi", nome: "Power BI" },

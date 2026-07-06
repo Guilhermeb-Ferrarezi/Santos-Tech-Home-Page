@@ -81,6 +81,7 @@ import { Route as AdultosCursosFunilVendasRouteImport } from './routes/adultos.c
 import { Route as AdultosCursosFullstackRouteImport } from './routes/adultos.cursos.fullstack'
 import { Route as AdultosCursosFrontendRouteImport } from './routes/adultos.cursos.frontend'
 import { Route as AdultosCursosExcelPowerBiRouteImport } from './routes/adultos.cursos.excel-power-bi'
+import { Route as AdultosCursosExcelIaRouteImport } from './routes/adultos.cursos.excel-ia'
 import { Route as AdultosCursosExcelRouteImport } from './routes/adultos.cursos.excel'
 import { Route as AdultosCursosEcommerceRouteImport } from './routes/adultos.cursos.ecommerce'
 import { Route as AdultosCursosDavinciRouteImport } from './routes/adultos.cursos.davinci'
@@ -469,6 +470,11 @@ const AdultosCursosExcelPowerBiRoute =
     path: '/cursos/excel-power-bi',
     getParentRoute: () => AdultosRoute,
   } as any)
+const AdultosCursosExcelIaRoute = AdultosCursosExcelIaRouteImport.update({
+  id: '/cursos/excel-ia',
+  path: '/cursos/excel-ia',
+  getParentRoute: () => AdultosRoute,
+} as any)
 const AdultosCursosExcelRoute = AdultosCursosExcelRouteImport.update({
   id: '/cursos/excel',
   path: '/cursos/excel',
@@ -575,6 +581,7 @@ export interface FileRoutesByFullPath {
   '/adultos/cursos/davinci': typeof AdultosCursosDavinciRoute
   '/adultos/cursos/ecommerce': typeof AdultosCursosEcommerceRoute
   '/adultos/cursos/excel': typeof AdultosCursosExcelRoute
+  '/adultos/cursos/excel-ia': typeof AdultosCursosExcelIaRoute
   '/adultos/cursos/excel-power-bi': typeof AdultosCursosExcelPowerBiRoute
   '/adultos/cursos/frontend': typeof AdultosCursosFrontendRoute
   '/adultos/cursos/fullstack': typeof AdultosCursosFullstackRoute
@@ -657,6 +664,7 @@ export interface FileRoutesByTo {
   '/adultos/cursos/davinci': typeof AdultosCursosDavinciRoute
   '/adultos/cursos/ecommerce': typeof AdultosCursosEcommerceRoute
   '/adultos/cursos/excel': typeof AdultosCursosExcelRoute
+  '/adultos/cursos/excel-ia': typeof AdultosCursosExcelIaRoute
   '/adultos/cursos/excel-power-bi': typeof AdultosCursosExcelPowerBiRoute
   '/adultos/cursos/frontend': typeof AdultosCursosFrontendRoute
   '/adultos/cursos/fullstack': typeof AdultosCursosFullstackRoute
@@ -745,6 +753,7 @@ export interface FileRoutesById {
   '/adultos/cursos/davinci': typeof AdultosCursosDavinciRoute
   '/adultos/cursos/ecommerce': typeof AdultosCursosEcommerceRoute
   '/adultos/cursos/excel': typeof AdultosCursosExcelRoute
+  '/adultos/cursos/excel-ia': typeof AdultosCursosExcelIaRoute
   '/adultos/cursos/excel-power-bi': typeof AdultosCursosExcelPowerBiRoute
   '/adultos/cursos/frontend': typeof AdultosCursosFrontendRoute
   '/adultos/cursos/fullstack': typeof AdultosCursosFullstackRoute
@@ -834,6 +843,7 @@ export interface FileRouteTypes {
     | '/adultos/cursos/davinci'
     | '/adultos/cursos/ecommerce'
     | '/adultos/cursos/excel'
+    | '/adultos/cursos/excel-ia'
     | '/adultos/cursos/excel-power-bi'
     | '/adultos/cursos/frontend'
     | '/adultos/cursos/fullstack'
@@ -916,6 +926,7 @@ export interface FileRouteTypes {
     | '/adultos/cursos/davinci'
     | '/adultos/cursos/ecommerce'
     | '/adultos/cursos/excel'
+    | '/adultos/cursos/excel-ia'
     | '/adultos/cursos/excel-power-bi'
     | '/adultos/cursos/frontend'
     | '/adultos/cursos/fullstack'
@@ -1003,6 +1014,7 @@ export interface FileRouteTypes {
     | '/adultos/cursos/davinci'
     | '/adultos/cursos/ecommerce'
     | '/adultos/cursos/excel'
+    | '/adultos/cursos/excel-ia'
     | '/adultos/cursos/excel-power-bi'
     | '/adultos/cursos/frontend'
     | '/adultos/cursos/fullstack'
@@ -1578,6 +1590,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdultosCursosExcelPowerBiRouteImport
       parentRoute: typeof AdultosRoute
     }
+    '/adultos/cursos/excel-ia': {
+      id: '/adultos/cursos/excel-ia'
+      path: '/cursos/excel-ia'
+      fullPath: '/adultos/cursos/excel-ia'
+      preLoaderRoute: typeof AdultosCursosExcelIaRouteImport
+      parentRoute: typeof AdultosRoute
+    }
     '/adultos/cursos/excel': {
       id: '/adultos/cursos/excel'
       path: '/cursos/excel'
@@ -1687,6 +1706,7 @@ interface AdultosRouteChildren {
   AdultosCursosDavinciRoute: typeof AdultosCursosDavinciRoute
   AdultosCursosEcommerceRoute: typeof AdultosCursosEcommerceRoute
   AdultosCursosExcelRoute: typeof AdultosCursosExcelRoute
+  AdultosCursosExcelIaRoute: typeof AdultosCursosExcelIaRoute
   AdultosCursosExcelPowerBiRoute: typeof AdultosCursosExcelPowerBiRoute
   AdultosCursosFrontendRoute: typeof AdultosCursosFrontendRoute
   AdultosCursosFullstackRoute: typeof AdultosCursosFullstackRoute
@@ -1741,6 +1761,7 @@ const AdultosRouteChildren: AdultosRouteChildren = {
   AdultosCursosDavinciRoute: AdultosCursosDavinciRoute,
   AdultosCursosEcommerceRoute: AdultosCursosEcommerceRoute,
   AdultosCursosExcelRoute: AdultosCursosExcelRoute,
+  AdultosCursosExcelIaRoute: AdultosCursosExcelIaRoute,
   AdultosCursosExcelPowerBiRoute: AdultosCursosExcelPowerBiRoute,
   AdultosCursosFrontendRoute: AdultosCursosFrontendRoute,
   AdultosCursosFullstackRoute: AdultosCursosFullstackRoute,
