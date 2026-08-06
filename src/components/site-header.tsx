@@ -71,6 +71,16 @@ export function SiteHeader() {
           <ProgramsDropdown />
           <SobreDropdown />
 
+          {/* /blog é outro app (repo blog, deploy próprio) no mesmo domínio —
+              <a> normal, não <Link> do router (que só conhece as rotas
+              deste app e daria 404 client-side). */}
+          <a
+            href="/blog"
+            className="text-sm font-semibold text-foreground/80 transition-colors hover:text-primary"
+          >
+            Blog
+          </a>
+
           <Link
             to="/contato"
             className="text-sm font-semibold text-foreground/80 transition-colors hover:text-primary"
@@ -162,6 +172,14 @@ export function SiteHeader() {
                 ))}
               </div>
             )}
+
+            <a
+              href="/blog"
+              onClick={closeAll}
+              className="rounded-md px-3 py-2 text-base font-semibold text-foreground/80 hover:bg-muted hover:text-primary"
+            >
+              Blog
+            </a>
 
             <Link
               to="/contato"

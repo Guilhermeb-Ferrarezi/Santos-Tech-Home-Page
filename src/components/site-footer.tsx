@@ -115,6 +115,8 @@ export function SiteFooter() {
             <li><Link to="/sobre" className={t.links}>Sobre</Link></li>
             <li><Link to="/contato" className={t.links}>Contato</Link></li>
             <li><Link to="/adultos" className={t.links}>Cursos para Adultos</Link></li>
+            {/* /blog é outro app (repo blog) no mesmo domínio — <a>, não <Link>. */}
+            <li><a href="/blog" className={t.links}>Blog</a></li>
           </ul>
         </div>
 
