@@ -14,5 +14,7 @@ Disallow: /apresentacoes
 # Área de professores — material didático restrito (não indexar)
 Disallow: /professores
 
-# Sitemap principal — listado pros crawlers descobrirem rotas.
+# Sitemaps — cada app do domínio mantém o próprio; listar os dois pros
+# crawlers descobrirem as rotas de ambos (site institucional + blog).
 Sitemap: https://santos-tech.com/sitemap.xml
+Sitemap: https://santos-tech.com/blog/sitemap.xml
