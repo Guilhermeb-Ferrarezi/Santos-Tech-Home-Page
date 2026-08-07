@@ -215,6 +215,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso já saber Revit ou modelagem BIM pra começar?",
+      a: "Não. O curso começa no Essencial com a interface do Revit e os conceitos básicos de BIM, ideal pra quem vem do AutoCAD ou SketchUp e nunca modelou com informação paramétrica. Dali você evolui até projeto executivo completo e Dynamo no nível Profissional + IA.",
+    },
+    {
+      q: "Qual a diferença entre os níveis Essencial, Intermediário e Profissional + IA?",
+      a: "Essencial ensina a criar um modelo arquitetônico residencial básico com plantas, cortes e pranchas. Intermediário entra em famílias paramétricas, schedules avançados e coordenação multidisciplinar. Profissional + IA fecha com projeto executivo completo, Dynamo, IA generativa aplicada ao BIM e preparação pra certificação Autodesk Certified Professional.",
+    },
+    {
+      q: "O curso prepara pra atuar como Coordenador ou BIM Manager?",
+      a: "Sim. O Profissional + IA cobre BIM Execution Plan conforme ISO 19650, Common Data Environment, clash detection com Navisworks Manage e definição de LOD por fase de projeto — as ferramentas que um Coordenador BIM usa no dia a dia.",
+    },
+  ],
 }
 
 function RevitPage() {

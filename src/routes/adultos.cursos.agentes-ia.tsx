@@ -200,6 +200,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Já uso N8N ou Make, esse curso ainda faz sentido pra mim?",
+      a: "Faz — é exatamente pra esse perfil. O Essencial parte do que você já sabe de automação e mostra como integrar LLMs como GPT-4o e Gemini pra criar agentes que raciocinam e decidem, com memória e ferramentas, em vez de fluxos lineares fixos.",
+    },
+    {
+      q: "Preciso saber programar pra criar agentes de IA?",
+      a: "No módulo Essencial não — tudo é construído visualmente no N8N, incluindo integração com APIs, planilhas e WhatsApp. O Profissional + IA é que entra em Python com LangChain, LangGraph e CrewAI pra quem quer arquitetar sistemas multiagentes mais complexos.",
+    },
+    {
+      q: "Dá pra usar o que aprendo aqui pra oferecer automações como serviço?",
+      a: "Sim. O curso foi desenhado pensando nisso — do agente de suporte com fallback pra humano no Essencial até agentes de análise de leads, monitoramento de contrato e atendimento por voz em produção no Profissional + IA, prontos pra vender como solução pra clientes.",
+    },
+  ],
 }
 
 function AgentesIaPage() {

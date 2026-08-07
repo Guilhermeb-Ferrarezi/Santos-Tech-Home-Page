@@ -219,6 +219,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Nunca programei — consigo aprender Python do zero nesse curso?",
+      a: "Sim. O nível Essencial começa do absoluto zero: instalação do Python, variáveis, condicionais, loops e funções, antes de partir pra automação de planilhas e e-mails.",
+    },
+    {
+      q: "Qual a diferença entre os três níveis do curso?",
+      a: "Essencial ensina scripts básicos, automação de planilhas com openpyxl e envio de e-mails. Intermediário entra em web scraping com Playwright, análise de dados com Pandas e integração com APIs REST. Profissional + IA fecha com FastAPI, programação assíncrona, IA generativa com LangChain e um projeto de automação completo deployado com CI/CD.",
+    },
+    {
+      q: "Trabalho com financeiro, RH ou operações — esse curso serve pra automatizar relatórios do meu setor?",
+      a: "Sim, é um dos focos principais do curso. Você aprende a automatizar geração de relatórios, planilhas e notificações — reduzindo o trabalho manual repetitivo dessas áreas.",
+    },
+  ],
 }
 
 function PythonPage() {

@@ -207,6 +207,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso ter experiência prévia em marketing para começar esse curso?",
+      a: "Não. O nível Essencial parte dos fundamentos — funil de marketing, jornada do cliente e diferença entre tráfego orgânico e pago — antes de entrar nas primeiras campanhas em Google Ads e Meta Ads.",
+    },
+    {
+      q: "Qual a diferença entre os níveis Essencial, Intermediário e Profissional + IA?",
+      a: "Essencial ensina os fundamentos do funil e a criar campanhas básicas no Google Ads, Meta Ads e SEO. Intermediário avança para campanhas pagas completas com otimização de ROAS, e-mail marketing e marketing de conteúdo. Profissional + IA fecha com automação por IA, analytics avançado e um projeto real de gestão de R$5.000 em tráfego pago, com preparação para certificações Google Ads e Meta Blueprint.",
+    },
+    {
+      q: "Sou freelancer e quero oferecer marketing digital completo pros meus clientes — esse curso serve?",
+      a: "Sim. O curso cobre tráfego pago, SEO, conteúdo e e-mail marketing de ponta a ponta, exatamente o pacote que um freelancer precisa para atender pequenas empresas sem depender de uma agência por trás.",
+    },
+  ],
 }
 
 function MarketingPage() {

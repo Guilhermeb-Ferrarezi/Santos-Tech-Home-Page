@@ -183,6 +183,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso já saber programar pra fazer esse curso?",
+      a: "Sim, alguma base ajuda bastante. O curso já começa no nível Intermediário assumindo que você tem noções de JavaScript ou React — se você é desenvolvedor web querendo migrar pra mobile, esse é o ponto de partida ideal.",
+    },
+    {
+      q: "Qual a diferença entre o módulo de React Native e o de Flutter?",
+      a: "No Intermediário você aprende React Native com Expo — navegação, estado global, autenticação e recursos nativos, o suficiente pra publicar seu primeiro app. No Profissional + IA você domina Flutter com Riverpod, CI/CD automatizado nas lojas e integração de IA nos apps, fechando com um portfólio completo de desenvolvedor mobile.",
+    },
+    {
+      q: "Vou realmente aprender a publicar um app nas lojas, ou só a programar?",
+      a: "As duas coisas. O curso cobre build com EAS Build, submissão na Google Play Console e na App Store Connect, e até CI/CD com GitHub Actions pra automatizar builds — você sai sabendo o processo completo, não só o código.",
+    },
+  ],
 }
 
 function MobilePage() {

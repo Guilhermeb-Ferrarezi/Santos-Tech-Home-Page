@@ -275,6 +275,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso já saber programar pra começar esse curso?",
+      a: "Não. O curso parte do absoluto zero: como a internet funciona, Git e GitHub, HTML5 semântico e CSS3 antes de chegar em JavaScript, React e Node.js. Se você nunca programou mas quer entrar na área de tecnologia, é o nível Essencial que te leva até uma aplicação completa com banco de dados PostgreSQL.",
+    },
+    {
+      q: "Qual a diferença entre o Essencial e o Intermediário?",
+      a: "O Essencial cobre a base completa — HTML, CSS, JavaScript, TypeScript, React, Node.js com API REST e PostgreSQL com Prisma — o suficiente pra construir e publicar uma aplicação real. O Intermediário pega esse mesmo conteúdo e adiciona Next.js, Docker, CI/CD com GitHub Actions, deploy na AWS, testes automatizados e integração com IA generativa (OpenAI, LangChain.js), preparando pra vagas de mercado nacional e internacional.",
+    },
+    {
+      q: "Esse curso serve pra quem já trabalha com TI mas quer migrar pra desenvolvimento?",
+      a: "Sim — é um público comum aqui. Quem já trabalha com suporte ou infraestrutura costuma ter familiaridade com terminal e lógica, o que acelera bastante a passagem para JavaScript, React e Node.js. O curso já termina com portfólio e prática de deploy em produção, dois pontos que pesam bastante em processo seletivo de dev.",
+    },
+  ],
 }
 
 function FullstackPage() {

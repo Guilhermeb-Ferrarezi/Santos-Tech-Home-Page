@@ -255,6 +255,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso saber programar para fazer esse curso de IA?",
+      a: "Não, principalmente nos dois primeiros níveis. O Essencial e o Intermediário focam em usar ChatGPT, Gemini, Copilot e ferramentas no-code como Make e n8n direto na sua rotina de trabalho. Programação em Python só entra no nível Profissional + IA, quando você já está pronto para construir agentes com LangChain e CrewAI.",
+    },
+    {
+      q: "Qual a diferença entre os níveis Essencial, Intermediário e Profissional + IA?",
+      a: "Essencial ensina prompting de verdade em ChatGPT, Gemini e Copilot para acelerar tarefas do dia a dia. Intermediário integra IA em fluxos mais complexos e ensina automações simples com Make e n8n. Profissional + IA vai para agentes autônomos e sistemas multiagentes com LangChain, LangGraph e CrewAI, fechando com um projeto real de negócio.",
+    },
+    {
+      q: "Já uso ChatGPT no trabalho mas os resultados não me impressionam — o curso ajuda nisso?",
+      a: "Sim, é exatamente para esse caso. O curso ensina engenharia de prompt de verdade — contexto, exemplos, raciocínio passo a passo — que é o que separa quem usa IA de forma rasa de quem realmente extrai resultado dela, seja você gestor, analista, redator, vendedor ou profissional de RH.",
+    },
+  ],
 }
 
 function IaPage() {

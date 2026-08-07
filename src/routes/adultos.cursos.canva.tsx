@@ -79,6 +79,20 @@ const COURSE_DATA: CourseData = {
       tools: ["Canva Pro", "Google Drive", "WhatsApp Business"],
     },
   ],
+  faqItems: [
+    {
+      q: "Nunca fiz nada de design, consigo acompanhar o curso?",
+      a: "Sim, o curso foi pensado pra quem não tem experiência prévia em design. Começa pela interface do Canva Pro e pelos fundamentos de hierarquia visual, tipografia e cor, antes de partir pra peças de redes sociais, apresentações e materiais impressos.",
+    },
+    {
+      q: "Já uso o Canva gratuito, o que muda no Pro?",
+      a: "O curso mostra na prática as diferenças entre a conta gratuita e o Pro: Brand Kit com fontes e paleta personalizadas, tamanhos customizados por rede social, exportação profissional e recursos de colaboração pra aprovação de clientes.",
+    },
+    {
+      q: "Dá pra usar esse curso pra virar freelancer de design?",
+      a: "Sim. Além de criar as peças, o curso ensina como entregar projeto pra cliente: compartilhamento com controle de permissão, organização por cliente, comentários, histórico de versões e templates reutilizáveis — a base pra oferecer isso como serviço.",
+    },
+  ],
 }
 
 function CanvaPage() {

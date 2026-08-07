@@ -147,6 +147,20 @@ const COURSE_DATA: CourseData = {
       tools: ["ChatGPT", "Midjourney", "Runway", "CapCut", "HeyGen", "Descript", "Canva Magic Studio", "ElevenLabs", "Notion AI", "Captions.ai"],
     },
   ],
+  faqItems: [
+    {
+      q: "Nunca usei Midjourney ou Runway, consigo acompanhar?",
+      a: "Sim, é pra esse perfil que o Essencial foi feito. O primeiro módulo é um panorama das ferramentas com configuração de conta e primeiros testes práticos, antes de entrar na estrutura de prompt do Midjourney e na geração de vídeo com Runway no Intermediário.",
+    },
+    {
+      q: "Qual a diferença entre os módulos Essencial e Intermediário?",
+      a: "Essencial cobre a produção com IA por tipo de conteúdo — imagens no Midjourney e DALL-E, texto com ChatGPT e Claude, Canva Magic Studio e voz com ElevenLabs. Intermediário sobe pra vídeo avançado com Runway e HeyGen, consistência de identidade visual entre peças, estratégia de conteúdo e um projeto final de campanha completa.",
+    },
+    {
+      q: "Produzo conteúdo pra clientes e preciso entregar mais rápido, o curso ajuda nisso?",
+      a: "Sim. O módulo 'Fluxo de Trabalho Profissional com IA' do Intermediário monta o pipeline completo — ideia, pesquisa, escrita, design e publicação — e ensina a organizar entregas por cliente com aprovação e controle de versão.",
+    },
+  ],
 }
 
 function ConteudoIaPage() {

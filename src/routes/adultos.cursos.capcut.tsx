@@ -78,6 +78,20 @@ const COURSE_DATA = {
       tools: ["CapCut Mobile", "CapCut PC", "CapCut Web"],
     },
   ],
+  faqItems: [
+    {
+      q: "O curso ensina a editar no celular ou no computador?",
+      a: "Os dois. O primeiro módulo já mostra as diferenças entre CapCut Mobile e CapCut PC/Web, e você pratica cortes, transições, legendas automáticas e exportação nas duas versões — pra editar de onde for mais prático no seu dia a dia.",
+    },
+    {
+      q: "Preciso já ter experiência editando vídeo?",
+      a: "Não. O curso parte da interface e do fluxo de trabalho do zero — importação de clipes, cortes, trilha sonora — antes de chegar em legendas automáticas com IA, correção de cor e projetos práticos como Reels e vídeos de depoimento.",
+    },
+    {
+      q: "Dá pra usar esse curso pra migrar de carreira pra editor de vídeo?",
+      a: "Sim, é um dos perfis do curso. Além das técnicas de edição, você sai sabendo montar templates reutilizáveis pra branding e produzir com agilidade os formatos que social medias e criadores de conteúdo entregam pra múltiplos clientes.",
+    },
+  ],
 }
 
 function CapcutPage() {

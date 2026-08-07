@@ -294,6 +294,20 @@ const COURSE_DATA: CourseData = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Nunca usei computador — consigo acompanhar esse curso?",
+      a: "Sim, é exatamente para isso que o nível Essencial existe. Você começa do zero absoluto: ligar e desligar o computador, entender as partes físicas da máquina, navegar no Windows 11 e usar a internet com segurança, sem pressa e sem julgamento.",
+    },
+    {
+      q: "Qual a diferença entre os níveis Essencial, Intermediário e Profissional + IA?",
+      a: "Essencial ensina a usar o computador com autonomia: navegar, criar arquivos, e-mail e digitação. Intermediário acrescenta Word, Excel, PowerPoint e Google Workspace para produzir documentos e planilhas profissionais. Profissional + IA fecha com ferramentas de IA como Copilot e Gemini aplicadas à produtividade, terminando num projeto final real para apresentar ao mercado de trabalho.",
+    },
+    {
+      q: "Uso bem o celular mas travo na hora do computador — isso é normal?",
+      a: "É mais comum do que parece, e o curso foi pensado justamente para esse perfil. Muita gente domina o celular no dia a dia mas nunca teve alguém para ensinar o computador com calma — o curso cobre esse caminho desde o básico até o nível que o mercado de trabalho exige.",
+    },
+  ],
 }
 
 function InformaticaPage() {

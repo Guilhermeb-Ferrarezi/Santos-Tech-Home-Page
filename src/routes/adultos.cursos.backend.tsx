@@ -206,6 +206,20 @@ const COURSE_DATA: CourseData = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso já ter experiência com back-end pra começar?",
+      a: "Não precisa de experiência em back-end especificamente, mas ajuda ter lógica de programação. O curso começa pelos fundamentos de API REST — HTTP, verbos, status codes, JSON — antes de entrar em Node.js, Express, Prisma e autenticação JWT.",
+    },
+    {
+      q: "Qual a diferença entre os módulos Intermediário e Profissional + IA?",
+      a: "Intermediário te deixa capaz de criar APIs seguras com Node.js e FastAPI, autenticação JWT, banco PostgreSQL com Prisma e testes automatizados. Profissional + IA sobe o nível pra arquitetura enterprise com NestJS, filas assíncronas, cache com Redis, IA integrada ao back-end e um projeto final de SaaS completo com multi-tenancy.",
+    },
+    {
+      q: "Dá pra usar esse curso pra construir meu próprio SaaS?",
+      a: "Sim, é justamente o projeto final do Profissional + IA: uma API de SaaS completa, com isolamento de dados por organização, planos e assinaturas via Stripe Billing, deploy em nuvem e documentação pública — a base real pra lançar um produto.",
+    },
+  ],
 }
 
 function BackendPage() {

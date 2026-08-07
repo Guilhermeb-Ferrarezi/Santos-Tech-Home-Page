@@ -199,6 +199,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso ter experiência em TI pra começar esse curso?",
+      a: "Não. O curso foi desenhado pra quem quer entrar na área de TI sem saber por onde começar, inclusive pra quem vem de outra profissão e quer migrar de carreira. O Essencial parte de fundamentos de hardware e sistemas operacionais.",
+    },
+    {
+      q: "Qual a diferença entre os níveis Essencial, Intermediário e Profissional + IA?",
+      a: "Essencial ensina a atender chamados básicos, instalar sistemas e periféricos. Intermediário te prepara pra atuar como técnico N1/N2, com redes, Active Directory e ticketing avançado. Profissional + IA fecha com automação via PowerShell, segurança, IA aplicada ao help desk e preparação específica pra certificação CompTIA A+.",
+    },
+    {
+      q: "O curso prepara pra certificação CompTIA A+?",
+      a: "Sim, o Profissional + IA inclui simulados dos exames 220-1101 e 220-1102 da CompTIA A+, além de um projeto final documentando a resolução de um caso real de suporte N2.",
+    },
+  ],
 }
 
 function SuportePage() {

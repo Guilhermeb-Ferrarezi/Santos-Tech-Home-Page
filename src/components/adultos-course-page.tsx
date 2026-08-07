@@ -43,6 +43,13 @@ export type CourseData = {
   targetAudience: string[];
   tiers: Tier[];
   pricePerAula?: number;
+  /**
+   * Perguntas específicas deste curso, exibidas antes do FAQ genérico
+   * (ADULTOS_FAQ_ITEMS) e incluídas no JSON-LD FAQPage da página — evita que
+   * as ~50 páginas de /adultos/cursos/* tenham o mesmo schema estrutural
+   * idêntico (sinal de conteúdo duplicado pro Google).
+   */
+  faqItems?: { q: string; a: string }[];
 };
 
 // ── Preços e ritmo por nível ───────────────────────────────────────────────
@@ -253,7 +260,7 @@ export function AdultosCursosPage({
       totalHours: t.totalHours,
       outcome: t.outcome,
     })),
-    faq: ADULTOS_FAQ_ITEMS.map(({ q, a }) => ({ q, a })),
+    faq: [...(course.faqItems ?? []), ...ADULTOS_FAQ_ITEMS].map(({ q, a }) => ({ q, a })),
   });
 
   return (
@@ -703,7 +710,7 @@ export function AdultosCursosPage({
         </div>
       </section>
 
-      <AdultosFaq whatsappUrl={whatsappUrl} />
+      <AdultosFaq whatsappUrl={whatsappUrl} extraItems={course.faqItems} />
 
       {/* ── 7. CTA FINAL ────────────────────────────────────────────────── */}
       <section className="bg-white py-20 dark:bg-neutral-950">
@@ -721,11 +728,11 @@ export function AdultosCursosPage({
 
               <div className="relative">
                 <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
-                  Pronto pra começar?
+                  Pronto pra começar com {course.nome}?
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-neutral-400">
-                  Fale com a gente pelo WhatsApp, tire suas dúvidas e descubra
-                  qual plano é o certo pra você.
+                  Fale com a gente pelo WhatsApp, tire suas dúvidas sobre o curso de{" "}
+                  {course.nome} e descubra qual plano é o certo pra você.
                 </p>
 
                 <div className="mt-8 flex justify-center">

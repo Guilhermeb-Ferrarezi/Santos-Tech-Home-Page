@@ -165,6 +165,20 @@ const COURSE_DATA: CourseData = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Já anuncio no Meta Ads. Vale a pena aprender TikTok Ads também?",
+      a: "Vale bastante. O curso foi pensado inclusive pra quem já anuncia no Meta Ads e quer diversificar canais e reduzir o custo por aquisição — as diferenças entre TikTok Ads e Meta Ads são explicadas logo no início, já no primeiro módulo do Essencial.",
+    },
+    {
+      q: "Qual a diferença entre o nível Essencial e o Intermediário?",
+      a: "No Essencial você aprende a criar, segmentar e publicar campanhas com criativos nativos que geram as primeiras conversões. No Intermediário você escala: retargeting por funil, TikTok Shop e e-commerce, Spark Ads com parcerias de creators e automações de budget baseadas em ROAS e CPA.",
+    },
+    {
+      q: "O curso ensina a produzir os vídeos, ou só a configurar as campanhas?",
+      a: "Ensina as duas coisas. Tem módulo específico de criação de vídeos que convertem — hook, filmagem vertical, edição no CapCut — além de toda a configuração do Ads Manager, segmentação e leitura de métricas como CPM, CTR, VTR e ROAS.",
+    },
+  ],
 }
 
 function TikTokAdsPage() {

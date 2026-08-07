@@ -162,6 +162,20 @@ const COURSE_DATA: CourseData = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso saber programar para aprender Make?",
+      a: "Não. Make é uma ferramenta no-code — você monta as automações visualmente, conectando módulos, sem escrever código. O curso foi desenhado justamente para quem acredita que automatizar processos é coisa só de desenvolvedor.",
+    },
+    {
+      q: "Qual a diferença entre o nível Essencial e o Intermediário?",
+      a: "O Essencial ensina automações práticas com os apps mais usados no dia a dia — Google Sheets, Gmail, Slack e WhatsApp — para eliminar tarefas manuais. O Intermediário avança para APIs, webhooks e integração com IA, fechando com um projeto real de automação de processo completo.",
+    },
+    {
+      q: "Qual a diferença entre Make e Zapier — o curso ensina os dois?",
+      a: "O curso é focado em Make, mas o primeiro módulo já compara Make, Zapier e n8n na prática, para você entender quando cada ferramenta faz mais sentido e não ficar perdido se precisar usar outra no futuro.",
+    },
+  ],
 }
 
 function MakePage() {

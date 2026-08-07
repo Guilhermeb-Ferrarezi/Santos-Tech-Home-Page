@@ -139,6 +139,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso ter conhecimento técnico pra montar minha loja virtual?",
+      a: "Não. O curso começa do zero: modelos de negócio, escolha de plataforma (Shopify, WooCommerce, Nuvemshop, Tray) e a criação da loja passo a passo, incluindo pagamento, frete e políticas. Você sai do nível Essencial com uma loja funcional pronta pra vender.",
+    },
+    {
+      q: "Qual a diferença entre o nível Essencial e o Intermediário?",
+      a: "Essencial é a fundação: criar a loja, cadastrar produtos, configurar pagamento e frete e fazer as primeiras vendas com Google Shopping e Mercado Livre. Intermediário é operação e crescimento: tráfego pago (Google Ads Shopping, Meta Ads, TikTok Ads), automação de e-mail e WhatsApp, gestão de estoque e logística, e analytics com GA4 e testes A/B.",
+    },
+    {
+      q: "Esse curso serve pra quem já revende produtos e quer estruturar um canal online?",
+      a: "Sim — o curso foi pensado inclusive pra revendedor e atacadista que quer sair do informal e estruturar um canal de vendas online de verdade, com precificação correta, controle de estoque por SKU e fulfillment organizado.",
+    },
+  ],
 }
 
 function EcommercePage() {

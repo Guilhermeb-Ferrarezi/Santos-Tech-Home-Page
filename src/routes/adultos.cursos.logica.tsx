@@ -140,6 +140,20 @@ const COURSE_DATA = {
       tools: ["JavaScript (Node.js)", "VS Code", "VisuAlg", "Git (introdução)"],
     },
   ],
+  faqItems: [
+    {
+      q: "Nunca programei antes — consigo acompanhar esse curso?",
+      a: "Sim, é exatamente para isso que ele existe. O curso começa em pseudocódigo e fluxogramas, sem nenhuma sintaxe de linguagem, e só depois avança para JavaScript — pensado para quem quer entrar em tecnologia sem nunca ter programado.",
+    },
+    {
+      q: "Qual a diferença entre o nível Essencial e o Intermediário?",
+      a: "O Essencial ensina algoritmos, pseudocódigo e estruturas de controle como condicionais e loops, fechando com um mini-jogo em JavaScript. O Intermediário avança para arrays, recursão, objetos e algoritmos de ordenação, entregando um sistema de cadastro com CRUD funcional.",
+    },
+    {
+      q: "Já tentei aprender uma linguagem e travei nos conceitos básicos — esse curso é diferente?",
+      a: "Sim. A maioria trava porque tenta aprender sintaxe de uma linguagem antes de entender a lógica por trás dela. Este curso separa as duas coisas: primeiro você aprende a pensar como programador, depois aplica isso em JavaScript com uma base muito mais sólida.",
+    },
+  ],
 }
 
 function LogicaPage() {

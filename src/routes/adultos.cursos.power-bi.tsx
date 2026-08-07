@@ -216,6 +216,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso saber Excel avançado pra fazer esse curso de Power BI?",
+      a: "Não é obrigatório, mas ajuda. O curso é pensado justamente pra quem trabalha com dados no Excel e sente que precisa de uma ferramenta mais poderosa — o Essencial já começa do zero, conectando fontes de dados e publicando seu primeiro dashboard.",
+    },
+    {
+      q: "Qual a diferença entre os três níveis do curso?",
+      a: "Essencial ensina a conectar dados, criar relatórios e publicar seu primeiro dashboard. Intermediário foca em DAX pra métricas complexas, dashboards executivos e conexão com bancos de dados corporativos. Profissional + IA fecha com DAX de nível expert, modelagem enterprise, integração com Python e Copilot, e um projeto de BI completo pro portfólio.",
+    },
+    {
+      q: "Esse curso serve pra quem trabalha em BI, finanças, marketing ou operações?",
+      a: "Sim — é o público principal. O curso ensina a apresentar dados com clareza pra essas áreas, além de publicar relatórios no Power BI Service e compartilhar com equipe e gestores.",
+    },
+  ],
 }
 
 function PowerBiPage() {

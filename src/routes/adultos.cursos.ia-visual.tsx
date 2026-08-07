@@ -170,6 +170,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso saber desenhar ou editar vídeo pra fazer esse curso?",
+      a: "Não. A proposta é justamente resolver isso com IA: você aprende a gerar imagens, vídeos e narração a partir de texto (prompt), sem precisar saber desenhar, editar vídeo profissionalmente ou gravar locução — o curso ensina a controlar as ferramentas, não a técnica manual tradicional.",
+    },
+    {
+      q: "Qual a diferença entre o Essencial e o Intermediário?",
+      a: "Essencial cobre os fundamentos: gerar imagens com Midjourney e DALL-E, prompt visual, e os primeiros passos com vídeo (Runway) e áudio (ElevenLabs, Suno). Intermediário avança pra identidade visual consistente entre imagens, ComfyUI com ControlNet e LoRAs, produção de vídeo com Runway, Kling e Sora, narração profissional com clonagem de voz, e fluxos completos de produção — do roteiro à entrega — pra projetos de cliente.",
+    },
+    {
+      q: "Já tentei usar Midjourney e ChatGPT e os resultados saíram genéricos. Esse curso resolve isso?",
+      a: "É exatamente o problema que o curso ataca. Boa parte do conteúdo é sobre prompt visual de verdade — anatomia do prompt, parâmetros do Midjourney, referências de estilo e técnicas de prompting negativo — pra sair do resultado genérico e conseguir imagens e vídeos com identidade visual consistente.",
+    },
+  ],
 }
 
 function IaVisualPage() {

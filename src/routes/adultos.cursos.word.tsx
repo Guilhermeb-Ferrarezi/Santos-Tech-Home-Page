@@ -201,6 +201,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Qual a diferença entre os níveis Essencial, Intermediário e Profissional + IA?",
+      a: "Essencial ensina formatação profissional, tabelas e documentos longos com sumário automático. Intermediário entra em templates corporativos, mala direta, formulários e macros. Profissional + IA fecha com Copilot integrado, VBA avançado e um projeto final de manual técnico corporativo completo.",
+    },
+    {
+      q: "Esse curso serve pra quem trabalha com documentos jurídicos ou acadêmicos longos?",
+      a: "Sim. O curso é indicado pra quem atua nas áreas jurídica, administrativa, RH ou acadêmica e lida com documentos longos — tem módulo específico sobre referências bibliográficas, citações no padrão ABNT, notas de rodapé e índice remissivo.",
+    },
+    {
+      q: "O curso ensina mala direta pra enviar contratos ou cobranças em massa?",
+      a: "Sim, no nível Intermediário. Você aprende a usar o Excel como fonte de dados pra gerar cartas personalizadas em massa — contratos, convites, cobranças —, além de etiquetas, envelopes e e-mails personalizados direto do Word via Outlook.",
+    },
+  ],
 }
 
 function WordPage() {

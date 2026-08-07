@@ -160,6 +160,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso já saber HTML e CSS pra começar esse curso?",
+      a: "O ideal é ter pelo menos noção básica de HTML e CSS — o curso começa direto em JavaScript moderno (ES6+) e React, não em tags HTML do zero. Se você já mexeu com sites mas trava na hora de adicionar interatividade real com JavaScript, é exatamente o ponto de partida.",
+    },
+    {
+      q: "Qual a diferença entre o nível Intermediário e o Profissional + IA?",
+      a: "Intermediário te leva do JavaScript moderno ao React com hooks, Tailwind CSS e consumo de API, com um projeto de busca de filmes. Profissional + IA adiciona TypeScript, gerenciamento de estado global (Zustand, Redux, Jotai), Next.js com App Router e SSR, testes automatizados e o uso de IA como copiloto de código (GitHub Copilot, v0.dev, Cursor), fechando com um SaaS completo com autenticação e deploy.",
+    },
+    {
+      q: "O curso ensina a usar IA no desenvolvimento, ou só programação tradicional?",
+      a: "As duas coisas. Além da base sólida de React e TypeScript, o nível Profissional + IA tem um módulo específico de IA no front-end: GitHub Copilot para gerar componentes e testes, v0.dev para prototipar UI por prompt e Cursor IDE para desenvolvimento assistido — ferramentas que já fazem parte do dia a dia de quem trabalha com front-end hoje.",
+    },
+  ],
 }
 
 function FrontendPage() {

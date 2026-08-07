@@ -211,6 +211,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso já programar ou trabalhar com dados pra fazer esse curso?",
+      a: "O curso começa no nível Intermediário e assume que você já lida com dados, programação ou é curioso o suficiente pra configurar um ambiente Python. Ele foi pensado pra quem é engenheiro, analista, cientista de dados ou já usou ChatGPT e sentiu que faltava plugar seus próprios documentos com precisão.",
+    },
+    {
+      q: "Qual a diferença entre o nível Intermediário e o Profissional + IA?",
+      a: "No Intermediário você constrói pipelines RAG completos do zero — chunking, embeddings, retrieval e geração — e entrega um chatbot funcional sobre documentos reais. No Profissional + IA você avança pra técnicas de ponta como GraphRAG, agentes com LangGraph, bancos vetoriais em escala e segurança/governança, fechando com um sistema RAG corporativo em produção.",
+    },
+    {
+      q: "O curso ensina a usar IA sem vazar documentos confidenciais da empresa pra fora?",
+      a: "Sim, essa é uma das preocupações centrais do curso. Você aprende a construir chatbots corporativos sem depender de APIs externas, incluindo estratégias on-premise com modelos open-source como Ollama e Llama 3, além de controle de acesso por documento e conformidade com LGPD.",
+    },
+  ],
 }
 
 function RagPage() {

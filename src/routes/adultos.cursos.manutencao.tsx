@@ -66,6 +66,20 @@ const COURSE_DATA = {
       tools: ["Rufus", "HWiNFO64", "CPU-Z", "BIOS/UEFI"],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso ter conhecimento técnico prévio de hardware para fazer esse curso?",
+      a: "Não. O curso começa pela anatomia do PC — placa-mãe, processador, RAM e armazenamento — antes de partir para a montagem prática, então não é preciso nenhuma experiência anterior com hardware.",
+    },
+    {
+      q: "Já fiz um curso de suporte técnico — vale a pena fazer esse também?",
+      a: "Vale bastante. Esse curso complementa suporte técnico com o lado físico da máquina: montagem, diagnóstico de falhas de hardware e instalação de sistema do zero — conhecimento que suporte técnico normalmente não cobre.",
+    },
+    {
+      q: "Quero abrir um negócio de manutenção de computadores — esse curso me prepara pra isso?",
+      a: "Sim, é um dos públicos principais do curso. Você sai sabendo montar, diagnosticar e recuperar PCs com segurança, o que é a base para atuar em assistência técnica, comprar e revender hardware ou abrir seu próprio negócio com baixo investimento inicial.",
+    },
+  ],
 }
 
 function ManutencaoPage() {

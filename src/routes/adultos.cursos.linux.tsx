@@ -125,6 +125,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso já trabalhar com TI para fazer esse curso de Linux?",
+      a: "Não necessariamente, mas ele é voltado para quem pretende atuar com servidores, DevOps ou desenvolvimento. O nível Essencial começa do zero — instalação, estrutura de diretórios e comandos básicos de terminal — antes de avançar para administração de servidor em produção.",
+    },
+    {
+      q: "Qual a diferença entre o nível Essencial e o Intermediário?",
+      a: "O Essencial ensina a navegar no terminal com confiança, gerenciar arquivos, usuários e permissões, e configurar um servidor básico. O Intermediário avança para administração de servidor em produção: serviços web com Nginx, banco de dados, Fail2ban e automação de tarefas com shell script.",
+    },
+    {
+      q: "Esse curso prepara para certificações como LPIC-1 ou CompTIA Linux+?",
+      a: "O conteúdo cobre boa parte da base cobrada nessas certificações — terminal, usuários e permissões, gerenciamento de pacotes e serviços, e shell scripting — o que ajuda bastante quem está se preparando para CompTIA Linux+, LPIC-1 ou RHCSA.",
+    },
+  ],
 }
 
 function LinuxPage() {

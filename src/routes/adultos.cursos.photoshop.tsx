@@ -188,6 +188,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Já uso Canva — preciso saber Photoshop ou Illustrator antes de começar?",
+      a: "Não. O curso começa pela interface e pelas ferramentas fundamentais dos dois programas, mesmo o nível de entrada sendo chamado de Intermediário. A ideia é justamente te tirar do Canva e te levar pras ferramentas Adobe que o mercado profissional usa.",
+    },
+    {
+      q: "Qual a diferença entre os níveis Intermediário e Profissional + IA?",
+      a: "No Intermediário você executa projetos completos de identidade visual, retoque e direção de arte com Photoshop e Illustrator. No Profissional + IA você domina técnicas avançadas de composição, o Adobe Firefly pra geração de imagens e vetores por IA, e fecha com um projeto completo de branding pro portfólio.",
+    },
+    {
+      q: "Sou fotógrafo — esse curso ensina retoque de verdade ou só design gráfico?",
+      a: "As duas coisas. O curso tem módulos dedicados a retoque de pele com Frequency Separation, Dodge and Burn, correção de cor e composição fotorrealista — técnicas usadas em fotografia profissional, não só em peças gráficas.",
+    },
+  ],
 }
 
 function PhotoshopPage() {

@@ -205,6 +205,20 @@ const COURSE_DATA: CourseData = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Já sei o básico de PowerPoint — esse curso ainda serve pra mim?",
+      a: "Serve, e é pra isso que ele existe. O curso não é sobre botões e menus — é sobre design, narrativa e storytelling: por que um slide convence e outro não, mesmo os dois usando o mesmo PowerPoint.",
+    },
+    {
+      q: "Qual a diferença entre os três níveis do curso?",
+      a: "Essencial ensina os princípios de design e storytelling pra estruturar qualquer apresentação. Intermediário entra em animações profissionais, transição Morph, Designer com IA e apresentações de vendas. Profissional + IA fecha com o método das grandes consultorias, Figma e ferramentas de IA generativa, terminando num deck de portfólio completo.",
+    },
+    {
+      q: "Trabalho com vendas ou consultoria e apresento com frequência — esse curso é pra mim?",
+      a: "Sim, é um dos públicos centrais do curso. Tem módulo específico sobre estrutura de pitch de vendas, deck de proposta comercial e apresentações estilo board executivo.",
+    },
+  ],
 }
 
 function PowerpointPage() {

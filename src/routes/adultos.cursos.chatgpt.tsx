@@ -147,6 +147,20 @@ const COURSE_DATA: CourseData = {
       tools: ["ChatGPT Plus", "Claude Pro", "Google Gemini", "Microsoft Copilot", "Make", "Zapier", "Notion AI", "Google Sheets"],
     },
   ],
+  faqItems: [
+    {
+      q: "Já usei o ChatGPT e os resultados foram genéricos, esse curso resolve isso?",
+      a: "Sim, é justamente o foco do módulo de Prompt Engineering. Você aprende a estrutura de um bom prompt (persona, tarefa, contexto e formato), a diferença entre zero-shot e few-shot, e como iterar em vez de desistir de uma resposta ruim.",
+    },
+    {
+      q: "Qual a diferença entre os módulos Essencial e Intermediário?",
+      a: "Essencial ensina os fundamentos de prompt, uso do ChatGPT no trabalho do dia a dia — e-mails, resumos, brainstorming — e os limites éticos e de segurança. Intermediário avança pra Chain-of-Thought, análise de dados e Excel com IA, automações com Zapier e Make, e aplicações específicas por área profissional.",
+    },
+    {
+      q: "O curso tem conteúdo específico pra minha área, tipo RH, financeiro ou jurídico?",
+      a: "Tem. O módulo 'IA por Área Profissional' do Intermediário cobre marketing, RH, financeiro, jurídico e engenharia/TI — cada um com os usos práticos de IA que fazem sentido pra rotina daquela área.",
+    },
+  ],
 }
 
 function ChatGptPage() {

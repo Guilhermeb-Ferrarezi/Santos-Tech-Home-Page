@@ -221,6 +221,20 @@ const COURSE_DATA: CourseData = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Esse curso vale a pena mesmo se eu já invisto em anúncios pagos?",
+      a: "Vale, e é justamente pra quem quer reduzir a dependência de anúncios pagos. O curso ensina a construir tráfego orgânico sustentável — desde como o Google indexa seu site até estratégias avançadas de conteúdo — pra você gastar menos com cliques e ainda assim atrair clientes.",
+    },
+    {
+      q: "Qual a diferença entre os níveis Essencial, Intermediário e Profissional + IA?",
+      a: "Essencial ensina a otimizar páginas e conteúdo e a ler o Google Search Console. Intermediário entra em SEO técnico, link building, SEO local e análise de concorrência. Profissional + IA aplica inteligência artificial ao SEO, cobre SEO para e-commerce em escala e fecha com relatórios executivos com atribuição de receita.",
+    },
+    {
+      q: "O curso ensina SEO local pra negócio físico?",
+      a: "Sim, no nível Intermediário. Você aprende a otimizar o Google Business Profile, gerenciar avaliações, manter NAP consistente e aplicar estratégias pra rankear no Google Maps e no Local Pack.",
+    },
+  ],
 }
 
 function SeoPage() {

@@ -235,6 +235,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Nunca usei Blender nem SketchUp — consigo acompanhar o curso?",
+      a: "Sim. O curso foi pensado pra quem nunca abriu nenhum dos dois programas: o nível Essencial começa pela interface, navegação e atalhos básicos antes de entrar em modelagem de verdade.",
+    },
+    {
+      q: "Qual a diferença entre os níveis Essencial, Intermediário e Profissional + IA?",
+      a: "Essencial ensina a criar e apresentar modelos 3D básicos em Blender e SketchUp. Intermediário entra em renderização fotorrealista, escultura digital e V-Ray ou Lumion. Profissional + IA fecha com pipeline completo — modelagem avançada, animação, IA generativa (Meshy, SketchUp Diffusion) e um projeto de portfólio publicável.",
+    },
+    {
+      q: "Esse curso serve pra quem trabalha com arquitetura ou design de interiores?",
+      a: "Sim — é um dos públicos principais. Você aprende a sair da planta baixa em SketchUp pra apresentações fotorrealistas de projeto, com renderização profissional em V-Ray e Lumion.",
+    },
+  ],
 }
 
 function Modelagem3dPage() {

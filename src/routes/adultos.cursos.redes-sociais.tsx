@@ -179,6 +179,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Qual a diferença entre o nível Essencial e o Intermediário?",
+      a: "No Essencial você aprende a gerir perfis profissionais no Instagram, TikTok e LinkedIn com estratégia de conteúdo e leitura básica de métricas. No Intermediário você vai além: monta estratégia de conteúdo completa, usa ferramentas de agendamento como Mlabs e Later, entra em tráfego pago e aprende a gerenciar múltiplos clientes com contrato, escopo e precificação.",
+    },
+    {
+      q: "Esse curso serve pra quem já tem um negócio e só quer cuidar das próprias redes?",
+      a: "Sim. O curso atende tanto quem quer trabalhar como Social Media para clientes quanto o empreendedor que precisa gerenciar as redes do próprio negócio com estratégia — planejamento de conteúdo, métricas e engajamento valem pra qualquer um dos dois casos.",
+    },
+    {
+      q: "O curso ensina a cobrar pelos serviços e trabalhar como freelancer?",
+      a: "Sim, no nível Intermediário. Você aprende onboarding de cliente, como montar contrato e escopo de serviços, precificação por pacotes (básico, intermediário e completo) e como entregar um relatório executivo mensal — a base pra quem quer atuar como freelancer ou para agências.",
+    },
+  ],
 }
 
 function RedesSociaisPage() {

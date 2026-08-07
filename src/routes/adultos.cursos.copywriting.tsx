@@ -209,6 +209,20 @@ const COURSE_DATA: CourseData = {
       tools: ["ChatGPT", "Claude", "Jasper AI", "Notion", "Hemingway App", "Google Docs", "Hotjar", "Google Analytics"],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso já saber escrever bem pra fazer esse curso?",
+      a: "Não. O Essencial parte do zero — o que é copywriting, a jornada AIDA e a pesquisa de avatar — antes de chegar nos frameworks (AIDA, PAS, BAB, 4Us) e nas headlines. É pensado pra quem tem um negócio e não sabe como comunicar o valor do que vende.",
+    },
+    {
+      q: "Qual a diferença entre os níveis Essencial, Intermediário e Profissional + IA?",
+      a: "Essencial ensina frameworks, headlines e copy curto pra redes sociais e anúncios. Intermediário entra na psicologia da persuasão, páginas de vendas, e-mail marketing e scripts de vídeo. Profissional + IA fecha com copy gerado com IA generativa, funis de vendas completos, lançamentos e otimização de resultados com testes A/B.",
+    },
+    {
+      q: "Dá pra usar esse curso pra virar freelancer de copywriting?",
+      a: "Sim. O projeto final do Profissional + IA monta uma campanha completa — anúncio, landing page e sequência de e-mails — com revisão em grupo e feedback estruturado, pra sair com portfólio pronto pra apresentar a clientes reais.",
+    },
+  ],
 }
 
 function CopywritingPage() {

@@ -145,6 +145,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso já saber programar antes de começar esse curso?",
+      a: "É recomendável ter noções básicas de programação, já que o curso começa direto no nível Intermediário com C# no Unity e sistemas avançados no Godot 4. Se você nunca programou, vale fazer antes o curso de Lógica de Programação para chegar com mais confiança.",
+    },
+    {
+      q: "Qual a diferença entre os dois níveis do curso de jogos?",
+      a: "O primeiro nível foca em desenvolver jogos 2D e 3D com física, animações, áudio e sistema de save no Unity e no Godot. O nível Profissional + IA avança para shaders, efeitos visuais, IA de inimigos, multiplayer e publicação comercial na Steam e em lojas mobile.",
+    },
+    {
+      q: "Sou artista ou designer, não programador — esse curso serve pra mim?",
+      a: "Sim. O curso foi pensado também para quem vem do lado visual e quer entender a parte técnica para colaborar melhor em equipes de gamedev, cobrindo desde a lógica de programação em C# até shaders e efeitos que têm forte componente visual.",
+    },
+  ],
 }
 
 function JogosPage() {

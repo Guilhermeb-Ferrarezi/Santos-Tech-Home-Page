@@ -218,6 +218,20 @@ const COURSE_DATA: CourseData = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso já saber Python pra fazer esse curso?",
+      a: "Sim, o curso pressupõe Python básico — variáveis, funções, estruturas de controle. A partir daí ele foca 100% em integrar sistemas reais: consumir e criar APIs, autenticar com OAuth e JWT, e conectar serviços externos.",
+    },
+    {
+      q: "Qual a diferença entre os níveis Intermediário e Profissional + IA?",
+      a: "No Intermediário você consome e cria APIs REST, autentica com OAuth 2.0 e JWT, integra serviços como Google Sheets, Notion e Stripe, e recebe eventos via webhook. No Profissional + IA você avança pra filas assíncronas, observabilidade em produção, SDK próprio publicado no PyPI e agentes de IA com LangGraph que orquestram várias APIs.",
+    },
+    {
+      q: "Esse curso ensina a integrar ferramentas como Slack, Notion e Google Sheets?",
+      a: "Sim, tem projetos práticos com exatamente essas integrações, além de Stripe e Twilio — incluindo um pipeline real que lê pedidos do Google Sheets e cria cobranças no Stripe.",
+    },
+  ],
 }
 
 function PythonApisPage() {

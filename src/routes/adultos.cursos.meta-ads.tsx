@@ -227,6 +227,20 @@ const COURSE_DATA: CourseData = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Já tentei impulsionar posts e joguei dinheiro fora sem resultado — esse curso é diferente disso?",
+      a: "Sim. Impulsionar posts não é a mesma coisa que rodar campanhas de verdade no Gerenciador de Anúncios. O curso ensina a estrutura correta — campanha, conjunto de anúncios e anúncio —, o objetivo certo para cada etapa do funil e como ler métricas como CPM, CTR e ROAS para não desperdiçar verba.",
+    },
+    {
+      q: "Qual a diferença entre os níveis Essencial, Intermediário e Profissional + IA?",
+      a: "Essencial ensina a configurar Business Manager, criar campanhas com o objetivo certo, segmentar público e ler métricas básicas. Intermediário avança para públicos personalizados e lookalike, retargeting com funil completo, testes A/B e catálogo dinâmico para e-commerce. Profissional + IA fecha com Advantage+, Conversions API, escala de verba e IA generativa para produção de criativos em massa.",
+    },
+    {
+      q: "Quero trabalhar como gestor de tráfego para clientes — esse curso me prepara pra isso?",
+      a: "Sim. O curso cobre desde a configuração profissional da conta até gestão de múltiplas contas de anúncio, relatórios executivos e apresentação de resultados para cliente — o caminho completo para atuar como gestor de tráfego no Meta.",
+    },
+  ],
 }
 
 function MetaAdsPage() {

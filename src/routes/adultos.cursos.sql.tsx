@@ -231,6 +231,20 @@ const COURSE_DATA: CourseData = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso saber programar pra aprender SQL?",
+      a: "Não. O curso começa do zero no nível Essencial — o que é uma tabela, chave primária e estrangeira, tipos de dados — pensado pra quem hoje só usa planilhas e quer consultar dados diretamente no banco sem depender de outra pessoa.",
+    },
+    {
+      q: "Qual a diferença entre os níveis Essencial, Intermediário e Profissional + IA?",
+      a: "Essencial ensina a criar e consultar bancos com SELECT, JOINs e agregações. Intermediário entra em queries avançadas com CTEs e Window Functions, modelagem e normalização, stored procedures e conexão com Power BI. Profissional + IA cobre bancos NoSQL, cloud (BigQuery, Supabase), pipelines de dados com Python e dbt, e IA aplicada à geração de queries.",
+    },
+    {
+      q: "O curso ensina a conectar SQL com Power BI e Python?",
+      a: "Sim. No Intermediário você já conecta o banco ao Power BI via SQL nativo e exporta resultados para Python com pandas. No Profissional + IA isso evolui pra pipelines completos de ETL com SQLAlchemy, dbt e Apache Airflow.",
+    },
+  ],
 }
 
 function SqlPage() {

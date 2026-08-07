@@ -224,6 +224,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Já sei o básico de AutoCAD, vale a pena fazer o curso?",
+      a: "Vale, principalmente o Intermediário. Ele foi pensado pra quem já desenha mas quer ganhar produtividade de verdade: blocos inteligentes, xrefs, constraints paramétricas, limpeza de arquivo com OVERKILL/PURGE e plotagem profissional em lote.",
+    },
+    {
+      q: "Qual a diferença entre os níveis Essencial, Intermediário e Profissional + IA?",
+      a: "Essencial ensina plantas baixas e cortes 2D com precisão, layers e plotagem de pranchas. Intermediário acrescenta produtividade avançada, blocos inteligentes com IA e os primeiros passos em modelagem 3D sólida. Profissional + IA fecha com 2D/3D completos, especialização em Civil 3D ou Mechanical, automação com AutoLISP e um projeto executivo profissional.",
+    },
+    {
+      q: "Serve pra quem trabalha com engenharia civil, mecânica ou elétrica?",
+      a: "Sim. Além da base de AutoCAD 2D e 3D, o Profissional + IA tem um módulo de especialização configurável por área — Civil 3D para terraplenagem e alinhamentos, Mechanical para GD&T e catálogo de peças, ou Plant 3D para isométricos de tubulação.",
+    },
+  ],
 }
 
 function AutocadPage() {

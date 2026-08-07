@@ -154,6 +154,20 @@ const COURSE_DATA: CourseData = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso já trabalhar com TI pra fazer esse curso?",
+      a: "O curso é voltado pra quem já está na área — seja como técnico de suporte que quer subir pra infraestrutura, seja alguém que já entende de TI e quer avançar em redes. Ele começa direto no Intermediário com endereçamento IP, sub-redes e VLANs, sem cobrir fundamentos de informática do zero.",
+    },
+    {
+      q: "Qual a diferença entre o nível Intermediário e o Profissional + IA?",
+      a: "No Intermediário você configura switches gerenciáveis com VLANs, roteamento estático e dinâmico e monitora a rede com Zabbix. No Profissional + IA você avança pra roteamento com OSPF multi-área e BGP, VPN, Wi-Fi corporativo, automação com Python e Ansible, e fecha com preparação específica para a certificação CompTIA Network+.",
+    },
+    {
+      q: "O curso prepara pra certificação CompTIA Network+?",
+      a: "Sim, o Profissional + IA inclui um módulo dedicado com simulados do exame N10-008, prática de performance-based questions e revisão de todos os domínios cobrados na prova — incluindo dicas de gerenciamento de tempo.",
+    },
+  ],
 }
 
 function RedesPage() {

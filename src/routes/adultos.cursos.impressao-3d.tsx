@@ -85,6 +85,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso já ter uma impressora 3D para fazer o curso?",
+      a: "Não. O curso serve tanto para quem já tem uma FDM ou de resina e quer parar de errar, quanto para quem ainda vai comprar e quer entender qual tecnologia e modelo escolher antes de investir.",
+    },
+    {
+      q: "Já imprimo mas tenho problemas de qualidade e desperdício de filamento — o curso resolve isso?",
+      a: "Sim, esse é um dos focos centrais. Você aprende a diagnosticar visualmente falhas como stringing, layer shifting e under/over extrusion, além de calibrar nivelamento de cama, first layer e fluxo de extrusão — o que elimina a maior parte do desperdício.",
+    },
+    {
+      q: "Serve para quem quer usar impressão 3D de forma profissional, como em engenharia ou odontologia?",
+      a: "Sim. O curso cobre materiais técnicos como PETG, TPU, ABS e resina, com foco em prototipagem rápida e aplicações reais — pensado para quem atua em engenharia, odontologia, design de produto, arquitetura ou quer abrir um negócio de impressão sob demanda.",
+    },
+  ],
 }
 
 function Impressao3dPage() {

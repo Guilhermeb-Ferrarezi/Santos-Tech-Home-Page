@@ -172,6 +172,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso já saber usar o DaVinci Resolve ou o Premiere pra começar?",
+      a: "Não. O curso já parte da instalação e da interface do zero, incluindo os atalhos básicos e a estrutura de projeto. Se você já edita no celular ou é curioso mas nunca abriu o Resolve, esse é o ponto de partida — o curso vai te levar até o color grading profissional e o Fusion no nível Profissional + IA.",
+    },
+    {
+      q: "Qual a diferença entre o nível Intermediário e o Profissional + IA?",
+      a: "No Intermediário você aprende o fluxo completo de edição: cortes, áudio no Fairlight, color grading com sistema de nós e exportação para YouTube, Instagram e broadcast. No Profissional + IA você avança para efeitos visuais com Fusion, color grading cinematográfico com scopes, as ferramentas de IA do Resolve e do Premiere (Magic Mask, Voice Isolation, Auto Reframe) e sai com um showreel e a certificação Blackmagic Design: DaVinci Resolve Operator.",
+    },
+    {
+      q: "O curso dá alguma certificação reconhecida no mercado?",
+      a: "Sim. No nível Profissional + IA, o projeto final inclui a certificação Blackmagic Design: DaVinci Resolve Operator, além de um showreel de 2-3 minutos pronto para publicar no Vimeo e no LinkedIn — ótimo para quem precisa comprovar domínio técnico como editor ou colorista.",
+    },
+  ],
 }
 
 function DavinciPage() {

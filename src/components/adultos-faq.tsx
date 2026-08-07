@@ -33,11 +33,13 @@ export const ADULTOS_FAQ_ITEMS = [
 
 interface AdultosFaqProps {
   whatsappUrl: string
+  /** Perguntas específicas do curso — exibidas antes das genéricas. */
+  extraItems?: { q: string; a: string }[]
 }
 
-export function AdultosFaq({ whatsappUrl }: AdultosFaqProps) {
+export function AdultosFaq({ whatsappUrl, extraItems }: AdultosFaqProps) {
   const [open, setOpen] = useState<number | null>(null)
-  const FAQ = ADULTOS_FAQ_ITEMS
+  const FAQ = extraItems?.length ? [...extraItems, ...ADULTOS_FAQ_ITEMS] : ADULTOS_FAQ_ITEMS
 
   return (
     <section className="py-20 bg-neutral-50 dark:bg-neutral-900">

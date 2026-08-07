@@ -228,6 +228,20 @@ const COURSE_DATA: CourseData = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso já ter experiência com marketing digital pra começar?",
+      a: "Não. O curso parte da estrutura básica do Google Ads — conta, campanha, grupo de anúncios — e da criação das primeiras campanhas de Search com acompanhamento de conversão. Se você só impulsionou post em rede social e não viu resultado em vendas, é esse o ponto de partida.",
+    },
+    {
+      q: "Qual a diferença entre os três níveis?",
+      a: "Essencial ensina a criar e publicar campanhas de Search com segmentação e conversões configuradas. Intermediário expande pra Display, YouTube, Shopping e Smart Bidding, com relatórios no Looker Studio. Profissional + IA foca em Performance Max, Demand Gen, Scripts de automação e gestão de múltiplas contas de cliente via MCC — o nível de quem vai gerenciar mídia paga como agência ou freelancer.",
+    },
+    {
+      q: "O curso serve pra quem quer oferecer gestão de tráfego pago como serviço?",
+      a: "Sim, o Profissional + IA foi pensado pra isso: MCC para gerenciar contas de vários clientes, relatórios executivos no Looker Studio, modelos de precificação de gestão de mídia (fixo, percentual, híbrido) e onboarding de cliente novo — a parte de negócio, não só a técnica de campanha.",
+    },
+  ],
 }
 
 function GoogleAdsPage() {

@@ -223,6 +223,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso saber programar pra aprender N8N?",
+      a: "Não. O N8N é uma ferramenta visual — você conecta blocos (nodes) pra montar automações sem escrever código. O curso é voltado justamente pra quem é gestor, analista ou empreendedor e não quer virar programador pra automatizar o próprio negócio.",
+    },
+    {
+      q: "Qual a diferença entre os três níveis do curso?",
+      a: "No Essencial você monta workflows conectando Google Sheets, e-mail, Telegram e WhatsApp com lógica condicional. No Intermediário entra em Webhooks, integrações com CRM e bancos de dados. No Profissional + IA você constrói agentes de IA com o AI Agent Node, integra MCP e chega a colocar o N8N em produção num servidor próprio.",
+    },
+    {
+      q: "Já uso Zapier ou Make — vale a pena migrar para o N8N?",
+      a: "Se você já sente o limite de operações ou o custo do Zapier/Make, sim. O curso mostra como o N8N resolve os mesmos problemas com mais poder e sem esse limite — inclusive indo além, com agentes de IA e integrações que essas ferramentas não oferecem.",
+    },
+  ],
 }
 
 function N8nPage() {

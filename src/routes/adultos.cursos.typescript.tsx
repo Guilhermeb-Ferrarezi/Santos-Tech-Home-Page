@@ -215,6 +215,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso já saber JavaScript pra fazer esse curso?",
+      a: "Sim. O curso parte do princípio que você já programa em JavaScript e sente na pele os erros que só aparecem em produção. A proposta é justamente dar tipagem, autocomplete e segurança a um código que hoje quebra em runtime.",
+    },
+    {
+      q: "Qual a diferença entre o nível Intermediário e o Profissional + IA?",
+      a: "No Intermediário você aprende o sistema de tipos, generics, classes e aplica TypeScript em projetos React e Node.js/Express. No Profissional + IA você avança pra tipos avançados, monorepos com Turborepo, testes E2E tipados, NestJS enterprise e integração com IA generativa via Vercel AI SDK e MCP.",
+    },
+    {
+      q: "O curso ensina TypeScript com React e Node, ou só a linguagem pura?",
+      a: "Ensina os dois. Além da linguagem em si, tem módulos dedicados a tipar componentes e hooks no React e a construir APIs REST tipadas com Node.js, Express e Prisma — com projetos práticos em cada frente.",
+    },
+  ],
 }
 
 function TypescriptPage() {

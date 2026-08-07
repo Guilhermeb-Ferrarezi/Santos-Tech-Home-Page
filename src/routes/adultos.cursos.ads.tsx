@@ -327,6 +327,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso já saber programar pra fazer o ADS?",
+      a: "Não. O curso começa do zero, com lógica de programação e algoritmos em Python — pseudocódigo, fluxograma, variáveis e estruturas de controle — antes de entrar em banco de dados, front-end, Java e Spring Boot. É pensado pra quem está em transição de carreira.",
+    },
+    {
+      q: "Qual a diferença entre os módulos Essencial e Intermediário?",
+      a: "Essencial forma a base completa de um desenvolvedor júnior: lógica, banco de dados relacional, front-end, Java com Spring Boot e APIs REST, incluindo introdução a mobile Android. Intermediário adiciona DevOps e cloud AWS, arquitetura de microsserviços, IoT, machine learning, IA generativa aplicada e fecha com um projeto de conclusão completo — o nível pleno/sênior.",
+    },
+    {
+      q: "Já trabalho na área de suporte ou infraestrutura de TI, o ADS serve pra mim?",
+      a: "Sim, é um dos perfis mais comuns aqui. O curso dá a formação formal em desenvolvimento de sistemas que quem já está no operacional de TI geralmente não teve — desde lógica e banco de dados até arquitetura de microsserviços e projeto de conclusão, em até 12 meses.",
+    },
+  ],
 }
 
 function AdsPage() {

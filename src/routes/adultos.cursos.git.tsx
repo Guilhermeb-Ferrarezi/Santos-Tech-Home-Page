@@ -101,6 +101,20 @@ const COURSE_DATA: CourseData = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Nunca usei linha de comando. Consigo acompanhar o curso?",
+      a: "Sim. O curso começa pela instalação do Git e pelos comandos básicos (status, log, add, commit) antes de entrar em branches, merge e GitHub — a proposta é justamente tirar você do medo do terminal e te deixar confortável usando Git na linha de comando, não só em interfaces gráficas.",
+    },
+    {
+      q: "O curso ensina só o básico de commit e push, ou vai além disso?",
+      a: "Vai bem além. Depois do básico (commit, branch, merge, conflitos), o curso entra em rebase interativo, squash, cherry-pick, tags de versão e até um workflow de CI com GitHub Actions — os termos que costumam deixar dev júnior perdido numa reunião de time.",
+    },
+    {
+      q: "Serve pra quem já programa mas nunca trabalhou em equipe com Git?",
+      a: "Serve, e é um dos públicos principais. Se você já perdeu código ou horas resolvendo conflito de arquivo mandado por WhatsApp, o curso ensina o fluxo real de colaboração: pull request, code review, proteção de branch e Issues — a rotina de quem trabalha em time de verdade no GitHub.",
+    },
+  ],
 }
 
 function GitPage() {

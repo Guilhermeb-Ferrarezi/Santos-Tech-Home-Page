@@ -193,6 +193,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso já trabalhar em TI pra fazer esse curso?",
+      a: "Ajuda, mas não é obrigatório. O módulo Essencial parte de fundamentos como a Tríade CIA, tipos de ataque e proteções básicas antes de instalar Kali Linux e usar Nmap — então quem já está em TI (suporte, redes, dev) avança rápido, mas ninguém começa perdido.",
+    },
+    {
+      q: "Qual a diferença entre os módulos Essencial, Intermediário e Profissional + IA?",
+      a: "Essencial cobre fundamentos, proteções essenciais e introdução ao hacking ético. Intermediário entra em OSINT, análise de vulnerabilidades com Nessus/OpenVAS e monitoramento com SIEM. Profissional + IA fecha com exploração e pós-exploração no Metasploit, segurança em nuvem, resposta a incidentes e preparação direta pra CompTIA Security+ e eJPT.",
+    },
+    {
+      q: "O curso realmente prepara pra certificação CompTIA Security+ ou eJPT?",
+      a: "Sim. O módulo final do Profissional + IA inclui simulados comentados do CompTIA Security+ (SY0-701) e do eJPT, além de um relatório de pentest completo em laboratório virtual como projeto de conclusão.",
+    },
+  ],
 }
 
 function CibersegurancaPage() {

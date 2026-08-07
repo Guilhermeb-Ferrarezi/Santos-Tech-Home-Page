@@ -212,6 +212,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso já saber Excel avançado pra começar?",
+      a: "Não. Você só precisa saber o básico — abrir uma planilha, digitar dados, usar fórmulas simples como SOMA. A partir daí o curso te leva do intermediário ao avançado: PROCV, tabelas dinâmicas, Power Query e VBA, no seu ritmo.",
+    },
+    {
+      q: "Qual a diferença entre os níveis Essencial, Intermediário e Profissional + IA?",
+      a: "Essencial foca no uso seguro do dia a dia — fórmulas, tabelas dinâmicas e gráficos. Intermediário entra em Power Query pra automatizar relatórios, dashboards avançados e introdução a VBA. Profissional + IA fecha com VBA completo, integração com Power BI e um sistema de gestão funcional como projeto final.",
+    },
+    {
+      q: "Esse curso serve pra quem trabalha com dados financeiros, RH ou vendas?",
+      a: "Sim — é justamente pra esse perfil. O curso ensina a analisar grande volume de informação, automatizar relatórios repetitivos e montar dashboards e KPIs que fazem sentido pra área financeira, RH, vendas ou logística.",
+    },
+  ],
 }
 
 function ExcelPage() {

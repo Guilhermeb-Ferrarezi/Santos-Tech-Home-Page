@@ -279,6 +279,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Nunca usei Word, Excel ou PowerPoint — dá pra começar do zero?",
+      a: "Sim. O nível Essencial parte da interface de cada programa e ensina o suficiente pra você já usar no trabalho na primeira semana: documentos formatados no Word, planilhas com fórmulas no Excel e apresentações organizadas no PowerPoint.",
+    },
+    {
+      q: "Qual a diferença entre os três níveis do curso?",
+      a: "Essencial cobre o uso profissional do dia a dia nos três programas. Intermediário entra em mala direta, PROCV, tabelas dinâmicas e Slide Master. Profissional + IA fecha com Power BI, Microsoft Copilot integrado ao Word, Excel e PowerPoint, e um projeto final de painel de gestão completo.",
+    },
+    {
+      q: "Sou autônomo ou MEI — esse curso serve pra mim mesmo sem trabalhar em empresa?",
+      a: "Serve. O curso ensina a controlar finanças, montar orçamentos e apresentar propostas com qualidade profissional sem precisar contratar um designer — útil tanto pra quem trabalha em empresa quanto pra quem toca o próprio negócio.",
+    },
+  ],
 };
 
 function OfficePage() {

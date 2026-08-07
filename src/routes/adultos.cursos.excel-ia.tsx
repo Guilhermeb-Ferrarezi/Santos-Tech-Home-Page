@@ -225,6 +225,20 @@ const COURSE_DATA: CourseData = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso saber Excel avançado ou programar em Python pra fazer esse curso?",
+      a: "Não. O curso não exige nem Excel avançado nem programação. A ideia é justamente deixar a IA (Copilot, Claude, ChatGPT) escrever fórmulas, gerar código Python e montar dashboards a partir de pedidos em português — você aprende a conduzir a IA, não a decorar sintaxe.",
+    },
+    {
+      q: "Qual a diferença entre os três níveis?",
+      a: "Essencial ensina a usar a IA como copiloto no dia a dia — gerar fórmulas, limpar dados e montar planilhas em português. Intermediário entra em Python no Excel sem programar, IA em escala (classificar milhares de linhas) e os assistentes Claude e ChatGPT dentro da planilha. Profissional + IA fecha com fluxos agênticos, integração com APIs externas e automação de relatórios recorrentes, terminando num projeto de dados real de ponta a ponta.",
+    },
+    {
+      q: "Esse curso também serve pra quem usa Google Sheets, não só Excel?",
+      a: "Sim. Tem um módulo dedicado a Google Sheets com Gemini e a função =AI(), incluindo como migrar análises entre Excel e Sheets — então se você vive mais na nuvem do que no Excel, o conteúdo se aplica igual.",
+    },
+  ],
 }
 
 function ExcelIaPage() {

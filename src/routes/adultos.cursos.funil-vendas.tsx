@@ -159,6 +159,20 @@ const COURSE_DATA: CourseData = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Já uso planilha pra controlar meus clientes. Preciso mesmo de CRM?",
+      a: "Se você ainda usa planilha, o curso é pensado exatamente pra essa transição. Você aprende a migrar de controle manual pra um CRM de verdade (HubSpot ou RD Station), com pipeline de negócios, histórico de interações e relatórios automáticos — sem perder o que já funciona no seu processo.",
+    },
+    {
+      q: "Qual a diferença entre o nível Essencial e o Intermediário?",
+      a: "Essencial monta a base: funil de vendas, geração e qualificação de leads, configuração do CRM e automações simples de e-mail. Intermediário é sobre escala: lead scoring automático, automações multi-etapa com ramificações, SLA entre marketing e vendas, integração de CRM com WhatsApp API, Meta Ads e Google Ads, e análise de cohort e ROI por canal.",
+    },
+    {
+      q: "O curso ensina a integrar anúncios pagos com o CRM, ou só a parte de vendas?",
+      a: "Ensina os dois lados juntos. No Intermediário você conecta Meta Ads e Google Ads direto no CRM pra importar leads automaticamente, além de integrações via Zapier e Make — a ideia é sair com um fluxo único, do anúncio até o fechamento, e não ferramentas soltas.",
+    },
+  ],
 }
 
 function FunilVendasPage() {

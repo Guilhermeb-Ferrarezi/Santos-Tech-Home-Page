@@ -159,6 +159,20 @@ const COURSE_DATA: CourseData = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Preciso saber programar pra criar apps com Power Apps?",
+      a: "Não. Power Apps e Power Automate são ferramentas low-code do ecossistema Microsoft — você cria aplicativos e automações sem escrever código, usando fórmulas parecidas com as do Excel.",
+    },
+    {
+      q: "Qual a diferença entre os dois níveis do curso?",
+      a: "No Essencial você cria Canvas Apps conectados ao SharePoint e Excel, e monta fluxos automáticos de aprovação e notificação. No Intermediário você avança pra soluções empresariais completas com Dataverse, RPA com Power Automate Desktop, IA Builder e um projeto final de sistema de ponta a ponta.",
+    },
+    {
+      q: "Já uso SharePoint ou Teams no trabalho — esse curso ajuda a aproveitar melhor essas ferramentas?",
+      a: "Sim. Boa parte do curso conecta diretamente com o que você já usa: apps ligados a listas do SharePoint, fluxos que notificam pelo Teams e Outlook, e automações que eliminam processos hoje feitos por e-mail ou planilha.",
+    },
+  ],
 }
 
 function PowerAppsPage() {

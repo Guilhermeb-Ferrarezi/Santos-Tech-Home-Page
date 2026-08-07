@@ -217,6 +217,20 @@ const COURSE_DATA = {
       ],
     },
   ],
+  faqItems: [
+    {
+      q: "Não sei se tenho Excel suficiente pra aprender Power BI. Serve pra mim?",
+      a: "Sim — é exatamente pra isso que o curso existe. O nível Essencial fecha as lacunas de Excel (fórmulas, tabelas dinâmicas, dashboards) antes de entrar no Power Query e no Power BI no Intermediário, então você não precisa chegar sabendo Power BI, só sair sabendo.",
+    },
+    {
+      q: "Qual a diferença entre esse curso e um curso comum de Power BI?",
+      a: "A maioria dos cursos de Power BI assume que você já sabe Excel e pula direto pro DAX. Aqui a trilha é integrada: você aprende Excel, Power Query (que é a mesma ferramenta nos dois programas) e só depois entra no Power BI, terminando com um projeto que usa o Excel como fonte de dados e o Power BI como tela de apresentação.",
+    },
+    {
+      q: "O curso ensina modelagem de dados de verdade, ou só a montar gráficos?",
+      a: "Ensina modelagem de verdade. Você aprende Star Schema, relacionamentos entre tabelas fato e dimensão, DAX do básico ao avançado com inteligência de tempo, e no nível Profissional + IA ainda entra Row-Level Security e governança no Power BI Service — não é só arrastar campo pra gráfico.",
+    },
+  ],
 }
 
 function ExcelPowerBiPage() {
