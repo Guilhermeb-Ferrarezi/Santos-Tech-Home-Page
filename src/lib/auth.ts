@@ -28,15 +28,32 @@ export class ApiError extends Error {
   }
 }
 
-// Lança ApiError(401) quando deslogado — é o caminho esperado, não uma
-// falha; quem chama trata via estado de erro do React Query.
-export async function me(): Promise<MeResponse> {
+async function fetchMe(): Promise<MeResponse> {
   const res = await fetch(`${API_URL}/auth/me`, { credentials: "include" });
   const data = await res.json().catch(() => null);
   if (!res.ok) {
     throw new ApiError(res.status, data?.code ?? "UNKNOWN", data?.message ?? "Não autenticado");
   }
   return data as MeResponse;
+}
+
+// access_token dura 2h; refresh_token dura 7d. Um 401 pode ser só o
+// access_token expirado com sessão ainda válida — mesmo tratamento que
+// pay-web faz (apps/pay-web/src/lib/api.ts): tenta /auth/refresh uma vez
+// antes de considerar "deslogado" de verdade.
+export async function me(): Promise<MeResponse> {
+  try {
+    return await fetchMe();
+  } catch (err) {
+    if (err instanceof ApiError && err.status === 401) {
+      const refreshed = await fetch(`${API_URL}/auth/refresh`, {
+        method: "POST",
+        credentials: "include",
+      });
+      if (refreshed.ok) return fetchMe();
+    }
+    throw err;
+  }
 }
 
 export async function logout(): Promise<void> {
