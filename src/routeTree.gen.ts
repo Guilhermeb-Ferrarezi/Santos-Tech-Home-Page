@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermosRouteImport } from './routes/termos'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as PrivacidadeRouteImport } from './routes/privacidade'
+import { Route as LinksRouteImport } from './routes/links'
 import { Route as CursosRouteImport } from './routes/cursos'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as AdultosRouteImport } from './routes/adultos'
@@ -109,6 +110,11 @@ const SobreRoute = SobreRouteImport.update({
 const PrivacidadeRoute = PrivacidadeRouteImport.update({
   id: '/privacidade',
   path: '/privacidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LinksRoute = LinksRouteImport.update({
+  id: '/links',
+  path: '/links',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CursosRoute = CursosRouteImport.update({
@@ -548,6 +554,7 @@ export interface FileRoutesByFullPath {
   '/adultos': typeof AdultosRouteWithChildren
   '/contato': typeof ContatoRoute
   '/cursos': typeof CursosRouteWithChildren
+  '/links': typeof LinksRoute
   '/privacidade': typeof PrivacidadeRoute
   '/sobre': typeof SobreRouteWithChildren
   '/termos': typeof TermosRoute
@@ -634,6 +641,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
+  '/links': typeof LinksRoute
   '/privacidade': typeof PrivacidadeRoute
   '/termos': typeof TermosRoute
   '/apresentacoes/informatica-create': typeof ApresentacoesInformaticaCreateRoute
@@ -720,6 +728,7 @@ export interface FileRoutesById {
   '/adultos': typeof AdultosRouteWithChildren
   '/contato': typeof ContatoRoute
   '/cursos': typeof CursosRouteWithChildren
+  '/links': typeof LinksRoute
   '/privacidade': typeof PrivacidadeRoute
   '/sobre': typeof SobreRouteWithChildren
   '/termos': typeof TermosRoute
@@ -810,6 +819,7 @@ export interface FileRouteTypes {
     | '/adultos'
     | '/contato'
     | '/cursos'
+    | '/links'
     | '/privacidade'
     | '/sobre'
     | '/termos'
@@ -896,6 +906,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/contato'
+    | '/links'
     | '/privacidade'
     | '/termos'
     | '/apresentacoes/informatica-create'
@@ -981,6 +992,7 @@ export interface FileRouteTypes {
     | '/adultos'
     | '/contato'
     | '/cursos'
+    | '/links'
     | '/privacidade'
     | '/sobre'
     | '/termos'
@@ -1070,6 +1082,7 @@ export interface RootRouteChildren {
   AdultosRoute: typeof AdultosRouteWithChildren
   ContatoRoute: typeof ContatoRoute
   CursosRoute: typeof CursosRouteWithChildren
+  LinksRoute: typeof LinksRoute
   PrivacidadeRoute: typeof PrivacidadeRoute
   SobreRoute: typeof SobreRouteWithChildren
   TermosRoute: typeof TermosRoute
@@ -1105,6 +1118,13 @@ declare module '@tanstack/react-router' {
       path: '/privacidade'
       fullPath: '/privacidade'
       preLoaderRoute: typeof PrivacidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/links': {
+      id: '/links'
+      path: '/links'
+      fullPath: '/links'
+      preLoaderRoute: typeof LinksRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cursos': {
@@ -1882,6 +1902,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdultosRoute: AdultosRouteWithChildren,
   ContatoRoute: ContatoRoute,
   CursosRoute: CursosRouteWithChildren,
+  LinksRoute: LinksRoute,
   PrivacidadeRoute: PrivacidadeRoute,
   SobreRoute: SobreRouteWithChildren,
   TermosRoute: TermosRoute,
