@@ -236,6 +236,7 @@
   .text-st-blue-dark { color: #04325A; }
   .bg-st-blue { background-color: #187ABF; }
   .text-st-blue { color: #187ABF; }
+  .bg-st-blue\/10 { background-color: rgb(24 122 191 / 0.1); }
 
   .bg-program-create {
     background: linear-gradient(135deg, #0067BE 0%, #04325A 100%);
