@@ -49,23 +49,23 @@ function LinksPage() {
                   href={WHATSAPP}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex flex-col rounded-2xl bg-white p-4 transition hover:-translate-y-0.5"
+                  className="flex flex-col overflow-hidden rounded-2xl bg-white transition hover:-translate-y-0.5"
                 >
-                  <span className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-st-green/10">
-                    <WhatsAppIcon className="h-5 w-5 text-st-green" />
+                  <span className="relative flex h-20 items-end bg-st-green p-3">
+                    <WhatsAppIcon className="absolute left-3 top-3 h-5 w-5 text-white/80" />
+                    <span className="text-sm font-bold text-white">Fale no WhatsApp</span>
                   </span>
-                  <span className="text-sm font-bold text-st-blue-dark">Fale no WhatsApp</span>
                 </a>
                 <a
                   href={ORG.instagram}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex flex-col rounded-2xl bg-white p-4 transition hover:-translate-y-0.5"
+                  className="flex flex-col overflow-hidden rounded-2xl bg-white transition hover:-translate-y-0.5"
                 >
-                  <span className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-st-blue/10">
-                    <Instagram className="h-5 w-5 text-st-blue" />
+                  <span className="relative flex h-20 items-end bg-st-blue p-3">
+                    <Instagram className="absolute left-3 top-3 h-5 w-5 text-white/80" />
+                    <span className="text-sm font-bold text-white">Instagram</span>
                   </span>
-                  <span className="text-sm font-bold text-st-blue-dark">Instagram</span>
                 </a>
               </div>
             )}
@@ -82,21 +82,24 @@ function LinksPage() {
                     href={item.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex flex-col rounded-2xl bg-white p-4 transition hover:-translate-y-0.5 hover:shadow-lg"
+                    className="flex flex-col overflow-hidden rounded-2xl bg-white transition hover:-translate-y-0.5 hover:shadow-lg"
                   >
-                    {item.imageUrl ? (
-                      <img src={item.imageUrl} alt="" className="mb-3 h-10 w-10 rounded-lg object-cover" />
-                    ) : (
-                      <span className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-st-blue/10">
-                        <ExternalLink className="h-5 w-5 text-st-blue" />
-                      </span>
-                    )}
-                    <p className="text-sm font-bold text-st-blue-dark">{item.title}</p>
+                    <div
+                      className={`relative flex h-20 items-end p-3 ${item.imageUrl ? "bg-cover bg-center" : "bg-st-blue"}`}
+                      style={item.imageUrl ? { backgroundImage: `url(${item.imageUrl})` } : undefined}
+                    >
+                      {item.imageUrl ? (
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                      ) : (
+                        <ExternalLink className="absolute left-3 top-3 h-5 w-5 text-white/80" />
+                      )}
+                      <p className="relative text-sm font-bold text-white">{item.title}</p>
+                    </div>
                     {item.description && (
-                      <>
-                        <hr className="my-2 border-t border-st-blue-dark/10" />
+                      <div className="p-3 pt-2">
+                        <hr className="mb-2 border-t border-st-blue-dark/10" />
                         <p className="text-xs text-muted-foreground">{item.description}</p>
-                      </>
+                      </div>
                     )}
                   </a>
                 ))}
