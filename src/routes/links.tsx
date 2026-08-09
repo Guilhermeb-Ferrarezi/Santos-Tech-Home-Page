@@ -32,7 +32,7 @@ function LinksPage() {
         ])}
       />
       <section className="flex min-h-screen w-full flex-col items-center bg-st-blue-dark px-4 py-12 sm:py-16">
-        <div className="flex w-full max-w-md flex-col items-center gap-6">
+        <div className="flex w-full max-w-md flex-col items-center gap-6 md:max-w-2xl">
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white p-2">
             <Img name="logo" alt="Logo Santos Tech" priority width={48} height={48} className="h-full w-full object-contain" />
           </div>
@@ -45,14 +45,14 @@ function LinksPage() {
             {isLoading && <p className="text-center text-sm text-white/70">Carregando…</p>}
 
             {isError && (
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-3 md:gap-4">
                 <a
                   href={WHATSAPP}
                   target="_blank"
                   rel="noreferrer"
                   className="flex flex-col overflow-hidden rounded-2xl bg-white transition hover:-translate-y-0.5"
                 >
-                  <span className="relative flex h-20 items-end bg-st-green p-3">
+                  <span className="relative flex h-20 items-end bg-st-green p-3 md:h-32 md:p-4">
                     <WhatsAppIcon className="absolute left-3 top-3 h-5 w-5 text-white/80" />
                     <span className="text-sm font-bold text-white">Fale no WhatsApp</span>
                   </span>
@@ -63,7 +63,7 @@ function LinksPage() {
                   rel="noreferrer"
                   className="flex flex-col overflow-hidden rounded-2xl bg-white transition hover:-translate-y-0.5"
                 >
-                  <span className="relative flex h-20 items-end bg-st-blue p-3">
+                  <span className="relative flex h-20 items-end bg-st-blue p-3 md:h-32 md:p-4">
                     <Instagram className="absolute left-3 top-3 h-5 w-5 text-white/80" />
                     <span className="text-sm font-bold text-white">Instagram</span>
                   </span>
@@ -76,7 +76,7 @@ function LinksPage() {
             )}
 
             {!isLoading && !isError && (items?.length ?? 0) > 0 && (
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-3 md:gap-4">
                 {items?.map((item) => (
                   <a
                     key={item.id}
@@ -86,7 +86,7 @@ function LinksPage() {
                     className="flex flex-col overflow-hidden rounded-2xl bg-white transition hover:-translate-y-0.5 hover:shadow-lg"
                   >
                     <div
-                      className={`relative flex h-20 items-end p-3 ${item.imageUrl ? "bg-cover bg-center" : "bg-st-blue"}`}
+                      className={`relative flex h-20 items-end p-3 md:h-32 md:p-4 ${item.imageUrl ? "bg-cover bg-center" : "bg-st-blue"}`}
                       style={item.imageUrl ? { backgroundImage: `url(${item.imageUrl})` } : undefined}
                     >
                       {item.imageUrl ? (
@@ -94,12 +94,12 @@ function LinksPage() {
                       ) : (
                         <ExternalLink className="absolute left-3 top-3 h-5 w-5 text-white/80" />
                       )}
-                      <p className="relative text-sm font-bold text-white">{item.title}</p>
+                      <p className="relative text-sm font-bold text-white md:text-base">{item.title}</p>
                     </div>
                     {item.description && (
-                      <div className="p-3 pt-2">
+                      <div className="p-3 pt-2 md:p-4 md:pt-2">
                         <hr className="mb-2 border-t border-st-blue-dark/10" />
-                        <p className="text-xs text-muted-foreground">{item.description}</p>
+                        <p className="text-xs text-muted-foreground md:text-sm">{item.description}</p>
                       </div>
                     )}
                   </a>
