@@ -237,6 +237,8 @@
   .bg-st-blue { background-color: #187ABF; }
   .text-st-blue { color: #187ABF; }
   .bg-st-blue\/10 { background-color: rgb(24 122 191 / 0.1); }
+  .bg-st-green\/10 { background-color: rgb(13 184 143 / 0.1); }
+  .border-st-blue-dark\/10 { border-color: rgb(4 50 90 / 0.1); }
 
   .bg-program-create {
     background: linear-gradient(135deg, #0067BE 0%, #04325A 100%);
