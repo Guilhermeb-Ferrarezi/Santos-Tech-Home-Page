@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Instagram, ExternalLink } from "lucide-react";
+import { Img } from "@/components/img";
 import { WhatsAppIcon } from "@/components/icons";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 import { JsonLd } from "@/components/json-ld";
@@ -32,8 +33,8 @@ function LinksPage() {
       />
       <section className="flex min-h-screen w-full flex-col items-center bg-st-blue-dark px-4 py-12 sm:py-16">
         <div className="flex w-full max-w-md flex-col items-center gap-6">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-st-blue text-xl font-black text-white">
-            ST
+          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white p-2">
+            <Img name="logo" alt="Logo Santos Tech" priority width={48} height={48} className="h-full w-full object-contain" />
           </div>
           <div className="text-center">
             <p className="text-lg font-black text-white">Santos Tech</p>
