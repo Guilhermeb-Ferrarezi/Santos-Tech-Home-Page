@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, MapPin, Mail } from "lucide-react";
+import { MapPin, Mail } from "lucide-react";
 import { Img } from "@/components/img";
-import { WhatsAppIcon } from "@/components/icons";
+import { WhatsAppIcon, InstagramIcon } from "@/components/icons";
 import { useProgramKey, type ProgramKey } from "@/lib/program-theme";
 import { WHATSAPP_URL, WHATSAPP_PHONE_DISPLAY } from "@/lib/whatsapp";
 
@@ -136,7 +136,7 @@ export function SiteFooter() {
             </li>
             <li>
               <a href="https://instagram.com/escolasantostech" target="_blank" rel="noreferrer" className={`flex items-center gap-2.5 ${t.links}`}>
-                <Instagram className={`h-5 w-5 shrink-0 ${t.iconColor}`} /> escolasantostech
+                <InstagramIcon className={`h-5 w-5 shrink-0 ${t.iconColor}`} /> escolasantostech
               </a>
             </li>
             <li className="flex items-center gap-2.5">

@@ -13,10 +13,9 @@ import {
   Monitor,
   Trophy,
   Heart,
-  Instagram,
 } from "lucide-react";
 import { Reveal } from "@/components/reveal";
-import { WhatsAppIcon } from "@/components/icons";
+import { WhatsAppIcon, InstagramIcon } from "@/components/icons";
 import { DecorativeElements } from "@/components/decorative-elements";
 import { Img } from "@/components/img";
 import { JsonLd } from "@/components/json-ld";
@@ -224,7 +223,7 @@ function SobreNosPage() {
             {[
               { icon: Star, n: "5,0", l: "nota no Google" },
               { icon: Trophy, n: "329", l: "avaliações 5★" },
-              { icon: Instagram, n: "+14 mil", l: "no Instagram" },
+              { icon: InstagramIcon, n: "+14 mil", l: "no Instagram" },
               { icon: Users, n: "Até 10", l: "alunos por turma" },
             ].map((s, i) => (
               <Reveal key={s.l} delay={i * 100}>

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MapPin, Mail, Instagram, Clock } from "lucide-react";
-import { WhatsAppIcon } from "@/components/icons";
+import { MapPin, Mail, Clock } from "lucide-react";
+import { WhatsAppIcon, InstagramIcon } from "@/components/icons";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 import { DecorativeElements } from "@/components/decorative-elements";
 import { JsonLd } from "@/components/json-ld";
@@ -91,7 +91,7 @@ function ContactPage() {
 
               <a href="https://instagram.com/escolasantostech" target="_blank" rel="noreferrer" className="flex items-start gap-4 rounded-xl border border-border bg-card p-6 transition hover:border-primary/40 hover:shadow-lg">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <Instagram className="h-6 w-6" />
+                  <InstagramIcon className="h-6 w-6" />
                 </div>
                 <div>
                   <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Instagram</p>

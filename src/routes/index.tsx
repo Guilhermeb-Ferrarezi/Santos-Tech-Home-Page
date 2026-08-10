@@ -15,7 +15,6 @@ import {
   Sparkles,
   Star,
   MapPin,
-  Instagram,
   ArrowRight,
   CheckCircle2,
   BadgeCheck,
@@ -31,7 +30,7 @@ import {
 import { Reveal } from "@/components/reveal";
 import { DecorativeElements } from "@/components/decorative-elements";
 import { Img } from "@/components/img";
-import { WhatsAppIcon } from "@/components/icons";
+import { WhatsAppIcon, InstagramIcon } from "@/components/icons";
 import { RarityBadge } from "@/components/rarity-badge";
 import { HeroCollage } from "@/components/hero-collage";
 import { ScrollStage } from "@/components/scroll-stage";
@@ -957,7 +956,7 @@ function Index() {
                 rel="noreferrer"
                 className="flex flex-col items-center transition hover:opacity-80"
               >
-                <Instagram className="h-9 w-9 text-primary" />
+                <InstagramIcon className="h-9 w-9 text-primary" />
                 <p className="mt-2 text-3xl font-black text-gradient-hero">+14 mil</p>
                 <p className="text-sm text-muted-foreground">seguidores no Instagram</p>
               </a>
@@ -1100,7 +1099,7 @@ function Index() {
                   5,0 no Google · 329 avaliações
                 </p>
                 <p className="flex items-center justify-center gap-2">
-                  <Instagram className="h-4 w-4" />
+                  <InstagramIcon className="h-4 w-4" />
                   @escolasantostech
                 </p>
               </div>
