@@ -1,6 +1,9 @@
 import { createStart, createMiddleware } from "@tanstack/react-start";
 
 import { renderErrorPage } from "./lib/error-page";
+import { initServerSentry, Sentry } from "./lib/sentry-server";
+
+initServerSentry();
 
 const errorMiddleware = createMiddleware().server(async ({ next }) => {
   try {
@@ -10,6 +13,7 @@ const errorMiddleware = createMiddleware().server(async ({ next }) => {
       throw error;
     }
     console.error(error);
+    Sentry.captureException(error);
     return new Response(renderErrorPage(), {
       status: 500,
       headers: { "content-type": "text/html; charset=utf-8" },
