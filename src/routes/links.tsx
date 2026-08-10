@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Instagram, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { Img } from "@/components/img";
-import { WhatsAppIcon } from "@/components/icons";
+import { WhatsAppIcon, InstagramIcon } from "@/components/icons";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 import { JsonLd } from "@/components/json-ld";
 import { pageMeta, buildBreadcrumbSchema, ORG } from "@/lib/seo";
@@ -64,7 +64,7 @@ function LinksPage() {
                   className="flex flex-col overflow-hidden rounded-2xl bg-white transition hover:-translate-y-0.5"
                 >
                   <span className="relative flex h-20 items-end bg-st-blue p-3 md:h-32 md:p-4">
-                    <Instagram className="absolute left-3 top-3 h-5 w-5 text-white/80" />
+                    <InstagramIcon className="absolute left-3 top-3 h-5 w-5 text-white/80" />
                     <span className="text-sm font-bold text-white">Instagram</span>
                   </span>
                 </a>
