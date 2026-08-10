@@ -21,7 +21,9 @@ export const Route = createFileRoute("/links")({
 const WHATSAPP = WHATSAPP_URL.courses;
 
 function LinksPage() {
-  const { data: items, isLoading, isError } = usePublicLinkShowcaseItems();
+  const { data, isLoading, isError } = usePublicLinkShowcaseItems();
+  const items = data?.links;
+  const backgroundImageUrl = data?.backgroundImageUrl;
 
   return (
     <>
@@ -31,8 +33,14 @@ function LinksPage() {
           { name: "Links", path: "/links" },
         ])}
       />
-      <section className="flex min-h-screen w-full flex-col items-center bg-st-blue-dark px-4 py-12 sm:py-16">
-        <div className="flex w-full max-w-md flex-col items-center gap-6 md:max-w-2xl">
+      <section
+        className="relative flex min-h-screen w-full flex-col items-center overflow-hidden bg-st-blue-dark bg-cover bg-center px-4 py-12 sm:py-16"
+        style={backgroundImageUrl ? { backgroundImage: `url(${backgroundImageUrl})` } : undefined}
+      >
+        {backgroundImageUrl && (
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" aria-hidden="true" />
+        )}
+        <div className="relative z-10 flex w-full max-w-md flex-col items-center gap-6 md:max-w-2xl">
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white p-2">
             <Img name="logo" alt="Logo Santos Tech" priority width={48} height={48} className="h-full w-full object-contain" />
           </div>

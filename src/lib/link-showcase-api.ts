@@ -11,11 +11,16 @@ export type LinkShowcasePublicItem = {
   ordem: number;
 };
 
-async function fetchPublicLinkShowcaseItems(): Promise<LinkShowcasePublicItem[]> {
+export type LinkShowcasePublicData = {
+  links: LinkShowcasePublicItem[];
+  backgroundImageUrl: string | null;
+};
+
+async function fetchPublicLinkShowcaseData(): Promise<LinkShowcasePublicData> {
   const res = await fetch(`${API_URL}/public/links`);
   if (!res.ok) throw new Error(`Falha ao carregar links (status ${res.status})`);
-  const data = (await res.json()) as { links: LinkShowcasePublicItem[] };
-  return data.links;
+  const data = (await res.json()) as { links: LinkShowcasePublicItem[]; backgroundImageUrl: string | null };
+  return { links: data.links, backgroundImageUrl: data.backgroundImageUrl ?? null };
 }
 
 // retry:1 — é tráfego de bio (celular, rede instável); uma tentativa extra
@@ -23,7 +28,7 @@ async function fetchPublicLinkShowcaseItems(): Promise<LinkShowcasePublicItem[]>
 export function usePublicLinkShowcaseItems() {
   return useQuery({
     queryKey: ["public-link-showcase-items"],
-    queryFn: fetchPublicLinkShowcaseItems,
+    queryFn: fetchPublicLinkShowcaseData,
     staleTime: 60_000,
     retry: 1,
   });
