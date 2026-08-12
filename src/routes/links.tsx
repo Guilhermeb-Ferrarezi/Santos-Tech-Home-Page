@@ -99,12 +99,16 @@ function LinksPage() {
                           <p className="text-sm font-bold text-st-blue-dark md:text-base">{item.title}</p>
                           <hr className="mt-1.5 border-t border-st-blue-dark/10" />
                         </div>
-                        {/* aspect-[4/3] define a altura base; `grow` deixa a imagem
-                            absorver a sobra quando o card é esticado pelo grid pra
-                            casar com a altura do vizinho de título mais comprido —
-                            sem isso a sobra virava faixa branca embaixo da foto. */}
-                        <div className="aspect-[4/3] grow overflow-hidden">
-                          <img src={item.imageUrl} alt="" className="h-full w-full object-cover" />
+                        {/* O grid iguala a altura da dupla de cards pelo título mais
+                            comprido; a imagem tem que absorver essa sobra, senão vira
+                            faixa branca embaixo da foto no card de título mais curto.
+                            NÃO usar aspect-ratio aqui: aspect-ratio + flex-grow tem bug
+                            no Safari/iOS (funciona no Chrome, falha no iPhone). min-h
+                            (≈4:3 da largura da coluna em cada breakpoint) + flex-1 é
+                            flexbox básico, previsível em todo navegador. O `absolute`
+                            na img evita realimentação de tamanho intrínseco. */}
+                        <div className="relative min-h-[7.75rem] flex-1 overflow-hidden md:min-h-[15.375rem]">
+                          <img src={item.imageUrl} alt="" className="absolute inset-0 h-full w-full object-cover" />
                         </div>
                       </>
                     ) : (
