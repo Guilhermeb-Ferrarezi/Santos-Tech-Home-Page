@@ -167,6 +167,7 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isAdultosRoute = pathname.startsWith("/adultos");
+  const isLinksRoute = pathname === "/links";
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -183,7 +184,7 @@ function RootComponent() {
             Pular para o conteúdo
           </a>
           <div className="flex min-h-screen flex-col bg-background">
-            <SiteHeader />
+            {!isLinksRoute && <SiteHeader />}
             <main id="conteudo" className="flex-1">
               <Outlet />
             </main>
