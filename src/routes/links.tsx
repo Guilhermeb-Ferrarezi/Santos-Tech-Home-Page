@@ -93,22 +93,26 @@ function LinksPage() {
                     rel="noreferrer"
                     className="flex flex-col overflow-hidden rounded-2xl bg-white transition hover:-translate-y-0.5 hover:shadow-lg"
                   >
-                    <div
-                      className={`relative flex h-20 items-end p-3 md:h-32 md:p-4 ${item.imageUrl ? "bg-cover bg-center" : "bg-st-blue"}`}
-                      style={item.imageUrl ? { backgroundImage: `url(${item.imageUrl})` } : undefined}
-                    >
-                      {item.imageUrl ? (
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                      ) : (
-                        <ExternalLink className="absolute left-3 top-3 h-5 w-5 text-white/80" />
-                      )}
-                      <p className="relative text-sm font-bold text-white md:text-base">{item.title}</p>
-                    </div>
-                    {item.description && (
-                      <div className="p-3 pt-2 md:p-4 md:pt-2">
-                        <hr className="mb-2 border-t border-st-blue-dark/10" />
-                        <p className="text-xs text-muted-foreground md:text-sm">{item.description}</p>
-                      </div>
+                    {item.imageUrl ? (
+                      <>
+                        <div className="p-3 pb-2 md:p-4 md:pb-2">
+                          <p className="text-sm font-bold text-st-blue-dark md:text-base">{item.title}</p>
+                        </div>
+                        <div className="h-32 bg-cover bg-center md:h-44" style={{ backgroundImage: `url(${item.imageUrl})` }} />
+                      </>
+                    ) : (
+                      <>
+                        <div className="relative flex h-32 items-end bg-st-blue p-3 md:h-44 md:p-4">
+                          <ExternalLink className="absolute left-3 top-3 h-5 w-5 text-white/80" />
+                          <p className="relative text-sm font-bold text-white md:text-base">{item.title}</p>
+                        </div>
+                        {item.description && (
+                          <div className="p-2 pt-1.5 md:p-3 md:pt-1.5">
+                            <hr className="mb-1.5 border-t border-st-blue-dark/10" />
+                            <p className="line-clamp-2 text-xs text-muted-foreground md:text-sm">{item.description}</p>
+                          </div>
+                        )}
+                      </>
                     )}
                   </a>
                 ))}
