@@ -99,7 +99,7 @@ function LinksPage() {
                           <p className="text-sm font-bold text-st-blue-dark md:text-base">{item.title}</p>
                           <hr className="mt-1.5 border-t border-st-blue-dark/10" />
                         </div>
-                        <div className="aspect-square bg-cover bg-center" style={{ backgroundImage: `url(${item.imageUrl})` }} />
+                        <div className="aspect-[4/3] bg-cover bg-center" style={{ backgroundImage: `url(${item.imageUrl})` }} />
                       </>
                     ) : (
                       <>
