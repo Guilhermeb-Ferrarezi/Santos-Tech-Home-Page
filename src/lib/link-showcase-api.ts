@@ -9,6 +9,7 @@ export type LinkShowcasePublicItem = {
   imageUrl: string | null;
   url: string;
   ordem: number;
+  titleGradient: boolean;
 };
 
 export type LinkShowcasePublicData = {

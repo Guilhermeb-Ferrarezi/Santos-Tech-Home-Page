@@ -1,11 +1,26 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ExternalLink } from "lucide-react";
+import type { CSSProperties } from "react";
+import { ExternalLink, Globe } from "lucide-react";
 import { Img } from "@/components/img";
 import { WhatsAppIcon, InstagramIcon } from "@/components/icons";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 import { JsonLd } from "@/components/json-ld";
 import { pageMeta, buildBreadcrumbSchema, ORG } from "@/lib/seo";
 import { usePublicLinkShowcaseItems } from "@/lib/link-showcase-api";
+
+// Mesmo degradê da identidade santos-tech.com — ligado por card, no admin
+// (Vitrine de links do dashboard), pra destacar um título específico.
+const TITLE_GRADIENT_STYLE: CSSProperties = {
+  backgroundImage: "linear-gradient(90deg,#187abf 0%,#0067be 40%,#0db88f 100%)",
+  WebkitBackgroundClip: "text",
+  backgroundClip: "text",
+  color: "transparent",
+};
+
+// Borda 1px bem sutil só pra separar o card branco do fundo (imagem/gradiente) —
+// ring em vez de border pra não disputar espaço com o rounded-2xl + overflow-hidden.
+const CARD_CLASS =
+  "flex flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-black/5 transition hover:-translate-y-0.5";
 
 export const Route = createFileRoute("/links")({
   component: LinksPage,
@@ -49,28 +64,37 @@ function LinksPage() {
             <p className="mt-1 text-sm text-white/70">Escola de tecnologia — Ribeirão Preto</p>
           </div>
 
+          <div className="flex items-center gap-3">
+            <a
+              href="/"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+              aria-label="Site oficial da Santos Tech"
+            >
+              <Globe className="h-[18px] w-[18px]" />
+            </a>
+            <a
+              href={ORG.instagram}
+              target="_blank"
+              rel="noreferrer"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+              aria-label="Instagram da Santos Tech"
+            >
+              <InstagramIcon className="h-4 w-4" />
+            </a>
+          </div>
+
           <div className="w-full">
             {isLoading && <p className="text-center text-sm text-white/70">Carregando…</p>}
 
             {isError && (
               <div className="grid grid-cols-2 gap-3 md:gap-4">
-                <a
-                  href={WHATSAPP}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex flex-col overflow-hidden rounded-2xl bg-white transition hover:-translate-y-0.5"
-                >
+                <a href={WHATSAPP} target="_blank" rel="noreferrer" className={CARD_CLASS}>
                   <span className="relative flex h-20 items-end bg-st-green p-3 md:h-32 md:p-4">
                     <WhatsAppIcon className="absolute left-3 top-3 h-5 w-5 text-white/80" />
                     <span className="text-sm font-bold text-white">Fale no WhatsApp</span>
                   </span>
                 </a>
-                <a
-                  href={ORG.instagram}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex flex-col overflow-hidden rounded-2xl bg-white transition hover:-translate-y-0.5"
-                >
+                <a href={ORG.instagram} target="_blank" rel="noreferrer" className={CARD_CLASS}>
                   <span className="relative flex h-20 items-end bg-st-blue p-3 md:h-32 md:p-4">
                     <InstagramIcon className="absolute left-3 top-3 h-5 w-5 text-white/80" />
                     <span className="text-sm font-bold text-white">Instagram</span>
@@ -91,12 +115,17 @@ function LinksPage() {
                     href={item.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex flex-col overflow-hidden rounded-2xl bg-white transition hover:-translate-y-0.5 hover:shadow-lg"
+                    className={`${CARD_CLASS} hover:shadow-lg`}
                   >
                     {item.imageUrl ? (
                       <>
                         <div className="p-3 pb-2 md:p-4 md:pb-2">
-                          <p className="text-sm font-bold text-st-blue-dark md:text-base">{item.title}</p>
+                          <p
+                            className="text-sm font-bold text-st-blue-dark md:text-base"
+                            style={item.titleGradient ? TITLE_GRADIENT_STYLE : undefined}
+                          >
+                            {item.title}
+                          </p>
                           <hr className="mt-1.5 border-t border-st-blue-dark/10" />
                         </div>
                         {/* O grid iguala a altura da dupla de cards pelo título mais
@@ -115,7 +144,12 @@ function LinksPage() {
                       <>
                         <div className="relative flex h-32 items-end bg-st-blue p-3 md:h-44 md:p-4">
                           <ExternalLink className="absolute left-3 top-3 h-5 w-5 text-white/80" />
-                          <p className="relative text-sm font-bold text-white md:text-base">{item.title}</p>
+                          <p
+                            className="relative text-sm font-bold text-white md:text-base"
+                            style={item.titleGradient ? TITLE_GRADIENT_STYLE : undefined}
+                          >
+                            {item.title}
+                          </p>
                         </div>
                         {item.description && (
                           <div className="p-2 pt-1.5 md:p-3 md:pt-1.5">
