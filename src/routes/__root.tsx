@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -169,6 +170,19 @@ function RootComponent() {
   const isAdultosRoute = pathname.startsWith("/adultos");
   const isLinksRoute = pathname === "/links";
 
+  // /links é a única página com fundo escuro de ponta a ponta. Sem isto, o
+  // "elastic bounce" do scroll no mobile (Chrome/Safari) mostra por baixo o
+  // branco do body normal do site — pinta o body de navy só enquanto essa
+  // rota estiver montada, e desfaz ao sair.
+  useEffect(() => {
+    if (!isLinksRoute) return;
+    const previous = document.body.style.backgroundColor;
+    document.body.style.backgroundColor = "#04325A";
+    return () => {
+      document.body.style.backgroundColor = previous;
+    };
+  }, [isLinksRoute]);
+
   return (
     <QueryClientProvider client={queryClient}>
       <JsonLd data={[buildOrganizationSchema(), buildWebSiteSchema()]} />
@@ -183,11 +197,13 @@ function RootComponent() {
           >
             Pular para o conteúdo
           </a>
-          <div className="flex min-h-screen flex-col bg-background">
+          {/* min-h-screen (100vh) + main flex-1 é o padrão "rodapé grudado no fim
+              da tela" — bom pro site normal, ruim em /links: no mobile o 100vh
+              conta com a barra de endereço recolhida, então sobra espaço em
+              branco abaixo do rodapé quando o conteúdo é curto (poucos cards
+              ativos). Ambos desligados só nessa rota. */}
+          <div className={`flex flex-col bg-background ${isLinksRoute ? "" : "min-h-screen"}`}>
             {!isLinksRoute && <SiteHeader />}
-            {/* flex-1 gruda o rodapé no fim da tela em página curta — bom pra
-                conteúdo típico do site, ruim pra /links: com poucos cards
-                ativos sobra um vão enorme antes do rodapé. */}
             <main id="conteudo" className={isLinksRoute ? undefined : "flex-1"}>
               <Outlet />
             </main>
