@@ -1,9 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { MapPin, Mail } from "lucide-react";
-import { Img } from "@/components/img";
-import { WhatsAppIcon, InstagramIcon } from "@/components/icons";
 import { useProgramKey, type ProgramKey } from "@/lib/program-theme";
-import { WHATSAPP_URL, WHATSAPP_PHONE_DISPLAY } from "@/lib/whatsapp";
 
 type FooterTheme = {
   wrapper: string;
@@ -84,70 +80,6 @@ export function SiteFooter() {
 
   return (
     <footer className={t.wrapper}>
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4 lg:px-8">
-        <div className="md:col-span-2">
-          <div className="flex items-center gap-3">
-            <Img
-              name="logo"
-              alt="Logo Santos Tech"
-              width={48}
-              height={48}
-              className="h-12 w-12"
-            />
-            <span className={`text-lg font-bold ${t.brandHeading}`}>
-              SANTOS <span className={t.brandHeadingAccent}>TECH</span>
-            </span>
-          </div>
-          <p className={`mt-4 max-w-md text-sm ${t.bodyText}`}>
-            Centro presencial de aprendizagem de programação para crianças e
-            jovens em Ribeirão Preto. Aqui, o tempo de tela vira habilidade do
-            futuro.
-          </p>
-        </div>
-
-        <div>
-          <h3 className={`text-sm font-bold uppercase tracking-wider ${t.headings}`}>
-            Navegação
-          </h3>
-          <ul className={`mt-4 space-y-2 text-sm ${t.bodyText}`}>
-            <li><Link to="/" className={t.links}>Início</Link></li>
-            <li><Link to="/cursos" className={t.links}>Cursos</Link></li>
-            <li><Link to="/sobre" className={t.links}>Sobre</Link></li>
-            <li><Link to="/contato" className={t.links}>Contato</Link></li>
-            <li><Link to="/adultos" className={t.links}>Cursos para Adultos</Link></li>
-            {/* /blog é outro app (repo blog) no mesmo domínio — <a>, não <Link>. */}
-            <li><a href="/blog" className={t.links}>Blog</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 className={`text-sm font-bold uppercase tracking-wider ${t.headings}`}>
-            Contato
-          </h3>
-          <ul className={`mt-4 space-y-3 text-sm ${t.bodyText}`}>
-            <li className="flex items-start gap-2.5">
-              <MapPin className={`mt-0.5 h-5 w-5 shrink-0 ${t.iconColor}`} />
-              <span>Av. Nove de Julho, 1992 — Jardim América, Ribeirão Preto, SP</span>
-            </li>
-            <li>
-              <a href={WHATSAPP_URL.footer} target="_blank" rel="noreferrer" className={`flex items-center gap-2.5 ${t.links}`}>
-                <WhatsAppIcon className={`h-5 w-5 shrink-0 ${t.iconColor}`} /> {WHATSAPP_PHONE_DISPLAY}
-              </a>
-            </li>
-            <li>
-              <a href="https://instagram.com/escolasantostech" target="_blank" rel="noreferrer" className={`flex items-center gap-2.5 ${t.links}`}>
-                <InstagramIcon className={`h-5 w-5 shrink-0 ${t.iconColor}`} /> escolasantostech
-              </a>
-            </li>
-            <li className="flex items-center gap-2.5">
-              <Mail className={`h-5 w-5 shrink-0 ${t.iconColor}`} />
-              <a href="mailto:contato@santos-tech.com" className={t.links}>
-                contato@santos-tech.com
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
       <div className={t.bottomBar}>
         <div className={`mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 text-xs sm:flex-row sm:px-6 lg:px-8 ${t.bottomText}`}>
           <p>© {new Date().getFullYear()} Santos Tech. Todos os direitos reservados.</p>
