@@ -49,7 +49,7 @@ function LinksPage() {
         ])}
       />
       <section
-        className="relative flex min-h-screen w-full flex-col items-center overflow-hidden bg-st-blue-dark bg-cover bg-center px-4 py-12 sm:py-16"
+        className="relative flex w-full flex-col items-center overflow-hidden bg-st-blue-dark bg-cover bg-center px-4 py-12 sm:py-16"
         style={backgroundImageUrl ? { backgroundImage: `url(${backgroundImageUrl})` } : undefined}
       >
         {backgroundImageUrl && (

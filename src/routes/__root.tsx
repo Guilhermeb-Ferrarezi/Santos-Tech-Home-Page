@@ -185,7 +185,10 @@ function RootComponent() {
           </a>
           <div className="flex min-h-screen flex-col bg-background">
             {!isLinksRoute && <SiteHeader />}
-            <main id="conteudo" className="flex-1">
+            {/* flex-1 gruda o rodapé no fim da tela em página curta — bom pra
+                conteúdo típico do site, ruim pra /links: com poucos cards
+                ativos sobra um vão enorme antes do rodapé. */}
+            <main id="conteudo" className={isLinksRoute ? undefined : "flex-1"}>
               <Outlet />
             </main>
             <SiteFooter />

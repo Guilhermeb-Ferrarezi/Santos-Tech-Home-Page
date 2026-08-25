@@ -83,8 +83,9 @@ export function SiteFooter() {
       <div className={t.bottomBar}>
         <div className={`mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 text-xs sm:flex-row sm:px-6 lg:px-8 ${t.bottomText}`}>
           <p>© {new Date().getFullYear()} Santos Tech. Todos os direitos reservados.</p>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
             <Link to="/privacidade" className={t.links}>Política de Privacidade</Link>
+            <span aria-hidden="true" className="opacity-50">·</span>
             <Link to="/termos" className={t.links}>Termos de Uso</Link>
           </div>
         </div>
