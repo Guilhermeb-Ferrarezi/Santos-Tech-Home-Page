@@ -109,7 +109,7 @@ function LinksPage() {
 
             {!isLoading && !isError && (items?.length ?? 0) > 0 && (
               <div className="grid grid-cols-2 gap-3 md:gap-4">
-                {items?.map((item) => (
+                {items?.map((item, index) => (
                   <a
                     key={item.id}
                     href={item.url}
@@ -137,7 +137,13 @@ function LinksPage() {
                             flexbox básico, previsível em todo navegador. O `absolute`
                             na img evita realimentação de tamanho intrínseco. */}
                         <div className="relative min-h-[7.75rem] flex-1 overflow-hidden md:min-h-[15.375rem]">
-                          <img src={item.imageUrl} alt="" className="absolute inset-0 h-full w-full object-cover" />
+                          <img
+                            src={item.imageUrl}
+                            alt=""
+                            className="absolute inset-0 h-full w-full object-cover"
+                            loading={index < 2 ? "eager" : "lazy"}
+                            decoding="async"
+                          />
                         </div>
                       </>
                     ) : (
