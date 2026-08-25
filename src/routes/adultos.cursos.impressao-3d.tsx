@@ -26,6 +26,7 @@ const COURSE_DATA = {
     "Você quer entender materiais técnicos como PETG, TPU, ABS e resina para aplicações industriais",
     "Você atua no setor automotivo, saúde ou educação e quer integrar manufatura aditiva ao seu trabalho",
   ],
+  pricePerAula: 150,
   tiers: [
     {
       label: "Essencial",
