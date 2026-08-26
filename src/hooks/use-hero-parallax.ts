@@ -23,9 +23,14 @@ export function useHeroParallax(sectionRef: RefObject<HTMLElement | null>) {
       if (!section) return;
 
       const scrollTrigger = { trigger: section, start: "top top", end: "bottom top", scrub: true };
-      if (dotsRef.current) gsap.to(dotsRef.current, { y: 40, ease: "none", scrollTrigger });
-      if (blobsRef.current) gsap.to(blobsRef.current, { y: 90, ease: "none", scrollTrigger });
-      if (collageRef.current) gsap.to(collageRef.current, { y: 150, ease: "none", scrollTrigger });
+      // Valores bem maiores que antes — dots e blobs são as únicas camadas
+      // visíveis no mobile (HeroCollage é `hidden lg:block`), então o efeito
+      // precisa ser óbvio olhando só pra elas, não depender da colagem.
+      if (dotsRef.current) gsap.to(dotsRef.current, { y: 140, ease: "none", scrollTrigger });
+      if (blobsRef.current) {
+        gsap.to(blobsRef.current, { y: 320, scale: 1.15, ease: "none", scrollTrigger });
+      }
+      if (collageRef.current) gsap.to(collageRef.current, { y: 420, ease: "none", scrollTrigger });
     },
     { scope: sectionRef, dependencies: [] },
   );
