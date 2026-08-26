@@ -36,7 +36,7 @@ import { Img } from "@/components/img";
 import { WhatsAppIcon, InstagramIcon } from "@/components/icons";
 import { IconPop } from "@/components/icon-pop";
 import { RarityBadge } from "@/components/rarity-badge";
-import { HeroCollage } from "@/components/hero-collage";
+import { HeroIllustration } from "@/components/hero-illustration";
 import { ScrollStage } from "@/components/scroll-stage";
 import { Testimonials } from "@/components/testimonials";
 import { JsonLd } from "@/components/json-ld";
@@ -408,9 +408,9 @@ function Index() {
               </Reveal>
             </div>
 
-            {/* Colagem rotativa — alterna fotos de alunos (crianças + adolescentes) */}
+            {/* Ilustração flat — criança criando no computador, elementos flutuando */}
             <div ref={collageRef}>
-              <HeroCollage />
+              <HeroIllustration />
             </div>
           </div>
         </div>
