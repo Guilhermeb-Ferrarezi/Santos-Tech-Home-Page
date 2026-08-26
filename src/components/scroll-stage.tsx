@@ -72,6 +72,7 @@ export function ScrollStage({ heading, features, photo, heightVh = 340 }: Scroll
   const [enhanced, setEnhanced] = useState(false);
 
   const rootRef = useRef<HTMLDivElement>(null);
+  const pinRef = useRef<HTMLDivElement>(null);
   const tealRef = useRef<HTMLDivElement>(null);
   const indigoRef = useRef<HTMLDivElement>(null);
   const haloRef = useRef<HTMLDivElement>(null);
@@ -152,6 +153,8 @@ export function ScrollStage({ heading, features, photo, heightVh = 340 }: Scroll
         start: "top top",
         end: "bottom bottom",
         scrub: true,
+        pin: pinRef.current,
+        pinSpacing: false,
         onUpdate: applyProgress,
         onRefresh: applyProgress,
       });
@@ -201,7 +204,7 @@ export function ScrollStage({ heading, features, photo, heightVh = 340 }: Scroll
 
   return (
     <div ref={rootRef} className="relative" style={{ height: `${heightVh}vh` }}>
-      <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden" style={{ background: "#0a1428" }}>
+      <div ref={pinRef} className="flex h-screen items-center justify-center overflow-hidden" style={{ background: "#0a1428" }}>
         {/* camadas de fundo (crossfade por opacidade) */}
         <div className="pointer-events-none absolute inset-0" style={{ background: GRAD_BLUE }} />
         <div ref={tealRef} className="pointer-events-none absolute inset-0 opacity-0" style={{ background: GRAD_TEAL, willChange: "opacity" }} />

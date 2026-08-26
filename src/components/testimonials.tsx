@@ -140,6 +140,7 @@ const EDGE_MASK = "[mask-image:linear-gradient(to_right,transparent,#000_5%,#000
 export function Testimonials() {
   const [enhanced, setEnhanced] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
+  const pinRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const hintRef = useRef<HTMLParagraphElement>(null);
   // distância horizontal a percorrer — cacheada, só recalcula no resize.
@@ -178,6 +179,8 @@ export function Testimonials() {
         start: "top top",
         end: "bottom bottom",
         scrub: true,
+        pin: pinRef.current,
+        pinSpacing: false,
         onUpdate: applyProgress,
         onRefresh: applyProgress,
       });
@@ -213,7 +216,7 @@ export function Testimonials() {
   return (
     <section id="depoimentos" className="scroll-mt-24 bg-white">
       <div ref={rootRef} className="relative" style={{ height: "300vh" }}>
-        <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden bg-white">
+        <div ref={pinRef} className="flex h-screen flex-col justify-center overflow-hidden bg-white">
           <Header />
           <div className={`mt-10 overflow-hidden ${EDGE_MASK}`}>
             <div ref={trackRef} className="flex w-max gap-5 px-[8vw] will-change-transform">

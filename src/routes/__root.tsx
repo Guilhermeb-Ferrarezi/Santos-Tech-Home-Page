@@ -21,6 +21,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFab } from "@/components/whatsapp-fab";
 import { JsonLd } from "@/components/json-ld";
 import { useRouteEnterFade } from "@/hooks/use-route-enter-fade";
+import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
 import {
   BASE_URL,
   ORG,
@@ -172,6 +173,7 @@ function RootComponent() {
   const isLinksRoute = pathname === "/links";
   const mainRef = useRef<HTMLElement | null>(null);
   useRouteEnterFade(mainRef);
+  useSmoothScroll(!isAdultosRoute);
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -187,14 +189,17 @@ function RootComponent() {
           >
             Pular para o conteúdo
           </a>
-          <div className="flex min-h-screen flex-col bg-background">
-            {!isLinksRoute && <SiteHeader />}
-            <main id="conteudo" ref={mainRef} className="flex-1">
-              <Outlet />
-            </main>
-            <SiteFooter />
-            <WhatsAppFab />
+          {!isLinksRoute && <SiteHeader />}
+          <div id="smooth-wrapper" className="overflow-hidden">
+            <div id="smooth-content" className="flex min-h-screen flex-col bg-background">
+              {!isLinksRoute && <div className="h-20 shrink-0" aria-hidden />}
+              <main id="conteudo" ref={mainRef} className="flex-1">
+                <Outlet />
+              </main>
+              <SiteFooter />
+            </div>
           </div>
+          <WhatsAppFab />
         </>
       )}
     </QueryClientProvider>
