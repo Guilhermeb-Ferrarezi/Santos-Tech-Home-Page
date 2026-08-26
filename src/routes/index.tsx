@@ -34,6 +34,7 @@ import { useHeroParallax } from "@/hooks/use-hero-parallax";
 import { DecorativeElements } from "@/components/decorative-elements";
 import { Img } from "@/components/img";
 import { WhatsAppIcon, InstagramIcon } from "@/components/icons";
+import { IconPop } from "@/components/icon-pop";
 import { RarityBadge } from "@/components/rarity-badge";
 import { HeroCollage } from "@/components/hero-collage";
 import { ScrollStage } from "@/components/scroll-stage";
@@ -487,7 +488,7 @@ function Index() {
                       <div className="pointer-events-none absolute -right-10 -top-10 h-48 w-48 rounded-full bg-white/10 blur-2xl" />
                       <div className="relative">
                         <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15 backdrop-blur">
-                          <p.icon className="h-7 w-7" />
+                          <IconPop icon={p.icon} iconClassName="h-7 w-7" />
                         </span>
                         <p className="mt-6 text-xs font-black uppercase tracking-[0.2em] text-white/70">{p.t}</p>
                         <h3 className="mt-2 text-2xl font-black leading-tight sm:text-3xl">{p.lead}</h3>
@@ -499,8 +500,8 @@ function Index() {
                     </div>
                   ) : (
                     <div className="group h-full rounded-3xl border-2 border-primary/15 bg-card p-7 shadow-[0_8px_24px_-8px_rgba(24,122,191,0.18)] transition hover:-translate-y-1 hover:border-primary/40">
-                      <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
-                        <p.icon className="h-6 w-6" />
+                      <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground group-hover:rotate-6 group-hover:scale-110">
+                        <IconPop icon={p.icon} iconClassName="h-6 w-6" />
                       </span>
                       <p className="mt-5 text-xs font-black uppercase tracking-[0.2em] text-primary">{p.t}</p>
                       <h3 className="mt-1 text-lg font-black leading-snug">{p.lead}</h3>
