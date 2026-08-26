@@ -174,7 +174,7 @@ function ProductBand({ p, reverse, curveBottom }: { p: Produto; reverse?: boolea
   return (
     <div className="relative isolate overflow-hidden text-white" style={{ background: p.gradient }}>
       {/* curva branca no topo (divisor) */}
-      <div className="absolute -top-px left-0 right-0 leading-[0]">
+      <div className="absolute -top-px left-0 right-0 leading-[0] animate-curve-breathe">
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="block h-[44px] w-full rotate-180 sm:h-[64px]">
           <path d="M0,40 C360,100 720,0 1080,40 C1260,60 1380,70 1440,50 L1440,80 L0,80 Z" fill="#ffffff" />
         </svg>
@@ -239,7 +239,7 @@ function ProductBand({ p, reverse, curveBottom }: { p: Produto; reverse?: boolea
       </div>
 
       {curveBottom && (
-        <div className="absolute bottom-0 left-0 right-0 leading-[0]">
+        <div className="absolute bottom-0 left-0 right-0 leading-[0] animate-curve-breathe">
           <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="block h-[44px] w-full sm:h-[64px]">
             <path d="M0,40 C360,100 720,0 1080,40 C1260,60 1380,70 1440,50 L1440,80 L0,80 Z" fill="#ffffff" />
           </svg>
@@ -415,7 +415,7 @@ function Index() {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 leading-[0]">
+        <div className="absolute bottom-0 left-0 right-0 leading-[0] animate-curve-breathe">
           <svg viewBox="0 0 1440 100" preserveAspectRatio="none" className="block h-[60px] w-full sm:h-[100px]">
             <path d="M0,40 C360,120 720,0 1080,50 C1260,75 1380,90 1440,60 L1440,100 L0,100 Z" fill="#ffffff" />
           </svg>
