@@ -36,8 +36,7 @@ import { Img } from "@/components/img";
 import { WhatsAppIcon, InstagramIcon } from "@/components/icons";
 import { IconPop } from "@/components/icon-pop";
 import { RarityBadge } from "@/components/rarity-badge";
-import { HeroIllustration } from "@/components/hero-illustration";
-import { HeroCollage } from "@/components/hero-collage";
+import { HeroMascot } from "@/components/hero-mascot";
 import { ScrollStage } from "@/components/scroll-stage";
 import { Testimonials } from "@/components/testimonials";
 import { JsonLd } from "@/components/json-ld";
@@ -359,7 +358,7 @@ function Index() {
         <DecorativeElements color="#187ABF" />
 
         <div className="relative mx-auto max-w-7xl px-4 pb-32 pt-16 sm:px-6 sm:pt-20 lg:px-8 lg:pb-40 lg:pt-24">
-          <div className="grid items-center gap-10 lg:grid-cols-2">
+          <div className="max-w-3xl">
             <div>
               <Reveal>
                 <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-primary shadow-sm">
@@ -408,17 +407,15 @@ function Index() {
                 <span>5,0 no Google · 329 avaliações de pais e alunos</span>
               </Reveal>
             </div>
-
-            {/* Ilustração flat de fundo + colagem de fotos reais na frente */}
-            <div ref={collageRef} className="relative aspect-[4/3] lg:aspect-auto lg:h-[480px]">
-              <div className="absolute inset-0 opacity-70">
-                <HeroIllustration />
-              </div>
-              <div className="relative z-10 h-full">
-                <HeroCollage />
-              </div>
-            </div>
           </div>
+        </div>
+
+        {/* Mascote acenando — fixo no canto, fora do fluxo do texto */}
+        <div
+          ref={collageRef}
+          className="pointer-events-none absolute bottom-0 right-4 hidden w-40 sm:right-8 sm:w-48 md:block lg:right-12 lg:w-56"
+        >
+          <HeroMascot />
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 leading-[0] animate-curve-breathe">

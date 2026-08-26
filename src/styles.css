@@ -187,6 +187,18 @@
   .animate-blob { animation: blob 14s ease-in-out infinite; }
   .animate-spin-slow { animation: spin-slow 22s linear infinite; }
 
+  @keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    20% { transform: rotate(-18deg); }
+    40% { transform: rotate(4deg); }
+    60% { transform: rotate(-14deg); }
+    80% { transform: rotate(2deg); }
+  }
+  .animate-wave { animation: wave 2.4s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-wave { animation: none; }
+  }
+
   @keyframes curve-breathe {
     0%, 100% { transform: scaleY(1) translateY(0); }
     50% { transform: scaleY(1.04) translateY(-2px); }
