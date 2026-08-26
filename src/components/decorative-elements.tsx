@@ -11,7 +11,8 @@
  * Container pai precisa de `relative` + `overflow-hidden`.
  */
 
-import type { CSSProperties, ReactNode } from "react";
+import { useRef, type CSSProperties, type ReactNode } from "react";
+import { useDecorativeDrawIn } from "@/hooks/use-decorative-draw-in";
 
 type Variant =
   | "default"   // mix balanceado — pra home
@@ -37,9 +38,12 @@ export function DecorativeElements({
   hideOnMobile = true,
   variant = "default",
 }: Props) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  useDecorativeDrawIn(containerRef);
   const visibility = hideOnMobile ? "hidden lg:block" : "block";
   return (
     <div
+      ref={containerRef}
       className={`pointer-events-none absolute inset-0 ${visibility} ${className ?? ""}`}
       style={color ? { color } : undefined}
       aria-hidden
