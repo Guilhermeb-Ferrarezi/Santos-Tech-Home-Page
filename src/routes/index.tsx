@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 import {
@@ -29,6 +30,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { Preloader } from "@/components/preloader";
+import { useHeroParallax } from "@/hooks/use-hero-parallax";
 import { DecorativeElements } from "@/components/decorative-elements";
 import { Img } from "@/components/img";
 import { WhatsAppIcon, InstagramIcon } from "@/components/icons";
@@ -331,21 +333,27 @@ const HOME_SCHEMAS = [
 // ──────────────────────────────────────────────────────────────────────────
 
 function Index() {
+  const heroRef = useRef<HTMLElement | null>(null);
+  const { dotsRef, blobsRef, collageRef } = useHeroParallax(heroRef);
+
   return (
     <>
       <Preloader />
       <JsonLd data={HOME_SCHEMAS} />
       {/* ============ HERO ============ */}
-      <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#e6f1fa] via-[#f3f8fc] to-white">
+      <section ref={heroRef} className="relative isolate overflow-hidden bg-gradient-to-b from-[#e6f1fa] via-[#f3f8fc] to-white">
         <div
+          ref={dotsRef}
           className="pointer-events-none absolute inset-0 opacity-[0.18]"
           style={{
             backgroundImage: "radial-gradient(rgba(24,122,191,0.35) 1px, transparent 1px)",
             backgroundSize: "24px 24px",
           }}
         />
-        <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-[#187ABF]/25 blur-3xl animate-blob" />
-        <div className="pointer-events-none absolute -right-24 top-40 h-96 w-96 rounded-full bg-[#0DB88F]/20 blur-3xl animate-blob [animation-delay:3s]" />
+        <div ref={blobsRef}>
+          <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-[#187ABF]/25 blur-3xl animate-blob" />
+          <div className="pointer-events-none absolute -right-24 top-40 h-96 w-96 rounded-full bg-[#0DB88F]/20 blur-3xl animate-blob [animation-delay:3s]" />
+        </div>
         <DecorativeElements color="#187ABF" />
 
         <div className="relative mx-auto max-w-7xl px-4 pb-32 pt-16 sm:px-6 sm:pt-20 lg:px-8 lg:pb-40 lg:pt-24">
@@ -400,7 +408,9 @@ function Index() {
             </div>
 
             {/* Colagem rotativa — alterna fotos de alunos (crianças + adolescentes) */}
-            <HeroCollage />
+            <div ref={collageRef}>
+              <HeroCollage />
+            </div>
           </div>
         </div>
 
