@@ -14,6 +14,10 @@ RUN bun install --frozen-lockfile
 
 FROM deps AS build
 
+ARG VITE_POSTHOG_KEY
+ARG VITE_POSTHOG_HOST
+ARG VITE_SENTRY_DSN
+ARG SENTRY_AUTH_TOKEN
 RUN bun run build
 
 FROM oven/bun:1.3.14-alpine AS runner

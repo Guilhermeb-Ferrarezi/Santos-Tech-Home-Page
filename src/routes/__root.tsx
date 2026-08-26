@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -175,6 +175,19 @@ function RootComponent() {
   useRouteEnterFade(mainRef);
   useSmoothScroll(!isAdultosRoute);
 
+  // /links é a única página com fundo escuro de ponta a ponta. Sem isto, o
+  // "elastic bounce" do scroll no mobile (Chrome/Safari) mostra por baixo o
+  // branco do body normal do site — pinta o body de navy só enquanto essa
+  // rota estiver montada, e desfaz ao sair.
+  useEffect(() => {
+    if (!isLinksRoute) return;
+    const previous = document.body.style.backgroundColor;
+    document.body.style.backgroundColor = "#04325A";
+    return () => {
+      document.body.style.backgroundColor = previous;
+    };
+  }, [isLinksRoute]);
+
   return (
     <QueryClientProvider client={queryClient}>
       <JsonLd data={[buildOrganizationSchema(), buildWebSiteSchema()]} />
@@ -191,9 +204,17 @@ function RootComponent() {
           </a>
           {!isLinksRoute && <SiteHeader />}
           <div id="smooth-wrapper" className="overflow-hidden">
-            <div id="smooth-content" className="flex min-h-screen flex-col bg-background">
+            {/* min-h-screen (100vh) + main flex-1 é o padrão "rodapé grudado no fim
+                da tela" — bom pro site normal, ruim em /links: no mobile o 100vh
+                conta com a barra de endereço recolhida, então sobra espaço em
+                branco abaixo do rodapé quando o conteúdo é curto (poucos cards
+                ativos). Ambos desligados só nessa rota. */}
+            <div
+              id="smooth-content"
+              className={`flex flex-col bg-background ${isLinksRoute ? "" : "min-h-screen"}`}
+            >
               {!isLinksRoute && <div className="h-20 shrink-0" aria-hidden />}
-              <main id="conteudo" ref={mainRef} className="flex-1">
+              <main id="conteudo" ref={mainRef} className={isLinksRoute ? undefined : "flex-1"}>
                 <Outlet />
               </main>
               <SiteFooter />
