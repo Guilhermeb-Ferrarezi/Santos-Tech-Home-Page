@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Img } from "@/components/img";
+import { PageTransitionLink } from "@/components/page-transition-link";
 import { RarityBadge } from "@/components/rarity-badge";
 import { useProgramAccentDark } from "@/lib/program-theme";
 import { useSession } from "@/hooks/use-session";
@@ -132,13 +133,13 @@ export function SiteHeader() {
 
             {programsOpen && (
               <div className="mb-2 ml-3 flex flex-col gap-1 border-l-2 border-border pl-3">
-                <Link
+                <PageTransitionLink
                   to="/cursos"
                   onClick={closeAll}
                   className="rounded-md px-3 py-2 text-sm font-bold uppercase tracking-wider text-primary hover:bg-muted"
                 >
                   Ver todos os programas
-                </Link>
+                </PageTransitionLink>
                 <NavGroup title="Tecnologia" items={NAV_TEC} onClick={closeAll} variant="mobile" />
                 <NavGroup title="Informática" items={NAV_INF} onClick={closeAll} variant="mobile" />
                 <NavGroup title="Também" items={NAV_EXTRAS} onClick={closeAll} variant="mobile" />
@@ -373,12 +374,12 @@ function ProgramsDropdown() {
       <div className="absolute left-0 right-0 top-full h-3" aria-hidden />
 
       <div className="invisible absolute left-1/2 top-[calc(100%+0.5rem)] w-80 -translate-x-1/2 rounded-lg border-2 border-primary/25 bg-white p-2 shadow-[0_12px_40px_-8px_rgba(24,122,191,0.18),0_4px_12px_rgba(0,0,0,0.04)] opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
-        <Link
+        <PageTransitionLink
           to="/cursos"
           className="block rounded-xl px-4 py-3 text-xs font-black uppercase tracking-[0.18em] text-primary hover:bg-muted"
         >
           Ver todos os programas
-        </Link>
+        </PageTransitionLink>
 
         <div className="my-1 h-px bg-border" />
         <NavGroup title="Tecnologia" items={NAV_TEC} variant="desktop" />

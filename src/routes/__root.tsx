@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -19,6 +20,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFab } from "@/components/whatsapp-fab";
 import { JsonLd } from "@/components/json-ld";
+import { useRouteEnterFade } from "@/hooks/use-route-enter-fade";
 import {
   BASE_URL,
   ORG,
@@ -168,6 +170,8 @@ function RootComponent() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isAdultosRoute = pathname.startsWith("/adultos");
   const isLinksRoute = pathname === "/links";
+  const mainRef = useRef<HTMLElement | null>(null);
+  useRouteEnterFade(mainRef);
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -185,7 +189,7 @@ function RootComponent() {
           </a>
           <div className="flex min-h-screen flex-col bg-background">
             {!isLinksRoute && <SiteHeader />}
-            <main id="conteudo" className="flex-1">
+            <main id="conteudo" ref={mainRef} className="flex-1">
               <Outlet />
             </main>
             <SiteFooter />
