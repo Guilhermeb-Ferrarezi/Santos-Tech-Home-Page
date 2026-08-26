@@ -176,7 +176,7 @@ export function Testimonials() {
       ScrollTrigger.create({
         trigger: root,
         start: "top top",
-        end: "bottom top",
+        end: "bottom bottom",
         scrub: true,
         onUpdate: applyProgress,
         onRefresh: applyProgress,
