@@ -37,6 +37,7 @@ import { WhatsAppIcon, InstagramIcon } from "@/components/icons";
 import { IconPop } from "@/components/icon-pop";
 import { RarityBadge } from "@/components/rarity-badge";
 import { HeroIllustration } from "@/components/hero-illustration";
+import { HeroCollage } from "@/components/hero-collage";
 import { ScrollStage } from "@/components/scroll-stage";
 import { Testimonials } from "@/components/testimonials";
 import { JsonLd } from "@/components/json-ld";
@@ -408,9 +409,14 @@ function Index() {
               </Reveal>
             </div>
 
-            {/* Ilustração flat — criança criando no computador, elementos flutuando */}
-            <div ref={collageRef}>
-              <HeroIllustration />
+            {/* Ilustração flat de fundo + colagem de fotos reais na frente */}
+            <div ref={collageRef} className="relative aspect-[4/3] lg:aspect-auto lg:h-[480px]">
+              <div className="absolute inset-0 opacity-70">
+                <HeroIllustration />
+              </div>
+              <div className="relative z-10 h-full">
+                <HeroCollage />
+              </div>
             </div>
           </div>
         </div>
