@@ -31,10 +31,12 @@ import {
 import { Reveal } from "@/components/reveal";
 import { Preloader } from "@/components/preloader";
 import { useHeroParallax } from "@/hooks/use-hero-parallax";
+import { useCountUp } from "@/hooks/use-count-up";
 import { DecorativeElements } from "@/components/decorative-elements";
 import { Img } from "@/components/img";
 import { WhatsAppIcon, InstagramIcon } from "@/components/icons";
 import { IconPop } from "@/components/icon-pop";
+import { TiltCard } from "@/components/tilt-card";
 import { RarityBadge } from "@/components/rarity-badge";
 import { HeroCollage } from "@/components/hero-collage";
 import { ScrollStage } from "@/components/scroll-stage";
@@ -158,12 +160,36 @@ const MATRICULA = [
   { icon: KeyRound, t: "Acessos criados", d: "Login do aluno e o seu, de pai/mãe, no Portal do Aluno — prontos desde o primeiro dia." },
 ];
 
-const STATS = [
+const STATS: {
+  n: string;
+  l: string;
+  countTo?: number;
+  decimals?: number;
+  prefix?: string;
+  suffix?: string;
+}[] = [
   { n: "5–15", l: "anos" },
-  { n: "Até 10", l: "alunos por turma" },
-  { n: "5,0★", l: "nota no Google" },
-  { n: "329", l: "avaliações" },
+  { n: "Até 10", l: "alunos por turma", countTo: 10, prefix: "Até " },
+  { n: "5,0★", l: "nota no Google", countTo: 5, decimals: 1, suffix: "★" },
+  { n: "329", l: "avaliações", countTo: 329 },
 ];
+
+function StatNumber({ s }: { s: (typeof STATS)[number] }) {
+  const ref = useCountUp<HTMLParagraphElement>({
+    to: s.countTo ?? 0,
+    decimals: s.decimals,
+    prefix: s.prefix,
+    suffix: s.suffix,
+  });
+  return (
+    <p
+      ref={s.countTo !== undefined ? ref : undefined}
+      className="text-4xl font-black text-primary sm:text-5xl"
+    >
+      {s.n}
+    </p>
+  );
+}
 
 // ──────────────────────────────────────────────────────────────────────────
 // FAIXA DE PRODUTO (full-width, colorida — design premium restaurado)
@@ -445,7 +471,7 @@ function Index() {
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-12 sm:px-6 md:grid-cols-4 lg:px-8">
           {STATS.map((s, i) => (
             <Reveal key={s.l} delay={i * 100} className="text-center">
-              <p className="text-4xl font-black text-primary sm:text-5xl">{s.n}</p>
+              <StatNumber s={s} />
               <p className="mt-1 text-sm font-medium text-muted-foreground">{s.l}</p>
             </Reveal>
           ))}
@@ -631,8 +657,8 @@ function Index() {
           <div className="mt-8 grid items-stretch gap-6 md:grid-cols-2">
             {PRECOS.map((p) => (
               <Reveal key={p.nome}>
-                <div
-                  className={`relative flex h-full flex-col overflow-hidden rounded-3xl bg-card transition hover:-translate-y-1 ${
+                <TiltCard
+                  className={`relative flex h-full flex-col overflow-hidden rounded-3xl bg-card transition ${
                     p.destaque
                       ? "shadow-[0_24px_60px_-20px_rgba(24,122,191,0.45)]"
                       : "shadow-[0_12px_36px_-16px_rgba(0,0,0,0.18)]"
@@ -699,7 +725,7 @@ function Index() {
                       <WhatsAppIcon className="h-4 w-4" /> Quero saber mais
                     </a>
                   </div>
-                </div>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
