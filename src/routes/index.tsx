@@ -22,8 +22,6 @@ import {
   KeyRound,
   Package,
   RefreshCw,
-  HelpCircle,
-  ChevronDown,
   Brain,
   Bot,
   Smartphone,
@@ -37,6 +35,7 @@ import { Img } from "@/components/img";
 import { WhatsAppIcon, InstagramIcon } from "@/components/icons";
 import { IconPop } from "@/components/icon-pop";
 import { TiltCard } from "@/components/tilt-card";
+import { FaqItem } from "@/components/faq-item";
 import { RarityBadge } from "@/components/rarity-badge";
 import { HeroCollage } from "@/components/hero-collage";
 import { ScrollStage } from "@/components/scroll-stage";
@@ -1023,16 +1022,7 @@ function Index() {
           <div className="mt-10 space-y-3">
             {FAQ_ITEMS.map((item) => (
               <Reveal key={item.q}>
-                <details className="group rounded-2xl border-2 border-primary/10 bg-card p-5 transition hover:border-primary/30">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-black text-st-blue-dark [&::-webkit-details-marker]:hidden">
-                    <span className="flex items-start gap-3">
-                      <HelpCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      {item.q}
-                    </span>
-                    <ChevronDown className="h-5 w-5 shrink-0 text-primary transition group-open:rotate-180" />
-                  </summary>
-                  <p className="mt-3 pl-8 text-muted-foreground">{item.a}</p>
-                </details>
+                <FaqItem q={item.q} a={item.a} />
               </Reveal>
             ))}
           </div>
