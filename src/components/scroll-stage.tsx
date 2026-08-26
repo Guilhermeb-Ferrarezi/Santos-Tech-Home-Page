@@ -13,16 +13,20 @@
  *   o scroll.
  *
  * Performance:
- * - O loop só roda enquanto há rolagem (useScrollScrub) e só anima transform/
- *   opacity (composição GPU).
+ * - Disparado pelo ScrollTrigger (GSAP) — só recalcula enquanto a seção está
+ *   ativa no scroll, e só anima transform/opacity (composição GPU).
  * - O fundo NÃO é reconstruído por frame: são camadas de gradiente fixas e só
  *   a opacidade muda (sem repaint, só composição).
  */
 import { useLayoutEffect, useRef, useState } from "react";
 import type { LucideIcon } from "lucide-react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Img } from "@/components/img";
 import { cn } from "@/lib/utils";
-import { useScrollScrub } from "@/hooks/use-scroll-scrub";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export type ScrollFeature = {
   icon: LucideIcon;
@@ -136,13 +140,24 @@ export function ScrollStage({ heading, features, photo, heightVh = 340 }: Scroll
     });
   }
 
-  // Aplica o estado inicial antes do paint (evita flash).
-  useLayoutEffect(() => {
-    if (enhanced) applyProgress();
-  }, [enhanced]);
-
-  // Loop eficiente: só roda enquanto há scroll e a seção está visível.
-  useScrollScrub(enhanced, rootRef, applyProgress);
+  // Aplica o estado inicial antes do paint (evita flash) e liga o ScrollTrigger.
+  useGSAP(
+    () => {
+      if (!enhanced) return;
+      const root = rootRef.current;
+      if (!root) return;
+      applyProgress();
+      ScrollTrigger.create({
+        trigger: root,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: true,
+        onUpdate: applyProgress,
+        onRefresh: applyProgress,
+      });
+    },
+    { scope: rootRef, dependencies: [enhanced] },
+  );
 
   // ── Modo ESTÁTICO (SSR / sem-JS / reduced-motion) ───────────────────────
   if (!enhanced) {
