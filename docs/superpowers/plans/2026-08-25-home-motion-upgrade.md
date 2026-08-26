@@ -239,7 +239,7 @@ com fade (via a opacidade do `<svg>` pai) — não têm contorno pra desenhar.
 Criar `src/hooks/use-decorative-draw-in.ts`:
 
 ```ts
-import { useRef, type RefObject } from "react";
+import type { RefObject } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 
