@@ -1,7 +1,11 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { Star, Quote } from "lucide-react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Reveal } from "@/components/reveal";
-import { useScrollScrub } from "@/hooks/use-scroll-scrub";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 type Review = { quote: string; name: string; role: string };
 
@@ -163,11 +167,23 @@ export function Testimonials() {
     if (hintRef.current) hintRef.current.style.opacity = `${1 - clamp((p - 0.8) / 0.2)}`;
   }
 
-  useLayoutEffect(() => {
-    if (enhanced) applyProgress();
-  }, [enhanced]);
-
-  useScrollScrub(enhanced, rootRef, applyProgress);
+  useGSAP(
+    () => {
+      if (!enhanced) return;
+      const root = rootRef.current;
+      if (!root) return;
+      applyProgress();
+      ScrollTrigger.create({
+        trigger: root,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+        onUpdate: applyProgress,
+        onRefresh: applyProgress,
+      });
+    },
+    { scope: rootRef, dependencies: [enhanced] },
+  );
 
   // ── Fallback (SSR / sem-JS / reduced-motion): esteira automática em CSS ──
   // Sem JS o CSS ainda anima; com reduced-motion vira scroll lateral manual.
