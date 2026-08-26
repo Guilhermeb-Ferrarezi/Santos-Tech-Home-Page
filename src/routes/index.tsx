@@ -28,6 +28,7 @@ import {
   Smartphone,
 } from "lucide-react";
 import { Reveal } from "@/components/reveal";
+import { Preloader } from "@/components/preloader";
 import { DecorativeElements } from "@/components/decorative-elements";
 import { Img } from "@/components/img";
 import { WhatsAppIcon, InstagramIcon } from "@/components/icons";
@@ -332,6 +333,7 @@ const HOME_SCHEMAS = [
 function Index() {
   return (
     <>
+      <Preloader />
       <JsonLd data={HOME_SCHEMAS} />
       {/* ============ HERO ============ */}
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#e6f1fa] via-[#f3f8fc] to-white">
