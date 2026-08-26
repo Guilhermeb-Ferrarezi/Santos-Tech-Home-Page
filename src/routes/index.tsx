@@ -30,11 +30,13 @@ import { Reveal } from "@/components/reveal";
 import { Preloader } from "@/components/preloader";
 import { useHeroParallax } from "@/hooks/use-hero-parallax";
 import { useCountUp } from "@/hooks/use-count-up";
+import { useFillOnScroll } from "@/hooks/use-fill-on-scroll";
 import { DecorativeElements } from "@/components/decorative-elements";
 import { Img } from "@/components/img";
 import { WhatsAppIcon, InstagramIcon } from "@/components/icons";
 import { IconPop } from "@/components/icon-pop";
 import { TiltCard } from "@/components/tilt-card";
+import { MagneticButton } from "@/components/magnetic-button";
 import { FaqItem } from "@/components/faq-item";
 import { RarityBadge } from "@/components/rarity-badge";
 import { HeroCollage } from "@/components/hero-collage";
@@ -172,6 +174,11 @@ const STATS: {
   { n: "5,0★", l: "nota no Google", countTo: 5, decimals: 1, suffix: "★" },
   { n: "329", l: "avaliações", countTo: 329 },
 ];
+
+function ProgressFill({ toPercent }: { toPercent: number }) {
+  const ref = useFillOnScroll<HTMLDivElement>(toPercent);
+  return <div ref={ref} className="h-2 rounded-full bg-st-green" style={{ width: `${toPercent}%` }} />;
+}
 
 function StatNumber({ s }: { s: (typeof STATS)[number] }) {
   const ref = useCountUp<HTMLParagraphElement>({
@@ -407,15 +414,15 @@ function Index() {
                 </p>
               </Reveal>
               <Reveal delay={360} className="mt-8 flex flex-wrap items-center gap-3">
-                <a
+                <MagneticButton
                   href={WHATSAPP}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-md bg-st-green px-8 py-4 text-sm font-black uppercase tracking-wider text-white shadow-[0_12px_30px_-10px_rgba(13,184,143,0.65)] transition hover:scale-[1.03] glow-green"
+                  className="inline-flex items-center gap-2 rounded-md bg-st-green px-8 py-4 text-sm font-black uppercase tracking-wider text-white shadow-[0_12px_30px_-10px_rgba(13,184,143,0.65)] transition hover:scale-[1.03] glow-green animate-cta-pulse"
                 >
                   <WhatsAppIcon className="h-4 w-4" />
                   Agende uma aula experimental grátis
-                </a>
+                </MagneticButton>
                 <a
                   href="#programas"
                   className="inline-flex items-center gap-2 rounded-full border-2 border-primary/20 bg-white px-7 py-4 text-sm font-black uppercase tracking-wider text-st-blue-dark transition hover:border-primary/60 hover:text-primary"
@@ -829,7 +836,7 @@ function Index() {
                         <span className="text-primary">72%</span>
                       </div>
                       <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-muted">
-                        <div className="h-2 rounded-full bg-st-green" style={{ width: "72%" }} />
+                        <ProgressFill toPercent={72} />
                       </div>
                     </div>
 
@@ -1103,15 +1110,15 @@ function Index() {
               </p>
 
               <div className="mt-8 flex justify-center">
-                <a
+                <MagneticButton
                   href={WHATSAPP}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-md bg-st-green px-8 py-4 text-sm font-black uppercase tracking-wider text-white shadow-lg transition hover:scale-[1.03] glow-green"
+                  className="inline-flex items-center gap-2 rounded-md bg-st-green px-8 py-4 text-sm font-black uppercase tracking-wider text-white shadow-lg transition hover:scale-[1.03] glow-green animate-cta-pulse"
                 >
                   <WhatsAppIcon className="h-4 w-4" />
                   Agende a aula experimental grátis
-                </a>
+                </MagneticButton>
               </div>
 
               <div className="mt-10 grid gap-4 border-t border-white/20 pt-8 text-sm text-white/90 sm:grid-cols-2">

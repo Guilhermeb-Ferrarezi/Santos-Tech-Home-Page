@@ -187,16 +187,14 @@
   .animate-blob { animation: blob 14s ease-in-out infinite; }
   .animate-spin-slow { animation: spin-slow 22s linear infinite; }
 
-  @keyframes wave {
-    0%, 100% { transform: rotate(0deg); }
-    20% { transform: rotate(-18deg); }
-    40% { transform: rotate(4deg); }
-    60% { transform: rotate(-14deg); }
-    80% { transform: rotate(2deg); }
+  @keyframes cta-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(13, 184, 143, 0.45); }
+    50% { box-shadow: 0 0 0 10px rgba(13, 184, 143, 0); }
   }
-  .animate-wave { animation: wave 2.4s ease-in-out infinite; }
+  .animate-cta-pulse { animation: cta-pulse 2.2s ease-out infinite; }
+  .animate-cta-pulse:hover { animation-play-state: paused; }
   @media (prefers-reduced-motion: reduce) {
-    .animate-wave { animation: none; }
+    .animate-cta-pulse { animation: none; }
   }
 
   @keyframes curve-breathe {

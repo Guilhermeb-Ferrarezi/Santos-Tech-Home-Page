@@ -1,8 +1,12 @@
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Img } from "@/components/img";
+
+gsap.registerPlugin(useGSAP);
 import { PageTransitionLink } from "@/components/page-transition-link";
 import { RarityBadge } from "@/components/rarity-badge";
 import { useProgramAccentDark } from "@/lib/program-theme";
@@ -41,6 +45,38 @@ export function SiteHeader() {
   const [programsOpen, setProgramsOpen] = useState(false);
   const [sobreOpen, setSobreOpen] = useState(false);
   const accentColor = useProgramAccentDark();
+  const menuRef = useRef<HTMLDivElement>(null);
+  const isFirstRender = useRef(true);
+
+  useGSAP(
+    () => {
+      const el = menuRef.current;
+      if (!el) return;
+      if (isFirstRender.current) {
+        isFirstRender.current = false;
+        return; // já nasce com `h-0` via className — nada pra animar aqui.
+      }
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        el.style.height = open ? "auto" : "0px";
+        return;
+      }
+      if (open) {
+        gsap.fromTo(
+          el,
+          { height: 0 },
+          {
+            height: el.scrollHeight,
+            duration: 0.3,
+            ease: "power2.out",
+            onComplete: () => gsap.set(el, { height: "auto" }),
+          },
+        );
+      } else {
+        gsap.fromTo(el, { height: el.scrollHeight }, { height: 0, duration: 0.25, ease: "power2.in" });
+      }
+    },
+    { scope: menuRef, dependencies: [open] },
+  );
 
   const closeAll = () => {
     setOpen(false);
@@ -107,9 +143,13 @@ export function SiteHeader() {
       </div>
 
       {/* ============== MOBILE MENU ============== */}
-      {open && (
-        <div className="border-t border-border bg-background md:hidden">
-          <div className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
+      <div
+        ref={menuRef}
+        inert={!open}
+        aria-hidden={!open}
+        className="h-0 overflow-hidden border-t border-border bg-background md:hidden"
+      >
+        <div className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
             <Link
               to="/"
               onClick={closeAll}
@@ -190,9 +230,8 @@ export function SiteHeader() {
             </Link>
 
             <AuthAction variant="mobile" onNavigate={closeAll} />
-          </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }
