@@ -127,6 +127,13 @@ function PrivacidadePage() {
         — não há pixel de rede de anúncios neste site.
       </p>
       <p>
+        No aviso você pode <strong>aceitar</strong> ou abrir{" "}
+        <strong>“Gerenciar”</strong>, onde cada categoria tem um controle
+        próprio (os essenciais ficam sempre ativos) e há um botão de{" "}
+        <strong>“Recusar tudo”</strong>. Nenhum controle opcional vem marcado, e
+        fechar ou ignorar o aviso <strong>não</strong> equivale a aceitar.
+      </p>
+      <p>
         Você pode <strong>mudar ou revogar</strong> a sua escolha a qualquer
         momento pelo link <strong>“Cookies”</strong> no rodapé do site, sem
         qualquer prejuízo. Ao revogar, apagamos os identificadores de análise

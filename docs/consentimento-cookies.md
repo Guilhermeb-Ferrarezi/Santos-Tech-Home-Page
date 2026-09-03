@@ -19,9 +19,13 @@ Prazos de validade em `consent.ts`: aceite vale **1 ano**, recusa vale **6
 meses**. Vencido, o banner pergunta de novo — e o gate desfaz um opt-in antigo
 guardado pelo próprio SDK.
 
-## As alavancas de aceite que estão no ar
+## Os dois cards
 
-Todas são de persuasão legítima — nenhuma esconde ou dificulta o “Recusar”.
+1. **Pergunta** — motivo + `[Gerenciar]` `[Aceitar]`.
+2. **Painel** (`Gerenciar`, ou “Cookies” no rodapé) — categorias com controle
+   próprio, `[Recusar tudo]` `[Salvar]`.
+
+## As alavancas de aceite que estão no ar
 
 | Alavanca | Implementação |
 |---|---|
@@ -31,19 +35,34 @@ Todas são de persuasão legítima — nenhuma esconde ou dificulta o “Recusar
 | Reversibilidade | “Dá para mudar quando quiser, em ‘Cookies’ no rodapé” |
 | Timing | aparece 1,2s depois do pré-loader sair, ou no primeiro scroll |
 | Baixo atrito | card no canto, não modal preto; uma decisão só, dois botões |
-| Decisão forçada (sem “X”) | fechar sem escolher não é resposta — só há aceitar/recusar |
-| CTA na cor da marca | “Aceitar” em `#0DB88F`; “Recusar” mesmo tamanho e contraste legível |
+| Decisão forçada (sem “X”) | fechar sem escolher não é resposta |
+| CTA na cor da marca | “Aceitar” em `#0DB88F`; “Gerenciar” mesmo tamanho e peso |
 
-## O que **não** vale fazer aqui
+## ⚠️ O risco assumido: recusar custa 2 cliques
 
-Dark pattern de consentimento invalida o consentimento (LGPD, art. 8º) e vira
-risco de sanção — além de queimar a confiança da marca com pai/mãe, que é o
-ativo do site. Fora de cogitação:
+O card de pergunta oferece **Gerenciar** e **Aceitar** — a recusa mora no
+painel. Decisão do dono do site, tomada ciente de que a LGPD (art. 8º) pede que
+recusar seja tão fácil quanto aceitar. Aceite em 1 clique contra recusa em 2 é
+o desenho que a CNIL multou em Google e Facebook e que a ANPD trata como
+consentimento viciado.
 
-- “Recusar” escondido atrás de “Gerenciar preferências”, ou cinza-sobre-cinza.
+**Mitigações que não podem sair** sem piorar o risco:
+
+- “Recusar tudo” é o **primeiro** botão do painel, um clique, sem toggle pra
+  mexer antes.
+- “Gerenciar” tem o mesmo tamanho e peso de “Aceitar” — não é link escondido
+  nem cinza-sobre-cinza.
+- Nenhum toggle nasce ligado; fechar ou ignorar nunca vira aceite.
+
+Para voltar ao desenho seguro: trocar “Gerenciar” por “Recusar” no card e
+mover “Gerenciar” pra linha de links abaixo dos botões.
+
+## O que continua fora de cogitação
+
 - Toggle de análise já ligado, ou “continuar navegando = aceitar”.
 - Modal que só fecha aceitando, ou re-perguntar toda visita para cansar.
 - Categorias inventadas (“marketing”, “publicidade”) que o site nem usa.
+- Enterrar o “Recusar tudo” mais fundo, atrás de outro clique dentro do painel.
 
 ## Como medir e iterar
 
