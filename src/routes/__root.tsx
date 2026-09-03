@@ -19,6 +19,7 @@ import poppins900 from "@fontsource/poppins/files/poppins-latin-900-normal.woff2
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFab } from "@/components/whatsapp-fab";
+import { CookieConsent } from "@/components/cookie-consent";
 import { JsonLd } from "@/components/json-ld";
 import { useRouteEnterFade } from "@/hooks/use-route-enter-fade";
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
@@ -191,6 +192,10 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <JsonLd data={[buildOrganizationSchema(), buildWebSiteSchema()]} />
+
+      {/* Fora do ternário: o consentimento vale para o site todo, inclusive
+          /adultos, que tem layout próprio. */}
+      <CookieConsent />
 
       {isAdultosRoute ? (
         <Outlet />

@@ -1,5 +1,9 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import {
+  markPreloaderActive,
+  markPreloaderDone,
+} from "@/lib/preloader-signal";
 
 // Path do logo real (arquivo vetorial da marca — duas camadas fill-rule evenodd).
 const LOGO_BASE_PATH =
@@ -21,9 +25,13 @@ export function Preloader() {
   const detailRef = useRef<SVGPathElement | null>(null);
 
   useLayoutEffect(() => {
+    // Avisa quem espera a tela ficar livre (banner de cookies) que há um
+    // overlay full-screen na frente.
+    markPreloaderActive();
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) {
       setHidden(true);
+      markPreloaderDone();
       const t = setTimeout(() => setMounted(false), 300);
       return () => clearTimeout(t);
     }
@@ -40,6 +48,7 @@ export function Preloader() {
     const tl = gsap.timeline({
       onComplete: () => {
         setHidden(true);
+        markPreloaderDone();
         setTimeout(() => setMounted(false), 300);
       },
     });
@@ -50,6 +59,8 @@ export function Preloader() {
 
     return () => {
       tl.kill();
+      // Saiu da rota antes da animação terminar — libera quem está esperando.
+      markPreloaderDone();
     };
   }, []);
 
