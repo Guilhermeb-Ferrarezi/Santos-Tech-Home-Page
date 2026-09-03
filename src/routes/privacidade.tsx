@@ -18,7 +18,7 @@ function PrivacidadePage() {
     <LegalPage
       title="Política de Privacidade"
       subtitle="Como tratamos os dados pessoais de alunos, responsáveis e visitantes, em conformidade com a Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018)."
-      updatedAt="17 de junho de 2026"
+      updatedAt="3 de setembro de 2026"
     >
       <h2>1. Quem somos</h2>
       <p>
@@ -101,10 +101,38 @@ function PrivacidadePage() {
 
       <h2>7. Cookies</h2>
       <p>
-        Utilizamos cookies essenciais (para o funcionamento do site e da área
-        logada) e, quando aplicável, cookies de análise para entender o uso e
-        melhorar a experiência. Você pode gerenciar cookies nas configurações do
-        seu navegador; desabilitar os essenciais pode afetar funcionalidades.
+        Na sua primeira visita, mostramos um aviso pedindo{" "}
+        <strong>consentimento para os cookies de análise</strong>. Enquanto você
+        não aceita, <strong>nenhum cookie de análise é gravado</strong> no seu
+        navegador e nada é enviado para a nossa ferramenta de estatísticas.
+      </p>
+      <ul>
+        <li>
+          <strong>Essenciais (sempre ativos):</strong> mantêm o site funcionando
+          e guardam a sua própria escolha sobre cookies, para não perguntarmos de
+          novo a cada visita. Não identificam você.
+        </li>
+        <li>
+          <strong>Análise (opcionais, dependem do seu aceite):</strong> usamos o{" "}
+          <strong>PostHog</strong> para saber quais páginas são mais visitadas,
+          o tipo de dispositivo e de onde a visita veio. Serve apenas para
+          melhorar o site.
+        </li>
+      </ul>
+      <p>
+        <strong>
+          Não vendemos dados, não fazemos remarketing e não montamos perfil
+          publicitário
+        </strong>{" "}
+        — não há pixel de rede de anúncios neste site.
+      </p>
+      <p>
+        Você pode <strong>mudar ou revogar</strong> a sua escolha a qualquer
+        momento pelo link <strong>“Cookies”</strong> no rodapé do site, sem
+        qualquer prejuízo. Ao revogar, apagamos os identificadores de análise
+        guardados no seu navegador. Também é possível gerenciar cookies nas
+        configurações do navegador; desabilitar os essenciais pode afetar
+        funcionalidades.
       </p>
 
       <h2>8. Segurança</h2>
