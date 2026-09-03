@@ -64,19 +64,49 @@ mover “Gerenciar” pra linha de links abaixo dos botões.
 - Categorias inventadas (“marketing”, “publicidade”) que o site nem usa.
 - Enterrar o “Recusar tudo” mais fundo, atrás de outro clique dentro do painel.
 
+## O que sai do navegador em cada estado
+
+Verificado no navegador em 03/09/2026, com a chave real de produção:
+
+| Estado | Scripts do PostHog | Eventos enviados | Cookie | localStorage |
+|---|---|---|---|---|
+| **Sem decidir** | nenhum | nenhum | nenhum | nenhum |
+| **Recusou** | nenhum | só `$pageview` / `$pageleave`, com `distinct_id` `cookieless_…` | nenhum | só o registro da escolha |
+| **Aceitou** | nenhum | tudo | `ph_<token>_posthog` | `ph_<token>_posthog` |
+
+Duas travas garantem isso e **não devem ser removidas**:
+
+- `disable_external_dependency_loading` + `advanced_disable_flags` +
+  `capture_exceptions/performance/dead_clicks: false`. Sem elas o SDK injeta 4
+  scripts de `us-assets.i.posthog.com` **já no init, mesmo opted-out** — o que
+  manda o IP do visitante pro PostHog antes de ele decidir qualquer coisa. Nada
+  disso é usado pelo site (erro é Sentry; a tela de Analytics do api-go consulta
+  só `$pageview`). Efeito colateral: **feature flags, experimentos, session
+  replay e surveys ficam indisponíveis** — para usar qualquer um, religar e
+  fazê-lo só depois do aceite.
+- `before_send` corta tudo que não seja `$pageview`/`$pageleave` enquanto não há
+  consentimento. Sem isso, `$autocapture` (cliques) vazava de quem recusou —
+  aconteceu nos testes antes da trava entrar.
+
 ## Como medir e iterar
 
-O evento `cookie_consent_decided` vai pro PostHog com `choice`, `surface`,
-`details_expanded`, `decision_ms` e `path`.
+O evento `cookie_consent_decided` vai pro PostHog com `choice`, `action`,
+`surface`, `decision_ms` e `path` — mas só de quem **aceitou** (é o único que
+tem consentimento pra evento nomeado).
 
-**Cuidado com o denominador:** quem recusa não é rastreado, então o PostHog
-sozinho só enxerga os aceites — a taxa parece 100%. Para ter a taxa real,
-habilite o modo cookieless no projeto do PostHog e ligue
-`VITE_POSTHOG_COOKIELESS_ON_REJECT=true`: quem recusa passa a ser contado **sem
-cookie e sem storage**. Sem esse passo, o número de aceites só serve como
-tendência (comparar semana contra semana), nunca como taxa.
+O denominador vem do modo cookieless: quem recusou gera `$pageview` com
+`distinct_id` começando em `cookieless_`. A taxa é
 
-Com o denominador no ar, dá para testar variações de copy do título e do corpo
-via feature flag do PostHog e comparar `choice=accepted / total`. `decision_ms`
-mostra se as pessoas estão lendo ou clicando no reflexo; `details_expanded`
-mostra se vale investir mais no texto curto ou no detalhamento.
+```sql
+-- aceites / (aceites + visitantes cookieless), na janela que interessar
+SELECT
+  countIf(event = 'cookie_consent_decided') AS aceites,
+  count(distinct if(distinct_id LIKE 'cookieless_%', distinct_id, null)) AS recusas_aprox
+FROM events
+WHERE timestamp > now() - INTERVAL 30 DAY
+```
+
+`decision_ms` mostra se as pessoas leem ou clicam no reflexo; `action` separa
+quem aceitou direto de quem passou pelo painel. Para testar variações de copy
+sem feature flag (elas estão desligadas, ver acima), dá pra alternar o texto por
+build e comparar janelas de tempo.

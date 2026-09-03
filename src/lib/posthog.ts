@@ -1,5 +1,12 @@
 import posthog from "posthog-js";
-import { getConsent, onConsentChange } from "@/lib/consent";
+import { getConsent, hasAnalyticsConsent, onConsentChange } from "@/lib/consent";
+
+/**
+ * Eventos que podem sair de quem **não** deu consentimento (modo cookieless).
+ * Só o suficiente para contar visita e origem — nada de clique, rage click ou
+ * qualquer coisa que descreva o comportamento de uma pessoa específica.
+ */
+const EVENTS_WITHOUT_CONSENT = new Set(["$pageview", "$pageleave"]);
 
 let initialized = false;
 /** Evita reprocessar a mesma decisão (o evento dispara em todas as abas). */
@@ -29,14 +36,36 @@ export function initClientPostHog() {
     opt_out_capturing_by_default: true,
     opt_out_persistence_by_default: true,
     persistence: "memory",
-    // Para medir a taxa de recusa: com `cookieless_mode: "on_reject"` o PostHog
-    // continua contando quem recusou, mas sem cookie e sem storage (identidade
-    // vira um hash efêmero no servidor). Exige ligar o modo cookieless nas
-    // configurações do projeto no PostHog — senão os eventos são descartados
-    // silenciosamente. Por isso fica atrás de uma env, desligado por padrão.
-    ...(import.meta.env.VITE_POSTHOG_COOKIELESS_ON_REJECT === "true"
-      ? { cookieless_mode: "on_reject" as const }
-      : {}),
+    // Sem isto o SDK injeta scripts de us-assets.i.posthog.com (remote config,
+    // web vitals, autocapture de exceção e de dead click) já no init — ou seja,
+    // manda o IP do visitante pro PostHog antes de ele decidir qualquer coisa.
+    // Verificado no navegador em 03/09/2026: 4 scripts no DOM mesmo opted-out.
+    // Nada disso é usado pelo site (erro é Sentry; a tela de Analytics do
+    // api-go consulta só $pageview), então fica tudo desligado.
+    disable_external_dependency_loading: true,
+    advanced_disable_flags: true,
+    capture_exceptions: false,
+    capture_performance: false,
+    capture_dead_clicks: false,
+    // Quem não consentiu manda no máximo pageview — autocapture de clique e
+    // afins descreveria o comportamento da pessoa, o que é outra conversa.
+    before_send: (event) => {
+      if (!event) return event;
+      if (hasAnalyticsConsent()) return event;
+      return EVENTS_WITHOUT_CONSENT.has(event.event) ? event : null;
+    },
+    // Quem não aceitou continua sendo contado, mas **sem cookie e sem storage**
+    // — a identidade vira um hash efêmero calculado no servidor do PostHog. É o
+    // que dá o denominador da taxa de aceite (sem isso o PostHog só enxerga
+    // quem aceitou e a taxa parece 100%) e mantém referrer/país/dispositivo.
+    //
+    // Depende de `cookieless_server_hash_mode` estar ligado no projeto do
+    // PostHog — habilitado em 03/09/2026 no projeto 577520 (modo 1, stateless).
+    // Se for desligado lá, estes eventos passam a ser descartados em silêncio:
+    // nesse caso, setar VITE_POSTHOG_COOKIELESS_ON_REJECT=false.
+    ...(import.meta.env.VITE_POSTHOG_COOKIELESS_ON_REJECT === "false"
+      ? {}
+      : { cookieless_mode: "on_reject" as const }),
   });
 
   applyConsent();
@@ -68,15 +97,19 @@ function applyConsent() {
   if (consent.analytics) {
     posthog.set_config({ persistence: "localStorage+cookie" });
     posthog.opt_in_capturing({ captureEventName: false });
-    // `opt_in_capturing` não emite o pageview inicial — sem isto, a visita em
-    // que a pessoa aceitou entraria no funil sem a página de entrada.
-    posthog.capture("$pageview");
   } else {
     posthog.opt_out_capturing();
     posthog.set_config({ persistence: "memory" });
     // Revogação depois de um aceite: apaga distinct_id e props já guardados.
     if (!isFirstDecision) posthog.reset(true);
   }
+
+  // O SDK sobe opted-out, então o pageview de entrada nunca foi emitido — e
+  // `opt_in_capturing` também não emite. Sem isto, a visita em que a pessoa
+  // decidiu entraria no funil sem a página de entrada (e quem recusa não
+  // contaria nada, deixando a taxa de aceite sem denominador). Só na primeira
+  // decisão da visita: numa troca de ideia depois, seria pageview duplicado.
+  if (isFirstDecision) posthog.capture("$pageview");
 }
 
 /**
