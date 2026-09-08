@@ -11,7 +11,7 @@ import { PageTransitionLink } from "@/components/page-transition-link";
 import { RarityBadge } from "@/components/rarity-badge";
 import { useProgramAccentDark } from "@/lib/program-theme";
 import { useSession } from "@/hooks/use-session";
-import { logout, loginUrl, PORTAL_URL, type SessionUser } from "@/lib/auth";
+import { logout, loginUrl, APP_URL, type SessionUser } from "@/lib/auth";
 
 // ──────────────────────────────────────────────────────────────────────────
 // DATA — 4 produtos reais, agrupados por eixo. "Também" mantém Robótica/IA
@@ -288,7 +288,7 @@ function AuthAction({
     return (
       <div className="mt-2 flex flex-col gap-1 rounded-md border border-border p-2">
         <a
-          href={PORTAL_URL}
+          href={APP_URL}
           onClick={onNavigate}
           className="flex items-center gap-2 rounded-md px-2 py-2 hover:bg-muted"
         >
@@ -321,7 +321,7 @@ function AuthAction({
 
       <div className="invisible absolute right-0 top-[calc(100%+0.5rem)] w-48 rounded-lg border-2 border-primary/25 bg-white p-2 shadow-[0_12px_40px_-8px_rgba(24,122,191,0.18),0_4px_12px_rgba(0,0,0,0.04)] opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
         <a
-          href={PORTAL_URL}
+          href={APP_URL}
           className="block rounded-xl px-4 py-2.5 text-sm font-bold text-foreground/85 hover:bg-muted hover:text-primary"
         >
           Minha conta

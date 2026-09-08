@@ -5,7 +5,11 @@
 
 const API_URL = "https://api.santos-tech.com";
 export const AUTH_URL = "https://auth.santos-tech.com";
-export const PORTAL_URL = "https://portal.santos-tech.com";
+// Área logada do aluno/equipe. É o dashboard, NÃO o portal legado
+// (portal.santos-tech.com): o portal é o sistema antigo, e mandar quem loga
+// pra lá deixava a pessoa fora do lugar onde ela vê curso, aulas e progresso —
+// sem nem perceber que estava no sistema errado.
+export const APP_URL = "https://santos-tech.com/dashboard";
 
 export type SessionUser = {
   id: number;
@@ -60,7 +64,10 @@ export async function logout(): Promise<void> {
   await fetch(`${API_URL}/auth/logout`, { method: "POST", credentials: "include" });
 }
 
+// Depois de entrar, o destino é a área logada — não a página de onde a pessoa
+// clicou. Voltar pro site institucional deixava o usuário achando que o login
+// não tinha funcionado, porque nada mudava na tela.
 export function loginUrl(redirectTo?: string): string {
-  const target = redirectTo ?? (typeof window !== "undefined" ? window.location.href : undefined);
-  return target ? `${AUTH_URL}/?redirect=${encodeURIComponent(target)}` : AUTH_URL;
+  const target = redirectTo ?? APP_URL;
+  return `${AUTH_URL}/?redirect=${encodeURIComponent(target)}`;
 }
