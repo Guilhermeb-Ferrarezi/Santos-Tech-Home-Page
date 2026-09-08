@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useProgramKey, type ProgramKey } from "@/lib/program-theme";
+import { openConsentPreferences } from "@/lib/consent";
 
 type FooterTheme = {
   wrapper: string;
@@ -87,6 +88,12 @@ export function SiteFooter() {
             <Link to="/privacidade" className={t.links}>Política de Privacidade</Link>
             <span aria-hidden="true" className="opacity-50">·</span>
             <Link to="/termos" className={t.links}>Termos de Uso</Link>
+            <span aria-hidden="true" className="opacity-50">·</span>
+            {/* Revogar o consentimento tem que ser tão fácil quanto dar
+                (LGPD, art. 8º, §5º) — reabre o mesmo card do banner. */}
+            <button type="button" onClick={openConsentPreferences} className={t.links}>
+              Cookies
+            </button>
           </div>
         </div>
       </div>

@@ -6,6 +6,13 @@
  *
  * Pulse: 2 anéis com delay alternado pra dar continuidade fluida.
  * Animation definida em styles.css (.animate-pulse-ring).
+ *
+ * No mobile o banner de cookies ocupa a largura toda do rodapé e cobriria o
+ * botão. `--st-consent-height` é publicada pelo <CookieConsent /> com a altura
+ * real do card (0px quando ele não está na tela), e o botão sobe junto. O
+ * `min(..., 45vh)` segura a subida: com os detalhes abertos o card fica alto e
+ * o botão, em vez de voar pro topo, simplesmente se esconde atrás dele (z-50
+ * contra o z-60 do card). No desktop o card fica à esquerda, sem sobreposição.
  */
 
 import { WhatsAppIcon } from "@/components/icons";
@@ -22,7 +29,7 @@ export function WhatsAppFab() {
       rel="noreferrer"
       aria-label="Falar no WhatsApp"
       title="Fale com a Santos Tech no WhatsApp"
-      className="group fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center sm:bottom-6 sm:right-6 sm:h-16 sm:w-16"
+      className="group fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center transition-transform duration-300 [transform:translateY(calc(-1*min(var(--st-consent-height,0px),45vh)))] sm:bottom-6 sm:right-6 sm:h-16 sm:w-16 sm:[transform:none]"
     >
       {/* Pulse ring 1 */}
       <span
