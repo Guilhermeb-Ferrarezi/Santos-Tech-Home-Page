@@ -30,6 +30,8 @@ export type TopicGroup = { title: string; topics: string[] };
 export type Tier = {
   label: string;
   levelName: string;
+  /** Texto do botão de CTA no card de preço, se diferente de `levelName` (ex.: "Hardware" em vez de "Montagem e Manutenção"). */
+  ctaLabel?: string;
   totalHours: string;
   outcome: string;
   modules: TopicGroup[];
@@ -648,7 +650,7 @@ export function AdultosCursosPage({
                         className="mt-auto inline-flex items-center justify-center gap-2 rounded-lg bg-[#0DB88F] px-5 py-3 text-sm font-black uppercase tracking-wider text-white shadow-[0_6px_18px_-6px_rgba(13,184,143,0.5)] transition hover:scale-[1.02] hover:bg-[#0aaa82] active:scale-[0.99]"
                       >
                         <WhatsAppIcon className="h-4 w-4" />
-                        Quero o {t.levelName}
+                        Quero o {t.ctaLabel ?? t.levelName}
                       </a>
                     </div>
                   </div>
