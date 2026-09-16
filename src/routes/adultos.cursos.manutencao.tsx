@@ -31,6 +31,7 @@ const COURSE_DATA = {
     {
       label: "Montagem e Manutenção",
       levelName: "Montagem e Manutenção",
+      ctaLabel: "Hardware",
       totalHours: "24h",
       outcome:
         "Desmontar e montar um PC completo com segurança, instalar Windows e drivers corretamente",
