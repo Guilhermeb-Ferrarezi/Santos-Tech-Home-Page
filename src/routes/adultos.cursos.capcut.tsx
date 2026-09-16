@@ -28,8 +28,8 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Completo",
-      levelName: "Completo",
+      label: "CapCut",
+      levelName: "CapCut",
       totalHours: "24h",
       outcome:
         "Editar vídeos para Reels, TikTok e Shorts com qualidade profissional usando CapCut no celular e no computador.",
