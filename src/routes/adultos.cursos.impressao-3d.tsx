@@ -29,8 +29,8 @@ const COURSE_DATA = {
   pricePerAula: 150,
   tiers: [
     {
-      label: "Completo",
-      levelName: "Completo",
+      label: "Impressão 3D Completa",
+      levelName: "Impressão 3D Completa",
       totalHours: "24h",
       outcome:
         "Imprimir peças funcionais com qualidade consistente, entendendo materiais, fatiamento e calibração básica",

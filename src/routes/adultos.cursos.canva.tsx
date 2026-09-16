@@ -29,8 +29,8 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "Completo",
-      levelName: "Completo",
+      label: "Canva Pro",
+      levelName: "Canva Pro",
       totalHours: "24h",
       outcome:
         "Criar peças profissionais para redes sociais, apresentações e materiais de divulgação sem experiência prévia em design.",

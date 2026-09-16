@@ -55,10 +55,15 @@ export type CourseData = {
 // ── Preços e ritmo por nível ───────────────────────────────────────────────
 
 const TIER_META: Record<string, { price: string; aulas: string; intensivo: string; padrao: string }> = {
-  Completo: { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
   Essencial: { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
   Intermediário: { price: "R$ 3.940", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
   "Profissional + IA": { price: "R$ 5.910", aulas: "72 aulas", intensivo: "~3 meses", padrao: "~9 meses" },
+  // Cursos com plano único: mesma faixa de preço do Essencial, com o nome do próprio curso no lugar do nível
+  "Montagem e Manutenção": { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
+  "Canva Pro": { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
+  CapCut: { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
+  "Git e GitHub": { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
+  "Impressão 3D Completa": { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
 };
 
 // ── Diferenciais hardcoded ─────────────────────────────────────────────────
