@@ -55,6 +55,7 @@ export type CourseData = {
 // ── Preços e ritmo por nível ───────────────────────────────────────────────
 
 const TIER_META: Record<string, { price: string; aulas: string; intensivo: string; padrao: string }> = {
+  Completo: { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
   Essencial: { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
   Intermediário: { price: "R$ 3.940", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
   "Profissional + IA": { price: "R$ 5.910", aulas: "72 aulas", intensivo: "~3 meses", padrao: "~9 meses" },

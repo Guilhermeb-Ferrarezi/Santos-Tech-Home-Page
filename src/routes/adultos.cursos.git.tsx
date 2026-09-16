@@ -29,8 +29,8 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "Essencial",
-      levelName: "Essencial",
+      label: "Completo",
+      levelName: "Completo",
       totalHours: "24h",
       outcome:
         "Versionar projetos com Git, trabalhar com branches, resolver conflitos e colaborar em repositórios reais no GitHub com pull requests e code review",

@@ -29,8 +29,8 @@ const COURSE_DATA = {
   pricePerAula: 150,
   tiers: [
     {
-      label: "Essencial",
-      levelName: "Essencial",
+      label: "Completo",
+      levelName: "Completo",
       totalHours: "24h",
       outcome:
         "Imprimir peças funcionais com qualidade consistente, entendendo materiais, fatiamento e calibração básica",
