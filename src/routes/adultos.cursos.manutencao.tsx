@@ -29,8 +29,8 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Essencial",
-      levelName: "Essencial",
+      label: "Completo",
+      levelName: "Completo",
       totalHours: "24h",
       outcome:
         "Desmontar e montar um PC completo com segurança, instalar Windows e drivers corretamente",
