@@ -342,9 +342,27 @@ function buildDefaultSvg() {
 
 async function main() {
   // Logo em versão branca (silhueta), pra sobrepor no fundo escuro dos cards.
-  const logoWhite = await sharp(LOGO_PATH)
-    .resize(64, 64, { fit: "inside" })
-    .negate({ alpha: false })
+  //
+  // NÃO é um negate() de cores: o PNG original (src/assets/logo.png) não é um
+  // silhueta simples — tem áreas pretas (o leão) E áreas brancas OPACAS
+  // (recortes/destaques dentro da juba, não transparência) sobre fundo
+  // transparente de verdade. Invertendo RGB, aquelas áreas brancas internas
+  // viram preto e ficam pontos pretos manchando o leão branco. A correção é
+  // preencher todo pixel opaco com branco sólido, usando só o canal alpha
+  // original como máscara de silhueta — ignora o RGB interno por completo.
+  const logoResized = await sharp(LOGO_PATH).resize(64, 64, { fit: "inside" }).ensureAlpha().raw().toBuffer({
+    resolveWithObject: true,
+  });
+  const whitePixels = Buffer.alloc(logoResized.data.length);
+  for (let i = 0; i < logoResized.data.length; i += 4) {
+    whitePixels[i] = 255;
+    whitePixels[i + 1] = 255;
+    whitePixels[i + 2] = 255;
+    whitePixels[i + 3] = logoResized.data[i + 3]; // mantém só o alpha original
+  }
+  const logoWhite = await sharp(whitePixels, {
+    raw: { width: logoResized.info.width, height: logoResized.info.height, channels: 4 },
+  })
     .png()
     .toBuffer();
 
