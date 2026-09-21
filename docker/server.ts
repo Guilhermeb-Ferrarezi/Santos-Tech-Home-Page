@@ -39,7 +39,7 @@ function resolvePublishedSitePath(pathname: string) {
 // exatamente UM segment com extensão e sem ponto no início (regex exclui /.hidden).
 const TOP_LEVEL_PUBLIC_FILE = /^\/[^./][^/]*\.[^/]+$/;
 // Subdiretórios explicitamente permitidos dentro de public/ (path traversal guard abaixo).
-const PUBLIC_SUBDIRS = ["/courses/"];
+const PUBLIC_SUBDIRS = ["/courses/", "/og/"];
 
 async function serveStaticAsset(request: Request) {
   if (request.method !== "GET" && request.method !== "HEAD") {
