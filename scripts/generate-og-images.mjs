@@ -307,8 +307,7 @@ function buildCourseSvg({ title, tag, badge, iconNode, theme }) {
     ${renderIcon(iconNode, { x: 870, y: 280, size: 260, color: theme.accent, opacity: 0.95 })}
 
     <!-- rodapé -->
-    <text x="152" y="574" font-family="${FONT_STACK}" font-size="26" font-weight="700" fill="#ffffff">Santos Tech</text>
-    <text x="80" y="574" font-family="${FONT_STACK}" font-size="26" font-weight="700" fill="${theme.accent}">●</text>
+    <text x="164" y="574" font-family="${FONT_STACK}" font-size="26" font-weight="700" fill="#ffffff">Santos Tech</text>
   </svg>`;
 }
 
@@ -341,28 +340,17 @@ function buildDefaultSvg() {
 // ──────────────────────────────────────────────────────────────────────────
 
 async function main() {
-  // Logo em versão branca (silhueta), pra sobrepor no fundo escuro dos cards.
-  //
-  // NÃO é um negate() de cores: o PNG original (src/assets/logo.png) não é um
-  // silhueta simples — tem áreas pretas (o leão) E áreas brancas OPACAS
-  // (recortes/destaques dentro da juba, não transparência) sobre fundo
-  // transparente de verdade. Invertendo RGB, aquelas áreas brancas internas
-  // viram preto e ficam pontos pretos manchando o leão branco. A correção é
-  // preencher todo pixel opaco com branco sólido, usando só o canal alpha
-  // original como máscara de silhueta — ignora o RGB interno por completo.
-  const logoResized = await sharp(LOGO_PATH).resize(64, 64, { fit: "inside" }).ensureAlpha().raw().toBuffer({
-    resolveWithObject: true,
-  });
-  const whitePixels = Buffer.alloc(logoResized.data.length);
-  for (let i = 0; i < logoResized.data.length; i += 4) {
-    whitePixels[i] = 255;
-    whitePixels[i + 1] = 255;
-    whitePixels[i + 2] = 255;
-    whitePixels[i + 3] = logoResized.data[i + 3]; // mantém só o alpha original
-  }
-  const logoWhite = await sharp(whitePixels, {
-    raw: { width: logoResized.info.width, height: logoResized.info.height, channels: 4 },
-  })
+  // Logo institucional: usa a arte original (preta) sem recolorir — é a
+  // mesma logo do header do site, não dá pra inventar uma versão "branca"
+  // dela. Como a arte é preta e o fundo dos cards é escuro, ela vai dentro
+  // de um selo branco (mesma solução do header, que também põe a logo sobre
+  // fundo claro) só pra garantir contraste — a logo em si fica intacta.
+  const BADGE_SIZE = 72;
+  const LOGO_SIZE = 52;
+  const badgeCircleSvg = `<svg width="${BADGE_SIZE}" height="${BADGE_SIZE}"><circle cx="${BADGE_SIZE / 2}" cy="${BADGE_SIZE / 2}" r="${BADGE_SIZE / 2}" fill="#ffffff" /></svg>`;
+  const logoOriginal = await sharp(LOGO_PATH).resize(LOGO_SIZE, LOGO_SIZE, { fit: "inside" }).png().toBuffer();
+  const logoBadge = await sharp(Buffer.from(badgeCircleSvg))
+    .composite([{ input: logoOriginal, left: Math.round((BADGE_SIZE - LOGO_SIZE) / 2), top: Math.round((BADGE_SIZE - LOGO_SIZE) / 2) }])
     .png()
     .toBuffer();
 
@@ -375,7 +363,7 @@ async function main() {
   // 1) og-image.png padrão (institucional)
   const defaultBase = await sharp(Buffer.from(buildDefaultSvg())).png().toBuffer();
   await sharp(defaultBase)
-    .composite([{ input: logoWhite, left: WIDTH / 2 - 32, top: 440 }])
+    .composite([{ input: logoBadge, left: WIDTH / 2 - 36, top: 436 }])
     .png()
     .toFile(path.join(ROOT, "public/og-image.png"));
   console.log("✓ public/og-image.png (1200×630)");
@@ -394,7 +382,7 @@ async function main() {
     });
     const base = await sharp(Buffer.from(svg)).png().toBuffer();
     const final = await sharp(base)
-      .composite([{ input: logoWhite, left: 80, top: 522 }])
+      .composite([{ input: logoBadge, left: 80, top: 518 }])
       .png()
       .toFile(path.join(adultosDir, `${course.slug}.png`));
     void final;
@@ -416,7 +404,7 @@ async function main() {
     });
     const base = await sharp(Buffer.from(svg)).png().toBuffer();
     await sharp(base)
-      .composite([{ input: logoWhite, left: 80, top: 522 }])
+      .composite([{ input: logoBadge, left: 80, top: 518 }])
       .png()
       .toFile(path.join(infantilDir, `${page.slug}.png`));
   }
