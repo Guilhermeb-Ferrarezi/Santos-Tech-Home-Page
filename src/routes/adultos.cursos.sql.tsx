@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import type { CourseData } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/sql")({
   component: SqlPage,
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/adultos/cursos/sql")({
       description:
         "Aprenda SQL do zero ao avançado em Ribeirão Preto: consultas, modelagem, performance, cloud e IA aplicada a bancos de dados reais.",
       path: "/adultos/cursos/sql",
+      ogImage: absoluteUrl("/og/adultos/sql.png"),
     }),
 })
 

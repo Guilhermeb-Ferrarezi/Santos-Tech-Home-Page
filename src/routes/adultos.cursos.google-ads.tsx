@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import type { CourseData } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/google-ads")({
   component: GoogleAdsPage,
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/adultos/cursos/google-ads")({
       description:
         "Aprenda a criar e otimizar campanhas no Google Ads em Ribeirão Preto. Do básico ao avançado com IA, Performance Max e gestão profissional de mídia paga.",
       path: "/adultos/cursos/google-ads",
+      ogImage: absoluteUrl("/og/adultos/google-ads.png"),
     }),
 })
 

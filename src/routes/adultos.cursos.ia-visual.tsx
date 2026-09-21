@@ -1,7 +1,7 @@
 ﻿import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/ia-visual")({
   component: IaVisualPage,
@@ -10,6 +10,7 @@ export const Route = createFileRoute("/adultos/cursos/ia-visual")({
       title: "Curso de IA para Criadores: Imagem, Vídeo e Áudio em Ribeirão Preto — Santos Tech",
       description: "Domine Midjourney, DALL-E, Runway, Sora e ElevenLabs para criar imagens, vídeos e áudios profissionais com IA. Curso presencial em Ribeirão Preto para criadores de conteúdo.",
       path: "/adultos/cursos/ia-visual",
+      ogImage: absoluteUrl("/og/adultos/ia-visual.png"),
     }),
 })
 

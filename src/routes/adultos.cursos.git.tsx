@@ -2,7 +2,7 @@
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import type { CourseData } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/git")({
   component: GitPage,
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/adultos/cursos/git")({
       description:
         "Aprenda Git do zero: commits, branches, merge, pull requests e GitHub. Curso presencial em Ribeirão Preto para devs e profissionais que querem trabalhar em equipe com código.",
       path: "/adultos/cursos/git",
+      ogImage: absoluteUrl("/og/adultos/git.png"),
     }),
 })
 

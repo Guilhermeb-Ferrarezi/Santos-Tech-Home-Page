@@ -43,7 +43,7 @@ import {
   type ProgressionBadge,
 } from "@/components/course-page";
 import { JsonLd } from "@/components/json-ld";
-import { pageMeta, coursePageSchemas } from "@/lib/seo";
+import { pageMeta, absoluteUrl, coursePageSchemas } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/junior/5-6-anos")({
   component: Junior56Page,
@@ -53,6 +53,7 @@ export const Route = createFileRoute("/cursos/junior/5-6-anos")({
       description:
         "Primeiro curso do programa JR: 40 aulas anuais de programação pra crianças de 5 a 6 anos em Ribeirão Preto, sem precisar saber ler. Atividades desplugadas, robótica tangível e ScratchJr. Passaporte do Inventor com sistema próprio de progressão.",
       path: "/cursos/junior/5-6-anos",
+      ogImage: absoluteUrl("/og/infantil/junior-5-6-anos.png"),
     }),
 });
 

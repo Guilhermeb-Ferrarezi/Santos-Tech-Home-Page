@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/marketing")({
   component: MarketingPage,
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/adultos/cursos/marketing")({
       description:
         "Domine Google Ads, Meta Ads e SEO com aulas individuais em Ribeirão Preto. Do funil de marketing à gestão de campanhas com IA: forme-se especialista em tráfego pago.",
       path: "/adultos/cursos/marketing",
+      ogImage: absoluteUrl("/og/adultos/marketing.png"),
     }),
 })
 

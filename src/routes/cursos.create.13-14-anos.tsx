@@ -28,7 +28,7 @@ import {
 } from "@/components/course-page";
 import { Reveal } from "@/components/reveal";
 import { JsonLd } from "@/components/json-ld";
-import { pageMeta, coursePageSchemas } from "@/lib/seo";
+import { pageMeta, absoluteUrl, coursePageSchemas } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/create/13-14-anos")({
   component: Create1314Page,
@@ -38,6 +38,7 @@ export const Route = createFileRoute("/cursos/create/13-14-anos")({
       description:
         "Sexto e último ano do CREATE pra adolescentes de 13 a 14 anos em Ribeirão Preto. 40 aulas de Programação Orientada a Objetos em C# + jogo autoral final no Unity. Formatura com título de Desenvolvedor de Jogos CREATE.",
       path: "/cursos/create/13-14-anos",
+      ogImage: absoluteUrl("/og/infantil/create-13-14-anos.png"),
     }),
 });
 

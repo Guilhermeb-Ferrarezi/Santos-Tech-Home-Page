@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/excel")({
   component: ExcelPage,
@@ -11,6 +11,7 @@ export const Route = createFileRoute("/adultos/cursos/excel")({
       description:
         "Do básico ao VBA e Power Query: domine Excel Avançado com aulas individuais e presenciais em Ribeirão Preto. Dashboards, macros e Power BI para quem trabalha com dados.",
       path: "/adultos/cursos/excel",
+      ogImage: absoluteUrl("/og/adultos/excel.png"),
     }),
 })
 

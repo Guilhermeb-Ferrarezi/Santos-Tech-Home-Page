@@ -1,7 +1,7 @@
 ﻿import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/rag")({
   component: RagPage,
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/adultos/cursos/rag")({
       description:
         "Aprenda a construir sistemas de RAG (Retrieval-Augmented Generation) com embeddings, bancos vetoriais e LLMs para criar chatbots e assistentes com seus documentos.",
       path: "/adultos/cursos/rag",
+      ogImage: absoluteUrl("/og/adultos/rag.png"),
     }),
 })
 

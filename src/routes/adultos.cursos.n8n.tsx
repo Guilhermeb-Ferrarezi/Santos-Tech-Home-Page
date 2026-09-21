@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/n8n")({
   component: N8nPage,
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/adultos/cursos/n8n")({
       description:
         "Aprenda a automatizar processos, criar agentes de IA e integrar sistemas sem programar. Curso presencial de N8N em Ribeirão Preto para gestores e empreendedores.",
       path: "/adultos/cursos/n8n",
+      ogImage: absoluteUrl("/og/adultos/n8n.png"),
     }),
 })
 

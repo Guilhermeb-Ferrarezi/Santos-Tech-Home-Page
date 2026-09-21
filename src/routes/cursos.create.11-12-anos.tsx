@@ -27,7 +27,7 @@ import {
 } from "@/components/course-page";
 import { Reveal } from "@/components/reveal";
 import { JsonLd } from "@/components/json-ld";
-import { pageMeta, coursePageSchemas } from "@/lib/seo";
+import { pageMeta, absoluteUrl, coursePageSchemas } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/create/11-12-anos")({
   component: Create1112Page,
@@ -37,6 +37,7 @@ export const Route = createFileRoute("/cursos/create/11-12-anos")({
       description:
         "Quarto ano do CREATE: 40 aulas de JavaScript intermediário pra pré-adolescentes de 11 a 12 anos em Ribeirão Preto. Objetos, coleções avançadas, IA de jogo e algoritmos aplicados. Título Engenheiro de Jogos Júnior.",
       path: "/cursos/create/11-12-anos",
+      ogImage: absoluteUrl("/og/infantil/create-11-12-anos.png"),
     }),
 });
 

@@ -26,7 +26,7 @@ import {
 } from "@/components/course-page";
 import { Reveal } from "@/components/reveal";
 import { JsonLd } from "@/components/json-ld";
-import { pageMeta, coursePageSchemas } from "@/lib/seo";
+import { pageMeta, absoluteUrl, coursePageSchemas } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/create/10-11-anos")({
   component: Create1011Page,
@@ -36,6 +36,7 @@ export const Route = createFileRoute("/cursos/create/10-11-anos")({
       description:
         "Terceiro ano do CREATE: 40 aulas escrevendo JavaScript do zero (texto puro). Variáveis, condicionais, laços, funções e arrays criando jogos. Pra crianças de 10 a 11 anos em Ribeirão Preto. Selo de Ouro do Códex do Programador.",
       path: "/cursos/create/10-11-anos",
+      ogImage: absoluteUrl("/og/infantil/create-10-11-anos.png"),
     }),
 });
 

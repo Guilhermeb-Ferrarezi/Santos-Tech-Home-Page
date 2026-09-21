@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import type { CourseData } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/conteudo-ia")({
   component: ConteudoIaPage,
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/adultos/cursos/conteudo-ia")({
       description:
         "Aprenda a criar imagens, vídeos e textos profissionais com ChatGPT, Midjourney, Runway e Canva IA em Ribeirão Preto.",
       path: "/adultos/cursos/conteudo-ia",
+      ogImage: absoluteUrl("/og/adultos/conteudo-ia.png"),
     }),
 })
 

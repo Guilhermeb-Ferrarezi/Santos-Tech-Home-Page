@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/impressao-3d")({
   component: Impressao3dPage,
@@ -11,6 +11,7 @@ export const Route = createFileRoute("/adultos/cursos/impressao-3d")({
       description:
         "Domine impressão 3D FDM e resina: fatiamento, calibração e materiais técnicos em aulas individuais e presenciais em Ribeirão Preto. Do arquivo ao produto final.",
       path: "/adultos/cursos/impressao-3d",
+      ogImage: absoluteUrl("/og/adultos/impressao-3d.png"),
     }),
 })
 

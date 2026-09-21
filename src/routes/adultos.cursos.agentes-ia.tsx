@@ -1,7 +1,7 @@
 ﻿import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/agentes-ia")({
   component: AgentesIaPage,
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/adultos/cursos/agentes-ia")({
       description:
         "Crie agentes de IA autônomos e sistemas multiagentes com N8N, LangChain e CrewAI. Curso presencial em Ribeirão Preto para quem quer automatizar processos com inteligência artificial.",
       path: "/adultos/cursos/agentes-ia",
+      ogImage: absoluteUrl("/og/adultos/agentes-ia.png"),
     }),
 })
 

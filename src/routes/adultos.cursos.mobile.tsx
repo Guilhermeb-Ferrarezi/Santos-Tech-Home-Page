@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/mobile")({
   component: MobilePage,
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/adultos/cursos/mobile")({
       description:
         "Aprenda React Native e Flutter do zero e publique apps nas lojas. Aulas individuais presenciais em Ribeirão Preto para quem quer trabalhar com desenvolvimento mobile.",
       path: "/adultos/cursos/mobile",
+      ogImage: absoluteUrl("/og/adultos/mobile.png"),
     }),
 })
 

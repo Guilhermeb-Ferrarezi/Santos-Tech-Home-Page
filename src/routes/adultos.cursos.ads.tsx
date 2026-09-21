@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/ads")({
   component: AdsPage,
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/adultos/cursos/ads")({
       description:
         "Formação profissional completa em Análise e Desenvolvimento de Sistemas: lógica, back-end, mobile, cloud e IA. Do zero ao mercado de TI em até 12 meses, presencial em Ribeirão Preto.",
       path: "/adultos/cursos/ads",
+      ogImage: absoluteUrl("/og/adultos/ads.png"),
     }),
 })
 

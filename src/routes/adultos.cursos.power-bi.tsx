@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/power-bi")({
   component: PowerBiPage,
@@ -11,6 +11,7 @@ export const Route = createFileRoute("/adultos/cursos/power-bi")({
       description:
         "Aprenda Power BI do zero ao profissional em Ribeirão Preto: DAX, modelagem, dashboards executivos e integração com Python e IA. Aulas individuais e presenciais.",
       path: "/adultos/cursos/power-bi",
+      ogImage: absoluteUrl("/og/adultos/power-bi.png"),
     }),
 })
 

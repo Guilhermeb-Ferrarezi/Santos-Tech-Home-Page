@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import type { CourseData } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/copywriting")({
   component: CopywritingPage,
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/adultos/cursos/copywriting")({
       description:
         "Aprenda a escrever textos que convencem, vendem e geram cliques em Ribeirão Preto. Do AIDA ao funil completo com IA generativa.",
       path: "/adultos/cursos/copywriting",
+      ogImage: absoluteUrl("/og/adultos/copywriting.png"),
     }),
 })
 

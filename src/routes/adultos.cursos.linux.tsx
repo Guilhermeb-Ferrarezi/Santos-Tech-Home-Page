@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/linux")({
   component: LinuxPage,
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/adultos/cursos/linux")({
       description:
         "Aprenda a administrar servidores Linux no terminal, gerenciar usuários, automatizar tarefas e configurar serviços web. Curso presencial em Ribeirão Preto para profissionais de TI.",
       path: "/adultos/cursos/linux",
+      ogImage: absoluteUrl("/og/adultos/linux.png"),
     }),
 })
 

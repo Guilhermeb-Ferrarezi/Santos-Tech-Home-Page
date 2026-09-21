@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import type { CourseData } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/chatgpt")({
   component: ChatGptPage,
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/adultos/cursos/chatgpt")({
       description:
         "Aprenda a usar ChatGPT e IA no trabalho em Ribeirão Preto. Do prompt engineering à automação: multiplique sua produtividade com inteligência artificial.",
       path: "/adultos/cursos/chatgpt",
+      ogImage: absoluteUrl("/og/adultos/chatgpt.png"),
     }),
 })
 

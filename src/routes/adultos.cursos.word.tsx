@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/word")({
   component: WordPage,
@@ -11,6 +11,7 @@ export const Route = createFileRoute("/adultos/cursos/word")({
       description:
         "Domine o Word profissionalmente: templates corporativos, mala direta, sumário automático e IA integrada. Curso presencial para adultos em Ribeirão Preto.",
       path: "/adultos/cursos/word",
+      ogImage: absoluteUrl("/og/adultos/word.png"),
     }),
 })
 

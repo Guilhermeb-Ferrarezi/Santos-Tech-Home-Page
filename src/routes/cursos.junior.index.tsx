@@ -27,7 +27,7 @@ const HeartStraightIcon = phosphor(PhHeartStraight, "duotone");
 import { Img, getOptimizedUrl } from "@/components/img";
 import { TechHero } from "@/components/tech-hero";
 import { JsonLd } from "@/components/json-ld";
-import { pageMeta, buildCourseSchema, buildBreadcrumbSchema } from "@/lib/seo";
+import { pageMeta, absoluteUrl, buildCourseSchema, buildBreadcrumbSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/junior/")({
   component: JuniorPage,
@@ -37,6 +37,7 @@ export const Route = createFileRoute("/cursos/junior/")({
       description:
         "Programa JR da Santos Tech: programação para crianças de 5 a 8 anos em Ribeirão Preto, sem precisar saber ler. 3 cursos anuais (JR1, JR2, JR3) com Passaporte do Inventor — atividades lúdicas, robótica tangível e ScratchJr.",
       path: "/cursos/junior",
+      ogImage: absoluteUrl("/og/infantil/junior.png"),
     }),
 });
 

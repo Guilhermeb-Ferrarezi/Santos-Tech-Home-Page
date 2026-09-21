@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/ciberseguranca")({
   component: CibersegurancaPage,
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/adultos/cursos/ciberseguranca")({
       description:
         "Aprenda cibersegurança em Ribeirão Preto: de proteções essenciais a pentest e SOC. Prepare-se para CompTIA Security+ ou eJPT com aulas práticas e individuais.",
       path: "/adultos/cursos/ciberseguranca",
+      ogImage: absoluteUrl("/og/adultos/ciberseguranca.png"),
     }),
 })
 

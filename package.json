@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "optimize:images": "node scripts/optimize-images.mjs"
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "generate:og": "node scripts/generate-og-images.mjs"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.51.1",

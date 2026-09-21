@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/modelagem-3d")({
   component: Modelagem3dPage,
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/adultos/cursos/modelagem-3d")({
       description:
         "Aprenda Blender e SketchUp do zero ao portfólio 3D profissional em Ribeirão Preto. Renderização fotorrealista, escultura digital e IA generativa — aulas presenciais e individuais na Santos Tech.",
       path: "/adultos/cursos/modelagem-3d",
+      ogImage: absoluteUrl("/og/adultos/modelagem-3d.png"),
     }),
 })
 

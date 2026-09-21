@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import type { CourseData } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/tiktok-ads")({
   component: TikTokAdsPage,
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/adultos/cursos/tiktok-ads")({
       description:
         "Aprenda a criar e gerenciar anúncios no TikTok do zero ao avançado em Ribeirão Preto. Criativos nativos, segmentação e ROAS real.",
       path: "/adultos/cursos/tiktok-ads",
+      ogImage: absoluteUrl("/og/adultos/tiktok-ads.png"),
     }),
 })
 

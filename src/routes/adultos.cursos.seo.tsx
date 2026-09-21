@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import type { CourseData } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/seo")({
   component: SeoPage,
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/adultos/cursos/seo")({
       description:
         "Aprenda SEO do zero ao avançado em Ribeirão Preto: rankeie no Google, atraia tráfego orgânico e cresça sem depender de anúncios pagos.",
       path: "/adultos/cursos/seo",
+      ogImage: absoluteUrl("/og/adultos/seo.png"),
     }),
 })
 

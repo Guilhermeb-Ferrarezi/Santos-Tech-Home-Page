@@ -42,7 +42,7 @@ import {
   type FaqItem,
 } from "@/components/course-page";
 import { JsonLd } from "@/components/json-ld";
-import { pageMeta, buildCourseSchema, buildBreadcrumbSchema, buildFaqSchema } from "@/lib/seo";
+import { pageMeta, absoluteUrl, buildCourseSchema, buildBreadcrumbSchema, buildFaqSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/academies")({
   component: AcademiesPage,
@@ -52,6 +52,7 @@ export const Route = createFileRoute("/cursos/academies")({
       description:
         "Academias da Santos Tech: módulos avançados de Robótica (9 a 14 anos) e Inteligência Artificial (11 a 14 anos) em Ribeirão Preto. Especialização técnica com kits físicos, treinamento de modelos, engenharia de prompt e projetos próprios.",
       path: "/cursos/academies",
+      ogImage: absoluteUrl("/og/infantil/academies.png"),
     }),
 });
 

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/manutencao")({
   component: ManutencaoPage,
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/adultos/cursos/manutencao")({
       description:
         "Monte, conserte e atualize PCs como um técnico profissional: hardware, diagnóstico de falhas e instalação de Windows. Aulas presenciais em Ribeirão Preto para quem quer atuar em assistência técnica ou abrir o próprio negócio.",
       path: "/adultos/cursos/manutencao",
+      ogImage: absoluteUrl("/og/adultos/manutencao.png"),
     }),
 })
 

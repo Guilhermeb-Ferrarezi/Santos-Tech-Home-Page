@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import type { CourseData } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/powerpoint")({
   component: PowerpointPage,
@@ -13,6 +13,7 @@ export const Route = createFileRoute("/adultos/cursos/powerpoint")({
       description:
         "Aprenda PowerPoint do básico ao avançado: storytelling visual, animações Morph, IA com Copilot e design profissional. Aulas individuais e flexíveis em Ribeirão Preto.",
       path: "/adultos/cursos/powerpoint",
+      ogImage: absoluteUrl("/og/adultos/powerpoint.png"),
     }),
 })
 

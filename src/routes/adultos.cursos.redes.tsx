@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import type { CourseData } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/redes")({
   component: RedesPage,
@@ -13,6 +13,7 @@ export const Route = createFileRoute("/adultos/cursos/redes")({
       description:
         "Aprenda a configurar redes corporativas, VLANs, roteamento e Wi-Fi com preparação para a certificação CompTIA Network+. Aulas individuais e horário flexível.",
       path: "/adultos/cursos/redes",
+      ogImage: absoluteUrl("/og/adultos/redes.png"),
     }),
 })
 

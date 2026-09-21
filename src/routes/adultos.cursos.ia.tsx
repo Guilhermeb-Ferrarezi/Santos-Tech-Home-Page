@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/ia")({
   component: IaPage,
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/adultos/cursos/ia")({
       description:
         "Aprenda IA na prática em Ribeirão Preto: de ChatGPT e prompting avançado a agentes autônomos com LangChain e CrewAI. Aulas individuais, horário flexível.",
       path: "/adultos/cursos/ia",
+      ogImage: absoluteUrl("/og/adultos/ia.png"),
     }),
 })
 

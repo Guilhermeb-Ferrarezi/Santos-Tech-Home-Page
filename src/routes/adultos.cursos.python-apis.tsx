@@ -2,7 +2,7 @@
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import type { CourseData } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/python-apis")({
   component: PythonApisPage,
@@ -11,6 +11,7 @@ export const Route = createFileRoute("/adultos/cursos/python-apis")({
       title: "Curso de APIs e Integrações com Python em Ribeirão Preto — Santos Tech",
       description: "Aprenda a consumir e criar APIs REST com Python, integrar serviços externos e conectar sistemas usando webhooks. Curso presencial em Ribeirão Preto focado em automações reais.",
       path: "/adultos/cursos/python-apis",
+      ogImage: absoluteUrl("/og/adultos/python-apis.png"),
     }),
 })
 

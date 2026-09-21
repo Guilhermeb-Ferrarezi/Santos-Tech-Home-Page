@@ -1,7 +1,7 @@
 ﻿import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta } from "@/lib/seo"
+import { pageMeta, absoluteUrl } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/typescript")({
   component: TypescriptPage,
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/adultos/cursos/typescript")({
       description:
         "Aprenda TypeScript do zero e escreva código mais seguro, escalável e fácil de manter. Curso presencial em Ribeirão Preto para devs que querem entrar no mercado de trabalho moderno.",
       path: "/adultos/cursos/typescript",
+      ogImage: absoluteUrl("/og/adultos/typescript.png"),
     }),
 })
 
