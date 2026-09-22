@@ -20,7 +20,7 @@ import {
 } from "@/components/course-page";
 import { Reveal } from "@/components/reveal";
 import { JsonLd } from "@/components/json-ld";
-import { pageMeta, absoluteUrl, coursePageSchemas } from "@/lib/seo";
+import { pageMeta, coursePageSchemas } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/junior/6-7-anos")({
   component: Junior67Page,
@@ -30,7 +30,6 @@ export const Route = createFileRoute("/cursos/junior/6-7-anos")({
       description:
         "Segundo curso do programa JR pra crianças de 6 a 7 anos em Ribeirão Preto. 40 aulas com ScratchJr avançado, robótica com lógica condicional e primeiros mini-jogos no Scratch. Mapa do Explorador com 4 insígnias.",
       path: "/cursos/junior/6-7-anos",
-      ogImage: absoluteUrl("/og/infantil/junior-6-7-anos.png"),
     }),
 });
 

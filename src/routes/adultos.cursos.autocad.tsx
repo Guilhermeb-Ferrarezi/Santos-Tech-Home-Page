@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta, absoluteUrl } from "@/lib/seo"
+import { pageMeta } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/autocad")({
   component: AutocadPage,
@@ -11,7 +11,6 @@ export const Route = createFileRoute("/adultos/cursos/autocad")({
       description:
         "Domine AutoCAD 2D e 3D com aulas individuais e presenciais em Ribeirão Preto. Do traço à prancha executiva para arquitetos, engenheiros e projetistas técnicos.",
       path: "/adultos/cursos/autocad",
-      ogImage: absoluteUrl("/og/adultos/autocad.png"),
     }),
 })
 

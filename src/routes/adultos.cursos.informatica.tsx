@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import type { CourseData } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta, absoluteUrl } from "@/lib/seo"
+import { pageMeta } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/informatica")({
   component: InformaticaPage,
@@ -13,7 +13,6 @@ export const Route = createFileRoute("/adultos/cursos/informatica")({
       description:
         "Domine o computador, o pacote Office e as ferramentas de IA em aulas presenciais individuais. Do básico ao avançado, do zero ao mercado de trabalho.",
       path: "/adultos/cursos/informatica",
-      ogImage: absoluteUrl("/og/adultos/informatica.png"),
     }),
 })
 

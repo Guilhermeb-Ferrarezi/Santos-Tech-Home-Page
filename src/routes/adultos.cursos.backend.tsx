@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import type { CourseData } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta, absoluteUrl } from "@/lib/seo"
+import { pageMeta } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/backend")({
   component: BackendPage,
@@ -13,7 +13,6 @@ export const Route = createFileRoute("/adultos/cursos/backend")({
       description:
         "Aprenda Node.js, FastAPI, NestJS e PostgreSQL do zero ao SaaS em produção. Aulas individuais, horário flexível e projeto real com APIs REST, JWT e deploy em nuvem.",
       path: "/adultos/cursos/backend",
-      ogImage: absoluteUrl("/og/adultos/backend.png"),
     }),
 })
 

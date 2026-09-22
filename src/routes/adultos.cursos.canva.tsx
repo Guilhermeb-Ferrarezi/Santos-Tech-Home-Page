@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import type { CourseData } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta, absoluteUrl } from "@/lib/seo"
+import { pageMeta } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/canva")({
   component: CanvaPage,
@@ -13,7 +13,6 @@ export const Route = createFileRoute("/adultos/cursos/canva")({
       description:
         "Aprenda Canva Pro do zero ao design profissional: posts, apresentações, identidade visual e Magic Studio com IA. Aulas individuais e flexíveis em Ribeirão Preto.",
       path: "/adultos/cursos/canva",
-      ogImage: absoluteUrl("/og/adultos/canva.png"),
     }),
 })
 

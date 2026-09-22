@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import type { CourseData } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta, absoluteUrl } from "@/lib/seo"
+import { pageMeta } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/funil-vendas")({
   component: FunilVendasPage,
@@ -12,7 +12,6 @@ export const Route = createFileRoute("/adultos/cursos/funil-vendas")({
       description:
         "Aprenda a montar funis de vendas e usar CRM com automações reais. Curso presencial em Ribeirão Preto para profissionais e empreendedores.",
       path: "/adultos/cursos/funil-vendas",
-      ogImage: absoluteUrl("/og/adultos/funil-vendas.png"),
     }),
 })
 

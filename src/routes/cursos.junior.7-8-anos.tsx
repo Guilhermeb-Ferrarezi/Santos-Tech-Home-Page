@@ -21,7 +21,7 @@ import {
 } from "@/components/course-page";
 import { Reveal } from "@/components/reveal";
 import { JsonLd } from "@/components/json-ld";
-import { pageMeta, absoluteUrl, coursePageSchemas } from "@/lib/seo";
+import { pageMeta, coursePageSchemas } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/junior/7-8-anos")({
   component: Junior78Page,
@@ -31,7 +31,6 @@ export const Route = createFileRoute("/cursos/junior/7-8-anos")({
       description:
         "Terceiro e último curso do programa JR pra crianças de 7 a 8 anos em Ribeirão Preto. 40 aulas com Scratch completo (variáveis, condicionais, clones) e introdução ao MakeCode Arcade. Bússola do Criador — preparação direta pra Faixa Branca do CREATE.",
       path: "/cursos/junior/7-8-anos",
-      ogImage: absoluteUrl("/og/infantil/junior-7-8-anos.png"),
     }),
 });
 

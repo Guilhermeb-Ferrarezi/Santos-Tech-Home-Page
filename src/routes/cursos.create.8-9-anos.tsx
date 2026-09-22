@@ -37,7 +37,7 @@ import {
 } from "@/components/course-page";
 import { Reveal } from "@/components/reveal";
 import { JsonLd } from "@/components/json-ld";
-import { pageMeta, absoluteUrl, coursePageSchemas } from "@/lib/seo";
+import { pageMeta, coursePageSchemas } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/create/8-9-anos")({
   component: Create89Page,
@@ -47,7 +47,6 @@ export const Route = createFileRoute("/cursos/create/8-9-anos")({
       description:
         "Primeiro ano do CREATE: 40 aulas no MakeCode Arcade pra crianças de 8 a 9 anos em Ribeirão Preto. Do primeiro sprite ao jogo completo autoral. Trilha de Insígnias Pixel com 5 conquistas.",
       path: "/cursos/create/8-9-anos",
-      ogImage: absoluteUrl("/og/infantil/create-8-9-anos.png"),
     }),
 });
 

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta, absoluteUrl } from "@/lib/seo"
+import { pageMeta } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/python")({
   component: PythonPage,
@@ -12,7 +12,6 @@ export const Route = createFileRoute("/adultos/cursos/python")({
       description:
         "Aprenda Python do zero e automatize planilhas, e-mails, relatórios e processos repetitivos. Aulas individuais, horário flexível e 100% prático em Ribeirão Preto.",
       path: "/adultos/cursos/python",
-      ogImage: absoluteUrl("/og/adultos/python.png"),
     }),
 })
 

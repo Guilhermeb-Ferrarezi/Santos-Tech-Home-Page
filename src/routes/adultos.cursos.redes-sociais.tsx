@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta, absoluteUrl } from "@/lib/seo"
+import { pageMeta } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/redes-sociais")({
   component: RedesSociaisPage,
@@ -12,7 +12,6 @@ export const Route = createFileRoute("/adultos/cursos/redes-sociais")({
       description:
         "Torne-se Social Media profissional: estratégia de conteúdo, métricas, tráfego pago e IA aplicada. Do essencial ao gestor estratégico, presencial em Ribeirão Preto.",
       path: "/adultos/cursos/redes-sociais",
-      ogImage: absoluteUrl("/og/adultos/redes-sociais.png"),
     }),
 })
 

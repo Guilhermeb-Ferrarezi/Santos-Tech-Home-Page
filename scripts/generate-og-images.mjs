@@ -107,60 +107,34 @@ const ADULT_ICONS = {
   word: "type",
 };
 
-// slug (= nome do arquivo de rota adultos.cursos.<slug>.tsx) → nome/categoria (COURSE_DATA de cada rota)
-const ADULT_COURSES = [
-  { slug: "ads", title: "ADS — Análise e Desenvolvimento de Sistemas", tag: "Programação" },
-  { slug: "agentes-ia", title: "Agentes de IA com N8N e LLMs", tag: "Inteligência Artificial" },
-  { slug: "autocad", title: "AutoCAD", tag: "Universo 3D" },
-  { slug: "backend", title: "Desenvolvimento Web Back-End", tag: "Programação" },
-  { slug: "canva", title: "Design Gráfico — Canva Pro", tag: "Design & Criação" },
-  { slug: "capcut", title: "Edição de Vídeo — CapCut", tag: "Design & Criação" },
-  { slug: "chatgpt", title: "ChatGPT e IA para Profissionais", tag: "Inteligência Artificial" },
-  { slug: "ciberseguranca", title: "Cibersegurança", tag: "T.I" },
-  { slug: "conteudo-ia", title: "Criação de Conteúdo com IA", tag: "Inteligência Artificial" },
-  { slug: "copywriting", title: "Copywriting & Persuasão", tag: "Marketing & Negócios" },
-  { slug: "davinci", title: "Edição de Vídeo — DaVinci Resolve / Premiere", tag: "Design & Criação" },
-  { slug: "ecommerce", title: "E-commerce & Vendas Online", tag: "Marketing & Negócios" },
-  { slug: "excel-ia", title: "Excel + IA", tag: "Office + IA" },
-  { slug: "excel-power-bi", title: "Excel + Power BI: Da Planilha ao Dashboard", tag: "Office" },
-  { slug: "excel", title: "Excel Avançado", tag: "Office Específico" },
-  { slug: "frontend", title: "Desenvolvimento Web Front-End", tag: "Programação" },
-  { slug: "fullstack", title: "Full Stack Web Developer", tag: "Programação" },
-  { slug: "funil-vendas", title: "Funil de Vendas + CRM", tag: "Marketing & Negócios" },
-  { slug: "git", title: "Git e GitHub para Profissionais", tag: "Programação" },
-  { slug: "google-ads", title: "Google Ads", tag: "Marketing & Negócios" },
-  { slug: "ia-visual", title: "IA para Criadores: Imagem, Vídeo e Áudio", tag: "Inteligência Artificial" },
-  { slug: "ia", title: "Inteligência Artificial: do Essencial ao Profissional com Agentes", tag: "Inteligência Artificial" },
-  { slug: "impressao-3d", title: "Impressão 3D: Do Fatiamento ao Produto Final", tag: "Universo 3D" },
-  { slug: "informatica", title: "Informática Básica, Intermediária e Avançada", tag: "Informática" },
-  { slug: "jogos", title: "Desenvolvimento de Jogos: Unity e Godot", tag: "Programação" },
-  { slug: "linux", title: "Linux Essencial", tag: "T.I" },
-  { slug: "logica", title: "Lógica de Programação", tag: "Programação" },
-  { slug: "make", title: "Automações No-Code — Make", tag: "Programação" },
-  { slug: "manutencao", title: "Montagem e Manutenção de Computadores", tag: "T.I" },
-  { slug: "marketing", title: "Marketing Digital", tag: "Marketing & Negócios" },
-  { slug: "meta-ads", title: "Meta Ads — Facebook e Instagram", tag: "Marketing & Negócios" },
-  { slug: "mobile", title: "Desenvolvimento de Aplicativos", tag: "Programação" },
-  { slug: "modelagem-3d", title: "Modelagem 3D: Blender e SketchUp", tag: "Universo 3D" },
-  { slug: "n8n", title: "Automações + N8N", tag: "Programação" },
-  { slug: "office", title: "Pacote Office", tag: "Pacote Office" },
-  { slug: "photoshop", title: "Design Gráfico — Photoshop + Illustrator", tag: "Design & Criação" },
-  { slug: "power-apps", title: "Power Apps + Power Automate", tag: "Office Específico" },
-  { slug: "power-bi", title: "Power BI", tag: "Office Específico" },
-  { slug: "powerpoint", title: "PowerPoint e Storytelling Visual", tag: "Office Específico" },
-  { slug: "python-apis", title: "APIs e Integrações com Python", tag: "Programação" },
-  { slug: "python", title: "Python para Automações", tag: "Programação" },
-  { slug: "rag", title: "RAG — IA com seus Próprios Dados", tag: "Inteligência Artificial" },
-  { slug: "redes-sociais", title: "Gestão de Redes Sociais", tag: "Marketing & Negócios" },
-  { slug: "redes", title: "Redes e Infraestrutura", tag: "T.I" },
-  { slug: "revit", title: "Revit BIM para Arquitetura", tag: "Universo 3D" },
-  { slug: "seo", title: "SEO — Otimização para Buscadores", tag: "Marketing & Negócios" },
-  { slug: "sql", title: "Banco de Dados com SQL", tag: "Programação" },
-  { slug: "suporte", title: "Suporte Técnico / Help Desk", tag: "T.I" },
-  { slug: "tiktok-ads", title: "TikTok Ads", tag: "Marketing & Negócios" },
-  { slug: "typescript", title: "TypeScript para Desenvolvimento Moderno", tag: "Programação" },
-  { slug: "word", title: "Word Profissional", tag: "Office Específico" },
-];
+// Ícone padrão pra curso novo que ainda não ganhou uma entrada em ADULT_ICONS —
+// garante que TODO curso sai com imagem, mesmo antes de alguém escolher um
+// ícone temático melhor pra ele.
+const DEFAULT_ICON = "graduation-cap";
+
+/**
+ * Descobre os cursos adultos direto de `src/routes/adultos.cursos.*.tsx` —
+ * lê `nome`/`categoria` do `COURSE_DATA` de cada rota, em vez de uma lista
+ * fixa. Curso novo (arquivo novo) ou título renomeado aparece aqui sozinho
+ * na próxima vez que o script rodar, sem precisar editar nada aqui.
+ */
+async function discoverAdultCourses() {
+  const routesDir = path.join(ROOT, "src/routes");
+  const files = (await fs.readdir(routesDir)).filter((f) => /^adultos\.cursos\..+\.tsx$/.test(f));
+  const courses = [];
+  for (const file of files) {
+    const content = await fs.readFile(path.join(routesDir, file), "utf8");
+    const slug = file.replace(/^adultos\.cursos\./, "").replace(/\.tsx$/, "");
+    const nomeMatch = content.match(/nome:\s*"([^"]+)"/);
+    const categoriaMatch = content.match(/categoria:\s*"([^"]+)"/);
+    if (!nomeMatch || !categoriaMatch) {
+      console.warn(`  ! ${file}: não achei nome/categoria no COURSE_DATA, pulando`);
+      continue;
+    }
+    courses.push({ slug, title: nomeMatch[1], tag: categoriaMatch[1] });
+  }
+  return courses.sort((a, b) => a.slug.localeCompare(b.slug));
+}
 
 const KIDS_PAGES = [
   { slug: "create", title: "CREATE — Criação de Jogos", tag: "8 a 14 anos", icon: "gamepad-2", program: "create" },
@@ -368,11 +342,16 @@ async function main() {
     .toFile(path.join(ROOT, "public/og-image.png"));
   console.log("✓ public/og-image.png (1200×630)");
 
-  // 2) cursos adultos
+  // 2) cursos adultos — descobertos direto das rotas (ver discoverAdultCourses)
   const adultosDir = path.join(ROOT, "public/og/adultos");
   await fs.mkdir(adultosDir, { recursive: true });
-  for (const course of ADULT_COURSES) {
-    const iconNode = await getIcon(ADULT_ICONS[course.slug]);
+  const adultCourses = await discoverAdultCourses();
+  for (const course of adultCourses) {
+    const iconName = ADULT_ICONS[course.slug];
+    if (!iconName) {
+      console.warn(`  ! ${course.slug}: sem ícone mapeado em ADULT_ICONS, usando "${DEFAULT_ICON}"`);
+    }
+    const iconNode = await getIcon(iconName ?? DEFAULT_ICON);
     const svg = buildCourseSvg({
       title: course.title,
       tag: course.tag,
@@ -387,7 +366,7 @@ async function main() {
       .toFile(path.join(adultosDir, `${course.slug}.png`));
     void final;
   }
-  console.log(`✓ public/og/adultos/*.png (${ADULT_COURSES.length} imagens)`);
+  console.log(`✓ public/og/adultos/*.png (${adultCourses.length} imagens)`);
 
   // 3) cursos infantis
   const infantilDir = path.join(ROOT, "public/og/infantil");

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta, absoluteUrl } from "@/lib/seo"
+import { pageMeta } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/suporte")({
   component: SuportePage,
@@ -12,7 +12,6 @@ export const Route = createFileRoute("/adultos/cursos/suporte")({
       description:
         "Entre na área de TI em até 60 dias: hardware, redes, Active Directory e ticketing. Prepare-se para a certificação CompTIA A+ com aulas individuais e presenciais.",
       path: "/adultos/cursos/suporte",
-      ogImage: absoluteUrl("/og/adultos/suporte.png"),
     }),
 })
 

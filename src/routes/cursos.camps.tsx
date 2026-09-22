@@ -25,7 +25,7 @@ import {
   type FaqItem,
 } from "@/components/course-page";
 import { JsonLd } from "@/components/json-ld";
-import { pageMeta, absoluteUrl, buildCourseSchema, buildBreadcrumbSchema, buildFaqSchema } from "@/lib/seo";
+import { pageMeta, buildCourseSchema, buildBreadcrumbSchema, buildFaqSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/camps")({
   component: ColoniaPage,
@@ -35,7 +35,6 @@ export const Route = createFileRoute("/cursos/camps")({
       description:
         "Colônia de férias para crianças e adolescentes (5 a 14 anos) em Ribeirão Preto. Um curso de férias que resolve as férias escolares de quem trabalha: seu filho passa o dia aprendendo e se divertindo com tecnologia, cultura, arte e recreação, de segunda a sexta. A partir de R$ 939,90 por semana — você escolhe quantas.",
       path: "/cursos/camps",
-      ogImage: absoluteUrl("/og/infantil/camps.png"),
     }),
 });
 

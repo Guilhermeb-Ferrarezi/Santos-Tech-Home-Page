@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta, absoluteUrl } from "@/lib/seo"
+import { pageMeta } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/photoshop")({
   component: PhotoshopPage,
@@ -12,7 +12,6 @@ export const Route = createFileRoute("/adultos/cursos/photoshop")({
       description:
         "Domine Photoshop e Illustrator do zero ao portfólio profissional em Ribeirão Preto. Retoque, identidade visual, Adobe Firefly e IA generativa para designers, fotógrafos e profissionais de marketing.",
       path: "/adultos/cursos/photoshop",
-      ogImage: absoluteUrl("/og/adultos/photoshop.png"),
     }),
 })
 

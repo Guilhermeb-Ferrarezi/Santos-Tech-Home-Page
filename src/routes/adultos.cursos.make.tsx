@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import type { CourseData } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta, absoluteUrl } from "@/lib/seo"
+import { pageMeta } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/make")({
   component: MakePage,
@@ -12,7 +12,6 @@ export const Route = createFileRoute("/adultos/cursos/make")({
       description:
         "Aprenda a criar automações poderosas com Make em Ribeirão Preto: conecte apps, elimine tarefas repetitivas e integre IA sem escrever código.",
       path: "/adultos/cursos/make",
-      ogImage: absoluteUrl("/og/adultos/make.png"),
     }),
 })
 

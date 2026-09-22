@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import type { CourseData } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta, absoluteUrl } from "@/lib/seo"
+import { pageMeta } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/excel-ia")({
   component: ExcelIaPage,
@@ -12,7 +12,6 @@ export const Route = createFileRoute("/adultos/cursos/excel-ia")({
       description:
         "Aprenda a usar Copilot, Claude, ChatGPT e Python no Excel e no Google Sheets — faça em minutos o que levava horas. Aulas individuais e presenciais em Ribeirão Preto.",
       path: "/adultos/cursos/excel-ia",
-      ogImage: absoluteUrl("/og/adultos/excel-ia.png"),
     }),
 })
 

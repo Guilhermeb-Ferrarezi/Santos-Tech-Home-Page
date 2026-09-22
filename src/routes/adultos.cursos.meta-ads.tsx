@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import type { CourseData } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta, absoluteUrl } from "@/lib/seo"
+import { pageMeta } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/meta-ads")({
   component: MetaAdsPage,
@@ -12,7 +12,6 @@ export const Route = createFileRoute("/adultos/cursos/meta-ads")({
       description:
         "Aprenda a criar campanhas lucrativas no Facebook e Instagram com Meta Ads em Ribeirão Preto. Do básico ao Advantage+ com IA.",
       path: "/adultos/cursos/meta-ads",
-      ogImage: absoluteUrl("/og/adultos/meta-ads.png"),
     }),
 })
 

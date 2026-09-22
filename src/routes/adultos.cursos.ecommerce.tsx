@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta, absoluteUrl } from "@/lib/seo"
+import { pageMeta } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/ecommerce")({
   component: EcommercePage,
@@ -12,7 +12,6 @@ export const Route = createFileRoute("/adultos/cursos/ecommerce")({
       description:
         "Monte sua loja virtual do zero, atraia clientes com tráfego pago e automatize vendas. Do Shopify ao escala com marketplaces, presencial em Ribeirão Preto.",
       path: "/adultos/cursos/ecommerce",
-      ogImage: absoluteUrl("/og/adultos/ecommerce.png"),
     }),
 })
 

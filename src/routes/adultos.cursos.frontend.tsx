@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta, absoluteUrl } from "@/lib/seo"
+import { pageMeta } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/frontend")({
   component: FrontendPage,
@@ -12,7 +12,6 @@ export const Route = createFileRoute("/adultos/cursos/frontend")({
       description:
         "Aprenda HTML, CSS, JavaScript e React do zero ao profissional em Ribeirão Preto. Aulas individuais, ritmo flexível e projetos reais para entrar no mercado de tecnologia.",
       path: "/adultos/cursos/frontend",
-      ogImage: absoluteUrl("/og/adultos/frontend.png"),
     }),
 })
 

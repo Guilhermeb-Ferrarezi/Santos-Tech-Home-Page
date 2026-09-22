@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta, absoluteUrl } from "@/lib/seo"
+import { pageMeta } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/jogos")({
   component: JogosPage,
@@ -12,7 +12,6 @@ export const Route = createFileRoute("/adultos/cursos/jogos")({
       description:
         "Aprenda a criar jogos 2D e 3D com Unity e Godot 4 em Ribeirão Preto. Do plataformer ao jogo comercial publicado na Steam — aulas presenciais e individuais na Santos Tech.",
       path: "/adultos/cursos/jogos",
-      ogImage: absoluteUrl("/og/adultos/jogos.png"),
     }),
 })
 

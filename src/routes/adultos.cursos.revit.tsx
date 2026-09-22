@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta, absoluteUrl } from "@/lib/seo"
+import { pageMeta } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/revit")({
   component: RevitPage,
@@ -11,7 +11,6 @@ export const Route = createFileRoute("/adultos/cursos/revit")({
       description:
         "Aprenda Revit BIM do modelo arquitetônico ao projeto executivo completo: famílias paramétricas, Dynamo e coordenação multidisciplinar para arquitetos e engenheiros em Ribeirão Preto.",
       path: "/adultos/cursos/revit",
-      ogImage: absoluteUrl("/og/adultos/revit.png"),
     }),
 })
 

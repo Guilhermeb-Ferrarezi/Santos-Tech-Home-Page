@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta, absoluteUrl } from "@/lib/seo"
+import { pageMeta } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/davinci")({
   component: DavinciPage,
@@ -12,7 +12,6 @@ export const Route = createFileRoute("/adultos/cursos/davinci")({
       description:
         "Aprenda edição profissional com DaVinci Resolve e Adobe Premiere. Curso presencial em Ribeirão Preto para videomakers, criadores de conteúdo e profissionais do audiovisual.",
       path: "/adultos/cursos/davinci",
-      ogImage: absoluteUrl("/og/adultos/davinci.png"),
     }),
 })
 

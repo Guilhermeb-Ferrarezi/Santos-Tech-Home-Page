@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import type { CourseData } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta, absoluteUrl } from "@/lib/seo"
+import { pageMeta } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/power-apps")({
   component: PowerAppsPage,
@@ -12,7 +12,6 @@ export const Route = createFileRoute("/adultos/cursos/power-apps")({
       description:
         "Aprenda a criar aplicativos corporativos e automatizar processos com Power Apps e Power Automate em Ribeirão Preto. Sem código, resultados reais.",
       path: "/adultos/cursos/power-apps",
-      ogImage: absoluteUrl("/og/adultos/power-apps.png"),
     }),
 })
 

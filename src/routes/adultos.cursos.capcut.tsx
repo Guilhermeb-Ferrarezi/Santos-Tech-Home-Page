@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta, absoluteUrl } from "@/lib/seo"
+import { pageMeta } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/capcut")({
   component: CapcutPage,
@@ -12,7 +12,6 @@ export const Route = createFileRoute("/adultos/cursos/capcut")({
       description:
         "Aprenda a editar Reels, TikToks e Shorts com CapCut usando IA, legendas automáticas e efeitos profissionais. Curso presencial em Ribeirão Preto para criadores e empreendedores.",
       path: "/adultos/cursos/capcut",
-      ogImage: absoluteUrl("/og/adultos/capcut.png"),
     }),
 })
 

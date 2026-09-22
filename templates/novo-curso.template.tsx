@@ -29,7 +29,13 @@
  *  7. ADICIONE entry em `src/lib/program-theme.ts` se o programa for novo
  *     (atualizar `ProgramKey`, `ACCENT_DARK`, `ACCENT_SOFT`, `getProgramKey`).
  *
- *  8. CONFIRA o build local: `npm run build`. Se passar, commit + push.
+ *  8. ADICIONE entry em `KIDS_PAGES` (scripts/generate-og-images.mjs) — a
+ *     imagem de Open Graph dessa página não é gerada sozinha (diferente dos
+ *     cursos adultos, que são descobertos automaticamente pelas rotas
+ *     `adultos.cursos.*.tsx`). Sem essa entry, a página cai na capa
+ *     genérica do site em vez de ter imagem própria ao compartilhar o link.
+ *
+ *  9. CONFIRA o build local: `npm run build`. Se passar, commit + push.
  *
  * Componentes disponíveis em `@/components/course-page`:
  *  - <CourseHero>          → topo escuro + métricas

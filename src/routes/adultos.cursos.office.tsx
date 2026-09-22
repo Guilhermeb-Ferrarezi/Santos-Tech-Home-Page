@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AdultosCursosPage } from "@/components/adultos-course-page";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
-import { pageMeta, absoluteUrl } from "@/lib/seo";
+import { pageMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/adultos/cursos/office")({
   component: OfficePage,
@@ -12,7 +12,6 @@ export const Route = createFileRoute("/adultos/cursos/office")({
       description:
         "Aprenda Word, Excel e PowerPoint do zero ao avançado com aulas presenciais em Ribeirão Preto. Domine o Office que o mercado contrata e conquiste melhores vagas e promoções.",
       path: "/adultos/cursos/office",
-      ogImage: absoluteUrl("/og/adultos/office.png"),
     }),
 });
 

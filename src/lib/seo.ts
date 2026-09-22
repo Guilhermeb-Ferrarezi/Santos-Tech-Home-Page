@@ -399,16 +399,38 @@ export function buildAdultPageSchemas(input: {
   ];
 }
 
+/**
+ * Infere o caminho da imagem de OG pela convenção de pastas (sem precisar
+ * declarar `ogImage` rota por rota — script `scripts/generate-og-images.mjs`
+ * gera as imagens seguindo essa mesma convenção a partir do slug da rota):
+ * - `/adultos/cursos/<slug>` → `/og/adultos/<slug>.png`
+ * - `/cursos/(create|junior|camps|academies)[/<faixa>]` → `/og/infantil/<slug>.png`
+ * - qualquer outra rota → `/og-image.png` (capa institucional genérica)
+ */
+function inferOgImagePath(path: string): string {
+  const adultMatch = path.match(/^\/adultos\/cursos\/([^/]+)\/?$/);
+  if (adultMatch) return `/og/adultos/${adultMatch[1]}.png`;
+
+  const kidsMatch = path.match(/^\/cursos\/(create|junior|camps|academies)(?:\/([^/]+))?\/?$/);
+  if (kidsMatch) {
+    const [, program, faixa] = kidsMatch;
+    const slug = faixa ? `${program}-${faixa}` : program;
+    return `/og/infantil/${slug}.png`;
+  }
+
+  return "/og-image.png";
+}
+
 /** Gera meta tags básicas + canonical pra uma rota. */
 export function pageMeta(input: {
   title: string;
   description: string;
   path: string;
-  /** Override do OG image (default: og-image.png). */
+  /** Override do OG image (default: inferido pela convenção, ver `inferOgImagePath`). */
   ogImage?: string;
 }) {
   const canonical = absoluteUrl(input.path);
-  const ogImage = input.ogImage ?? `${BASE_URL}/og-image.png`;
+  const ogImage = input.ogImage ?? absoluteUrl(inferOgImagePath(input.path));
   return {
     meta: [
       { title: input.title },

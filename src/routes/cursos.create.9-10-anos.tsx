@@ -27,7 +27,7 @@ import {
 } from "@/components/course-page";
 import { Reveal } from "@/components/reveal";
 import { JsonLd } from "@/components/json-ld";
-import { pageMeta, absoluteUrl, coursePageSchemas } from "@/lib/seo";
+import { pageMeta, coursePageSchemas } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/create/9-10-anos")({
   component: Create910Page,
@@ -37,7 +37,6 @@ export const Route = createFileRoute("/cursos/create/9-10-anos")({
       description:
         "Segundo ano do CREATE: 40 aulas pra crianças de 9 a 10 anos em Ribeirão Preto. Tilemaps, câmera, listas, física 2D e transição do bloco pro JavaScript escrito. Insígnia Pixel Arquiteto de Mundos ao final.",
       path: "/cursos/create/9-10-anos",
-      ogImage: absoluteUrl("/og/infantil/create-9-10-anos.png"),
     }),
 });
 

@@ -18,7 +18,7 @@ import { Reveal } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
 import { TechHero } from "@/components/tech-hero";
 import { JsonLd } from "@/components/json-ld";
-import { pageMeta, absoluteUrl, buildCourseSchema, buildBreadcrumbSchema } from "@/lib/seo";
+import { pageMeta, buildCourseSchema, buildBreadcrumbSchema } from "@/lib/seo";
 import { HoverWashCard } from "@/components/hover-wash-card";
 
 // Pillars do "Método CREATE" — Phosphor duotone
@@ -38,7 +38,6 @@ export const Route = createFileRoute("/cursos/create/")({
       description:
         "Programa CREATE da Santos Tech: 6 cursos anuais (CREATE1 a CREATE6) para crianças e pré-adolescentes de 8 a 14 anos. Do MakeCode Arcade ao Unity com C#. Trilha gamificada com progressão por níveis no PORTAL DO ALUNO ST. Aulas presenciais em Ribeirão Preto.",
       path: "/cursos/create",
-      ogImage: absoluteUrl("/og/infantil/create.png"),
     }),
 });
 

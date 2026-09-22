@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta, absoluteUrl } from "@/lib/seo"
+import { pageMeta } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/fullstack")({
   component: FullstackPage,
@@ -12,7 +12,6 @@ export const Route = createFileRoute("/adultos/cursos/fullstack")({
       description:
         "Curso presencial de desenvolvimento Full Stack em Ribeirão Preto. Do HTML ao deploy em produção com React, Node.js e Cloud. Para quem quer entrar na área de tecnologia ou conquistar sua primeira vaga de dev.",
       path: "/adultos/cursos/fullstack",
-      ogImage: absoluteUrl("/og/adultos/fullstack.png"),
     }),
 })
 

@@ -8,6 +8,7 @@ COPY package.json bun.lock bunfig.toml tsconfig.json vite.config.ts wrangler.jso
 COPY src ./src
 COPY docker ./docker
 COPY public ./public
+COPY scripts ./scripts
 COPY components.json ./
 
 RUN bun install --frozen-lockfile

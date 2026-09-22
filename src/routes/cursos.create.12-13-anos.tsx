@@ -28,7 +28,7 @@ import {
 } from "@/components/course-page";
 import { Reveal } from "@/components/reveal";
 import { JsonLd } from "@/components/json-ld";
-import { pageMeta, absoluteUrl, coursePageSchemas } from "@/lib/seo";
+import { pageMeta, coursePageSchemas } from "@/lib/seo";
 
 export const Route = createFileRoute("/cursos/create/12-13-anos")({
   component: Create1213Page,
@@ -38,7 +38,6 @@ export const Route = createFileRoute("/cursos/create/12-13-anos")({
       description:
         "Quinto ano do CREATE: entrada no Unity com C# pra adolescentes de 12 a 13 anos em Ribeirão Preto. 40 aulas com editor profissional, física 2D, sprites, animação e um jogo 2D completo. Título Desenvolvedor Unity Júnior.",
       path: "/cursos/create/12-13-anos",
-      ogImage: absoluteUrl("/og/infantil/create-12-13-anos.png"),
     }),
 });
 

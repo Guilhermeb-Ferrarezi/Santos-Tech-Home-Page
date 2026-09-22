@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { AdultosCursosPage } from "@/components/adultos-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
-import { pageMeta, absoluteUrl } from "@/lib/seo"
+import { pageMeta } from "@/lib/seo"
 
 export const Route = createFileRoute("/adultos/cursos/logica")({
   component: LogicaPage,
@@ -12,7 +12,6 @@ export const Route = createFileRoute("/adultos/cursos/logica")({
       description:
         "Aprenda a pensar como programador do zero: algoritmos, estruturas de controle, funções e projetos práticos em JavaScript. Aulas individuais e horário flexível.",
       path: "/adultos/cursos/logica",
-      ogImage: absoluteUrl("/og/adultos/logica.png"),
     }),
 })
 
