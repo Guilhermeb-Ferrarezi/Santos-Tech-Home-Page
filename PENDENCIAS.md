@@ -17,24 +17,30 @@
       óbvia. Revisar quando a conversão dos 39 cursos restantes avançar.
       _Aguardando Henrique._
 
-- [~] **Unificação de tiers em opção única — 8 de 47 cursos convertidos,
-      falta revisar a tabela de taxa técnica pros 39 restantes** (spec
+- [~] **Unificação de tiers em opção única — 20 de 47 cursos convertidos,
+      falta revisar a tabela de taxa técnica pros 27 restantes** (spec
       completa em
       [`docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md`](docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md),
-      PR #22/#24). **Feito:** Premiere (PR #20/#21, piloto), grupo T.I —
-      Suporte Técnico, Redes, Cibersegurança, Linux (PR #25), grupo
-      Universo 3D — Modelagem 3D, AutoCAD, Revit BIM (PR #26). Decidido em
-      23/09: `git` vira técnico (110/h, sem mudar carga horária); `capcut`
-      mantém 24h sem nivelar; `mobile` unifica em React Native (pesquisa
-      de mercado mostrou Brasil sem vantagem clara do RN — decisão veio da
-      sinergia com o curso de Frontend, que já ensina React); `jogos`
-      mantém Unity + Godot juntos (mercados diferentes: Unity pra
-      empregabilidade mobile, Godot pra publicar indie sem custo);
-      `manutencao`/`impressao-3d` seguem curtos (24h), sem objeção.
+      PR #22/#24). **Feito:** Premiere (PR #20/#21, piloto), grupos T.I,
+      Universo 3D, Informática, Design & Criação e Marketing & Negócios —
+      100% migrados (PR #25/#26/#29/#30). Decidido em 23/09: `git` vira
+      técnico (110/h, sem mudar carga horária); `capcut` mantém 24h sem
+      nivelar; `mobile` unifica em React Native; `jogos` mantém Unity +
+      Godot juntos; `manutencao`/`impressao-3d` seguem curtos (24h).
       **Falta:** Henrique revisar a tabela de taxa técnica (R$110-180/h)
-      pros 39 cursos restantes (Informática, Office, IA, Programação,
-      Design & Criação — Photoshop/DaVinci, Marketing & Negócios) — são
-      sugestões da spec, não confirmadas. _Aguardando Henrique._
+      pros 27 cursos restantes (Office, Inteligência Artificial,
+      Programação) — são sugestões da spec, não confirmadas.
+      _Aguardando Henrique._
+
+- [ ] **Copywriting menciona "revisão em grupo" no projeto final**
+      (`particular.cursos.copywriting.tsx`) — contradiz o modelo 100%
+      individual (1 aluno + 1 professor) que é a proposta central do
+      `/particular`. Achado ao converter o curso pra opção única (23/09) —
+      confirmado via `git diff` que já existia antes da conversão de hoje,
+      não foi introduzido agora. Não mexi porque não sei se é intencional
+      (talvez um resquício de quando existiam turmas, ou uma decisão real
+      de ter uma etapa de feedback coletivo só nesse curso). Baixa
+      prioridade, cosmético. _Aguardando decisão do Henrique._
 
 ## Resolvidas
 

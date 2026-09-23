@@ -232,13 +232,23 @@ ritmo, depois os grupos maiores (Programação, Marketing & Negócios).
       precisou de mudança.
 - [x] **Grupo Universo 3D convertido** (PR #26): Modelagem 3D (Blender +
       SketchUp), AutoCAD, Revit BIM. Impressão 3D não precisou de mudança.
-- [ ] Conversão dos **39 cursos restantes**: Informática (1), Office (8),
-      Inteligência Artificial (6), Programação (13, já com Mobile→React
-      Native e Jogos→Unity+Godot decididos), Design & Criação (2:
-      Photoshop, DaVinci — usar o Premiere como molde direto), Marketing &
-      Negócios (9).
-- [x] `TIER_META` com entrada própria por curso convertido (Premiere +
-      7 cursos T.I/Universo 3D).
+- [x] **Grupo Informática convertido** (PR #29): Informática (único curso
+      do grupo).
+- [x] **Grupo Design & Criação completo** (PR #29): Photoshop +
+      Illustrator, DaVinci Resolve (usou o Premiere como molde). Canva Pro
+      e CapCut já eram plano único.
+- [x] **Grupo Marketing & Negócios completo** (PR #30, todos os 9 cursos
+      do grupo): Marketing Digital, Meta Ads, Google Ads, TikTok Ads,
+      Copywriting, Funil de Vendas, SEO, Redes Sociais, E-commerce.
+- [ ] Conversão dos **27 cursos restantes**: Office (8), Inteligência
+      Artificial (6), Programação (13 — Git já resolvido à parte, só
+      reclassificação de preço). Quase todos dependem da revisão da taxa
+      técnica (ponto acima) antes de converter. Grupos T.I, Universo 3D,
+      Informática, Design & Criação e Marketing & Negócios estão 100%
+      migrados (20 de 47 cursos).
+- [x] `TIER_META` com entrada própria por curso convertido (20 entradas
+      novas: Premiere + 7 T.I/Universo 3D + Informática/Photoshop/DaVinci +
+      9 Marketing & Negócios).
 - [x] FAQ de cada curso convertido sem pergunta comparando tiers
       inexistentes.
 - [x] `bun run lint` e `bun run build` limpos em cada lote convertido até
