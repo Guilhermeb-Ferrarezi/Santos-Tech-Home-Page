@@ -18,7 +18,7 @@ export const PARTICULAR_FAQ_ITEMS = [
   },
   {
     q: "Em quanto tempo termino o curso?",
-    a: "Depende do seu ritmo e do curso. A maioria dos cursos tem 48 aulas: no ritmo padrão de 2 aulas por semana você conclui em cerca de 6 meses, e no ritmo mais intensivo em cerca de 2 meses. Alguns cursos são mais curtos ou mais longos — a duração exata de cada um está no card de Investimento, aqui nesta página.",
+    a: "Depende do seu ritmo e do curso. A maioria dos cursos tem 48 aulas: no ritmo padrão de 2 aulas por semana você conclui em cerca de 6 meses, e no ritmo mais intensivo em cerca de 3 meses. Alguns cursos são mais curtos ou mais longos — a duração exata de cada um está no card de Investimento, aqui nesta página.",
   },
   {
     q: "Preciso me matricular em uma turma?",
