@@ -13,6 +13,11 @@ for (const [path, url] of Object.entries(files)) {
   REAL[base] = url;
 }
 
+/** Se existe arquivo de logo oficial pra essa chave (sem cair no fallback). */
+export function hasLogoFile(name: string): boolean {
+  return name in REAL;
+}
+
 /** Deriva a logo a partir do nome da ferramenta. */
 export function logoKey(ferramenta: string): string {
   const f = ferramenta.toLowerCase();

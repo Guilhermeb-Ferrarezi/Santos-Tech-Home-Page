@@ -17,6 +17,9 @@ export const Route = createFileRoute("/particular/cursos/autocad")({
 const COURSE_DATA = {
   nome: "AutoCAD",
   categoria: "Universo 3D",
+  tema: "universo-3d" as const,
+  logo: "autocad",
+  variante: "autocad",
   tagline: "Do traço à prancha técnica perfeita que arquitetos e engenheiros entregam",
   targetAudience: [
     "Você trabalha ou quer trabalhar como desenhista técnico, projetista ou arquiteto e precisa dominar AutoCAD",

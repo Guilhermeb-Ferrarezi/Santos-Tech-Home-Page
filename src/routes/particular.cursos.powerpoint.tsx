@@ -19,6 +19,9 @@ export const Route = createFileRoute("/particular/cursos/powerpoint")({
 const COURSE_DATA: CourseData = {
   nome: "PowerPoint e Storytelling Visual",
   categoria: "Office Específico",
+  tema: "office" as const,
+  logo: "ppt",
+  variante: "powerpoint",
   tagline:
     "Apresentações que convencem: do slide básico ao storytelling que fecha negócios",
   targetAudience: [

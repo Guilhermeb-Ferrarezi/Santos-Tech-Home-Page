@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/excel-ia")({
 const COURSE_DATA: CourseData = {
   nome: "Excel + IA",
   categoria: "Office + IA",
+  tema: "office" as const,
+  logo: "excel",
+  variante: "excel-ia",
   tagline:
     "Faça em minutos o que levava horas — planilhas turbinadas com Copilot, Claude, ChatGPT e Python por linguagem natural",
   targetAudience: [

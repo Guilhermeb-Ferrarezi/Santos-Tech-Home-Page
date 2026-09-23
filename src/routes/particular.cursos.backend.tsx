@@ -19,6 +19,9 @@ export const Route = createFileRoute("/particular/cursos/backend")({
 const COURSE_DATA: CourseData = {
   nome: "Desenvolvimento Web Back-End",
   categoria: "Programação",
+  tema: "programacao" as const,
+  logo: "database",
+  variante: "backend",
   tagline: "Construa o motor das aplicações que movem negócios reais na internet",
   targetAudience: [
     "Você é front-end e quer se tornar full stack para aumentar seu salário",

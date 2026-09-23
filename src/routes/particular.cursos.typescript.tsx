@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/typescript")({
 const COURSE_DATA = {
   nome: "TypeScript para Desenvolvimento Moderno",
   categoria: "Programação",
+  tema: "programacao" as const,
+  logo: "javascript",
+  variante: "typescript",
   tagline:
     "Escreva JavaScript com tipagem, autocomplete e zero erros em produção",
   pricePerAula: 109.9,

@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/meta-ads")({
 const COURSE_DATA: CourseData = {
   nome: "Meta Ads — Facebook e Instagram",
   categoria: "Marketing & Negócios",
+  tema: "marketing" as const,
+  logo: "meta-ads",
+  variante: "meta-ads",
   tagline: "Crie campanhas lucrativas no Facebook e Instagram e venda todos os dias",
   targetAudience: [
     "Você tem um negócio mas não sabe como anunciar no Facebook e Instagram de forma eficiente",

@@ -17,6 +17,9 @@ export const Route = createFileRoute("/particular/cursos/word")({
 const COURSE_DATA = {
   nome: "Word Profissional",
   categoria: "Office Específico",
+  tema: "office" as const,
+  logo: "word",
+  variante: "word",
   tagline: "Documentos que impressionam: do texto ao Word corporativo de verdade",
   targetAudience: [
     "Você perde tempo formatando documentos manualmente e quer aprender a automatizar isso",

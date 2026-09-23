@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/fullstack")({
 const COURSE_DATA = {
   nome: "Full Stack Web Developer",
   categoria: "Programação",
+  tema: "programacao" as const,
+  logo: "javascript",
+  variante: "fullstack",
   tagline: "Do HTML ao deploy em produção com React, Node.js e Cloud",
   targetAudience: [
     "Você quer entrar na área de tecnologia sem experiência prévia em programação",

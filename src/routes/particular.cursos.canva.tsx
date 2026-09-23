@@ -19,6 +19,9 @@ export const Route = createFileRoute("/particular/cursos/canva")({
 const COURSE_DATA: CourseData = {
   nome: "Design Gráfico — Canva Pro",
   categoria: "Design & Criação",
+  tema: "design" as const,
+  logo: "canva",
+  variante: "canva",
   tagline: "Do zero ao design profissional que atrai clientes de verdade",
   targetAudience: [
     "Quer criar posts, stories e artes para redes sociais sem depender de designer",

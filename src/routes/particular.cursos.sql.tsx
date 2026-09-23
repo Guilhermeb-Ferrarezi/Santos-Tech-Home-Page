@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/sql")({
 const COURSE_DATA: CourseData = {
   nome: "Banco de Dados com SQL",
   categoria: "Programação",
+  tema: "programacao" as const,
+  logo: "database",
+  variante: "sql",
   tagline:
     "Domine SQL para analisar dados, construir sistemas e tomar decisões baseadas em dados reais",
   targetAudience: [

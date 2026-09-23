@@ -19,6 +19,8 @@ export const Route = createFileRoute("/particular/cursos/informatica")({
 const COURSE_DATA: CourseData = {
   nome: "Informática",
   categoria: "Informática",
+  tema: "informatica" as const,
+  logo: "pc",
   tagline: "De zero ao computador dominado — com confiança e autonomia real",
   targetAudience: [
     "Você nunca usou computador ou usa só o básico e quer parar de depender de outras pessoas para tarefas simples",

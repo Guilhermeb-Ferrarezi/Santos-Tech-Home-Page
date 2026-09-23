@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/funil-vendas")({
 const COURSE_DATA: CourseData = {
   nome: "Funil de Vendas + CRM",
   categoria: "Marketing & Negócios",
+  tema: "marketing" as const,
+  logo: "funil-vendas",
+  variante: "funil-vendas",
   tagline: "Transforme desconhecidos em clientes com funis e processos automatizados",
   targetAudience: [
     "Você trabalha em vendas ou marketing e quer estruturar um processo que gere resultados previsíveis",

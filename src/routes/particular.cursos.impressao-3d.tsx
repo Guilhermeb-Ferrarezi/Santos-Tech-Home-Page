@@ -17,6 +17,8 @@ export const Route = createFileRoute("/particular/cursos/impressao-3d")({
 const COURSE_DATA = {
   nome: "Impressão 3D: Do Fatiamento ao Produto Final",
   categoria: "Universo 3D",
+  tema: "universo-3d" as const,
+  logo: "bambulab",
   tagline: "Transforme arquivos digitais em peças reais com domínio técnico completo",
   targetAudience: [
     "Você já tem ou quer comprar uma impressora 3D FDM ou de resina e não sabe por onde começar",

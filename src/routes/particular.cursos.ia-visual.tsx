@@ -16,6 +16,9 @@ export const Route = createFileRoute("/particular/cursos/ia-visual")({
 const COURSE_DATA = {
   nome: "IA para Criadores: Imagem, Vídeo e Áudio",
   categoria: "Inteligência Artificial",
+  tema: "ia" as const,
+  logo: "dalle",
+  variante: "visual",
   tagline: "Crie imagens, vídeos e áudios profissionais com IA em minutos",
   pricePerAula: 109.9,
   targetAudience: [

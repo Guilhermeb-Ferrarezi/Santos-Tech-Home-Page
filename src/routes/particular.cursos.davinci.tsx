@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/davinci")({
 const COURSE_DATA = {
   nome: "Edição de Vídeo — DaVinci Resolve",
   categoria: "Design & Criação",
+  tema: "design" as const,
+  logo: "davinci",
+  variante: "davinci",
   tagline: "Domine o software de Hollywood e edite como os grandes estúdios",
   targetAudience: [
     "Editor iniciante que quer aprender a ferramenta usada em produções cinematográficas e publicitárias",

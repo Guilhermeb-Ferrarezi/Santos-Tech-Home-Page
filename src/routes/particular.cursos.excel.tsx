@@ -17,6 +17,8 @@ export const Route = createFileRoute("/particular/cursos/excel")({
 const COURSE_DATA = {
   nome: "Excel Avançado",
   categoria: "Office Específico",
+  tema: "office" as const,
+  logo: "excel",
   tagline: "Do Excel básico ao Power Query e VBA que o mercado exige",
   targetAudience: [
     "Você usa Excel no trabalho mas ainda perde horas fazendo coisas manualmente",

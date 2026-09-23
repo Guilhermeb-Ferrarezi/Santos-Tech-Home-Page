@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/excel-power-bi")({
 const COURSE_DATA = {
   nome: "Excel + Power BI: Da Planilha ao Dashboard",
   categoria: "Office",
+  tema: "office" as const,
+  logo: "excel",
+  variante: "excel-power-bi",
   tagline:
     "A trilha completa: domine Excel, conecte com Power BI e entregue análises que impressionam",
   targetAudience: [

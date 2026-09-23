@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/rag")({
 const COURSE_DATA = {
   nome: "RAG — IA com seus Próprios Dados",
   categoria: "Inteligência Artificial",
+  tema: "ia" as const,
+  logo: "ia",
+  variante: "rag",
   tagline:
     "Ensine a IA a responder com seus documentos, dados e contexto privado",
   pricePerAula: 109.9,
