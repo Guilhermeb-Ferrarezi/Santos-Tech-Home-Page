@@ -94,6 +94,7 @@ const PARTICULAR_ICONS = {
   "power-apps": "blocks",
   "power-bi": "chart-column",
   powerpoint: "presentation",
+  premiere: "scissors",
   "python-apis": "square-code",
   python: "terminal",
   rag: "database-zap",
