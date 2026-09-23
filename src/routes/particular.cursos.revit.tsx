@@ -17,6 +17,9 @@ export const Route = createFileRoute("/particular/cursos/revit")({
 const COURSE_DATA = {
   nome: "Revit BIM para Arquitetura",
   categoria: "Universo 3D",
+  tema: "universo-3d" as const,
+  logo: "revit",
+  variante: "revit",
   tagline: "Projete em BIM do zero ao executivo com o padrão Autodesk do mercado",
   targetAudience: [
     "Você é arquiteto, engenheiro civil ou técnico de edificações e precisa migrar para BIM para se manter competitivo",

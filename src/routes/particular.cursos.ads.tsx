@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/ads")({
 const COURSE_DATA = {
   nome: "ADS — Análise e Desenvolvimento de Sistemas",
   categoria: "Programação",
+  tema: "programacao" as const,
+  logo: "projeto",
+  variante: "ads",
   tagline:
     "Formação profissional completa em tecnologia: da lógica ao sistema em produção",
   targetAudience: [

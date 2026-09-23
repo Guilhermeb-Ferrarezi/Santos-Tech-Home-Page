@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/n8n")({
 const COURSE_DATA = {
   nome: "Automações + N8N",
   categoria: "Programação",
+  tema: "programacao" as const,
+  logo: "ia",
+  variante: "n8n",
   tagline: "Conecte qualquer sistema e crie agentes de IA sem escrever código",
   targetAudience: [
     "Você quer automatizar processos do seu negócio mas não quer aprender programação",

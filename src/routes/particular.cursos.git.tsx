@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/git")({
 const COURSE_DATA: CourseData = {
   nome: "Git e GitHub para Profissionais",
   categoria: "Programação",
+  tema: "programacao" as const,
+  logo: "projeto",
+  variante: "git",
   tagline: "Controle versões, colabore em equipe e nunca mais perca código",
   targetAudience: [
     "Você está aprendendo programação e ainda salva código como 'projeto_final_v3_AGORA_VAI.zip'",

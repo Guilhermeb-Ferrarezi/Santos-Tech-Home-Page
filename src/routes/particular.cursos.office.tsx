@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/office")({
 const COURSE_DATA = {
   nome: "Pacote Office",
   categoria: "Pacote Office",
+  tema: "office" as const,
+  logo: "office",
+  variante: "pacote",
   tagline: "Word, Excel e PowerPoint do zero ao avançado que o mercado contrata",
   targetAudience: [
     "Você perdeu vagas administrativas ou de atendimento porque o anúncio exigia 'domínio do Pacote Office' e você não tinha segurança",

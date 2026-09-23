@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/mobile")({
 const COURSE_DATA = {
   nome: "Desenvolvimento de Aplicativos",
   categoria: "Programação",
+  tema: "programacao" as const,
+  logo: "javascript",
+  variante: "mobile",
   tagline: "Crie apps nativos para iOS e Android com uma única base de código",
   targetAudience: [
     "Você já tem noções de JavaScript ou React e quer expandir para o desenvolvimento mobile",

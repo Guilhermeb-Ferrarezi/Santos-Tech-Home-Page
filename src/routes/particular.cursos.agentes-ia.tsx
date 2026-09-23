@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/agentes-ia")({
 const COURSE_DATA = {
   nome: "Agentes de IA com N8N e LLMs",
   categoria: "Inteligência Artificial",
+  tema: "ia" as const,
+  logo: "ia",
+  variante: "agentes",
   tagline: "Crie agentes autônomos que trabalham por você 24h com inteligência real",
   pricePerAula: 109.9,
   targetAudience: [

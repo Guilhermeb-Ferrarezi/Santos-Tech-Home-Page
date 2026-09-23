@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/premiere")({
 const COURSE_DATA = {
   nome: "Edição de Vídeo — Adobe Premiere",
   categoria: "Design & Criação",
+  tema: "design" as const,
+  logo: "premiere",
+  variante: "premiere",
   tagline: "O padrão de agências, emissoras e produtoras — do corte à entrega",
   targetAudience: [
     "Editor iniciante que quer aprender a ferramenta padrão de agências, emissoras e produtoras",

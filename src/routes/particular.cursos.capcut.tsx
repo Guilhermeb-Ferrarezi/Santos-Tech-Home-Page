@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/capcut")({
 const COURSE_DATA = {
   nome: "Edição de Vídeo — CapCut",
   categoria: "Design & Criação",
+  tema: "design" as const,
+  logo: "capcut",
+  variante: "capcut",
   tagline: "Edite vídeos virais no celular e no PC como um profissional",
   targetAudience: [
     "Criador de conteúdo que quer editar Reels, TikToks e Shorts de forma rápida e profissional",

@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/ecommerce")({
 const COURSE_DATA = {
   nome: "E-commerce & Vendas Online",
   categoria: "Marketing & Negócios",
+  tema: "marketing" as const,
+  logo: "ecommerce",
+  variante: "ecommerce",
   tagline: "Monte sua loja virtual e venda todos os dias no piloto automático",
   targetAudience: [
     "Quer abrir uma loja virtual do zero sem experiência técnica prévia",

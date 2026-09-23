@@ -6,22 +6,18 @@ import {
   MapPin,
   User,
   CalendarClock,
-  Video,
   Award,
-  Dumbbell,
-  Route,
-  BookOpen,
-  RefreshCw,
   Wrench,
   Building2,
-  Wifi,
-  TrendingUp,
 } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
 import { ParticularFaq, PARTICULAR_FAQ_ITEMS } from "@/components/particular-faq";
 import { JsonLd } from "@/components/json-ld";
 import { buildParticularPageSchemas } from "@/lib/seo";
+import { themeVars, type CourseThemeKey } from "@/lib/course-themes";
+import { TIER_META, TIER_GUIDE, DIFERENCIAIS, getInvestimento } from "@/components/course-skins/shared";
+import { SKINS } from "@/components/course-skins";
 
 // ── Types ─────────────────────────────────────────────────────────────────
 
@@ -52,127 +48,19 @@ export type CourseData = {
    * idêntico (sinal de conteúdo duplicado pro Google).
    */
   faqItems?: { q: string; a: string }[];
-};
-
-// ── Preços e ritmo por nível ───────────────────────────────────────────────
-
-const TIER_META: Record<string, { price: number; aulas: string; intensivo: string; padrao: string }> = {
-  Essencial: { price: 1970, aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
-  Intermediário: { price: 3940, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
-  "Profissional + IA": { price: 5910, aulas: "72 aulas", intensivo: "~3 meses", padrao: "~9 meses" },
-  // Cursos com plano único: mesma faixa de preço do Essencial, com o nome do próprio curso no lugar do nível
-  "Montagem e Manutenção": { price: 1970, aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
-  "Canva Pro": { price: 1970, aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
-  CapCut: { price: 1970, aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
-  "Impressão 3D Completa": { price: 1970, aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
-  // Curso de plano único, mas categoria técnica (taxa acima do piso do Essencial)
-  "Git e GitHub": { price: 2640, aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
-  // Cursos profundos com plano único (preço/ritmo próprios, fora da faixa padrão do Essencial/Intermediário)
-  // — conversão de 2-3 tiers pra 1, ver docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md
-  "Adobe Premiere": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
-  "Suporte Técnico": { price: 5520, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
-  "Redes e Infraestrutura": { price: 6240, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
-  Cibersegurança: { price: 7200, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
-  Linux: { price: 5760, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
-  "Modelagem 3D": { price: 7200, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
-  AutoCAD: { price: 6720, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
-  "Revit BIM": { price: 7200, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
-  // Cursos de plano único, categoria símples (mesma taxa/ritmo do Premiere — R$ 82,70/h)
-  Informática: { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
-  "Photoshop + Illustrator": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
-  "DaVinci Resolve": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
-  "Marketing Digital": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
-  "Meta Ads": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
-  "Google Ads": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
-  "TikTok Ads": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
-  Copywriting: { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
-  "Funil de Vendas": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
-  SEO: { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
-  "Redes Sociais": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
-  "E-commerce": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
-};
-
-// ── Margem embutida e parcelamento (decisão do Henrique, 23/09) ────────────
-// Todo curso particular embute 15% sobre o valor-base acima (atual e futuro)
-// e é apresentado como parcela em até 12x sem juros no cartão — a margem em
-// si nunca aparece pro aluno como "15%" ou "juros". Ver spec:
-// docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md
-const MARKUP = 1.15;
-const INSTALLMENTS = 12;
-
-function formatBRL(value: number): string {
-  return `R$ ${value.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-}
-
-function getInvestimento(basePrice: number) {
-  const total = basePrice * MARKUP;
-  return {
-    totalFormatted: formatBRL(total),
-    parcelaFormatted: formatBRL(total / INSTALLMENTS),
-  };
-}
-
-// ── Diferenciais hardcoded ─────────────────────────────────────────────────
-
-const DIFERENCIAIS = [
-  {
-    icon: User,
-    title: "Aula Individual",
-    desc: "Só você e o professor — foco total, sem fila de dúvidas.",
-  },
-  {
-    icon: CalendarClock,
-    title: "Horário Flexível",
-    desc: "Você define o dia, o horário e a frequência — sua rotina manda.",
-  },
-  {
-    icon: RefreshCw,
-    title: "Reagendamento sem Custo",
-    desc: "Precisou faltar? Avisa e remarcamos — sem burocracia, sem penalidade.",
-  },
-  {
-    icon: Video,
-    title: "Aulas Gravadas a Pedido",
-    desc: "Solicite a gravação de qualquer aula e revise quando quiser.",
-  },
-  {
-    icon: Wifi,
-    title: "Aula Online se Precisar",
-    desc: "Se não puder vir presencialmente, a aula acontece online ao vivo — ou é gravada e enviada.",
-  },
-  {
-    icon: Award,
-    title: "Certificado Reconhecido",
-    desc: "Válido em todo o Brasil.",
-  },
-  {
-    icon: Dumbbell,
-    title: "100% Prático",
-    desc: "Mão na massa desde a primeira aula.",
-  },
-  {
-    icon: Route,
-    title: "Trilha Estruturada",
-    desc: "Do básico ao projeto final sem lacunas.",
-  },
-  {
-    icon: BookOpen,
-    title: "Exercícios Contextualizados",
-    desc: "Exercícios semanais alinhados ao tópico da sua aula — você pratica exatamente o que acabou de aprender.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Conteúdo Sempre Atualizado",
-    desc: "Currículo revisado continuamente para refletir o que o mercado realmente exige hoje.",
-  },
-];
-
-// ── Guia de orientação por nível ──────────────────────────────────────────
-
-const TIER_GUIDE: Record<string, string> = {
-  Essencial: "Nunca usei, sei muito pouco ou quero construir uma base sólida do zero",
-  Intermediário: "Já uso no dia a dia, mas quero ir mais fundo e trabalhar de forma mais eficiente",
-  "Profissional + IA": "Quero dominar tudo — incluindo os recursos de inteligência artificial",
+  /**
+   * Identidade visual própria da categoria. Com tema, a página inteira é
+   * renderizada pela "pele" correspondente (course-skins/*); sem tema, usa o
+   * template padrão abaixo.
+   */
+  tema?: CourseThemeKey;
+  /** Chave da logo em src/assets/logos (ex.: "excel"). Obrigatória junto com `tema`. */
+  logo?: string;
+  /**
+   * Variação dentro da pele da categoria (ex.: "word" ou "powerpoint" na pele
+   * Office), pra arte do hero e rótulos acompanharem o curso específico.
+   */
+  variante?: string;
 };
 
 // ── Subcomponents ──────────────────────────────────────────────────────────
@@ -314,6 +202,25 @@ export function ParticularCursosPage({
     })),
     faq: [...(course.faqItems ?? []), ...PARTICULAR_FAQ_ITEMS].map(({ q, a }) => ({ q, a })),
   });
+
+  if (course.tema && course.logo) {
+    const { Skin, theme } = SKINS[course.tema];
+    return (
+      <div style={themeVars(theme)}>
+        <JsonLd data={schemas} />
+        <Skin
+          course={course}
+          tema={course.tema}
+          theme={theme}
+          logo={course.logo}
+          whatsappUrl={whatsappUrl}
+          selectedTier={selectedTier}
+          onSelectTier={setSelectedTier}
+          faq={[...(course.faqItems ?? []), ...PARTICULAR_FAQ_ITEMS]}
+        />
+      </div>
+    );
+  }
 
   return (
     <>

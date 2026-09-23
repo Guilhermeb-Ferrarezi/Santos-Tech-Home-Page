@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/google-ads")({
 const COURSE_DATA: CourseData = {
   nome: "Google Ads",
   categoria: "Marketing & Negócios",
+  tema: "marketing" as const,
+  logo: "google-ads",
+  variante: "google-ads",
   tagline:
     "Apareça no topo do Google exatamente quando seu cliente está pronto para comprar",
   targetAudience: [

@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/power-apps")({
 const COURSE_DATA: CourseData = {
   nome: "Power Apps + Power Automate",
   categoria: "Office Específico",
+  tema: "office" as const,
+  logo: "powerapps",
+  variante: "power-apps",
   tagline: "Crie apps corporativos e automatize processos no ecossistema Microsoft sem escrever código",
   targetAudience: [
     "Você trabalha em empresas que usam Microsoft 365 e quer digitalizar processos manuais sem depender da TI",

@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/conteudo-ia")({
 const COURSE_DATA: CourseData = {
   nome: "Criação de Conteúdo com IA",
   categoria: "Inteligência Artificial",
+  tema: "ia" as const,
+  logo: "canva",
+  variante: "conteudo",
   tagline: "Produza imagens, vídeos e textos profissionais com as melhores ferramentas de IA do mercado",
   targetAudience: [
     "Você quer criar conteúdo de qualidade profissional sem precisar de uma agência",

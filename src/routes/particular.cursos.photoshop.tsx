@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/photoshop")({
 const COURSE_DATA = {
   nome: "Design Gráfico — Photoshop + Illustrator",
   categoria: "Design & Criação",
+  tema: "design" as const,
+  logo: "photoshop",
+  variante: "photoshop",
   tagline: "Adobe do zero ao portfólio que compete com qualquer agência",
   targetAudience: [
     "Aspira trabalhar em agência de publicidade, estúdio ou como designer freelancer",

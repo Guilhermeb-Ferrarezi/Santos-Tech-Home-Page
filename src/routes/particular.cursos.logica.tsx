@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/logica")({
 const COURSE_DATA = {
   nome: "Lógica de Programação",
   categoria: "Programação",
+  tema: "programacao" as const,
+  logo: "javascript",
+  variante: "logica",
   tagline: "Aprenda a pensar como programador antes de escrever uma linha de código",
   targetAudience: [
     "Você quer entrar na área de tecnologia mas nunca programou",

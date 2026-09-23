@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/tiktok-ads")({
 const COURSE_DATA: CourseData = {
   nome: "TikTok Ads",
   categoria: "Marketing & Negócios",
+  tema: "marketing" as const,
+  logo: "tiktok-ads",
+  variante: "tiktok-ads",
   tagline:
     "Alcance milhões de potenciais clientes com anúncios nativos que parecem conteúdo de verdade",
   targetAudience: [

@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/jogos")({
 const COURSE_DATA = {
   nome: "Desenvolvimento de Jogos: Unity e Godot",
   categoria: "Programação",
+  tema: "programacao" as const,
+  logo: "unity",
+  variante: "jogos",
   tagline: "Crie jogos completos do conceito à publicação com engines profissionais",
   targetAudience: [
     "Você é jogador apaixonado que sempre quis criar seus próprios games mas não sabia por onde começar",

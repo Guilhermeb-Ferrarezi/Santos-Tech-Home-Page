@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/modelagem-3d")({
 const COURSE_DATA = {
   nome: "Modelagem 3D: Blender e SketchUp",
   categoria: "Universo 3D",
+  tema: "universo-3d" as const,
+  logo: "blender",
+  variante: "modelagem",
   tagline: "Do zero ao portfólio 3D profissional que o mercado contrata",
   targetAudience: [
     "Você trabalha com arquitetura, design de interiores ou engenharia e quer sair do papel para o 3D",

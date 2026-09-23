@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/marketing")({
 const COURSE_DATA = {
   nome: "Marketing Digital",
   categoria: "Marketing & Negócios",
+  tema: "marketing" as const,
+  logo: "marketing",
+  variante: "marketing",
   tagline: "Tráfego pago, SEO e conteúdo: a tríade que gera resultados reais",
   targetAudience: [
     "Empreendedor que quer aprender a atrair clientes pela internet sem depender de agência",

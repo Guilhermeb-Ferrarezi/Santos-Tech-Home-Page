@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/seo")({
 const COURSE_DATA: CourseData = {
   nome: "SEO — Otimização para Buscadores",
   categoria: "Marketing & Negócios",
+  tema: "marketing" as const,
+  logo: "seo",
+  variante: "seo",
   tagline:
     "Apareça na primeira página do Google e conquiste clientes sem pagar por clique",
   targetAudience: [

@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/suporte")({
 const COURSE_DATA = {
   nome: "Suporte Técnico / Help Desk",
   categoria: "T.I",
+  tema: "ti" as const,
+  logo: "pc",
+  variante: "suporte",
   tagline: "Do atendimento ao primeiro emprego em TI em 60 dias",
   targetAudience: [
     "Quer entrar na área de TI mas não sabe por onde começar",

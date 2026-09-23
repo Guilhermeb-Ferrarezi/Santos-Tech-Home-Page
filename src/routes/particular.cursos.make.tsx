@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/make")({
 const COURSE_DATA: CourseData = {
   nome: "Automações No-Code — Make",
   categoria: "Programação",
+  tema: "programacao" as const,
+  logo: "ia",
+  variante: "make",
   tagline: "Conecte qualquer app e automatize tarefas repetitivas sem escrever uma linha de código",
   targetAudience: [
     "Você perde horas por semana copiando dados entre planilhas, e-mails e sistemas diferentes",

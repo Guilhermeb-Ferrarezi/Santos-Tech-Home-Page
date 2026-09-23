@@ -18,6 +18,8 @@ export const Route = createFileRoute("/particular/cursos/python")({
 const COURSE_DATA = {
   nome: "Python para Automações",
   categoria: "Programação",
+  tema: "programacao" as const,
+  logo: "python",
   tagline:
     "Automatize tarefas repetitivas e libere horas do seu dia com Python",
   targetAudience: [

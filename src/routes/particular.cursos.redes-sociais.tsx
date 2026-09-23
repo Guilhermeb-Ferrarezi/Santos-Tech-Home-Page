@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/redes-sociais")({
 const COURSE_DATA = {
   nome: "Gestão de Redes Sociais",
   categoria: "Marketing & Negócios",
+  tema: "marketing" as const,
+  logo: "redes-sociais",
+  variante: "redes-sociais",
   tagline: "De criador de conteúdo a gestor estratégico que entrega resultado",
   targetAudience: [
     "Quer trabalhar como Social Media para agências, empresas ou como freelancer",

@@ -17,6 +17,9 @@ export const Route = createFileRoute("/particular/cursos/power-bi")({
 const COURSE_DATA = {
   nome: "Power BI",
   categoria: "Office Específico",
+  tema: "office" as const,
+  logo: "powerbi",
+  variante: "power-bi",
   tagline:
     "Dados brutos em dashboards que tomam decisões: do zero ao Power BI profissional",
   targetAudience: [

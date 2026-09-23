@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/manutencao")({
 const COURSE_DATA = {
   nome: "Montagem e Manutenção de Computadores",
   categoria: "T.I",
+  tema: "ti" as const,
+  logo: "hardware",
+  variante: "manutencao",
   tagline: "Monte, conserte e atualize PCs como um técnico profissional",
   targetAudience: [
     "Quer abrir um negócio de manutenção de computadores ou já tem e quer crescer",

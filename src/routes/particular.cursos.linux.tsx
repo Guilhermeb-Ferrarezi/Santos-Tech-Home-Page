@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/linux")({
 const COURSE_DATA = {
   nome: "Linux",
   categoria: "T.I",
+  tema: "ti" as const,
+  logo: "linux",
+  variante: "linux",
   tagline: "Domine o sistema que move 96% dos servidores do mundo",
   targetAudience: [
     "Trabalha em TI e depende de servidores Linux mas nunca aprendeu direito",

@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/frontend")({
 const COURSE_DATA = {
   nome: "Desenvolvimento Web Front-End",
   categoria: "Programação",
+  tema: "programacao" as const,
+  logo: "html",
+  variante: "frontend",
   tagline:
     "Crie interfaces profissionais que encantam usuários e impressionam recrutadores",
   targetAudience: [

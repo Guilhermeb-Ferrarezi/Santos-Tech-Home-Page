@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/ia")({
 const COURSE_DATA = {
   nome: "Inteligência Artificial: do Essencial ao Profissional com Agentes",
   categoria: "Inteligência Artificial",
+  tema: "ia" as const,
+  logo: "ia",
+  variante: "geral",
   tagline: "Domine IA na prática e multiplique sua produtividade no trabalho real",
   pricePerAula: 109.90,
   targetAudience: [

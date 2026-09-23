@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/chatgpt")({
 const COURSE_DATA: CourseData = {
   nome: "ChatGPT e IA para Profissionais",
   categoria: "Inteligência Artificial",
+  tema: "ia" as const,
+  logo: "chatgpt",
+  variante: "chat",
   tagline: "Multiplique sua produtividade no trabalho usando inteligência artificial de forma prática e segura",
   targetAudience: [
     "Você ouve falar de IA todo dia mas ainda não sabe como aplicar no seu trabalho",

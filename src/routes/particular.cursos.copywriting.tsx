@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/copywriting")({
 const COURSE_DATA: CourseData = {
   nome: "Copywriting & Persuasão",
   categoria: "Marketing & Negócios",
+  tema: "marketing" as const,
+  logo: "docs",
+  variante: "copywriting",
   tagline: "Escreva textos que convencem, vendem e fazem o leitor tomar ação imediata",
   targetAudience: [
     "Você tem um negócio ou serviço mas não sabe como comunicar o valor do que vende",

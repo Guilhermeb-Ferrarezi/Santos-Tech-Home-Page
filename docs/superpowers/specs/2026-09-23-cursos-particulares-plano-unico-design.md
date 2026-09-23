@@ -300,3 +300,28 @@ manual.
       aqui.
 - [ ] `public/sitemap.xml` — conferir que nenhuma rota mudou (não deveria)
       — sem mudança até aqui, como esperado.
+
+## Ritmo intensivo dos cursos de 48 aulas — decisão de 23/09
+
+> Terceira decisão registrada nesta spec, separada das duas acima (não
+> mexe em preço nem em margem). Consequência direta da unificação: como a
+> maioria dos cursos agora tem 48 aulas (em vez dos antigos tiers de
+> 24/48/72h), o ritmo "intensivo" precisa refletir isso.
+
+1. **Regra:** todo curso com **48 aulas** em `TIER_META` — intensivo passa
+   de "~2 meses" pra **"~3 meses"**. Padrão continua "~6 meses", sem
+   mudança. _(confirmado por pergunta direta, 23/09)._
+2. **Só 2 opções de ritmo por curso de 48h daqui pra frente:** 3 meses
+   (intensivo) ou 6 meses (padrão) — nenhuma terceira opção.
+3. **Escopo:** só entradas com `aulas: "48 aulas"` (21 hoje, incluindo
+   `Intermediário`, usado pelos cursos ainda não convertidos pro plano
+   único). Cursos de 24h (~1 mês/~3 meses) e 72h (~3 meses/~9 meses) **não
+   mudam**.
+4. **FAQ genérico** (`particular-faq.tsx`) ficou com o exemplo de duração
+   desatualizado por causa dessa mudança (ainda cita 24 aulas como
+   maioria) — sinalizado como item separado, fora do escopo desta edição
+   (ver `PENDENCIAS.md` ou o chip de sugestão da sessão).
+
+**Implementação:** troca mecânica de `intensivo: "~2 meses"` por
+`intensivo: "~3 meses"` em toda entrada de `TIER_META` com
+`aulas: "48 aulas"` — 21 entradas, `padrao` inalterado.

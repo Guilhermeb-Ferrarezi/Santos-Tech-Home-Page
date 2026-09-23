@@ -17,6 +17,9 @@ export const Route = createFileRoute("/particular/cursos/python-apis")({
 const COURSE_DATA: CourseData = {
   nome: "APIs e Integrações com Python",
   categoria: "Programação",
+  tema: "programacao" as const,
+  logo: "python",
+  variante: "python-apis",
   tagline: "Conecte qualquer sistema e integre IA em seus projetos com Python",
   targetAudience: [
     "Você já sabe Python básico e quer integrar sistemas reais para automatizar fluxos de negócio",

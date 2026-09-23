@@ -18,6 +18,9 @@ export const Route = createFileRoute("/particular/cursos/ciberseguranca")({
 const COURSE_DATA = {
   nome: "Cibersegurança",
   categoria: "T.I",
+  tema: "ti" as const,
+  logo: "seguranca",
+  variante: "ciberseguranca",
   tagline: "Proteja redes e sistemas com as técnicas que hackers usam para atacar",
   targetAudience: [
     "Trabalha em TI (suporte, redes, dev) e quer especializar em segurança",
