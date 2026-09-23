@@ -28,11 +28,11 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Intermediário",
-      levelName: "Intermediário",
+      label: "Photoshop + Illustrator",
+      levelName: "Photoshop + Illustrator",
       totalHours: "48h",
       outcome:
-        "Executar projetos completos de identidade visual, direção de arte e peças publicitárias com qualidade de agência usando Adobe Photoshop e Illustrator.",
+        "Dominar Photoshop e Illustrator do zero absoluto até a composição fotorrealista, a identidade visual completa e os recursos de IA generativa do Adobe Firefly — pronto para montar portfólio competitivo e atuar como designer, retocador ou freelancer no mercado profissional.",
       modules: [
         {
           title: "Photoshop — Interface e Ferramentas Fundamentais",
@@ -46,35 +46,24 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "Retoque e Manipulação de Imagem",
+          title: "Photoshop — Retoque e Composição de Imagem",
           topics: [
-            "Correção de pele: Healing Brush, Patch Tool e Clone Stamp",
-            "Remoção de objetos indesejados com Content-Aware Fill",
-            "Tratamento de cor e criação de LUTs personalizados",
-            "Composição de imagens e substituição de fundos",
+            "Correção de pele: Healing Brush, Patch Tool, Clone Stamp e Frequency Separation para retoque editorial avançado",
+            "Remoção de objetos com Content-Aware Fill e substituição automática de céu com Sky Replacement",
+            "Dodge and Burn para modelagem de volume e profundidade, e tratamento de cor com LUTs personalizados",
+            "Composição de imagens: substituição de fundos, múltiplas camadas e fontes de luz para resultado fotorrealista",
             "Efeitos de texto profissionais com estilos de camada",
-            "Exportação para web, redes sociais e gráfica",
+            "Exportação para web, redes sociais, gráfica, impressão em grande formato, e-commerce e campanhas digitais",
           ],
         },
         {
-          title: "Photoshop Avançado — Composição e Efeitos",
+          title: "Photoshop Avançado — Composição, Cor e Automação",
           topics: [
-            "Blend Modes para composições cinematográficas",
+            "Blend Modes avançados para composições cinematográficas",
             "Smart Objects e transformações não destrutivas",
             "Pintura digital e técnicas de texturização",
-            "Color Grading profissional com Camera Raw",
-            "Automação com Actions e Batch Processing",
-            "Preparação de arquivos para impressão em grande formato",
-          ],
-        },
-        {
-          title: "Retoque Profissional e Fotografia",
-          topics: [
-            "Retoque de pele de alta frequência (Frequency Separation)",
-            "Dodge and Burn para modelagem de volume",
-            "Substituição de céu automática com Sky Replacement",
-            "Composição fotorrealista com múltiplas camadas",
-            "Tratamento de imagem para e-commerce (fundo branco, sombra)",
+            "Color Grading cinematográfico com Camera Raw, Curves e Gradient Maps",
+            "Automação de fluxo de trabalho com Actions, Scripts e Batch Processing",
           ],
         },
         {
@@ -89,68 +78,14 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "Illustrator Avançado — Identidade Visual",
+          title: "Illustrator Avançado — Identidade Visual e Sistemas de Marca",
           topics: [
-            "Construção de sistemas de identidade visual completos",
-            "Criação de ícones e pictogramas vetoriais",
-            "Padrões vetoriais e fundos decorativos com Pattern Tool",
+            "Sistemas de identidade visual completos e brand systems escaláveis para múltiplas aplicações",
+            "Criação de ícones, pictogramas e padrões vetoriais com Pattern Tool",
             "Infográficos e data visualization vetorial",
-            "Illustrator para estamparia e product design",
-            "Preparação de arquivos para serigrafia e corte a laser",
-          ],
-        },
-        {
-          title: "Direção de Arte e Design Editorial",
-          topics: [
-            "Criação de peças publicitárias para campanha 360°",
-            "Layout editorial para revistas e e-books",
-            "Mockups profissionais para apresentação de identidade visual",
-            "Gestão de projeto criativo e entrega de arquivos ao cliente",
-          ],
-        },
-      ],
-      tools: [
-        "Adobe Photoshop",
-        "Adobe Illustrator",
-        "Adobe Bridge",
-        "Adobe Camera Raw",
-        "Adobe InDesign",
-      ],
-    },
-    {
-      label: "Profissional + IA",
-      levelName: "Profissional + IA",
-      totalHours: "72h",
-      outcome:
-        "Dominar Photoshop, Illustrator e Adobe Firefly com IA para executar projetos de qualquer complexidade, montar portfólio competitivo e atuar como designer sênior ou freelancer.",
-      modules: [
-        {
-          title: "Photoshop — Técnicas Avançadas",
-          topics: [
-            "Frequency Separation e retoque editorial avançado",
-            "Camera Raw como filtro não destrutivo",
-            "Composição de cenas impossíveis com múltiplas fontes de luz",
-            "Automação de fluxo com Actions e Scripts",
-            "Color Grading cinematográfico com Curves e Gradient Maps",
-          ],
-        },
-        {
-          title: "Retoque e Composição de Alto Nível",
-          topics: [
-            "Dodge and Burn para modelagem de volume e profundidade",
-            "Substituição de céu automática com Sky Replacement",
-            "Composição fotorrealista com múltiplas camadas e fontes de luz",
-            "Tratamento de imagem para e-commerce e campanhas digitais",
-            "Blend Modes avançados para composições cinematográficas",
-          ],
-        },
-        {
-          title: "Illustrator — Sistemas Visuais",
-          topics: [
-            "Brand systems escaláveis para múltiplas aplicações",
-            "Illustrator para motion: exportação de vetores para After Effects",
+            "Illustrator para estamparia, embalagens, product design, serigrafia e corte a laser",
             "Tipografia expressiva e lettering vetorial",
-            "Padrões e texturas para embalagens e produtos físicos",
+            "Illustrator para motion: exportação de vetores para After Effects",
           ],
         },
         {
@@ -167,22 +102,23 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "Projeto de Branding Completo",
+          title: "Direção de Arte e Projeto de Branding Completo",
           topics: [
-            "Briefing e pesquisa de referências para identidade visual",
+            "Briefing, pesquisa de referências e criação de peças publicitárias para campanha 360°",
             "Criação de logo, variações e sistema de marca completo",
-            "Aplicações: embalagem, papelaria, digital e outdoor",
-            "Manual de identidade visual em PDF interativo",
-            "Apresentação do projeto e defesa para banca simulada",
-            "Publicação de portfólio em Behance e portfolio.adobe.com",
+            "Aplicações de marca: embalagem, papelaria, digital, outdoor e layout editorial (revistas e e-books)",
+            "Mockups profissionais e manual de identidade visual em PDF interativo",
+            "Gestão de projeto criativo, apresentação e defesa para banca simulada",
+            "Entrega de arquivos ao cliente e publicação de portfólio em Behance e portfolio.adobe.com",
           ],
         },
       ],
       tools: [
         "Adobe Photoshop",
         "Adobe Illustrator",
-        "Adobe Firefly",
         "Adobe Camera Raw",
+        "Adobe Firefly",
+        "Adobe Bridge",
         "Adobe InDesign",
         "Behance",
       ],
@@ -191,11 +127,7 @@ const COURSE_DATA = {
   faqItems: [
     {
       q: "Já uso Canva — preciso saber Photoshop ou Illustrator antes de começar?",
-      a: "Não. O curso começa pela interface e pelas ferramentas fundamentais dos dois programas, mesmo o nível de entrada sendo chamado de Intermediário. A ideia é justamente te tirar do Canva e te levar pras ferramentas Adobe que o mercado profissional usa.",
-    },
-    {
-      q: "Qual a diferença entre os níveis Intermediário e Profissional + IA?",
-      a: "No Intermediário você executa projetos completos de identidade visual, retoque e direção de arte com Photoshop e Illustrator. No Profissional + IA você domina técnicas avançadas de composição, o Adobe Firefly pra geração de imagens e vetores por IA, e fecha com um projeto completo de branding pro portfólio.",
+      a: "Não. O curso começa pela interface e pelas ferramentas fundamentais dos dois programas, do zero absoluto. A ideia é justamente te tirar do Canva e te levar pras ferramentas Adobe que o mercado profissional usa.",
     },
     {
       q: "Sou fotógrafo — esse curso ensina retoque de verdade ou só design gráfico?",

@@ -77,6 +77,19 @@ const TIER_META: Record<string, { price: string; aulas: string; intensivo: strin
   "Modelagem 3D": { price: "R$ 7.200", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
   AutoCAD: { price: "R$ 6.720", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
   "Revit BIM": { price: "R$ 7.200", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  // Cursos de plano único, categoria símples (mesma taxa/ritmo do Premiere — R$ 82,70/h)
+  Informática: { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Photoshop + Illustrator": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "DaVinci Resolve": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Marketing Digital": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Meta Ads": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Google Ads": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "TikTok Ads": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  Copywriting: { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Funil de Vendas": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  SEO: { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Redes Sociais": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "E-commerce": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
 };
 
 // ── Diferenciais hardcoded ─────────────────────────────────────────────────
