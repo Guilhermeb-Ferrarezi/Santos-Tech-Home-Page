@@ -116,15 +116,15 @@ sem reescrever muito).
 | Python p/ Automações (python) | 3 (24/48/72h) | R$1.970 / 3.940 / 5.910 | Cumulativo-leve | Técnico (120/h) | R$ 5.760 |
 | APIs c/ Python (python-apis) | 2 (48/72h) | R$3.940 / 5.910 | Cumulativo — FastAPI básico → filas assíncronas/agentes | Técnico (130/h) | R$ 6.240 |
 | TypeScript Moderno (typescript) | 2 (48/72h) | override 109,9/h | Cumulativo-leve | Técnico (já ~110/h) | R$ 5.280 |
-| Git e GitHub (git) | **1 (já único, 24h)** | R$ 1.970 (taxa símples) | n/a | ⚠️ Hoje precificado como símples, mas é ferramenta de dev | Ver "pontos em aberto" |
+| Git e GitHub (git) | **1 (já único, 24h)** | R$ 1.970 (taxa símples) | n/a | **Decidido:** técnico (110/h) | R$ 2.640 (mantém 24h) |
 | Automações + N8N (n8n) | 3 (24/48/72h) | R$1.970 / 3.940 / 5.910 | Cumulativo-leve | Técnico (115/h) | R$ 5.520 — webhooks/API/agentes |
 | Automações No-Code — Make (make) | 2 (24/48h) | R$1.970 / 3.940 | Cumulativo-leve | Técnico (110/h) | R$ 5.280 |
 | Banco de Dados c/ SQL (sql) | 3 (24/48/72h) | R$1.970 / 3.940 / 5.910 | Cumulativo-leve | Técnico (120/h) | R$ 5.760 |
 | Dev Web Front-End (frontend) | 2 (48/72h) | R$3.940 / 5.910 | Cumulativo-leve | Técnico (130/h) | R$ 6.240 — React/TS/Next.js |
 | Dev Web Back-End (backend) | 2 (48/72h) | R$3.940 / 5.910 | Cumulativo-leve | Técnico (135/h) | R$ 6.480 — escopo amplo |
 | Full Stack Web Developer (fullstack) | 2 (24/48h) | R$1.970 / 3.940 | Repetitivo — Intermediário já contém o Essencial | Técnico (150/h) | R$ 7.200 |
-| Dev de Aplicativos (mobile) | 2 (48/72h) | R$3.940 / 5.910 | ⚠️ Cumulativo forte — frameworks diferentes (React Native vs Flutter) | Técnico (140/h) | Ver "pontos em aberto" |
-| Jogos: Unity e Godot (jogos) | 2 (48/72h) | R$3.940 / 5.910 | ⚠️ Cumulativo — já mistura as 2 engines desde o início | Técnico (140/h) | Ver "pontos em aberto" |
+| Dev de Aplicativos (mobile) | 2 (48/72h) | R$3.940 / 5.910 | **Decidido:** foca só em React Native (ver pesquisa acima) | Técnico (140/h) | R$ 6.720 |
+| Jogos: Unity e Godot (jogos) | 2 (48/72h) | R$3.940 / 5.910 | **Decidido:** mantém Unity + Godot juntos (ver pesquisa acima) | Técnico (140/h) | R$ 6.720 |
 | ADS (ads) | 2 (24/48h) | R$1.970 / 3.940 | Repetitivo — Intermediário já contém o Essencial | Técnico, teto da faixa (180/h) | R$ 8.640 — curso mais abrangente do catálogo |
 
 ### T.I
@@ -152,7 +152,7 @@ sem reescrever muito).
 |---|---|---|---|---|---|
 | Canva Pro (canva) | **1 (já único, 24h)** | R$ 1.970 (taxa símples) | n/a | Símples — exemplo já confirmado por ele antes | R$ 1.970 (mantém) |
 | Photoshop + Illustrator (photoshop) | 2 (48/72h) | R$3.940 / 5.910 | Cumulativo-leve | Símples (borderline — 2 softwares, mais denso que os outros símples) | R$ 3.970 |
-| CapCut (capcut) | **1 (já único, 24h)** | R$ 1.970 (taxa símples) | n/a | ⚠️ Hoje mais raso que os irmãos do grupo (DaVinci/Premiere, 48h+) | Ver "pontos em aberto" |
+| CapCut (capcut) | **1 (já único, 24h)** | R$ 1.970 (taxa símples) | n/a | **Decidido:** mantém 24h, sem nivelar com DaVinci/Premiere | R$ 1.970 (sem mudança) |
 | DaVinci Resolve (davinci) | 2 (48/72h) | R$3.940 / 5.910 | ⚠️ Cumulativo — par exato do Premiere pré-unificação | Símples (mesma taxa do Premiere) | R$ 3.970 — usar a conversão do Premiere como molde |
 
 ### Marketing & Negócios
@@ -173,24 +173,44 @@ sem reescrever muito).
 
 1. **Taxa técnica exata (110-180) por curso.** As sugestões acima seguem uma
    lógica (escopo, quantidade de ferramentas, nível de mercado), mas são
-   inferência, não confirmação dele. Pergunta: aplico as sugestões como
-   estão, ou ele quer revisar/ajustar os números antes?
-2. **`git`** está precificado hoje como símples (junto com Canva/CapCut),
-   mas é ferramenta de desenvolvedor, não uma ferramenta de uso geral —
-   reclassifica pra técnico?
-3. **`capcut`** está em 24h hoje, mais raso que os irmãos de grupo
-   (DaVinci/Premiere, que ficam em 48h) — nivela pra 48h por consistência,
-   ou mantém 24h porque CapCut é objetivamente mais simples que os outros
-   dois?
-4. **`mobile`** (React Native no tier atual vs. Flutter no outro) e
-   **`jogos`** (Unity e Godot já misturados) — aqui os tiers usam
-   **ferramentas diferentes**, não só profundidade diferente do mesmo
-   assunto. Precisa decisão de escopo antes de fundir: o curso único foca
-   em 1 framework/engine, ou mantém visão geral dos 2? Isso muda o
-   currículo de verdade, não é só um corte de conteúdo como foi no
-   Premiere.
-5. **`manutencao`** e **`impressao-3d`** — confirma que ficam com carga
-   horária menor que 48h (24h), como já estão hoje?
+   inferência, não confirmação dele. **Ainda em aberto** — Henrique vai
+   revisar a tabela e sinalizar ajustes.
+
+### Decididos em 23/09
+
+2. **`git`** — reclassificado pra **técnico** (~110/h, piso da faixa).
+   _(confirmado por pergunta direta)_
+3. **`capcut`** — **mantém 24h**, não nivela com DaVinci/Premiere. Sem
+   mudança nenhuma nesse curso (já é plano único, já usa a taxa antiga R$
+   82,08/h confirmada na decisão #5 da seção anterior). _(confirmado por
+   pergunta direta)_
+4. **`mobile`** — unifica em **React Native** (não Flutter). Pesquisa de
+   mercado (set/2026): o mercado brasileiro está **tecnicamente
+   equilibrado ou com leve vantagem pro Flutter** em vagas (~3.800 Flutter
+   vs. ~3.300 React Native no LinkedIn Brasil; Flutter também aparece
+   como mercado forte no Brasil em comparações globais) — ou seja, a
+   escolha **não** vem de dominância de mercado do React Native, que não
+   existe claramente no Brasil. Decide pela **sinergia pedagógica**: o
+   curso de Frontend da própria Santos Tech já ensina React/TypeScript, e
+   React Native reaproveita esse modelo mental quase inteiro (componentes,
+   hooks, JSX) — num curso fixo de 48h, isso sobra mais tempo pra
+   conteúdo mobile de verdade (APIs nativas, publicação nas lojas) em vez
+   de aprender Dart do zero. Confiança moderada (~60%) — Flutter também é
+   escolha defensável, principalmente se o público-alvo não vier do
+   Frontend.
+5. **`jogos`** — **mantém Unity + Godot juntos**, não escolhe 1 só.
+   Pesquisa de mercado confirma que resolvem problemas diferentes, não
+   competem pelo mesmo papel: Unity domina esmagadoramente o mercado de
+   jogos mobile/comercial (~48% share, ~70% dos jogos mobile mais
+   rentáveis) — é o que dá empregabilidade real; Godot é o motor que mais
+   cresce, gratuito e MIT (sem risco de mudança de licença tipo a crise de
+   preço da Unity em 2023), virou o padrão de quem quer publicar jogo
+   indie sem custo. Isso bate com o próprio currículo atual, que já
+   mistura os dois desde o tier de entrada — não é um problema a
+   resolver, é o padrão já estabelecido. Confiança alta (~80%).
+6. **`manutencao`** e **`impressao-3d`** — assumido que ficam com carga
+   horária menor que 48h (24h), como já estão hoje, por ausência de
+   objeção. Se não for isso, avisar antes da conversão desses 2.
 
 ## Plano de execução proposto
 
@@ -203,7 +223,10 @@ ritmo, depois os grupos maiores (Programação, Marketing & Negócios).
 
 ## Checklist final
 
-- [ ] Henrique decide os 5 pontos em aberto acima.
+- [x] Henrique decide os pontos 2-6 (git, capcut, mobile, jogos,
+      manutenção/impressão 3D) — 23/09.
+- [ ] Henrique revisa a tabela de taxa técnica (ponto 1) antes da
+      conversão dos cursos técnicos.
 - [ ] Conversão dos 45 cursos restantes, por grupo.
 - [ ] `TIER_META` com entrada própria por curso convertido.
 - [ ] FAQ de cada curso sem pergunta comparando tiers inexistentes.
