@@ -2,5 +2,7 @@
 
 ## Deploy
 
-- O app roda via Bun e serve os assets estáticos no runtime.
-- `nginx.conf` prioriza os arquivos gerados do app e faz fallback para o SSR.
+- O app roda via Bun (`docker/server.ts`), exposto direto na porta 3000, sem
+  proxy reverso na frente dentro do container.
+- O próprio `docker/server.ts` prioriza os arquivos estáticos gerados do build
+  e cai pro SSR (`worker.fetch`) quando a rota não é um arquivo.

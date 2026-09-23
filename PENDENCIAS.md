@@ -15,29 +15,20 @@
       carga horária <48h. Premiere já é o piloto pronto (PR #20/#21).
       _Aguardando Henrique._
 
-- [ ] **`nginx.conf` está morto/não usado no deploy real** — o `Dockerfile` não
-      copia nem referencia esse arquivo; o container final roda só
-      `bun run ./docker/server.ts`, que serve estático + SSR direto, sem nginx
-      na frente. O `README.md` (linha 6) descreve um comportamento de nginx que
-      hoje é feito pelo próprio `docker/server.ts`. Isso foi descoberto ao
-      testar o redirect 301 do PR #12 (ver item resolvido abaixo) — o bloco que
-      eu tinha colocado em `nginx.conf` nunca rodava em produção. Vale decidir:
-      apagar `nginx.conf` e corrigir o README, ou reintroduzir nginx de verdade
-      no `Dockerfile` — hoje o arquivo só engana quem olhar o repo achando que
-      tem um nginx na frente. _Aguardando Henrique/Guilherme._
-
-- [ ] **Copyright do rodapé inconsistente** (achado pela auditoria de
-      23/09, não relacionado ao rename/split — bug de template separado,
-      pré-existente): home e `/cursos/create` mostram "© 2026 Santos Tech",
-      `/particular` mostra "© 2025 Santos Tech", e as páginas de curso
-      (`/particular/cursos/*`) não têm linha de copyright nenhuma no rodapé.
-      Baixa prioridade, cosmético. _Aguardando decisão de prioridade._
-
 ## Resolvidas
+
+- [x] **`nginx.conf` estava morto/não usado no deploy real** — o `Dockerfile`
+      nunca copiava nem referenciava esse arquivo; o container final roda só
+      `bun run ./docker/server.ts`, que já serve estático + SSR direto, sem
+      nginx na frente. Confirmado com nova checagem em todo o repo (sem
+      `docker-compose`, sem workflow de CI/CD, sem nenhuma outra automação
+      referenciando o arquivo) antes de remover. Removido `nginx.conf` e
+      corrigido `README.md` (seção "Deploy") pra descrever a arquitetura real:
+      Bun exposto direto na porta 3000, sem proxy reverso no container.
 
 - [x] **Redirect 301 `/adultos` → `/particular`** — o bloco em `nginx.conf`
       (PR #12) nunca era executado, porque nginx não roda no container (ver
-      pendência acima). Corrigido de verdade em `docker/server.ts`
+      item acima). Corrigido de verdade em `docker/server.ts`
       (`redirectLegacyParticularPath`), testado rodando o servidor de produção
       local (`bun run ./docker/server.ts`) e confirmando com `curl`:
       `/adultos/cursos/davinci` → `301` → `/particular/cursos/davinci`.
@@ -72,3 +63,21 @@
       **Henrique purgou o cache manualmente em 23/09** (painel Cloudflare →
       Purge Everything). Confirmado pela auditoria e por verificação direta
       que a origem já servia a versão corrigida.
+
+- [x] **Copyright do rodapé inconsistente** — achado pela auditoria de
+      23/09. Causa raiz: 3 estados diferentes de copyright coexistindo —
+      `SiteFooter` (institucional/infantil) já usava ano dinâmico
+      (`{new Date().getFullYear()}`), mas o rodapé próprio de
+      `/particular` (as rotas `/particular/*` usam um layout com sidebar
+      que pula o `SiteFooter`) tinha o ano hardcoded em "2025", e o
+      componente compartilhado das ~52 páginas `/particular/cursos/*`
+      (`particular-course-page.tsx`) não tinha nenhuma linha de copyright.
+      Corrigido trocando o "2025" fixo por `{new Date().getFullYear()}` em
+      `particular.index.tsx` e adicionando uma linha de copyright discreta
+      (mesmo padrão dinâmico) ao fim de `particular-course-page.tsx` — sem
+      reusar o `SiteFooter`, que é acoplado ao sistema de tema
+      (`useProgramKey`) do outro layout. Verificado com `bun run lint` e
+      `bun run build` (gate do `CLAUDE.md`, sem erros) e visualmente no
+      `bun run dev`: `/particular` e uma página de curso
+      (`/particular/cursos/excel`) mostrando "© 2026 Santos Tech" no
+      rodapé, e a home (`/`) sem regressão no `SiteFooter`.
