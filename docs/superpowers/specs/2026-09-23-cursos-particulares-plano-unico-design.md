@@ -226,10 +226,24 @@ ritmo, depois os grupos maiores (Programação, Marketing & Negócios).
 - [x] Henrique decide os pontos 2-6 (git, capcut, mobile, jogos,
       manutenção/impressão 3D) — 23/09.
 - [ ] Henrique revisa a tabela de taxa técnica (ponto 1) antes da
-      conversão dos cursos técnicos.
-- [ ] Conversão dos 45 cursos restantes, por grupo.
-- [ ] `TIER_META` com entrada própria por curso convertido.
-- [ ] FAQ de cada curso sem pergunta comparando tiers inexistentes.
-- [ ] `bun run lint` e `bun run build` limpos a cada lote.
-- [ ] Verificação visual no preview local a cada lote.
-- [ ] `public/sitemap.xml` — conferir que nenhuma rota mudou (não deveria).
+      conversão dos cursos técnicos restantes.
+- [x] **Grupo T.I convertido** (PR #25): Suporte Técnico, Redes e
+      Infraestrutura, Cibersegurança, Linux. Montagem e Manutenção não
+      precisou de mudança.
+- [x] **Grupo Universo 3D convertido** (PR #26): Modelagem 3D (Blender +
+      SketchUp), AutoCAD, Revit BIM. Impressão 3D não precisou de mudança.
+- [ ] Conversão dos **39 cursos restantes**: Informática (1), Office (8),
+      Inteligência Artificial (6), Programação (13, já com Mobile→React
+      Native e Jogos→Unity+Godot decididos), Design & Criação (2:
+      Photoshop, DaVinci — usar o Premiere como molde direto), Marketing &
+      Negócios (9).
+- [x] `TIER_META` com entrada própria por curso convertido (Premiere +
+      7 cursos T.I/Universo 3D).
+- [x] FAQ de cada curso convertido sem pergunta comparando tiers
+      inexistentes.
+- [x] `bun run lint` e `bun run build` limpos em cada lote convertido até
+      aqui.
+- [x] Verificação visual no preview local em cada lote convertido até
+      aqui.
+- [ ] `public/sitemap.xml` — conferir que nenhuma rota mudou (não deveria)
+      — sem mudança até aqui, como esperado.
