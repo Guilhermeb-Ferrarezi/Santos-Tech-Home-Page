@@ -2,7 +2,18 @@
 
 ## Abertas
 
-_Nenhuma pendência aberta no momento._
+- [ ] **Unificação de tiers em opção única — 5 decisões pendentes antes de
+      converter os 45 cursos restantes** (spec completa em
+      [`docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md`](docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md),
+      PR #22): (1) taxa técnica exata entre R$110-180/h por curso — a spec
+      só traz sugestão; (2) reclassificar `git` de símples pra técnico?;
+      (3) nivelar `capcut` pra 48h como os irmãos DaVinci/Premiere, ou
+      manter 24h?; (4) `mobile` (React Native vs Flutter) e `jogos` (Unity
+      vs Godot) misturam ferramentas diferentes por tier, não só
+      profundidade — precisa decisão de escopo antes de fundir currículo;
+      (5) confirmar `manutencao` e `impressao-3d` como as exceções de
+      carga horária <48h. Premiere já é o piloto pronto (PR #20/#21).
+      _Aguardando Henrique._
 
 ## Resolvidas
 
