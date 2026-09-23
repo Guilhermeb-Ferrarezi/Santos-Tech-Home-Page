@@ -28,67 +28,12 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Essencial",
-      levelName: "Essencial",
-      totalHours: "24h",
-      outcome:
-        "Gerir perfis profissionais no Instagram, TikTok e LinkedIn com estratégia de conteúdo e análise de métricas básica.",
-      modules: [
-        {
-          title: "Fundamentos de Redes Sociais",
-          topics: [
-            "Algoritmos do Instagram, TikTok, Facebook e LinkedIn em 2025",
-            "Perfil profissional vs conta pessoal: configuração e otimização de bio",
-            "Formatos de conteúdo: feed, story, reels, lives e carrossel",
-            "Planejamento de conteúdo mensal com calendário editorial",
-            "Tom de voz e linguagem adaptados por plataforma",
-          ],
-        },
-        {
-          title: "Criação de Conteúdo para Redes",
-          topics: [
-            "Copywriting para legendas que geram engajamento",
-            "Uso estratégico de hashtags por nicho e plataforma",
-            "Criação de conteúdo com Canva Pro para múltiplos formatos",
-            "Gravação e edição básica de Reels e TikToks com CapCut",
-            "Conteúdo para LinkedIn: artigos, posts e newsletters",
-          ],
-        },
-        {
-          title: "Métricas e Análise de Resultado",
-          topics: [
-            "KPIs de redes sociais: alcance, engajamento, salvamentos e compartilhamentos",
-            "Instagram Insights: leitura e interpretação dos dados",
-            "TikTok Analytics: métricas específicas da plataforma",
-            "Relatório mensal básico para apresentação ao cliente",
-            "Ajuste de estratégia baseado em dados de desempenho",
-          ],
-        },
-        {
-          title: "Relacionamento e Comunidade",
-          topics: [
-            "Gestão de comentários e direct messages",
-            "Estratégias de engajamento para crescimento orgânico",
-            "Parcerias e menções com outros perfis do nicho",
-            "Stories interativos: enquetes, perguntas e contagens regressivas",
-          ],
-        },
-      ],
-      tools: [
-        "Instagram Business",
-        "TikTok for Business",
-        "LinkedIn Creator Mode",
-        "Canva Pro",
-        "CapCut",
-        "Meta Business Suite",
-      ],
-    },
-    {
-      label: "Intermediário",
-      levelName: "Intermediário",
+      label: "Redes Sociais",
+      levelName: "Redes Sociais",
+      ctaLabel: "curso de Redes Sociais",
       totalHours: "48h",
       outcome:
-        "Gerenciar múltiplos clientes como Social Media profissional, criar estratégia de conteúdo, planejar campanhas pagas e entregar relatórios executivos.",
+        "Gerir perfis profissionais do zero absoluto — Instagram, TikTok e LinkedIn — até atuar como Social Media estratégico para múltiplos clientes, com ferramentas de agendamento profissional, tráfego pago e relatórios executivos, pronto para atuar em agências ou como freelancer.",
       modules: [
         {
           title: "Fundamentos de Redes Sociais",
@@ -111,22 +56,13 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "Métricas e Análise de Resultado",
+          title: "Comunidade e Métricas",
           topics: [
+            "Gestão de comentários, direct messages e stories interativos (enquetes, perguntas, contagens regressivas)",
+            "Estratégias de engajamento orgânico e parcerias com outros perfis do nicho",
             "KPIs de redes sociais: alcance, engajamento, salvamentos e compartilhamentos",
-            "Instagram Insights: leitura e interpretação dos dados",
-            "TikTok Analytics: métricas específicas da plataforma",
-            "Relatório mensal básico para apresentação ao cliente",
+            "Instagram Insights e TikTok Analytics: leitura e interpretação de dados por plataforma",
             "Ajuste de estratégia baseado em dados de desempenho",
-          ],
-        },
-        {
-          title: "Relacionamento e Comunidade",
-          topics: [
-            "Gestão de comentários e direct messages",
-            "Estratégias de engajamento para crescimento orgânico",
-            "Parcerias e menções com outros perfis do nicho",
-            "Stories interativos: enquetes, perguntas e contagens regressivas",
           ],
         },
         {
@@ -140,22 +76,13 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "Ferramentas de Gestão e Agendamento",
+          title: "Ferramentas de Gestão e Tráfego Pago",
           topics: [
-            "Mlabs: agendamento, inbox e relatórios para múltiplos clientes",
-            "Later: planejamento visual de feed e link in bio",
-            "Notion para organização de calendário editorial e processos",
-            "Criação de fluxo de trabalho para aprovação de conteúdo",
+            "Mlabs e Later: agendamento, inbox e relatórios para múltiplos clientes, com planejamento visual de feed e link in bio",
+            "Notion para organização de calendário editorial, processos e fluxo de aprovação de conteúdo",
             "Gestão de múltiplos perfis com eficiência",
-          ],
-        },
-        {
-          title: "Impulsionamento e Tráfego Pago",
-          topics: [
-            "Meta Ads para impulsionar posts e stories",
-            "Criação de campanha de alcance e engajamento",
-            "Segmentação de público por interesse e comportamento",
-            "Análise de resultado de campanhas pagas vs orgânicas",
+            "Meta Ads: impulsionamento de posts e stories, criação de campanha de alcance e engajamento",
+            "Segmentação de público por interesse e comportamento e análise de resultado pago vs orgânico",
           ],
         },
         {
@@ -169,28 +96,27 @@ const COURSE_DATA = {
         },
       ],
       tools: [
+        "Instagram Business",
+        "TikTok for Business",
+        "LinkedIn Creator Mode",
+        "Meta Business Suite",
+        "Canva Pro",
+        "CapCut",
         "Mlabs",
         "Later",
-        "Meta Business Suite",
-        "Meta Ads Manager",
-        "Canva Pro",
         "Notion",
-        "CapCut",
+        "Meta Ads Manager",
       ],
     },
   ],
   faqItems: [
-    {
-      q: "Qual a diferença entre o nível Essencial e o Intermediário?",
-      a: "No Essencial você aprende a gerir perfis profissionais no Instagram, TikTok e LinkedIn com estratégia de conteúdo e leitura básica de métricas. No Intermediário você vai além: monta estratégia de conteúdo completa, usa ferramentas de agendamento como Mlabs e Later, entra em tráfego pago e aprende a gerenciar múltiplos clientes com contrato, escopo e precificação.",
-    },
     {
       q: "Esse curso serve pra quem já tem um negócio e só quer cuidar das próprias redes?",
       a: "Sim. O curso atende tanto quem quer trabalhar como Social Media para clientes quanto o empreendedor que precisa gerenciar as redes do próprio negócio com estratégia — planejamento de conteúdo, métricas e engajamento valem pra qualquer um dos dois casos.",
     },
     {
       q: "O curso ensina a cobrar pelos serviços e trabalhar como freelancer?",
-      a: "Sim, no nível Intermediário. Você aprende onboarding de cliente, como montar contrato e escopo de serviços, precificação por pacotes (básico, intermediário e completo) e como entregar um relatório executivo mensal — a base pra quem quer atuar como freelancer ou para agências.",
+      a: "Sim. Você aprende onboarding de cliente, como montar contrato e escopo de serviços, precificação por pacotes (básico, intermediário e completo) e como entregar um relatório executivo mensal — a base pra quem quer atuar como freelancer ou para agências.",
     },
   ],
 }
