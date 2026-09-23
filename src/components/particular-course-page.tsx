@@ -770,6 +770,10 @@ export function ParticularCursosPage({
           </Reveal>
         </div>
       </section>
+
+      <p className="py-6 text-center text-xs text-neutral-400 dark:text-neutral-600">
+        © {new Date().getFullYear()} Santos Tech — Todos os direitos reservados.
+      </p>
     </>
   );
 }

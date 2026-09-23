@@ -2,12 +2,7 @@
 
 ## Abertas
 
-- [ ] **Copyright do rodapé inconsistente** (achado pela auditoria de
-      23/09, não relacionado ao rename/split — bug de template separado,
-      pré-existente): home e `/cursos/create` mostram "© 2026 Santos Tech",
-      `/particular` mostra "© 2025 Santos Tech", e as páginas de curso
-      (`/particular/cursos/*`) não têm linha de copyright nenhuma no rodapé.
-      Baixa prioridade, cosmético. _Aguardando decisão de prioridade._
+_Nenhuma pendência aberta no momento._
 
 ## Resolvidas
 
@@ -57,3 +52,21 @@
       **Henrique purgou o cache manualmente em 23/09** (painel Cloudflare →
       Purge Everything). Confirmado pela auditoria e por verificação direta
       que a origem já servia a versão corrigida.
+
+- [x] **Copyright do rodapé inconsistente** — achado pela auditoria de
+      23/09. Causa raiz: 3 estados diferentes de copyright coexistindo —
+      `SiteFooter` (institucional/infantil) já usava ano dinâmico
+      (`{new Date().getFullYear()}`), mas o rodapé próprio de
+      `/particular` (as rotas `/particular/*` usam um layout com sidebar
+      que pula o `SiteFooter`) tinha o ano hardcoded em "2025", e o
+      componente compartilhado das ~52 páginas `/particular/cursos/*`
+      (`particular-course-page.tsx`) não tinha nenhuma linha de copyright.
+      Corrigido trocando o "2025" fixo por `{new Date().getFullYear()}` em
+      `particular.index.tsx` e adicionando uma linha de copyright discreta
+      (mesmo padrão dinâmico) ao fim de `particular-course-page.tsx` — sem
+      reusar o `SiteFooter`, que é acoplado ao sistema de tema
+      (`useProgramKey`) do outro layout. Verificado com `bun run lint` e
+      `bun run build` (gate do `CLAUDE.md`, sem erros) e visualmente no
+      `bun run dev`: `/particular` e uma página de curso
+      (`/particular/cursos/excel`) mostrando "© 2026 Santos Tech" no
+      rodapé, e a home (`/`) sem regressão no `SiteFooter`.
