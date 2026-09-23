@@ -2,6 +2,21 @@
 
 ## Abertas
 
+- [ ] **Estatística "24 aulas por curso" na home do `/particular` vai ficando
+      menos precisa conforme a unificação de tiers avança** — achado pela
+      auditoria de resquícios do modelo antigo (23/09). O bloco "Ritmo"
+      (`particular.index.tsx`) mostra 1h/aula, 24 aulas/curso, ~3 meses no
+      ritmo padrão e ~1 mês no intensivo como se fosse universal. Hoje ainda
+      é o caso pra maioria (entrada Essencial dos 39 cursos não convertidos +
+      Canva/CapCut/Git/Manutenção/Impressão 3D, todos 24h), mas a unificação
+      de tiers definiu 48 aulas como novo padrão (ver pendência abaixo) e já
+      são 8 cursos convertidos nesse ritmo (Premiere + grupos T.I e Universo
+      3D), contradizendo a estatística. Não mexi agora porque não é um bug
+      claro: é decisão de posicionamento (qual número mostrar como
+      representativo) que toca como o site se apresenta, não uma correção
+      óbvia. Revisar quando a conversão dos 39 cursos restantes avançar.
+      _Aguardando Henrique._
+
 - [~] **Unificação de tiers em opção única — 8 de 47 cursos convertidos,
       falta revisar a tabela de taxa técnica pros 39 restantes** (spec
       completa em
