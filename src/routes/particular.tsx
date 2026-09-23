@@ -378,15 +378,6 @@ function ParticularLayout() {
             {label("Falar no WhatsApp")}
           </a>
 
-          <Link
-            to="/"
-            onClick={() => setMobileOpen(false)}
-            title={collapsed ? "Site principal" : undefined}
-            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
-          >
-            <Home className="h-4 w-4 shrink-0 text-neutral-400 dark:text-neutral-500" />
-            {label("Site principal")}
-          </Link>
         </nav>
 
         {/* Rodapé */}
