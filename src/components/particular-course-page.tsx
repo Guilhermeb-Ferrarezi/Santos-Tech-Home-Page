@@ -66,6 +66,8 @@ const TIER_META: Record<string, { price: string; aulas: string; intensivo: strin
   CapCut: { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
   "Git e GitHub": { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
   "Impressão 3D Completa": { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
+  // Curso profundo com plano único (preço/ritmo próprios, fora da faixa padrão do Essencial)
+  "Adobe Premiere": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
 };
 
 // ── Diferenciais hardcoded ─────────────────────────────────────────────────
