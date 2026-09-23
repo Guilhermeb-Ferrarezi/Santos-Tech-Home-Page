@@ -198,7 +198,7 @@ function ParticularLayout() {
             "flex shrink-0 border-b border-neutral-200 dark:border-neutral-800",
             collapsed
               ? "flex-col items-center gap-2 px-2 py-3"
-              : "h-16 flex-row items-center gap-2 px-3",
+              : "h-16 flex-row items-center gap-1.5 px-2.5",
           ].join(" ")}
         >
           {/* Logo — tamanho maior quando colapsado para melhor resolução */}
@@ -219,11 +219,11 @@ function ParticularLayout() {
             ].join(" ")}
           >
             <span className="whitespace-nowrap text-[8px] font-light uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-500 mb-0.5">Escola</span>
-            <div className="flex items-center gap-1.5">
-              <span className="whitespace-nowrap text-xs font-black tracking-tight text-neutral-900 dark:text-white">
+            <div className="flex min-w-0 items-center gap-1">
+              <span className="min-w-0 truncate text-xs font-black tracking-tight text-neutral-900 dark:text-white">
                 SANTOS TECH
               </span>
-              <span className="shrink-0 inline-flex items-center rounded-md bg-neutral-900 dark:bg-white px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-white dark:text-neutral-900">
+              <span className="shrink-0 inline-flex items-center rounded-md bg-neutral-900 dark:bg-white px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-white dark:text-neutral-900">
                 particular
               </span>
             </div>
@@ -235,9 +235,9 @@ function ParticularLayout() {
               type="button"
               onClick={() => setCollapsed(true)}
               aria-label="Recolher menu"
-              className="ml-auto hidden lg:flex shrink-0 rounded-md p-1.5 text-neutral-400 dark:text-neutral-500 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
+              className="ml-auto hidden lg:flex shrink-0 rounded-md p-1 text-neutral-400 dark:text-neutral-500 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
             >
-              <PanelLeftClose className="h-4 w-4" />
+              <PanelLeftClose className="h-3.5 w-3.5" />
             </button>
           ) : (
             <button
