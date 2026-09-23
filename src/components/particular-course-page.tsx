@@ -56,28 +56,48 @@ export type CourseData = {
 
 // ── Preços e ritmo por nível ───────────────────────────────────────────────
 
-const TIER_META: Record<string, { price: string; aulas: string; intensivo: string; padrao: string }> = {
-  Essencial: { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
-  Intermediário: { price: "R$ 3.940", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Profissional + IA": { price: "R$ 5.910", aulas: "72 aulas", intensivo: "~3 meses", padrao: "~9 meses" },
+const TIER_META: Record<string, { price: number; aulas: string; intensivo: string; padrao: string }> = {
+  Essencial: { price: 1970, aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
+  Intermediário: { price: 3940, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Profissional + IA": { price: 5910, aulas: "72 aulas", intensivo: "~3 meses", padrao: "~9 meses" },
   // Cursos com plano único: mesma faixa de preço do Essencial, com o nome do próprio curso no lugar do nível
-  "Montagem e Manutenção": { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
-  "Canva Pro": { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
-  CapCut: { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
-  "Impressão 3D Completa": { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
+  "Montagem e Manutenção": { price: 1970, aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
+  "Canva Pro": { price: 1970, aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
+  CapCut: { price: 1970, aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
+  "Impressão 3D Completa": { price: 1970, aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
   // Curso de plano único, mas categoria técnica (taxa acima do piso do Essencial)
-  "Git e GitHub": { price: "R$ 2.640", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
+  "Git e GitHub": { price: 2640, aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
   // Cursos profundos com plano único (preço/ritmo próprios, fora da faixa padrão do Essencial/Intermediário)
   // — conversão de 2-3 tiers pra 1, ver docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md
-  "Adobe Premiere": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Suporte Técnico": { price: "R$ 5.520", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Redes e Infraestrutura": { price: "R$ 6.240", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  Cibersegurança: { price: "R$ 7.200", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  Linux: { price: "R$ 5.760", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Modelagem 3D": { price: "R$ 7.200", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  AutoCAD: { price: "R$ 6.720", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Revit BIM": { price: "R$ 7.200", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Adobe Premiere": { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Suporte Técnico": { price: 5520, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Redes e Infraestrutura": { price: 6240, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  Cibersegurança: { price: 7200, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  Linux: { price: 5760, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Modelagem 3D": { price: 7200, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  AutoCAD: { price: 6720, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Revit BIM": { price: 7200, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
 };
+
+// ── Margem embutida e parcelamento (decisão do Henrique, 23/09) ────────────
+// Todo curso particular embute 15% sobre o valor-base acima (atual e futuro)
+// e é apresentado como parcela em até 12x sem juros no cartão — a margem em
+// si nunca aparece pro aluno como "15%" ou "juros". Ver spec:
+// docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md
+const MARKUP = 1.15;
+const INSTALLMENTS = 12;
+
+function formatBRL(value: number): string {
+  return `R$ ${value.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+}
+
+function getInvestimento(basePrice: number) {
+  const total = basePrice * MARKUP;
+  return {
+    totalFormatted: formatBRL(total),
+    parcelaFormatted: formatBRL(total / INSTALLMENTS),
+  };
+}
 
 // ── Diferenciais hardcoded ─────────────────────────────────────────────────
 
@@ -611,12 +631,10 @@ export function ParticularCursosPage({
           >
             {course.tiers.map((t, i) => {
               const base = TIER_META[t.levelName];
-              const meta = course.pricePerAula && base
-                ? {
-                    ...base,
-                    price: `R$ ${Math.round(parseInt(t.totalHours) * course.pricePerAula).toLocaleString("pt-BR")}`,
-                  }
-                : base;
+              const basePrice = course.pricePerAula
+                ? parseInt(t.totalHours) * course.pricePerAula
+                : base?.price;
+              const investimento = basePrice != null ? getInvestimento(basePrice) : null;
               return (
                 <Reveal key={t.levelName} delay={i * 120}>
                   <div className="flex h-full flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
@@ -624,7 +642,7 @@ export function ParticularCursosPage({
                       <h3 className="text-xl font-black text-neutral-900 dark:text-white">{t.levelName}</h3>
                       <div className="mt-2 flex items-center gap-1.5 text-xs text-neutral-500 dark:text-neutral-400">
                         <Clock className="h-3.5 w-3.5" />
-                        {meta?.aulas ?? t.totalHours}
+                        {base?.aulas ?? t.totalHours}
                       </div>
                     </div>
 
@@ -633,23 +651,26 @@ export function ParticularCursosPage({
 
                       <div>
                         <p className="text-3xl font-black tracking-tight text-neutral-900 dark:text-white">
-                          {meta?.price ?? "—"}
+                          {investimento?.parcelaFormatted ?? "—"}
                         </p>
-                        <p className="mt-0.5 text-xs text-neutral-400">preço total do curso</p>
+                        <p className="mt-0.5 text-xs text-neutral-400">12x sem juros no cartão</p>
+                        {investimento && (
+                          <p className="mt-1.5 text-xs text-neutral-400">ou {investimento.totalFormatted} à vista</p>
+                        )}
                       </div>
 
-                      {meta && (
+                      {base && (
                         <div className="space-y-2.5 rounded-lg border border-neutral-100 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-800/50">
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-1.5">
                               <span className="text-xs font-black text-[#0DB88F]">Intensivo</span>
                               <span className="rounded bg-[#0DB88F]/10 px-1.5 py-0.5 text-[10px] font-bold text-[#0DB88F]">sugerido</span>
                             </div>
-                            <span className="text-sm font-bold text-neutral-900 dark:text-white">{meta.intensivo}</span>
+                            <span className="text-sm font-bold text-neutral-900 dark:text-white">{base.intensivo}</span>
                           </div>
                           <div className="flex items-center justify-between border-t border-neutral-100 pt-2.5 dark:border-neutral-700">
                             <span className="text-xs text-neutral-500 dark:text-neutral-400">Padrão (2×/semana)</span>
-                            <span className="text-sm text-neutral-500 dark:text-neutral-400">{meta.padrao}</span>
+                            <span className="text-sm text-neutral-500 dark:text-neutral-400">{base.padrao}</span>
                           </div>
                         </div>
                       )}
@@ -702,7 +723,7 @@ export function ParticularCursosPage({
                 </p>
                 <p className="mt-2 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
                   Combinações aceitas — entrada no Pix e o restante no crédito, por exemplo.
-                  Boleto parcelado de acordo com a duração do seu curso.
+                  Crédito em até 12x sem juros. Boleto parcelado de acordo com a duração do seu curso.
                 </p>
               </div>
 
