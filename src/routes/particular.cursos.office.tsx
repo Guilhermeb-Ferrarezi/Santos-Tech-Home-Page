@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { AdultosCursosPage } from "@/components/adultos-course-page";
+import { ParticularCursosPage } from "@/components/particular-course-page";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 import { pageMeta } from "@/lib/seo";
 
-export const Route = createFileRoute("/adultos/cursos/office")({
+export const Route = createFileRoute("/particular/cursos/office")({
   component: OfficePage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Pacote Office para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Pacote Office Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda Word, Excel e PowerPoint do zero ao avançado com aulas presenciais em Ribeirão Preto. Domine o Office que o mercado contrata e conquiste melhores vagas e promoções.",
-      path: "/adultos/cursos/office",
+      path: "/particular/cursos/office",
     }),
 });
 
@@ -296,5 +296,5 @@ const COURSE_DATA = {
 };
 
 function OfficePage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />;
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />;
 }

@@ -1,16 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/revit")({
+export const Route = createFileRoute("/particular/cursos/revit")({
   component: RevitPage,
   head: () =>
     pageMeta({
-      title: "Curso de Revit para Adultos em Ribeirão Preto — Santos Tech",
+      title: "Curso de Revit Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda Revit BIM do modelo arquitetônico ao projeto executivo completo: famílias paramétricas, Dynamo e coordenação multidisciplinar para arquitetos e engenheiros em Ribeirão Preto.",
-      path: "/adultos/cursos/revit",
+      path: "/particular/cursos/revit",
     }),
 })
 
@@ -232,5 +232,5 @@ const COURSE_DATA = {
 }
 
 function RevitPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

@@ -1,16 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/excel")({
+export const Route = createFileRoute("/particular/cursos/excel")({
   component: ExcelPage,
   head: () =>
     pageMeta({
-      title: "Curso de Excel para Adultos em Ribeirão Preto — Santos Tech",
+      title: "Curso de Excel Particular em Ribeirão Preto — Santos Tech",
       description:
         "Do básico ao VBA e Power Query: domine Excel Avançado com aulas individuais e presenciais em Ribeirão Preto. Dashboards, macros e Power BI para quem trabalha com dados.",
-      path: "/adultos/cursos/excel",
+      path: "/particular/cursos/excel",
     }),
 })
 
@@ -229,5 +229,5 @@ const COURSE_DATA = {
 }
 
 function ExcelPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/marketing")({
+export const Route = createFileRoute("/particular/cursos/marketing")({
   component: MarketingPage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Marketing Digital para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Marketing Digital Particular em Ribeirão Preto — Santos Tech",
       description:
         "Domine Google Ads, Meta Ads e SEO com aulas individuais em Ribeirão Preto. Do funil de marketing à gestão de campanhas com IA: forme-se especialista em tráfego pago.",
-      path: "/adultos/cursos/marketing",
+      path: "/particular/cursos/marketing",
     }),
 })
 
@@ -224,5 +224,5 @@ const COURSE_DATA = {
 }
 
 function MarketingPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

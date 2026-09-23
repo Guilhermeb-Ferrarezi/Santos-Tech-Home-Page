@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/ciberseguranca")({
+export const Route = createFileRoute("/particular/cursos/ciberseguranca")({
   component: CibersegurancaPage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Cibersegurança para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Cibersegurança Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda cibersegurança em Ribeirão Preto: de proteções essenciais a pentest e SOC. Prepare-se para CompTIA Security+ ou eJPT com aulas práticas e individuais.",
-      path: "/adultos/cursos/ciberseguranca",
+      path: "/particular/cursos/ciberseguranca",
     }),
 })
 
@@ -210,5 +210,5 @@ const COURSE_DATA = {
 }
 
 function CibersegurancaPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

@@ -19,9 +19,9 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
-import { AdultosFaq, ADULTOS_FAQ_ITEMS } from "@/components/adultos-faq";
+import { ParticularFaq, PARTICULAR_FAQ_ITEMS } from "@/components/particular-faq";
 import { JsonLd } from "@/components/json-ld";
-import { buildAdultPageSchemas } from "@/lib/seo";
+import { buildParticularPageSchemas } from "@/lib/seo";
 
 // ── Types ─────────────────────────────────────────────────────────────────
 
@@ -47,8 +47,8 @@ export type CourseData = {
   pricePerAula?: number;
   /**
    * Perguntas específicas deste curso, exibidas antes do FAQ genérico
-   * (ADULTOS_FAQ_ITEMS) e incluídas no JSON-LD FAQPage da página — evita que
-   * as ~50 páginas de /adultos/cursos/* tenham o mesmo schema estrutural
+   * (PARTICULAR_FAQ_ITEMS) e incluídas no JSON-LD FAQPage da página — evita que
+   * as ~50 páginas de /particular/cursos/* tenham o mesmo schema estrutural
    * idêntico (sinal de conteúdo duplicado pro Google).
    */
   faqItems?: { q: string; a: string }[];
@@ -247,7 +247,7 @@ function ModuleCard({ group }: { group: TopicGroup }) {
 
 // ── Main component ─────────────────────────────────────────────────────────
 
-export function AdultosCursosPage({
+export function ParticularCursosPage({
   course,
   whatsappUrl,
 }: {
@@ -259,7 +259,7 @@ export function AdultosCursosPage({
   const multiTier = course.tiers.length > 1;
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
-  const schemas = buildAdultPageSchemas({
+  const schemas = buildParticularPageSchemas({
     courseName: course.nome,
     courseDescription: course.tagline,
     path: pathname,
@@ -268,7 +268,7 @@ export function AdultosCursosPage({
       totalHours: t.totalHours,
       outcome: t.outcome,
     })),
-    faq: [...(course.faqItems ?? []), ...ADULTOS_FAQ_ITEMS].map(({ q, a }) => ({ q, a })),
+    faq: [...(course.faqItems ?? []), ...PARTICULAR_FAQ_ITEMS].map(({ q, a }) => ({ q, a })),
   });
 
   return (
@@ -289,7 +289,7 @@ export function AdultosCursosPage({
           <Reveal>
             <div className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm">
               <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
-                Santos Tech · Adultos · {course.categoria}
+                Escola Santos Tech · Particular
               </span>
             </div>
           </Reveal>
@@ -718,7 +718,7 @@ export function AdultosCursosPage({
         </div>
       </section>
 
-      <AdultosFaq whatsappUrl={whatsappUrl} extraItems={course.faqItems} />
+      <ParticularFaq whatsappUrl={whatsappUrl} extraItems={course.faqItems} />
 
       {/* ── 7. CTA FINAL ────────────────────────────────────────────────── */}
       <section className="bg-white py-20 dark:bg-neutral-950">

@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/manutencao")({
+export const Route = createFileRoute("/particular/cursos/manutencao")({
   component: ManutencaoPage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Montagem e Manutenção de Computadores para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Montagem e Manutenção de Computadores Particular em Ribeirão Preto — Santos Tech",
       description:
         "Monte, conserte e atualize PCs como um técnico profissional: hardware, diagnóstico de falhas e instalação de Windows. Aulas presenciais em Ribeirão Preto para quem quer atuar em assistência técnica ou abrir o próprio negócio.",
-      path: "/adultos/cursos/manutencao",
+      path: "/particular/cursos/manutencao",
     }),
 })
 
@@ -84,5 +84,5 @@ const COURSE_DATA = {
 }
 
 function ManutencaoPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

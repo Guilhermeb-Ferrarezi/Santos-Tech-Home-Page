@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/logica")({
+export const Route = createFileRoute("/particular/cursos/logica")({
   component: LogicaPage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Lógica de Programação para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Lógica de Programação Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda a pensar como programador do zero: algoritmos, estruturas de controle, funções e projetos práticos em JavaScript. Aulas individuais e horário flexível.",
-      path: "/adultos/cursos/logica",
+      path: "/particular/cursos/logica",
     }),
 })
 
@@ -157,5 +157,5 @@ const COURSE_DATA = {
 }
 
 function LogicaPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

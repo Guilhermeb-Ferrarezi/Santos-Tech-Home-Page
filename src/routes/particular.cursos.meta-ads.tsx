@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
-import type { CourseData } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
+import type { CourseData } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/meta-ads")({
+export const Route = createFileRoute("/particular/cursos/meta-ads")({
   component: MetaAdsPage,
   head: () =>
     pageMeta({
-      title: "Curso de Meta Ads para Adultos em Ribeirão Preto — Santos Tech",
+      title: "Curso de Meta Ads Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda a criar campanhas lucrativas no Facebook e Instagram com Meta Ads em Ribeirão Preto. Do básico ao Advantage+ com IA.",
-      path: "/adultos/cursos/meta-ads",
+      path: "/particular/cursos/meta-ads",
     }),
 })
 
@@ -244,5 +244,5 @@ const COURSE_DATA: CourseData = {
 }
 
 function MetaAdsPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
-import type { CourseData } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
+import type { CourseData } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/sql")({
+export const Route = createFileRoute("/particular/cursos/sql")({
   component: SqlPage,
   head: () =>
     pageMeta({
-      title: "Curso de Banco de Dados com SQL para Adultos em Ribeirão Preto — Santos Tech",
+      title: "Curso de Banco de Dados com SQL Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda SQL do zero ao avançado em Ribeirão Preto: consultas, modelagem, performance, cloud e IA aplicada a bancos de dados reais.",
-      path: "/adultos/cursos/sql",
+      path: "/particular/cursos/sql",
     }),
 })
 
@@ -248,5 +248,5 @@ const COURSE_DATA: CourseData = {
 }
 
 function SqlPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

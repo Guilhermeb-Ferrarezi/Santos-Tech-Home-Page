@@ -1,18 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
-import type { CourseData } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
+import type { CourseData } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/backend")({
+export const Route = createFileRoute("/particular/cursos/backend")({
   component: BackendPage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Desenvolvimento Web Back-End para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Desenvolvimento Web Back-End Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda Node.js, FastAPI, NestJS e PostgreSQL do zero ao SaaS em produção. Aulas individuais, horário flexível e projeto real com APIs REST, JWT e deploy em nuvem.",
-      path: "/adultos/cursos/backend",
+      path: "/particular/cursos/backend",
     }),
 })
 
@@ -223,5 +223,5 @@ const COURSE_DATA: CourseData = {
 }
 
 function BackendPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

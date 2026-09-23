@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/linux")({
+export const Route = createFileRoute("/particular/cursos/linux")({
   component: LinuxPage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Linux Essencial para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Linux Essencial Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda a administrar servidores Linux no terminal, gerenciar usuários, automatizar tarefas e configurar serviços web. Curso presencial em Ribeirão Preto para profissionais de TI.",
-      path: "/adultos/cursos/linux",
+      path: "/particular/cursos/linux",
     }),
 })
 
@@ -143,6 +143,6 @@ const COURSE_DATA = {
 
 function LinuxPage() {
   return (
-    <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+    <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
   )
 }

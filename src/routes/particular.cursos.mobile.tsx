@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/mobile")({
+export const Route = createFileRoute("/particular/cursos/mobile")({
   component: MobilePage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Desenvolvimento de Aplicativos para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Desenvolvimento de Aplicativos Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda React Native e Flutter do zero e publique apps nas lojas. Aulas individuais presenciais em Ribeirão Preto para quem quer trabalhar com desenvolvimento mobile.",
-      path: "/adultos/cursos/mobile",
+      path: "/particular/cursos/mobile",
     }),
 })
 
@@ -200,5 +200,5 @@ const COURSE_DATA = {
 }
 
 function MobilePage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

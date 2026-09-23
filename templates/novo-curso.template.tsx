@@ -31,8 +31,8 @@
  *
  *  8. ADICIONE entry em `KIDS_PAGES` (scripts/generate-og-images.mjs) — a
  *     imagem de Open Graph dessa página não é gerada sozinha (diferente dos
- *     cursos adultos, que são descobertos automaticamente pelas rotas
- *     `adultos.cursos.*.tsx`). Sem essa entry, a página cai na capa
+ *     cursos particulares, que são descobertos automaticamente pelas rotas
+ *     `particular.cursos.*.tsx`). Sem essa entry, a página cai na capa
  *     genérica do site em vez de ter imagem própria ao compartilhar o link.
  *
  *  9. CONFIRA o build local: `npm run build`. Se passar, commit + push.

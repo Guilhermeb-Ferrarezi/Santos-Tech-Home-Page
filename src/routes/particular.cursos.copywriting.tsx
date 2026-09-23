@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
-import type { CourseData } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
+import type { CourseData } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/copywriting")({
+export const Route = createFileRoute("/particular/cursos/copywriting")({
   component: CopywritingPage,
   head: () =>
     pageMeta({
-      title: "Curso de Copywriting & Persuasão para Adultos em Ribeirão Preto — Santos Tech",
+      title: "Curso de Copywriting & Persuasão Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda a escrever textos que convencem, vendem e geram cliques em Ribeirão Preto. Do AIDA ao funil completo com IA generativa.",
-      path: "/adultos/cursos/copywriting",
+      path: "/particular/cursos/copywriting",
     }),
 })
 
@@ -226,5 +226,5 @@ const COURSE_DATA: CourseData = {
 }
 
 function CopywritingPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

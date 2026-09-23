@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/fullstack")({
+export const Route = createFileRoute("/particular/cursos/fullstack")({
   component: FullstackPage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Full Stack para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Full Stack Particular em Ribeirão Preto — Santos Tech",
       description:
         "Curso presencial de desenvolvimento Full Stack em Ribeirão Preto. Do HTML ao deploy em produção com React, Node.js e Cloud. Para quem quer entrar na área de tecnologia ou conquistar sua primeira vaga de dev.",
-      path: "/adultos/cursos/fullstack",
+      path: "/particular/cursos/fullstack",
     }),
 })
 
@@ -292,5 +292,5 @@ const COURSE_DATA = {
 }
 
 function FullstackPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

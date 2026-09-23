@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/ads")({
+export const Route = createFileRoute("/particular/cursos/ads")({
   component: AdsPage,
   head: () =>
     pageMeta({
       title:
-        "Curso de ADS — Formação Profissional em Programação para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de ADS — Formação Profissional em Programação Particular em Ribeirão Preto — Santos Tech",
       description:
         "Formação profissional completa em Análise e Desenvolvimento de Sistemas: lógica, back-end, mobile, cloud e IA. Do zero ao mercado de TI em até 12 meses, presencial em Ribeirão Preto.",
-      path: "/adultos/cursos/ads",
+      path: "/particular/cursos/ads",
     }),
 })
 
@@ -345,6 +345,6 @@ const COURSE_DATA = {
 
 function AdsPage() {
   return (
-    <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+    <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
   )
 }

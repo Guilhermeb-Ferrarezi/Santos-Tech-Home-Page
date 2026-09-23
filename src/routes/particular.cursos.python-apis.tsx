@@ -1,16 +1,16 @@
 ﻿import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
-import type { CourseData } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
+import type { CourseData } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/python-apis")({
+export const Route = createFileRoute("/particular/cursos/python-apis")({
   component: PythonApisPage,
   head: () =>
     pageMeta({
       title: "Curso de APIs e Integrações com Python em Ribeirão Preto — Santos Tech",
       description: "Aprenda a consumir e criar APIs REST com Python, integrar serviços externos e conectar sistemas usando webhooks. Curso presencial em Ribeirão Preto focado em automações reais.",
-      path: "/adultos/cursos/python-apis",
+      path: "/particular/cursos/python-apis",
     }),
 })
 
@@ -235,5 +235,5 @@ const COURSE_DATA: CourseData = {
 }
 
 function PythonApisPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

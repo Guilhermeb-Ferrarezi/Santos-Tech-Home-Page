@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
-import type { CourseData } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
+import type { CourseData } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/google-ads")({
+export const Route = createFileRoute("/particular/cursos/google-ads")({
   component: GoogleAdsPage,
   head: () =>
     pageMeta({
-      title: "Curso de Google Ads para Adultos em Ribeirão Preto — Santos Tech",
+      title: "Curso de Google Ads Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda a criar e otimizar campanhas no Google Ads em Ribeirão Preto. Do básico ao avançado com IA, Performance Max e gestão profissional de mídia paga.",
-      path: "/adultos/cursos/google-ads",
+      path: "/particular/cursos/google-ads",
     }),
 })
 
@@ -245,5 +245,5 @@ const COURSE_DATA: CourseData = {
 }
 
 function GoogleAdsPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

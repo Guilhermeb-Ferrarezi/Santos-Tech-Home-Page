@@ -36,8 +36,9 @@ function TermosPage() {
         A <strong>Santos Tech</strong> (<strong>R. L. DOS SANTOS GAMES</strong>, CNPJ{" "}
         <strong>37.565.993/0001-59</strong>, Av. Nove de Julho, 1992, Jardim América,
         Ribeirão Preto/SP) é uma escola presencial de tecnologia que oferece
-        cursos para crianças e adolescentes (5 a 15 anos) e para adultos, além de
-        uma plataforma digital de apoio e pagamento.
+        cursos para crianças e adolescentes (5 a 15 anos) e cursos particulares
+        (individuais) para todas as idades, além de uma plataforma digital de
+        apoio e pagamento.
       </p>
 
       <h2>3. Matrícula e cadastro</h2>

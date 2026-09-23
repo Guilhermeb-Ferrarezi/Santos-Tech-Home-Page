@@ -16,18 +16,18 @@ import {
 import { Reveal } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
 import { Img } from "@/components/img";
-import { AdultosFaq } from "@/components/adultos-faq";
+import { ParticularFaq } from "@/components/particular-faq";
 import { pageMeta } from "@/lib/seo";
 
-export const Route = createFileRoute("/adultos/")({
-  component: AdultosPage,
+export const Route = createFileRoute("/particular/")({
+  component: ParticularPage,
   head: () =>
     pageMeta({
       title:
-        "Cursos de Tecnologia e Programação para Adultos em Ribeirão Preto — Santos Tech",
+        "Cursos Particulares de Tecnologia e Programação em Ribeirão Preto — Santos Tech",
       description:
-        "Cursos presenciais individuais de Excel, Python, IA e informática para adultos em Ribeirão Preto. Aulas um a um — só você e o professor. Agende uma conversa pelo WhatsApp.",
-      path: "/adultos",
+        "Cursos presenciais particulares de Excel, Python, IA e informática em Ribeirão Preto. Aulas um a um — só você e o professor. Agende uma conversa pelo WhatsApp.",
+      path: "/particular",
     }),
 });
 
@@ -83,7 +83,7 @@ const PILARES = [
       "Válido para qualquer cargo ou setor",
     ],
     cta: "Conhecer este curso",
-    href: "/adultos/cursos/office",
+    href: "/particular/cursos/office",
     bg: "linear-gradient(135deg, #100a00 0%, #1e1200 100%)",
     glow: "bg-amber-500/15",
     badge: "Mais procurado",
@@ -153,7 +153,7 @@ const POPULARES = [
   { slug: "suporte", titulo: "Suporte Técnico / Help Desk", categoria: "T.I", duracao: "3 meses", img: "/courses/suporte.jpg" },
 ];
 
-function AdultosPage() {
+function ParticularPage() {
   const [mostrarMais, setMostrarMais] = useState(false);
   const cursosVisiveis = mostrarMais ? POPULARES : POPULARES.slice(0, 3);
 
@@ -177,7 +177,7 @@ function AdultosPage() {
                 Escola
               </span>
               <span className="text-xs font-semibold uppercase tracking-[0.15em] text-white/60">
-                Santos Tech — Para Adultos
+                Santos Tech — Particular
               </span>
             </div>
           </Reveal>
@@ -270,7 +270,7 @@ function AdultosPage() {
             {CATEGORIAS.map((cat) => (
               <a
                 key={cat.slug}
-                href={`/adultos/cursos/${cat.slug}`}
+                href={`/particular/cursos/${cat.slug}`}
                 className="rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-5 py-2.5 text-sm font-semibold text-neutral-700 dark:text-neutral-300 shadow-sm transition hover:border-[#0DB88F] hover:text-[#0DB88F] hover:shadow-md"
               >
                 {cat.nome}
@@ -477,7 +477,7 @@ function AdultosPage() {
             {cursosVisiveis.map((curso, i) => (
               <Reveal key={curso.slug} delay={(i % 3) * 80}>
                 <a
-                  href={`/adultos/cursos/${curso.slug}`}
+                  href={`/particular/cursos/${curso.slug}`}
                   className="group block overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
                 >
                   {/* Banner visual */}
@@ -525,7 +525,7 @@ function AdultosPage() {
         </div>
       </section>
 
-      <AdultosFaq whatsappUrl={WHATSAPP} />
+      <ParticularFaq whatsappUrl={WHATSAPP} />
 
       {/* ============ COMO CHEGAR ============ */}
       <section className="py-20 bg-neutral-50 dark:bg-neutral-900">
@@ -619,7 +619,7 @@ function AdultosPage() {
                           <div className="flex items-center gap-1.5">
                             <span className="whitespace-nowrap text-xs font-black tracking-tight text-white/80">SANTOS TECH</span>
                             <span className="shrink-0 inline-flex items-center rounded-md bg-white px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-neutral-900">
-                              para adultos
+                              particular
                             </span>
                           </div>
                         </div>
@@ -639,7 +639,7 @@ function AdultosPage() {
                         {CATEGORIAS.map((cat) => (
                           <li key={cat.slug}>
                             <a
-                              href={`/adultos/cursos/${cat.slug}`}
+                              href={`/particular/cursos/${cat.slug}`}
                               className="text-xs text-neutral-500 transition hover:text-white/80"
                             >
                               {cat.nome}

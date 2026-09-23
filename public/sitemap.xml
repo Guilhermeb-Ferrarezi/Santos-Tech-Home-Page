@@ -125,318 +125,324 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Cursos para adultos — hub -->
+  <!-- Cursos particulares — hub -->
   <url>
-    <loc>https://santos-tech.com/adultos</loc>
-    <lastmod>2026-06-11</lastmod>
+    <loc>https://santos-tech.com/particular</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Cursos para adultos — catálogo -->
+  <!-- Cursos particulares — catálogo -->
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/ads</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/ads</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/agentes-ia</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/agentes-ia</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/autocad</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/autocad</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/backend</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/backend</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/canva</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/canva</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/capcut</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/capcut</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/chatgpt</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/chatgpt</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/ciberseguranca</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/ciberseguranca</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/conteudo-ia</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/conteudo-ia</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/copywriting</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/copywriting</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/davinci</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/davinci</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/ecommerce</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/ecommerce</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/excel</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/excel</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/excel-ia</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/excel-ia</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/excel-power-bi</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/excel-power-bi</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/frontend</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/frontend</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/fullstack</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/fullstack</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/funil-vendas</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/funil-vendas</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/git</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/git</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/google-ads</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/google-ads</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/ia</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/ia</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/ia-visual</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/ia-visual</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/impressao-3d</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/impressao-3d</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/informatica</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/informatica</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/jogos</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/jogos</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/linux</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/linux</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/logica</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/logica</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/make</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/make</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/manutencao</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/manutencao</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/marketing</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/marketing</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/meta-ads</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/meta-ads</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/mobile</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/mobile</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/modelagem-3d</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/modelagem-3d</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/n8n</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/n8n</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/office</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/office</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/photoshop</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/photoshop</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/power-apps</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/power-apps</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/power-bi</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/power-bi</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/powerpoint</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/powerpoint</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/python</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/premiere</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/python-apis</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/python</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/rag</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/python-apis</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/redes</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/rag</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/redes-sociais</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/redes</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/revit</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/redes-sociais</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/seo</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/revit</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/sql</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/seo</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/suporte</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/sql</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/tiktok-ads</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/suporte</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/typescript</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/tiktok-ads</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://santos-tech.com/adultos/cursos/word</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://santos-tech.com/particular/cursos/typescript</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://santos-tech.com/particular/cursos/word</loc>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

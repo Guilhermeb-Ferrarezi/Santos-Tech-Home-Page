@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/python")({
+export const Route = createFileRoute("/particular/cursos/python")({
   component: PythonPage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Python para Automações para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Python para Automações Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda Python do zero e automatize planilhas, e-mails, relatórios e processos repetitivos. Aulas individuais, horário flexível e 100% prático em Ribeirão Preto.",
-      path: "/adultos/cursos/python",
+      path: "/particular/cursos/python",
     }),
 })
 
@@ -237,6 +237,6 @@ const COURSE_DATA = {
 
 function PythonPage() {
   return (
-    <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+    <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
   )
 }

@@ -1,9 +1,9 @@
 ﻿import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/typescript")({
+export const Route = createFileRoute("/particular/cursos/typescript")({
   component: TypescriptPage,
   head: () =>
     pageMeta({
@@ -11,7 +11,7 @@ export const Route = createFileRoute("/adultos/cursos/typescript")({
         "Curso de TypeScript para Desenvolvimento Moderno em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda TypeScript do zero e escreva código mais seguro, escalável e fácil de manter. Curso presencial em Ribeirão Preto para devs que querem entrar no mercado de trabalho moderno.",
-      path: "/adultos/cursos/typescript",
+      path: "/particular/cursos/typescript",
     }),
 })
 
@@ -233,6 +233,6 @@ const COURSE_DATA = {
 
 function TypescriptPage() {
   return (
-    <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+    <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
   )
 }

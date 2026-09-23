@@ -1,18 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
-import type { CourseData } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
+import type { CourseData } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/informatica")({
+export const Route = createFileRoute("/particular/cursos/informatica")({
   component: InformaticaPage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Informática para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Informática Particular em Ribeirão Preto — Santos Tech",
       description:
         "Domine o computador, o pacote Office e as ferramentas de IA em aulas presenciais individuais. Do básico ao avançado, do zero ao mercado de trabalho.",
-      path: "/adultos/cursos/informatica",
+      path: "/particular/cursos/informatica",
     }),
 })
 
@@ -311,5 +311,5 @@ const COURSE_DATA: CourseData = {
 }
 
 function InformaticaPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

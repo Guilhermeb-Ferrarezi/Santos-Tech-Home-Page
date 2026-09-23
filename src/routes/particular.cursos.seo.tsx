@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
-import type { CourseData } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
+import type { CourseData } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/seo")({
+export const Route = createFileRoute("/particular/cursos/seo")({
   component: SeoPage,
   head: () =>
     pageMeta({
-      title: "Curso de SEO para Adultos em Ribeirão Preto — Santos Tech",
+      title: "Curso de SEO Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda SEO do zero ao avançado em Ribeirão Preto: rankeie no Google, atraia tráfego orgânico e cresça sem depender de anúncios pagos.",
-      path: "/adultos/cursos/seo",
+      path: "/particular/cursos/seo",
     }),
 })
 
@@ -238,5 +238,5 @@ const COURSE_DATA: CourseData = {
 }
 
 function SeoPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

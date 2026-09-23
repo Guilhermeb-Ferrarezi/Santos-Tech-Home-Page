@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
-import type { CourseData } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
+import type { CourseData } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/tiktok-ads")({
+export const Route = createFileRoute("/particular/cursos/tiktok-ads")({
   component: TikTokAdsPage,
   head: () =>
     pageMeta({
-      title: "Curso de TikTok Ads para Adultos em Ribeirão Preto — Santos Tech",
+      title: "Curso de TikTok Ads Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda a criar e gerenciar anúncios no TikTok do zero ao avançado em Ribeirão Preto. Criativos nativos, segmentação e ROAS real.",
-      path: "/adultos/cursos/tiktok-ads",
+      path: "/particular/cursos/tiktok-ads",
     }),
 })
 
@@ -182,5 +182,5 @@ const COURSE_DATA: CourseData = {
 }
 
 function TikTokAdsPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

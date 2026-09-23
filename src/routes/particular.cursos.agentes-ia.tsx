@@ -1,17 +1,17 @@
 ﻿import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/agentes-ia")({
+export const Route = createFileRoute("/particular/cursos/agentes-ia")({
   component: AgentesIaPage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Agentes de IA com N8N e LLMs para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Agentes de IA com N8N e LLMs Particular em Ribeirão Preto — Santos Tech",
       description:
         "Crie agentes de IA autônomos e sistemas multiagentes com N8N, LangChain e CrewAI. Curso presencial em Ribeirão Preto para quem quer automatizar processos com inteligência artificial.",
-      path: "/adultos/cursos/agentes-ia",
+      path: "/particular/cursos/agentes-ia",
     }),
 })
 
@@ -217,5 +217,5 @@ const COURSE_DATA = {
 }
 
 function AgentesIaPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

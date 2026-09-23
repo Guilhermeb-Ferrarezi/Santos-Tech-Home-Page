@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
-import type { CourseData } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
+import type { CourseData } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/excel-ia")({
+export const Route = createFileRoute("/particular/cursos/excel-ia")({
   component: ExcelIaPage,
   head: () =>
     pageMeta({
-      title: "Curso de Excel + IA para Adultos em Ribeirão Preto — Santos Tech",
+      title: "Curso de Excel + IA Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda a usar Copilot, Claude, ChatGPT e Python no Excel e no Google Sheets — faça em minutos o que levava horas. Aulas individuais e presenciais em Ribeirão Preto.",
-      path: "/adultos/cursos/excel-ia",
+      path: "/particular/cursos/excel-ia",
     }),
 })
 
@@ -242,5 +242,5 @@ const COURSE_DATA: CourseData = {
 }
 
 function ExcelIaPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

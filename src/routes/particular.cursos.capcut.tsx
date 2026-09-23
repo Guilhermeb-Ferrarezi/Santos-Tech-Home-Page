@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/capcut")({
+export const Route = createFileRoute("/particular/cursos/capcut")({
   component: CapcutPage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Edição de Vídeo — CapCut para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Edição de Vídeo — CapCut Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda a editar Reels, TikToks e Shorts com CapCut usando IA, legendas automáticas e efeitos profissionais. Curso presencial em Ribeirão Preto para criadores e empreendedores.",
-      path: "/adultos/cursos/capcut",
+      path: "/particular/cursos/capcut",
     }),
 })
 
@@ -96,6 +96,6 @@ const COURSE_DATA = {
 
 function CapcutPage() {
   return (
-    <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+    <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
   )
 }

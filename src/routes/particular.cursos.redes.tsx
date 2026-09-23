@@ -1,18 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
-import type { CourseData } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
+import type { CourseData } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/redes")({
+export const Route = createFileRoute("/particular/cursos/redes")({
   component: RedesPage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Redes e Infraestrutura para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Redes e Infraestrutura Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda a configurar redes corporativas, VLANs, roteamento e Wi-Fi com preparação para a certificação CompTIA Network+. Aulas individuais e horário flexível.",
-      path: "/adultos/cursos/redes",
+      path: "/particular/cursos/redes",
     }),
 })
 
@@ -171,5 +171,5 @@ const COURSE_DATA: CourseData = {
 }
 
 function RedesPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

@@ -1,16 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/autocad")({
+export const Route = createFileRoute("/particular/cursos/autocad")({
   component: AutocadPage,
   head: () =>
     pageMeta({
-      title: "Curso de AutoCAD para Adultos em Ribeirão Preto — Santos Tech",
+      title: "Curso de AutoCAD Particular em Ribeirão Preto — Santos Tech",
       description:
         "Domine AutoCAD 2D e 3D com aulas individuais e presenciais em Ribeirão Preto. Do traço à prancha executiva para arquitetos, engenheiros e projetistas técnicos.",
-      path: "/adultos/cursos/autocad",
+      path: "/particular/cursos/autocad",
     }),
 })
 
@@ -241,5 +241,5 @@ const COURSE_DATA = {
 }
 
 function AutocadPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

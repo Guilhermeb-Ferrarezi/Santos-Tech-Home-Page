@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/modelagem-3d")({
+export const Route = createFileRoute("/particular/cursos/modelagem-3d")({
   component: Modelagem3dPage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Modelagem 3D para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Modelagem 3D Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda Blender e SketchUp do zero ao portfólio 3D profissional em Ribeirão Preto. Renderização fotorrealista, escultura digital e IA generativa — aulas presenciais e individuais na Santos Tech.",
-      path: "/adultos/cursos/modelagem-3d",
+      path: "/particular/cursos/modelagem-3d",
     }),
 })
 
@@ -252,5 +252,5 @@ const COURSE_DATA = {
 }
 
 function Modelagem3dPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

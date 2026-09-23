@@ -1,18 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
-import type { CourseData } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
+import type { CourseData } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/canva")({
+export const Route = createFileRoute("/particular/cursos/canva")({
   component: CanvaPage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Design Gráfico — Canva Pro para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Design Gráfico — Canva Pro Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda Canva Pro do zero ao design profissional: posts, apresentações, identidade visual e Magic Studio com IA. Aulas individuais e flexíveis em Ribeirão Preto.",
-      path: "/adultos/cursos/canva",
+      path: "/particular/cursos/canva",
     }),
 })
 
@@ -97,6 +97,6 @@ const COURSE_DATA: CourseData = {
 
 function CanvaPage() {
   return (
-    <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+    <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
   )
 }

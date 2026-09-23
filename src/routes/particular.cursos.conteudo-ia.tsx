@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
-import type { CourseData } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
+import type { CourseData } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/conteudo-ia")({
+export const Route = createFileRoute("/particular/cursos/conteudo-ia")({
   component: ConteudoIaPage,
   head: () =>
     pageMeta({
-      title: "Curso de Criação de Conteúdo com IA para Adultos em Ribeirão Preto — Santos Tech",
+      title: "Curso de Criação de Conteúdo com IA Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda a criar imagens, vídeos e textos profissionais com ChatGPT, Midjourney, Runway e Canva IA em Ribeirão Preto.",
-      path: "/adultos/cursos/conteudo-ia",
+      path: "/particular/cursos/conteudo-ia",
     }),
 })
 
@@ -164,5 +164,5 @@ const COURSE_DATA: CourseData = {
 }
 
 function ConteudoIaPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

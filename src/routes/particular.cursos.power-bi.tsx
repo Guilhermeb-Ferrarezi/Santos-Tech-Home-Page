@@ -1,16 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/power-bi")({
+export const Route = createFileRoute("/particular/cursos/power-bi")({
   component: PowerBiPage,
   head: () =>
     pageMeta({
-      title: "Curso de Power BI para Adultos em Ribeirão Preto — Santos Tech",
+      title: "Curso de Power BI Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda Power BI do zero ao profissional em Ribeirão Preto: DAX, modelagem, dashboards executivos e integração com Python e IA. Aulas individuais e presenciais.",
-      path: "/adultos/cursos/power-bi",
+      path: "/particular/cursos/power-bi",
     }),
 })
 
@@ -233,5 +233,5 @@ const COURSE_DATA = {
 }
 
 function PowerBiPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

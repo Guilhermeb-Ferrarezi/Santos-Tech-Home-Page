@@ -1,16 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/impressao-3d")({
+export const Route = createFileRoute("/particular/cursos/impressao-3d")({
   component: Impressao3dPage,
   head: () =>
     pageMeta({
-      title: "Curso de Impressão 3D para Adultos em Ribeirão Preto — Santos Tech",
+      title: "Curso de Impressão 3D Particular em Ribeirão Preto — Santos Tech",
       description:
         "Domine impressão 3D FDM e resina: fatiamento, calibração e materiais técnicos em aulas individuais e presenciais em Ribeirão Preto. Do arquivo ao produto final.",
-      path: "/adultos/cursos/impressao-3d",
+      path: "/particular/cursos/impressao-3d",
     }),
 })
 
@@ -103,5 +103,5 @@ const COURSE_DATA = {
 }
 
 function Impressao3dPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/ecommerce")({
+export const Route = createFileRoute("/particular/cursos/ecommerce")({
   component: EcommercePage,
   head: () =>
     pageMeta({
       title:
-        "Curso de E-commerce & Vendas Online para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de E-commerce & Vendas Online Particular em Ribeirão Preto — Santos Tech",
       description:
         "Monte sua loja virtual do zero, atraia clientes com tráfego pago e automatize vendas. Do Shopify ao escala com marketplaces, presencial em Ribeirão Preto.",
-      path: "/adultos/cursos/ecommerce",
+      path: "/particular/cursos/ecommerce",
     }),
 })
 
@@ -157,6 +157,6 @@ const COURSE_DATA = {
 
 function EcommercePage() {
   return (
-    <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+    <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
   )
 }

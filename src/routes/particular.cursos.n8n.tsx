@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/n8n")({
+export const Route = createFileRoute("/particular/cursos/n8n")({
   component: N8nPage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Automações + N8N para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Automações + N8N Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda a automatizar processos, criar agentes de IA e integrar sistemas sem programar. Curso presencial de N8N em Ribeirão Preto para gestores e empreendedores.",
-      path: "/adultos/cursos/n8n",
+      path: "/particular/cursos/n8n",
     }),
 })
 
@@ -241,6 +241,6 @@ const COURSE_DATA = {
 
 function N8nPage() {
   return (
-    <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+    <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
   )
 }

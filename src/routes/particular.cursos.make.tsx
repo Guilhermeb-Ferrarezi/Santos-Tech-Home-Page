@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
-import type { CourseData } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
+import type { CourseData } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/make")({
+export const Route = createFileRoute("/particular/cursos/make")({
   component: MakePage,
   head: () =>
     pageMeta({
-      title: "Curso de Automações No-Code com Make para Adultos em Ribeirão Preto — Santos Tech",
+      title: "Curso de Automações No-Code com Make Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda a criar automações poderosas com Make em Ribeirão Preto: conecte apps, elimine tarefas repetitivas e integre IA sem escrever código.",
-      path: "/adultos/cursos/make",
+      path: "/particular/cursos/make",
     }),
 })
 
@@ -179,5 +179,5 @@ const COURSE_DATA: CourseData = {
 }
 
 function MakePage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
-import type { CourseData } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
+import type { CourseData } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/funil-vendas")({
+export const Route = createFileRoute("/particular/cursos/funil-vendas")({
   component: FunilVendasPage,
   head: () =>
     pageMeta({
-      title: "Curso de Funil de Vendas + CRM para Adultos em Ribeirão Preto — Santos Tech",
+      title: "Curso de Funil de Vendas + CRM Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda a montar funis de vendas e usar CRM com automações reais. Curso presencial em Ribeirão Preto para profissionais e empreendedores.",
-      path: "/adultos/cursos/funil-vendas",
+      path: "/particular/cursos/funil-vendas",
     }),
 })
 
@@ -176,5 +176,5 @@ const COURSE_DATA: CourseData = {
 }
 
 function FunilVendasPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

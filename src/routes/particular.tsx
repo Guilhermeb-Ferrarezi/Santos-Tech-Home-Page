@@ -16,11 +16,11 @@ import {
 import { Img } from "@/components/img";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 
-export const Route = createFileRoute("/adultos")({
-  component: AdultosLayout,
+export const Route = createFileRoute("/particular")({
+  component: ParticularLayout,
 });
 
-const DARK_KEY = "adultos:dark";
+const DARK_KEY = "particular:dark";
 
 const GRUPOS: { id: string; label: string; cursos: { slug: string; nome: string }[] }[] = [
   {
@@ -102,7 +102,8 @@ const GRUPOS: { id: string; label: string; cursos: { slug: string; nome: string 
       { slug: "canva", nome: "Canva Pro" },
       { slug: "photoshop", nome: "Photoshop + Illustrator" },
       { slug: "capcut", nome: "Edição de Vídeo — CapCut" },
-      { slug: "davinci", nome: "DaVinci Resolve / Premiere" },
+      { slug: "davinci", nome: "Edição de Vídeo — DaVinci Resolve" },
+      { slug: "premiere", nome: "Edição de Vídeo — Adobe Premiere" },
     ],
   },
   {
@@ -122,7 +123,7 @@ const GRUPOS: { id: string; label: string; cursos: { slug: string; nome: string 
   },
 ];
 
-function AdultosLayout() {
+function ParticularLayout() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const [cursosOpen, setCursosOpen] = useState(true);
@@ -223,7 +224,7 @@ function AdultosLayout() {
                 SANTOS TECH
               </span>
               <span className="shrink-0 inline-flex items-center rounded-md bg-neutral-900 dark:bg-white px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-white dark:text-neutral-900">
-                para adultos
+                particular
               </span>
             </div>
           </div>
@@ -255,12 +256,12 @@ function AdultosLayout() {
 
           {/* Início */}
           <Link
-            to="/adultos"
+            to="/particular"
             onClick={() => setMobileOpen(false)}
             title={collapsed ? "Início" : undefined}
-            className={navItem(pathname === "/adultos")}
+            className={navItem(pathname === "/particular")}
           >
-            <Home className={`h-4 w-4 shrink-0 ${iconCls(pathname === "/adultos")}`} />
+            <Home className={`h-4 w-4 shrink-0 ${iconCls(pathname === "/particular")}`} />
             {label("Início")}
           </Link>
 
@@ -336,7 +337,7 @@ function AdultosLayout() {
                           {cursos.map(({ slug, nome }) => (
                             <Link
                               key={slug}
-                              to={`/adultos/cursos/${slug}`}
+                              to={`/particular/cursos/${slug}`}
                               onClick={() => setMobileOpen(false)}
                               className="flex min-w-0 items-center rounded-lg px-3 py-1.5 text-sm font-medium text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
                             >
@@ -417,7 +418,7 @@ function AdultosLayout() {
               <div className="flex items-center gap-1.5">
                 <span className="text-sm font-black text-neutral-900 dark:text-white">SANTOS TECH</span>
                 <span className="inline-flex items-center rounded-md bg-neutral-900 dark:bg-white px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-white dark:text-neutral-900">
-                  para adultos
+                  particular
                 </span>
               </div>
             </div>

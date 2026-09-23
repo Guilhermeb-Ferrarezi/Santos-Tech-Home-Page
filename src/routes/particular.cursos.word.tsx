@@ -1,16 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/word")({
+export const Route = createFileRoute("/particular/cursos/word")({
   component: WordPage,
   head: () =>
     pageMeta({
-      title: "Curso de Word para Adultos em Ribeirão Preto — Santos Tech",
+      title: "Curso de Word Particular em Ribeirão Preto — Santos Tech",
       description:
-        "Domine o Word profissionalmente: templates corporativos, mala direta, sumário automático e IA integrada. Curso presencial para adultos em Ribeirão Preto.",
-      path: "/adultos/cursos/word",
+        "Domine o Word profissionalmente: templates corporativos, mala direta, sumário automático e IA integrada. Curso presencial particular em Ribeirão Preto.",
+      path: "/particular/cursos/word",
     }),
 })
 
@@ -218,5 +218,5 @@ const COURSE_DATA = {
 }
 
 function WordPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

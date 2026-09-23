@@ -1,17 +1,17 @@
 ﻿import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/rag")({
+export const Route = createFileRoute("/particular/cursos/rag")({
   component: RagPage,
   head: () =>
     pageMeta({
       title:
-        "Curso de RAG — IA com seus Próprios Dados para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de RAG — IA com seus Próprios Dados Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda a construir sistemas de RAG (Retrieval-Augmented Generation) com embeddings, bancos vetoriais e LLMs para criar chatbots e assistentes com seus documentos.",
-      path: "/adultos/cursos/rag",
+      path: "/particular/cursos/rag",
     }),
 })
 
@@ -228,5 +228,5 @@ const COURSE_DATA = {
 }
 
 function RagPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

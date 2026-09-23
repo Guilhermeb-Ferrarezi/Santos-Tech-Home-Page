@@ -3,7 +3,7 @@ import { ChevronDown } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 import { WhatsAppIcon } from "@/components/icons"
 
-export const ADULTOS_FAQ_ITEMS = [
+export const PARTICULAR_FAQ_ITEMS = [
   {
     q: "Quais são os horários de aula?",
     a: "Atendemos de segunda a sábado, das 8h às 22h. Você escolhe o horário que melhor encaixa na sua rotina — basta combinar com a gente pelo WhatsApp.",
@@ -22,7 +22,7 @@ export const ADULTOS_FAQ_ITEMS = [
   },
   {
     q: "Preciso me matricular em uma turma?",
-    a: "Não. Na Santos Tech adultos não existem turmas. As aulas são individuais — só você e o professor. Isso significa atenção total, sem fila de dúvidas e sem adaptação ao ritmo de ninguém.",
+    a: "Não. Na Santos Tech Particular não existem turmas. As aulas são individuais — só você e o professor. Isso significa atenção total, sem fila de dúvidas e sem adaptação ao ritmo de ninguém.",
   },
   {
     q: "Quanto custa?",
@@ -31,15 +31,15 @@ export const ADULTOS_FAQ_ITEMS = [
   },
 ]
 
-interface AdultosFaqProps {
+interface ParticularFaqProps {
   whatsappUrl: string
   /** Perguntas específicas do curso — exibidas antes das genéricas. */
   extraItems?: { q: string; a: string }[]
 }
 
-export function AdultosFaq({ whatsappUrl, extraItems }: AdultosFaqProps) {
+export function ParticularFaq({ whatsappUrl, extraItems }: ParticularFaqProps) {
   const [open, setOpen] = useState<number | null>(null)
-  const FAQ = extraItems?.length ? [...extraItems, ...ADULTOS_FAQ_ITEMS] : ADULTOS_FAQ_ITEMS
+  const FAQ = extraItems?.length ? [...extraItems, ...PARTICULAR_FAQ_ITEMS] : PARTICULAR_FAQ_ITEMS
 
   return (
     <section className="py-20 bg-neutral-50 dark:bg-neutral-900">

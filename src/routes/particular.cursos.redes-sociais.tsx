@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/redes-sociais")({
+export const Route = createFileRoute("/particular/cursos/redes-sociais")({
   component: RedesSociaisPage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Gestão de Redes Sociais para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Gestão de Redes Sociais Particular em Ribeirão Preto — Santos Tech",
       description:
         "Torne-se Social Media profissional: estratégia de conteúdo, métricas, tráfego pago e IA aplicada. Do essencial ao gestor estratégico, presencial em Ribeirão Preto.",
-      path: "/adultos/cursos/redes-sociais",
+      path: "/particular/cursos/redes-sociais",
     }),
 })
 
@@ -197,6 +197,6 @@ const COURSE_DATA = {
 
 function RedesSociaisPage() {
   return (
-    <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+    <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
   )
 }

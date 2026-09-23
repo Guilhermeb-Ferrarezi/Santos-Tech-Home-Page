@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/jogos")({
+export const Route = createFileRoute("/particular/cursos/jogos")({
   component: JogosPage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Desenvolvimento de Jogos para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Desenvolvimento de Jogos Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda a criar jogos 2D e 3D com Unity e Godot 4 em Ribeirão Preto. Do plataformer ao jogo comercial publicado na Steam — aulas presenciais e individuais na Santos Tech.",
-      path: "/adultos/cursos/jogos",
+      path: "/particular/cursos/jogos",
     }),
 })
 
@@ -162,5 +162,5 @@ const COURSE_DATA = {
 }
 
 function JogosPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

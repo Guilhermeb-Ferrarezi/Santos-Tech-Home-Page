@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/suporte")({
+export const Route = createFileRoute("/particular/cursos/suporte")({
   component: SuportePage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Suporte Técnico / Help Desk para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Suporte Técnico / Help Desk Particular em Ribeirão Preto — Santos Tech",
       description:
         "Entre na área de TI em até 60 dias: hardware, redes, Active Directory e ticketing. Prepare-se para a certificação CompTIA A+ com aulas individuais e presenciais.",
-      path: "/adultos/cursos/suporte",
+      path: "/particular/cursos/suporte",
     }),
 })
 
@@ -216,5 +216,5 @@ const COURSE_DATA = {
 }
 
 function SuportePage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

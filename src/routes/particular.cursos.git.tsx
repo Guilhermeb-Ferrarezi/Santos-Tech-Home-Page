@@ -1,17 +1,17 @@
 ﻿import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
-import type { CourseData } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
+import type { CourseData } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/git")({
+export const Route = createFileRoute("/particular/cursos/git")({
   component: GitPage,
   head: () =>
     pageMeta({
       title: "Curso de Git e GitHub para Profissionais em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda Git do zero: commits, branches, merge, pull requests e GitHub. Curso presencial em Ribeirão Preto para devs e profissionais que querem trabalhar em equipe com código.",
-      path: "/adultos/cursos/git",
+      path: "/particular/cursos/git",
     }),
 })
 
@@ -118,5 +118,5 @@ const COURSE_DATA: CourseData = {
 }
 
 function GitPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }

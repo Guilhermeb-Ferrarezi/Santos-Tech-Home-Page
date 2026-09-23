@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/photoshop")({
+export const Route = createFileRoute("/particular/cursos/photoshop")({
   component: PhotoshopPage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Design Gráfico — Photoshop + Illustrator para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Design Gráfico — Photoshop + Illustrator Particular em Ribeirão Preto — Santos Tech",
       description:
         "Domine Photoshop e Illustrator do zero ao portfólio profissional em Ribeirão Preto. Retoque, identidade visual, Adobe Firefly e IA generativa para designers, fotógrafos e profissionais de marketing.",
-      path: "/adultos/cursos/photoshop",
+      path: "/particular/cursos/photoshop",
     }),
 })
 
@@ -205,5 +205,5 @@ const COURSE_DATA = {
 }
 
 function PhotoshopPage() {
-  return <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+  return <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
 }
