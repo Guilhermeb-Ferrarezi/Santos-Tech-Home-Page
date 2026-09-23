@@ -245,8 +245,13 @@ export function CommonSections({
                     <div className="flex flex-1 flex-col gap-5 p-6">
                       <p className={`text-sm ${look.text}`}>{t.outcome}</p>
                       <div>
-                        <p className={`text-3xl font-black tracking-tight ${look.title}`}>{m?.price ?? "—"}</p>
-                        <p className={`mt-0.5 ${small} ${look.muted}`}>preço total do curso</p>
+                        <p className={`text-3xl font-black tracking-tight ${look.title}`}>
+                          {m?.investimento?.parcelaFormatted ?? "—"}
+                        </p>
+                        <p className={`mt-0.5 ${small} ${look.muted}`}>12x sem juros no cartão</p>
+                        {m?.investimento && (
+                          <p className={`mt-1.5 ${small} ${look.muted}`}>ou {m.investimento.totalFormatted} à vista</p>
+                        )}
                       </div>
                       {m && (
                         <div className={`space-y-2 border-t pt-4 text-sm ${planBorder}`}>

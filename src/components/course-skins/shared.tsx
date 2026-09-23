@@ -23,41 +23,61 @@ import type { CourseTheme, CourseThemeKey } from "@/lib/course-themes";
 
 // ── Preços e ritmo por nível ───────────────────────────────────────────────
 
-export const TIER_META: Record<string, { price: string; aulas: string; intensivo: string; padrao: string }> = {
-  Essencial: { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
-  Intermediário: { price: "R$ 3.940", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Profissional + IA": { price: "R$ 5.910", aulas: "72 aulas", intensivo: "~3 meses", padrao: "~9 meses" },
+export const TIER_META: Record<string, { price: number; aulas: string; intensivo: string; padrao: string }> = {
+  Essencial: { price: 1970, aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
+  Intermediário: { price: 3940, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Profissional + IA": { price: 5910, aulas: "72 aulas", intensivo: "~3 meses", padrao: "~9 meses" },
   // Cursos com plano único: mesma faixa de preço do Essencial, com o nome do próprio curso no lugar do nível
-  "Montagem e Manutenção": { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
-  "Canva Pro": { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
-  CapCut: { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
-  "Impressão 3D Completa": { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
+  "Montagem e Manutenção": { price: 1970, aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
+  "Canva Pro": { price: 1970, aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
+  CapCut: { price: 1970, aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
+  "Impressão 3D Completa": { price: 1970, aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
   // Curso de plano único, mas categoria técnica (taxa acima do piso do Essencial)
-  "Git e GitHub": { price: "R$ 2.640", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
+  "Git e GitHub": { price: 2640, aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
   // Cursos profundos com plano único (preço/ritmo próprios, fora da faixa padrão do Essencial/Intermediário)
   // — conversão de 2-3 tiers pra 1, ver docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md
-  "Adobe Premiere": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Suporte Técnico": { price: "R$ 5.520", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Redes e Infraestrutura": { price: "R$ 6.240", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  Cibersegurança: { price: "R$ 7.200", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  Linux: { price: "R$ 5.760", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Modelagem 3D": { price: "R$ 7.200", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  AutoCAD: { price: "R$ 6.720", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Revit BIM": { price: "R$ 7.200", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Adobe Premiere": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Suporte Técnico": { price: 5520, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Redes e Infraestrutura": { price: 6240, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  Cibersegurança: { price: 7200, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  Linux: { price: 5760, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Modelagem 3D": { price: 7200, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  AutoCAD: { price: 6720, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Revit BIM": { price: 7200, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
   // Cursos de plano único, categoria símples (mesma taxa/ritmo do Premiere — R$ 82,70/h)
-  Informática: { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Photoshop + Illustrator": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "DaVinci Resolve": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Marketing Digital": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Meta Ads": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Google Ads": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "TikTok Ads": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  Copywriting: { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Funil de Vendas": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  SEO: { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Redes Sociais": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "E-commerce": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  Informática: { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Photoshop + Illustrator": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "DaVinci Resolve": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Marketing Digital": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Meta Ads": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Google Ads": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "TikTok Ads": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  Copywriting: { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Funil de Vendas": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  SEO: { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Redes Sociais": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "E-commerce": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
 };
+
+// ── Margem embutida e parcelamento (decisão do Henrique, 23/09) ────────────
+// Todo curso particular embute 15% sobre o valor-base acima (atual e futuro)
+// e é apresentado como parcela em até 12x sem juros no cartão — a margem em
+// si nunca aparece pro aluno como "15%" ou "juros". Ver spec:
+// docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md
+export const MARKUP = 1.15;
+export const INSTALLMENTS = 12;
+
+export function formatBRL(value: number): string {
+  return `R$ ${value.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+}
+
+export function getInvestimento(basePrice: number) {
+  const total = basePrice * MARKUP;
+  return {
+    totalFormatted: formatBRL(total),
+    parcelaFormatted: formatBRL(total / INSTALLMENTS),
+  };
+}
 
 // ── Diferenciais hardcoded ─────────────────────────────────────────────────
 
@@ -122,7 +142,6 @@ export const TIER_GUIDE: Record<string, string> = {
   "Profissional + IA": "Quero dominar tudo — incluindo os recursos de inteligência artificial",
 };
 
-
 // ── Formato das aulas ─────────────────────────────────────────────────────
 
 export const FORMATO = [
@@ -155,7 +174,8 @@ export const CUSTOS_UNICOS = [
   { label: "Material didático", value: "R$ 389,90" },
 ];
 
-export const FORMAS_PAGAMENTO = "Pix · Crédito · Débito · Boleto · Dinheiro em espécie";
+export const FORMAS_PAGAMENTO =
+  "Pix · Crédito em até 12x sem juros · Débito · Boleto · Dinheiro em espécie";
 
 
 /** Texto do bloco "Não se encaixa em nenhum nível?" — só aparece em curso com mais de um nível. */
@@ -164,16 +184,20 @@ export const TRILHA_PERSONALIZADA =
 
 export const WHATSAPP_EXIBICAO = "(16) 99257-8710";
 
-/** Preço/ritmo de um nível, respeitando `pricePerAula` do curso quando existe. */
+/**
+ * Preço/ritmo de um nível, com o mesmo cálculo do template padrão: preço-base
+ * (ou `pricePerAula` × horas), margem embutida e parcela em 12x.
+ */
 export function tierMeta(course: CourseData, t: Tier) {
   const base = TIER_META[t.levelName];
-  if (course.pricePerAula && base) {
-    return {
-      ...base,
-      price: `R$ ${Math.round(parseInt(t.totalHours) * course.pricePerAula).toLocaleString("pt-BR")}`,
-    };
-  }
-  return base;
+  const basePrice = course.pricePerAula ? parseInt(t.totalHours) * course.pricePerAula : base?.price;
+  if (!base && basePrice == null) return undefined;
+  return {
+    aulas: base?.aulas ?? t.totalHours,
+    intensivo: base?.intensivo ?? "—",
+    padrao: base?.padrao ?? "—",
+    investimento: basePrice != null ? getInvestimento(basePrice) : null,
+  };
 }
 
 export type SkinProps = {
