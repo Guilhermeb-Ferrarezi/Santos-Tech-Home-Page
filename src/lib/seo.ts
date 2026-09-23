@@ -341,7 +341,7 @@ export function buildParticularCourseSchema(course: {
     teaches: course.tiers.map((t) => t.outcome).join("; "),
     hasCourseInstance: course.tiers.map((tier) => ({
       "@type": "CourseInstance",
-      name: `${course.name} — ${tier.levelName}`,
+      name: course.tiers.length > 1 ? `${course.name} — ${tier.levelName}` : course.name,
       courseMode: "Onsite",
       courseWorkload: `PT${tier.totalHours.replace("h", "")}H`,
       instructor: {
