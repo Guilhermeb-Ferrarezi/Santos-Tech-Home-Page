@@ -64,10 +64,19 @@ const TIER_META: Record<string, { price: string; aulas: string; intensivo: strin
   "Montagem e Manutenção": { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
   "Canva Pro": { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
   CapCut: { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
-  "Git e GitHub": { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
   "Impressão 3D Completa": { price: "R$ 1.970", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
-  // Curso profundo com plano único (preço/ritmo próprios, fora da faixa padrão do Essencial)
+  // Curso de plano único, mas categoria técnica (taxa acima do piso do Essencial)
+  "Git e GitHub": { price: "R$ 2.640", aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
+  // Cursos profundos com plano único (preço/ritmo próprios, fora da faixa padrão do Essencial/Intermediário)
+  // — conversão de 2-3 tiers pra 1, ver docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md
   "Adobe Premiere": { price: "R$ 3.970", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Suporte Técnico": { price: "R$ 5.520", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Redes e Infraestrutura": { price: "R$ 6.240", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  Cibersegurança: { price: "R$ 7.200", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  Linux: { price: "R$ 5.760", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Modelagem 3D": { price: "R$ 7.200", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  AutoCAD: { price: "R$ 6.720", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Revit BIM": { price: "R$ 7.200", aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
 };
 
 // ── Diferenciais hardcoded ─────────────────────────────────────────────────

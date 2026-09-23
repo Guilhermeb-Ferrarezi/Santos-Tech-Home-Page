@@ -7,29 +7,34 @@
       auditoria de resquícios do modelo antigo (23/09). O bloco "Ritmo"
       (`particular.index.tsx`) mostra 1h/aula, 24 aulas/curso, ~3 meses no
       ritmo padrão e ~1 mês no intensivo como se fosse universal. Hoje ainda
-      é o caso pra maioria (entrada Essencial dos 45 cursos não convertidos +
+      é o caso pra maioria (entrada Essencial dos 39 cursos não convertidos +
       Canva/CapCut/Git/Manutenção/Impressão 3D, todos 24h), mas a unificação
-      de tiers definiu 48 aulas como novo padrão (ver pendência abaixo) e o
-      Premiere — primeiro curso convertido — já está em 48h, contradizendo a
-      estatística. Não mexi agora porque não é um bug claro: é decisão de
-      posicionamento (qual número mostrar como representativo) que toca
-      como o site se apresenta, não uma correção óbvia. Revisar quando a
-      conversão dos 45 cursos avançar. _Aguardando Henrique._
+      de tiers definiu 48 aulas como novo padrão (ver pendência abaixo) e já
+      são 8 cursos convertidos nesse ritmo (Premiere + grupos T.I e Universo
+      3D), contradizendo a estatística. Não mexi agora porque não é um bug
+      claro: é decisão de posicionamento (qual número mostrar como
+      representativo) que toca como o site se apresenta, não uma correção
+      óbvia. Revisar quando a conversão dos 39 cursos restantes avançar.
+      _Aguardando Henrique._
 
-- [~] **Unificação de tiers em opção única — falta só revisar a tabela de
-      taxa técnica antes de converter os 45 cursos restantes** (spec
+- [~] **Unificação de tiers em opção única — 8 de 47 cursos convertidos,
+      falta revisar a tabela de taxa técnica pros 39 restantes** (spec
       completa em
       [`docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md`](docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md),
-      PR #22/#24). Decidido em 23/09: `git` vira técnico (110/h); `capcut`
+      PR #22/#24). **Feito:** Premiere (PR #20/#21, piloto), grupo T.I —
+      Suporte Técnico, Redes, Cibersegurança, Linux (PR #25), grupo
+      Universo 3D — Modelagem 3D, AutoCAD, Revit BIM (PR #26). Decidido em
+      23/09: `git` vira técnico (110/h, sem mudar carga horária); `capcut`
       mantém 24h sem nivelar; `mobile` unifica em React Native (pesquisa
       de mercado mostrou Brasil sem vantagem clara do RN — decisão veio da
       sinergia com o curso de Frontend, que já ensina React); `jogos`
       mantém Unity + Godot juntos (mercados diferentes: Unity pra
       empregabilidade mobile, Godot pra publicar indie sem custo);
       `manutencao`/`impressao-3d` seguem curtos (24h), sem objeção.
-      **Falta:** Henrique revisar a tabela de taxa técnica (R$110-180/h,
-      ~25 cursos) — são sugestões da spec, não confirmadas. Premiere já é
-      o piloto pronto (PR #20/#21). _Aguardando Henrique._
+      **Falta:** Henrique revisar a tabela de taxa técnica (R$110-180/h)
+      pros 39 cursos restantes (Informática, Office, IA, Programação,
+      Design & Criação — Photoshop/DaVinci, Marketing & Negócios) — são
+      sugestões da spec, não confirmadas. _Aguardando Henrique._
 
 ## Resolvidas
 

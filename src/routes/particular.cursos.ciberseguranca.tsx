@@ -29,11 +29,12 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Essencial",
-      levelName: "Essencial",
-      totalHours: "24h",
+      label: "Cibersegurança",
+      levelName: "Cibersegurança",
+      ctaLabel: "curso de Cibersegurança",
+      totalHours: "48h",
       outcome:
-        "Entender os principais vetores de ataque, aplicar proteções básicas e usar ferramentas de segurança em ambiente controlado",
+        "Entender os fundamentos de segurança do zero absoluto — CIA Triad, proteções essenciais e hacking ético — até realizar testes de penetração completos, operar um SOC básico com Wazuh e redigir relatório técnico de pentest, pronto para as certificações CompTIA Security+ ou eJPT.",
       modules: [
         {
           title: "Fundamentos de Segurança",
@@ -54,96 +55,22 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "Introdução ao Hacking Ético",
+          title: "Hacking Ético e Reconhecimento (OSINT)",
           topics: [
-            "Metodologia: reconhecimento, enumeração, exploração e relatório",
-            "Kali Linux: instalação em VM e principais ferramentas do menu",
-            "Nmap: varredura de portas, detecção de OS e serviços",
+            "Metodologia de pentest: reconhecimento, enumeração, exploração e relatório",
+            "Kali Linux e Nmap: instalação da VM, ferramentas essenciais do menu e varredura de portas, detecção de OS e serviços",
+            "OSINT: mapeamento de alvos e ativos expostos com theHarvester, Maltego CE, Recon-ng, Shodan e Censys",
+            "Google Dorks (Google Hacking): operadores avançados para encontrar servidores, câmeras e painéis administrativos expostos",
+            "Análise de e-mails suspeitos: cabeçalhos, SPF, DKIM e indicadores de phishing",
+            "Análise de vazamentos com Have I Been Pwned e DeHashed",
             "Prática em ambiente controlado: TryHackMe — primeiras rooms",
           ],
         },
-      ],
-      tools: [
-        "Kali Linux",
-        "Nmap",
-        "Bitwarden",
-        "TryHackMe",
-        "VirtualBox",
-      ],
-    },
-    {
-      label: "Intermediário",
-      levelName: "Intermediário",
-      totalHours: "48h",
-      outcome:
-        "Realizar varreduras e análises de vulnerabilidade, monitorar eventos de segurança e aplicar controles em ambientes corporativos",
-      modules: [
         {
-          title: "Fundamentos de Segurança",
+          title: "Análise de Vulnerabilidades e Exploração",
           topics: [
-            "CIA Triad: confidencialidade, integridade e disponibilidade",
-            "Tipos de ataque: phishing, engenharia social, malware, ransomware",
-            "Superfície de ataque: o que expõe uma organização a riscos",
-            "Princípio do menor privilégio e defesa em profundidade",
-          ],
-        },
-        {
-          title: "Reconhecimento e OSINT",
-          topics: [
-            "OSINT: coleta de informações públicas com theHarvester e Maltego CE",
-            "Shodan: encontrar dispositivos expostos na internet",
-            "Google Hacking (Google Dorks): operadores avançados para reconhecimento",
-            "Análise de e-mails suspeitos: cabeçalhos, SPF, DKIM e phishing indicators",
-          ],
-        },
-        {
-          title: "Análise de Vulnerabilidades",
-          topics: [
-            "Nessus Essentials: instalação, scan de rede e interpretação de relatório",
-            "CVE e CVSS: como ler uma vulnerabilidade e priorizar correção",
-            "OpenVAS: alternativa open source para scanning de vulnerabilidades",
-            "Patch management: processo de atualização segura em ambientes Windows",
-          ],
-        },
-        {
-          title: "Monitoramento e SOC",
-          topics: [
-            "SIEM: conceito de correlação de eventos e alertas",
-            "Wazuh: instalação e integração de agentes Windows e Linux",
-            "Análise de logs: identificar padrões de ataque em logs do Windows Event Viewer",
-            "Incident response: fases de resposta a um incidente de segurança",
-          ],
-        },
-      ],
-      tools: [
-        "Kali Linux",
-        "Nessus Essentials",
-        "Wazuh",
-        "Wireshark",
-        "Maltego CE",
-        "TryHackMe",
-        "HackTheBox",
-      ],
-    },
-    {
-      label: "Profissional + IA",
-      levelName: "Profissional + IA",
-      totalHours: "72h",
-      outcome:
-        "Realizar testes de penetração completos, operar um SOC básico, redigir relatório técnico de pentest e estar preparado para CompTIA Security+ ou eJPT",
-      modules: [
-        {
-          title: "Reconhecimento e OSINT",
-          topics: [
-            "OSINT: theHarvester, Maltego CE e Recon-ng para mapeamento de alvos",
-            "Shodan e Censys: identificação de ativos expostos",
-            "Google Dorks avançados: servidores, câmeras e painéis administrativos",
-            "Análise de vazamentos com Have I Been Pwned e DeHashed",
-          ],
-        },
-        {
-          title: "Exploração e Pós-Exploração",
-          topics: [
+            "Scanners de vulnerabilidade: Nessus Essentials e OpenVAS — instalação, scan de rede e leitura de relatório",
+            "CVE e CVSS: como ler e priorizar uma vulnerabilidade, com patch management em ambientes Windows",
             "Metasploit Framework: módulos, payloads e sessões Meterpreter",
             "Exploração web: SQL Injection, XSS e CSRF com DVWA e Burp Suite Community",
             "Escalação de privilégios no Windows: técnicas comuns e detecção",
@@ -151,21 +78,14 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "Segurança em Nuvem e Redes",
+          title: "Segurança em Nuvem, Redes e SOC",
           topics: [
-            "AWS Security: IAM, grupos de segurança, CloudTrail e GuardDuty",
-            "Azure Security Center: configuração de políticas e alertas",
-            "Segmentação de rede: VLANs, DMZ e firewall Sophos/pfSense",
-            "VPN e Zero Trust: conceitos e implementação com WireGuard",
-          ],
-        },
-        {
-          title: "SOC e Resposta a Incidentes",
-          topics: [
-            "Wazuh SIEM: criação de regras customizadas e alertas automáticos",
-            "Análise forense: coleta de evidências com Volatility e Autopsy",
-            "Threat Intelligence: feeds, IOCs e plataformas como MISP",
-            "Relatório de incidente: estrutura e comunicação para gestores",
+            "AWS e Azure Security: IAM, grupos de segurança, CloudTrail, GuardDuty e Security Center",
+            "Segmentação de rede e VPN: VLANs, DMZ, firewall Sophos/pfSense e Zero Trust com WireGuard",
+            "SIEM: conceito de correlação de eventos e alertas, instalação e integração de agentes Wazuh (Windows e Linux)",
+            "Wazuh: criação de regras customizadas, alertas automáticos e análise de logs no Windows Event Viewer",
+            "Investigação de incidentes: análise forense com Volatility e Autopsy, mais Threat Intelligence com feeds, IOCs e plataformas como MISP",
+            "Incident response: fases de resposta a um incidente e relatório técnico para gestores",
           ],
         },
         {
@@ -181,30 +101,30 @@ const COURSE_DATA = {
       ],
       tools: [
         "Kali Linux",
+        "Nmap",
+        "Bitwarden",
+        "TryHackMe",
+        "VirtualBox",
+        "Nessus Essentials",
+        "Wazuh",
+        "Wireshark",
+        "Maltego CE",
+        "HackTheBox",
         "Metasploit",
         "Burp Suite",
-        "Wazuh",
-        "Nessus Essentials",
-        "Wireshark",
         "Volatility",
         "ChatGPT",
-        "TryHackMe",
-        "HackTheBox",
       ],
     },
   ],
   faqItems: [
     {
       q: "Preciso já trabalhar em TI pra fazer esse curso?",
-      a: "Ajuda, mas não é obrigatório. O módulo Essencial parte de fundamentos como a Tríade CIA, tipos de ataque e proteções básicas antes de instalar Kali Linux e usar Nmap — então quem já está em TI (suporte, redes, dev) avança rápido, mas ninguém começa perdido.",
-    },
-    {
-      q: "Qual a diferença entre os módulos Essencial, Intermediário e Profissional + IA?",
-      a: "Essencial cobre fundamentos, proteções essenciais e introdução ao hacking ético. Intermediário entra em OSINT, análise de vulnerabilidades com Nessus/OpenVAS e monitoramento com SIEM. Profissional + IA fecha com exploração e pós-exploração no Metasploit, segurança em nuvem, resposta a incidentes e preparação direta pra CompTIA Security+ e eJPT.",
+      a: "Ajuda, mas não é obrigatório. O curso parte de fundamentos como a Tríade CIA, tipos de ataque e proteções essenciais antes de instalar Kali Linux e usar Nmap — então quem já está em TI (suporte, redes, dev) avança rápido, mas ninguém começa perdido.",
     },
     {
       q: "O curso realmente prepara pra certificação CompTIA Security+ ou eJPT?",
-      a: "Sim. O módulo final do Profissional + IA inclui simulados comentados do CompTIA Security+ (SY0-701) e do eJPT, além de um relatório de pentest completo em laboratório virtual como projeto de conclusão.",
+      a: "Sim. O módulo final do curso inclui simulados comentados do CompTIA Security+ (SY0-701) e do eJPT, além de um relatório de pentest completo em laboratório virtual como projeto de conclusão.",
     },
   ],
 }

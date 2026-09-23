@@ -8,7 +8,7 @@ export const Route = createFileRoute("/particular/cursos/linux")({
   head: () =>
     pageMeta({
       title:
-        "Curso de Linux Essencial Particular em Ribeirão Preto — Santos Tech",
+        "Curso de Linux Particular em Ribeirão Preto — Santos Tech",
       description:
         "Aprenda a administrar servidores Linux no terminal, gerenciar usuários, automatizar tarefas e configurar serviços web. Curso presencial em Ribeirão Preto para profissionais de TI.",
       path: "/particular/cursos/linux",
@@ -16,7 +16,7 @@ export const Route = createFileRoute("/particular/cursos/linux")({
 })
 
 const COURSE_DATA = {
-  nome: "Linux Essencial",
+  nome: "Linux",
   categoria: "T.I",
   tagline: "Domine o sistema que move 96% dos servidores do mundo",
   targetAudience: [
@@ -29,11 +29,11 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Essencial",
-      levelName: "Essencial",
-      totalHours: "24h",
+      label: "Linux",
+      levelName: "Linux",
+      totalHours: "48h",
       outcome:
-        "Navegar no terminal com confiança, gerenciar arquivos e processos, e configurar um servidor Linux básico",
+        "Administrar servidores Linux do zero absoluto — terminal, usuários e permissões — até colocar serviços web e banco de dados em produção com segurança e automação via shell script, pronto para atuar com infraestrutura, DevOps ou administração de servidores.",
       modules: [
         {
           title: "Primeiros Passos no Linux",
@@ -51,6 +51,7 @@ const COURSE_DATA = {
             "Manipulação de arquivos: cp, mv, rm, mkdir, touch, ln",
             "Visualização: cat, less, more, head, tail e tail -f para logs em tempo real",
             "Redirecionamento e pipes: >, >>, |, grep, sort, uniq, wc",
+            "Expressões regulares básicas com grep, sed e awk",
           ],
         },
         {
@@ -60,30 +61,6 @@ const COURSE_DATA = {
             "Permissões: chmod (rwx), chown e chgrp — leitura e alteração",
             "sudo e su: diferença, configuração do sudoers e boas práticas",
             "SSH: geração de chaves RSA, acesso seguro e disable de senha root",
-          ],
-        },
-      ],
-      tools: [
-        "Ubuntu Server 24.04",
-        "VirtualBox",
-        "OpenSSH",
-        "Vim/Nano",
-      ],
-    },
-    {
-      label: "Intermediário",
-      levelName: "Intermediário",
-      totalHours: "48h",
-      outcome:
-        "Administrar um servidor Linux em produção, configurar serviços web, banco de dados e automatizar tarefas com shell script",
-      modules: [
-        {
-          title: "Comandos Essenciais do Terminal",
-          topics: [
-            "Navegação: ls, cd, pwd, find, locate — opções e flags mais usadas",
-            "Manipulação de arquivos: cp, mv, rm, mkdir, touch, ln",
-            "Redirecionamento e pipes: >, >>, |, grep, sort, uniq, wc",
-            "Expressões regulares básicas com grep, sed e awk",
           ],
         },
         {
@@ -116,23 +93,22 @@ const COURSE_DATA = {
       ],
       tools: [
         "Ubuntu Server 24.04",
+        "VirtualBox",
+        "Vim/Nano",
+        "OpenSSH",
         "Nginx",
         "MySQL",
         "Fail2ban",
+        "Let's Encrypt",
         "Bash",
         "Cron",
-        "Let's Encrypt",
       ],
     },
   ],
   faqItems: [
     {
       q: "Preciso já trabalhar com TI para fazer esse curso de Linux?",
-      a: "Não necessariamente, mas ele é voltado para quem pretende atuar com servidores, DevOps ou desenvolvimento. O nível Essencial começa do zero — instalação, estrutura de diretórios e comandos básicos de terminal — antes de avançar para administração de servidor em produção.",
-    },
-    {
-      q: "Qual a diferença entre o nível Essencial e o Intermediário?",
-      a: "O Essencial ensina a navegar no terminal com confiança, gerenciar arquivos, usuários e permissões, e configurar um servidor básico. O Intermediário avança para administração de servidor em produção: serviços web com Nginx, banco de dados, Fail2ban e automação de tarefas com shell script.",
+      a: "Não necessariamente, mas ele é voltado para quem pretende atuar com servidores, DevOps ou desenvolvimento. O curso começa do zero — instalação, estrutura de diretórios e comandos básicos de terminal — antes de avançar para administração de servidor em produção.",
     },
     {
       q: "Esse curso prepara para certificações como LPIC-1 ou CompTIA Linux+?",
