@@ -117,6 +117,24 @@ async function servePublishedSite(request: Request) {
   return new Response(indexFile);
 }
 
+// Rota renomeada em 2026-09-23: /adultos -> /particular (SEO já indexado).
+// Este Bun server serve a app direto (sem nginx na frente — ver docker/Dockerfile),
+// então o redirect precisa viver aqui, não em nginx.conf.
+const LEGACY_PARTICULAR_PREFIX = "/adultos";
+
+function redirectLegacyParticularPath(request: Request): Response | null {
+  const url = new URL(request.url);
+  if (
+    url.pathname !== LEGACY_PARTICULAR_PREFIX &&
+    !url.pathname.startsWith(`${LEGACY_PARTICULAR_PREFIX}/`)
+  ) {
+    return null;
+  }
+
+  url.pathname = `/particular${url.pathname.slice(LEGACY_PARTICULAR_PREFIX.length)}`;
+  return Response.redirect(url, 301);
+}
+
 const COMPRESSIBLE = /text\/html|text\/css|application\/javascript|application\/json|image\/svg\+xml/;
 
 async function compressWorkerResponse(request: Request, response: Response): Promise<Response> {
@@ -148,6 +166,11 @@ Bun.serve({
   port,
   hostname,
   async fetch(request) {
+    const legacyRedirect = redirectLegacyParticularPath(request);
+    if (legacyRedirect) {
+      return legacyRedirect;
+    }
+
     const staticResponse = await serveStaticAsset(request);
     if (staticResponse) {
       return staticResponse;
