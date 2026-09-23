@@ -28,88 +28,54 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Essencial",
-      levelName: "Essencial",
-      totalHours: "24h",
+      label: "Marketing Digital",
+      levelName: "Marketing Digital",
+      totalHours: "48h",
       outcome:
-        "Entender o funil de marketing digital e criar campanhas básicas no Google Ads e Meta Ads com resultado mensurável.",
+        "Planejar e executar estratégias completas de marketing digital do zero absoluto — funil, Google Ads, Meta Ads, SEO e e-mail marketing — até a automação de campanhas com IA, analytics avançado e a gestão de budget real de cliente, pronto para atuar como especialista em tráfego pago ou gestor de marketing.",
       modules: [
         {
           title: "Fundamentos do Marketing Digital",
           topics: [
             "Funil de marketing: awareness, consideração, conversão e fidelização",
-            "Jornada do cliente e persona: criação com dados reais",
-            "Diferença entre tráfego orgânico e pago",
+            "Jornada do cliente e criação de persona com dados reais",
+            "Diferença entre tráfego orgânico e pago, e quando usar cada estratégia",
             "Métricas essenciais: CPC, CPA, ROAS, CTR e CPM",
-            "Google Analytics 4: configuração e leitura de relatórios básicos",
+            "Google Analytics 4: configuração e leitura de relatórios",
           ],
         },
         {
-          title: "Google Ads — Primeiros Passos",
+          title: "Google Ads — do Básico ao Avançado com IA",
           topics: [
-            "Estrutura de conta: campanhas, grupos de anúncio e palavras-chave",
-            "Tipos de campanha: Search, Display, Shopping e Performance Max",
-            "Correspondência de palavras-chave: ampla, frase e exata",
-            "Criação de anúncio de busca com extensões",
-            "Lances inteligentes: CPA alvo e ROAS alvo",
+            "Estrutura de conta, tipos de campanha (Search, Display, Shopping e Performance Max) e correspondência de palavras-chave: ampla, frase e exata",
+            "Criação de anúncios de busca com extensões e lances inteligentes com CPA e ROAS alvo",
+            "Performance Max avançado com automação por IA Max, YouTube Ads (TrueView, Bumper e Discovery) e campanhas Demand Gen no Shorts, Discover e Gmail",
+            "Google Shopping: feed de produtos e estratégias de lance; Audiences para remarketing, Customer Match e Similar Audiences",
+            "Scripts, automação de campanhas em escala e relatórios customizados no Looker Studio",
           ],
         },
         {
-          title: "Meta Ads — Facebook e Instagram",
+          title: "Meta Ads — do Básico à Escala com IA",
           topics: [
-            "Configuração do Gerenciador de Anúncios e Business Manager",
-            "Estrutura de campanha, conjunto de anúncios e anúncio",
-            "Segmentação por interesse, comportamento e localização",
-            "Criação de criativo: imagem, carrossel e vídeo",
-            "Pixel do Meta: instalação e eventos personalizados",
+            "Gerenciador de Anúncios, Business Manager e estrutura de campanha, conjunto de anúncios e anúncio",
+            "Segmentação por interesse, comportamento e localização, e criação de criativo em imagem, carrossel e vídeo",
+            "Pixel do Meta com eventos personalizados, públicos personalizados, lookalike e remarketing com catálogo de produtos",
+            "Advantage+ e automação por IA da Meta, com testes A/B de criativos e copy em escala",
+            "Scaling horizontal e vertical de campanhas vencedoras, CBO vs ABO e modelos de atribuição (Attribution Window) na análise de conversão",
           ],
         },
         {
-          title: "SEO Básico",
+          title: "SEO e Marketing de Conteúdo",
           topics: [
-            "Como o Google indexa e ranqueia páginas",
-            "Pesquisa de palavras-chave com Google Keyword Planner",
-            "On-page SEO: título, meta description, H1 e alt text",
-            "Google Search Console: configuração e análise básica",
-          ],
-        },
-      ],
-      tools: [
-        "Google Ads",
-        "Meta Ads Manager",
-        "Google Analytics 4",
-        "Google Search Console",
-      ],
-    },
-    {
-      label: "Intermediário",
-      levelName: "Intermediário",
-      totalHours: "48h",
-      outcome:
-        "Gerenciar campanhas pagas completas no Google e Meta com otimização de ROAS, além de executar estratégia de conteúdo e e-mail marketing integrados.",
-      modules: [
-        {
-          title: "Google Ads Avançado",
-          topics: [
-            "Campanhas Performance Max: estrutura e otimização",
-            "YouTube Ads: TrueView, Bumper e Discovery",
-            "Google Shopping: feed de produtos e estratégias de lance",
-            "Audiences: remarketing, Customer Match e Similar Audiences",
-            "Scripts e automação no Google Ads",
+            "Como o Google indexa e ranqueia páginas, e pesquisa de palavras-chave com o Google Keyword Planner",
+            "On-page SEO — título, meta description, H1 e alt text — e configuração e análise no Google Search Console",
+            "SEO técnico: velocidade de página, Core Web Vitals e dados estruturados (Schema)",
+            "Estratégia de pillar pages, topic clusters e link building com técnicas white hat para autoridade de domínio",
+            "Distribuição de conteúdo integrada entre blog, YouTube e redes sociais",
           ],
         },
         {
-          title: "Meta Ads Avançado",
-          topics: [
-            "Advantage+ Shopping Campaigns e automação por IA",
-            "Criação de públicos personalizados e lookalike",
-            "Estratégias de remarketing com catálogo de produtos",
-            "Testes A/B de criativos e copy em escala",
-            "Análise de Attribution e modelos de atribuição",
-          ],
-        },
-        {
-          title: "E-mail Marketing",
+          title: "E-mail Marketing e Automação",
           topics: [
             "Construção de lista com lead magnets e landing pages",
             "Fluxos de automação: boas-vindas, nutrição e carrinho abandonado",
@@ -119,78 +85,15 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "SEO e Marketing de Conteúdo",
+          title: "IA Aplicada, Analytics e Projeto Final",
           topics: [
-            "Estratégia de pillar pages e topic clusters",
-            "Link building: técnicas white hat para autoridade de domínio",
-            "SEO técnico: velocidade de página, Core Web Vitals e Schema",
-            "Distribuição de conteúdo: blog, YouTube e redes sociais integrados",
-          ],
-        },
-      ],
-      tools: [
-        "Google Ads",
-        "Meta Ads Manager",
-        "RD Station",
-        "Mailchimp",
-        "Google Analytics 4",
-        "SEMrush",
-        "Hotjar",
-      ],
-    },
-    {
-      label: "Profissional + IA",
-      levelName: "Profissional + IA",
-      totalHours: "72h",
-      outcome:
-        "Planejar e executar estratégias completas de marketing digital com IA, gerenciar budgets de clientes, criar relatórios executivos e atuar como especialista em tráfego pago ou gestor de marketing.",
-      modules: [
-        {
-          title: "Google Ads Avançado",
-          topics: [
-            "Performance Max e IA Max: automação de campanhas com IA",
-            "Demand Gen Campaigns: YouTube, Shorts, Discover e Gmail",
-            "Scripts e automação para escala de campanhas",
-            "Relatórios customizados no Looker Studio",
-          ],
-        },
-        {
-          title: "Meta Ads — Escala e ROAS",
-          topics: [
-            "Advantage+ e automação com IA da Meta",
-            "Scaling horizontal e vertical de campanhas vencedoras",
-            "CBO vs ABO: estratégias para diferentes budgets",
-            "Attribution Window e análise de dados de conversão",
-          ],
-        },
-        {
-          title: "IA Aplicada ao Marketing Digital",
-          topics: [
-            "ChatGPT e Claude para geração de copy e estratégias",
-            "Geração de criativos com Adobe Firefly e Midjourney",
-            "Automação de relatórios com Make (Integromat) e Zapier",
-            "Análise preditiva de campanhas com Google Meridian",
-            "Personalização dinâmica de anúncios com IA",
-            "Agentes de IA para monitoramento e otimização de campanhas",
-          ],
-        },
-        {
-          title: "Analytics e Tomada de Decisão por Dados",
-          topics: [
-            "Google Analytics 4: eventos customizados e conversões avançadas",
-            "Looker Studio: dashboards executivos para clientes",
-            "UTMs, data layers e tracking avançado",
-            "ROI e modelagem de atribuição multi-touch",
-          ],
-        },
-        {
-          title: "Projeto e Certificações",
-          topics: [
-            "Planejamento de campanha 360° para empresa real com orçamento definido",
-            "Gestão de R$5.000 em tráfego pago com otimização em tempo real",
-            "Relatório executivo mensal com recomendações estratégicas",
-            "Certificação Google Ads Search e Meta Blueprint (preparação)",
-            "Montagem de portfólio com cases e resultados mensuráveis",
+            "ChatGPT e Claude para geração de copy e estratégias, e criação de criativos com Adobe Firefly e Midjourney",
+            "Automação de relatórios com Make (Integromat) e Zapier, e agentes de IA para monitoramento e otimização de campanhas",
+            "Análise preditiva de campanhas com Google Meridian e personalização dinâmica de anúncios com IA",
+            "Google Analytics 4 com eventos customizados e conversões avançadas, UTMs, data layers e tracking avançado",
+            "Dashboards executivos no Looker Studio e modelagem de atribuição multi-touch para ROI",
+            "Planejamento de campanha 360° e gestão de R$ 5.000 em tráfego pago com otimização em tempo real para uma empresa real",
+            "Relatório executivo mensal, preparação para as certificações Google Ads Search e Meta Blueprint, e montagem de portfólio com cases e resultados mensuráveis",
           ],
         },
       ],
@@ -198,9 +101,11 @@ const COURSE_DATA = {
         "Google Ads",
         "Meta Ads Manager",
         "Google Analytics 4",
+        "Google Search Console",
         "Looker Studio",
         "SEMrush",
         "RD Station",
+        "Mailchimp",
         "Make",
         "ChatGPT",
         "Hotjar",
@@ -210,11 +115,7 @@ const COURSE_DATA = {
   faqItems: [
     {
       q: "Preciso ter experiência prévia em marketing para começar esse curso?",
-      a: "Não. O nível Essencial parte dos fundamentos — funil de marketing, jornada do cliente e diferença entre tráfego orgânico e pago — antes de entrar nas primeiras campanhas em Google Ads e Meta Ads.",
-    },
-    {
-      q: "Qual a diferença entre os níveis Essencial, Intermediário e Profissional + IA?",
-      a: "Essencial ensina os fundamentos do funil e a criar campanhas básicas no Google Ads, Meta Ads e SEO. Intermediário avança para campanhas pagas completas com otimização de ROAS, e-mail marketing e marketing de conteúdo. Profissional + IA fecha com automação por IA, analytics avançado e um projeto real de gestão de R$5.000 em tráfego pago, com preparação para certificações Google Ads e Meta Blueprint.",
+      a: "Não. O curso começa pelos fundamentos — funil de marketing, jornada do cliente e diferença entre tráfego orgânico e pago — antes de entrar nas primeiras campanhas em Google Ads e Meta Ads.",
     },
     {
       q: "Sou freelancer e quero oferecer marketing digital completo pros meus clientes — esse curso serve?",
