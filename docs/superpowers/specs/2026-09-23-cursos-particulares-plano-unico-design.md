@@ -249,6 +249,49 @@ ritmo, depois os grupos maiores (Programação, Marketing & Negócios).
 - [x] `TIER_META` com entrada própria por curso convertido (20 entradas
       novas: Premiere + 7 T.I/Universo 3D + Informática/Photoshop/DaVinci +
       9 Marketing & Negócios).
+
+## Margem embutida (15%) + parcelamento em 12x — decisão de 23/09
+
+> Decisão separada da unificação de tiers acima (não resolve o ponto 1 em
+> aberto — a tabela de taxa técnica 110-180/h continua **aguardando
+> Henrique**). Pedido trazido pelo gerente de marketing.
+
+1. **Regra:** todo curso de `/particular` — os que já existem e os que
+   nascerem — embute **15% sobre o valor-base já determinado pro curso**
+   (a própria tabela `TIER_META`/`pricePerAula` de hoje, sem mudar nenhum
+   número dela). Os 15% são margem/juros interno — **nunca aparecem pro
+   aluno** como "15%" ou "juros" em nenhum texto da página.
+2. **Escopo:** só as ~52 páginas `/particular/cursos/*`. Não afeta o card
+   de mensalidade dos programas infantil/T.I. na home (`src/routes/index.tsx`,
+   modelo de mensalidade recorrente, não de preço total parcelado) nem as
+   páginas de curso infantil/turma, que não mostram preço hoje.
+   _(confirmado por pergunta direta, 23/09)._
+3. **Matrícula (R$ 199,90) e material didático (R$ 389,90)** — cobranças
+   únicas, **não** recebem os 15%. Só o valor do curso. _(confirmado por
+   pergunta direta, 23/09)._
+4. **Apresentação no card de investimento:** a parcela (valor-base × 1,15
+   ÷ 12) vira o número em destaque, com "12x sem juros no cartão" embaixo,
+   e o total à vista (valor-base × 1,15) aparece menor, abaixo disso (ex.:
+   "ou R$ 4.565,50 à vista"). Antes mostrava só o preço total como número
+   principal. _(confirmado por pergunta direta, 23/09)._
+5. **Formas de pagamento:** o 12x sem juros vale só pro **crédito**. O
+   boleto mantém o parcelamento por duração do curso, sem mudança.
+   _(confirmado por pergunta direta, 23/09)._
+6. **Arredondamento:** parcela = `Math.round` padrão de 2 casas decimais
+   sobre valor-base × 1,15 ÷ 12, sem redistribuir centavo residual entre
+   as 12 parcelas (padrão de mercado pra card de marketing — Henrique
+   autorizou decidir sozinho, 23/09).
+
+**Implementação:** `src/components/particular-course-page.tsx` —
+`TIER_META.price` passou de string formatada pra número puro (valor-base,
+sem markup); constantes `MARKUP = 1.15` e `INSTALLMENTS = 12` e a função
+`getInvestimento()` calculam total com margem e parcela a partir desse
+valor-base, tanto pra cursos com preço fixo na tabela quanto pros que usam
+`pricePerAula`. Aplicado uma vez no componente compartilhado — cobre as 52
+páginas automaticamente, sem editar curso por curso; as 20 entradas de
+`TIER_META` migradas pelos PRs #29/#30 (Informática, Design & Criação,
+Marketing & Negócios) já entram nesse cálculo sem precisar de ajuste
+manual.
 - [x] FAQ de cada curso convertido sem pergunta comparando tiers
       inexistentes.
 - [x] `bun run lint` e `bun run build` limpos em cada lote convertido até
