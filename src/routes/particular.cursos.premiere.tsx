@@ -28,30 +28,31 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Intermediário",
-      levelName: "Intermediário",
+      label: "Adobe Premiere",
+      levelName: "Adobe Premiere",
       totalHours: "48h",
       outcome:
-        "Executar projetos completos de edição com color grading profissional no Adobe Premiere, do corte à entrega final.",
+        "Editar profissionalmente no Adobe Premiere do zero absoluto até o color grading cinematográfico, motion graphics com After Effects e os recursos de IA generativa — pronto para atuar em agências, emissoras e produtoras.",
       modules: [
         {
-          title: "Adobe Premiere — Interface e Projeto",
+          title: "Interface, Projeto e Primeiros Cortes",
           topics: [
             "Instalação via Creative Cloud e criação de projetos",
             "Interface: painel Project, Timeline, Program Monitor e Lumetri",
             "Configurações de sequência: resolução, frame rate e codecs",
             "Media Browser, organização de bins e uso de proxies",
+            "Cortes, trims e ajuste de velocidade (time remapping)",
             "Atalhos de teclado para edição ágil",
           ],
         },
         {
-          title: "Edição e Montagem",
+          title: "Montagem Profissional",
           topics: [
-            "Cortes, trims e ajuste de velocidade (time remapping)",
             "Edição multicam para entrevistas e eventos",
             "Essential Graphics: títulos e templates de texto",
             "Marcadores e organização de timeline complexa",
             "Transições profissionais e efeitos de câmera",
+            "Compound clips e nested sequences",
           ],
         },
         {
@@ -64,78 +65,32 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "Color Grading com Lumetri",
+          title: "Color Grading — do Lumetri ao Cinematográfico",
           topics: [
             "Lumetri Color: curvas, rodas de cor e correção primária",
             "Uso de LUTs e criação de look personalizado",
-            "Scopes: Waveform, Vectorscope e Parade",
+            "Scopes: Waveform, Vectorscope, Parade e Histogram",
             "Correspondência de cor entre cenas (Color Match)",
+            "Gerenciamento de cor, HDR e look development por cena",
           ],
         },
         {
-          title: "Exportação e Entrega",
+          title: "Motion Graphics e IA no Premiere",
+          topics: [
+            "Integração com After Effects via Dynamic Link",
+            "Motion Graphics Templates, títulos animados e lower thirds",
+            "Tracking de objetos e chroma key",
+            "Generative Extend, Auto Reframe e Enhance Speech (IA generativa)",
+            "Legendas automáticas e Scene Edit Detection",
+          ],
+        },
+        {
+          title: "Exportação e Projeto Final",
           topics: [
             "Fila de exportação com Adobe Media Encoder",
             "Exportação para YouTube, Vimeo, Instagram e broadcast",
             "Compressão H.264, H.265 e ProRes",
-            "Presets de entrega para cliente e agência",
-          ],
-        },
-      ],
-      tools: ["Adobe Premiere Pro", "Adobe Media Encoder"],
-    },
-    {
-      label: "Profissional + IA",
-      levelName: "Profissional + IA",
-      totalHours: "72h",
-      outcome:
-        "Dominar o Adobe Premiere em nível profissional completo, incluindo motion graphics, color grading cinematográfico e IA generativa, atuando como editor sênior em agência ou emissora.",
-      modules: [
-        {
-          title: "Edição Avançada e Fluxo Colaborativo",
-          topics: [
-            "Productions e Team Projects para projetos grandes",
-            "Organização de mídia em produções colaborativas",
-            "Workflow com proxies em produções 4K/6K",
-            "Compound clips e nested sequences",
-          ],
-        },
-        {
-          title: "Color Grading Cinematográfico",
-          topics: [
-            "Scopes avançados: Waveform, Vectorscope, Parade e Histogram",
-            "Gerenciamento de cor e HDR no Lumetri",
-            "Entrega para DCI-P3 e Rec.2020",
-            "Look development e grading por cena",
-          ],
-        },
-        {
-          title: "Motion Graphics com After Effects",
-          topics: [
-            "Integração Premiere + After Effects com Dynamic Link",
-            "Essential Graphics Templates avançados (Motion Graphics Templates)",
-            "Composição de títulos animados e lower thirds",
-            "Tracking de objetos e chroma key",
-          ],
-        },
-        {
-          title: "IA no Premiere (Adobe Sensei / Firefly)",
-          topics: [
-            "Generative Extend: extensão de clipes com IA generativa",
-            "Auto Reframe para múltiplos formatos automaticamente",
-            "Enhance Speech: limpeza de áudio com IA",
-            "Scene Edit Detection: decupagem automática de clipes",
-            "Adobe Sensei: busca de assets por conteúdo visual",
-            "Legendas automáticas com transcrição por IA",
-          ],
-        },
-        {
-          title: "Projeto Entregável e Portfólio",
-          topics: [
-            "Edição de curta-metragem ou peça publicitária completa",
-            "Color grading e entrega em múltiplos formatos",
-            "Criação de showreel profissional de 2-3 minutos",
-            "Publicação de portfólio no Vimeo e LinkedIn",
+            "Projeto entregável (curta-metragem ou peça publicitária) e showreel",
             "Preparação para a certificação Adobe Certified Professional: Premiere Pro",
           ],
         },
@@ -146,11 +101,7 @@ const COURSE_DATA = {
   faqItems: [
     {
       q: "Preciso já saber usar o Adobe Premiere pra começar?",
-      a: "Não. O curso já parte da instalação via Creative Cloud e da interface do zero, incluindo os atalhos básicos e a estrutura de projeto. Se você já edita no celular ou é curioso mas nunca abriu o Premiere, esse é o ponto de partida — o curso vai te levar até o color grading com Lumetri e o Dynamic Link com After Effects no nível Profissional + IA.",
-    },
-    {
-      q: "Qual a diferença entre o nível Intermediário e o Profissional + IA?",
-      a: "No Intermediário você aprende o fluxo completo de edição: cortes, áudio no Essential Sound, color grading com Lumetri e exportação para YouTube, Instagram e broadcast. No Profissional + IA você avança para motion graphics com After Effects, color grading cinematográfico com scopes avançados, as ferramentas de IA do Adobe Sensei e Firefly (Generative Extend, Auto Reframe, Enhance Speech) e sai com um showreel pronto para a certificação Adobe Certified Professional.",
+      a: "Não. O curso já parte da instalação via Creative Cloud e da interface do zero, incluindo os atalhos básicos e a estrutura de projeto. Se você já edita no celular ou é curioso mas nunca abriu o Premiere, esse é o ponto de partida — o curso vai te levar, em ordem, até o color grading cinematográfico, o Dynamic Link com After Effects e os recursos de IA generativa do Adobe Sensei e Firefly.",
     },
     {
       q: "Por que aprender Premiere e não só DaVinci Resolve (ou o contrário)?",
