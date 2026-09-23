@@ -48,17 +48,28 @@
       Programação) — são sugestões da spec, não confirmadas.
       _Aguardando Henrique._
 
-- [ ] **Copywriting menciona "revisão em grupo" no projeto final**
-      (`particular.cursos.copywriting.tsx`) — contradiz o modelo 100%
-      individual (1 aluno + 1 professor) que é a proposta central do
-      `/particular`. Achado ao converter o curso pra opção única (23/09) —
-      confirmado via `git diff` que já existia antes da conversão de hoje,
-      não foi introduzido agora. Não mexi porque não sei se é intencional
-      (talvez um resquício de quando existiam turmas, ou uma decisão real
-      de ter uma etapa de feedback coletivo só nesse curso). Baixa
-      prioridade, cosmético. _Aguardando decisão do Henrique._
-
 ## Resolvidas
+
+- [x] **Copywriting mencionava "revisão em grupo" no projeto final e no
+      FAQ** — pendência aberta em 23/09 durante a conversão do curso pra
+      opção única, sem causa raiz confirmada (podia ser resquício de
+      quando o curso foi pensado com alguma dinâmica de turma, ou
+      simplesmente copy nunca revisada). Resolvido sem precisar decidir
+      qual dos dois cenários é o real: nos dois casos "revisão em grupo"
+      contradiz o modelo 100% individual (1 aluno + 1 professor) que é a
+      proposta central do `/particular` — reforçado em
+      `particular-course-page.tsx` ("Aula Individual — Só você e o
+      professor — foco total, sem fila de dúvidas") e no FAQ genérico
+      (`particular-faq.tsx`). Trocado "revisão em grupo" por "revisão
+      individual com o professor" nos dois trechos de
+      `particular.cursos.copywriting.tsx` (último tópico do módulo final
+      em `tiers[0].modules`, e a resposta de `faqItems[1]`, "Dá pra usar
+      esse curso pra virar freelancer de copywriting?"), mantendo a ideia
+      de que o projeto final passa por revisão e feedback estruturado
+      antes da entrega. PR #40. Verificado com `bun run lint` + `bun run
+      build` (gate do `CLAUDE.md`, sem erros) e visualmente no `bun run
+      dev`: `/particular/cursos/copywriting`, capítulo "Análise,
+      Otimização e Projeto Final" e o FAQ mostrando o texto novo.
 
 - [x] **Ritmo intensivo dos cursos de 48 aulas atualizado de "~2 meses" pra
       "~3 meses"; e um aprendizado sobre sessões paralelas no mesmo repo**
