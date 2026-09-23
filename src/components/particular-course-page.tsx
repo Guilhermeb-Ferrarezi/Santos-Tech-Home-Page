@@ -587,7 +587,7 @@ export function ParticularCursosPage({
               Investimento
             </p>
             <h2 className="mt-3 text-3xl font-black tracking-tight text-neutral-900 dark:text-white sm:text-4xl">
-              Escolha o seu plano
+              {multiTier ? "Escolha o seu plano" : "Seu investimento"}
             </h2>
           </Reveal>
 
