@@ -30,7 +30,6 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "Google Ads",
       levelName: "Google Ads",
       totalHours: "48h",
       outcome:

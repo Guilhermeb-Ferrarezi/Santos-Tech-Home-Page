@@ -29,7 +29,6 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "Copywriting",
       levelName: "Copywriting",
       totalHours: "48h",
       outcome:

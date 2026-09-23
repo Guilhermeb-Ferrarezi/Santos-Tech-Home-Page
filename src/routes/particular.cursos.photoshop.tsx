@@ -28,7 +28,6 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Photoshop + Illustrator",
       levelName: "Photoshop + Illustrator",
       totalHours: "48h",
       outcome:

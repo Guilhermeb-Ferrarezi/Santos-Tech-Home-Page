@@ -29,7 +29,6 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "Essencial",
       levelName: "Essencial",
       totalHours: "24h",
       outcome:
@@ -89,7 +88,6 @@ const COURSE_DATA: CourseData = {
       tools: ["Power Apps", "Power Automate", "SharePoint Online", "Microsoft Teams", "Outlook 365"],
     },
     {
-      label: "Intermediário",
       levelName: "Intermediário",
       totalHours: "48h",
       outcome:

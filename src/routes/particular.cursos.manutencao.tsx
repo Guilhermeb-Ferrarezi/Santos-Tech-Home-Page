@@ -29,7 +29,6 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Montagem e Manutenção",
       levelName: "Montagem e Manutenção",
       ctaLabel: "Hardware",
       totalHours: "24h",

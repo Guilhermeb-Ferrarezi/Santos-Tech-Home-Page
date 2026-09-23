@@ -29,7 +29,6 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Suporte Técnico",
       levelName: "Suporte Técnico",
       totalHours: "48h",
       outcome:

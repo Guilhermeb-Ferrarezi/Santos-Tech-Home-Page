@@ -28,7 +28,6 @@ import { buildParticularPageSchemas } from "@/lib/seo";
 export type TopicGroup = { title: string; topics: string[] };
 
 export type Tier = {
-  label: string;
   /** Nome do nível (ex.: "Essencial") em curso multi-tier; em curso de plano único, vira o nome do próprio curso/software (ex.: "Adobe Premiere") — todo consumo daqui precisa checar `multiTier`/`tiers.length` antes de tratar como rótulo de nível. */
   levelName: string;
   /** Texto do botão de CTA no card de preço, se diferente de `levelName` (ex.: "Hardware" em vez de "Montagem e Manutenção"). */

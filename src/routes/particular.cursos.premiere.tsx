@@ -28,7 +28,6 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Adobe Premiere",
       levelName: "Adobe Premiere",
       totalHours: "48h",
       outcome:

@@ -29,7 +29,6 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "Git e GitHub",
       levelName: "Git e GitHub",
       totalHours: "24h",
       outcome:

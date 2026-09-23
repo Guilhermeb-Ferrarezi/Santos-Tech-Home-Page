@@ -29,7 +29,6 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Linux",
       levelName: "Linux",
       totalHours: "48h",
       outcome:

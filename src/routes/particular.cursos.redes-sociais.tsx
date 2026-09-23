@@ -28,7 +28,6 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Redes Sociais",
       levelName: "Redes Sociais",
       ctaLabel: "curso de Redes Sociais",
       totalHours: "48h",

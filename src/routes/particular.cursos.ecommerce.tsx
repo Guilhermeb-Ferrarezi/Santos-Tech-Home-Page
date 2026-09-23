@@ -28,7 +28,6 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "E-commerce",
       levelName: "E-commerce",
       totalHours: "48h",
       outcome:

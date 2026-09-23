@@ -29,7 +29,6 @@ const COURSE_DATA = {
   pricePerAula: 150,
   tiers: [
     {
-      label: "Impressão 3D Completa",
       levelName: "Impressão 3D Completa",
       totalHours: "24h",
       outcome:

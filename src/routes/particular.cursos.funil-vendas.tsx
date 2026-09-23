@@ -29,7 +29,6 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "Funil de Vendas",
       levelName: "Funil de Vendas",
       totalHours: "48h",
       outcome:

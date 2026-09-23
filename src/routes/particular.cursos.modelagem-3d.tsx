@@ -29,7 +29,6 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Modelagem 3D",
       levelName: "Modelagem 3D",
       ctaLabel: "curso de Modelagem 3D",
       totalHours: "48h",

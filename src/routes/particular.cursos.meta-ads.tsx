@@ -29,7 +29,6 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "Meta Ads",
       levelName: "Meta Ads",
       totalHours: "48h",
       outcome:

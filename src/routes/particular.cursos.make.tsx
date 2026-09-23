@@ -29,7 +29,6 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "Essencial",
       levelName: "Essencial",
       totalHours: "24h",
       outcome:
@@ -89,7 +88,6 @@ const COURSE_DATA: CourseData = {
       tools: ["Make", "Google Sheets", "Google Drive", "Gmail", "Slack", "WhatsApp Business", "Zapier (comparativo)"],
     },
     {
-      label: "Intermediário",
       levelName: "Intermediário",
       totalHours: "48h",
       outcome:
