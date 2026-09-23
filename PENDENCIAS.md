@@ -2,6 +2,19 @@
 
 ## Abertas
 
+- [ ] **Ritmo intensivo dos cursos de 48 aulas: "~2 meses" ou "~3 meses"?** —
+      a tarefa que originou o PR #37 (correção do FAQ genérico de duração)
+      instruía tratar o intensivo de 48h como "~3 meses" (mudança "pedido do
+      Henrique, 23/09"), mas `TIER_META` (`particular-course-page.tsx`)
+      sempre teve "~2 meses" pra esse caso — confirmado no histórico do git
+      (nenhuma branch local ou remota tem esse valor) e na spec da
+      unificação de tiers (nenhuma menção ao assunto). Corrigi o FAQ usando
+      o valor real (~2 meses) pra não contradizer o card de Investimento,
+      que mostra "~2 meses" na mesma página. Se a mudança pra "~3 meses" for
+      uma decisão real, falta aplicá-la em `TIER_META` (17 cursos de 48
+      aulas) — o FAQ genérico acompanha automaticamente depois, sem precisar
+      mexer de novo. _Aguardando Henrique._
+
 - [ ] **Estatística "24 aulas por curso" na home do `/particular` vai ficando
       menos precisa conforme a unificação de tiers avança** — achado pela
       auditoria de resquícios do modelo antigo (23/09). O bloco "Ritmo"
