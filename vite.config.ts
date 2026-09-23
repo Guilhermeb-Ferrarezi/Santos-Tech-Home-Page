@@ -29,4 +29,9 @@ export default defineConfig({
     // isso, um .map ficaria público no dist (código fonte exposto).
     sourcemap: !!process.env.SENTRY_AUTH_TOKEN,
   },
+  server: {
+    // Respeita PORT quando definida (ex.: várias sessões de dev em paralelo
+    // no mesmo repo, cada uma com sua porta atribuída).
+    port: Number(process.env.PORT) || 5173,
+  },
 });
