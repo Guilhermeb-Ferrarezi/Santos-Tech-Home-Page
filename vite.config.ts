@@ -6,6 +6,11 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import { sentryVitePlugin } from "@sentry/vite-plugin";
 import { defineConfig } from "vite";
 
+// process.env.PORT indefinida OU inválida vira NaN — só nesse caso cai no
+// padrão 5173. `Number(x) || 5173` seria mais curto, mas trata PORT=0 (porta
+// atribuída pelo SO) como falsy e ignoraria o valor explícito.
+const devPort = Number(process.env.PORT);
+
 export default defineConfig({
   plugins: [
     cloudflare({ viteEnvironment: { name: "ssr" } }),
@@ -28,5 +33,10 @@ export default defineConfig({
     // Só gera sourcemap quando vai poder subir+apagar (token presente) — sem
     // isso, um .map ficaria público no dist (código fonte exposto).
     sourcemap: !!process.env.SENTRY_AUTH_TOKEN,
+  },
+  server: {
+    // Respeita PORT quando definida (ex.: várias sessões de dev em paralelo
+    // no mesmo repo, cada uma com sua porta atribuída).
+    port: Number.isNaN(devPort) ? 5173 : devPort,
   },
 });

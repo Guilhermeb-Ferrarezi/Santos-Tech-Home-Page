@@ -29,7 +29,6 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "Essencial",
       levelName: "Essencial",
       totalHours: "24h",
       outcome: "Criar posts, imagens e roteiros profissionais usando IA, com um fluxo de produção de conteúdo funcional do zero",
@@ -88,7 +87,6 @@ const COURSE_DATA: CourseData = {
       tools: ["ChatGPT", "Midjourney", "DALL-E", "Adobe Firefly", "Canva Magic Studio", "ElevenLabs", "Captions.ai"],
     },
     {
-      label: "Intermediário",
       levelName: "Intermediário",
       totalHours: "48h",
       outcome: "Planejar e executar campanhas de conteúdo completas com IA, entregando copy, imagens, vídeos e carrosséis em um pipeline profissional",

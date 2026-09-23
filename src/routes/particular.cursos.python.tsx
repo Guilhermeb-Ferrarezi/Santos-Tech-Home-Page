@@ -30,7 +30,6 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Essencial",
       levelName: "Essencial",
       totalHours: "24h",
       outcome:
@@ -72,7 +71,6 @@ const COURSE_DATA = {
       tools: ["Python 3.12", "VS Code", "openpyxl", "smtplib", "schedule", "pip"],
     },
     {
-      label: "Intermediário",
       levelName: "Intermediário",
       totalHours: "48h",
       outcome:
@@ -132,7 +130,6 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "Profissional + IA",
       levelName: "Profissional + IA",
       totalHours: "72h",
       outcome:

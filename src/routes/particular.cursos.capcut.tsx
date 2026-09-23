@@ -28,7 +28,6 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "CapCut",
       levelName: "CapCut",
       totalHours: "24h",
       outcome:

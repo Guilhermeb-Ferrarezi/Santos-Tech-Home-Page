@@ -29,7 +29,6 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "Canva Pro",
       levelName: "Canva Pro",
       totalHours: "24h",
       outcome:

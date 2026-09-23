@@ -28,30 +28,29 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Intermediário",
-      levelName: "Intermediário",
+      levelName: "DaVinci Resolve",
       totalHours: "48h",
       outcome:
-        "Executar projetos completos de edição com color grading profissional no DaVinci Resolve, do corte à entrega final.",
+        "Editar profissionalmente no DaVinci Resolve do zero absoluto até o color grading cinematográfico, os efeitos visuais com Fusion e as ferramentas de IA do Neural Engine — pronto para atuar como editor ou colorista em produções de cinema, TV e streaming.",
       modules: [
         {
-          title: "DaVinci Resolve — Interface e Projeto",
+          title: "Interface, Projeto e Primeiros Cortes",
           topics: [
             "Instalação, configuração de GPU e criação de projetos",
-            "Navegação entre as páginas: Cut, Edit, Fusion, Color, Fairlight, Deliver",
-            "Importação, organização de bins e gerenciamento de mídia",
-            "Timeline: criação, configuração de resolução e frame rate",
+            "Navegação entre as páginas: Cut, Edit, Fusion, Color, Fairlight e Deliver",
+            "Importação, organização de bins e gerenciamento de mídia; timeline, resolução e frame rate",
+            "Decupagem de entrevistas e documentários na página Cut, e edição precisa com Blade e Trim na página Edit",
             "Atalhos de teclado para edição ágil",
           ],
         },
         {
-          title: "Edição na Página Cut e Edit",
+          title: "Montagem Profissional",
           topics: [
-            "Decupagem de entrevistas e documentários na página Cut",
-            "Edição precisa na página Edit com Blade e Trim",
-            "Inserção de B-roll e cobertura visual",
-            "Transições e velocidade: slow motion e fast motion",
+            "Inserção de B-roll, cobertura visual, transições e ajuste de velocidade (slow e fast motion)",
             "Estabilização de câmera com DaVinci Resolve Stabilizer",
+            "Edição multicam para eventos e entrevistas",
+            "Compound clips e timelines aninhadas (nested sequences)",
+            "Gerenciamento de projetos colaborativos e otimização de performance com proxies",
           ],
         },
         {
@@ -64,86 +63,35 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "Color Grading Profissional",
+          title: "Color Grading — do Sistema de Nós ao Cinematográfico",
           topics: [
-            "Sistema de nós: serial, paralelo e layer",
-            "Correção primária: Lift, Gamma, Gain e Offset",
-            "Qualificadores para seleção de cor por área",
-            "LUTs: aplicação e criação de look personalizado",
-            "Correspondência de cor entre cenas (Color Match)",
-            "HDR Grading e entrega para streaming",
+            "Sistema de nós (serial, paralelo e layer) e correção primária: Lift, Gamma, Gain e Offset",
+            "Qualificadores para seleção de cor por área e uso de LUTs (aplicação e criação de look personalizado)",
+            "Correspondência de cor entre cenas (Color Match) e scopes: Waveform, Vectorscope, Parade e Histogram",
+            "Grading cinematográfico com look de Hollywood, Film Emulation e grain de película",
+            "HDR Grading, gerenciamento de cor com ACES e entrega para streaming, DCI-P3, Rec.2020 e Dolby Vision",
           ],
         },
         {
-          title: "Exportação e Entrega",
+          title: "Efeitos Visuais e IA com Fusion e Neural Engine",
+          topics: [
+            "Interface baseada em nós do Fusion: composição de texto 3D, títulos animados e title sequences profissionais",
+            "Tracking de objetos, Planar Tracking e substituição de elementos (placas e telas)",
+            "Keying profissional com DeltaKeyer, Roto (recorte manual de objetos em movimento) e partículas com pEmitter",
+            "Magic Mask (rotoscoping automático) e Scene Cut Detection: decupagem automática de clipes com IA",
+            "Speed Warp (slow motion por IA), Smart Reframe (reenquadramento automático) e Super Scale (upscale de imagem)",
+            "Voice Isolation e Dialogue Leveler: limpeza e nivelamento automático de voz no Fairlight com IA",
+          ],
+        },
+        {
+          title: "Exportação e Projeto Final",
           topics: [
             "Configurações de render na página Deliver",
-            "Exportação para YouTube, Vimeo, Instagram e broadcast",
-            "Compressão H.264, H.265 e ProRes",
+            "Exportação para YouTube, Vimeo, Instagram e broadcast, com compressão H.264, H.265 e ProRes",
             "Exportação com e sem áudio, legendas e capítulos",
-          ],
-        },
-      ],
-      tools: ["DaVinci Resolve 19", "Fairlight Audio"],
-    },
-    {
-      label: "Profissional + IA",
-      levelName: "Profissional + IA",
-      totalHours: "72h",
-      outcome:
-        "Dominar o DaVinci Resolve em nível profissional completo, incluindo efeitos visuais, IA e entrega para cinema, TV e streaming, atuando como editor ou colorista sênior.",
-      modules: [
-        {
-          title: "DaVinci Resolve — Edição Avançada",
-          topics: [
-            "Edição multicam para eventos e entrevistas",
-            "Compound clips e timelines aninhadas",
-            "Gerenciamento de projetos colaborativos",
-            "Otimização de performance com proxies",
-          ],
-        },
-        {
-          title: "Color Grading Avançado",
-          topics: [
-            "Grading cinematográfico com look de Hollywood",
-            "Uso de scopes: Waveform, Vectorscope, Parade e Histogram",
-            "Film Emulation e grain de película",
-            "Delivery para DCI-P3, Rec.2020 e Dolby Vision",
-            "Gerenciamento de cor com ACES",
-          ],
-        },
-        {
-          title: "Efeitos Visuais com Fusion",
-          topics: [
-            "Interface baseada em nós do Fusion",
-            "Composição de texto 3D e títulos animados",
-            "Tracking de objetos e substituição de elementos",
-            "Keying (chroma key) profissional com DeltaKeyer",
-            "Roto: recorte manual de objetos em movimento",
-            "Planar Tracking para substituição de placas e telas",
-            "Partículas e simulações com pEmitter",
-            "Criação de title sequences profissionais",
-          ],
-        },
-        {
-          title: "IA no DaVinci Resolve (Neural Engine)",
-          topics: [
-            "Magic Mask: rotoscoping automático com IA",
-            "Scene Cut Detection: decupagem automática de clipes",
-            "Speed Warp: slow motion por IA em qualquer material",
-            "Voice Isolation e Dialogue Leveler: limpeza e nivelamento automático de voz no Fairlight",
-            "Smart Reframe: reenquadramento automático para vertical e quadrado",
-            "Super Scale: upscale de imagem com IA",
-          ],
-        },
-        {
-          title: "Projeto Entregável e Portfólio",
-          topics: [
-            "Edição de curta-metragem ou documentário de 10-15 minutos",
-            "Color grading completo de projeto real com entrega em múltiplos formatos",
-            "Criação de showreel profissional de 2-3 minutos",
-            "Publicação de portfólio no Vimeo e LinkedIn",
-            "Certificação Blackmagic Design: DaVinci Resolve Operator",
+            "Projeto entregável: curta-metragem ou documentário de 10-15 minutos, com color grading completo e entrega em múltiplos formatos",
+            "Criação de showreel profissional (2-3 minutos) e publicação de portfólio no Vimeo e LinkedIn",
+            "Preparação para a certificação Blackmagic Design: DaVinci Resolve Operator",
           ],
         },
       ],
@@ -153,15 +101,11 @@ const COURSE_DATA = {
   faqItems: [
     {
       q: "Preciso já saber usar o DaVinci Resolve pra começar?",
-      a: "Não. O curso já parte da instalação e da interface do zero, incluindo os atalhos básicos e a estrutura de projeto. Se você já edita no celular ou é curioso mas nunca abriu o Resolve, esse é o ponto de partida — o curso vai te levar até o color grading profissional e o Fusion no nível Profissional + IA.",
-    },
-    {
-      q: "Qual a diferença entre o nível Intermediário e o Profissional + IA?",
-      a: "No Intermediário você aprende o fluxo completo de edição: cortes, áudio no Fairlight, color grading com sistema de nós e exportação para YouTube, Instagram e broadcast. No Profissional + IA você avança para efeitos visuais com Fusion, color grading cinematográfico com scopes, as ferramentas de IA do Neural Engine (Magic Mask, Voice Isolation, Smart Reframe, Super Scale) e sai com um showreel e a certificação Blackmagic Design: DaVinci Resolve Operator.",
+      a: "Não. O curso já parte da instalação e da interface do zero, incluindo os atalhos básicos e a estrutura de projeto. Se você já edita no celular ou é curioso mas nunca abriu o Resolve, esse é o ponto de partida — o curso vai te levar, em ordem, até o color grading cinematográfico, os efeitos visuais com Fusion e as ferramentas de IA do Neural Engine.",
     },
     {
       q: "O curso dá alguma certificação reconhecida no mercado?",
-      a: "Sim. No nível Profissional + IA, o projeto final inclui a certificação Blackmagic Design: DaVinci Resolve Operator, além de um showreel de 2-3 minutos pronto para publicar no Vimeo e no LinkedIn — ótimo para quem precisa comprovar domínio técnico como editor ou colorista.",
+      a: "Sim. O projeto final do curso inclui a certificação Blackmagic Design: DaVinci Resolve Operator, além de um showreel de 2-3 minutos pronto para publicar no Vimeo e no LinkedIn — ótimo para quem precisa comprovar domínio técnico como editor ou colorista.",
     },
   ],
 }

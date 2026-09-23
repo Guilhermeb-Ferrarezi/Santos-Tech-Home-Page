@@ -50,7 +50,7 @@ const PILARES = [
     titulo: "Cursos",
     descricao: "Aprenda uma habilidade e aplique direto no trabalho.",
     bullets: [
-      "32 cursos em 8 áreas de conhecimento",
+      "52 cursos em 8 áreas de conhecimento",
       "Do Excel ao Python, do Canva ao Power BI",
       "Escolha pelo que o mercado está pedindo",
     ],

@@ -30,16 +30,15 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "Essencial",
-      levelName: "Essencial",
-      totalHours: "24h",
+      levelName: "TikTok Ads",
+      totalHours: "48h",
       outcome:
-        "Criar, segmentar e publicar campanhas no TikTok Ads Manager com criativos nativos que geram cliques e primeiras conversões",
+        "Criar, produzir e gerenciar campanhas de TikTok Ads do zero absoluto até a operação em escala — criativos nativos que convertem, segmentação com retargeting por funil, TikTok Shop e Spark Ads com creators, e otimização orientada a dados com automações de budget — pronto para gerar ROAS real como gestor de tráfego ou dono de negócio.",
       modules: [
         {
           title: "TikTok for Business e Estrutura de Conta",
           topics: [
-            "Criação e configuração do Business Center e Ads Manager",
+            "Criação e configuração do Business Center e do TikTok Ads Manager",
             "Instalação e verificação do TikTok Pixel no site",
             "Estrutura campanha → grupo de anúncios → anúncio na prática",
             "Principais diferenças entre TikTok Ads e Meta Ads",
@@ -47,79 +46,33 @@ const COURSE_DATA: CourseData = {
           ],
         },
         {
-          title: "Formatos de Anúncio e Criativos Nativos",
+          title: "Criativos Nativos e Produção de Vídeo",
           topics: [
-            "In-Feed Ads, TopView e Spark Ads: quando usar cada formato",
-            "Princípio 'Don't Make Ads, Make TikToks' aplicado na prática",
-            "Como construir um hook irresistível nos 3 primeiros segundos",
-            "Uso de texto overlay, stickers e sons nativos para aumentar retenção",
-            "TikTok Creative Center: biblioteca de inspiração e tendências de criativos",
+            "In-Feed Ads, TopView e Spark Ads: quando usar cada formato, com apoio do TikTok Creative Center para pesquisar tendências e referências",
+            "Princípio 'Don't Make Ads, Make TikToks': estrutura hook → conteúdo → CTA em vídeos verticais de 15 a 30 segundos",
+            "Como construir um hook irresistível nos 3 primeiros segundos, com texto overlay, stickers e sons nativos para aumentar retenção",
+            "Técnicas de filmagem vertical nativa com smartphone e edição no CapCut: cortes, legendas automáticas e efeitos",
+            "Uso estratégico de músicas e sons em alta para ampliar alcance, e os erros mais comuns em criativos de TikTok Ads",
           ],
         },
         {
-          title: "Segmentação e Públicos",
+          title: "Segmentação, Públicos e Funil de Retargeting",
           topics: [
             "Segmentação por interesse, comportamento e tipo de dispositivo",
-            "Criação de Custom Audiences a partir de listas de clientes e pixel",
-            "Lookalike Audiences: configuração e boas práticas de tamanho",
-            "Públicos por engajamento: viewers de vídeo e seguidores do perfil",
-            "Exclusão de públicos para evitar sobreposição e desperdício de verba",
+            "Custom Audiences a partir de listas de clientes e pixel, e Lookalike Audiences: configuração e boas práticas de tamanho",
+            "Públicos por engajamento — viewers de vídeo e seguidores do perfil — e exclusão de públicos para evitar sobreposição e desperdício de verba",
+            "Estrutura de campanhas por etapa de funil (topo, meio e fundo) com retargeting de viewers de vídeo (25%, 50%, 75%) e de visitantes do site",
+            "Exclusão de compradores recentes, modelos de atribuição (view-through vs click-through) e sequenciamento de mensagens ao longo do funil",
           ],
         },
         {
-          title: "Criação de Vídeos que Convertem",
+          title: "Estratégia de Criativos em Escala e Parcerias com Creators",
           topics: [
-            "Estrutura hook → conteúdo → CTA em vídeos verticais de 15 a 30 segundos",
-            "Técnicas de filmagem vertical nativa com smartphone",
-            "Edição básica no CapCut: cortes, legendas automáticas e efeitos",
-            "Uso estratégico de músicas e sons em alta para aumentar alcance orgânico",
-            "Erros mais comuns em criativos de TikTok Ads e como evitá-los",
-          ],
-        },
-        {
-          title: "Métricas e Otimização Inicial",
-          topics: [
-            "Principais KPIs: CPM, CPC, CTR, VTR e ROAS — o que cada um indica",
-            "Navegação e leitura do painel de analytics do TikTok Ads Manager",
-            "Quando pausar, escalar ou recriar um anúncio com base em dados",
-            "Testes A/B de criativos: como estruturar e interpretar resultados",
-            "Relatórios semanais: como montar um resumo de desempenho para o cliente",
-          ],
-        },
-      ],
-      tools: [
-        "TikTok Ads Manager",
-        "TikTok Business Center",
-        "TikTok Pixel",
-        "TikTok Creative Center",
-        "CapCut",
-      ],
-    },
-    {
-      label: "Intermediário",
-      levelName: "Intermediário",
-      totalHours: "48h",
-      outcome:
-        "Gerenciar campanhas de alto desempenho em escala, dominar retargeting, TikTok Shop e relatórios avançados com automações",
-      modules: [
-        {
-          title: "Estratégia de Criativos em Escala",
-          topics: [
-            "Processo criar → testar → aprender → iterar para produção contínua",
-            "UGC (User Generated Content) como estratégia de anúncios autênticos",
-            "Como criar briefs eficientes para creators e freelancers",
-            "Biblioteca de hooks: como catalogar e reutilizar abordagens vencedoras",
-            "Análise competitiva de criativos com TikTok Creative Center e AdSpy",
-          ],
-        },
-        {
-          title: "Funil de Vendas e Retargeting",
-          topics: [
-            "Estrutura de campanhas por etapa: topo, meio e fundo de funil",
-            "Retargeting de viewers de vídeo (25%, 50%, 75%) e visitantes do site",
-            "Exclusão de compradores recentes para evitar gastos desnecessários",
-            "Modelos de atribuição no TikTok: view-through vs click-through",
-            "Estratégia de sequenciamento de mensagens ao longo do funil",
+            "Processo criar → testar → aprender → iterar para produção contínua em escala, com UGC (User Generated Content) como estratégia de anúncios autênticos",
+            "Briefs eficientes para creators e freelancers, e biblioteca de hooks para catalogar e reutilizar abordagens vencedoras",
+            "Análise competitiva de criativos com TikTok Creative Center e ferramentas como AdSpy",
+            "Spark Ads: como impulsionar conteúdo de criadores parceiros, processo de autorização (solicitação de código e vinculação de posts) e Creator Marketplace para encontrar, filtrar e contratar creators",
+            "Comparando métricas de engajamento versus conversão em campanhas Spark, e gestão de múltiplas parcerias com controle de desempenho por creator",
           ],
         },
         {
@@ -133,23 +86,13 @@ const COURSE_DATA: CourseData = {
           ],
         },
         {
-          title: "Spark Ads e Parcerias com Creators",
+          title: "Métricas, Otimização e Gestão de Budget",
           topics: [
-            "O que são Spark Ads e como impulsionar conteúdo de criadores parceiros",
-            "Processo de autorização: solicitação de código e vinculação de posts",
-            "Creator Marketplace: como encontrar, filtrar e contratar creators",
-            "Comparando métricas de engajamento versus conversão em campanhas Spark",
-            "Gestão de múltiplas parcerias e controle de desempenho por creator",
-          ],
-        },
-        {
-          title: "Relatórios, Otimização e Gestão de Budget",
-          topics: [
-            "Smart Performance Campaign: configuração e quando utilizá-la",
-            "Regras automáticas para pausar ou escalar campanhas por ROAS e CPA",
-            "Criação de dashboards no Looker Studio integrado ao TikTok Ads",
+            "Principais KPIs — CPM, CPC, CTR, VTR e ROAS — e navegação no painel de analytics do TikTok Ads Manager",
+            "Testes A/B de criativos: como estruturar e interpretar resultados, decidindo quando pausar, escalar ou recriar um anúncio com base em dados",
+            "Smart Performance Campaign: configuração e quando utilizá-la, com regras automáticas para pausar ou escalar campanhas por ROAS e CPA",
             "Gestão de budget mensal: distribuição por objetivo, formato e sazonalidade",
-            "Apresentação de resultados: como comunicar ROI e próximos passos ao cliente",
+            "Dashboards no Looker Studio integrado ao TikTok Ads, e como apresentar relatórios de desempenho e ROI ao cliente",
           ],
         },
       ],
@@ -168,11 +111,7 @@ const COURSE_DATA: CourseData = {
   faqItems: [
     {
       q: "Já anuncio no Meta Ads. Vale a pena aprender TikTok Ads também?",
-      a: "Vale bastante. O curso foi pensado inclusive pra quem já anuncia no Meta Ads e quer diversificar canais e reduzir o custo por aquisição — as diferenças entre TikTok Ads e Meta Ads são explicadas logo no início, já no primeiro módulo do Essencial.",
-    },
-    {
-      q: "Qual a diferença entre o nível Essencial e o Intermediário?",
-      a: "No Essencial você aprende a criar, segmentar e publicar campanhas com criativos nativos que geram as primeiras conversões. No Intermediário você escala: retargeting por funil, TikTok Shop e e-commerce, Spark Ads com parcerias de creators e automações de budget baseadas em ROAS e CPA.",
+      a: "Vale bastante. O curso foi pensado inclusive pra quem já anuncia no Meta Ads e quer diversificar canais e reduzir o custo por aquisição — as diferenças entre TikTok Ads e Meta Ads são explicadas logo no início, já no primeiro módulo do curso.",
     },
     {
       q: "O curso ensina a produzir os vídeos, ou só a configurar as campanhas?",

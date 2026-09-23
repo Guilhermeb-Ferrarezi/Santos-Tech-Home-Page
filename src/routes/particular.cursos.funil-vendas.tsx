@@ -29,11 +29,10 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "Essencial",
-      levelName: "Essencial",
-      totalHours: "24h",
+      levelName: "Funil de Vendas",
+      totalHours: "48h",
       outcome:
-        "Montar um funil de vendas funcional, configurar um CRM básico e criar sequências de e-mail automatizadas para nutrir e converter leads",
+        "Montar um funil de vendas do zero absoluto — captação e qualificação de leads, CRM básico — até operar um CRM avançado com lead scoring e automações multi-etapa, gerenciar pipeline com processo documentado e SLA entre marketing e vendas, e integrar anúncios pagos, WhatsApp e automações em um único ecossistema de aquisição mensurável.",
       modules: [
         {
           title: "Fundamentos do Funil de Vendas",
@@ -56,93 +55,46 @@ const COURSE_DATA: CourseData = {
           ],
         },
         {
-          title: "CRM — HubSpot e RD Station",
+          title: "CRM do Zero ao Avançado",
           topics: [
-            "O que é CRM e por que planilhas deixam dinheiro na mesa",
-            "Cadastro e organização de contatos: campos, tags e segmentação inicial",
-            "Pipeline de deals: criando etapas, movendo negócios e definindo probabilidades",
-            "Registro de interações: e-mails, ligações, reuniões e notas no histórico",
-            "Relatórios básicos: funil de negócios, taxa de ganho e tempo médio de fechamento",
-          ],
-        },
-        {
-          title: "Automação de E-mail Básica",
-          topics: [
-            "Sequência de boas-vindas: estrutura de 3 e-mails que engajam o novo lead",
-            "Fluxo de nutrição em 5 etapas: conteúdo, oferta e urgência no momento certo",
-            "Follow-up automático após download de lead magnet ou abandono de formulário",
-            "Análise de abertura, clique e descadastro: interpretando os dados de e-mail",
-            "Boas práticas de entregabilidade: domínio autenticado, listas limpas e assuntos eficazes",
-          ],
-        },
-        {
-          title: "Métricas do Funil",
-          topics: [
-            "Taxa de conversão por etapa: como calcular e onde estão os maiores gargalos",
-            "CPL, ticket médio e LTV: as métricas que definem a saúde financeira do funil",
-            "Tempo de fechamento: benchmarks por segmento e como reduzir o ciclo de vendas",
-            "Lendo dashboards de funil no CRM: filtros, períodos e interpretação correta",
-            "Apresentando resultados: como montar um relatório de funil para stakeholders",
-          ],
-        },
-      ],
-      tools: ["HubSpot CRM", "RD Station CRM", "RD Station Marketing", "Google Analytics 4", "Notion"],
-    },
-    {
-      label: "Intermediário",
-      levelName: "Intermediário",
-      totalHours: "48h",
-      outcome:
-        "Operar um CRM avançado com lead scoring, criar automações multi-etapa, gerenciar pipeline com SLAs e integrar todos os canais de aquisição em um único ecossistema mensurável",
-      modules: [
-        {
-          title: "CRM Avançado: Segmentação e Lead Scoring",
-          topics: [
-            "Propriedades customizadas no CRM: criando campos que refletem o processo do negócio",
-            "Listas dinâmicas e estáticas: segmentando contatos por comportamento e perfil",
+            "O que é CRM e por que planilha deixa dinheiro na mesa: cadastro e organização de contatos com campos, tags e segmentação inicial",
+            "Pipeline de deals: criando etapas, movendo negócios e definindo probabilidades, com propriedades customizadas que refletem o processo do negócio",
+            "Registro de interações: e-mails, ligações, reuniões e notas no histórico completo do contato",
+            "Segmentação avançada: listas dinâmicas e estáticas segmentando contatos por comportamento e perfil",
             "Lead scoring automático: atribuindo pontos por páginas visitadas, e-mails abertos e cargo",
-            "Integração CRM com formulários: mapeando campos e enriquecendo o contato na entrada",
-            "Passagem de lead para vendas: critérios de MQL→SQL e notificação automática do time",
+            "Integração do CRM com formulários e passagem de lead para vendas: critérios de MQL→SQL e notificação automática do time",
           ],
         },
         {
-          title: "Automações de Marketing e Vendas",
+          title: "Automação de Marketing e Vendas",
           topics: [
-            "Workflows multi-etapa: condições, ramificações e delays baseados em comportamento",
-            "Follow-up por comportamento: e-mail diferente para quem abriu vs quem ignorou",
-            "Notificações automáticas para vendas: alertas de lead quente no Slack ou WhatsApp",
-            "Automação de tarefas: criando deals, agendando atividades e atualizando propriedades",
+            "Sequência de boas-vindas e fluxo de nutrição em etapas: conteúdo, oferta e urgência no momento certo",
+            "Workflows multi-etapa: condições, ramificações e follow-up automático por comportamento — e-mail diferente para quem abriu vs quem ignorou",
+            "Automação de tarefas de vendas: criando deals, agendando atividades e atualizando propriedades, com notificação automática de lead quente no Slack ou WhatsApp",
             "Teste A/B em automações: variando assunto, horário e conteúdo para otimizar conversão",
+            "Análise de abertura, clique e descadastro, e boas práticas de entregabilidade: domínio autenticado, listas limpas e assuntos eficazes",
           ],
         },
         {
-          title: "Gestão de Pipeline e Processo de Vendas",
+          title: "Processo de Vendas e Integração de Canais",
           topics: [
-            "Processo de vendas documentado no CRM: playbook, scripts e objetos por etapa",
-            "SLA entre marketing e vendas: tempo de primeiro contato, retentativas e critérios de perda",
+            "Processo de vendas documentado no CRM: playbook, scripts e ações por etapa, com SLA entre marketing e vendas — tempo de primeiro contato, retentativas e critérios de perda",
             "Cadências de prospecção: sequência de touchpoints por e-mail, ligação e LinkedIn",
-            "Forecast por etapa: prevendo receita com base em probabilidade e histórico do pipeline",
-            "Reunião semanal de pipeline: pauta, métricas a revisar e tomada de decisão baseada em dados",
+            "Forecast por etapa e reunião semanal de pipeline: prevendo receita e tomando decisão com base em dados",
+            "CRM + WhatsApp via API e integração com Meta Ads e Google Ads: enviando mensagens automáticas e importando leads de formulários direto no CRM",
+            "Zapier, Make e webhooks: automações entre plataformas sem escrever código, e quando usar integração nativa via API",
+            "Sync do CRM com planilha Google Sheets: exportação automática para relatórios externos",
           ],
         },
         {
-          title: "Integração de Canais e Ferramentas",
+          title: "Métricas, ROI e Otimização do Funil",
           topics: [
-            "CRM + WhatsApp via API: enviando mensagens automáticas em etapas do funil",
-            "Conexão com Meta Ads e Google Ads: importando leads de formulários direto no CRM",
-            "Zapier e Make: criando automações entre plataformas sem escrever código",
-            "Sync CRM com planilha Google Sheets: exportação automática para relatórios externos",
-            "Webhooks e integrações nativas: quando usar Zapier vs integração direta via API",
-          ],
-        },
-        {
-          title: "Análise de Funil e Otimização Contínua",
-          topics: [
+            "Taxa de conversão por etapa do funil: como calcular e onde estão os maiores gargalos",
+            "CPL, ticket médio, LTV e tempo de fechamento: as métricas que definem a saúde financeira do funil, com benchmarks por segmento",
             "Dashboards customizados no CRM: agrupando métricas por canal, vendedor e período",
-            "Identificando gargalos: onde os leads travam e hipóteses de melhoria por etapa",
             "Relatório de cohort: acompanhando a qualidade de leads gerados por período e campanha",
             "ROI de canal: calculando retorno de cada fonte de leads e realocando investimento",
-            "Ciclo de melhoria contínua: como rodar hipóteses, medir impacto e escalar o que funciona",
+            "Ciclo de melhoria contínua e apresentação de resultados: rodando hipóteses, medindo impacto e montando relatórios de funil para stakeholders",
           ],
         },
       ],
@@ -150,12 +102,12 @@ const COURSE_DATA: CourseData = {
         "HubSpot CRM",
         "RD Station CRM",
         "RD Station Marketing",
+        "Google Analytics 4",
+        "Notion",
         "Zapier",
         "Make",
         "Meta Ads",
-        "Google Analytics 4",
         "WhatsApp Business API",
-        "Notion",
       ],
     },
   ],
@@ -165,12 +117,8 @@ const COURSE_DATA: CourseData = {
       a: "Se você ainda usa planilha, o curso é pensado exatamente pra essa transição. Você aprende a migrar de controle manual pra um CRM de verdade (HubSpot ou RD Station), com pipeline de negócios, histórico de interações e relatórios automáticos — sem perder o que já funciona no seu processo.",
     },
     {
-      q: "Qual a diferença entre o nível Essencial e o Intermediário?",
-      a: "Essencial monta a base: funil de vendas, geração e qualificação de leads, configuração do CRM e automações simples de e-mail. Intermediário é sobre escala: lead scoring automático, automações multi-etapa com ramificações, SLA entre marketing e vendas, integração de CRM com WhatsApp API, Meta Ads e Google Ads, e análise de cohort e ROI por canal.",
-    },
-    {
       q: "O curso ensina a integrar anúncios pagos com o CRM, ou só a parte de vendas?",
-      a: "Ensina os dois lados juntos. No Intermediário você conecta Meta Ads e Google Ads direto no CRM pra importar leads automaticamente, além de integrações via Zapier e Make — a ideia é sair com um fluxo único, do anúncio até o fechamento, e não ferramentas soltas.",
+      a: "Ensina os dois lados juntos. Você conecta Meta Ads e Google Ads direto no CRM pra importar leads automaticamente, além de integrações via Zapier e Make — a ideia é sair com um fluxo único, do anúncio até o fechamento, e não ferramentas soltas.",
     },
   ],
 }

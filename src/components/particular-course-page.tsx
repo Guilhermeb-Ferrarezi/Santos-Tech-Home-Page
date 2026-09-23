@@ -28,7 +28,7 @@ import { buildParticularPageSchemas } from "@/lib/seo";
 export type TopicGroup = { title: string; topics: string[] };
 
 export type Tier = {
-  label: string;
+  /** Nome do nível (ex.: "Essencial") em curso multi-tier; em curso de plano único, vira o nome do próprio curso/software (ex.: "Adobe Premiere") — todo consumo daqui precisa checar `multiTier`/`tiers.length` antes de tratar como rótulo de nível. */
   levelName: string;
   /** Texto do botão de CTA no card de preço, se diferente de `levelName` (ex.: "Hardware" em vez de "Montagem e Manutenção"). */
   ctaLabel?: string;
@@ -77,6 +77,19 @@ const TIER_META: Record<string, { price: number; aulas: string; intensivo: strin
   "Modelagem 3D": { price: 7200, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
   AutoCAD: { price: 6720, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
   "Revit BIM": { price: 7200, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  // Cursos de plano único, categoria símples (mesma taxa/ritmo do Premiere — R$ 82,70/h)
+  Informática: { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Photoshop + Illustrator": { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "DaVinci Resolve": { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Marketing Digital": { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Meta Ads": { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Google Ads": { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "TikTok Ads": { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  Copywriting: { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Funil de Vendas": { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  SEO: { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Redes Sociais": { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "E-commerce": { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
 };
 
 // ── Margem embutida e parcelamento (decisão do Henrique, 23/09) ────────────
@@ -427,7 +440,7 @@ export function ParticularCursosPage({
             {/* Outcome em destaque */}
             <div className="mt-8 rounded-xl border border-[#0DB88F]/30 bg-[#0DB88F]/5 px-6 py-5 dark:border-[#0DB88F]/20 dark:bg-[#0DB88F]/10">
               <p className="text-xs font-black uppercase tracking-[0.2em] text-[#0DB88F]">
-                Nível {tier.levelName} · {TIER_META[tier.levelName]?.aulas ?? tier.totalHours}
+                {multiTier && `Nível ${tier.levelName} · `}{TIER_META[tier.levelName]?.aulas ?? tier.totalHours}
               </p>
               <p className="mt-1.5 text-base font-semibold text-neutral-800 dark:text-neutral-200">
                 {tier.outcome}
@@ -727,24 +740,26 @@ export function ParticularCursosPage({
                 </p>
               </div>
 
-              {/* Trilha personalizada */}
-              <div className="rounded-xl border border-[#0DB88F]/30 bg-[#0DB88F]/5 p-6 dark:bg-[#0DB88F]/10">
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#0DB88F]">
-                  Não se encaixa em nenhum nível?
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
-                  Não importa se você está no zero absoluto, já domina parte do conteúdo ou quer pular etapas que já conhece. Como as aulas são individuais, o professor avalia o seu nível na primeira aula e monta o percurso certo pra você — sem revisitar o que você já sabe, sem pular o que você ainda precisa aprender.
-                </p>
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-4 inline-flex items-center gap-2 rounded-lg bg-[#0DB88F] px-5 py-2.5 text-sm font-black text-white transition hover:bg-[#0aaa82]"
-                >
-                  <WhatsAppIcon className="h-4 w-4" />
-                  Falar sobre o meu caso
-                </a>
-              </div>
+              {/* Trilha personalizada — só faz sentido quando há mais de 1 nível pra não se encaixar */}
+              {multiTier && (
+                <div className="rounded-xl border border-[#0DB88F]/30 bg-[#0DB88F]/5 p-6 dark:bg-[#0DB88F]/10">
+                  <p className="text-xs font-black uppercase tracking-[0.2em] text-[#0DB88F]">
+                    Não se encaixa em nenhum nível?
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
+                    Não importa se você está no zero absoluto, já domina parte do conteúdo ou quer pular etapas que já conhece. Como as aulas são individuais, o professor avalia o seu nível na primeira aula e monta o percurso certo pra você — sem revisitar o que você já sabe, sem pular o que você ainda precisa aprender.
+                  </p>
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-4 inline-flex items-center gap-2 rounded-lg bg-[#0DB88F] px-5 py-2.5 text-sm font-black text-white transition hover:bg-[#0aaa82]"
+                  >
+                    <WhatsAppIcon className="h-4 w-4" />
+                    Falar sobre o meu caso
+                  </a>
+                </div>
+              )}
             </div>
           </Reveal>
         </div>

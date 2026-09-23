@@ -29,7 +29,6 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "Essencial",
       levelName: "Essencial",
       totalHours: "24h",
       outcome: "Usar ChatGPT e ferramentas de IA no dia a dia profissional com prompts eficientes, produzindo textos, análises e conteúdos com segurança e consciência dos limites da tecnologia",
@@ -88,7 +87,6 @@ const COURSE_DATA: CourseData = {
       tools: ["ChatGPT Plus", "Google Gemini", "Microsoft Copilot", "Notion AI"],
     },
     {
-      label: "Intermediário",
       levelName: "Intermediário",
       totalHours: "48h",
       outcome: "Dominar técnicas avançadas de prompt engineering, automatizar fluxos de trabalho reais com IA, aplicar análise de dados com ChatGPT e construir soluções de IA personalizadas para a sua área profissional",
