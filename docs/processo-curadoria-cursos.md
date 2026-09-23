@@ -87,7 +87,10 @@ Antes de considerar o curso "pronto":
 1. **Crie a rota** em `src/routes/particular.cursos.<slug>.tsx` (copie um curso existente
    como base, ex.: [`particular.cursos.canva.tsx`](../src/routes/particular.cursos.canva.tsx)).
 2. **Adicione ao menu** em [`src/routes/particular.tsx`](../src/routes/particular.tsx) (array
-   `GRUPOS`, no grupo correto).
+   `GRUPOS`, no grupo correto). Se o nome do curso tiver a forma "Categoria — Específico"
+   (ex.: plataforma, ferramenta), separe em `nome` + `legenda` (ex.: `nome: "Edição de
+   Vídeo", legenda: "CapCut"`) em vez de um `nome` só com " — " — o menu renderiza os dois
+   em linhas distintas, sem truncar.
 3. **Atualize o `public/sitemap.xml`** no mesmo commit — regra dura do projeto: o sitemap
    é a fonte de verdade consumida pelo **bot de WhatsApp**. Curso fora do sitemap = o bot
    não consegue responder sobre ele. Use `<lastmod>` na data da alteração,

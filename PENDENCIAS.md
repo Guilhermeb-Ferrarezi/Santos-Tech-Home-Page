@@ -2,21 +2,12 @@
 
 ## Abertas
 
-- [ ] **Purgar o cache do Cloudflare pra `/og/*` e `/og-image.png`** — o fix
-      de fonte do PR #14 já está 100% no ar na origem (confirmado com
-      cache-busting), mas o Cloudflare guardou as imagens quebradas em cache
-      por até 4h (`Cache-Control: public, max-age=14400`) antes do fix
-      terminar de subir. Enquanto não purgar, quem abrir um link do site que
-      já foi acessado antes do fix continua vendo a imagem de OG quebrada
-      (tofu-box) no preview de WhatsApp/redes sociais.
-      **Ação exata:** painel do Cloudflare → domínio `santos-tech.com` →
-      **Caching → Configuration → Purge Cache → Purge Everything** (ou,
-      pra ser cirúrgico, "Custom Purge" só com as URLs `/og-image.png` e
-      `/og/*`). Depois de purgar, o WhatsApp ainda pode mostrar o preview
-      antigo em conversas onde o link já foi enviado antes — isso é cache do
-      próprio WhatsApp, não tem como forçar de fora, só enviando o link de
-      novo depois de um tempo. _Aguardando Henrique — só ele tem acesso ao
-      painel do Cloudflare._
+- [ ] **Copyright do rodapé inconsistente** (achado pela auditoria de
+      23/09, não relacionado ao rename/split — bug de template separado,
+      pré-existente): home e `/cursos/create` mostram "© 2026 Santos Tech",
+      `/particular` mostra "© 2025 Santos Tech", e as páginas de curso
+      (`/particular/cursos/*`) não têm linha de copyright nenhuma no rodapé.
+      Baixa prioridade, cosmético. _Aguardando decisão de prioridade._
 
 ## Resolvidas
 
@@ -36,14 +27,33 @@
       local (`bun run ./docker/server.ts`) e confirmando com `curl`:
       `/adultos/cursos/davinci` → `301` → `/particular/cursos/davinci`.
 
+- [x] **Redirect `/adultos` saía com `Location: http://` em vez de
+      `https://`** — achado pela auditoria de 23/09 (workflow paralelo).
+      Causa: o Cloudflare termina o TLS e repassa pro Bun em HTTP puro; o
+      redirect só trocava o `pathname`, herdando o protocolo `http:` do
+      request interno — o cliente levava um `301 → 302` (Cloudflare
+      reescrevendo pra https) em vez de um redirect limpo. Corrigido usando
+      o header `x-forwarded-proto` (que o Cloudflare sempre envia) pra decidir
+      o protocolo do `Location`, com https como padrão seguro. Testado local
+      simulando o header do Cloudflare.
+
 - [x] **Texto quebrado (tofu-box) nas imagens de Open Graph** — achado pelo
       Henrique em produção depois do deploy do PR #12/#13. Causa raiz: o
       Alpine (base da imagem Docker) não tem nenhuma fonte instalada, e
       `scripts/generate-og-images.mjs` depende de fonte de sistema pra
-      renderizar texto no SVG. Bug pré-existente da automação de OG (commit
-      `b0beb5f`), exposto porque nenhum build de produção tinha rodado desde
-      então. Corrigido no `Dockerfile` (PR #14): `apk add fontconfig
-      font-liberation && fc-cache -f` antes do `bun run build`. Reproduzido e
-      verificado com Docker local, buildando o estágio `build` isolado antes
-      e depois da correção — confirmado no ar na origem (ver pendência do
-      Cloudflare acima pro cache).
+      renderizar texto no SVG (as imagens são geradas **uma vez, em build
+      time** — não há geração em runtime, então não é uma "race condition de
+      cold start": é sempre o build inteiro que sai bom ou ruim, dependendo
+      só de a fonte estar instalada naquele build). Bug pré-existente da
+      automação de OG (commit `b0beb5f`), exposto porque nenhum build de
+      produção tinha rodado desde então. Corrigido no `Dockerfile` (PR #14):
+      `apk add fontconfig font-liberation && fc-cache -f` antes do
+      `bun run build`. Reproduzido e verificado com Docker local, buildando o
+      estágio `build` isolado antes e depois da correção.
+
+- [x] **Cache do Cloudflare servindo OG image quebrada** — o fix de fonte já
+      estava no ar na origem, mas o Cloudflare guardou as imagens
+      quebradas em cache por até 4h antes do fix terminar de subir.
+      **Henrique purgou o cache manualmente em 23/09** (painel Cloudflare →
+      Purge Everything). Confirmado pela auditoria e por verificação direta
+      que a origem já servia a versão corrigida.
