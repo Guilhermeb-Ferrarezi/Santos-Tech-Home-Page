@@ -2,19 +2,6 @@
 
 ## Abertas
 
-- [ ] **Ritmo intensivo dos cursos de 48 aulas: "~2 meses" ou "~3 meses"?** —
-      a tarefa que originou o PR #37 (correção do FAQ genérico de duração)
-      instruía tratar o intensivo de 48h como "~3 meses" (mudança "pedido do
-      Henrique, 23/09"), mas `TIER_META` (`particular-course-page.tsx`)
-      sempre teve "~2 meses" pra esse caso — confirmado no histórico do git
-      (nenhuma branch local ou remota tem esse valor) e na spec da
-      unificação de tiers (nenhuma menção ao assunto). Corrigi o FAQ usando
-      o valor real (~2 meses) pra não contradizer o card de Investimento,
-      que mostra "~2 meses" na mesma página. Se a mudança pra "~3 meses" for
-      uma decisão real, falta aplicá-la em `TIER_META` (17 cursos de 48
-      aulas) — o FAQ genérico acompanha automaticamente depois, sem precisar
-      mexer de novo. _Aguardando Henrique._
-
 - [ ] **Estatística "24 aulas por curso" na home do `/particular` vai ficando
       menos precisa conforme a unificação de tiers avança** — achado pela
       auditoria de resquícios do modelo antigo (23/09). O bloco "Ritmo"
@@ -56,6 +43,27 @@
       prioridade, cosmético. _Aguardando decisão do Henrique._
 
 ## Resolvidas
+
+- [x] **Ritmo intensivo dos cursos de 48 aulas atualizado de "~2 meses" pra
+      "~3 meses"** — a tarefa que originou o PR #37 (correção do FAQ
+      genérico de duração) partia da premissa de que `TIER_META`
+      (`particular-course-page.tsx`) já usava "~3 meses", mas o valor
+      sempre tinha sido "~2 meses" (confirmado no histórico do git, todas
+      as branches, e na spec da unificação de tiers — nenhuma menção ao
+      assunto). Registrei a divergência e perguntei; **Henrique confirmou
+      em 23/09 que quer mesmo "~3 meses"**. Atualizados os 21 cursos de 48
+      aulas em `TIER_META` (recontados com `grep`, não são 17 como cheguei
+      a estimar antes) e o FAQ genérico (`particular-faq.tsx`), que já
+      citava esse número. Não mexi em `particular.index.tsx`
+      (`POPULARES.duracao`, cards da home) — esse campo já é uma pendência
+      separada (abaixo) e os valores não seguem `TIER_META` de forma
+      mecânica (ex.: Cibersegurança mostra "4 meses", Redes Sociais mostra
+      "1 mês", nenhum dos dois batendo com intensivo nem padrão), então
+      trocar só o "2"→"3" ali seria arbitrário. Verificado com `bun run
+      lint` + `bun run build` (gate do `CLAUDE.md`, sem erros) e
+      visualmente no `bun run dev`: `/particular/cursos/excel` mostra
+      Intermediário (48 aulas) com Intensivo "~3 meses" / Padrão "~6
+      meses", e o FAQ com o mesmo número.
 
 - [x] **`nginx.conf` estava morto/não usado no deploy real** — o `Dockerfile`
       nunca copiava nem referenciava esse arquivo; o container final roda só
