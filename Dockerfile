@@ -15,6 +15,11 @@ RUN bun install --frozen-lockfile
 
 FROM deps AS build
 
+# Sem fonte no sistema, o rsvg (usado pelo sharp em scripts/generate-og-images.mjs)
+# renderiza texto como tofu-box (□□□) em vez de letras — Alpine não vem com
+# nenhuma fonte instalada por padrão.
+RUN apk add --no-cache fontconfig font-liberation && fc-cache -f
+
 ARG VITE_POSTHOG_KEY
 ARG VITE_POSTHOG_HOST
 ARG VITE_SENTRY_DSN
