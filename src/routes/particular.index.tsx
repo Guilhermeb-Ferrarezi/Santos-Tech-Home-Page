@@ -679,7 +679,7 @@ function ParticularPage() {
                   </div>
 
                   <p className="mt-8 border-t border-white/5 pt-6 text-center text-xs text-neutral-600">
-                    © 2025 Santos Tech — Todos os direitos reservados.
+                    © {new Date().getFullYear()} Santos Tech — Todos os direitos reservados.
                   </p>
                 </footer>
               </div>
