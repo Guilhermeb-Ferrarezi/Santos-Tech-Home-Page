@@ -98,7 +98,7 @@ const COURSE_DATA: CourseData = {
             "Auditoria de funil — identificar pontos de abandono e reescrever copy pra eliminar fricção",
             "Revisão pós-campanha e relatório de performance de copy pra clientes: extrair aprendizados e apresentar resultados com contexto e recomendações",
             "Projeto final: pesquisa de avatar aplicada, anúncio em 3 variações, landing page completa e sequência de 5 e-mails",
-            "Revisão em grupo, feedback estruturado e entrega do portfólio final pronto pra apresentar a clientes reais",
+            "Revisão individual com o professor, feedback estruturado e entrega do portfólio final pronto pra apresentar a clientes reais",
           ],
         },
       ],
@@ -112,7 +112,7 @@ const COURSE_DATA: CourseData = {
     },
     {
       q: "Dá pra usar esse curso pra virar freelancer de copywriting?",
-      a: "Sim. O projeto final do curso monta uma campanha completa — anúncio, landing page e sequência de e-mails — com revisão em grupo e feedback estruturado, pra sair com portfólio pronto pra apresentar a clientes reais.",
+      a: "Sim. O projeto final do curso monta uma campanha completa — anúncio, landing page e sequência de e-mails — com revisão individual com o professor e feedback estruturado, pra sair com portfólio pronto pra apresentar a clientes reais.",
     },
   ],
 }
