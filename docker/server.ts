@@ -131,6 +131,9 @@ function redirectLegacyParticularPath(request: Request): Response | null {
     return null;
   }
 
+  // Cloudflare termina o TLS e repassa pro Bun em HTTP puro — sem isto, o
+  // Location sai "http://" e o cliente leva um 301->302 em vez de 1 hop só.
+  url.protocol = request.headers.get("x-forwarded-proto") === "http" ? "http:" : "https:";
   url.pathname = `/particular${url.pathname.slice(LEGACY_PARTICULAR_PREFIX.length)}`;
   return Response.redirect(url, 301);
 }
