@@ -30,11 +30,12 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "Intermediário",
-      levelName: "Intermediário",
+      label: "Redes e Infraestrutura",
+      levelName: "Redes e Infraestrutura",
+      ctaLabel: "curso de Redes e Infraestrutura",
       totalHours: "48h",
       outcome:
-        "Configurar switches gerenciáveis com VLANs, implementar roteamento estático e dinâmico e monitorar a rede",
+        "Configurar redes corporativas do zero absoluto — endereçamento IP e VLANs — até o roteamento avançado com OSPF multi-área, BGP e VPN, Wi-Fi corporativo e automação com Python e IA, pronto para a certificação CompTIA Network+.",
       modules: [
         {
           title: "Endereçamento IP e Sub-redes",
@@ -50,59 +51,19 @@ const COURSE_DATA: CourseData = {
           topics: [
             "Switches gerenciáveis: diferença entre acesso e trunk (802.1Q)",
             "VLANs: criação, atribuição de portas e segmentação de rede",
-            "Spanning Tree Protocol (STP): como previne loops em redes comutadas",
-            "EtherChannel: agregação de links para redundância e banda",
+            "Spanning Tree Protocol (STP/RSTP): prevenção de loops e convergência rápida",
+            "Port security: controle de dispositivos por MAC address",
+            "EtherChannel: LACP e agregação de links para redundância e banda",
           ],
         },
         {
           title: "Roteamento",
           topics: [
             "Roteamento estático: configuração de rotas e gateway de último recurso",
-            "RIP e OSPF: conceitos e configuração básica em Cisco IOS",
+            "RIP e OSPF: dos fundamentos em Cisco IOS ao design multi-área hierárquico com otimização de LSAs",
             "Inter-VLAN routing: roteador-on-a-stick e Layer 3 switch",
-            "Simulação completa no Cisco Packet Tracer",
-          ],
-        },
-        {
-          title: "Monitoramento e Segurança de Rede",
-          topics: [
-            "SNMP: coleta de dados de dispositivos de rede",
-            "Zabbix: instalação, templates e dashboards de monitoramento",
-            "ACLs: controle de tráfego por regras no roteador Cisco",
-            "Syslog: centralização de logs de rede",
-          ],
-        },
-      ],
-      tools: [
-        "Cisco Packet Tracer",
-        "Wireshark",
-        "Zabbix",
-        "Cisco IOS (CLI)",
-      ],
-    },
-    {
-      label: "Profissional + IA",
-      levelName: "Profissional + IA",
-      totalHours: "72h",
-      outcome:
-        "Projetar e implementar redes corporativas completas, estar preparado para CompTIA Network+ e usar ferramentas de automação e IA",
-      modules: [
-        {
-          title: "Switching e VLANs",
-          topics: [
-            "VLANs: criação, trunk 802.1Q e segmentação de rede",
-            "Spanning Tree Protocol (STP/RSTP): convergência e proteção de loops",
-            "Port security: controle de dispositivos por MAC address",
-            "EtherChannel: LACP e agregação de links físicos",
-          ],
-        },
-        {
-          title: "Roteamento Avançado",
-          topics: [
-            "OSPF multi-área: design hierárquico e otimização de LSAs",
-            "BGP: conceitos de roteamento entre ASNs (preparo para ISP)",
-            "VPN: IPSec site-to-site e cliente-a-site com OpenVPN",
-            "SD-WAN: conceitos e diferença em relação ao roteamento tradicional",
+            "BGP: conceitos de roteamento entre ASNs (preparo para atuar em ISP)",
+            "VPN e SD-WAN: IPSec site-to-site, cliente-a-site com OpenVPN e os conceitos de SD-WAN frente ao roteamento tradicional",
           ],
         },
         {
@@ -115,30 +76,23 @@ const COURSE_DATA: CourseData = {
           ],
         },
         {
-          title: "Monitoramento e Gerenciamento",
+          title: "Monitoramento e Gestão de Rede",
           topics: [
-            "Zabbix: criação de alertas, triggers e notificações por e-mail/Telegram",
-            "PRTG: monitoramento de banda e disponibilidade de serviços",
-            "Netflow e análise de tráfego com ntopng",
+            "SNMP: coleta de dados de dispositivos de rede",
+            "Zabbix: instalação, templates, dashboards e criação de alertas/triggers com notificação por e-mail/Telegram",
+            "ACLs e Syslog: controle de tráfego por regras no roteador Cisco e centralização de logs de rede",
+            "PRTG e Netflow/ntopng: monitoramento de banda, disponibilidade de serviços e análise de tráfego",
             "Gestão de configurações com Rancid e backup automático de configs",
           ],
         },
         {
-          title: "Automação e IA em Redes",
+          title: "Automação, IA e Certificação",
           topics: [
             "Python para redes: Netmiko para configurar múltiplos dispositivos via SSH",
             "Ansible: playbooks para provisionamento de switches e roteadores",
-            "IA para troubleshooting: uso do ChatGPT para interpretar logs e propor soluções",
-            "Projeto final: projetar, documentar e implementar a rede de uma empresa fictícia",
-          ],
-        },
-        {
-          title: "Preparação CompTIA Network+",
-          topics: [
-            "Simulados do exame N10-008: questões comentadas por domínio",
-            "Performance-based questions (PBQs): prática em simulador",
-            "Revisão dos domínios: infraestrutura, segurança, operações e troubleshooting",
-            "Dicas de prova: gerenciamento de tempo e abordagem de questões difíceis",
+            "IA para troubleshooting: uso do ChatGPT para interpretar logs de rede e propor soluções",
+            "Projeto final: projetar, documentar e implementar a rede completa de uma empresa fictícia",
+            "Preparação CompTIA Network+ (N10-008): simulados comentados, performance-based questions, revisão de domínios e estratégias de prova",
           ],
         },
       ],
@@ -147,6 +101,7 @@ const COURSE_DATA: CourseData = {
         "GNS3",
         "Wireshark",
         "Zabbix",
+        "Cisco IOS (CLI)",
         "Netmiko/Python",
         "Ansible",
         "Unifi Controller",
@@ -157,15 +112,11 @@ const COURSE_DATA: CourseData = {
   faqItems: [
     {
       q: "Preciso já trabalhar com TI pra fazer esse curso?",
-      a: "O curso é voltado pra quem já está na área — seja como técnico de suporte que quer subir pra infraestrutura, seja alguém que já entende de TI e quer avançar em redes. Ele começa direto no Intermediário com endereçamento IP, sub-redes e VLANs, sem cobrir fundamentos de informática do zero.",
-    },
-    {
-      q: "Qual a diferença entre o nível Intermediário e o Profissional + IA?",
-      a: "No Intermediário você configura switches gerenciáveis com VLANs, roteamento estático e dinâmico e monitora a rede com Zabbix. No Profissional + IA você avança pra roteamento com OSPF multi-área e BGP, VPN, Wi-Fi corporativo, automação com Python e Ansible, e fecha com preparação específica para a certificação CompTIA Network+.",
+      a: "O curso é voltado pra quem já está na área — seja como técnico de suporte que quer subir pra infraestrutura, seja alguém que já entende de TI e quer avançar em redes. Ele começa direto com endereçamento IP, sub-redes e VLANs, sem cobrir fundamentos de informática do zero.",
     },
     {
       q: "O curso prepara pra certificação CompTIA Network+?",
-      a: "Sim, o Profissional + IA inclui um módulo dedicado com simulados do exame N10-008, prática de performance-based questions e revisão de todos os domínios cobrados na prova — incluindo dicas de gerenciamento de tempo.",
+      a: "Sim, o curso inclui um módulo dedicado com simulados do exame N10-008, prática de performance-based questions e revisão de todos os domínios cobrados na prova — incluindo estratégias de gerenciamento de tempo.",
     },
   ],
 }
