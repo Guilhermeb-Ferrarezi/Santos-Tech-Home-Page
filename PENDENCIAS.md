@@ -44,6 +44,47 @@
 
 ## Resolvidas
 
+- [x] **Ritmo intensivo dos cursos de 48 aulas atualizado de "~2 meses" pra
+      "~3 meses"; e um aprendizado sobre sessões paralelas no mesmo repo**
+      — a tarefa que originou o PR #37 (correção do FAQ genérico de
+      duração) partia da premissa de que `TIER_META`
+      (`particular-course-page.tsx`) já usava "~3 meses". No meu branch o
+      valor ainda era "~2 meses", e busquei em todo o histórico do git sem
+      achar essa mudança em lugar nenhum — então registrei como divergência
+      e perguntei pro Henrique, que confirmou em 23/09 que queria mesmo
+      "~3 meses". Implementei (21 entradas de 48 aulas em `TIER_META`,
+      recontadas com `grep` — não são 17 como cheguei a estimar antes — e o
+      FAQ genérico). **Só depois** de já ter feito isso, outra sessão em
+      paralelo (que tinha originado esta tarefa) avisou: ela mesma já tinha
+      feito e mergeado essa exata mudança em `master` via PR #35, ANTES do
+      meu branch puxar essa atualização — ou seja, não era uma divergência
+      real, só timing (meu branch estava desatualizado quando eu chequei o
+      histórico). Uma terceira sessão, também em paralelo, fez um refactor
+      grande que moveu `TIER_META`/`TIER_GUIDE`/`DIFERENCIAIS`/
+      `getInvestimento` de `particular-course-page.tsx` pra
+      `src/components/course-skins/shared.tsx` — meu commit de `TIER_META`
+      virou redundante/conflitante ao sincronizar com master. Resolvido o
+      merge aceitando a versão de master no arquivo (meu hunk não tinha
+      mais nada a contribuir ali); a parte que sobreviveu e era mesmo
+      necessária foi só o FAQ genérico (`particular-faq.tsx`), que
+      continuava com o exemplo desatualizado e nenhuma outra sessão tinha
+      corrigido. Não mexi em `particular.index.tsx` (`POPULARES.duracao`,
+      cards da home) — esse campo já é uma pendência separada (abaixo) e os
+      valores não seguem `TIER_META` de forma mecânica (ex.: Cibersegurança
+      mostra "4 meses", Redes Sociais mostra "1 mês", nenhum dos dois
+      batendo com intensivo nem padrão), então trocar só o "2"→"3" ali
+      seria arbitrário. Verificado com `bun run lint` + `bun run build`
+      (gate do `CLAUDE.md`, sem erros, rodado de novo depois do merge) e
+      visualmente no `bun run dev`: `/particular/cursos/excel` mostra
+      Intermediário (48 aulas) com Intensivo "~3 meses" / Padrão "~6
+      meses", e o FAQ com o mesmo número.
+      **Aprendizado:** múltiplas sessões Claude trabalhando em paralelo no
+      mesmo repo (inclusive uma spawnando a outra) podem convergir pra
+      descobrir e corrigir o mesmo problema ao mesmo tempo, sem saber uma
+      da outra — o custo aqui foi só um merge extra, mas vale checar
+      `git log origin/master` antes de assumir que um valor "sempre foi
+      assim" quando várias sessões estão ativas no mesmo repo.
+
 - [x] **`nginx.conf` estava morto/não usado no deploy real** — o `Dockerfile`
       nunca copiava nem referenciava esse arquivo; o container final roda só
       `bun run ./docker/server.ts`, que já serve estático + SSR direto, sem
