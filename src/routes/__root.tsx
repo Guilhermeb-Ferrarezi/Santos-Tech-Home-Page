@@ -170,11 +170,11 @@ function RootShell({ children }: { children: React.ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const isAdultosRoute = pathname.startsWith("/adultos");
+  const isParticularRoute = pathname.startsWith("/particular");
   const isLinksRoute = pathname === "/links";
   const mainRef = useRef<HTMLElement | null>(null);
   useRouteEnterFade(mainRef);
-  useSmoothScroll(!isAdultosRoute);
+  useSmoothScroll(!isParticularRoute);
 
   // /links é a única página com fundo escuro de ponta a ponta. Sem isto, o
   // "elastic bounce" do scroll no mobile (Chrome/Safari) mostra por baixo o
@@ -194,10 +194,10 @@ function RootComponent() {
       <JsonLd data={[buildOrganizationSchema(), buildWebSiteSchema()]} />
 
       {/* Fora do ternário: o consentimento vale para o site todo, inclusive
-          /adultos, que tem layout próprio. */}
+          /particular, que tem layout próprio. */}
       <CookieConsent />
 
-      {isAdultosRoute ? (
+      {isParticularRoute ? (
         <Outlet />
       ) : (
         <>

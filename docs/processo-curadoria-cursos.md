@@ -1,8 +1,8 @@
 # Processo de Curadoria de Cursos — Santos Tech
 
 > Padrão oficial para **pesquisar, definir e publicar** um curso novo no site
-> (`santos-tech.com`). Vale para toda a seção de adultos (`/adultos/cursos/*`) e,
-> no que couber, para os programas infantis.
+> (`santos-tech.com`). Vale para toda a seção de cursos particulares
+> (`/particular/cursos/*`) e, no que couber, para os programas infantis.
 
 ## Princípio central
 
@@ -21,9 +21,11 @@ Antes de escrever qualquer coisa, pesquise o estado atual do tema:
 - Quais tendências estão em ascensão e valem ser ensinadas.
 - O que as empresas exigem de quem atua na área.
 
-> Referência histórica: a seção de adultos nasceu do commit `ba651cd —
-> "/adultos: 32 páginas de cursos com pesquisa real de mercado"`. Esse é o padrão:
-> pesquisa real, não achismo.
+> Referência histórica: a seção nasceu do commit `ba651cd —
+> "/adultos: 32 páginas de cursos com pesquisa real de mercado"`, com o nome
+> `/adultos`, renomeada pra `/particular` em 23/09/2026 (ver
+> [spec da renomeação](superpowers/specs/2026-09-23-particular-rename-design.md)).
+> Esse é o padrão: pesquisa real, não achismo.
 
 ### 2. Posicionamento e diferenciação
 - Defina o **ângulo** do curso em uma frase.
@@ -55,8 +57,8 @@ Se os três forem "sim", o tier existe. Se algum for "não", **não invente o ti
 > longe o aluno vai, maior o pacote de aulas e o investimento.
 
 ### 4. Preenchimento do padrão editorial (schema `CourseData`)
-Todo curso de adulto é um objeto `CourseData` renderizado por
-[`adultos-course-page.tsx`](../src/components/adultos-course-page.tsx). A página (hero,
+Todo curso particular é um objeto `CourseData` renderizado por
+[`particular-course-page.tsx`](../src/components/particular-course-page.tsx). A página (hero,
 "para quem é", conteúdo, diferenciais, investimento, FAQ, CTA) é **compartilhada** — você
 só preenche os dados.
 
@@ -82,9 +84,9 @@ preço na página. Tabela atual: Essencial `R$ 1.970` (24 aulas) · Intermediár
 
 ### 5. Publicação — sitemap + build/lint
 Antes de considerar o curso "pronto":
-1. **Crie a rota** em `src/routes/adultos.cursos.<slug>.tsx` (copie um curso existente
-   como base, ex.: [`adultos.cursos.canva.tsx`](../src/routes/adultos.cursos.canva.tsx)).
-2. **Adicione ao menu** em [`src/routes/adultos.tsx`](../src/routes/adultos.tsx) (array
+1. **Crie a rota** em `src/routes/particular.cursos.<slug>.tsx` (copie um curso existente
+   como base, ex.: [`particular.cursos.canva.tsx`](../src/routes/particular.cursos.canva.tsx)).
+2. **Adicione ao menu** em [`src/routes/particular.tsx`](../src/routes/particular.tsx) (array
    `GRUPOS`, no grupo correto).
 3. **Atualize o `public/sitemap.xml`** no mesmo commit — regra dura do projeto: o sitemap
    é a fonte de verdade consumida pelo **bot de WhatsApp**. Curso fora do sitemap = o bot

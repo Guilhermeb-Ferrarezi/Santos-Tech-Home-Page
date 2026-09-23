@@ -13,7 +13,8 @@ Se qualquer etapa falhar, **corrija antes de prosseguir** — não pushe "pra ve
 
 Site institucional público da Santos Tech (escola de tecnologia e informática em
 Ribeirão Preto). Vitrine da marca: institucional, programas/cursos (infantil **e
-adultos**), professores e contato.
+particulares** — rota `/particular`, cursos individuais 1 aluno + 1 professor,
+qualquer idade), professores e contato.
 
 ## Stack
 - **React 19** + **Vite 7** + **TanStack Router** (roteamento por arquivos).

@@ -26,6 +26,7 @@
 import sharp from "sharp";
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 const ICONS_DIR = path.join(ROOT, "node_modules/lucide-react/dist/esm/icons");
@@ -39,7 +40,7 @@ const FONT_STACK = "Poppins, 'Liberation Sans', 'Noto Sans', Arial, sans-serif";
 // PALETA — DESIGN_SYSTEM.md §Cores + src/lib/program-theme.ts (per programa)
 // ──────────────────────────────────────────────────────────────────────────
 
-const ADULTOS_THEME = { bgDark: "#04325A", bgLight: "#187ABF", accent: "#0DB88F" };
+const PARTICULAR_THEME = { bgDark: "#04325A", bgLight: "#187ABF", accent: "#0DB88F" };
 
 const PROGRAM_THEME = {
   jr: { bgDark: "#3d1858", bgLight: "#5a2680", accent: "#DEABF7" },
@@ -53,7 +54,7 @@ const PROGRAM_THEME = {
 // lucide-react/dist/esm/icons/) + texto de exibição na imagem
 // ──────────────────────────────────────────────────────────────────────────
 
-const ADULT_ICONS = {
+const PARTICULAR_ICONS = {
   ads: "layers",
   "agentes-ia": "bot",
   autocad: "drafting-compass",
@@ -93,6 +94,7 @@ const ADULT_ICONS = {
   "power-apps": "blocks",
   "power-bi": "chart-column",
   powerpoint: "presentation",
+  premiere: "scissors",
   "python-apis": "square-code",
   python: "terminal",
   rag: "database-zap",
@@ -107,24 +109,24 @@ const ADULT_ICONS = {
   word: "type",
 };
 
-// Ícone padrão pra curso novo que ainda não ganhou uma entrada em ADULT_ICONS —
+// Ícone padrão pra curso novo que ainda não ganhou uma entrada em PARTICULAR_ICONS —
 // garante que TODO curso sai com imagem, mesmo antes de alguém escolher um
 // ícone temático melhor pra ele.
 const DEFAULT_ICON = "graduation-cap";
 
 /**
- * Descobre os cursos adultos direto de `src/routes/adultos.cursos.*.tsx` —
+ * Descobre os cursos particulares direto de `src/routes/particular.cursos.*.tsx` —
  * lê `nome`/`categoria` do `COURSE_DATA` de cada rota, em vez de uma lista
  * fixa. Curso novo (arquivo novo) ou título renomeado aparece aqui sozinho
  * na próxima vez que o script rodar, sem precisar editar nada aqui.
  */
-async function discoverAdultCourses() {
+async function discoverParticularCourses() {
   const routesDir = path.join(ROOT, "src/routes");
-  const files = (await fs.readdir(routesDir)).filter((f) => /^adultos\.cursos\..+\.tsx$/.test(f));
+  const files = (await fs.readdir(routesDir)).filter((f) => /^particular\.cursos\..+\.tsx$/.test(f));
   const courses = [];
   for (const file of files) {
     const content = await fs.readFile(path.join(routesDir, file), "utf8");
-    const slug = file.replace(/^adultos\.cursos\./, "").replace(/\.tsx$/, "");
+    const slug = file.replace(/^particular\.cursos\./, "").replace(/\.tsx$/, "");
     const nomeMatch = content.match(/nome:\s*"([^"]+)"/);
     const categoriaMatch = content.match(/categoria:\s*"([^"]+)"/);
     if (!nomeMatch || !categoriaMatch) {
@@ -185,7 +187,7 @@ function wrapTitle(title, maxCharsPerLine) {
 
 /** Carrega o `__iconNode` (dado puro, sem React) de um ícone lucide-react pelo nome kebab-case. */
 async function loadIconNode(iconName) {
-  const mod = await import(path.join(ICONS_DIR, `${iconName}.mjs`));
+  const mod = await import(pathToFileURL(path.join(ICONS_DIR, `${iconName}.mjs`)).href);
   return mod.__iconNode;
 }
 
@@ -290,12 +292,12 @@ function buildDefaultSvg() {
   return `<svg width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="${ADULTOS_THEME.bgDark}" />
-        <stop offset="100%" stop-color="${ADULTOS_THEME.bgLight}" />
+        <stop offset="0%" stop-color="${PARTICULAR_THEME.bgDark}" />
+        <stop offset="100%" stop-color="${PARTICULAR_THEME.bgLight}" />
       </linearGradient>
       <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="${ADULTOS_THEME.accent}" stop-opacity="0.35" />
-        <stop offset="100%" stop-color="${ADULTOS_THEME.accent}" stop-opacity="0" />
+        <stop offset="0%" stop-color="${PARTICULAR_THEME.accent}" stop-opacity="0.35" />
+        <stop offset="100%" stop-color="${PARTICULAR_THEME.accent}" stop-opacity="0" />
       </radialGradient>
       <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
         <circle cx="1.5" cy="1.5" r="1.5" fill="#ffffff" fill-opacity="0.08" />
@@ -305,7 +307,7 @@ function buildDefaultSvg() {
     <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#dots)" />
     <circle cx="600" cy="315" r="420" fill="url(#glow)" />
     <text x="600" y="330" text-anchor="middle" font-family="${FONT_STACK}" font-size="72" font-weight="800" fill="#ffffff">Santos Tech</text>
-    <text x="600" y="384" text-anchor="middle" font-family="${FONT_STACK}" font-size="28" font-weight="500" fill="${ADULTOS_THEME.accent}">Escola de tecnologia presencial em Ribeirão Preto</text>
+    <text x="600" y="384" text-anchor="middle" font-family="${FONT_STACK}" font-size="28" font-weight="500" fill="${PARTICULAR_THEME.accent}">Escola de tecnologia presencial em Ribeirão Preto</text>
   </svg>`;
 }
 
@@ -342,31 +344,31 @@ async function main() {
     .toFile(path.join(ROOT, "public/og-image.png"));
   console.log("✓ public/og-image.png (1200×630)");
 
-  // 2) cursos adultos — descobertos direto das rotas (ver discoverAdultCourses)
-  const adultosDir = path.join(ROOT, "public/og/adultos");
-  await fs.mkdir(adultosDir, { recursive: true });
-  const adultCourses = await discoverAdultCourses();
-  for (const course of adultCourses) {
-    const iconName = ADULT_ICONS[course.slug];
+  // 2) cursos particulares — descobertos direto das rotas (ver discoverParticularCourses)
+  const particularDir = path.join(ROOT, "public/og/particular");
+  await fs.mkdir(particularDir, { recursive: true });
+  const particularCourses = await discoverParticularCourses();
+  for (const course of particularCourses) {
+    const iconName = PARTICULAR_ICONS[course.slug];
     if (!iconName) {
-      console.warn(`  ! ${course.slug}: sem ícone mapeado em ADULT_ICONS, usando "${DEFAULT_ICON}"`);
+      console.warn(`  ! ${course.slug}: sem ícone mapeado em PARTICULAR_ICONS, usando "${DEFAULT_ICON}"`);
     }
     const iconNode = await getIcon(iconName ?? DEFAULT_ICON);
     const svg = buildCourseSvg({
       title: course.title,
       tag: course.tag,
-      badge: `Santos Tech · Adultos`,
+      badge: `Santos Tech · Particular`,
       iconNode,
-      theme: ADULTOS_THEME,
+      theme: PARTICULAR_THEME,
     });
     const base = await sharp(Buffer.from(svg)).png().toBuffer();
     const final = await sharp(base)
       .composite([{ input: logoBadge, left: 80, top: 518 }])
       .png()
-      .toFile(path.join(adultosDir, `${course.slug}.png`));
+      .toFile(path.join(particularDir, `${course.slug}.png`));
     void final;
   }
-  console.log(`✓ public/og/adultos/*.png (${adultCourses.length} imagens)`);
+  console.log(`✓ public/og/particular/*.png (${particularCourses.length} imagens)`);
 
   // 3) cursos infantis
   const infantilDir = path.join(ROOT, "public/og/infantil");

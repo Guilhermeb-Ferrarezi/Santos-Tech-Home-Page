@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
  * o efeito) faz filhos `fixed`/`sticky` pararem de se comportar como tal.
  *
  * Uma instância pro app inteiro — chamado em `__root.tsx`. Recria quando
- * `hasWrapper` muda (a rota `/adultos` não usa esse layout, então não tem
+ * `hasWrapper` muda (a rota `/particular` não usa esse layout, então não tem
  * `#smooth-wrapper` — o smoother é desligado nela e religado ao sair).
  * Sem `prefers-reduced-motion`, nem inicializa (scroll nativo comum).
  */

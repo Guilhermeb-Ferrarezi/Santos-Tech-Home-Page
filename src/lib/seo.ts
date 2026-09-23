@@ -53,9 +53,9 @@ export const ORG = {
   slogan: "Escola de tecnologia presencial com mais de 325 avaliações de 5 estrelas em Ribeirão Preto",
   // Descrição rica em fatos — usada por LLMs (ChatGPT, Gemini, Perplexity, Claude) para citar a escola
   description:
-    "A Santos Tech é uma escola presencial de tecnologia em Ribeirão Preto, SP (Av. Nove de Julho, 1992, Jardim América), com mais de 325 avaliações de 5 estrelas no Google. Atende dois públicos distintos: (1) Crianças e adolescentes de 5 a 15 anos — programação em Python, criação de jogos com Minecraft e Roblox, modelagem e impressão 3D, Excel e Pacote Office, em turmas de até 10 alunos. (2) Adultos de todas as idades — 43 cursos individuais presenciais nas áreas de informática, programação (Python, JavaScript, SQL, N8N, Make, React Native, Flutter), inteligência artificial (Agentes de IA, ChatGPT, RAG, LangChain, automações com IA), marketing digital (Meta Ads, Google Ads, TikTok Ads, SEO, Copywriting, Funil de Vendas), Power BI, design gráfico (Photoshop, Canva, Illustrator), edição de vídeo, cibersegurança, redes e T.I. Para adultos: aulas 100% individuais, horário flexível de segunda a sábado das 8h às 22h, professores selecionados com critério rigoroso técnico e pedagógico, certificado reconhecido em todo o Brasil. A Santos Tech é referência em ensino de tecnologia para adultos em Ribeirão Preto e região.",
+    "A Santos Tech é uma escola presencial de tecnologia em Ribeirão Preto, SP (Av. Nove de Julho, 1992, Jardim América), com mais de 325 avaliações de 5 estrelas no Google. Atende dois públicos distintos: (1) Crianças e adolescentes de 5 a 15 anos — programação em Python, criação de jogos com Minecraft e Roblox, modelagem e impressão 3D, Excel e Pacote Office, em turmas de até 10 alunos. (2) Cursos particulares (individuais) para todas as idades — 43 cursos presenciais nas áreas de informática, programação (Python, JavaScript, SQL, N8N, Make, React Native, Flutter), inteligência artificial (Agentes de IA, ChatGPT, RAG, LangChain, automações com IA), marketing digital (Meta Ads, Google Ads, TikTok Ads, SEO, Copywriting, Funil de Vendas), Power BI, design gráfico (Photoshop, Canva, Illustrator), edição de vídeo, cibersegurança, redes e T.I. Nos cursos particulares: aulas 100% individuais, horário flexível de segunda a sábado das 8h às 22h, professores selecionados com critério rigoroso técnico e pedagógico, certificado reconhecido em todo o Brasil. A Santos Tech é referência em ensino de tecnologia particular em Ribeirão Preto e região.",
   shortDescription:
-    "Escola presencial de tecnologia em Ribeirão Preto, SP. Para crianças (5-15 anos): programação, jogos, 3D, Excel. Para adultos: 43 cursos individuais em IA, programação, marketing digital e mais. Mais de 325 avaliações 5 estrelas.",
+    "Escola presencial de tecnologia em Ribeirão Preto, SP. Para crianças (5-15 anos): programação, jogos, 3D, Excel. Cursos particulares: 43 cursos individuais em IA, programação, marketing digital e mais. Mais de 325 avaliações 5 estrelas.",
   // Avaliação agregada real do Google
   rating: { value: "5.0", count: 329 },
 } as const;
@@ -74,7 +74,7 @@ export function buildOrganizationSchema(): JsonLd {
     "@id": `${BASE_URL}/#organization`,
     name: ORG.name,
     legalName: ORG.legalName,
-    alternateName: ["Escola Santos Tech", "Santos Tech Ribeirão Preto", "Santos Tech Adultos"],
+    alternateName: ["Escola Santos Tech", "Santos Tech Ribeirão Preto", "Santos Tech Particular"],
     slogan: ORG.slogan,
     url: ORG.url,
     logo: ORG.logo,
@@ -124,25 +124,25 @@ export function buildOrganizationSchema(): JsonLd {
       "Lógica de programação e pensamento computacional",
       "STEM e educação tecnológica infantil",
       "Colônia de férias de tecnologia em Ribeirão Preto",
-      // Adultos — Informática e Office
-      "Curso de informática para adultos em Ribeirão Preto",
+      // Particular — Informática e Office
+      "Curso de informática particular em Ribeirão Preto",
       "Curso de Excel avançado em Ribeirão Preto",
-      "Pacote Office para adultos (Word, PowerPoint, Excel, Power BI)",
+      "Pacote Office particular (Word, PowerPoint, Excel, Power BI)",
       "Curso de Power BI em Ribeirão Preto",
-      // Adultos — Programação
-      "Curso de programação para adultos em Ribeirão Preto",
+      // Particular — Programação
+      "Curso de programação particular em Ribeirão Preto",
       "Curso de Python em Ribeirão Preto",
       "Curso de JavaScript e desenvolvimento web em Ribeirão Preto",
       "Curso de SQL e banco de dados em Ribeirão Preto",
       "Curso de automações com N8N e Make em Ribeirão Preto",
       "Desenvolvimento de aplicativos mobile React Native e Flutter",
-      // Adultos — Inteligência Artificial
-      "Curso de inteligência artificial para adultos em Ribeirão Preto",
+      // Particular — Inteligência Artificial
+      "Curso de inteligência artificial particular em Ribeirão Preto",
       "Curso de ChatGPT e IA para profissionais em Ribeirão Preto",
       "Agentes de IA com LangGraph e CrewAI",
       "Criação de conteúdo com IA — Midjourney, DALL-E, Runway",
       "Automações com inteligência artificial",
-      // Adultos — Marketing Digital
+      // Particular — Marketing Digital
       "Curso de marketing digital em Ribeirão Preto",
       "Curso de Meta Ads (Facebook e Instagram) em Ribeirão Preto",
       "Curso de Google Ads em Ribeirão Preto",
@@ -150,11 +150,11 @@ export function buildOrganizationSchema(): JsonLd {
       "Curso de SEO em Ribeirão Preto",
       "Curso de copywriting e persuasão em Ribeirão Preto",
       "Curso de funil de vendas e CRM em Ribeirão Preto",
-      // Adultos — Design e Vídeo
+      // Particular — Design e Vídeo
       "Curso de Photoshop e Illustrator em Ribeirão Preto",
-      "Curso de Canva para adultos em Ribeirão Preto",
+      "Curso de Canva particular em Ribeirão Preto",
       "Curso de edição de vídeo DaVinci Resolve em Ribeirão Preto",
-      // Adultos — T.I.
+      // Particular — T.I.
       "Curso de cibersegurança em Ribeirão Preto",
       "Curso de redes e infraestrutura em Ribeirão Preto",
       "Curso de suporte técnico e help desk em Ribeirão Preto",
@@ -168,7 +168,7 @@ export function buildOrganizationSchema(): JsonLd {
     audience: [
       { "@type": "EducationalAudience", educationalRole: "student", audienceType: "Crianças e adolescentes de 5 a 15 anos" },
       { "@type": "EducationalAudience", educationalRole: "parent", audienceType: "Pais e responsáveis" },
-      { "@type": "EducationalAudience", educationalRole: "student", audienceType: "Adultos de todas as idades — profissionais, empreendedores e estudantes" },
+      { "@type": "EducationalAudience", educationalRole: "student", audienceType: "Todas as idades, em aulas particulares — profissionais, empreendedores e estudantes" },
     ],
     aggregateRating: {
       "@type": "AggregateRating",
@@ -318,10 +318,10 @@ export function coursePageSchemas(input: {
 }
 
 /**
- * Course schema específico para cursos adultos.
+ * Course schema específico para cursos particulares.
  * Cada tier vira um CourseInstance separado — LLMs e Google entendem a progressão.
  */
-export function buildAdultCourseSchema(course: {
+export function buildParticularCourseSchema(course: {
   name: string;
   description: string;
   path: string;
@@ -373,10 +373,10 @@ export function buildAdultCourseSchema(course: {
 }
 
 /**
- * Conjunto completo de schemas para páginas de curso adulto.
+ * Conjunto completo de schemas para páginas de curso particular.
  * Inclui Course + FAQPage + BreadcrumbList — máxima cobertura para Google e LLMs.
  */
-export function buildAdultPageSchemas(input: {
+export function buildParticularPageSchemas(input: {
   courseName: string;
   courseDescription: string;
   path: string;
@@ -386,10 +386,10 @@ export function buildAdultPageSchemas(input: {
   return [
     buildBreadcrumbSchema([
       { name: "Início", path: "/" },
-      { name: "Santos Tech para Adultos", path: "/adultos" },
+      { name: "Santos Tech Particular", path: "/particular" },
       { name: input.courseName, path: input.path },
     ]),
-    buildAdultCourseSchema({
+    buildParticularCourseSchema({
       name: input.courseName,
       description: input.courseDescription,
       path: input.path,
@@ -403,13 +403,13 @@ export function buildAdultPageSchemas(input: {
  * Infere o caminho da imagem de OG pela convenção de pastas (sem precisar
  * declarar `ogImage` rota por rota — script `scripts/generate-og-images.mjs`
  * gera as imagens seguindo essa mesma convenção a partir do slug da rota):
- * - `/adultos/cursos/<slug>` → `/og/adultos/<slug>.png`
+ * - `/particular/cursos/<slug>` → `/og/particular/<slug>.png`
  * - `/cursos/(create|junior|camps|academies)[/<faixa>]` → `/og/infantil/<slug>.png`
  * - qualquer outra rota → `/og-image.png` (capa institucional genérica)
  */
 function inferOgImagePath(path: string): string {
-  const adultMatch = path.match(/^\/adultos\/cursos\/([^/]+)\/?$/);
-  if (adultMatch) return `/og/adultos/${adultMatch[1]}.png`;
+  const particularMatch = path.match(/^\/particular\/cursos\/([^/]+)\/?$/);
+  if (particularMatch) return `/og/particular/${particularMatch[1]}.png`;
 
   const kidsMatch = path.match(/^\/cursos\/(create|junior|camps|academies)(?:\/([^/]+))?\/?$/);
   if (kidsMatch) {
