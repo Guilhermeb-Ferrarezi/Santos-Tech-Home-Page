@@ -29,48 +29,11 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Essencial",
-      levelName: "Essencial",
-      totalHours: "24h",
-      outcome:
-        "Atender chamados básicos, instalar sistemas e periféricos, e entender o fluxo de um Help Desk",
-      modules: [
-        {
-          title: "Fundamentos de Hardware",
-          topics: [
-            "Identificação e função de cada componente do PC (CPU, RAM, SSD, placa-mãe)",
-            "Tipos de conectores: USB-A/C, HDMI, DisplayPort, RJ-45, SATA, M.2",
-            "Periféricos: impressoras, scanners, monitores — configuração e drivers",
-            "Diagnóstico de falhas: POST, beep codes e leds de erro",
-          ],
-        },
-        {
-          title: "Sistemas Operacionais na Prática",
-          topics: [
-            "Windows 10/11: instalação limpa e particionamento de disco",
-            "Gerenciador de tarefas, serviços e inicialização automática",
-            "Prompt de comando essencial: ipconfig, ping, tracert, sfc /scannow",
-            "Perfis de usuário, UAC e permissões básicas de arquivos",
-          ],
-        },
-        {
-          title: "Atendimento e Ticketing",
-          topics: [
-            "Fluxo de um chamado: abertura, triagem, resolução e encerramento",
-            "Introdução ao Freshdesk e ao Jira Service Management (hands-on)",
-            "Comunicação técnica com usuário final sem jargões",
-            "SLA: o que é, por que importa e como cumprir",
-          ],
-        },
-      ],
-      tools: ["Freshdesk", "Windows 10/11", "Prompt de Comando"],
-    },
-    {
-      label: "Intermediário",
-      levelName: "Intermediário",
+      label: "Suporte Técnico",
+      levelName: "Suporte Técnico",
       totalHours: "48h",
       outcome:
-        "Atuar como técnico N1/N2, resolver problemas de rede local, gerenciar Active Directory e documentar soluções",
+        "Atender chamados de Help Desk do zero — hardware, sistemas operacionais e ticketing — até atuar como técnico N2/N3, gerenciando redes, Active Directory e automação com PowerShell e IA, pronto para a certificação CompTIA A+ e o primeiro emprego em TI.",
       modules: [
         {
           title: "Fundamentos de Hardware",
@@ -91,55 +54,13 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "Redes para Suporte",
+          title: "Atendimento, Ticketing e Comunicação com o Usuário",
           topics: [
-            "Modelo OSI na prática: onde ocorre cada tipo de problema",
-            "IP, máscara de sub-rede, gateway e DNS — configuração manual e DHCP",
-            "Wi-Fi: padrões 802.11ac/ax, canais, interferência e troubleshooting",
-            "Ferramentas: Wireshark (captura básica), Advanced IP Scanner, nmap",
-          ],
-        },
-        {
-          title: "Active Directory e Ambientes Corporativos",
-          topics: [
-            "Usuários, grupos e unidades organizacionais no AD",
-            "GPO: aplicação de políticas de segurança na rede",
-            "Microsoft 365 Admin Center: criação de usuários e licenças",
-            "Remote Desktop e TeamViewer para suporte remoto",
-          ],
-        },
-        {
-          title: "Atendimento e Ticketing Avançado",
-          topics: [
-            "Jira Service Management: filas, prioridades e escalação",
-            "Base de conhecimento: como escrever um artigo de solução",
-            "Métricas de suporte: CSAT, FCR, MTTR",
-            "Comunicação difícil: usuário frustrado, urgências e expectativas",
-          ],
-        },
-      ],
-      tools: [
-        "Jira Service Management",
-        "Active Directory",
-        "Microsoft 365",
-        "Wireshark",
-        "TeamViewer",
-      ],
-    },
-    {
-      label: "Profissional + IA",
-      levelName: "Profissional + IA",
-      totalHours: "72h",
-      outcome:
-        "Estar preparado para a certificação CompTIA A+, atuar como N2/N3 e automatizar tarefas repetitivas de suporte com PowerShell e IA",
-      modules: [
-        {
-          title: "Fundamentos de Hardware",
-          topics: [
-            "Identificação e função de cada componente do PC (CPU, RAM, SSD, placa-mãe)",
-            "Tipos de conectores: USB-A/C, HDMI, DisplayPort, RJ-45, SATA, M.2",
-            "Periféricos: impressoras, scanners, monitores — configuração e drivers",
-            "Diagnóstico de falhas: POST, beep codes e leds de erro",
+            "Fluxo de um chamado: abertura, triagem, resolução e encerramento",
+            "Freshdesk e Jira Service Management na prática: filas, prioridades e escalação",
+            "SLA: o que é, por que importa e como cumprir",
+            "Base de conhecimento e métricas de suporte: como escrever um artigo de solução, CSAT, FCR e MTTR",
+            "Comunicação técnica e situações difíceis: sem jargões pro usuário final, frustração e urgência",
           ],
         },
         {
@@ -152,7 +73,7 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "Active Directory e Microsoft 365",
+          title: "Active Directory, Microsoft 365 e Suporte Remoto",
           topics: [
             "Usuários, grupos e unidades organizacionais no AD",
             "GPO: aplicação de políticas de segurança na rede",
@@ -161,40 +82,28 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "PowerShell para Automação de Suporte",
+          title: "Automação com PowerShell, Segurança e IA Aplicada ao Help Desk",
           topics: [
-            "Cmdlets essenciais: Get-Process, Stop-Service, Get-EventLog",
-            "Scripts para criação em massa de usuários no AD",
-            "Automação de relatórios de disco e inventário de hardware",
-            "Agendamento de tarefas com Task Scheduler e scripts PowerShell",
-          ],
-        },
-        {
-          title: "Segurança e Conformidade no Suporte",
-          topics: [
+            "Cmdlets essenciais do PowerShell (Get-Process, Stop-Service, Get-EventLog) e scripts para criação em massa de usuários no AD",
+            "Automação de relatórios de disco, inventário de hardware e agendamento de tarefas com Task Scheduler",
             "Malware: tipos, vetores de infecção e remoção com Malwarebytes",
-            "Política de senhas, MFA e princípio do menor privilégio",
-            "Backup: estratégia 3-2-1 e ferramentas (Windows Backup, Veeam Free)",
-            "LGPD aplicada ao dia a dia do técnico de suporte",
-          ],
-        },
-        {
-          title: "IA Aplicada ao Help Desk e Preparação CompTIA A+",
-          topics: [
-            "Uso do ChatGPT e Copilot para redigir artigos de base de conhecimento",
-            "IA para diagnóstico assistido: descrever sintomas e interpretar respostas",
-            "Simulados dos exams 220-1101 e 220-1102 da CompTIA A+",
-            "Projeto final: documentar e resolver um caso real de suporte N2 completo",
+            "Política de senhas, MFA, backup 3-2-1 (Windows Backup, Veeam Free) e LGPD aplicada ao suporte",
+            "IA aplicada ao Help Desk: ChatGPT e Copilot para base de conhecimento e diagnóstico assistido",
+            "Simulados CompTIA A+ (220-1101 e 220-1102) e projeto final: caso real de suporte N2 documentado e resolvido",
           ],
         },
       ],
       tools: [
-        "PowerShell",
+        "Windows 10/11",
+        "Prompt de Comando",
+        "Freshdesk",
+        "Jira Service Management",
+        "Wireshark",
         "Active Directory",
         "Microsoft 365",
-        "Wireshark",
+        "TeamViewer",
+        "PowerShell",
         "Malwarebytes",
-        "Jira Service Management",
         "ChatGPT/Copilot",
       ],
     },
@@ -202,15 +111,11 @@ const COURSE_DATA = {
   faqItems: [
     {
       q: "Preciso ter experiência em TI pra começar esse curso?",
-      a: "Não. O curso foi desenhado pra quem quer entrar na área de TI sem saber por onde começar, inclusive pra quem vem de outra profissão e quer migrar de carreira. O Essencial parte de fundamentos de hardware e sistemas operacionais.",
-    },
-    {
-      q: "Qual a diferença entre os níveis Essencial, Intermediário e Profissional + IA?",
-      a: "Essencial ensina a atender chamados básicos, instalar sistemas e periféricos. Intermediário te prepara pra atuar como técnico N1/N2, com redes, Active Directory e ticketing avançado. Profissional + IA fecha com automação via PowerShell, segurança, IA aplicada ao help desk e preparação específica pra certificação CompTIA A+.",
+      a: "Não. O curso foi desenhado pra quem quer entrar na área de TI sem saber por onde começar, inclusive pra quem vem de outra profissão e quer migrar de carreira. O curso parte de fundamentos de hardware e sistemas operacionais, sem exigir nenhuma experiência prévia.",
     },
     {
       q: "O curso prepara pra certificação CompTIA A+?",
-      a: "Sim, o Profissional + IA inclui simulados dos exames 220-1101 e 220-1102 da CompTIA A+, além de um projeto final documentando a resolução de um caso real de suporte N2.",
+      a: "Sim, o curso inclui simulados dos exames 220-1101 e 220-1102 da CompTIA A+, além de um projeto final documentando a resolução de um caso real de suporte N2.",
     },
   ],
 }
