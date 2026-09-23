@@ -2,17 +2,6 @@
 
 ## Abertas
 
-- [ ] **`nginx.conf` está morto/não usado no deploy real** — o `Dockerfile` não
-      copia nem referencia esse arquivo; o container final roda só
-      `bun run ./docker/server.ts`, que serve estático + SSR direto, sem nginx
-      na frente. O `README.md` (linha 6) descreve um comportamento de nginx que
-      hoje é feito pelo próprio `docker/server.ts`. Isso foi descoberto ao
-      testar o redirect 301 do PR #12 (ver item resolvido abaixo) — o bloco que
-      eu tinha colocado em `nginx.conf` nunca rodava em produção. Vale decidir:
-      apagar `nginx.conf` e corrigir o README, ou reintroduzir nginx de verdade
-      no `Dockerfile` — hoje o arquivo só engana quem olhar o repo achando que
-      tem um nginx na frente. _Aguardando Henrique/Guilherme._
-
 - [ ] **Purgar o cache do Cloudflare pra `/og/*` e `/og-image.png`** — o fix
       de fonte do PR #14 já está 100% no ar na origem (confirmado com
       cache-busting), mas o Cloudflare guardou as imagens quebradas em cache
@@ -31,9 +20,18 @@
 
 ## Resolvidas
 
+- [x] **`nginx.conf` estava morto/não usado no deploy real** — o `Dockerfile`
+      nunca copiava nem referenciava esse arquivo; o container final roda só
+      `bun run ./docker/server.ts`, que já serve estático + SSR direto, sem
+      nginx na frente. Confirmado com nova checagem em todo o repo (sem
+      `docker-compose`, sem workflow de CI/CD, sem nenhuma outra automação
+      referenciando o arquivo) antes de remover. Removido `nginx.conf` e
+      corrigido `README.md` (seção "Deploy") pra descrever a arquitetura real:
+      Bun exposto direto na porta 3000, sem proxy reverso no container.
+
 - [x] **Redirect 301 `/adultos` → `/particular`** — o bloco em `nginx.conf`
       (PR #12) nunca era executado, porque nginx não roda no container (ver
-      pendência acima). Corrigido de verdade em `docker/server.ts`
+      item acima). Corrigido de verdade em `docker/server.ts`
       (`redirectLegacyParticularPath`), testado rodando o servidor de produção
       local (`bun run ./docker/server.ts`) e confirmando com `curl`:
       `/adultos/cursos/davinci` → `301` → `/particular/cursos/davinci`.
