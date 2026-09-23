@@ -2,6 +2,22 @@
 
 ## Abertas
 
+- [ ] **Duração dos cards "populares" da home do `/particular` (`POPULARES`
+      em `particular.index.tsx`) não é derivada de `TIER_META` e já está
+      inconsistente com ele** — achado durante o PR #37 (correção do FAQ
+      genérico), mas é um item distinto da pendência "Estatística '24 aulas
+      por curso'" logo abaixo (aquela é sobre o bloco "Ritmo"; esta é sobre
+      o campo `duracao` de cada card em `POPULARES`, ex.: `{ slug: "ia",
+      duracao: "2 meses" }`). Os valores parecem editoriais/avulsos, não
+      uma leitura de `TIER_META`: Cibersegurança mostra "4 meses" e Redes
+      Sociais mostra "1 mês", nenhum dos dois batendo com o intensivo
+      (~3 meses) nem o padrão (~6 meses) que esses mesmos cursos têm hoje
+      em `TIER_META`/`course-skins/shared.tsx`. Não mexi porque não é uma
+      correção mecânica: exigiria decidir o que esse número deveria
+      representar (intensivo? padrão? uma média?) pra depois escolher se
+      vale a pena derivar de `TIER_META` ou deixar como texto livre.
+      _Aguardando Henrique._
+
 - [ ] **Estatística "24 aulas por curso" na home do `/particular` vai ficando
       menos precisa conforme a unificação de tiers avança** — achado pela
       auditoria de resquícios do modelo antigo (23/09). O bloco "Ritmo"
