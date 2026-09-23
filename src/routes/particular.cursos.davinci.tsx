@@ -1,22 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { AdultosCursosPage } from "@/components/adultos-course-page"
+import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
 
-export const Route = createFileRoute("/adultos/cursos/davinci")({
+export const Route = createFileRoute("/particular/cursos/davinci")({
   component: DavinciPage,
   head: () =>
     pageMeta({
       title:
-        "Curso de Edição de Vídeo — DaVinci Resolve / Premiere para Adultos em Ribeirão Preto — Santos Tech",
+        "Curso de Edição de Vídeo — DaVinci Resolve Particular em Ribeirão Preto — Santos Tech",
       description:
-        "Aprenda edição profissional com DaVinci Resolve e Adobe Premiere. Curso presencial em Ribeirão Preto para videomakers, criadores de conteúdo e profissionais do audiovisual.",
-      path: "/adultos/cursos/davinci",
+        "Aprenda edição profissional com DaVinci Resolve: cortes, Fairlight, color grading e Fusion. Curso presencial particular em Ribeirão Preto para videomakers, criadores de conteúdo e profissionais do audiovisual.",
+      path: "/particular/cursos/davinci",
     }),
 })
 
 const COURSE_DATA = {
-  nome: "Edição de Vídeo — DaVinci Resolve / Premiere",
+  nome: "Edição de Vídeo — DaVinci Resolve",
   categoria: "Design & Criação",
   tagline: "Domine o software de Hollywood e edite como os grandes estúdios",
   targetAudience: [
@@ -32,7 +32,7 @@ const COURSE_DATA = {
       levelName: "Intermediário",
       totalHours: "48h",
       outcome:
-        "Executar projetos completos de edição com color grading profissional, efeitos visuais e motion graphics no DaVinci Resolve e Adobe Premiere.",
+        "Executar projetos completos de edição com color grading profissional no DaVinci Resolve, do corte à entrega final.",
       modules: [
         {
           title: "DaVinci Resolve — Interface e Projeto",
@@ -75,16 +75,6 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "Adobe Premiere — Fundamentos e Integração",
-          topics: [
-            "Interface do Premiere: painel Project, Timeline e Lumetri",
-            "Edição de vídeos corporativos e publicitários no Premiere",
-            "Integração Premiere + After Effects com Dynamic Link",
-            "Lumetri Color: correção e gradação de cor no Premiere",
-            "Fluxo de trabalho Premiere para agências e emissoras",
-          ],
-        },
-        {
           title: "Exportação e Entrega",
           topics: [
             "Configurações de render na página Deliver",
@@ -94,19 +84,14 @@ const COURSE_DATA = {
           ],
         },
       ],
-      tools: [
-        "DaVinci Resolve 19",
-        "Adobe Premiere Pro",
-        "Adobe After Effects",
-        "Fairlight Audio",
-      ],
+      tools: ["DaVinci Resolve 19", "Fairlight Audio"],
     },
     {
       label: "Profissional + IA",
       levelName: "Profissional + IA",
       totalHours: "72h",
       outcome:
-        "Dominar DaVinci Resolve e Adobe Premiere em nível profissional completo, incluindo efeitos visuais, IA e entrega para cinema, TV e streaming, atuando como editor ou colorista sênior.",
+        "Dominar o DaVinci Resolve em nível profissional completo, incluindo efeitos visuais, IA e entrega para cinema, TV e streaming, atuando como editor ou colorista sênior.",
       modules: [
         {
           title: "DaVinci Resolve — Edição Avançada",
@@ -141,15 +126,14 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "IA no DaVinci Resolve e Premiere",
+          title: "IA no DaVinci Resolve (Neural Engine)",
           topics: [
             "Magic Mask: rotoscoping automático com IA",
             "Scene Cut Detection: decupagem automática de clipes",
             "Speed Warp: slow motion por IA em qualquer material",
-            "Voice Isolation: separação de voz de ambiente com IA",
-            "Generative AI no Premiere: extensão de clipes e preenchimento",
-            "Auto Reframe no Premiere para múltiplos formatos automaticamente",
-            "Adobe Sensei: busca de assets por conteúdo visual",
+            "Voice Isolation e Dialogue Leveler: limpeza e nivelamento automático de voz no Fairlight",
+            "Smart Reframe: reenquadramento automático para vertical e quadrado",
+            "Super Scale: upscale de imagem com IA",
           ],
         },
         {
@@ -163,23 +147,17 @@ const COURSE_DATA = {
           ],
         },
       ],
-      tools: [
-        "DaVinci Resolve 19",
-        "Adobe Premiere Pro",
-        "Adobe After Effects",
-        "Adobe Audition",
-        "Blackmagic Design Camera",
-      ],
+      tools: ["DaVinci Resolve 19", "Fairlight Audio", "Blackmagic Design Camera"],
     },
   ],
   faqItems: [
     {
-      q: "Preciso já saber usar o DaVinci Resolve ou o Premiere pra começar?",
+      q: "Preciso já saber usar o DaVinci Resolve pra começar?",
       a: "Não. O curso já parte da instalação e da interface do zero, incluindo os atalhos básicos e a estrutura de projeto. Se você já edita no celular ou é curioso mas nunca abriu o Resolve, esse é o ponto de partida — o curso vai te levar até o color grading profissional e o Fusion no nível Profissional + IA.",
     },
     {
       q: "Qual a diferença entre o nível Intermediário e o Profissional + IA?",
-      a: "No Intermediário você aprende o fluxo completo de edição: cortes, áudio no Fairlight, color grading com sistema de nós e exportação para YouTube, Instagram e broadcast. No Profissional + IA você avança para efeitos visuais com Fusion, color grading cinematográfico com scopes, as ferramentas de IA do Resolve e do Premiere (Magic Mask, Voice Isolation, Auto Reframe) e sai com um showreel e a certificação Blackmagic Design: DaVinci Resolve Operator.",
+      a: "No Intermediário você aprende o fluxo completo de edição: cortes, áudio no Fairlight, color grading com sistema de nós e exportação para YouTube, Instagram e broadcast. No Profissional + IA você avança para efeitos visuais com Fusion, color grading cinematográfico com scopes, as ferramentas de IA do Neural Engine (Magic Mask, Voice Isolation, Smart Reframe, Super Scale) e sai com um showreel e a certificação Blackmagic Design: DaVinci Resolve Operator.",
     },
     {
       q: "O curso dá alguma certificação reconhecida no mercado?",
@@ -190,6 +168,6 @@ const COURSE_DATA = {
 
 function DavinciPage() {
   return (
-    <AdultosCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
+    <ParticularCursosPage course={COURSE_DATA} whatsappUrl={WHATSAPP_URL.courses} />
   )
 }
