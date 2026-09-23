@@ -30,7 +30,6 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "Redes e Infraestrutura",
       levelName: "Redes e Infraestrutura",
       ctaLabel: "curso de Redes e Infraestrutura",
       totalHours: "48h",

@@ -28,7 +28,6 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "DaVinci Resolve",
       levelName: "DaVinci Resolve",
       totalHours: "48h",
       outcome:

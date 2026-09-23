@@ -30,7 +30,6 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "SEO",
       levelName: "SEO",
       ctaLabel: "curso de SEO",
       totalHours: "48h",

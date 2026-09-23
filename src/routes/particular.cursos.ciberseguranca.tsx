@@ -29,7 +29,6 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Cibersegurança",
       levelName: "Cibersegurança",
       ctaLabel: "curso de Cibersegurança",
       totalHours: "48h",

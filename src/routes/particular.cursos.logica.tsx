@@ -28,7 +28,6 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Essencial",
       levelName: "Essencial",
       totalHours: "24h",
       outcome:
@@ -79,7 +78,6 @@ const COURSE_DATA = {
       tools: ["Portugol IDE", "VisuAlg", "JavaScript (browser console)"],
     },
     {
-      label: "Intermediário",
       levelName: "Intermediário",
       totalHours: "48h",
       outcome:

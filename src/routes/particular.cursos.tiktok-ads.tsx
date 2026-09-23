@@ -30,7 +30,6 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "TikTok Ads",
       levelName: "TikTok Ads",
       totalHours: "48h",
       outcome:

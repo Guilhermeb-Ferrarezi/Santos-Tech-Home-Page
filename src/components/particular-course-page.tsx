@@ -28,7 +28,6 @@ import { buildParticularPageSchemas } from "@/lib/seo";
 export type TopicGroup = { title: string; topics: string[] };
 
 export type Tier = {
-  label: string;
   levelName: string;
   /** Texto do botão de CTA no card de preço, se diferente de `levelName` (ex.: "Hardware" em vez de "Montagem e Manutenção"). */
   ctaLabel?: string;

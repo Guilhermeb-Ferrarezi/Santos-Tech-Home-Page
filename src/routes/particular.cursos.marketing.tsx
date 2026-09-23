@@ -28,7 +28,6 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Marketing Digital",
       levelName: "Marketing Digital",
       totalHours: "48h",
       outcome:

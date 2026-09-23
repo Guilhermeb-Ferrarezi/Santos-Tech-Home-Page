@@ -29,7 +29,6 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Tier 1",
       levelName: "Intermediário",
       totalHours: "48h",
       outcome:
@@ -76,7 +75,6 @@ const COURSE_DATA = {
       ],
     },
     {
-      label: "Tier 2",
       levelName: "Profissional + IA",
       totalHours: "72h",
       outcome:

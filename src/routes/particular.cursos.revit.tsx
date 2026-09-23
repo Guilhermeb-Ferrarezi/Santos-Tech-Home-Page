@@ -28,7 +28,6 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Revit BIM",
       levelName: "Revit BIM",
       totalHours: "48h",
       outcome:

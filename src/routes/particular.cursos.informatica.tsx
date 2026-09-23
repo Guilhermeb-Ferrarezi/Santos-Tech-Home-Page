@@ -30,7 +30,6 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      label: "Informática",
       levelName: "Informática",
       ctaLabel: "curso de Informática",
       totalHours: "48h",

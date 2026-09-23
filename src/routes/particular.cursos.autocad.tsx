@@ -28,7 +28,6 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "AutoCAD",
       levelName: "AutoCAD",
       totalHours: "48h",
       outcome:
