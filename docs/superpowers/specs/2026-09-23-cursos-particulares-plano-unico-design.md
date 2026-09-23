@@ -53,17 +53,53 @@
 
 ## Escopo técnico (arquivos afetados)
 
-- **45 arquivos de rota** `src/routes/particular.cursos.*.tsx` restantes
-  (52 no catálogo − Premiere já feito − 5 que já eram plano único, embora
-  2 desses 5 tenham ajuste de nivelamento em aberto — ver pontos em aberto).
-- `src/components/particular-course-page.tsx` — tabela `TIER_META` precisa
-  de 1 entrada nova por curso (a maioria vai sair dos preços-padrão
-  24h/48h/72h de Essencial/Intermediário/Profissional, então cada curso
-  passa a ter preço próprio, igual foi feito com `"Adobe Premiere"`).
+- **27 arquivos de rota** `src/routes/particular.cursos.*.tsx` restantes —
+  ver checklist final pra lista exata por grupo (Office, Inteligência
+  Artificial, Programação). Os outros 20 já foram convertidos.
+- ⚠️ **`TIER_META` mudou de lugar e de formato em 23/09, depois da
+  conversão dos primeiros 20 cursos** (refactor de outra sessão paralela,
+  trabalho de identidade visual por categoria — "peles"/`course-skins/*`):
+  - Local novo: **`src/components/course-skins/shared.tsx`** (não mais em
+    `particular-course-page.tsx`, que agora só faz `import { TIER_META,
+    ... } from "@/components/course-skins/shared"`).
+  - `price` agora é **`number`** (ex.: `3970`), não mais string formatada
+    (`"R$ 3.970"`). O componente formata na hora de exibir.
+  - Cada curso "embute" uma margem de 15% e parcelamento em até 12x sem
+    juros por cima do `price` base (`MARKUP = 1.15`, `getInvestimento()`,
+    decisão do Henrique de 23/09) — **o `price` que a gente decide aqui
+    continua sendo o valor-base**, a margem é aplicada automaticamente no
+    render, não precisa (nem deve) ser somada manualmente na entrada do
+    `TIER_META`.
+  - O tipo `Tier` também perdeu o campo `label` (só `levelName` continua)
+    — cursos convertidos antes dessa mudança ainda têm `label` sobrando
+    (não quebra o build, é só campo extra não lido), mas conversões novas
+    não precisam mais incluir `label`.
+  - `Tier.levelName` agora tem um comentário JSDoc explícito: em curso
+    multi-tier é o nome do nível (`"Essencial"`), em curso de tier único é
+    o nome do curso/software (`"Adobe Premiere"`) — todo consumo deve
+    checar `multiTier`/`tiers.length` antes de tratar como rótulo de
+    nível (isso já motivou 2 correções nessa sessão: o badge "Nível X" e o
+    JSON-LD duplicando o nome).
+- `CourseData` ganhou campos opcionais **`tema`, `logo`, `variante`** —
+  ativam uma "pele" visual custom por categoria (`course-skins/*`,
+  dezenas de arquivos novos com ilustração/SVG própria por curso). **Fora
+  do escopo desta conversão de tiers** — quem estiver cuidando da
+  identidade visual decide quando/se ativar isso por curso; a conversão
+  de tiers não precisa mexer nesses 3 campos.
 - `faqItems` de cada curso — remover/ajustar pergunta que compara tiers
   (padrão igual ao que foi feito no Premiere).
 - `public/sitemap.xml` — **sem mudança** (rotas continuam as mesmas, só o
   conteúdo da página muda).
+
+⚠️ **Múltiplas sessões Claude estão trabalhando nesse repo em paralelo**
+(identidade visual, parcelamento/margem, esta unificação de tiers, entre
+outras). Antes de commitar/pushar/mergear, rode `git fetch origin master`
+e `git log --oneline origin/master -1` pra conferir se o master andou —
+se sim, `git merge origin/master` na sua branch antes de continuar (pode
+gerar conflito real em `PENDENCIAS.md`, que várias sessões editam; resolva
+mantendo os dois lados, nunca descarte um). Ver `PENDENCIAS.md` →
+"Resolvidas" → item sobre "aprendizado sobre sessões paralelas" pra um
+exemplo real do que dá errado quando isso não é conferido.
 
 ## Levantamento completo (52 cursos, agrupados pelo menu)
 
