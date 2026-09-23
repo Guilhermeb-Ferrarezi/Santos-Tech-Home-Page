@@ -58,7 +58,7 @@ export type CourseData = {
 
 const TIER_META: Record<string, { price: number; aulas: string; intensivo: string; padrao: string }> = {
   Essencial: { price: 1970, aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
-  Intermediário: { price: 3940, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  Intermediário: { price: 3940, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
   "Profissional + IA": { price: 5910, aulas: "72 aulas", intensivo: "~3 meses", padrao: "~9 meses" },
   // Cursos com plano único: mesma faixa de preço do Essencial, com o nome do próprio curso no lugar do nível
   "Montagem e Manutenção": { price: 1970, aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
@@ -69,27 +69,27 @@ const TIER_META: Record<string, { price: number; aulas: string; intensivo: strin
   "Git e GitHub": { price: 2640, aulas: "24 aulas", intensivo: "~1 mês", padrao: "~3 meses" },
   // Cursos profundos com plano único (preço/ritmo próprios, fora da faixa padrão do Essencial/Intermediário)
   // — conversão de 2-3 tiers pra 1, ver docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md
-  "Adobe Premiere": { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Suporte Técnico": { price: 5520, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Redes e Infraestrutura": { price: 6240, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  Cibersegurança: { price: 7200, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  Linux: { price: 5760, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Modelagem 3D": { price: 7200, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  AutoCAD: { price: 6720, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Revit BIM": { price: 7200, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  "Adobe Premiere": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Suporte Técnico": { price: 5520, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Redes e Infraestrutura": { price: 6240, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  Cibersegurança: { price: 7200, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  Linux: { price: 5760, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Modelagem 3D": { price: 7200, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  AutoCAD: { price: 6720, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Revit BIM": { price: 7200, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
   // Cursos de plano único, categoria símples (mesma taxa/ritmo do Premiere — R$ 82,70/h)
-  Informática: { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Photoshop + Illustrator": { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "DaVinci Resolve": { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Marketing Digital": { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Meta Ads": { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Google Ads": { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "TikTok Ads": { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  Copywriting: { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Funil de Vendas": { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  SEO: { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "Redes Sociais": { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
-  "E-commerce": { price: 3970, aulas: "48 aulas", intensivo: "~2 meses", padrao: "~6 meses" },
+  Informática: { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Photoshop + Illustrator": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "DaVinci Resolve": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Marketing Digital": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Meta Ads": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Google Ads": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "TikTok Ads": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  Copywriting: { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Funil de Vendas": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  SEO: { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Redes Sociais": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "E-commerce": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
 };
 
 // ── Margem embutida e parcelamento (decisão do Henrique, 23/09) ────────────
