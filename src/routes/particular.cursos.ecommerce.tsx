@@ -28,11 +28,11 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      label: "Essencial",
-      levelName: "Essencial",
-      totalHours: "24h",
+      label: "E-commerce",
+      levelName: "E-commerce",
+      totalHours: "48h",
       outcome:
-        "Criar e configurar uma loja virtual funcional no Shopify ou WooCommerce com produtos, meios de pagamento e logística prontos para vender.",
+        "Criar e configurar uma loja virtual do zero no Shopify ou WooCommerce — produtos, pagamento e frete prontos para vender — e evoluir a operação com tráfego pago, automação de e-mail e WhatsApp, gestão de estoque e logística e analytics, para crescimento consistente de vendas.",
       modules: [
         {
           title: "Fundamentos do E-commerce",
@@ -55,40 +55,16 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "Fotografia e Descrição de Produto",
+          title: "Apresentação de Produto e Primeiras Vendas",
           topics: [
-            "Fotografia de produto com smartphone: iluminação e cenografia",
-            "Edição de fotos para e-commerce: fundo branco e lifestyle",
-            "Copywriting de descrição de produto que converte",
-            "SEO de produto: nome, descrição e tags para busca orgânica",
-          ],
-        },
-        {
-          title: "Primeiras Vendas",
-          topics: [
+            "Fotografia de produto com smartphone: iluminação, cenografia e edição para fundo branco e lifestyle",
+            "Copywriting de descrição de produto que converte, com SEO de produto (nome, descrição e tags)",
             "Estratégias de lançamento: oferta inaugural e lista de espera",
             "Google Shopping: feed de produtos e primeiras campanhas",
             "Anúncio no Mercado Livre e Shopee como canal complementar",
             "Atendimento ao cliente: WhatsApp Business e chat online",
           ],
         },
-      ],
-      tools: [
-        "Shopify",
-        "WooCommerce",
-        "Mercado Pago",
-        "Melhor Envio",
-        "WhatsApp Business",
-        "Canva",
-      ],
-    },
-    {
-      label: "Intermediário",
-      levelName: "Intermediário",
-      totalHours: "48h",
-      outcome:
-        "Operar uma loja virtual com tráfego pago, automação de marketing, gestão de estoque e análise de métricas para crescimento consistente de vendas.",
-      modules: [
         {
           title: "Tráfego Pago para E-commerce",
           topics: [
@@ -110,43 +86,36 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "Gestão de Estoque e Logística",
+          title: "Estoque, Logística e Analytics",
           topics: [
             "Controle de estoque com SKU e gestão por planilha ou sistema",
             "Fulfillment: processo de separação, embalagem e despacho",
             "Gestão de devoluções e política de troca eficiente",
             "Dropshipping nacional: fornecedores e integração automática",
-          ],
-        },
-        {
-          title: "Analytics e Otimização de Conversão",
-          topics: [
-            "Google Analytics 4 para e-commerce: eventos e funil de compra",
-            "Taxa de conversão: benchmark e estratégias de otimização (CRO)",
-            "Heatmaps e gravações de sessão com Hotjar",
-            "Testes A/B de página de produto e checkout",
+            "Google Analytics 4 para e-commerce: eventos, funil de compra e taxa de conversão (CRO)",
+            "Heatmaps e testes A/B: gravações de sessão com Hotjar, testes de página de produto e checkout",
           ],
         },
       ],
       tools: [
         "Shopify",
+        "WooCommerce",
+        "Mercado Pago",
+        "Melhor Envio",
+        "WhatsApp Business",
+        "Canva",
         "Google Ads",
         "Meta Ads Manager",
         "Klaviyo",
         "Google Analytics 4",
         "Hotjar",
-        "Melhor Envio",
       ],
     },
   ],
   faqItems: [
     {
       q: "Preciso ter conhecimento técnico pra montar minha loja virtual?",
-      a: "Não. O curso começa do zero: modelos de negócio, escolha de plataforma (Shopify, WooCommerce, Nuvemshop, Tray) e a criação da loja passo a passo, incluindo pagamento, frete e políticas. Você sai do nível Essencial com uma loja funcional pronta pra vender.",
-    },
-    {
-      q: "Qual a diferença entre o nível Essencial e o Intermediário?",
-      a: "Essencial é a fundação: criar a loja, cadastrar produtos, configurar pagamento e frete e fazer as primeiras vendas com Google Shopping e Mercado Livre. Intermediário é operação e crescimento: tráfego pago (Google Ads Shopping, Meta Ads, TikTok Ads), automação de e-mail e WhatsApp, gestão de estoque e logística, e analytics com GA4 e testes A/B.",
+      a: "Não. O curso começa do zero: modelos de negócio, escolha de plataforma (Shopify, WooCommerce, Nuvemshop, Tray) e a criação da loja passo a passo, incluindo pagamento, frete e políticas. Você já sai com uma loja funcional pronta pra vender e segue evoluindo, em ordem, até tráfego pago, automação de marketing e analytics.",
     },
     {
       q: "Esse curso serve pra quem já revende produtos e quer estruturar um canal online?",
