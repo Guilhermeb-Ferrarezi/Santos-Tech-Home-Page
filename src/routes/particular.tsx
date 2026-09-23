@@ -22,7 +22,11 @@ export const Route = createFileRoute("/particular")({
 
 const DARK_KEY = "particular:dark";
 
-const GRUPOS: { id: string; label: string; cursos: { slug: string; nome: string }[] }[] = [
+const GRUPOS: {
+  id: string;
+  label: string;
+  cursos: { slug: string; nome: string; legenda?: string }[];
+}[] = [
   {
     id: "informatica",
     label: "Informática",
@@ -48,7 +52,7 @@ const GRUPOS: { id: string; label: string; cursos: { slug: string; nome: string 
     cursos: [
       { slug: "ia", nome: "Inteligência Artificial" },
       { slug: "agentes-ia", nome: "Agentes de IA com N8N e LLMs" },
-      { slug: "rag", nome: "RAG — IA com seus Próprios Dados" },
+      { slug: "rag", nome: "RAG", legenda: "IA com seus Próprios Dados" },
       { slug: "ia-visual", nome: "IA para Criadores: Imagem, Vídeo e Áudio" },
       { slug: "chatgpt", nome: "ChatGPT e IA para Profissionais" },
       { slug: "conteudo-ia", nome: "Criação de Conteúdo com IA" },
@@ -71,7 +75,7 @@ const GRUPOS: { id: string; label: string; cursos: { slug: string; nome: string 
       { slug: "fullstack", nome: "Full Stack" },
       { slug: "mobile", nome: "Desenvolvimento de Aplicativos" },
       { slug: "jogos", nome: "Desenvolvimento de Jogos" },
-      { slug: "ads", nome: "ADS — Formação Profissional" },
+      { slug: "ads", nome: "ADS", legenda: "Formação Profissional" },
     ],
   },
   {
@@ -101,9 +105,9 @@ const GRUPOS: { id: string; label: string; cursos: { slug: string; nome: string 
     cursos: [
       { slug: "canva", nome: "Canva Pro" },
       { slug: "photoshop", nome: "Photoshop + Illustrator" },
-      { slug: "capcut", nome: "Edição de Vídeo — CapCut" },
-      { slug: "davinci", nome: "Edição de Vídeo — DaVinci Resolve" },
-      { slug: "premiere", nome: "Edição de Vídeo — Adobe Premiere" },
+      { slug: "capcut", nome: "Edição de Vídeo", legenda: "CapCut" },
+      { slug: "davinci", nome: "Edição de Vídeo", legenda: "DaVinci Resolve" },
+      { slug: "premiere", nome: "Edição de Vídeo", legenda: "Adobe Premiere" },
     ],
   },
   {
@@ -111,12 +115,12 @@ const GRUPOS: { id: string; label: string; cursos: { slug: string; nome: string 
     label: "Marketing & Negócios",
     cursos: [
       { slug: "marketing", nome: "Marketing Digital" },
-      { slug: "meta-ads", nome: "Meta Ads — Facebook e Instagram" },
+      { slug: "meta-ads", nome: "Meta Ads", legenda: "Facebook e Instagram" },
       { slug: "google-ads", nome: "Google Ads" },
       { slug: "tiktok-ads", nome: "TikTok Ads" },
       { slug: "copywriting", nome: "Copywriting & Persuasão" },
       { slug: "funil-vendas", nome: "Funil de Vendas + CRM" },
-      { slug: "seo", nome: "SEO — Otimização para Buscadores" },
+      { slug: "seo", nome: "SEO", legenda: "Otimização para Buscadores" },
       { slug: "redes-sociais", nome: "Gestão de Redes Sociais" },
       { slug: "ecommerce", nome: "E-commerce & Vendas Online" },
     ],
@@ -316,7 +320,7 @@ function ParticularLayout() {
                       onClick={() => toggleGrupo(id)}
                       className="w-full flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-black uppercase tracking-wider text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-white/[0.07] transition-colors"
                     >
-                      <span className="flex-1 text-left truncate">{lbl}</span>
+                      <span className="flex-1 text-left line-clamp-2">{lbl}</span>
                       <ChevronDown
                         className={[
                           "h-3 w-3 shrink-0 transition-transform duration-200",
@@ -334,14 +338,20 @@ function ParticularLayout() {
                     >
                       <div className="overflow-hidden">
                         <div className="ml-2 border-l border-neutral-100 dark:border-neutral-800/60 pl-2 pb-1 space-y-0.5">
-                          {cursos.map(({ slug, nome }) => (
+                          {cursos.map(({ slug, nome, legenda }) => (
                             <Link
                               key={slug}
                               to={`/particular/cursos/${slug}`}
                               onClick={() => setMobileOpen(false)}
-                              className="flex min-w-0 items-center rounded-lg px-3 py-1.5 text-sm font-medium text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
+                              title={legenda ? `${nome} — ${legenda}` : nome}
+                              className="flex min-w-0 flex-col rounded-lg px-3 py-1.5 leading-tight text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
                             >
-                              <span className="truncate">{nome}</span>
+                              <span className="line-clamp-2 text-sm font-medium">{nome}</span>
+                              {legenda && (
+                                <span className="truncate text-xs text-neutral-400 dark:text-neutral-500">
+                                  {legenda}
+                                </span>
+                              )}
                             </Link>
                           ))}
                         </div>
