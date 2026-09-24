@@ -15,6 +15,8 @@ import {
 } from "lucide-react";
 import { Img } from "@/components/img";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
+import { SKINS } from "@/components/course-skins";
+import { BRAND_THEME, themeVars, type CourseThemeKey } from "@/lib/course-themes";
 
 export const Route = createFileRoute("/particular")({
   component: ParticularLayout,
@@ -22,8 +24,9 @@ export const Route = createFileRoute("/particular")({
 
 const DARK_KEY = "particular:dark";
 
+/** `id` bate com `CourseThemeKey` — é a chave usada pra buscar o tema (cor) da categoria em `SKINS`. */
 const GRUPOS: {
-  id: string;
+  id: CourseThemeKey;
   label: string;
   cursos: { slug: string; nome: string; legenda?: string }[];
 }[] = [
@@ -90,7 +93,7 @@ const GRUPOS: {
     ],
   },
   {
-    id: "3d",
+    id: "universo-3d",
     label: "Universo 3D",
     cursos: [
       { slug: "modelagem-3d", nome: "Modelagem 3D" },
@@ -150,6 +153,25 @@ function ParticularLayout() {
     setGruposOpen((prev) => ({ ...prev, [id]: !prev[id] }));
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
+  // Categoria do curso atual (se a rota for uma página de curso) — usada pra "herdar"
+  // a cor de destaque daquele curso na sidebar (borda, ícone e item ativos).
+  const activeSlug = pathname.startsWith("/particular/cursos/")
+    ? pathname.slice("/particular/cursos/".length).split("/")[0]
+    : null;
+  const activeGroup = activeSlug
+    ? GRUPOS.find((g) => g.cursos.some((c) => c.slug === activeSlug))
+    : undefined;
+  const activeTheme = activeGroup ? SKINS[activeGroup.id].theme : BRAND_THEME;
+
+  // Ao entrar numa página de curso, garante que o grupo dela esteja expandido
+  // na sidebar (senão o highlight fica escondido atrás de um dropdown fechado).
+  useEffect(() => {
+    if (activeGroup) {
+      setCursosOpen(true);
+      setGruposOpen((prev) => ({ ...prev, [activeGroup.id]: true }));
+    }
+  }, [activeGroup]);
+
   const navItem = (active: boolean) =>
     [
       "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold transition-colors",
@@ -185,6 +207,7 @@ function ParticularLayout() {
 
       {/* ── SIDEBAR ── */}
       <aside
+        style={themeVars(activeTheme)}
         className={[
           "fixed inset-y-0 left-0 z-50 flex flex-col border-r overflow-hidden",
           "bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800",
@@ -312,53 +335,84 @@ function ParticularLayout() {
           >
             <div className="overflow-hidden">
               <div className="ml-3 border-l border-neutral-200 dark:border-neutral-800 pl-2 pt-1 pb-1 space-y-0.5">
-                {GRUPOS.map(({ id, label: lbl, cursos }) => (
-                  <div key={id}>
-                    {/* Botão do grupo */}
-                    <button
-                      type="button"
-                      onClick={() => toggleGrupo(id)}
-                      className="w-full flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-black uppercase tracking-wider text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-white/[0.07] transition-colors"
-                    >
-                      <span className="flex-1 text-left line-clamp-2">{lbl}</span>
-                      <ChevronDown
+                {GRUPOS.map(({ id, label: lbl, cursos }) => {
+                  const isActiveGroup = activeGroup?.id === id;
+                  return (
+                    <div key={id}>
+                      {/* Botão do grupo — herda a cor do curso atual quando é o grupo ativo */}
+                      <button
+                        type="button"
+                        onClick={() => toggleGrupo(id)}
                         className={[
-                          "h-3 w-3 shrink-0 transition-transform duration-200",
-                          gruposOpen[id] ? "rotate-180" : "rotate-0",
+                          "w-full flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-black uppercase tracking-wider transition-colors",
+                          isActiveGroup
+                            ? "text-(--accent) bg-(--accent)/[0.06] hover:bg-(--accent)/10"
+                            : "text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-white/[0.07]",
                         ].join(" ")}
-                      />
-                    </button>
+                      >
+                        <span className="flex-1 text-left line-clamp-2">{lbl}</span>
+                        <ChevronDown
+                          className={[
+                            "h-3 w-3 shrink-0 transition-transform duration-200",
+                            isActiveGroup ? "text-(--accent)" : "",
+                            gruposOpen[id] ? "rotate-180" : "rotate-0",
+                          ].join(" ")}
+                        />
+                      </button>
 
-                    {/* Links do grupo — animação grid */}
-                    <div
-                      className={[
-                        "grid transition-[grid-template-rows] duration-200 ease-in-out",
-                        gruposOpen[id] ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
-                      ].join(" ")}
-                    >
-                      <div className="overflow-hidden">
-                        <div className="ml-2 border-l border-neutral-100 dark:border-neutral-800/60 pl-2 pb-1 space-y-0.5">
-                          {cursos.map(({ slug, nome, legenda }) => (
-                            <Link
-                              key={slug}
-                              to={`/particular/cursos/${slug}`}
-                              onClick={() => setMobileOpen(false)}
-                              title={legenda ? `${nome} — ${legenda}` : nome}
-                              className="flex min-w-0 flex-col rounded-lg px-3 py-1.5 leading-tight text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
-                            >
-                              <span className="line-clamp-2 text-sm font-medium">{nome}</span>
-                              {legenda && (
-                                <span className="truncate text-xs text-neutral-400 dark:text-neutral-500">
-                                  {legenda}
-                                </span>
-                              )}
-                            </Link>
-                          ))}
+                      {/* Links do grupo — animação grid */}
+                      <div
+                        className={[
+                          "grid transition-[grid-template-rows] duration-200 ease-in-out",
+                          gruposOpen[id] ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+                        ].join(" ")}
+                      >
+                        <div className="overflow-hidden">
+                          <div
+                            className={[
+                              "ml-2 border-l pl-2 pb-1 space-y-0.5 transition-colors",
+                              isActiveGroup
+                                ? "border-(--accent)/40"
+                                : "border-neutral-100 dark:border-neutral-800/60",
+                            ].join(" ")}
+                          >
+                            {cursos.map(({ slug, nome, legenda }) => {
+                              const isActiveCourse = pathname === `/particular/cursos/${slug}`;
+                              return (
+                                <Link
+                                  key={slug}
+                                  to={`/particular/cursos/${slug}`}
+                                  onClick={() => setMobileOpen(false)}
+                                  title={legenda ? `${nome} — ${legenda}` : nome}
+                                  className={[
+                                    "flex min-w-0 flex-col rounded-lg px-3 py-1.5 leading-tight transition-colors",
+                                    isActiveCourse
+                                      ? "bg-(--accent)/10 text-(--accent)"
+                                      : "text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white",
+                                  ].join(" ")}
+                                >
+                                  <span className="line-clamp-2 text-sm font-medium">{nome}</span>
+                                  {legenda && (
+                                    <span
+                                      className={[
+                                        "truncate text-xs",
+                                        isActiveCourse
+                                          ? "text-(--accent)/70"
+                                          : "text-neutral-400 dark:text-neutral-500",
+                                      ].join(" ")}
+                                    >
+                                      {legenda}
+                                    </span>
+                                  )}
+                                </Link>
+                              );
+                            })}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
