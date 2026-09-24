@@ -2,76 +2,209 @@
 
 ## Abertas
 
-- [ ] **Duração dos cards "populares" da home do `/particular` (`POPULARES`
-      em `particular.index.tsx`) não é derivada de `TIER_META` e já está
-      inconsistente com ele** — achado durante o PR #37 (correção do FAQ
-      genérico), mas é um item distinto da pendência "Estatística '24 aulas
-      por curso'" logo abaixo (aquela é sobre o bloco "Ritmo"; esta é sobre
-      o campo `duracao` de cada card em `POPULARES`, ex.: `{ slug: "ia",
-      duracao: "2 meses" }`). Os valores parecem editoriais/avulsos, não
-      uma leitura de `TIER_META`: Cibersegurança mostra "4 meses" e Redes
-      Sociais mostra "1 mês", nenhum dos dois batendo com o intensivo
-      (~3 meses) nem o padrão (~6 meses) que esses mesmos cursos têm hoje
-      em `TIER_META`/`course-skins/shared.tsx`. Não mexi porque não é uma
-      correção mecânica: exigiria decidir o que esse número deveria
-      representar (intensivo? padrão? uma média?) pra depois escolher se
-      vale a pena derivar de `TIER_META` ou deixar como texto livre.
-      _Aguardando Henrique._
-
-- [ ] **Estatística "24 aulas por curso" na home do `/particular` vai ficando
-      menos precisa conforme a unificação de tiers avança** — achado pela
-      auditoria de resquícios do modelo antigo (23/09). O bloco "Ritmo"
-      (`particular.index.tsx`) mostra 1h/aula, 24 aulas/curso, ~3 meses no
-      ritmo padrão e ~1 mês no intensivo como se fosse universal. Hoje ainda
-      é o caso pra maioria (entrada Essencial dos 39 cursos não convertidos +
-      Canva/CapCut/Git/Manutenção/Impressão 3D, todos 24h), mas a unificação
-      de tiers definiu 48 aulas como novo padrão (ver pendência abaixo) e já
-      são 8 cursos convertidos nesse ritmo (Premiere + grupos T.I e Universo
-      3D), contradizendo a estatística. Não mexi agora porque não é um bug
-      claro: é decisão de posicionamento (qual número mostrar como
-      representativo) que toca como o site se apresenta, não uma correção
-      óbvia. Revisar quando a conversão dos 39 cursos restantes avançar.
-      _Aguardando Henrique._
-
-- [~] **Unificação de tiers em opção única — 34 de 47 cursos convertidos**
-      (spec completa em
-      [`docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md`](docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md),
-      PR #22/#24). **Feito:** Premiere (PR #20/#21, piloto), grupos T.I,
-      Universo 3D, Informática, Design & Criação, Marketing & Negócios,
-      **Office** (8 cursos) e **Inteligência Artificial** (6 cursos: IA:
-      Essencial ao Profissional com Agentes, Agentes de IA com N8N e LLMs,
-      RAG, IA para Criadores, ChatGPT e IA para Profissionais, Criação de
-      Conteúdo com IA) — 100% migrados. Henrique confirmou a tabela de taxa
-      técnica (R$110-180/h) em 23/09: faixa aprovada como sugerida na spec,
-      cursos de IA (ia/agentes-ia/ia-visual/typescript) formalizados em
-      109,90/h com RAG subindo pra 115/h, e Pacote Office mantém-se símples
-      sem Power BI/Copilot (esse conteúdo já tem curso dedicado). Decidido
-      em 23/09 (itens anteriores): `git` vira técnico (110/h, sem mudar
-      carga horária); `capcut` mantém 24h sem nivelar; `mobile` unifica em
-      React Native; `jogos` mantém Unity + Godot juntos; `manutencao`/
-      `impressao-3d` seguem curtos (24h).
-      **Achado durante a conversão do Office e da IA:** a pele visual de 4
-      cursos (`planilha-excel-ia.tsx`, `planilha-power-apps.tsx`,
-      `ia-chat.tsx`, `ia-agentes.tsx`) exibia texto tipo "nível
-      {tier.levelName}" sem checar `multiTier` — com o curso em tier único,
-      o texto saía tipo "ao final do nível ChatGPT". Corrigido nos mesmos
-      commits da conversão (guard `multiTier`, mesmo padrão já usado em
-      `ti-suporte.tsx`) — encontrado 2x de forma independente por sessões/
-      agentes diferentes em grupos diferentes. Depois da 2ª ocorrência,
-      rodei um grep sistemático em todo `course-skins/variants/*` por esse
-      padrão exato (`nível ${tier.levelName}` / `nível {t.levelName}`) —
-      confirmado que não há mais nenhuma instância em nenhuma categoria,
-      incluindo os skins `ide-*.tsx` que o grupo Programação vai usar.
-      Registrado como item de backlog separado (não
-      corrigido agora, escopo de outra sessão) um padrão mais leve e
-      disseminado: rótulos genéricos como "Ao final deste nível" em vários
-      `course-skins/variants/*`, sem nome de curso injetado — não quebra a
-      frase, mas ainda pressupõe múltiplos níveis.
-      **Falta:** Programação (13 cursos, `git` já resolvido à parte).
-      _Sem pendência aberta com o Henrique neste item — próximo passo é
-      técnico (converter o grupo restante)._
+_Nenhuma no momento._
 
 ## Resolvidas
+
+- [x] **Estatística "24 aulas por curso" e ritmo do bloco "Ritmo" na home
+      do `/particular` estavam desatualizados pra quase todo o catálogo**
+      — pendência aberta pela auditoria de resquícios do modelo antigo
+      (23/09), reaberta pela conclusão da unificação de tiers. Causa raiz:
+      o bloco "Ritmo" (`particular.index.tsx`) ainda mostrava 24 aulas/
+      curso, ~3 meses no ritmo padrão e ~1 mês no intensivo como se fosse
+      universal — números do modelo de tiers 24/48/72h que a unificação
+      substituiu. Com o catálogo 100% migrado, 48 aulas é o padrão de
+      quase todo curso (só Canva/CapCut/Git/Manutenção/Impressão 3D
+      continuam em 24h), e o padrão de ritmo para curso de 48 aulas em
+      `TIER_META` já era intensivo "~3 meses" / padrão "~6 meses". Henrique
+      confirmou a atualização mecânica pros 3 números afetados (a
+      estatística de "1h por aula" não muda). Verificado com `bun run
+      lint` + `bun run build` (gate do `CLAUDE.md`, sem erros) e
+      visualmente no `bun run dev`: `/particular`, seção "Ritmo", mostrando
+      1h / 48 / 6 meses / 3 meses.
+
+- [x] **Duração dos cards "populares" da home do `/particular` (`POPULARES`
+      em `particular.index.tsx`) não era derivada de `TIER_META` e já
+      estava inconsistente com ele** — achado durante o PR #37 (correção
+      do FAQ genérico). Causa raiz: o campo `duracao` de cada card era
+      digitado à mão (ex.: Cibersegurança "4 meses", Redes Sociais
+      "1 mês"), sem bater com o intensivo (~3 meses) nem o padrão
+      (~6 meses) que esses mesmos cursos já tinham em `TIER_META`. Exigia
+      decidir o que esse número deveria representar antes de corrigir —
+      Henrique confirmou usar o ritmo **intensivo** (não padrão), na linha
+      da intenção original do array (valores antigos majoritariamente
+      1-2 meses, ritmo mais vendável). Trocado o campo solto `duracao` por
+      `tierKey` (a chave exata do curso em `TIER_META`) e o card passou a
+      renderizar `TIER_META[tierKey].intensivo` diretamente — reajuste
+      futuro em `TIER_META` reflete automaticamente nos 10 cards, sem
+      sincronizar 2 lugares. Verificado com `bun run lint` + `bun run
+      build` (sem erros) e visualmente no `bun run dev`: `/particular`,
+      seção "Cursos mais populares", os 10 cards (incluindo "Mostrar mais")
+      mostrando "~3 meses" de forma consistente.
+
+- [x] **Card de investimento: parcela em destaque lia ambíguo, e a cláusula
+      do boleto tinha sumido de todas as 52 páginas** — achado pelo
+      Henrique revisando o card ao vivo (PR #49). Dois problemas
+      distintos: (1) "R$ 380,46" seguido de "12x sem juros no cartão"
+      embaixo podia ser lido como se 380,46 fosse o total sendo dividido
+      em 12 (quando já é o valor de cada parcela) — reescrito pro padrão
+      sem ambiguidade "12x de / R$ 380,46 / sem juros no cartão"; (2) a
+      frase "Boleto parcelado de acordo com a duração do seu curso" foi
+      derrubada silenciosamente quando o card de pagamento foi condensado
+      no refactor de identidade visual (`course-skins/common.tsx`) —
+      ninguém notou porque não quebra build nem lint, só falta conteúdo.
+      Restaurada via `FORMAS_PAGAMENTO_DETALHE`
+      (`course-skins/shared.tsx`), aplicada também no template padrão
+      (`particular-course-page.tsx`, hoje sem uso mas mantido como
+      fallback). Verificado com `bun run lint` + `bun run build` e
+      visualmente no preview local.
+
+- [x] **Unificação de tiers em opção única — catálogo 100% migrado (47 de
+      47 cursos particulares)** (spec completa em
+      [`docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md`](docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md),
+      PR #20-#43). Todos os grupos convertidos: Premiere (piloto), T.I,
+      Universo 3D, Informática, Design & Criação, Marketing & Negócios,
+      Office (8 cursos), Inteligência Artificial (6 cursos) e Programação
+      (13 cursos — `git` já era plano único antes desta spec, só
+      reclassificação de preço). Henrique confirmou a tabela de taxa
+      técnica (R$110-180/h) em 23/09: faixa aprovada como sugerida na spec,
+      cursos de IA (ia/agentes-ia/ia-visual/typescript) formalizados em
+      109,90/h com RAG subindo pra 115/h, Pacote Office mantém-se símples
+      sem Power BI/Copilot (curso dedicado já existe), `mobile` unifica em
+      React Native (remove Flutter/Dart/Riverpod por completo), `jogos`
+      mantém Unity + Godot juntos, `capcut`/`manutencao`/`impressao-3d`
+      seguem curtos (24h sem nivelar). `fullstack` e `ads` eram
+      "repetitivos" (tier de 48h já continha o Essencial inteiro) — só
+      promovidos, sem cortar conteúdo (13 e 16 módulos preservados; ADS é
+      o curso mais abrangente e mais caro do catálogo, teto da faixa
+      técnica).
+      **Bug recorrente de pele visual encontrado e corrigido 5x durante a
+      conversão** (Office ×2, IA ×2, Programação ×1 — `ide-jogos.tsx`,
+      "Mundo N · {tier.levelName}"): texto tipo "nível {tier.levelName}"
+      sem checar `multiTier`, repetindo o nome inteiro do curso de forma
+      redundante ou sem sentido assim que um curso vira tier único.
+      Corrigido a cada ocorrência com o guard `multiTier`/`tiers.length >
+      1`. A varredura sistemática e definitiva desse padrão (~19
+      ocorrências em todo `course-skins/`, incluindo as que ainda não
+      tinham sido expostas por nenhuma conversão) foi feita em sessão
+      separada logo em seguida — ver item própio abaixo.
+      **Também corrigidos 4 pontos de meta description/copy** que ficaram
+      desatualizados em relação ao currículo comprimido (prometiam
+      ferramenta ou prazo que deixou de ser ensinado/verdadeiro):
+      `ia-visual.tsx` (Sora → Kling, só Kling ganhou cobertura real),
+      `sql.tsx` (removeu "cloud e IA" do headline, virou só menção de
+      panorama), `backend.tsx` (removeu "NestJS" e "SaaS em produção" do
+      headline, virou só menção de próximo passo), `ads.tsx` ("12 meses"
+      em 3 lugares — description, targetAudience e FAQ — trocado por "6
+      meses"/"poucos meses", consistente com o ritmo real de 48 aulas que
+      a própria página já mostra).
+      Verificado com `bun run lint` + `bun run build` (gate do
+      `CLAUDE.md`, sem erros) em cada um dos 3 lotes (Office, IA,
+      Programação) e visualmente no preview local — pelo menos 2-3 páginas
+      por lote, incluindo os casos mais arriscados (Excel + IA e Power Apps
+      pra confirmar o fix da pele; Pacote Office pra confirmar ausência de
+      Power BI/Copilot; Jogos e ADS pra confirmar renderização com pele
+      customizada e módulos preservados).
+
+- [x] **`ia-geral.tsx` (componente `Trilha`) ficou com sub-legenda incorreta
+      assim que o curso "ia" converteu pra plano único, no meio desta
+      sessão** — inicialmente registrado como pendência em aberto (esta
+      mesma sessão, ver commit anterior), porque o curso "IA: Essencial ao
+      Profissional com Agentes" ainda não tinha convertido e a correção
+      parecia exigir redesenho, não só texto. O `master` andou 2x durante a
+      sessão (PR #42 Office, depois PR #43 IA) — na sincronização com o PR
+      #43 o curso `ia` já tinha virado plano único, e a checagem visual em
+      `/particular/cursos/ia` mostrou o problema ao vivo: "Cada nível é uma
+      etapa da trilha. Escolha a etapa..." continuava aparecendo com um só
+      card "etapa 01" estático (sem seletor, sem barra de progresso — esses
+      dois já eram condicionais a `n > 1` antes). Reavaliado: o visual
+      degrada bem sozinho (card único desabilitado, sem elementos vazios ou
+      quebrados); só o texto ficava incoerente. Corrigido com o mesmo padrão
+      do resto da revisão: `sub={n > 1 ? "Cada nível é uma etapa da
+      trilha..." : "Acompanhe os módulos na linha do tempo, do primeiro
+      prompt ao primeiro agente."}` (reaproveitando o `n` que a função já
+      calculava). Observação à parte, não corrigida agora por ser um ponto
+      de design (não usa a palavra "nível", foge do escopo desta revisão):
+      cada módulo do curso de tier único repete o nome inteiro do curso como
+      kicker (ex.: "IA: ESSENCIAL AO PROFISSIONAL COM AGENTES · MÓDULO 01"
+      em todo módulo) — funciona, mas é repetitivo; fica pra quem revisar a
+      identidade visual desse skin depois. Verificado com `bun run lint` +
+      `bun run build` (sem erros) e visualmente em `/particular/cursos/ia`
+      no `bun run dev`.
+
+- [x] **Rótulos genéricos "nível" em `course-skins/variants/*` não checavam
+      `multiTier` — ~19 ocorrências corrigidas, incluindo 4 que já eram o
+      bug grave (nome do curso injetado depois de "nível")** — achado
+      apontado num curso já existente sobre `planilha-pacote.tsx`,
+      `planilha-power-bi.tsx` e `planilha-powerpoint.tsx` ("Ao final deste
+      nível" / "Resultado do nível" incondicionais). Causa raiz: `Tier.
+      levelName` virou o nome do curso/software em cursos de plano único
+      (decisão da unificação de tiers, ver spec
+      [`2026-09-23-cursos-particulares-plano-unico-design.md`](docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md)),
+      mas muitos rótulos escritos quando todo curso era multi-tier nunca
+      foram revisados. Rodei `grep` por "nível" (com acento) em todo
+      `src/components/course-skins/` (84 ocorrências) e classifiquei cada
+      uma: comentário/JSDoc (não é texto de tela) → ignorado; "nível" da
+      arquitetura em `oficina-revit.tsx` (cota de elevação do desenho
+      técnico, sem relação com tier) → ignorado, falso positivo por
+      homônimo; componente que já retorna `null`/já está dentro de
+      `{multiTier && (...)}` (`TierIntro`, `TierSwitch`, `TierTabs`,
+      `TierGuide` em todos os 8 call sites, badge "Escolha o nível" em
+      `ia.tsx`, "Não se encaixa em nenhum nível?" em `common.tsx`) → já
+      seguro, sem mudança; rótulo genérico incondicional → corrigido pra
+      `multiTier ? "…nível…" : "…curso…"`. **Nessa varredura apareceram mais
+      4 ocorrências do bug grave já corrigido antes noutro lugar** (nome do
+      tier colado depois de "nível", tipo "conversa do nível Excel + IA")
+      que ainda não tinham sido pegas — `ia-agentes.tsx` ("Você começa o
+      nível {tier.levelName}"), `ia-chat.tsx` ("ao final do nível
+      {tier.levelName}"), `planilha-excel-ia.tsx` ("conversa do nível
+      {tier.levelName}") e `planilha-power-apps.tsx` ("Quando você começa o
+      nível {tier.levelName}") — hoje inofensivas porque nenhum desses 4
+      cursos foi convertido pra plano único ainda, mas quebrariam
+      automaticamente na conversão (mesma classe do bug do badge "Nível X" e
+      do JSON-LD duplicado, já corrigidos antes). Corrigidas junto, com a
+      mesma regra. **Arquivos alterados (15):** `ia-agentes.tsx`,
+      `ia-chat.tsx`, `ia-conteudo.tsx`, `ia-rag.tsx`, `ia-visual.tsx`,
+      `ide-logica.tsx`, `ide-n8n.tsx`, `ide-python-apis.tsx`,
+      `marketing-funil-vendas.tsx`, `marketing-kit.tsx` (default não usado
+      de `ToolsRow`), `planilha-excel-ia.tsx`, `planilha-pacote.tsx`,
+      `planilha-power-apps.tsx`, `planilha-power-bi.tsx`,
+      `planilha-powerpoint.tsx`. Nos componentes sem prop `multiTier` já
+      pronta (família `ia-*`/`IaBlockProps`, família `ide-*`/`ConteudoProps`,
+      `marketing-funil-vendas.tsx`/`MktBlockProps`), segui o mesmo padrão já
+      usado em `TierIntro`/`TierTabs`/`NivelSeletor`: `const multiTier =
+      course.tiers.length > 1` calculado localmente. Deixei de fora
+      `ia-geral.tsx` (ver pendência aberta acima — precisa de redesenho, não
+      de troca de texto) e a tag decorativa `<Nivel nome="…">` de
+      `ide-frontend.tsx` (sem acento, é estética de "código falso" no
+      metáfora do skin, não prosa real). Verificado com `bun run lint` (0
+      erros, só os 129 warnings pré-existentes de fast-refresh em rotas,
+      nenhum nos arquivos alterados) e `bun run build` (limpo, TypeScript
+      incluído) — precisei rodar `bun install` antes porque este worktree
+      nunca tinha sido instalado (`node_modules` não existia; script
+      `generate-og-images.mjs` falhava com `ERR_MODULE_NOT_FOUND` por causa
+      disso, não por causa da mudança). Restaurei `public/og/**` e
+      `public/og-image.png` depois de cada build (efeito colateral
+      conhecido, ver memória). No meio da sessão o `master` andou (PR #42,
+      grupo Office inteiro convertido pra plano único) e trouxe conflito
+      real em `planilha-excel-ia.tsx` e `planilha-power-apps.tsx` — a outra
+      sessão tinha corrigido, nos mesmos 2 arquivos, exatamente o mesmo bug
+      grave que essa varredura também pegou (`multiTier ? "…nível
+      {tier.levelName}" : "…curso"`, palavra por palavra igual em
+      `planilha-power-apps.tsx`), o que valida a correção; resolvido
+      mantendo a versão desta sessão pra a `<span>` de "conversa do
+      nível/curso" (fica consistente com "Resumo do nível/curso" duas
+      linhas abaixo, no mesmo arquivo, em vez de esconder a legenda
+      inteira). `bun run lint`/`build` rodados de novo depois do merge,
+      ainda limpos. Verificado visualmente no `bun run dev` **depois do
+      merge**: `/particular/cursos/funil-vendas`, `/particular/cursos/
+      office`, `/particular/cursos/power-bi`, `/particular/cursos/
+      powerpoint`, `/particular/cursos/excel-ia` e `/particular/cursos/
+      power-apps` (todos já plano único, os 2 últimos convertidos pelo PR
+      #42 que chegou no meio desta sessão) mostram a versão "curso" em cada
+      rótulo; `/particular/cursos/chatgpt` (ainda multi-tier) continua
+      mostrando "ao final do nível Essencial" / "Troque o nível no seletor
+      de modelo" sem nenhuma mudança de comportamento.
 
 - [x] **Copywriting mencionava "revisão em grupo" no projeto final e no
       FAQ** — pendência aberta em 23/09 durante a conversão do curso pra

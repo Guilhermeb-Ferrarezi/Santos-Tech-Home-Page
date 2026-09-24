@@ -229,8 +229,8 @@ function ModuleNode({
 
 function Flow({ course, selectedTier }: IaBlockProps) {
   const tier = course.tiers[selectedTier];
-  const multiTier = course.tiers.length > 1;
   const meta = tierMeta(course, tier);
+  const multiTier = course.tiers.length > 1;
   const [abertos, setAbertos] = useState<Set<number>>(() => new Set([0]));
   const todos = abertos.size === tier.modules.length;
 
@@ -284,7 +284,7 @@ function Flow({ course, selectedTier }: IaBlockProps) {
             <Rocket className="h-4 w-4" /> ação final · o que o fluxo entrega
           </p>
           <p className={`mt-2 text-base font-semibold leading-relaxed sm:text-lg ${TITLE}`}>{tier.outcome}</p>
-          <ToolList tools={tier.tools} label="Credenciais conectadas neste nível" />
+          <ToolList tools={tier.tools} label={multiTier ? "Credenciais conectadas neste nível" : "Credenciais conectadas neste curso"} />
         </GradientFrame>
       </Reveal>
     </div>

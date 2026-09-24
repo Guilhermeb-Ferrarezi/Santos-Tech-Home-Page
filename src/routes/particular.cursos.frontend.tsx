@@ -33,10 +33,10 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      levelName: "Intermediário",
+      levelName: "Desenvolvimento Web Front-End",
       totalHours: "48h",
       outcome:
-        "Desenvolve aplicações React com estado, rotas e consumo de APIs reais; domina Tailwind CSS e entrega projetos com design profissional deployados na Vercel",
+        "Desenvolve aplicações React completas do zero — com hooks, TypeScript, rotas e consumo de APIs reais —, estiliza com Tailwind CSS e shadcn/ui, dá os primeiros passos em Next.js e usa IA como copiloto de código, fechando o curso com um SaaS front-end com dashboard, autenticação simulada e deploy na Vercel",
       modules: [
         {
           title: "JavaScript Moderno (ES6+)",
@@ -46,7 +46,6 @@ const COURSE_DATA = {
             "Módulos ES6: import e export",
             "Array methods: map, filter, reduce, find, some",
             "Optional chaining e nullish coalescing",
-            "Introdução ao TypeScript: tipos básicos e interfaces",
           ],
         },
         {
@@ -68,7 +67,6 @@ const COURSE_DATA = {
             "Customizar tema: cores, fontes e espaçamentos no tailwind.config",
             "Componentes com variantes usando cva (class-variance-authority)",
             "Integrar shadcn/ui para componentes pré-estilizados",
-            "Projeto: clone de interface de SaaS com Tailwind",
           ],
         },
         {
@@ -78,7 +76,35 @@ const COURSE_DATA = {
             "Páginas protegidas e redirecionamento",
             "Consumir API REST com Axios e React Query (TanStack Query)",
             "Loading states, error boundaries e feedback ao usuário",
-            "Projeto: aplicação de busca de filmes (OMDb API) com favoritos",
+          ],
+        },
+        {
+          title: "TypeScript no React",
+          topics: [
+            "Tipar props, estados e eventos no React",
+            "Interfaces e types para modelos de dados da API",
+            "Enums e union types para estados da aplicação",
+            "Migrar um componente de JavaScript para TypeScript na prática",
+          ],
+        },
+        {
+          title: "Next.js: Introdução ao React para Produção",
+          topics: [
+            "App Router: estrutura de pastas, páginas e layouts",
+            "Server Components e Client Components: conceito e quando usar cada um",
+            "Rotas dinâmicas e navegação com next/link",
+            "Fundamentos de renderização no servidor (SSR)",
+            "Deploy de projeto Next.js na Vercel",
+          ],
+        },
+        {
+          title: "Panorama Profissional e Projeto Final",
+          topics: [
+            "Além do useState: Context API e panorama do mercado (Zustand, Redux Toolkit, Jotai) para quando o projeto crescer",
+            "Testes automatizados na prática: como Vitest e Testing Library encaixam no fluxo de trabalho",
+            "Performance web: Core Web Vitals e otimização de imagens e fontes",
+            "IA como copiloto: GitHub Copilot, v0.dev e Cursor IDE no dia a dia do front-end",
+            "Projeto final: SaaS front-end com dashboard, autenticação simulada, dark mode e deploy na Vercel",
           ],
         },
       ],
@@ -89,75 +115,15 @@ const COURSE_DATA = {
         "shadcn/ui",
         "React Router DOM v6",
         "TanStack Query",
-        "Vercel",
-      ],
-    },
-    {
-      levelName: "Profissional + IA",
-      totalHours: "72h",
-      outcome:
-        "Domina o ecossistema React avançado com TypeScript, gerenciamento de estado global, Next.js e testes automatizados; usa IA como copiloto de código e entrega um SaaS front-end completo com autenticação",
-      modules: [
-        {
-          title: "TypeScript no React",
-          topics: [
-            "Tipar props, estados e eventos no React",
-            "Interfaces e types para modelos de dados da API",
-            "Generics em hooks customizados",
-            "Enums e union types para estados da aplicação",
-            "Configuração do tsconfig para projetos React+Vite",
-          ],
-        },
-        {
-          title: "Gerenciamento de Estado Global",
-          topics: [
-            "Context API: quando usar e limitações",
-            "Zustand: criar stores simples sem boilerplate",
-            "Redux Toolkit: slice, thunk e RTK Query",
-            "Jotai para estado atômico em aplicações complexas",
-            "Comparativo: quando usar cada solução",
-          ],
-        },
-        {
-          title: "Next.js: React para Produção",
-          topics: [
-            "App Router vs Pages Router no Next.js 14+",
-            "Server Components e Client Components",
-            "SSR, SSG e ISR: quando usar cada estratégia",
-            "Rotas dinâmicas, layouts e loading UI",
-            "Autenticação com NextAuth.js (GitHub, Google, credentials)",
-            "Deploy na Vercel com variáveis de ambiente",
-          ],
-        },
-        {
-          title: "Testes e Performance",
-          topics: [
-            "Testes unitários de componentes com Vitest e Testing Library",
-            "Testes de integração: simular APIs com MSW",
-            "Core Web Vitals: LCP, FID, CLS e como otimizar",
-            "Code splitting com lazy e Suspense",
-            "Otimização de imagens e fontes no Next.js",
-          ],
-        },
-        {
-          title: "IA no Desenvolvimento Front-End + Projeto Final",
-          topics: [
-            "GitHub Copilot: gerar componentes, testes e refatorações",
-            "v0.dev: prototipagem de UI com prompts em texto",
-            "Cursor IDE para desenvolvimento assistido por IA",
-            "Projeto final: SaaS front-end com autenticação, dashboard, dark mode e deploy na Vercel",
-          ],
-        },
-      ],
-      tools: [
-        "Next.js",
         "TypeScript",
+        "Next.js",
         "Zustand",
         "Vitest",
         "Testing Library",
         "GitHub Copilot",
         "v0.dev",
         "Cursor IDE",
+        "Vercel",
       ],
     },
   ],
@@ -167,12 +133,8 @@ const COURSE_DATA = {
       a: "O ideal é ter pelo menos noção básica de HTML e CSS — o curso começa direto em JavaScript moderno (ES6+) e React, não em tags HTML do zero. Se você já mexeu com sites mas trava na hora de adicionar interatividade real com JavaScript, é exatamente o ponto de partida.",
     },
     {
-      q: "Qual a diferença entre o nível Intermediário e o Profissional + IA?",
-      a: "Intermediário te leva do JavaScript moderno ao React com hooks, Tailwind CSS e consumo de API, com um projeto de busca de filmes. Profissional + IA adiciona TypeScript, gerenciamento de estado global (Zustand, Redux, Jotai), Next.js com App Router e SSR, testes automatizados e o uso de IA como copiloto de código (GitHub Copilot, v0.dev, Cursor), fechando com um SaaS completo com autenticação e deploy.",
-    },
-    {
       q: "O curso ensina a usar IA no desenvolvimento, ou só programação tradicional?",
-      a: "As duas coisas. Além da base sólida de React e TypeScript, o nível Profissional + IA tem um módulo específico de IA no front-end: GitHub Copilot para gerar componentes e testes, v0.dev para prototipar UI por prompt e Cursor IDE para desenvolvimento assistido — ferramentas que já fazem parte do dia a dia de quem trabalha com front-end hoje.",
+      a: "As duas coisas. Além da base sólida de React e TypeScript, o curso tem um módulo dedicado a usar IA no fluxo de trabalho: GitHub Copilot para gerar componentes e testes, v0.dev para prototipar UI por prompt e Cursor IDE para desenvolvimento assistido — ferramentas que já fazem parte do dia a dia de quem trabalha com front-end hoje.",
     },
   ],
 }

@@ -32,10 +32,11 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      levelName: "Essencial",
-      totalHours: "24h",
+      levelName: "Automações + N8N",
+      ctaLabel: "curso de Automações com N8N",
+      totalHours: "48h",
       outcome:
-        "Capaz de criar workflows funcionais no N8N conectando Google Sheets, e-mail, Telegram e WhatsApp, com lógica condicional e agendamento automático",
+        "Criar automações completas no N8N do zero absoluto — conectando Google Sheets, e-mail, Telegram e WhatsApp com lógica condicional e agendamento automático — até consumir e expor qualquer API via Webhook e HTTP Request, integrar CRMs como HubSpot e Notion, e dar os primeiros passos em agentes de IA com o AI Agent Node, incluindo um panorama de MCP, sistemas multiagentes e automação como serviço.",
       modules: [
         {
           title: "Fundamentos do N8N",
@@ -49,7 +50,7 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "Nodes Essenciais e Integrações Básicas",
+          title: "Nodes Essenciais e Automações do Dia a Dia",
           topics: [
             "Google Sheets: ler, escrever, atualizar e buscar linhas",
             "Gmail e Outlook: enviar e-mails com anexos dinâmicos",
@@ -60,32 +61,17 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "Projeto: Workflow de Notificações Automáticas",
+          title: "Projeto Prático: Workflow de Notificações Automáticas",
           topics: [
-            "Monitorar uma planilha e enviar alerta quando valor muda",
+            "Monitorar uma planilha e enviar alerta quando um valor muda",
             "Enviar relatório diário por e-mail com dados do Google Sheets",
             "Criar formulário Google Forms que dispara workflow automático",
             "Tratar erros: node Error Trigger e notificação de falha",
             "Usar templates da comunidade N8N e adaptar para sua necessidade",
           ],
         },
-      ],
-      tools: [
-        "N8N Cloud",
-        "Docker",
-        "Google Sheets API",
-        "Telegram Bot API",
-        "Gmail",
-      ],
-    },
-    {
-      levelName: "Intermediário",
-      totalHours: "48h",
-      outcome:
-        "Constrói automações com Webhook, HTTP Request para qualquer API, lógica avançada com Switch e Merge, e integra N8N com CRMs, WhatsApp Business e bancos de dados",
-      modules: [
         {
-          title: "Webhooks e HTTP Request",
+          title: "Webhooks, HTTP Request e Integração com Qualquer API",
           topics: [
             "O que é um Webhook e como configurar no N8N",
             "Receber dados de sistemas externos via Webhook Trigger",
@@ -96,130 +82,54 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "Lógica Avançada e Transformação de Dados",
+          title: "Lógica Avançada, Transformação de Dados e Integrações com CRM",
           topics: [
-            "Switch Node: múltiplos caminhos baseados em valor",
-            "Merge Node: combinar dados de dois branches",
-            "Loop Node: iterar sobre arrays de itens",
-            "Code Node: JavaScript simples para transformações complexas",
-            "Expressões N8N: {{$json}}, {{$node}}, funções built-in",
-            "Formatação de datas, números e strings com expressões",
-          ],
-        },
-        {
-          title: "Integrações com CRM e Comunicação",
-          topics: [
-            "HubSpot: criar e atualizar contatos e deals via N8N",
-            "Notion: criar páginas, atualizar banco de dados",
-            "Slack: enviar mensagens e criar canais programaticamente",
-            "WhatsApp Business API via Evolution API + N8N",
+            "Switch, Merge e Loop Node: múltiplos caminhos, combinação de branches e iteração sobre arrays",
+            "Code Node: JavaScript simples para transformações que os nodes visuais não resolvem",
+            "Expressões N8N ({{$json}}, {{$node}}) para formatar datas, números e strings dinamicamente",
+            "HubSpot e Notion: criar e atualizar contatos, deals e páginas direto do workflow",
+            "Slack e WhatsApp Business (via Evolution API): notificações e atendimento automatizado",
             "Airtable como banco de dados no-code integrado ao N8N",
           ],
         },
         {
-          title: "Sub-Workflows e Organização de Projetos",
+          title: "AI Agent Node: Primeiros Passos com Agentes de IA",
           topics: [
-            "Criar Sub-Workflows reutilizáveis (como funções)",
-            "Executar Sub-Workflow de dentro de outro fluxo",
-            "Nomear nodes e usar sticky notes para documentação",
-            "Organizar workflows com pastas no N8N",
-            "Controle de versão e backup de workflows em JSON",
+            "AI Agent Node: como funciona o loop de raciocínio ReAct no N8N",
+            "Conectar OpenAI, Anthropic Claude e Google Gemini como LLM provider",
+            "Ferramentas (tools) nativas: Code, HTTP Request, Google Sheets, Calculadora",
+            "Memória de sessão e memória de janela para o agente manter contexto na conversa",
+            "Projeto: agente que responde perguntas sobre dados de uma planilha em linguagem natural",
+            "Depurar o raciocínio do agente com o painel de execução do N8N",
+          ],
+        },
+        {
+          title: "Panorama Avançado: MCP, Multiagentes e Automação como Serviço",
+          topics: [
+            "Model Context Protocol (MCP): por que virou padrão para conectar agentes a ferramentas externas, e como o N8N atua como servidor ou cliente MCP",
+            "RAG básico: conectar o agente a documentos e páginas do Notion como base de conhecimento própria via embeddings",
+            "Sistemas multiagentes: orquestrar múltiplos AI Agent Nodes em pipeline (padrão orchestrator-worker) para tarefas mais complexas",
+            "Deploy em produção: opções simples pra colocar seu workflow no ar, do N8N Cloud a um VPS próprio com Docker",
+            "Automação como serviço: como estruturar, precificar e vender automações de IA para clientes",
           ],
         },
       ],
       tools: [
-        "N8N",
+        "N8N Cloud",
+        "Docker",
+        "Google Sheets API",
+        "Gmail",
+        "Telegram Bot API",
         "ngrok",
         "HubSpot",
         "Notion API",
         "Evolution API (WhatsApp)",
         "Airtable",
-      ],
-    },
-    {
-      levelName: "Profissional + IA",
-      totalHours: "72h",
-      outcome:
-        "Construir agentes de IA com N8N AI Agent Node, orquestrar sistemas multiagentes, integrar MCP (Model Context Protocol), deployar N8N em VPS e entregar automações de IA como serviço para clientes",
-      modules: [
-        {
-          title: "N8N AI Agent Node — Agentes Nativos",
-          topics: [
-            "AI Agent Node: como funciona o loop de raciocínio ReAct no N8N",
-            "Conectar OpenAI, Anthropic Claude e Google Gemini como LLM provider",
-            "Ferramentas (tools) nativas: Code, HTTP Request, Google Sheets, Calculadora",
-            "Memória de sessão e memória de janela para agentes com contexto",
-            "Subagentes: chamar um AI Agent de dentro de outro Agent",
-            "Depurar o raciocínio do agente com o painel de execução do N8N",
-          ],
-        },
-        {
-          title: "Model Context Protocol (MCP) no N8N",
-          topics: [
-            "O que é MCP e por que se tornou o padrão para ferramentas de IA em 2025",
-            "N8N como servidor MCP: expor workflows como ferramentas para agentes externos",
-            "Conectar Claude Desktop e Cursor ao N8N via MCP",
-            "N8N como cliente MCP: consumir ferramentas de servidores MCP externos",
-            "Autenticação e segurança em servidores MCP",
-            "Casos de uso: agente que acessa banco de dados, CRM e e-mail via MCP",
-          ],
-        },
-        {
-          title: "RAG e Bases de Conhecimento com N8N",
-          topics: [
-            "Embeddings no N8N: gerar e armazenar vetores com OpenAI e Supabase pgvector",
-            "Vector Store Node: Pinecone, Qdrant e Supabase como bases vetoriais",
-            "Pipeline de ingestão: carregar PDFs, Notion e websites na base de conhecimento",
-            "Retrieval no N8N: busca semântica integrada ao AI Agent Node",
-            "Atualização incremental da base de conhecimento via webhook",
-            "Projeto: chatbot corporativo que responde a partir dos documentos da empresa",
-          ],
-        },
-        {
-          title: "Sistemas Multiagentes com N8N",
-          topics: [
-            "Padrão Orchestrator-Worker: agente gestor delega para sub-agentes especialistas",
-            "Agente pesquisador + agente redator + agente revisor em pipeline",
-            "Comunicação entre agentes via HTTP Request e Webhook internos",
-            "Controle de estado e contexto compartilhado entre agentes",
-            "Avaliador automático de qualidade no loop de agentes",
-            "Projeto: sistema de geração de relatórios com 3 agentes em cadeia",
-          ],
-        },
-        {
-          title: "Deploy e N8N em Produção",
-          topics: [
-            "Deploy do N8N self-hosted em VPS com Docker Compose e Nginx",
-            "Configuração de SSL com Let's Encrypt e domínio próprio",
-            "Variáveis de ambiente, secrets e boas práticas de segurança",
-            "Backup automático de workflows e banco de dados N8N",
-            "Monitoramento com UptimeRobot e alertas de falha por Telegram",
-            "Escalabilidade: N8N em modo queue com Redis para alta demanda",
-          ],
-        },
-        {
-          title: "Automação de IA como Serviço (AaaS)",
-          topics: [
-            "Modelo de negócio: vender automações de IA para pequenas empresas",
-            "Precificação por setup, mensalidade e número de execuções",
-            "Criar white-label de N8N para clientes com domínio próprio",
-            "Contratos, SLA e gestão de múltiplos clientes com N8N",
-            "Apresentar ROI de automações: horas economizadas, custo por tarefa",
-            "Portfólio de automações mais vendidas: atendimento, relatórios e marketing",
-          ],
-        },
-      ],
-      tools: [
-        "N8N",
         "N8N AI Agent Node",
-        "MCP Protocol",
         "OpenAI API",
         "Anthropic Claude API",
+        "MCP Protocol",
         "Pinecone",
-        "Supabase pgvector",
-        "Docker",
-        "Nginx",
-        "Redis",
       ],
     },
   ],
@@ -227,10 +137,6 @@ const COURSE_DATA = {
     {
       q: "Preciso saber programar pra aprender N8N?",
       a: "Não. O N8N é uma ferramenta visual — você conecta blocos (nodes) pra montar automações sem escrever código. O curso é voltado justamente pra quem é gestor, analista ou empreendedor e não quer virar programador pra automatizar o próprio negócio.",
-    },
-    {
-      q: "Qual a diferença entre os três níveis do curso?",
-      a: "No Essencial você monta workflows conectando Google Sheets, e-mail, Telegram e WhatsApp com lógica condicional. No Intermediário entra em Webhooks, integrações com CRM e bancos de dados. No Profissional + IA você constrói agentes de IA com o AI Agent Node, integra MCP e chega a colocar o N8N em produção num servidor próprio.",
     },
     {
       q: "Já uso Zapier ou Make — vale a pena migrar para o N8N?",

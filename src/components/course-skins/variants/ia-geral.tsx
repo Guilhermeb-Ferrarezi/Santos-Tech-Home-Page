@@ -247,7 +247,7 @@ export function GeralProgram(props: IaBlockProps) {
           center
           eyebrow="Conteúdo programático"
           title="Uma trilha de evolução: do prompt ao agente"
-          sub="Cada nível é uma etapa da trilha. Escolha a etapa e acompanhe os módulos na linha do tempo."
+          sub={n > 1 ? "Cada nível é uma etapa da trilha. Escolha a etapa e acompanhe os módulos na linha do tempo." : "Acompanhe os módulos na linha do tempo, do primeiro prompt ao primeiro agente."}
           icon={<TrendingUp className="h-3.5 w-3.5" />}
         />
         <Trilha {...props} />

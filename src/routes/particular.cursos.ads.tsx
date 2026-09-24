@@ -10,7 +10,7 @@ export const Route = createFileRoute("/particular/cursos/ads")({
       title:
         "Curso de ADS — Formação Profissional em Programação Particular em Ribeirão Preto — Santos Tech",
       description:
-        "Formação profissional completa em Análise e Desenvolvimento de Sistemas: lógica, back-end, mobile, cloud e IA. Do zero ao mercado de TI em até 12 meses, presencial em Ribeirão Preto.",
+        "Formação profissional completa em Análise e Desenvolvimento de Sistemas: lógica, back-end, mobile, cloud e IA. Do zero ao mercado de TI em até 6 meses, presencial em Ribeirão Preto.",
       path: "/particular/cursos/ads",
     }),
 })
@@ -27,116 +27,17 @@ const COURSE_DATA = {
     "Você quer uma formação estruturada e completa em TI sem precisar fazer uma graduação de 4 anos",
     "Você está em transição de carreira e precisa de base sólida para entrar no mercado de tecnologia",
     "Você já trabalha em TI (suporte, infraestrutura) e quer formação formal em desenvolvimento de sistemas",
-    "Você busca uma qualificação profissional reconhecida pelo mercado em menos de 12 meses",
+    "Você busca uma qualificação profissional reconhecida pelo mercado em poucos meses, não em anos de graduação",
     "Você quer dominar tanto o desenvolvimento quanto a análise de requisitos e gestão de projetos",
     "Você tem tempo parcial para estudar e precisa de um curso estruturado que respeite seu ritmo de trabalhador",
   ],
   tiers: [
     {
-      levelName: "Essencial",
-      totalHours: "24h",
-      outcome:
-        "Dominar lógica de programação, banco de dados relacional, front-end, POO com Java e desenvolvimento de APIs RESTful com Spring Boot — pronto para posições de desenvolvedor júnior",
-      modules: [
-        {
-          title: "Lógica de Programação e Algoritmos",
-          topics: [
-            "Pseudocódigo e fluxograma: representação de algoritmos",
-            "Python: variáveis, tipos, operadores e estruturas de controle",
-            "Funções, recursividade e manipulação de listas e dicionários",
-            "Introdução à programação orientada a objetos com Python",
-          ],
-        },
-        {
-          title: "Engenharia de Software e Gestão Ágil",
-          topics: [
-            "Ciclo de vida do software: requisitos, design, implementação, testes e manutenção",
-            "Scrum: papéis (PO, SM, Dev), cerimônias e artefatos",
-            "Kanban com Jira: gestão visual de tarefas e métricas de fluxo",
-            "Levantamento de requisitos: entrevistas, casos de uso e user stories",
-            "Git e GitHub para equipes: branches, pull requests e code review",
-          ],
-        },
-        {
-          title: "Banco de Dados Relacional",
-          topics: [
-            "Modelagem entidade-relacionamento (ER) com BRModelo",
-            "Normalização: 1FN, 2FN e 3FN com exemplos práticos",
-            "SQL no PostgreSQL: DDL, DML e queries com GROUP BY e JOINs",
-            "Constraints, índices e boas práticas de design de schema",
-            "Backup, restauração e introdução à administração de banco",
-          ],
-        },
-        {
-          title: "Front-end Web: HTML, CSS e JavaScript",
-          topics: [
-            "HTML5 semântico, formulários e acessibilidade (WCAG básico)",
-            "CSS3: Flexbox, Grid e responsividade com media queries",
-            "JavaScript: DOM, eventos, Fetch API e LocalStorage",
-            "Bootstrap 5: grid system, componentes e customização com SASS",
-          ],
-        },
-        {
-          title: "Programação Orientada a Objetos com Java",
-          topics: [
-            "Classes, objetos, herança, polimorfismo e encapsulamento",
-            "Interfaces, classes abstratas e design patterns (Singleton, Factory)",
-            "Collections Framework: List, Map, Set e iteradores",
-            "JDBC para conexão ao PostgreSQL e execução de queries",
-            "Introdução ao Spring Boot: criação de projeto e primeira API REST",
-          ],
-        },
-        {
-          title: "API REST e Arquitetura Web",
-          topics: [
-            "Princípios REST: recursos, métodos HTTP, status codes e HATEOAS",
-            "Spring Boot: controllers, services, repositories e injeção de dependência",
-            "JPA e Hibernate: mapeamento objeto-relacional e lazy/eager loading",
-            "Autenticação com Spring Security e JWT",
-            "Documentação de API com Swagger/OpenAPI 3",
-          ],
-        },
-        {
-          title: "Banco de Dados Avançado e NoSQL",
-          topics: [
-            "PL/SQL: stored procedures, functions, triggers e packages no Oracle",
-            "Otimização de queries: execution plan, índices compostos e particionamento",
-            "MongoDB: documentos, coleções, CRUD e aggregation pipeline",
-            "Comparativo SQL vs NoSQL: quando usar cada abordagem",
-          ],
-        },
-        {
-          title: "Desenvolvimento Mobile Android",
-          topics: [
-            "Kotlin: sintaxe, null safety, data classes e coroutines",
-            "Activities, Fragments e Jetpack Compose: UI declarativa",
-            "Retrofit para consumo de APIs REST e serialização com Gson",
-            "Room Database para persistência local no Android",
-          ],
-        },
-      ],
-      tools: [
-        "Python",
-        "PostgreSQL",
-        "BRModelo",
-        "Git",
-        "Jira",
-        "VS Code",
-        "Bootstrap 5",
-        "Java",
-        "Spring Boot",
-        "Oracle",
-        "MongoDB",
-        "Kotlin",
-        "Retrofit",
-        "Swagger",
-      ],
-    },
-    {
-      levelName: "Intermediário",
+      levelName: "ADS",
+      ctaLabel: "curso de ADS",
       totalHours: "48h",
       outcome:
-        "Projetar e liderar o desenvolvimento de sistemas complexos com DevOps, microsserviços, IA generativa integrada e projeto de conclusão entregável ao mercado — pronto para posições plenas e sênior em TI",
+        "Desenvolver sistemas completos do zero absoluto — lógica, banco de dados, front-end e back-end em Java com Spring Boot, mobile Android — até DevOps e cloud, microsserviços, IoT, machine learning, IA generativa e segurança da informação, fechando com projeto de conclusão entregável ao mercado — pronto para posições de desenvolvedor júnior a pleno/sênior em TI",
       modules: [
         {
           title: "Lógica de Programação e Algoritmos",
@@ -334,12 +235,8 @@ const COURSE_DATA = {
       a: "Não. O curso começa do zero, com lógica de programação e algoritmos em Python — pseudocódigo, fluxograma, variáveis e estruturas de controle — antes de entrar em banco de dados, front-end, Java e Spring Boot. É pensado pra quem está em transição de carreira.",
     },
     {
-      q: "Qual a diferença entre os módulos Essencial e Intermediário?",
-      a: "Essencial forma a base completa de um desenvolvedor júnior: lógica, banco de dados relacional, front-end, Java com Spring Boot e APIs REST, incluindo introdução a mobile Android. Intermediário adiciona DevOps e cloud AWS, arquitetura de microsserviços, IoT, machine learning, IA generativa aplicada e fecha com um projeto de conclusão completo — o nível pleno/sênior.",
-    },
-    {
       q: "Já trabalho na área de suporte ou infraestrutura de TI, o ADS serve pra mim?",
-      a: "Sim, é um dos perfis mais comuns aqui. O curso dá a formação formal em desenvolvimento de sistemas que quem já está no operacional de TI geralmente não teve — desde lógica e banco de dados até arquitetura de microsserviços e projeto de conclusão, em até 12 meses.",
+      a: "Sim, é um dos perfis mais comuns aqui. O curso dá a formação formal em desenvolvimento de sistemas que quem já está no operacional de TI geralmente não teve — desde lógica e banco de dados até arquitetura de microsserviços e projeto de conclusão, em até 6 meses.",
     },
   ],
 }

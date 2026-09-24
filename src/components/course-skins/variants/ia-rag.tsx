@@ -170,6 +170,7 @@ export function RagProgram(props: IaBlockProps) {
   const { course, selectedTier } = props;
   const tier = course.tiers[selectedTier];
   const meta = tierMeta(course, tier);
+  const multiTier = course.tiers.length > 1;
   return (
     <section id="conteudo-ia" className={`scroll-mt-6 border-y ${BORDER} ${SOFT} py-20`}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -218,7 +219,7 @@ export function RagProgram(props: IaBlockProps) {
         <Reveal className="mt-10">
           <GradientFrame>
             <p className={`flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] ${ACCENT_TEXT}`}>
-              <Sparkles className="h-3.5 w-3.5" /> Resposta gerada · o que você consegue ao final do nível
+              <Sparkles className="h-3.5 w-3.5" /> Resposta gerada · o que você consegue {multiTier ? "ao final do nível" : "ao final do curso"}
             </p>
             <p className={`mt-2 text-base font-semibold leading-relaxed sm:text-lg ${TITLE}`}>{tier.outcome}</p>
             <p className={`mt-3 flex flex-wrap items-center gap-1.5 text-xs ${MUTED}`}>
@@ -229,7 +230,7 @@ export function RagProgram(props: IaBlockProps) {
                 </span>
               ))}
             </p>
-            <ToolList tools={tier.tools} label="Stack usada neste nível" />
+            <ToolList tools={tier.tools} label={multiTier ? "Stack usada neste nível" : "Stack usada neste curso"} />
           </GradientFrame>
         </Reveal>
       </div>

@@ -1,4 +1,4 @@
-﻿import { createFileRoute } from "@tanstack/react-router"
+import { createFileRoute } from "@tanstack/react-router"
 import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
@@ -23,7 +23,6 @@ const COURSE_DATA = {
   variante: "typescript",
   tagline:
     "Escreva JavaScript com tipagem, autocomplete e zero erros em produção",
-  pricePerAula: 109.9,
   targetAudience: [
     "Você já sabe JavaScript mas seus projetos quebram em produção com erros que só aparecem em runtime",
     "Você quer ser contratado por empresas que exigem TypeScript em vagas de React, Node.js ou full stack",
@@ -34,20 +33,19 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      levelName: "Intermediário",
+      levelName: "TypeScript",
       totalHours: "48h",
       outcome:
-        "Escrever aplicações TypeScript completas com tipagem avançada, generics, módulos, decorators e integração com React e Node.js, entregando código production-ready em projetos reais",
+        "Escrever TypeScript do zero até aplicações completas, dominando tipagem avançada, generics e orientação a objetos, e aplicando tudo em projetos reais de React e Node.js/Express, com testes tipados e uma introdução prática a NestJS — pronto pra entregar código production-ready e disputar vagas que exigem TypeScript no mercado",
       modules: [
         {
           title: "Fundamentos de TypeScript e Configuração do Ambiente",
           topics: [
-            "Instalar TypeScript 5.x globalmente e configurar tsconfig.json com strictMode e paths",
-            "Entender como o compilador tsc transforma TS em JS e o papel do ts-node",
-            "Tipos primitivos: string, number, boolean, null, undefined, symbol e bigint",
+            "Instalar TypeScript 5.x, configurar tsconfig.json com strictMode e paths, e preparar o VS Code com as extensões que aceleram o dia a dia",
+            "Como o compilador tsc transforma TS em JS e o papel do ts-node",
+            "Tipos primitivos: string, number, boolean, null, undefined e tipos especiais (symbol, bigint)",
             "Type inference: quando declarar tipos explicitamente e quando deixar o compilador inferir",
             "Arrays tipados, tuplas e enums em projetos reais",
-            "Configuração do VS Code com extensões TypeScript Hero e Error Lens",
           ],
         },
         {
@@ -69,7 +67,6 @@ const COURSE_DATA = {
             "Constraints em generics com extends para restringir tipos aceitos",
             "Conditional types: T extends U ? X : Y para lógica baseada em tipos",
             "Template literal types para construir strings tipadas dinamicamente",
-            "infer keyword: extrair tipos de dentro de outros tipos",
           ],
         },
         {
@@ -78,9 +75,8 @@ const COURSE_DATA = {
             "Classes com tipagem: constructors, propriedades públicas, privadas e protected",
             "Abstract classes e métodos abstratos para definir contratos de implementação",
             "Implementação de interfaces em classes e polimorfismo type-safe",
-            "Decorators de classe e método (experimentalDecorators): uso e criação",
-            "Design patterns em TypeScript: Singleton, Repository e Factory",
-            "Projeto: sistema de gerenciamento de entidades com herança e interfaces",
+            "Decorators de classe e método (experimentalDecorators): uso e criação — a base que o NestJS usa mais adiante",
+            "Projeto: sistema de gerenciamento de entidades com herança, interfaces e um design pattern aplicado (Repository ou Factory)",
           ],
         },
         {
@@ -105,6 +101,26 @@ const COURSE_DATA = {
             "Projeto: API REST de tarefas com autenticação JWT completamente tipada",
           ],
         },
+        {
+          title: "Testes Tipados com Vitest",
+          topics: [
+            "Vitest com TypeScript: configuração, mocks tipados e coverage com v8",
+            "Tipar mocks de módulos e funções com vi.fn()",
+            "Testing Library + React: testar componentes com queries type-safe",
+            "Testes de integração para APIs com Supertest",
+            "Boas práticas de organização de testes em projetos TypeScript: unitário vs. integração",
+          ],
+        },
+        {
+          title: "Introdução ao NestJS e Próximos Passos",
+          topics: [
+            "Arquitetura NestJS: modules, controllers, services e dependency injection",
+            "Decorators de validação com class-validator e class-transformer",
+            "Guards e pipes básicos para autenticação e validação de entrada",
+            "Integração com Prisma em ambiente NestJS",
+            "Panorama de próximos passos: monorepos com Turborepo, IA generativa com Vercel AI SDK e contribuição em projetos open source — temas pra quem quiser se aprofundar além deste curso",
+          ],
+        },
       ],
       tools: [
         "TypeScript 5.x",
@@ -112,118 +128,22 @@ const COURSE_DATA = {
         "ts-node",
         "Vite",
         "React",
+        "React Hook Form",
+        "Zod",
         "Express.js",
         "Prisma",
-        "Zod",
-        "React Hook Form",
         "ESLint + typescript-eslint",
-      ],
-    },
-    {
-      levelName: "Profissional + IA",
-      totalHours: "72h",
-      outcome:
-        "Arquitetar sistemas TypeScript de larga escala com monorepos, testes end-to-end tipados, integração com IA generativa via SDK type-safe, performance de compilação otimizada e contribuição em projetos open source de nível profissional",
-      modules: [
-        {
-          title: "TypeScript Avançado: Sistema de Tipos Profundo",
-          topics: [
-            "Mapped types: transformar interfaces existentes em novos tipos automaticamente",
-            "Recursive types para modelar estruturas de dados aninhadas como árvores e JSON",
-            "Variance em TypeScript: covariance, contravariance e bivariance na prática",
-            "Template literal types avançados para APIs fluentes e DSLs internas",
-            "Module augmentation e declaration merging para estender tipos de bibliotecas de terceiros",
-            "satisfies operator (TS 4.9+): validar tipos sem perder inferência",
-            "const type parameters (TS 5.0+) e variadic tuple types para APIs expressivas",
-          ],
-        },
-        {
-          title: "Monorepos e Arquitetura de Projetos em Escala",
-          topics: [
-            "Configurar monorepo com pnpm workspaces e TypeScript project references",
-            "Turborepo: cache inteligente de build e pipeline de tarefas entre pacotes",
-            "Compartilhar tipos, utilitários e componentes entre frontend e backend no mesmo repo",
-            "tsconfig paths e aliases: imports limpos sem caminhos relativos longos",
-            "Estratégias de versionamento de pacotes internos com Changesets",
-            "Performance do compilador: incremental builds, tsbuildinfo e skipLibCheck",
-          ],
-        },
-        {
-          title: "Testes Tipados: Unitários, Integração e E2E",
-          topics: [
-            "Vitest com TypeScript: configuração, mocks tipados e coverage com v8",
-            "Testing Library + React: testar componentes com queries type-safe",
-            "Tipar mocks de módulos e funções com vi.fn() e jest.MockedFunction",
-            "Testes de integração para APIs com Supertest e banco de dados real em container Docker",
-            "Playwright com TypeScript: testes E2E com Page Object Model tipado",
-            "Snapshot typing com expect-type para garantir que tipos não regridem",
-            "Pipeline de CI com GitHub Actions: type-check, lint e testes em paralelo",
-          ],
-        },
-        {
-          title: "NestJS: Backend Enterprise com TypeScript Nativo",
-          topics: [
-            "Arquitetura NestJS: modules, controllers, services e dependency injection",
-            "Decorators de validação com class-validator e class-transformer",
-            "Guards, interceptors e pipes type-safe para autenticação e autorização",
-            "Integração com TypeORM e Prisma em ambiente NestJS",
-            "Websockets em tempo real com @nestjs/websockets e tipagem de eventos",
-            "Testes unitários de services e controllers com mocks do NestJS Testing",
-            "Projeto: API de e-commerce com autenticação, autorização por roles e testes completos",
-          ],
-        },
-        {
-          title: "IA Generativa Integrada com TypeScript",
-          topics: [
-            "Vercel AI SDK com TypeScript: streaming de texto, estruturado e multimodal",
-            "Tipar respostas de LLMs com Zod e ai.generateObject() para dados estruturados",
-            "Construir chatbot com memória de conversa usando useChat hook tipado",
-            "LangChain.js com TypeScript: chains, tools e agentes type-safe",
-            "Model Context Protocol (MCP) SDK em TypeScript: criar servers e clients de ferramentas",
-            "RAG type-safe: embeddings com OpenAI, busca vetorial no pgvector e tipos end-to-end",
-            "Projeto: assistente de código com acesso a base de conhecimento via RAG e MCP",
-          ],
-        },
-        {
-          title: "Deploy, Observabilidade e Open Source",
-          topics: [
-            "Compilação eficiente para produção: esbuild, tsup e bundle analysis",
-            "Publicar pacote TypeScript no npm com types exportados e suporte a ESM + CJS",
-            "Logging estruturado com Pino e traces distribuídos com OpenTelemetry em TypeScript",
-            "Configurar Sentry com sourcemaps TypeScript para rastrear erros em produção",
-            "Contribuir para projetos open source em TypeScript: PRs, discussions e types",
-            "Migrando codebase JavaScript legada para TypeScript com estratégia incremental",
-          ],
-        },
-      ],
-      tools: [
-        "TypeScript 5.x",
-        "NestJS",
-        "Turborepo",
-        "pnpm workspaces",
         "Vitest",
-        "Playwright",
-        "Vercel AI SDK",
-        "LangChain.js",
-        "MCP SDK",
-        "OpenAI API",
-        "Prisma",
-        "pgvector",
-        "tsup",
-        "GitHub Actions",
-        "Sentry",
-        "OpenTelemetry",
+        "Testing Library",
+        "Supertest",
+        "NestJS",
       ],
     },
   ],
   faqItems: [
     {
       q: "Preciso já saber JavaScript pra fazer esse curso?",
-      a: "Sim. O curso parte do princípio que você já programa em JavaScript e sente na pele os erros que só aparecem em produção. A proposta é justamente dar tipagem, autocomplete e segurança a um código que hoje quebra em runtime.",
-    },
-    {
-      q: "Qual a diferença entre o nível Intermediário e o Profissional + IA?",
-      a: "No Intermediário você aprende o sistema de tipos, generics, classes e aplica TypeScript em projetos React e Node.js/Express. No Profissional + IA você avança pra tipos avançados, monorepos com Turborepo, testes E2E tipados, NestJS enterprise e integração com IA generativa via Vercel AI SDK e MCP.",
+      a: "Sim. O curso parte do princípio que você já programa em JavaScript e sente na pele os erros que só aparecem em produção. A trilha única de 48 aulas vai da tipagem básica até a aplicação prática em React e Node.js, passando por testes tipados e uma introdução a NestJS — dando tipagem, autocomplete e segurança a um código que hoje quebra em runtime.",
     },
     {
       q: "O curso ensina TypeScript com React e Node, ou só a linguagem pura?",

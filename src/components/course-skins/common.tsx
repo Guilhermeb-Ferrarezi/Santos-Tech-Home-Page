@@ -8,6 +8,7 @@ import {
   CUSTOS_UNICOS,
   DIFERENCIAIS,
   FORMAS_PAGAMENTO,
+  FORMAS_PAGAMENTO_DETALHE,
   TRILHA_PERSONALIZADA,
   tierMeta,
   type SkinProps,
@@ -245,10 +246,11 @@ export function CommonSections({
                     <div className="flex flex-1 flex-col gap-5 p-6">
                       <p className={`text-sm ${look.text}`}>{t.outcome}</p>
                       <div>
+                        <p className={`${small} ${look.muted}`}>12x de</p>
                         <p className={`text-3xl font-black tracking-tight ${look.title}`}>
                           {m?.investimento?.parcelaFormatted ?? "—"}
                         </p>
-                        <p className={`mt-0.5 ${small} ${look.muted}`}>12x sem juros no cartão</p>
+                        <p className={`mt-0.5 ${small} ${look.muted}`}>sem juros no cartão</p>
                         {m?.investimento && (
                           <p className={`mt-1.5 ${small} ${look.muted}`}>ou {m.investimento.totalFormatted} à vista</p>
                         )}
@@ -289,6 +291,7 @@ export function CommonSections({
                 ))}
               </div>
               <p className={`mt-4 ${small} ${look.muted}`}>{FORMAS_PAGAMENTO}</p>
+              <p className={`mt-2 ${small} ${look.muted}`}>{FORMAS_PAGAMENTO_DETALHE}</p>
             </div>
             {/* Trilha personalizada — só faz sentido quando há mais de um nível pra "não se encaixar" */}
             {multiTier && (

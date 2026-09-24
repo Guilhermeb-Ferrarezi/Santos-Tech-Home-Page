@@ -32,104 +32,10 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      levelName: "Essencial",
-      totalHours: "24h",
-      outcome:
-        "Construir SPAs com React, criar APIs REST com Node.js conectadas a banco de dados PostgreSQL e publicar aplicações online com autenticação e segurança",
-      modules: [
-        {
-          title: "Fundamentos da Web e Setup",
-          topics: [
-            "Como funciona a internet: HTTP, DNS, cliente-servidor",
-            "Configuração do ambiente: VS Code, extensões e terminal",
-            "Git e GitHub: init, add, commit, push e pull",
-            "Criação de repositório e deploy no GitHub Pages",
-          ],
-        },
-        {
-          title: "HTML5 e Semântica",
-          topics: [
-            "Tags estruturais: header, main, section, article, footer",
-            "Formulários: input types, validação nativa e acessibilidade",
-            "SEO básico: meta tags, Open Graph e estrutura de headings",
-            "Imagens responsivas com srcset e formatos modernos (WebP)",
-          ],
-        },
-        {
-          title: "CSS3 e Layout Moderno",
-          topics: [
-            "Flexbox: alinhamento, direção, wrap e grow/shrink",
-            "CSS Grid: grid-template, áreas e layouts complexos",
-            "Responsividade com media queries e unidades relativas (rem, vh)",
-            "Variáveis CSS, pseudo-classes e animações com @keyframes",
-          ],
-        },
-        {
-          title: "JavaScript Fundamentos",
-          topics: [
-            "Tipos de dados, operadores e estruturas de controle",
-            "Funções, arrow functions e escopo (let, const, var)",
-            "Manipulação do DOM: querySelector, addEventListener, classList",
-            "Fetch API: consumo de APIs públicas e tratamento de JSON",
-          ],
-        },
-        {
-          title: "JavaScript Avançado e TypeScript",
-          topics: [
-            "ES6+: destructuring, spread, optional chaining e nullish coalescing",
-            "Promises, async/await e tratamento de erros com try/catch",
-            "Módulos ES6: import/export e organização de código",
-            "TypeScript: tipos básicos, interfaces, generics e configuração do tsconfig",
-          ],
-        },
-        {
-          title: "React.js: Componentes e Estado",
-          topics: [
-            "JSX, componentes funcionais e props tipadas com TypeScript",
-            "useState, useEffect e ciclo de vida de componentes",
-            "React Router v6: rotas aninhadas, parâmetros e rotas protegidas",
-            "Context API e gerenciamento de estado global",
-            "Formulários com React Hook Form e validação com Zod",
-          ],
-        },
-        {
-          title: "Node.js e API REST",
-          topics: [
-            "Configuração do servidor com Express.js e middlewares",
-            "Rotas RESTful: GET, POST, PUT, DELETE com status codes corretos",
-            "Autenticação com JWT: geração, validação e refresh tokens",
-            "Upload de arquivos com Multer e armazenamento em cloud (AWS S3)",
-          ],
-        },
-        {
-          title: "Banco de Dados Relacional",
-          topics: [
-            "Modelagem de dados: entidades, relacionamentos e normalização",
-            "PostgreSQL: DDL, DML e queries com JOINs",
-            "ORM com Prisma: migrations, schema e queries type-safe",
-            "Variáveis de ambiente e conexão segura ao banco",
-          ],
-        },
-      ],
-      tools: [
-        "VS Code",
-        "Git",
-        "GitHub Pages",
-        "Chrome DevTools",
-        "React.js",
-        "Node.js",
-        "Express.js",
-        "PostgreSQL",
-        "Prisma",
-        "TypeScript",
-        "Postman",
-      ],
-    },
-    {
-      levelName: "Intermediário",
+      levelName: "Full Stack Web Developer",
       totalHours: "48h",
       outcome:
-        "Entregar aplicações full stack completas em produção com Next.js, Docker, CI/CD, testes automatizados e integração com IA generativa, prontas para o mercado nacional e internacional",
+        "Sair do zero e entregar aplicações full stack completas em produção — com React, Node.js e PostgreSQL como base, evoluindo para Next.js, Docker, CI/CD, testes automatizados e integração com IA generativa, prontas para o mercado nacional e internacional",
       modules: [
         {
           title: "Fundamentos da Web e Setup",
@@ -257,6 +163,8 @@ const COURSE_DATA = {
       tools: [
         "VS Code",
         "Git",
+        "GitHub Pages",
+        "Chrome DevTools",
         "React.js",
         "Node.js",
         "Express.js",
@@ -279,11 +187,7 @@ const COURSE_DATA = {
   faqItems: [
     {
       q: "Preciso já saber programar pra começar esse curso?",
-      a: "Não. O curso parte do absoluto zero: como a internet funciona, Git e GitHub, HTML5 semântico e CSS3 antes de chegar em JavaScript, React e Node.js. Se você nunca programou mas quer entrar na área de tecnologia, é o nível Essencial que te leva até uma aplicação completa com banco de dados PostgreSQL.",
-    },
-    {
-      q: "Qual a diferença entre o Essencial e o Intermediário?",
-      a: "O Essencial cobre a base completa — HTML, CSS, JavaScript, TypeScript, React, Node.js com API REST e PostgreSQL com Prisma — o suficiente pra construir e publicar uma aplicação real. O Intermediário pega esse mesmo conteúdo e adiciona Next.js, Docker, CI/CD com GitHub Actions, deploy na AWS, testes automatizados e integração com IA generativa (OpenAI, LangChain.js), preparando pra vagas de mercado nacional e internacional.",
+      a: "Não. O curso parte do absoluto zero: como a internet funciona, Git e GitHub, HTML5 semântico e CSS3 antes de chegar em JavaScript, React e Node.js. Se você nunca programou mas quer entrar na área de tecnologia, é esse curso — do início ao fim — que te leva até uma aplicação completa com banco de dados PostgreSQL, e na sequência avança para Next.js, Docker e deploy em produção.",
     },
     {
       q: "Esse curso serve pra quem já trabalha com TI mas quer migrar pra desenvolvimento?",
