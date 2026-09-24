@@ -34,10 +34,10 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      levelName: "Essencial",
-      totalHours: "24h",
+      levelName: "PowerPoint",
+      totalHours: "48h",
       outcome:
-        "Criar apresentações visualmente consistentes com hierarquia clara, boa tipografia e narrativa estruturada",
+        "Dominar o PowerPoint do design básico ao storytelling avançado — Slide Mestre, animações profissionais, Morph, Designer e Copilot — para criar apresentações e pitches de vendas que convencem qualquer audiência, da equipe ao board executivo",
       modules: [
         {
           title: "Fundamentos de design para apresentações",
@@ -45,8 +45,8 @@ const COURSE_DATA: CourseData = {
             "Os 4 princípios de design: contraste, alinhamento, repetição e proximidade",
             "Teoria das cores aplicada a slides: paletas harmônicas e psicologia da cor",
             "Tipografia profissional: escolhendo e combinando fontes",
-            "Regra dos três: como simplificar qualquer slide",
-            "O que remover: a arte do slide minimalista e eficiente",
+            "Regra dos três e a arte do slide minimalista: o que cortar para ganhar clareza",
+            "Ícones, pictogramas e imagens de alto impacto: onde encontrar sem violar licenças",
           ],
         },
         {
@@ -60,148 +60,53 @@ const COURSE_DATA: CourseData = {
           ],
         },
         {
-          title: "Storytelling: a narrativa por trás dos slides",
+          title: "Storytelling e dados que sustentam o argumento",
           topics: [
             "A estrutura do Monomito e a jornada do herói aplicada a apresentações",
-            "O método SCR: Situação, Complicação e Resolução",
-            "Pirâmide de Minto: comunicação top-down para executivos",
-            "Como criar um roteiro antes de abrir o PowerPoint",
-            "Slides de abertura e fechamento que ficam na memória",
+            "O método SCR (Situação, Complicação e Resolução) e a Pirâmide de Minto para comunicação executiva top-down",
+            "Como criar um roteiro antes de abrir o PowerPoint — e slides de abertura e fechamento que ficam na memória",
+            "Escolhendo o gráfico certo para cada tipo de dado e simplificando tabelas para leitura executiva",
+            "Mockups, dispositivos e composição de imagem com texto para apresentar produtos e ideias",
           ],
         },
         {
-          title: "Elementos visuais e dados em slides",
+          title: "Animações e Morph que convencem (não distraem)",
           topics: [
-            "Escolhendo o gráfico certo para cada tipo de dado",
-            "Simplificando tabelas de dados para slides executivos",
-            "Ícones e pictogramas: onde encontrar e como usar sem violar licenças",
-            "Imagens de alto impacto: stock gratuito e composição com texto",
-            "Mockups e dispositivos para apresentar produtos digitais",
-          ],
-        },
-      ],
-      tools: ["Microsoft PowerPoint 365", "Unsplash", "Flaticon"],
-    },
-    {
-      levelName: "Intermediário",
-      totalHours: "48h",
-      outcome:
-        "Dominar animações profissionais, transição Morph, slides interativos e apresentações de alto impacto para diferentes contextos",
-      modules: [
-        {
-          title: "Animações que convencem (não distraem)",
-          topics: [
-            "Diferença entre animações de entrada, ênfase, saída e trajetória",
-            "Painel de animação: controlando timing e ordem de forma precisa",
-            "Animações em lote para listas e dados sequenciais",
-            "Efeitos de revelação progressiva para construir argumentos",
+            "Diferença entre animações de entrada, ênfase, saída e trajetória, e o painel de animação para controlar timing e ordem",
+            "Animações em lote para listas e dados sequenciais, e efeitos de revelação progressiva para construir argumentos aos poucos",
             "Erros clássicos de animação e como evitá-los",
+            "Morph: criando animações cinematográficas sem código, com a técnica do duplicar slide",
+            "Zoom de Seção e Zoom de Resumo para navegação não-linear e apresentações interativas com links internos",
           ],
         },
         {
-          title: "Transição Morph e Zoom de Seção",
-          topics: [
-            "Morph: criando animações cinematográficas sem código",
-            "Técnica do duplicar slide para movimento fluido de objetos",
-            "Zoom de Seção e Zoom de Resumo para navegação não-linear",
-            "Criando apresentações interativas com links internos",
-            "Efeito de câmera e parallax com Morph",
-          ],
-        },
-        {
-          title: "Designer e recursos de IA no PowerPoint",
+          title: "Designer, Copilot e apresentações que vendem",
           topics: [
             "Designer: sugestões automáticas de layout com IA integrada",
-            "PowerPoint Copilot: gerando apresentações completas por prompt",
-            "Geração e edição de imagens com IA diretamente no slide",
-            "Transcrição ao vivo e legendas automáticas durante apresentação",
-            "Coach de apresentação: feedback de ritmo, clareza e vícios de linguagem",
+            "PowerPoint Copilot: gerando e revisando apresentações completas por prompt, com geração de imagens direto no slide",
+            "Estrutura de pitch de vendas: problema, solução, prova social e CTA",
+            "Deck de proposta comercial e apresentações para board e comitê executivo: uma mensagem por slide, gráfico com insight anotado, sem enfeite supérfluo",
+            "One-pager e handout: quando uma versão enxuta ou de leitura autônoma substitui o deck completo",
           ],
         },
         {
-          title: "Pitch, vendas e apresentações executivas",
+          title: "Apresentação ao vivo, exportação e projeto final",
           topics: [
-            "Estrutura de pitch de vendas: problema, solução, prova social, CTA",
-            "Deck de proposta comercial: o que incluir e o que cortar",
-            "Apresentações para board e comitê executivo: estilo McKinsey",
-            "One-pager: quando uma única página substitui 20 slides",
-            "Handout e versão para leitura autônoma do mesmo deck",
-          ],
-        },
-        {
-          title: "Apresentações interativas e vídeo",
-          topics: [
-            "Exportando apresentação como vídeo MP4 narrado",
-            "Gravando narração e anotações de tela slide a slide",
-            "Polls e quizzes ao vivo com Mentimeter integrado",
-            "Compartilhando apresentações via Microsoft Teams com anotações",
-            "PDF interativo com links e marcadores",
+            "Transcrição ao vivo, legendas automáticas e coach de apresentação: feedback de ritmo, clareza e vícios de linguagem",
+            "Exportando a apresentação como vídeo MP4 narrado, com narração e anotações de tela slide a slide",
+            "Compartilhando via Microsoft Teams com anotações, e PDF interativo com links e marcadores",
+            "Polls e quizzes ao vivo com Mentimeter integrado para manter a audiência engajada",
+            "Projeto final: deck de até 15 slides com roteiro e mapa de mensagens, template de Slide Mestre e Morph, apresentado ao vivo com feedback do professor",
           ],
         },
       ],
       tools: [
         "Microsoft PowerPoint 365",
         "Microsoft Copilot",
+        "Unsplash",
+        "Flaticon",
         "Mentimeter",
-        "Canva",
         "Microsoft Teams",
-      ],
-    },
-    {
-      levelName: "Profissional + IA",
-      totalHours: "72h",
-      outcome:
-        "Criar apresentações de nível consultoria com Figma, IA generativa e storytelling avançado, e entregar um deck de projeto completo como portfólio",
-      modules: [
-        {
-          title: "Nível consultoria: o método das Big 4",
-          topics: [
-            "Princípios de comunicação visual da McKinsey, Bain e BCG",
-            "Slide de uma mensagem: uma ideia por slide sem exceção",
-            "Gráficos com anotação de insight (não apenas o dado bruto)",
-            "Grids de 12 colunas para alinhamento milimétrico",
-            "Revisão editorial: como um consultor corta conteúdo supérfluo",
-          ],
-        },
-        {
-          title: "Figma e ferramentas de design para slides",
-          topics: [
-            "Fundamentos do Figma para quem vem do PowerPoint",
-            "Criando componentes reutilizáveis e biblioteca de design",
-            "Exportando slides do Figma para PowerPoint sem perda de qualidade",
-            "Prototipagem de apresentações interativas no Figma",
-            "Canva Pro: quando usar no lugar do PowerPoint e quando não usar",
-          ],
-        },
-        {
-          title: "IA generativa aplicada a apresentações",
-          topics: [
-            "Gamma.app: criando decks completos por texto com IA",
-            "Beautiful.ai e Tome: alternativas IA-first ao PowerPoint",
-            "Midjourney e DALL-E para criar imagens exclusivas para slides",
-            "ChatGPT como roteirista: gerando estrutura de narrativa por prompt",
-            "Revisando e melhorando conteúdo de slides com Claude e ChatGPT",
-          ],
-        },
-        {
-          title: "Projeto final: deck de alto impacto",
-          topics: [
-            "Escolha do contexto: proposta comercial, relatório de resultados ou pitch de projeto",
-            "Desenvolvimento do roteiro com mapa de mensagens por slide",
-            "Aplicação do template corporativo com Slide Mestre completo",
-            "Animações Morph e interatividade estratégica",
-            "Apresentação ao vivo com feedback do professor e versão final entregável",
-          ],
-        },
-      ],
-      tools: [
-        "Microsoft PowerPoint 365",
-        "Microsoft Copilot",
-        "Figma",
-        "Canva Pro",
-        "Gamma.app",
-        "ChatGPT",
-        "Midjourney",
       ],
     },
   ],
@@ -209,10 +114,6 @@ const COURSE_DATA: CourseData = {
     {
       q: "Já sei o básico de PowerPoint — esse curso ainda serve pra mim?",
       a: "Serve, e é pra isso que ele existe. O curso não é sobre botões e menus — é sobre design, narrativa e storytelling: por que um slide convence e outro não, mesmo os dois usando o mesmo PowerPoint.",
-    },
-    {
-      q: "Qual a diferença entre os três níveis do curso?",
-      a: "Essencial ensina os princípios de design e storytelling pra estruturar qualquer apresentação. Intermediário entra em animações profissionais, transição Morph, Designer com IA e apresentações de vendas. Profissional + IA fecha com o método das grandes consultorias, Figma e ferramentas de IA generativa, terminando num deck de portfólio completo.",
     },
     {
       q: "Trabalho com vendas ou consultoria e apresento com frequência — esse curso é pra mim?",
