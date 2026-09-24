@@ -238,6 +238,7 @@ function ChatApp({ course, selectedTier, onSelectTier }: IaBlockProps) {
 
 export function ChatProgram(props: IaBlockProps) {
   const tier = props.course.tiers[props.selectedTier];
+  const multiTier = props.course.tiers.length > 1;
   return (
     <section id="conteudo-ia" className={`scroll-mt-6 border-y ${BORDER} ${PANEL} py-20`}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -255,7 +256,7 @@ export function ChatProgram(props: IaBlockProps) {
         <Reveal delay={120} className="mt-6">
           <GradientFrame>
             <p className={`flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.2em] ${ACCENT_TEXT}`}>
-              <Pin className="h-3.5 w-3.5" /> Resposta fixada · ao final do nível {tier.levelName}
+              <Pin className="h-3.5 w-3.5" /> Resposta fixada{multiTier ? ` · ao final do nível ${tier.levelName}` : ""}
             </p>
             <p className={`mt-2 flex items-start gap-2 text-base font-semibold leading-relaxed sm:text-lg ${TITLE}`}>
               <Flag className="mt-1 h-4 w-4 shrink-0 text-(--accent)" />
