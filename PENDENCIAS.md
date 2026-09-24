@@ -2,38 +2,45 @@
 
 ## Abertas
 
-- [ ] **Duração dos cards "populares" da home do `/particular` (`POPULARES`
-      em `particular.index.tsx`) não é derivada de `TIER_META` e já está
-      inconsistente com ele** — achado durante o PR #37 (correção do FAQ
-      genérico), mas é um item distinto da pendência "Estatística '24 aulas
-      por curso'" logo abaixo (aquela é sobre o bloco "Ritmo"; esta é sobre
-      o campo `duracao` de cada card em `POPULARES`, ex.: `{ slug: "ia",
-      duracao: "2 meses" }`). Os valores parecem editoriais/avulsos, não
-      uma leitura de `TIER_META`: Cibersegurança mostra "4 meses" e Redes
-      Sociais mostra "1 mês", nenhum dos dois batendo com o intensivo
-      (~3 meses) nem o padrão (~6 meses) que esses mesmos cursos têm hoje
-      em `TIER_META`/`course-skins/shared.tsx`. Não mexi porque não é uma
-      correção mecânica: exigiria decidir o que esse número deveria
-      representar (intensivo? padrão? uma média?) pra depois escolher se
-      vale a pena derivar de `TIER_META` ou deixar como texto livre.
-      _Aguardando Henrique._
-
-- [ ] **Estatística "24 aulas por curso" na home do `/particular` agora
-      está desatualizada pra quase todo o catálogo** — achado pela auditoria
-      de resquícios do modelo antigo (23/09), reaberto pela conclusão da
-      unificação de tiers. O bloco "Ritmo" (`particular.index.tsx`) mostra
-      1h/aula, 24 aulas/curso, ~3 meses no ritmo padrão e ~1 mês no
-      intensivo como se fosse universal. Com a unificação de tiers 100%
-      concluída (ver item resolvido acima), **48 aulas é o padrão do
-      catálogo inteiro** — só Canva/CapCut/Git/Manutenção/Impressão 3D
-      continuam em 24h. A estatística da home ficou invertida: descreve a
-      exceção como se fosse a regra. Não mexi porque não é um bug mecânico:
-      é decisão de posicionamento (qual número mostrar como representativo
-      — 48 aulas? uma média? tirar o número fixo?) que toca como o site se
-      apresenta, não uma correção óbvia de copy.
-      _Aguardando Henrique._
+_Nenhuma no momento._
 
 ## Resolvidas
+
+- [x] **Estatística "24 aulas por curso" e ritmo do bloco "Ritmo" na home
+      do `/particular` estavam desatualizados pra quase todo o catálogo**
+      — pendência aberta pela auditoria de resquícios do modelo antigo
+      (23/09), reaberta pela conclusão da unificação de tiers. Causa raiz:
+      o bloco "Ritmo" (`particular.index.tsx`) ainda mostrava 24 aulas/
+      curso, ~3 meses no ritmo padrão e ~1 mês no intensivo como se fosse
+      universal — números do modelo de tiers 24/48/72h que a unificação
+      substituiu. Com o catálogo 100% migrado, 48 aulas é o padrão de
+      quase todo curso (só Canva/CapCut/Git/Manutenção/Impressão 3D
+      continuam em 24h), e o padrão de ritmo para curso de 48 aulas em
+      `TIER_META` já era intensivo "~3 meses" / padrão "~6 meses". Henrique
+      confirmou a atualização mecânica pros 3 números afetados (a
+      estatística de "1h por aula" não muda). Verificado com `bun run
+      lint` + `bun run build` (gate do `CLAUDE.md`, sem erros) e
+      visualmente no `bun run dev`: `/particular`, seção "Ritmo", mostrando
+      1h / 48 / 6 meses / 3 meses.
+
+- [x] **Duração dos cards "populares" da home do `/particular` (`POPULARES`
+      em `particular.index.tsx`) não era derivada de `TIER_META` e já
+      estava inconsistente com ele** — achado durante o PR #37 (correção
+      do FAQ genérico). Causa raiz: o campo `duracao` de cada card era
+      digitado à mão (ex.: Cibersegurança "4 meses", Redes Sociais
+      "1 mês"), sem bater com o intensivo (~3 meses) nem o padrão
+      (~6 meses) que esses mesmos cursos já tinham em `TIER_META`. Exigia
+      decidir o que esse número deveria representar antes de corrigir —
+      Henrique confirmou usar o ritmo **intensivo** (não padrão), na linha
+      da intenção original do array (valores antigos majoritariamente
+      1-2 meses, ritmo mais vendável). Trocado o campo solto `duracao` por
+      `tierKey` (a chave exata do curso em `TIER_META`) e o card passou a
+      renderizar `TIER_META[tierKey].intensivo` diretamente — reajuste
+      futuro em `TIER_META` reflete automaticamente nos 10 cards, sem
+      sincronizar 2 lugares. Verificado com `bun run lint` + `bun run
+      build` (sem erros) e visualmente no `bun run dev`: `/particular`,
+      seção "Cursos mais populares", os 10 cards (incluindo "Mostrar mais")
+      mostrando "~3 meses" de forma consistente.
 
 - [x] **Card de investimento: parcela em destaque lia ambíguo, e a cláusula
       do boleto tinha sumido de todas as 52 páginas** — achado pelo
