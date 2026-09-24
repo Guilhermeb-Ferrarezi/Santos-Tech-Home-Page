@@ -165,7 +165,9 @@ export function ExcelIaConteudo({ course, tier, selectedTier, onSelectTier, mult
             <div className="flex items-center gap-2.5 border-b border-neutral-200 px-4 py-2.5 dark:border-neutral-800">
               <AiMark className="h-6 w-6" />
               <span className="text-sm font-bold text-neutral-900 dark:text-white">Assistente de IA</span>
-              <span className="truncate text-xs text-neutral-500">· conversa do nível {tier.levelName}</span>
+              {multiTier && (
+                <span className="truncate text-xs text-neutral-500">· conversa do nível {tier.levelName}</span>
+              )}
             </div>
 
             <div className="space-y-6 px-4 py-6 sm:px-8">
