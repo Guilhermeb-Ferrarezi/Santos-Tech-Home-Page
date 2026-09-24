@@ -173,11 +173,12 @@ function ParticularLayout() {
     }
   }, [activeGroup]);
 
-  // Fusão da sidebar com o fundo da página: em telas grandes, a sidebar fica sobre o
-  // conteúdo (translúcida) e "amostra" a cor real renderizada logo à direita dela pra
-  // tingir o próprio fundo e trocar o contraste do texto (claro/escuro) conforme rola.
-  // Lê o DOM de verdade em vez de mapear cor por pele — funciona igual nas 8 categorias
-  // sem precisar tocar em cada uma.
+  // Fusão da sidebar com o fundo da página: em telas grandes, a sidebar não tem fundo
+  // próprio — é 100% transparente, então o fundo real da página do curso aparece por
+  // trás dela sem nenhuma camada (só os traços/divisores separam visualmente). Esse
+  // efeito só decide o CONTRASTE do texto (claro/escuro), amostrando a cor real
+  // renderizada logo à direita da sidebar conforme rola. Lê o DOM de verdade em vez de
+  // mapear cor por pele — funciona igual nas 8 categorias sem precisar tocar em cada uma.
   useEffect(() => {
     const aside = sidebarRef.current;
     if (!aside) return;
@@ -221,9 +222,7 @@ function ParticularLayout() {
       while (el && hops < 12) {
         const rgba = colorToRgba(getComputedStyle(el).backgroundColor);
         if (rgba && rgba.a > 0.4) {
-          const tone = relativeLuminance(rgba.r, rgba.g, rgba.b) > 0.5 ? "light" : "dark";
-          aside.style.setProperty("--fusion-tint", `rgb(${rgba.r} ${rgba.g} ${rgba.b})`);
-          aside.dataset.fusionTone = tone;
+          aside.dataset.fusionTone = relativeLuminance(rgba.r, rgba.g, rgba.b) > 0.5 ? "light" : "dark";
           return;
         }
         el = el.parentElement;
@@ -277,15 +276,16 @@ function ParticularLayout() {
   return (
     <div className={dark ? "dark" : ""}>
     <div className={`relative min-h-screen ${dark ? "bg-neutral-950" : "bg-neutral-50"}`}>
-      {/* Fusão sidebar↔página: em telas grandes a sidebar é translúcida e herda a cor
-          amostrada do fundo real da página (ver efeito de scroll acima); os tokens
-          --sb-fg/--sb-fg-soft/--sb-divider trocam de claro pra escuro com o tom amostrado.
+      {/* Fusão sidebar↔página: em telas grandes a sidebar não tem fundo próprio — fica
+          100% transparente, é o mesmo fundo da página do curso aparecendo por trás, sem
+          nenhuma camada. Só o traço da borda direita e os divisores internos (.sb-divider)
+          separam visualmente; os tokens --sb-fg/--sb-fg-soft trocam de claro pra escuro
+          conforme o tom amostrado, pra o texto continuar legível em cima de qualquer fundo.
           Fallback (sem JS ou fora do breakpoint lg): as classes Tailwind normais do aside
           continuam valendo, porque a regra abaixo só bate quando data-fusion-tone existe. */}
       <style>{`
         #particular-sidebar[data-fusion-tone] {
-          background: color-mix(in srgb, var(--fusion-tint, var(--accent)) 88%, transparent);
-          backdrop-filter: blur(26px) saturate(160%);
+          background: transparent;
           border-right-color: var(--sb-divider);
         }
         #particular-sidebar[data-fusion-tone="dark"] { --sb-fg: #fff; --sb-fg-soft: rgba(255,255,255,.66); --sb-divider: rgba(255,255,255,.16); --sb-hover-bg: rgba(255,255,255,.08); }
@@ -315,9 +315,8 @@ function ParticularLayout() {
           // Mobile: slide transform, largura fixa
           "w-64 -translate-x-full transition-transform duration-300 ease-in-out",
           mobileOpen && "translate-x-0",
-          // Desktop: sempre visível (agora sobrepõe o conteúdo, não empurra), anima largura.
-          // Sem transição na cor de fundo: com o tint de fusão via color-mix(), animar
-          // background-color trava o repaint neste Chromium (engine bug) — troca instantânea.
+          // Desktop: sempre visível (agora sobrepõe o conteúdo, não empurra, sem fundo
+          // próprio), anima só a largura.
           "lg:translate-x-0 lg:transition-[width] lg:duration-300 lg:ease-in-out",
           collapsed ? "lg:w-[60px]" : "lg:w-64",
         ].filter(Boolean).join(" ")}
