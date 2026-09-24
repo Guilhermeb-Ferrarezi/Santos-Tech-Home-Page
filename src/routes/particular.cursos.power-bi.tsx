@@ -32,13 +32,13 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      levelName: "Essencial",
-      totalHours: "24h",
+      levelName: "Power BI",
+      totalHours: "48h",
       outcome:
-        "Conectar fontes de dados, criar relatórios interativos e publicar seu primeiro dashboard no Power BI Service",
+        "Dominar o Power BI do zero absoluto até a análise de dados avançada: conectar e modelar dados de qualquer fonte, construir dashboards executivos, escrever DAX do essencial ao nível expert e aplicar Python e Copilot num projeto de BI completo — pronto para atuar como analista de dados, BI ou de qualquer área que decide com base em dados reais.",
       modules: [
         {
-          title: "Introdução ao Power BI e ecossistema Microsoft",
+          title: "Fundamentos do Power BI e o ecossistema Microsoft",
           topics: [
             "Power BI Desktop vs Power BI Service vs Power BI Mobile: qual a diferença",
             "Instalando o Power BI Desktop e navegando pela interface",
@@ -48,13 +48,14 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "Power Query no Power BI: transformando dados",
+          title: "Power Query: transformando e conectando dados de qualquer fonte",
           topics: [
             "Editor do Power Query: a base de qualquer modelo de dados",
             "Limpeza de dados: removendo duplicatas, nulos e erros",
             "Mesclando tabelas: equivalente ao PROCV sem fórmula",
             "Adicionando colunas calculadas com transformações condicionais",
-            "Aplicando etapas e criando consultas reutilizáveis",
+            "Conectando a fontes corporativas: SQL Server, Azure SQL Database e APIs REST",
+            "Importação vs DirectQuery e gateway de dados para atualização de fontes on-premise",
           ],
         },
         {
@@ -68,24 +69,16 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "Criando relatórios e visuais impactantes",
+          title: "Criando relatórios e dashboards profissionais",
           topics: [
             "Os principais visuais: gráfico de barras, linhas, pizza, mapa, cartão e tabela",
-            "Segmentações de dados (Slicers) para filtros interativos",
-            "Filtros de página, filtro de visual e filtro de relatório",
+            "Segmentações de dados (Slicers) e filtros de página, visual e relatório",
             "Formatação de visuais: cores, rótulos, títulos e tooltips personalizados",
+            "Layout responsivo (mobile first e desktop) e visuais customizados do AppSource, como Deneb",
+            "Drill-through, drill-down e bookmarks para navegação interativa",
             "Publicando no Power BI Service e compartilhando com a equipe",
           ],
         },
-      ],
-      tools: ["Power BI Desktop", "Power BI Service", "Microsoft Excel"],
-    },
-    {
-      levelName: "Intermediário",
-      totalHours: "48h",
-      outcome:
-        "Dominar DAX para criar métricas complexas, construir dashboards executivos e conectar a bancos de dados reais",
-      modules: [
         {
           title: "DAX essencial: a linguagem de análise do Power BI",
           topics: [
@@ -97,133 +90,46 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "DAX avançado: inteligência de tempo e KPIs",
+          title: "DAX intermediário, KPIs e governança no Power BI Service",
           topics: [
             "Funções de inteligência temporal: SAMEPERIODLASTYEAR, YTD, MTD, QTD",
             "Variáveis DAX (VAR) para fórmulas legíveis e reutilizáveis",
-            "Medidas de comparação: crescimento percentual e variação absoluta",
-            "KPIs com metas e semáforos dinâmicos",
-            "Tabelas virtuais com SUMMARIZE, ADDCOLUMNS e CROSSJOIN",
-          ],
-        },
-        {
-          title: "Conectando a fontes de dados corporativas",
-          topics: [
-            "Conectando ao SQL Server e Azure SQL Database",
-            "Importação vs DirectQuery: prós, contras e quando usar cada modo",
-            "Gateway de dados: atualizações automáticas de fontes on-premise",
-            "Conectando a APIs REST via Power Query e JSON",
-            "SharePoint Lists e Google Sheets como fontes de dados",
-          ],
-        },
-        {
-          title: "Design avançado de dashboards",
-          topics: [
-            "Layout responsivo: mobile first e desktop",
-            "Visuais customizados do AppSource: Deneb, HTML Content e outros",
-            "Drill-through e drill-down para navegação hierárquica",
-            "Tooltips personalizados com páginas de relatório",
-            "Bookmarks e botões para navegação e apresentações interativas",
-          ],
-        },
-        {
-          title: "Power BI Service: publicação e governança",
-          topics: [
+            "Medidas de comparação (crescimento percentual, variação absoluta) e KPIs com metas e semáforos dinâmicos",
             "Workspaces, aplicativos e permissões de acesso por área",
-            "Agendamento de atualização e alertas de dados",
-            "Assinaturas e exportação programada por e-mail",
             "Row-Level Security (RLS): cada usuário vê apenas seus dados",
-            "Lineage view e impacto de mudanças no modelo",
+            "Agendamento de atualização, alertas de dados e lineage view",
+          ],
+        },
+        {
+          title: "DAX Expert, Python e Projeto Final com IA",
+          topics: [
+            "DAX de nível expert: contexto de linha vs. contexto de filtro, EARLIER, iteradores aninhados, medidas dinâmicas com SWITCH e tabelas virtuais (SUMMARIZE, ADDCOLUMNS)",
+            "Análise avançada: coorte, pareto/ABC e padrões como moving average, forecast simples e bucket dinâmico",
+            "Modelagem enterprise: floco de neve vs. estrela, agregações para performance e tabelas de parâmetros para simulação de cenários",
+            "Python e R no Power BI: scripts no Power Query, visuais com matplotlib, seaborn e plotly, e machine learning com scikit-learn para detecção de anomalias",
+            "Power BI com IA e Copilot: relatórios por linguagem natural, Q&A visual, narrativas automáticas, Azure AI Services e Power BI Embedded",
+            "Projeto final: solução de BI completa em modelo estrela, com 20+ medidas DAX documentadas, dashboard executivo e operacional, e apresentação com defesa técnica das escolhas",
           ],
         },
       ],
       tools: [
         "Power BI Desktop",
         "Power BI Service",
-        "SQL Server",
         "Power Query",
-        "DAX Studio",
-      ],
-    },
-    {
-      levelName: "Profissional + IA",
-      totalHours: "72h",
-      outcome:
-        "Dominar DAX avançado, modelagem enterprise, integração com Python e IA, e entregar um projeto de BI completo como portfólio",
-      modules: [
-        {
-          title: "DAX de nível expert",
-          topics: [
-            "Contexto de linha vs contexto de filtro: entendendo a fundo",
-            "EARLIER e iteradores aninhados para cálculos complexos",
-            "Medidas dinâmicas com SWITCH e seleção de métricas por parâmetro de campo",
-            "Análise de coorte, pareto e ABC no Power BI",
-            "Otimização de DAX com DAX Studio: encontrando gargalos de performance",
-            "Padrões DAX avançados: moving average, forecast simples, bucket dinâmico",
-          ],
-        },
-        {
-          title: "Modelagem enterprise e arquitetura de dados",
-          topics: [
-            "Modelo floco de neve vs estrela: quando e por quê",
-            "Agregações para performance em grandes volumes de dados",
-            "Tabelas de parâmetros para simulação de cenários interativos",
-            "Incremental refresh: atualizando apenas dados novos",
-            "Separando camadas: Bronze, Prata e Ouro no Power BI",
-          ],
-        },
-        {
-          title: "Python e R no Power BI",
-          topics: [
-            "Rodando scripts Python no Power Query para transformações avançadas",
-            "Visuais Python no Power BI: matplotlib, seaborn e plotly",
-            "Machine learning com scikit-learn integrado ao relatório",
-            "Análise estatística e detecção de anomalias com Python",
-            "Quando usar Python no Power BI vs Azure Machine Learning",
-          ],
-        },
-        {
-          title: "Power BI com IA e Copilot",
-          topics: [
-            "Copilot no Power BI: gerando relatórios por linguagem natural",
-            "Q&A visual: perguntas em português diretamente no relatório",
-            "Narrativas inteligentes automáticas nos visuais",
-            "Azure AI e Cognitive Services integrados ao Power BI",
-            "Power BI Embedded: incorporando relatórios em aplicações web",
-          ],
-        },
-        {
-          title: "Projeto final: solução de BI do zero ao deploy",
-          topics: [
-            "Definindo escopo: vendas, financeiro ou operacional",
-            "Extração e modelagem dos dados em modelo estrela completo",
-            "Desenvolvimento de 20+ medidas DAX com documentação",
-            "Dashboard executivo e relatório operacional na mesma solução",
-            "Publicação no Power BI Service com RLS, gateway e atualização automática",
-            "Apresentação da solução com defesa das escolhas técnicas",
-          ],
-        },
-      ],
-      tools: [
-        "Power BI Desktop",
-        "Power BI Service",
-        "DAX Studio",
+        "Microsoft Excel",
         "SQL Server",
+        "DAX Studio",
         "Python",
+        "Tabular Editor",
         "Azure AI Services",
         "Microsoft Copilot",
-        "Tabular Editor",
       ],
     },
   ],
   faqItems: [
     {
       q: "Preciso saber Excel avançado pra fazer esse curso de Power BI?",
-      a: "Não é obrigatório, mas ajuda. O curso é pensado justamente pra quem trabalha com dados no Excel e sente que precisa de uma ferramenta mais poderosa — o Essencial já começa do zero, conectando fontes de dados e publicando seu primeiro dashboard.",
-    },
-    {
-      q: "Qual a diferença entre os três níveis do curso?",
-      a: "Essencial ensina a conectar dados, criar relatórios e publicar seu primeiro dashboard. Intermediário foca em DAX pra métricas complexas, dashboards executivos e conexão com bancos de dados corporativos. Profissional + IA fecha com DAX de nível expert, modelagem enterprise, integração com Python e Copilot, e um projeto de BI completo pro portfólio.",
+      a: "Não é obrigatório, mas ajuda. O curso é pensado justamente pra quem trabalha com dados no Excel e sente que precisa de uma ferramenta mais poderosa — começa do zero, conectando fontes de dados e publicando seu primeiro dashboard, antes de avançar para DAX, modelagem de dados corporativos e os recursos de IA do Copilot.",
     },
     {
       q: "Esse curso serve pra quem trabalha em BI, finanças, marketing ou operações?",
