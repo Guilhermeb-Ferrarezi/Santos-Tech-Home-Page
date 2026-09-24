@@ -17,6 +17,7 @@ import { Reveal } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
 import { Img } from "@/components/img";
 import { ParticularFaq } from "@/components/particular-faq";
+import { TIER_META } from "@/components/course-skins/shared";
 import { pageMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/particular/")({
@@ -141,16 +142,16 @@ const EXPERIENCIA = [
 ];
 
 const POPULARES = [
-  { slug: "ia", titulo: "Inteligência Artificial", categoria: "IA", duracao: "2 meses", img: "/courses/ia.jpg" },
-  { slug: "excel", titulo: "Excel Avançado", categoria: "Office", duracao: "1 mês", img: "/courses/excel.jpg" },
-  { slug: "python", titulo: "Python para Automações", categoria: "Programação", duracao: "3 meses", img: "/courses/python.jpg" },
-  { slug: "power-bi", titulo: "Power BI", categoria: "Office", duracao: "1 mês", img: "/courses/power-bi.jpg" },
-  { slug: "ciberseguranca", titulo: "Cibersegurança", categoria: "T.I", duracao: "4 meses", img: "/courses/ciberseguranca.jpg" },
-  { slug: "marketing", titulo: "Marketing Digital", categoria: "Marketing", duracao: "2 meses", img: "/courses/marketing.jpg" },
-  { slug: "office", titulo: "Pacote Office Completo", categoria: "Office", duracao: "2 meses", img: "/courses/office.jpg" },
-  { slug: "fullstack", titulo: "Desenvolvimento Full Stack", categoria: "Programação", duracao: "6 meses", img: "/courses/fullstack.jpg" },
-  { slug: "redes-sociais", titulo: "Gestão de Redes Sociais", categoria: "Marketing", duracao: "1 mês", img: "/courses/redes-sociais.jpg" },
-  { slug: "suporte", titulo: "Suporte Técnico / Help Desk", categoria: "T.I", duracao: "3 meses", img: "/courses/suporte.jpg" },
+  { slug: "ia", titulo: "Inteligência Artificial", categoria: "IA", tierKey: "IA: Essencial ao Profissional com Agentes", img: "/courses/ia.jpg" },
+  { slug: "excel", titulo: "Excel Avançado", categoria: "Office", tierKey: "Excel Avançado", img: "/courses/excel.jpg" },
+  { slug: "python", titulo: "Python para Automações", categoria: "Programação", tierKey: "Python para Automações", img: "/courses/python.jpg" },
+  { slug: "power-bi", titulo: "Power BI", categoria: "Office", tierKey: "Power BI", img: "/courses/power-bi.jpg" },
+  { slug: "ciberseguranca", titulo: "Cibersegurança", categoria: "T.I", tierKey: "Cibersegurança", img: "/courses/ciberseguranca.jpg" },
+  { slug: "marketing", titulo: "Marketing Digital", categoria: "Marketing", tierKey: "Marketing Digital", img: "/courses/marketing.jpg" },
+  { slug: "office", titulo: "Pacote Office Completo", categoria: "Office", tierKey: "Pacote Office", img: "/courses/office.jpg" },
+  { slug: "fullstack", titulo: "Desenvolvimento Full Stack", categoria: "Programação", tierKey: "Full Stack Web Developer", img: "/courses/fullstack.jpg" },
+  { slug: "redes-sociais", titulo: "Gestão de Redes Sociais", categoria: "Marketing", tierKey: "Redes Sociais", img: "/courses/redes-sociais.jpg" },
+  { slug: "suporte", titulo: "Suporte Técnico / Help Desk", categoria: "T.I", tierKey: "Suporte Técnico", img: "/courses/suporte.jpg" },
 ];
 
 function ParticularPage() {
@@ -501,7 +502,7 @@ function ParticularPage() {
                         {curso.categoria}
                       </span>
                       <span className="rounded-md bg-neutral-100 dark:bg-neutral-800 px-2.5 py-1 text-xs font-semibold text-neutral-600 dark:text-neutral-300">
-                        {curso.duracao}
+                        {TIER_META[curso.tierKey].intensivo}
                       </span>
                     </div>
                   </div>
