@@ -57,6 +57,15 @@ export const TIER_META: Record<string, { price: number; aulas: string; intensivo
   SEO: { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
   "Redes Sociais": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
   "E-commerce": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  // Grupo Office (taxa aprovada pelo Henrique em 23/09)
+  "Pacote Office": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Excel Avançado": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Excel + Power BI": { price: 5520, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Excel + IA": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Word Profissional": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  PowerPoint: { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Power BI": { price: 5520, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Power Apps + Power Automate": { price: 5520, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
 };
 
 // ── Margem embutida e parcelamento (decisão do Henrique, 23/09) ────────────
