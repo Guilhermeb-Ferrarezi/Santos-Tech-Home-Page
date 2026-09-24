@@ -211,6 +211,9 @@ export const CUSTOS_UNICOS = [
 export const FORMAS_PAGAMENTO =
   "Pix · Crédito em até 12x sem juros · Débito · Boleto · Dinheiro em espécie";
 
+export const FORMAS_PAGAMENTO_DETALHE =
+  "Combinações aceitas — entrada no Pix e o restante no crédito, por exemplo. Boleto parcelado de acordo com a duração do seu curso.";
+
 
 /** Texto do bloco "Não se encaixa em nenhum nível?" — só aparece em curso com mais de um nível. */
 export const TRILHA_PERSONALIZADA =
