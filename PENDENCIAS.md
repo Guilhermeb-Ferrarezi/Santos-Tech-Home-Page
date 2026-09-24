@@ -18,61 +18,69 @@
       vale a pena derivar de `TIER_META` ou deixar como texto livre.
       _Aguardando Henrique._
 
-- [ ] **Estatística "24 aulas por curso" na home do `/particular` vai ficando
-      menos precisa conforme a unificação de tiers avança** — achado pela
-      auditoria de resquícios do modelo antigo (23/09). O bloco "Ritmo"
-      (`particular.index.tsx`) mostra 1h/aula, 24 aulas/curso, ~3 meses no
-      ritmo padrão e ~1 mês no intensivo como se fosse universal. Hoje ainda
-      é o caso pra maioria (entrada Essencial dos 39 cursos não convertidos +
-      Canva/CapCut/Git/Manutenção/Impressão 3D, todos 24h), mas a unificação
-      de tiers definiu 48 aulas como novo padrão (ver pendência abaixo) e já
-      são 8 cursos convertidos nesse ritmo (Premiere + grupos T.I e Universo
-      3D), contradizendo a estatística. Não mexi agora porque não é um bug
-      claro: é decisão de posicionamento (qual número mostrar como
-      representativo) que toca como o site se apresenta, não uma correção
-      óbvia. Revisar quando a conversão dos 39 cursos restantes avançar.
+- [ ] **Estatística "24 aulas por curso" na home do `/particular` agora
+      está desatualizada pra quase todo o catálogo** — achado pela auditoria
+      de resquícios do modelo antigo (23/09), reaberto pela conclusão da
+      unificação de tiers. O bloco "Ritmo" (`particular.index.tsx`) mostra
+      1h/aula, 24 aulas/curso, ~3 meses no ritmo padrão e ~1 mês no
+      intensivo como se fosse universal. Com a unificação de tiers 100%
+      concluída (ver item resolvido acima), **48 aulas é o padrão do
+      catálogo inteiro** — só Canva/CapCut/Git/Manutenção/Impressão 3D
+      continuam em 24h. A estatística da home ficou invertida: descreve a
+      exceção como se fosse a regra. Não mexi porque não é um bug mecânico:
+      é decisão de posicionamento (qual número mostrar como representativo
+      — 48 aulas? uma média? tirar o número fixo?) que toca como o site se
+      apresenta, não uma correção óbvia de copy.
       _Aguardando Henrique._
 
-- [~] **Unificação de tiers em opção única — 34 de 47 cursos convertidos**
-      (spec completa em
+## Resolvidas
+
+- [x] **Unificação de tiers em opção única — catálogo 100% migrado (47 de
+      47 cursos particulares)** (spec completa em
       [`docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md`](docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md),
-      PR #22/#24). **Feito:** Premiere (PR #20/#21, piloto), grupos T.I,
+      PR #20-#43). Todos os grupos convertidos: Premiere (piloto), T.I,
       Universo 3D, Informática, Design & Criação, Marketing & Negócios,
-      **Office** (8 cursos) e **Inteligência Artificial** (6 cursos: IA:
-      Essencial ao Profissional com Agentes, Agentes de IA com N8N e LLMs,
-      RAG, IA para Criadores, ChatGPT e IA para Profissionais, Criação de
-      Conteúdo com IA) — 100% migrados. Henrique confirmou a tabela de taxa
+      Office (8 cursos), Inteligência Artificial (6 cursos) e Programação
+      (13 cursos — `git` já era plano único antes desta spec, só
+      reclassificação de preço). Henrique confirmou a tabela de taxa
       técnica (R$110-180/h) em 23/09: faixa aprovada como sugerida na spec,
       cursos de IA (ia/agentes-ia/ia-visual/typescript) formalizados em
-      109,90/h com RAG subindo pra 115/h, e Pacote Office mantém-se símples
-      sem Power BI/Copilot (esse conteúdo já tem curso dedicado). Decidido
-      em 23/09 (itens anteriores): `git` vira técnico (110/h, sem mudar
-      carga horária); `capcut` mantém 24h sem nivelar; `mobile` unifica em
-      React Native; `jogos` mantém Unity + Godot juntos; `manutencao`/
-      `impressao-3d` seguem curtos (24h).
-      **Achado durante a conversão do Office e da IA:** a pele visual de 4
-      cursos (`planilha-excel-ia.tsx`, `planilha-power-apps.tsx`,
-      `ia-chat.tsx`, `ia-agentes.tsx`) exibia texto tipo "nível
-      {tier.levelName}" sem checar `multiTier` — com o curso em tier único,
-      o texto saía tipo "ao final do nível ChatGPT". Corrigido nos mesmos
-      commits da conversão (guard `multiTier`, mesmo padrão já usado em
-      `ti-suporte.tsx`) — encontrado 2x de forma independente por
-      sessões/agentes diferentes em grupos diferentes (Office e IA). Depois
-      da 2ª ocorrência, a sessão da conversão de IA rodou um grep
-      sistemático em todo `course-skins/variants/*` por esse padrão exato
-      (`nível ${tier.levelName}` / `nível {t.levelName}`) e confirmou que
-      não havia mais nenhuma instância dele em nenhuma categoria, incluindo
-      os skins `ide-*.tsx` que o grupo Programação vai usar. O padrão mais
-      leve e disseminado que isso também apontou — rótulos genéricos como
-      "Ao final deste nível" em vários `course-skins/variants/*`, sem nome
-      de curso injetado, mas ainda pressupondo múltiplos níveis — foi
-      resolvido em sessão separada logo em seguida (ver item na seção
-      "Resolvidas" abaixo).
-      **Falta:** Programação (13 cursos, `git` já resolvido à parte).
-      _Sem pendência aberta com o Henrique neste item — próximo passo é
-      técnico (converter o grupo restante)._
-
-## Resolvidas
+      109,90/h com RAG subindo pra 115/h, Pacote Office mantém-se símples
+      sem Power BI/Copilot (curso dedicado já existe), `mobile` unifica em
+      React Native (remove Flutter/Dart/Riverpod por completo), `jogos`
+      mantém Unity + Godot juntos, `capcut`/`manutencao`/`impressao-3d`
+      seguem curtos (24h sem nivelar). `fullstack` e `ads` eram
+      "repetitivos" (tier de 48h já continha o Essencial inteiro) — só
+      promovidos, sem cortar conteúdo (13 e 16 módulos preservados; ADS é
+      o curso mais abrangente e mais caro do catálogo, teto da faixa
+      técnica).
+      **Bug recorrente de pele visual encontrado e corrigido 5x durante a
+      conversão** (Office ×2, IA ×2, Programação ×1 — `ide-jogos.tsx`,
+      "Mundo N · {tier.levelName}"): texto tipo "nível {tier.levelName}"
+      sem checar `multiTier`, repetindo o nome inteiro do curso de forma
+      redundante ou sem sentido assim que um curso vira tier único.
+      Corrigido a cada ocorrência com o guard `multiTier`/`tiers.length >
+      1`. A varredura sistemática e definitiva desse padrão (~19
+      ocorrências em todo `course-skins/`, incluindo as que ainda não
+      tinham sido expostas por nenhuma conversão) foi feita em sessão
+      separada logo em seguida — ver item própio abaixo.
+      **Também corrigidos 4 pontos de meta description/copy** que ficaram
+      desatualizados em relação ao currículo comprimido (prometiam
+      ferramenta ou prazo que deixou de ser ensinado/verdadeiro):
+      `ia-visual.tsx` (Sora → Kling, só Kling ganhou cobertura real),
+      `sql.tsx` (removeu "cloud e IA" do headline, virou só menção de
+      panorama), `backend.tsx` (removeu "NestJS" e "SaaS em produção" do
+      headline, virou só menção de próximo passo), `ads.tsx` ("12 meses"
+      em 3 lugares — description, targetAudience e FAQ — trocado por "6
+      meses"/"poucos meses", consistente com o ritmo real de 48 aulas que
+      a própria página já mostra).
+      Verificado com `bun run lint` + `bun run build` (gate do
+      `CLAUDE.md`, sem erros) em cada um dos 3 lotes (Office, IA,
+      Programação) e visualmente no preview local — pelo menos 2-3 páginas
+      por lote, incluindo os casos mais arriscados (Excel + IA e Power Apps
+      pra confirmar o fix da pele; Pacote Office pra confirmar ausência de
+      Power BI/Copilot; Jogos e ADS pra confirmar renderização com pele
+      customizada e módulos preservados).
 
 - [x] **`ia-geral.tsx` (componente `Trilha`) ficou com sub-legenda incorreta
       assim que o curso "ia" converteu pra plano único, no meio desta

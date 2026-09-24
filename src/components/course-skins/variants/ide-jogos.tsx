@@ -155,7 +155,8 @@ export function JogosConteudo({ course, tier, tierIndex, onSelectTier, meta }: C
       {/* HUD */}
       <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-white/10 px-4 py-3 font-mono">
         <p className="text-[13px] font-bold uppercase tracking-[0.2em] text-white">
-          Mundo {tierIndex + 1} <span className="text-white/40">· {tier.levelName}</span>
+          Mundo {tierIndex + 1}
+          {course.tiers.length > 1 && <span className="text-white/40"> · {tier.levelName}</span>}
         </p>
         <NivelSeletor tiers={course.tiers} atual={tierIndex} onSelect={onSelectTier} rotulo={(_, i) => `Mundo ${i + 1}`} />
         <p className="flex items-center gap-1.5 text-[12px] text-(--accent-2)">

@@ -10,7 +10,7 @@ export const Route = createFileRoute("/particular/cursos/mobile")({
       title:
         "Curso de Desenvolvimento de Aplicativos Particular em Ribeirão Preto — Santos Tech",
       description:
-        "Aprenda React Native e Flutter do zero e publique apps nas lojas. Aulas individuais presenciais em Ribeirão Preto para quem quer trabalhar com desenvolvimento mobile.",
+        "Aprenda React Native do zero e publique apps nas lojas. Aulas individuais presenciais em Ribeirão Preto para quem quer trabalhar com desenvolvimento mobile.",
       path: "/particular/cursos/mobile",
     }),
 })
@@ -32,10 +32,10 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      levelName: "Intermediário",
+      levelName: "Desenvolvimento de Aplicativos",
       totalHours: "48h",
       outcome:
-        "Desenvolver apps completos com React Native e Expo — navegação, estado global, autenticação e recursos nativos — pronto para publicar o primeiro app",
+        "Desenvolver apps completos com React Native e Expo — navegação, estado global, autenticação, recursos nativos e integração de IA — e publicar de verdade na Google Play e na App Store com CI/CD automatizado, pronto para atuar como desenvolvedor mobile",
       modules: [
         {
           title: "Fundamentos do Desenvolvimento Mobile",
@@ -91,6 +91,26 @@ const COURSE_DATA = {
             "Sensores: acelerômetro, giroscópio e bússola com expo-sensors",
           ],
         },
+        {
+          title: "Publicação e CI/CD Mobile",
+          topics: [
+            "Build com EAS Build (Expo Application Services) para APK e IPA",
+            "Submissão na Google Play Console: AAB, assinatura e track de produção",
+            "Submissão na App Store Connect: provisioning profiles e review guidelines",
+            "CI/CD com GitHub Actions + EAS para builds automáticos por branch",
+          ],
+        },
+        {
+          title: "Performance, Otimização e IA em Apps React Native",
+          topics: [
+            "Profiling com Flipper e detecção de re-renders desnecessários",
+            "Hermes engine, lazy loading de módulos e bundle splitting",
+            "Imagens otimizadas com expo-image e cache de assets",
+            "Integração da API OpenAI (GPT-4o) e Google Gemini em apps React Native",
+            "Reconhecimento de imagens com Google ML Kit (OCR e detecção de objetos) e modelos on-device com TensorFlow Lite",
+            "Chatbot conversacional com histórico de mensagens e streaming de resposta",
+          ],
+        },
       ],
       tools: [
         "React Native",
@@ -102,84 +122,13 @@ const COURSE_DATA = {
         "Firebase",
         "expo-camera",
         "React Native Maps",
-        "VS Code",
-      ],
-    },
-    {
-      levelName: "Profissional + IA",
-      totalHours: "72h",
-      outcome:
-        "Dominar Flutter com Riverpod, publicar apps nas lojas via CI/CD automatizado, otimizar performance e integrar IA em apps — portfólio completo de desenvolvedor mobile",
-      modules: [
-        {
-          title: "Introdução ao Flutter e Dart",
-          topics: [
-            "Sintaxe do Dart: tipos, funções, classes e null safety",
-            "Widgets stateless e stateful: diferenças e uso correto",
-            "Layout com Column, Row, Container, Expanded e Stack",
-            "Comparativo prático: quando usar Flutter vs React Native",
-          ],
-        },
-        {
-          title: "Flutter Avançado com Riverpod",
-          topics: [
-            "Riverpod 3.x: providers, notifiers e async state management",
-            "Clean Architecture em Flutter: camadas de dados, domínio e apresentação",
-            "GoRouter para navegação tipada e rotas aninhadas no Flutter",
-            "Animações avançadas com AnimationController e Hero transitions",
-            "Testes de widgets e integração com flutter_test",
-          ],
-        },
-        {
-          title: "Backend Mobile e Firebase",
-          topics: [
-            "Firebase Firestore: operações CRUD, queries e listeners em tempo real",
-            "Firebase Storage para upload de imagens e arquivos do app",
-            "Firebase Remote Config para feature flags e A/B testing",
-            "Supabase como alternativa open source ao Firebase",
-          ],
-        },
-        {
-          title: "Performance e Otimização",
-          topics: [
-            "Profiling com Flipper e detecção de re-renders desnecessários",
-            "Hermes engine, lazy loading de módulos e bundle splitting",
-            "Imagens otimizadas com expo-image e cache de assets",
-            "Testes de performance em dispositivos físicos Android e iOS",
-          ],
-        },
-        {
-          title: "Publicação e CI/CD Mobile",
-          topics: [
-            "Build com EAS Build (Expo Application Services) para APK e IPA",
-            "Submissão na Google Play Console: AAB, assinatura e track de produção",
-            "Submissão na App Store Connect: provisioning profiles e review guidelines",
-            "CI/CD com GitHub Actions + EAS para builds automáticos por branch",
-          ],
-        },
-        {
-          title: "IA em Aplicativos Mobile",
-          topics: [
-            "Integração da API OpenAI (GPT-4o) e Google Gemini em apps React Native",
-            "Reconhecimento de imagens com Google ML Kit (OCR e detecção de objetos)",
-            "TensorFlow Lite para modelos de ML on-device sem internet",
-            "Chatbot conversacional com histórico de mensagens e streaming de resposta",
-          ],
-        },
-      ],
-      tools: [
-        "Flutter",
-        "Dart",
-        "Riverpod",
-        "Firebase",
-        "Supabase",
         "EAS Build",
         "Google Play Console",
         "App Store Connect",
+        "GitHub Actions",
         "OpenAI API",
         "Google ML Kit",
         "TensorFlow Lite",
-        "GitHub Actions",
         "VS Code",
       ],
     },
@@ -187,15 +136,11 @@ const COURSE_DATA = {
   faqItems: [
     {
       q: "Preciso já saber programar pra fazer esse curso?",
-      a: "Sim, alguma base ajuda bastante. O curso já começa no nível Intermediário assumindo que você tem noções de JavaScript ou React — se você é desenvolvedor web querendo migrar pra mobile, esse é o ponto de partida ideal.",
-    },
-    {
-      q: "Qual a diferença entre o módulo de React Native e o de Flutter?",
-      a: "No Intermediário você aprende React Native com Expo — navegação, estado global, autenticação e recursos nativos, o suficiente pra publicar seu primeiro app. No Profissional + IA você domina Flutter com Riverpod, CI/CD automatizado nas lojas e integração de IA nos apps, fechando com um portfólio completo de desenvolvedor mobile.",
+      a: "Sim, alguma base ajuda bastante. O curso assume que você já tem noções de JavaScript ou React — se você é desenvolvedor web querendo migrar pra mobile, esse é o ponto de partida ideal.",
     },
     {
       q: "Vou realmente aprender a publicar um app nas lojas, ou só a programar?",
-      a: "As duas coisas. O curso cobre build com EAS Build, submissão na Google Play Console e na App Store Connect, e até CI/CD com GitHub Actions pra automatizar builds — você sai sabendo o processo completo, não só o código.",
+      a: "As duas coisas. Tem um módulo inteiro dedicado a isso: build com EAS Build, submissão na Google Play Console e na App Store Connect, e CI/CD com GitHub Actions pra automatizar os builds — você sai sabendo o processo completo, não só o código.",
     },
   ],
 }

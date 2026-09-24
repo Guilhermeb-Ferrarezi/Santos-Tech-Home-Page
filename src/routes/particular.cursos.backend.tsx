@@ -11,7 +11,7 @@ export const Route = createFileRoute("/particular/cursos/backend")({
       title:
         "Curso de Desenvolvimento Web Back-End Particular em Ribeirão Preto — Santos Tech",
       description:
-        "Aprenda Node.js, FastAPI, NestJS e PostgreSQL do zero ao SaaS em produção. Aulas individuais, horário flexível e projeto real com APIs REST, JWT e deploy em nuvem.",
+        "Aprenda Node.js, Express e PostgreSQL do zero ao deploy em produção. Aulas individuais, horário flexível e projeto real com APIs REST, autenticação JWT e deploy em nuvem.",
       path: "/particular/cursos/backend",
     }),
 })
@@ -33,85 +33,76 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      levelName: "Intermediário",
+      levelName: "Desenvolvimento Web Back-End",
       totalHours: "48h",
       outcome:
-        "Desenvolve APIs seguras com autenticação JWT, conectadas a PostgreSQL, com testes automatizados, upload de arquivos e deploy em nuvem; domina tanto Node.js quanto FastAPI em Python",
+        "Desenvolve APIs REST seguras com Node.js e Express, do banco relacional com Prisma — de SQLite a PostgreSQL em produção — até autenticação JWT, testes automatizados, filas assíncronas e cache com Redis; conhece o panorama de FastAPI em Python e entrega o deploy real de uma API em produção",
       modules: [
         {
-          title: "Fundamentos de APIs REST",
+          title: "Fundamentos de APIs REST e HTTP",
           topics: [
             "O que é uma API REST e o protocolo HTTP",
-            "Verbos HTTP: GET, POST, PUT, PATCH, DELETE",
-            "Status codes: 200, 201, 400, 401, 403, 404, 500",
-            "JSON como formato de troca de dados",
+            "Verbos HTTP e status codes: GET, POST, PUT, PATCH, DELETE, 200, 201, 400, 401, 403, 404, 500",
+            "JSON, headers, body, query params e path params — a anatomia de uma requisição",
             "Testar APIs com Insomnia e Thunder Client (VS Code)",
-            "Anatomia de uma requisição: headers, body, query params, path params",
           ],
         },
         {
-          title: "Criando API com Node.js e Express",
+          title: "Node.js e Express: Construindo sua API",
           topics: [
-            "Setup do projeto Node.js com npm e package.json",
-            "Criar servidor HTTP com Express",
-            "Definir rotas GET, POST, PUT, DELETE",
-            "Middleware: CORS, JSON parser, logging com Morgan",
-            "Organizar código em routers e controllers",
+            "Setup do projeto com npm/package.json e primeiro servidor HTTP com Express",
+            "Rotas GET, POST, PUT, DELETE organizadas em routers e controllers",
+            "Middleware: CORS, JSON parser e logging com Morgan",
             "Validação de dados de entrada com Zod",
           ],
         },
         {
-          title: "Banco de Dados Relacional com SQLite e Prisma",
+          title: "Banco de Dados com Prisma: do SQLite ao PostgreSQL em Produção",
           topics: [
-            "Conceitos: tabelas, colunas, tipos, chaves primárias e estrangeiras",
-            "ORM vs SQL puro: vantagens e trade-offs",
-            "Configurar Prisma com SQLite",
-            "Schema do Prisma: models, relações e migrations",
-            "CRUD completo via Prisma Client",
-            "Projeto: API de cadastro de tarefas com banco de dados",
-          ],
-        },
-        {
-          title: "Autenticação e Autorização",
-          topics: [
-            "Sessões vs tokens: por que usar JWT",
-            "Criar e assinar JWT com payload customizado",
-            "Middleware de autenticação: verificar token em rotas protegidas",
-            "Refresh tokens e expiração segura",
-            "Hash de senhas com bcrypt",
-            "RBAC: controle de acesso por papéis (admin, user, moderator)",
-          ],
-        },
-        {
-          title: "PostgreSQL em Produção com Prisma",
-          topics: [
-            "Migrar de SQLite para PostgreSQL",
-            "Relações 1-N e N-N com Prisma: include e select",
-            "Migrations e seed de dados",
-            "Índices para otimização de queries",
-            "Connection pooling com PgBouncer no Supabase",
+            "Conceitos de banco relacional — tabelas, chaves primárias e estrangeiras — e ORM vs SQL puro",
+            "Configurar o Prisma, definir schema (models e relações) e rodar migrations",
+            "CRUD completo via Prisma Client: projeto de API de cadastro com banco de dados",
+            "Relações 1-N e N-N com include/select, migrations e seed de dados",
+            "Migrar de SQLite para PostgreSQL em produção, com índices e connection pooling (PgBouncer/Supabase)",
             "Transações com prisma.$transaction()",
           ],
         },
         {
-          title: "FastAPI com Python: API Moderna e Tipada",
+          title: "Autenticação e Autorização com JWT",
           topics: [
-            "Estrutura de projeto FastAPI com Poetry ou UV",
-            "Rotas, path params, query params e request body com Pydantic",
-            "Dependency injection no FastAPI",
-            "Autenticação OAuth2 com JWT no FastAPI",
-            "SQLModel (Pydantic + SQLAlchemy) para banco de dados",
-            "Documentação automática: Swagger UI e ReDoc",
+            "Sessões vs tokens: por que usar JWT",
+            "Criar e assinar JWT com payload customizado, e hash de senhas com bcrypt",
+            "Middleware de autenticação: verificar token em rotas protegidas",
+            "Refresh tokens e expiração segura",
+            "RBAC: controle de acesso por papéis (admin, user, moderator)",
           ],
         },
         {
-          title: "Upload, E-mail e Testes",
+          title: "FastAPI: Panorama Python para Back-End",
+          topics: [
+            "Onde Python lidera no back-end — dados, automação, IA — em comparação com Node.js",
+            "Estrutura de um projeto FastAPI: rotas, path/query params e validação com Pydantic",
+            "Autenticação, ORM (SQLModel) e documentação automática (Swagger/ReDoc) — os mesmos conceitos de Node, no ecossistema Python",
+          ],
+        },
+        {
+          title: "Upload, E-mail e Testes Automatizados",
           topics: [
             "Upload de arquivos para AWS S3 ou Cloudflare R2",
             "Envio de e-mails transacionais com Resend ou SendGrid",
-            "Testes unitários com Jest (Node.js) ou Pytest (Python)",
-            "Testes de integração de rotas com Supertest",
-            "Cobertura de testes e CI com GitHub Actions",
+            "Testes unitários e de integração com Jest e Supertest (Pytest no ecossistema Python)",
+            "Cobertura de testes e integração contínua com GitHub Actions",
+          ],
+        },
+        {
+          title: "Filas Assíncronas, Cache com Redis e Deploy em Produção",
+          topics: [
+            "Por que usar filas — e-mails, processamento de imagens, notificações — com BullMQ e Redis",
+            "Cache com Redis: padrão cache-aside, TTL e rate limiting para proteger a API",
+            "WebSockets com Socket.io para tempo real e webhooks para integrar sistemas externos",
+            "Deploy em produção no Railway ou Fly.io com banco gerenciado e pipeline CI/CD (lint, testes, deploy automático)",
+            "Projeto final: API pronta para produção, com documentação OpenAPI pública",
+            "Próximo nível: frameworks enterprise (NestJS), observabilidade (Prometheus/Grafana) e multi-tenancy para SaaS",
           ],
         },
       ],
@@ -131,77 +122,9 @@ const COURSE_DATA: CourseData = {
         "Jest",
         "Pytest",
         "GitHub Actions",
-      ],
-    },
-    {
-      levelName: "Profissional + IA",
-      totalHours: "72h",
-      outcome:
-        "Arquiteta sistemas back-end escaláveis com NestJS, filas assíncronas, cache com Redis, monitoramento em produção e integração com IA generativa; entrega uma API completa de SaaS com multi-tenancy e documentação profissional",
-      modules: [
-        {
-          title: "NestJS: Arquitetura Enterprise",
-          topics: [
-            "Arquitetura modular do NestJS: modules, controllers, services, providers",
-            "Injeção de dependência e inversão de controle (IoC)",
-            "Guards, Interceptors e Pipes para validação e transformação",
-            "Exception filters globais e respostas padronizadas",
-            "Documentação de API com Swagger/OpenAPI no NestJS",
-            "Testes com Jest no ecossistema NestJS",
-          ],
-        },
-        {
-          title: "Filas Assíncronas e Mensageria",
-          topics: [
-            "Por que usar filas: casos de uso (e-mails, processamento de imagens, notificações)",
-            "BullMQ com Redis: criar producers e workers",
-            "Retry automático, dead letter queue e prioridade de jobs",
-            "WebSockets com Socket.io para comunicação em tempo real",
-            "Webhooks: enviar notificações para sistemas externos",
-          ],
-        },
-        {
-          title: "Cache, Performance e Observabilidade",
-          topics: [
-            "Redis como cache: cache-aside pattern com invalidação",
-            "Estratégias de cache: TTL, LRU e cache por usuário",
-            "Rate limiting com Redis para proteção de API",
-            "Monitoramento com Prometheus + Grafana",
-            "Logs estruturados com Pino e integração com Datadog ou Logtail",
-            "APM: rastrear performance de endpoints lentos",
-          ],
-        },
-        {
-          title: "IA Integrada ao Back-End",
-          topics: [
-            "Integrar OpenAI API no NestJS com streaming de resposta",
-            "Embeddings e busca semântica com pgvector no PostgreSQL",
-            "RAG (Retrieval-Augmented Generation): indexar documentos e responder perguntas",
-            "Webhook de IA: processar resultados assincronamente",
-            "Limitar e cobrar pelo uso de IA: metering por tokens",
-          ],
-        },
-        {
-          title: "Projeto Final: API de SaaS Completo",
-          topics: [
-            "Multi-tenancy: isolamento de dados por organização",
-            "Planos e assinaturas com Stripe Billing",
-            "Deploy no Railway ou Fly.io com banco de dados gerenciado",
-            "Pipeline CI/CD com GitHub Actions: lint, testes e deploy automático",
-            "Documentação OpenAPI pública e SDK gerado automaticamente",
-          ],
-        },
-      ],
-      tools: [
-        "NestJS",
-        "BullMQ",
         "Redis",
+        "BullMQ",
         "Socket.io",
-        "Prometheus",
-        "Grafana",
-        "OpenAI API",
-        "pgvector",
-        "Stripe",
         "Railway",
         "Fly.io",
       ],
@@ -213,12 +136,8 @@ const COURSE_DATA: CourseData = {
       a: "Não precisa de experiência em back-end especificamente, mas ajuda ter lógica de programação. O curso começa pelos fundamentos de API REST — HTTP, verbos, status codes, JSON — antes de entrar em Node.js, Express, Prisma e autenticação JWT.",
     },
     {
-      q: "Qual a diferença entre os módulos Intermediário e Profissional + IA?",
-      a: "Intermediário te deixa capaz de criar APIs seguras com Node.js e FastAPI, autenticação JWT, banco PostgreSQL com Prisma e testes automatizados. Profissional + IA sobe o nível pra arquitetura enterprise com NestJS, filas assíncronas, cache com Redis, IA integrada ao back-end e um projeto final de SaaS completo com multi-tenancy.",
-    },
-    {
       q: "Dá pra usar esse curso pra construir meu próprio SaaS?",
-      a: "Sim, é justamente o projeto final do Profissional + IA: uma API de SaaS completa, com isolamento de dados por organização, planos e assinaturas via Stripe Billing, deploy em nuvem e documentação pública — a base real pra lançar um produto.",
+      a: "Sim — o projeto final é construir e colocar em produção uma API REST completa: autenticação JWT, banco PostgreSQL, filas assíncronas, cache com Redis e deploy em nuvem (Railway ou Fly.io) com documentação OpenAPI pública. É a base real pra lançar um produto; tópicos de escala como multi-tenancy, cobrança recorrente e frameworks enterprise (NestJS) ficam como próximo passo depois que a sua API já estiver rodando de verdade.",
     },
   ],
 }
