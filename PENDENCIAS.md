@@ -33,20 +33,36 @@
       óbvia. Revisar quando a conversão dos 39 cursos restantes avançar.
       _Aguardando Henrique._
 
-- [~] **Unificação de tiers em opção única — 20 de 47 cursos convertidos,
-      falta revisar a tabela de taxa técnica pros 27 restantes** (spec
-      completa em
+- [~] **Unificação de tiers em opção única — 28 de 47 cursos convertidos**
+      (spec completa em
       [`docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md`](docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md),
       PR #22/#24). **Feito:** Premiere (PR #20/#21, piloto), grupos T.I,
-      Universo 3D, Informática, Design & Criação e Marketing & Negócios —
-      100% migrados (PR #25/#26/#29/#30). Decidido em 23/09: `git` vira
-      técnico (110/h, sem mudar carga horária); `capcut` mantém 24h sem
-      nivelar; `mobile` unifica em React Native; `jogos` mantém Unity +
-      Godot juntos; `manutencao`/`impressao-3d` seguem curtos (24h).
-      **Falta:** Henrique revisar a tabela de taxa técnica (R$110-180/h)
-      pros 27 cursos restantes (Office, Inteligência Artificial,
-      Programação) — são sugestões da spec, não confirmadas.
-      _Aguardando Henrique._
+      Universo 3D, Informática, Design & Criação, Marketing & Negócios e
+      **Office** (8 cursos: Pacote Office, Excel Avançado, Excel + Power BI,
+      Excel + IA, Word Profissional, PowerPoint, Power BI, Power Apps +
+      Power Automate) — 100% migrados. Henrique confirmou a tabela de taxa
+      técnica (R$110-180/h) em 23/09: faixa aprovada como sugerida na spec,
+      cursos de IA (ia/agentes-ia/ia-visual/typescript) formalizados em
+      109,90/h com RAG subindo pra 115/h, e Pacote Office mantém-se símples
+      sem Power BI/Copilot (esse conteúdo já tem curso dedicado). Decidido
+      em 23/09 (itens anteriores): `git` vira técnico (110/h, sem mudar
+      carga horária); `capcut` mantém 24h sem nivelar; `mobile` unifica em
+      React Native; `jogos` mantém Unity + Godot juntos; `manutencao`/
+      `impressao-3d` seguem curtos (24h).
+      **Achado durante a conversão do Office:** a pele visual de 2 cursos
+      (`planilha-excel-ia.tsx`, `planilha-power-apps.tsx`) exibia texto tipo
+      "conversa do nível {tier.levelName}" sem checar `multiTier` — com o
+      curso em tier único, o texto saía "conversa do nível Excel + IA".
+      Corrigido nos mesmos commits da conversão (guard `multiTier`, mesmo
+      padrão já usado em `ti-suporte.tsx`). Registrado como item de backlog
+      separado (não corrigido agora, escopo de outra sessão) um padrão mais
+      leve e disseminado: rótulos genéricos como "Ao final deste nível" em
+      vários `course-skins/variants/*`, sem nome de curso injetado — não
+      quebra a frase, mas ainda pressupõe múltiplos níveis.
+      **Falta:** Inteligência Artificial (6 cursos) e Programação (13
+      cursos, `git` já resolvido à parte).
+      _Sem pendência aberta com o Henrique neste item — próximo passo é
+      técnico (converter os 2 grupos restantes)._
 
 ## Resolvidas
 
