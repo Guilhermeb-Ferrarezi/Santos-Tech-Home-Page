@@ -12,7 +12,8 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
-import { ParticularFaq, PARTICULAR_FAQ_ITEMS } from "@/components/particular-faq";
+import { ParticularFaq } from "@/components/particular-faq";
+import { buildCourseFaqItems } from "@/components/particular-faq-items";
 import { JsonLd } from "@/components/json-ld";
 import { buildParticularPageSchemas } from "@/lib/seo";
 import { themeVars, type CourseThemeKey } from "@/lib/course-themes";
@@ -190,6 +191,7 @@ export function ParticularCursosPage({
   const tier = course.tiers[selectedTier];
   const multiTier = course.tiers.length > 1;
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const faqItems = buildCourseFaqItems(course);
 
   const schemas = buildParticularPageSchemas({
     courseName: course.nome,
@@ -200,7 +202,7 @@ export function ParticularCursosPage({
       totalHours: t.totalHours,
       outcome: t.outcome,
     })),
-    faq: [...(course.faqItems ?? []), ...PARTICULAR_FAQ_ITEMS].map(({ q, a }) => ({ q, a })),
+    faq: faqItems.map(({ q, a }) => ({ q, a })),
   });
 
   if (course.tema && course.logo) {
@@ -216,7 +218,7 @@ export function ParticularCursosPage({
           whatsappUrl={whatsappUrl}
           selectedTier={selectedTier}
           onSelectTier={setSelectedTier}
-          faq={[...(course.faqItems ?? []), ...PARTICULAR_FAQ_ITEMS]}
+          faq={faqItems}
         />
       </div>
     );
@@ -673,7 +675,7 @@ export function ParticularCursosPage({
         </div>
       </section>
 
-      <ParticularFaq whatsappUrl={whatsappUrl} extraItems={course.faqItems} />
+      <ParticularFaq whatsappUrl={whatsappUrl} items={faqItems} />
 
       {/* ── 7. CTA FINAL ────────────────────────────────────────────────── */}
       <section className="bg-white py-20 dark:bg-neutral-950">
