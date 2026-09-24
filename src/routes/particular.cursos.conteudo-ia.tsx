@@ -32,28 +32,30 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      levelName: "Essencial",
-      totalHours: "24h",
-      outcome: "Criar posts, imagens e roteiros profissionais usando IA, com um fluxo de produção de conteúdo funcional do zero",
+      levelName: "Criação de Conteúdo com IA",
+      ctaLabel: "curso de Criação de Conteúdo com IA",
+      totalHours: "48h",
+      outcome:
+        "Dominar as principais ferramentas de IA criativa do zero ao avançado — imagens, textos, Canva Magic Studio, vídeo e voz — e entregar uma campanha de conteúdo completa, com copy, identidade visual, vídeo e carrossel prontos para publicar",
       modules: [
         {
           title: "Panorama das Ferramentas de IA Criativa",
           topics: [
-            "Mapa do ecossistema: ChatGPT, Midjourney, DALL-E, Firefly, ElevenLabs e Runway",
+            "Mapa do ecossistema de IA criativa: imagem (Midjourney, DALL-E, Firefly), texto (ChatGPT), vídeo (Runway, CapCut) e voz (ElevenLabs)",
             "Custo x benefício de cada ferramenta: planos gratuitos, pagos e limites de uso",
             "Canva Magic Studio: visão geral dos recursos de IA integrados",
-            "Como escolher a ferramenta certa para cada tipo de conteúdo",
+            "Como escolher a ferramenta certa para cada tipo de conteúdo e etapa da produção",
             "Configuração de contas e primeiros testes práticos em cada plataforma",
           ],
         },
         {
-          title: "Imagens com IA: do Prompt à Arte Profissional",
+          title: "Imagens e Identidade Visual com IA",
           topics: [
             "Midjourney: estrutura de prompt, parâmetros --ar, --v e --style na prática",
             "Vary Region e Upscale: refinando imagens para uso profissional",
             "DALL-E 3 no ChatGPT: geração e edição de imagens por conversa",
             "Adobe Firefly no Photoshop: preenchimento generativo e extensão de imagem",
-            "Consistência de marca: manter paleta, estilo e identidade visual nas gerações",
+            "Consistência de marca entre peças: paleta, estilo e --seed/style reference no Midjourney para manter a identidade visual coesa",
           ],
         },
         {
@@ -77,89 +79,37 @@ const COURSE_DATA: CourseData = {
           ],
         },
         {
-          title: "Voz e Áudio com IA",
-          topics: [
-            "ElevenLabs: criando narração profissional para vídeos e podcasts",
-            "Clonagem de voz: possibilidades, limitações e uso ético",
-            "Adobe Podcast Enhance: limpeza de áudio com um clique",
-            "Legendas automáticas com Whisper e Captions.ai para acessibilidade e alcance",
-            "Projeto prático: produzir um vídeo narrado com voz sintética e legenda automática",
-          ],
-        },
-      ],
-      tools: ["ChatGPT", "Midjourney", "DALL-E", "Adobe Firefly", "Canva Magic Studio", "ElevenLabs", "Captions.ai"],
-    },
-    {
-      levelName: "Intermediário",
-      totalHours: "48h",
-      outcome: "Planejar e executar campanhas de conteúdo completas com IA, entregando copy, imagens, vídeos e carrosséis em um pipeline profissional",
-      modules: [
-        {
-          title: "Vídeo com IA: Criação e Edição Avançada",
+          title: "Vídeo e Voz com IA",
           topics: [
             "Runway Gen-3: geração de vídeo a partir de texto e imagem com controle de câmera",
-            "CapCut com IA: corte automático, efeitos e legendas sincronizadas",
-            "HeyGen: criando avatar digital para vídeos institucionais e vendas",
-            "Pictory.ai: transformando artigos e scripts em vídeos narrados automaticamente",
-            "Descript: editar vídeo editando a transcrição — corte, remoção de vícios de linguagem e overdub",
+            "CapCut com IA: corte automático, efeitos e legendas sincronizadas para redes sociais",
+            "ElevenLabs: criando narração profissional para vídeos e podcasts, com clonagem de voz e uso ético",
+            "Adobe Podcast Enhance: limpeza de áudio com um clique",
+            "Legendas automáticas com Whisper e Captions.ai para acessibilidade e alcance",
           ],
         },
         {
-          title: "Identidade Visual Consistente com IA",
-          topics: [
-            "Consistência de personagem no Midjourney com --seed e style reference (sref)",
-            "Brand Kit no Canva: fontes, cores e logos integrados às gerações de IA",
-            "Técnicas para manter estilo visual coeso em múltiplas peças de uma campanha",
-            "Limitações atuais das IAs de imagem e estratégias para contorná-las",
-            "Criando um guia de prompts de marca reutilizável para equipes e clientes",
-          ],
-        },
-        {
-          title: "Estratégia de Conteúdo com IA",
-          topics: [
-            "Planejamento mensal com ChatGPT: pauta, formatos e frequência por plataforma",
-            "Calendário editorial automatizado com Notion AI e planilhas inteligentes",
-            "Repurposing com IA: transformar 1 conteúdo em 10 formatos diferentes",
-            "Análise de tendências: usar IA para identificar temas em alta antes da concorrência",
-            "Métricas que importam: como usar dados para ajustar a estratégia continuamente",
-          ],
-        },
-        {
-          title: "Fluxo de Trabalho Profissional com IA",
-          topics: [
-            "Pipeline completo: ideia → pesquisa → escrita → design → publicação com IA em cada etapa",
-            "Qualidade vs velocidade: quando revisar e quando publicar direto da IA",
-            "Organizando entregas para clientes com pastas, aprovações e controle de versão",
-            "Automações simples: conectando ferramentas para publicar conteúdo automaticamente",
-            "Precificação e proposta de valor ao oferecer serviços de conteúdo com IA",
-          ],
-        },
-        {
-          title: "Projeto Final: Campanha de Conteúdo Completa com IA",
+          title: "Projeto Final: Campanha de Conteúdo com IA",
           topics: [
             "Definição de produto ou serviço real e briefing de campanha com ChatGPT",
-            "Criação de copy: headline, legenda, CTA e e-mail usando Claude e ChatGPT",
+            "Criação de copy: headline, legenda, CTA e e-mail usando ChatGPT e Claude",
             "Geração de imagens e identidade visual da campanha no Midjourney e Canva",
             "Produção de vídeo curto de 30 segundos com Runway, CapCut e ElevenLabs",
-            "Montagem do carrossel final, revisão e publicação — campanha pronta para o mercado",
+            "Montagem do carrossel final, revisão e publicação — campanha pronta para divulgar",
           ],
         },
       ],
-      tools: ["ChatGPT", "Midjourney", "Runway", "CapCut", "HeyGen", "Descript", "Canva Magic Studio", "ElevenLabs", "Notion AI", "Captions.ai"],
+      tools: ["ChatGPT", "Midjourney", "DALL-E", "Adobe Firefly", "Canva Magic Studio", "Runway", "CapCut", "ElevenLabs", "Captions.ai"],
     },
   ],
   faqItems: [
     {
       q: "Nunca usei Midjourney ou Runway, consigo acompanhar?",
-      a: "Sim, é pra esse perfil que o Essencial foi feito. O primeiro módulo é um panorama das ferramentas com configuração de conta e primeiros testes práticos, antes de entrar na estrutura de prompt do Midjourney e na geração de vídeo com Runway no Intermediário.",
-    },
-    {
-      q: "Qual a diferença entre os módulos Essencial e Intermediário?",
-      a: "Essencial cobre a produção com IA por tipo de conteúdo — imagens no Midjourney e DALL-E, texto com ChatGPT e Claude, Canva Magic Studio e voz com ElevenLabs. Intermediário sobe pra vídeo avançado com Runway e HeyGen, consistência de identidade visual entre peças, estratégia de conteúdo e um projeto final de campanha completa.",
+      a: "Sim, o curso foi desenhado para esse perfil. O primeiro módulo é um panorama das ferramentas com configuração de conta e primeiros testes práticos, antes de entrar na estrutura de prompt do Midjourney e na geração de vídeo com Runway, já nos módulos seguintes.",
     },
     {
       q: "Produzo conteúdo pra clientes e preciso entregar mais rápido, o curso ajuda nisso?",
-      a: "Sim. O módulo 'Fluxo de Trabalho Profissional com IA' do Intermediário monta o pipeline completo — ideia, pesquisa, escrita, design e publicação — e ensina a organizar entregas por cliente com aprovação e controle de versão.",
+      a: "Sim. O curso monta um fluxo enxuto de produção com IA: templates de prompt reutilizáveis para copy, combinações prontas no Canva Magic Studio para fechar um carrossel em minutos, e um projeto final que simula uma campanha completa do briefing à publicação — o ganho de velocidade vem de aplicar esse fluxo no seu dia a dia.",
     },
   ],
 }

@@ -263,7 +263,7 @@ function Flow({ course, selectedTier }: IaBlockProps) {
           <span className="min-w-0">
             <span className={`block font-mono text-[11px] ${MUTED}`}>gatilho</span>
             <span className={`block text-sm font-bold ${TITLE}`}>
-              {multiTier ? `Você começa o nível ${tier.levelName}` : "Você começa o curso"} · {meta?.aulas ?? tier.totalHours}
+              {multiTier ? `Você começa o nível ${tier.levelName}` : "Você começa agora"} · {meta?.aulas ?? tier.totalHours}
             </span>
           </span>
           <Port side="bottom" />

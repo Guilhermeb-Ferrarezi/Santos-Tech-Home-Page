@@ -33,14 +33,15 @@
       óbvia. Revisar quando a conversão dos 39 cursos restantes avançar.
       _Aguardando Henrique._
 
-- [~] **Unificação de tiers em opção única — 28 de 47 cursos convertidos**
+- [~] **Unificação de tiers em opção única — 34 de 47 cursos convertidos**
       (spec completa em
       [`docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md`](docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md),
       PR #22/#24). **Feito:** Premiere (PR #20/#21, piloto), grupos T.I,
-      Universo 3D, Informática, Design & Criação, Marketing & Negócios e
-      **Office** (8 cursos: Pacote Office, Excel Avançado, Excel + Power BI,
-      Excel + IA, Word Profissional, PowerPoint, Power BI, Power Apps +
-      Power Automate) — 100% migrados. Henrique confirmou a tabela de taxa
+      Universo 3D, Informática, Design & Criação, Marketing & Negócios,
+      **Office** (8 cursos) e **Inteligência Artificial** (6 cursos: IA:
+      Essencial ao Profissional com Agentes, Agentes de IA com N8N e LLMs,
+      RAG, IA para Criadores, ChatGPT e IA para Profissionais, Criação de
+      Conteúdo com IA) — 100% migrados. Henrique confirmou a tabela de taxa
       técnica (R$110-180/h) em 23/09: faixa aprovada como sugerida na spec,
       cursos de IA (ia/agentes-ia/ia-visual/typescript) formalizados em
       109,90/h com RAG subindo pra 115/h, e Pacote Office mantém-se símples
@@ -49,39 +50,55 @@
       carga horária); `capcut` mantém 24h sem nivelar; `mobile` unifica em
       React Native; `jogos` mantém Unity + Godot juntos; `manutencao`/
       `impressao-3d` seguem curtos (24h).
-      **Achado durante a conversão do Office:** a pele visual de 2 cursos
-      (`planilha-excel-ia.tsx`, `planilha-power-apps.tsx`) exibia texto tipo
-      "conversa do nível {tier.levelName}" sem checar `multiTier` — com o
-      curso em tier único, o texto saía "conversa do nível Excel + IA".
-      Corrigido nos mesmos commits da conversão (guard `multiTier`, mesmo
-      padrão já usado em `ti-suporte.tsx`). O padrão mais leve e disseminado
-      que isso apontou — rótulos genéricos como "Ao final deste nível" em
-      vários `course-skins/variants/*`, sem nome de curso injetado, mas
-      ainda pressupondo múltiplos níveis — foi resolvido em sessão separada
-      logo em seguida (ver item na seção "Resolvidas" abaixo).
-      **Falta:** Inteligência Artificial (6 cursos) e Programação (13
-      cursos, `git` já resolvido à parte).
+      **Achado durante a conversão do Office e da IA:** a pele visual de 4
+      cursos (`planilha-excel-ia.tsx`, `planilha-power-apps.tsx`,
+      `ia-chat.tsx`, `ia-agentes.tsx`) exibia texto tipo "nível
+      {tier.levelName}" sem checar `multiTier` — com o curso em tier único,
+      o texto saía tipo "ao final do nível ChatGPT". Corrigido nos mesmos
+      commits da conversão (guard `multiTier`, mesmo padrão já usado em
+      `ti-suporte.tsx`) — encontrado 2x de forma independente por
+      sessões/agentes diferentes em grupos diferentes (Office e IA). Depois
+      da 2ª ocorrência, a sessão da conversão de IA rodou um grep
+      sistemático em todo `course-skins/variants/*` por esse padrão exato
+      (`nível ${tier.levelName}` / `nível {t.levelName}`) e confirmou que
+      não havia mais nenhuma instância dele em nenhuma categoria, incluindo
+      os skins `ide-*.tsx` que o grupo Programação vai usar. O padrão mais
+      leve e disseminado que isso também apontou — rótulos genéricos como
+      "Ao final deste nível" em vários `course-skins/variants/*`, sem nome
+      de curso injetado, mas ainda pressupondo múltiplos níveis — foi
+      resolvido em sessão separada logo em seguida (ver item na seção
+      "Resolvidas" abaixo).
+      **Falta:** Programação (13 cursos, `git` já resolvido à parte).
       _Sem pendência aberta com o Henrique neste item — próximo passo é
-      técnico (converter os 2 grupos restantes)._
-
-- [ ] **`ia-geral.tsx` (pele "Conversa com a IA", componente `Trilha`) tem uma
-      sub-legenda ("Cada nível é uma etapa da trilha...") e um visual de
-      progressão (Prompt → Automação → Agente) que pressupõem vários níveis
-      por natureza** — achado durante a revisão consolidada de rótulos
-      "nível" (ver item resolvido abaixo). Diferente dos outros ~19 rótulos
-      corrigidos nessa revisão, aqui não dá pra só trocar a palavra por
-      "curso": a metáfora inteira do bloco é uma trilha de evolução em
-      etapas, então um curso de plano único (1 tier) precisaria de outro
-      design pro "Conteúdo programático", não só de outro texto. Como o
-      curso que usa essa pele (IA: Essencial ao Profissional c/ Agentes,
-      grupo "Inteligência Artificial" da unificação de tiers) ainda não foi
-      convertido — depende da revisão da tabela de taxa técnica, pendência
-      acima — não mexi agora. Revisar junto com a conversão desse curso
-      específico, como parte do trabalho de identidade visual (`variante`),
-      não como troca mecânica de texto. _Aguardando a conversão do curso
-      `ia` pra plano único._
+      técnico (converter o grupo restante)._
 
 ## Resolvidas
+
+- [x] **`ia-geral.tsx` (componente `Trilha`) ficou com sub-legenda incorreta
+      assim que o curso "ia" converteu pra plano único, no meio desta
+      sessão** — inicialmente registrado como pendência em aberto (esta
+      mesma sessão, ver commit anterior), porque o curso "IA: Essencial ao
+      Profissional com Agentes" ainda não tinha convertido e a correção
+      parecia exigir redesenho, não só texto. O `master` andou 2x durante a
+      sessão (PR #42 Office, depois PR #43 IA) — na sincronização com o PR
+      #43 o curso `ia` já tinha virado plano único, e a checagem visual em
+      `/particular/cursos/ia` mostrou o problema ao vivo: "Cada nível é uma
+      etapa da trilha. Escolha a etapa..." continuava aparecendo com um só
+      card "etapa 01" estático (sem seletor, sem barra de progresso — esses
+      dois já eram condicionais a `n > 1` antes). Reavaliado: o visual
+      degrada bem sozinho (card único desabilitado, sem elementos vazios ou
+      quebrados); só o texto ficava incoerente. Corrigido com o mesmo padrão
+      do resto da revisão: `sub={n > 1 ? "Cada nível é uma etapa da
+      trilha..." : "Acompanhe os módulos na linha do tempo, do primeiro
+      prompt ao primeiro agente."}` (reaproveitando o `n` que a função já
+      calculava). Observação à parte, não corrigida agora por ser um ponto
+      de design (não usa a palavra "nível", foge do escopo desta revisão):
+      cada módulo do curso de tier único repete o nome inteiro do curso como
+      kicker (ex.: "IA: ESSENCIAL AO PROFISSIONAL COM AGENTES · MÓDULO 01"
+      em todo módulo) — funciona, mas é repetitivo; fica pra quem revisar a
+      identidade visual desse skin depois. Verificado com `bun run lint` +
+      `bun run build` (sem erros) e visualmente em `/particular/cursos/ia`
+      no `bun run dev`.
 
 - [x] **Rótulos genéricos "nível" em `course-skins/variants/*` não checavam
       `multiTier` — ~19 ocorrências corrigidas, incluindo 4 que já eram o
