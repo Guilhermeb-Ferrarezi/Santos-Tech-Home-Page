@@ -167,7 +167,7 @@ export function PlanilhaSkin({ course, tema, theme, logo, whatsappUrl, selectedT
   const blockProps: BlockProps = { course, tier, selectedTier, onSelectTier, multiTier };
 
   return (
-    <div className={`${GRID_VARS} bg-white dark:bg-neutral-950`}>
+    <div className={`sb-bleed ${GRID_VARS} bg-white dark:bg-neutral-950`}>
       {/* ── HERO: janela do app (Excel, Word, PowerPoint…) ─────────────────── */}
       <section className="border-b border-neutral-300 dark:border-neutral-800">
         <div className="flex h-9 items-center justify-between px-4" style={{ background: v.bar, color: v.barInk }}>

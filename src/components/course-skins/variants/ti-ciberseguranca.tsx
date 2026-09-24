@@ -69,7 +69,7 @@ function Medidor({ rotulo, nivel, pct, cor }: { rotulo: string; nivel: string; p
 
 export function CibersegurancaPublico({ course, theme, tema }: TiBlockProps) {
   return (
-    <section className="py-20">
+    <section className="sb-bleed py-20">
       <div className="mx-auto grid max-w-7xl items-start gap-10 px-4 sm:px-6 lg:grid-cols-[1.3fr_0.7fr] lg:px-8">
         <div>
           <SectionHead n="01" label="Para quem é" title="Este curso é ideal se você...">
@@ -203,7 +203,7 @@ export function CibersegurancaConteudo(props: TiBlockProps) {
   );
 
   return (
-    <section className="bg-white py-20 dark:bg-[#081210]">
+    <section className="sb-bleed bg-white py-20 dark:bg-[#081210]">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <SectionHead n="02" label="Conteúdo programático" title="O que você vai aprender">
           Defesa em profundidade: {total} camadas, cada módulo envolvendo o próximo. Pra chegar no núcleo, um ataque teria que passar por todas.

@@ -92,7 +92,7 @@ function FlowScreen({ theme, x, y, w, h }: { theme: CourseTheme; x: number; y: n
 export function AgentesAudience({ course, theme, tema }: IaBlockProps) {
   const n = course.targetAudience.length;
   return (
-    <section id="para-quem-ia" className="py-20">
+    <section id="para-quem-ia" className="sb-bleed py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-8 lg:grid-cols-[1fr_minmax(0,400px)]">
           <Heading
@@ -294,7 +294,7 @@ function Flow({ course, selectedTier }: IaBlockProps) {
 export function AgentesProgram(props: IaBlockProps) {
   const tier = props.course.tiers[props.selectedTier];
   return (
-    <section id="conteudo-ia" className={`relative scroll-mt-6 overflow-hidden border-y ${BORDER} ${PANEL} py-20`}>
+    <section id="conteudo-ia" className={`sb-bleed relative scroll-mt-6 overflow-hidden border-y ${BORDER} ${PANEL} py-20`}>
       {/* Canvas pontilhado de editor de fluxo */}
       <div
         className="pointer-events-none absolute inset-0 opacity-60 dark:opacity-25"

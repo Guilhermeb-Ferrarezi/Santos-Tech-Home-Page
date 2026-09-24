@@ -96,7 +96,7 @@ function Bancada() {
 
 export function ManutencaoPublico({ course }: TiBlockProps) {
   return (
-    <section className="py-20">
+    <section className="sb-bleed py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-start gap-12 lg:grid-cols-[1.2fr_0.8fr]">
           <div>
@@ -310,7 +310,7 @@ export function ManutencaoConteudo(props: TiBlockProps) {
   const total = tier.modules.length;
 
   return (
-    <section className="bg-white py-20 dark:bg-[#081210]">
+    <section className="sb-bleed bg-white py-20 dark:bg-[#081210]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHead n="02" label="Conteúdo programático" title="O que você vai aprender">
           O manual de montagem do curso: {total} etapas, cada uma marcada numa peça do PC. Você segue a ordem e, no fim, a máquina liga.

@@ -61,7 +61,7 @@ function Vetor({ seed, n = 18, className = "" }: { seed: string; n?: number; cla
 export function RagAudience({ course }: IaBlockProps) {
   const n = course.targetAudience.length;
   return (
-    <section id="para-quem-ia" className="py-20">
+    <section id="para-quem-ia" className="sb-bleed py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Heading
           center
@@ -172,7 +172,7 @@ export function RagProgram(props: IaBlockProps) {
   const meta = tierMeta(course, tier);
   const multiTier = course.tiers.length > 1;
   return (
-    <section id="conteudo-ia" className={`scroll-mt-6 border-y ${BORDER} ${SOFT} py-20`}>
+    <section id="conteudo-ia" className={`sb-bleed scroll-mt-6 border-y ${BORDER} ${SOFT} py-20`}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <Heading
           center

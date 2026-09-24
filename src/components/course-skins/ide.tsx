@@ -59,7 +59,7 @@ export function IdeSkin({ course, tema, theme: baseTheme, logo, whatsappUrl, sel
   return (
     <div className="bg-(--hero-bg) text-white" style={{ "--accent-2": v.accent2 } as CSSProperties}>
       {/* ── HERO ───────────────────────────────────────────────────────────── */}
-      <section className="relative isolate overflow-hidden">
+      <section className="sb-bleed relative isolate overflow-hidden">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.07]"
           style={{ backgroundImage: "radial-gradient(#fff 1px, transparent 1px)", backgroundSize: "22px 22px" }}
@@ -134,7 +134,7 @@ export function IdeSkin({ course, tema, theme: baseTheme, logo, whatsappUrl, sel
       </section>
 
       {/* ── PARA QUEM É: metáfora da ferramenta do curso ───────────────────── */}
-      <section className="py-20">
+      <section className="sb-bleed py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Heading n="01" cm={v.cm} file={v.publicoRotulo} title="Este curso é ideal se você..." />
           <Reveal delay={100} className="mt-10">
@@ -144,7 +144,7 @@ export function IdeSkin({ course, tema, theme: baseTheme, logo, whatsappUrl, sel
       </section>
 
       {/* ── CONTEÚDO: módulos do nível selecionado, resultado e ferramentas ── */}
-      <section className="border-y border-white/5 bg-white/[0.02] py-20">
+      <section className="sb-bleed border-y border-white/5 bg-white/[0.02] py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Heading n="02" cm={v.cm} file={v.conteudoRotulo} title="O que você vai aprender" />
           <Reveal delay={100} className="mt-10">

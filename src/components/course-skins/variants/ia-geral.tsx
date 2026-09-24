@@ -90,7 +90,7 @@ export function GeralAudience({ course, theme }: IaBlockProps) {
   const esq = itens.slice(0, meio);
   const dir = itens.slice(meio);
   return (
-    <section id="para-quem-ia" className="relative overflow-hidden py-20">
+    <section id="para-quem-ia" className="sb-bleed relative overflow-hidden py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Heading
           center
@@ -241,7 +241,7 @@ export function GeralProgram(props: IaBlockProps) {
   const proxima = selectedTier < n - 1 ? etapaDe(selectedTier + 1, n, course.tiers[selectedTier + 1].levelName) : null;
 
   return (
-    <section id="conteudo-ia" className={`scroll-mt-6 border-y ${BORDER} ${PANEL} py-20`}>
+    <section id="conteudo-ia" className={`sb-bleed scroll-mt-6 border-y ${BORDER} ${PANEL} py-20`}>
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <Heading
           center

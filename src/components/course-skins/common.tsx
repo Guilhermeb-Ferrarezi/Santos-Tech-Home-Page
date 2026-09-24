@@ -139,7 +139,7 @@ export function CommonSections({
   return (
     <>
       {/* ── Diferenciais ───────────────────────────────────────────────────── */}
-      <section className={`py-20 ${look.bgB}`}>
+      <section className={`sb-bleed py-20 ${look.bgB}`}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Heading look={look} eyebrow="Por que a Santos Tech" title="Mais do que um curso — um método" />
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
@@ -162,7 +162,7 @@ export function CommonSections({
       </section>
 
       {/* ── Professores + certificado ─────────────────────────────────────── */}
-      <section className={`py-20 ${look.bgA}`}>
+      <section className={`sb-bleed py-20 ${look.bgA}`}>
         <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <Reveal>
             <div className={`flex h-full flex-col p-7 ${look.card} ${look.radius}`}>
@@ -196,7 +196,7 @@ export function CommonSections({
       </section>
 
       {/* ── Formato ───────────────────────────────────────────────────────── */}
-      <section className={`py-20 ${look.bgB}`}>
+      <section className={`sb-bleed py-20 ${look.bgB}`}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Heading look={look} eyebrow="Formato" title="Como as aulas funcionam" />
           <div className="mt-12 grid gap-5 md:grid-cols-3">
@@ -218,7 +218,7 @@ export function CommonSections({
       </section>
 
       {/* ── Planos ─────────────────────────────────────────────────────────── */}
-      <section className={`py-20 ${look.bgA}`}>
+      <section className={`sb-bleed py-20 ${look.bgA}`}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Heading look={look} eyebrow="Investimento" title={multiTier ? "Escolha o seu plano" : "Seu investimento"} />
           <div
@@ -313,7 +313,7 @@ export function CommonSections({
       </section>
 
       {/* ── FAQ ────────────────────────────────────────────────────────────── */}
-      <section className={`py-20 ${look.bgB}`}>
+      <section className={`sb-bleed py-20 ${look.bgB}`}>
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <Heading look={look} eyebrow="Dúvidas frequentes" title="Perguntas frequentes" />
           <div className={`mt-10 divide-y ${look.divider}`}>
@@ -350,7 +350,7 @@ export function CommonSections({
       </section>
 
       {/* ── CTA final ─────────────────────────────────────────────────────── */}
-      <section className={`py-20 ${look.bgA}`}>
+      <section className={`sb-bleed py-20 ${look.bgA}`}>
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className={`relative overflow-hidden px-8 py-14 text-center sm:px-16 ${look.cta} ${look.radius}`}>
@@ -369,7 +369,7 @@ export function CommonSections({
         </div>
       </section>
 
-      <p className={`py-6 text-center text-xs ${look.bgA} ${look.muted}`}>
+      <p className={`sb-bleed py-6 text-center text-xs ${look.bgA} ${look.muted}`}>
         © {new Date().getFullYear()} Santos Tech — Todos os direitos reservados.
       </p>
     </>

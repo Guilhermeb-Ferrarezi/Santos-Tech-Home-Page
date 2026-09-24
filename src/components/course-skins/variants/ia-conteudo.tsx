@@ -68,7 +68,7 @@ function CalendarScreen({ theme, x, y, w, h }: { theme: CourseTheme; x: number; 
 
 export function ConteudoAudience({ course, theme, tema }: IaBlockProps) {
   return (
-    <section id="para-quem-ia" className="py-20">
+    <section id="para-quem-ia" className="sb-bleed py-20">
       <div className="mx-auto grid max-w-7xl items-start gap-12 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.45fr] lg:px-8">
         <div className="lg:sticky lg:top-10">
           <Heading
@@ -148,7 +148,7 @@ export function ConteudoProgram(props: IaBlockProps) {
   }));
 
   return (
-    <section id="conteudo-ia" className={`scroll-mt-6 border-y ${BORDER} ${SOFT} py-20`}>
+    <section id="conteudo-ia" className={`sb-bleed scroll-mt-6 border-y ${BORDER} ${SOFT} py-20`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Heading
           center

@@ -109,7 +109,7 @@ export function PacoteParaQuem({ course }: BlockProps) {
   const rail: (AppKey | "home")[] = ["home", "word", "excel", "ppt", "m365"];
 
   return (
-    <section data-sec="para-quem" className="py-20">
+    <section data-sec="para-quem" className="sb-bleed py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FormulaHeading cell="Início" fn="Para quem é" title="Este curso é ideal se você..." />
 
@@ -242,7 +242,7 @@ export function PacoteConteudo({ course, tier, selectedTier, onSelectTier, multi
   const active = Math.min(picked, groups.length - 1);
 
   return (
-    <section data-sec="conteudo" className="border-y border-neutral-200 py-20 dark:border-neutral-800" style={GRID}>
+    <section data-sec="conteudo" className="sb-bleed border-y border-neutral-200 py-20 dark:border-neutral-800" style={GRID}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <FormulaHeading cell="C3" fn="Conteúdo programático" title="O que você vai aprender" />
 

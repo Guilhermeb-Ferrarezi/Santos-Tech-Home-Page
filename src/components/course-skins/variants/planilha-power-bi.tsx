@@ -51,7 +51,7 @@ function VisualHeader({ children }: { children: ReactNode }) {
 export function PowerBiParaQuem({ course }: BlockProps) {
   const items = course.targetAudience;
   return (
-    <section data-sec="para-quem" className="py-20">
+    <section data-sec="para-quem" className="sb-bleed py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FormulaHeading cell="Página 2" fn="Para quem é" title="Este curso é ideal se você..." />
 
@@ -181,7 +181,7 @@ export function PowerBiConteudo({ course, tier, selectedTier, onSelectTier, mult
     [tier.totalHours, "de aula"],
   ];
   return (
-    <section data-sec="conteudo" className="border-y border-neutral-200 py-20 dark:border-neutral-800" style={DOTS}>
+    <section data-sec="conteudo" className="sb-bleed border-y border-neutral-200 py-20 dark:border-neutral-800" style={DOTS}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <FormulaHeading cell="Página 3" fn="Conteúdo programático" title="O que você vai aprender" />
 

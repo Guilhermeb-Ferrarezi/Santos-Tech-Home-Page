@@ -53,7 +53,7 @@ function SorterSlide({ text, i }: { text: string; i: number }) {
 export function PowerPointParaQuem({ course }: BlockProps) {
   const items = course.targetAudience;
   return (
-    <section data-sec="para-quem" className="bg-neutral-100 py-20 dark:bg-neutral-900/50">
+    <section data-sec="para-quem" className="sb-bleed bg-neutral-100 py-20 dark:bg-neutral-900/50">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FormulaHeading cell="Slide 2" fn="Para quem é" title="Este curso é ideal se você..." color={P} />
 
@@ -135,7 +135,7 @@ export function PowerPointConteudo({ course, tier, selectedTier, onSelectTier, m
   const active = Math.min(picked, n - 1);
 
   return (
-    <section data-sec="conteudo" className="border-y border-neutral-200 py-20 dark:border-neutral-800" style={DOTS}>
+    <section data-sec="conteudo" className="sb-bleed border-y border-neutral-200 py-20 dark:border-neutral-800" style={DOTS}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <FormulaHeading cell="Slide 3" fn="Conteúdo programático" title="O que você vai aprender" color={P} />
 

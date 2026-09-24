@@ -30,7 +30,7 @@ function Chave() {
 export function LinuxPublico({ course }: TiBlockProps) {
   const n = course.targetAudience.length;
   return (
-    <section className="py-20">
+    <section className="sb-bleed py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHead n="01" label="Para quem é" title="Este curso é ideal se você...">
           No servidor do curso, cada perfil é um serviço. Se você se reconhece em um deles, ele já está ativo e sobe junto com o sistema.
@@ -93,7 +93,7 @@ export function LinuxConteudo(props: TiBlockProps) {
   const maxTopicos = Math.max(...tier.modules.map((m) => m.topics.length), 1);
 
   return (
-    <section className="bg-white py-20 dark:bg-[#081210]">
+    <section className="sb-bleed bg-white py-20 dark:bg-[#081210]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHead n="02" label="Conteúdo programático" title="O que você vai aprender">
           O curso é o sistema de arquivos do servidor: {total} diretórios a partir da raiz, cada módulo guardado no lugar onde ele vive de verdade num Linux.

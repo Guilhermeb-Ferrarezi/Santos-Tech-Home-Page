@@ -20,7 +20,7 @@ import {
 
 export function ExcelParaQuem({ course }: BlockProps) {
   return (
-    <section data-sec="para-quem" className="py-20">
+    <section data-sec="para-quem" className="sb-bleed py-20">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <FormulaHeading cell="B2" fn="Para quem é" title="Este curso é ideal se você..." />
         <Reveal delay={120} className="mt-10">
@@ -64,7 +64,7 @@ export function ExcelParaQuem({ course }: BlockProps) {
 
 export function ExcelConteudo({ course, tier, selectedTier, onSelectTier, multiTier }: BlockProps) {
   return (
-    <section data-sec="conteudo" className="border-y border-neutral-200 py-20 dark:border-neutral-800" style={GRID}>
+    <section data-sec="conteudo" className="sb-bleed border-y border-neutral-200 py-20 dark:border-neutral-800" style={GRID}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <FormulaHeading cell="C3" fn="Conteúdo programático" title="O que você vai aprender" />
 

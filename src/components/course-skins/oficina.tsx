@@ -179,7 +179,7 @@ export function OficinaSkin({ course, tema, theme, logo, whatsappUrl, selectedTi
   return (
     <div className={`${CREAM} text-[#2a1a10] dark:text-white`}>
       {/* ── HERO ───────────────────────────────────────────────────────────── */}
-      <section className="relative isolate overflow-hidden bg-(--hero-bg) text-white" style={v.textura.escuro}>
+      <section className="sb-bleed relative isolate overflow-hidden bg-(--hero-bg) text-white" style={v.textura.escuro}>
         <div className="pointer-events-none absolute -right-40 top-0 h-[560px] w-[560px] rounded-full bg-(--accent)/25 blur-3xl" />
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pb-16 pt-14 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:px-8 lg:pb-20 lg:pt-20">
           <div>
@@ -224,12 +224,12 @@ export function OficinaSkin({ course, tema, theme, logo, whatsappUrl, selectedTi
       </section>
 
       {/* ── 01 · PARA QUEM É (bloco próprio do curso) ─────────────────────── */}
-      <section className="py-20" style={v.textura.claro}>
+      <section className="sb-bleed py-20" style={v.textura.claro}>
         <v.ParaQuem {...bloco} />
       </section>
 
       {/* ── 02 · CONTEÚDO (bloco próprio do curso) ─────────────────────────── */}
-      <section className="bg-white py-20 dark:bg-[#1a110b]">
+      <section className="sb-bleed bg-white py-20 dark:bg-[#1a110b]">
         <v.Conteudo {...bloco} />
       </section>
 

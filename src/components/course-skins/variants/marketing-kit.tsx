@@ -34,7 +34,7 @@ export type MktBlocks = {
 /** Seção "Para quem é": só o espaçamento e o fundo; o miolo é de cada curso. */
 export function PublicoSection({ children, plain = false }: { children: ReactNode; plain?: boolean }) {
   return (
-    <section className="py-16 sm:py-20" style={plain ? undefined : DOTS}>
+    <section className="sb-bleed py-16 sm:py-20" style={plain ? undefined : DOTS}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">{children}</div>
     </section>
   );
@@ -43,7 +43,7 @@ export function PublicoSection({ children, plain = false }: { children: ReactNod
 /** Seção "Conteúdo programático" (âncora usada pelo botão do hero). */
 export function ConteudoSection({ children, className = PAPER }: { children: ReactNode; className?: string }) {
   return (
-    <section id="conteudo-programatico" className={`scroll-mt-4 border-y border-[#f3e4e0] py-16 dark:border-white/5 sm:py-20 ${className}`}>
+    <section id="conteudo-programatico" className={`sb-bleed scroll-mt-4 border-y border-[#f3e4e0] py-16 dark:border-white/5 sm:py-20 ${className}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">{children}</div>
     </section>
   );
