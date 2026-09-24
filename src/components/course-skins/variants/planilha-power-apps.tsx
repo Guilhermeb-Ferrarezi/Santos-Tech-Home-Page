@@ -187,7 +187,7 @@ export function PowerAppsConteudo({ course, tier, selectedTier, onSelectTier, mu
         )}
 
         <Reveal delay={120} className="mt-10">
-          <Card Icon={Zap} color={PA} kicker="Gatilho" title={`Quando você começa o nível ${tier.levelName}`}>
+          <Card Icon={Zap} color={PA} kicker="Gatilho" title={multiTier ? `Quando você começa o nível ${tier.levelName}` : "Quando você começa o curso"}>
             <p className="px-4 py-3 text-sm text-neutral-600 dark:text-neutral-400">
               {tier.modules.length} ações · {tier.totalHours} de aula · aula individual
             </p>

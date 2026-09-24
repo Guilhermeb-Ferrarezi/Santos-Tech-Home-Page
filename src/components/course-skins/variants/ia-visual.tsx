@@ -375,6 +375,7 @@ function Thumb({ midia, seed }: { midia: Midia; seed: number }) {
 function Geracoes({ course, selectedTier }: IaBlockProps) {
   const tier = course.tiers[selectedTier];
   const meta = tierMeta(course, tier);
+  const multiTier = course.tiers.length > 1;
   const jobs = tier.modules.map((m, i) => ({ m, i, midia: midiaDe(m.title) }));
   const presentes = (Object.keys(MIDIAS) as Midia[]).filter((k) => jobs.some((j) => j.midia === k));
   const [filtro, setFiltro] = useState<Midia | "tudo">("tudo");
@@ -445,9 +446,9 @@ function Geracoes({ course, selectedTier }: IaBlockProps) {
             <span className="absolute bottom-2 left-2 rounded-full bg-black/50 px-2.5 py-1 font-mono text-[11px] font-semibold text-white backdrop-blur">upscale 4×</span>
           </div>
           <div className="min-w-0">
-            <p className={`text-[11px] font-bold uppercase tracking-[0.2em] ${ACCENT_TEXT}`}>Versão final · ao fim do nível</p>
+            <p className={`text-[11px] font-bold uppercase tracking-[0.2em] ${ACCENT_TEXT}`}>{multiTier ? "Versão final · ao fim do nível" : "Versão final · ao fim do curso"}</p>
             <p className={`mt-2 text-base font-semibold leading-relaxed sm:text-lg ${TITLE}`}>{tier.outcome}</p>
-            <ToolList tools={tier.tools} label="Modelos e ferramentas deste nível" />
+            <ToolList tools={tier.tools} label={multiTier ? "Modelos e ferramentas deste nível" : "Modelos e ferramentas deste curso"} />
           </div>
         </GradientFrame>
       </Reveal>

@@ -238,6 +238,7 @@ function ChatApp({ course, selectedTier, onSelectTier }: IaBlockProps) {
 
 export function ChatProgram(props: IaBlockProps) {
   const tier = props.course.tiers[props.selectedTier];
+  const multiTier = props.course.tiers.length > 1;
   return (
     <section id="conteudo-ia" className={`scroll-mt-6 border-y ${BORDER} ${PANEL} py-20`}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -245,7 +246,7 @@ export function ChatProgram(props: IaBlockProps) {
           center
           eyebrow="Conteúdo programático"
           title="Cada módulo é uma conversa salva"
-          sub="Abra uma conversa no histórico para ver o que você vai praticar. Troque o nível no seletor de modelo."
+          sub={multiTier ? "Abra uma conversa no histórico para ver o que você vai praticar. Troque o nível no seletor de modelo." : "Abra uma conversa no histórico para ver o que você vai praticar."}
         />
         <Reveal delay={100}>
           <ChatApp key={tier.levelName} {...props} />
@@ -255,13 +256,13 @@ export function ChatProgram(props: IaBlockProps) {
         <Reveal delay={120} className="mt-6">
           <GradientFrame>
             <p className={`flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.2em] ${ACCENT_TEXT}`}>
-              <Pin className="h-3.5 w-3.5" /> Resposta fixada · ao final do nível {tier.levelName}
+              <Pin className="h-3.5 w-3.5" /> Resposta fixada · {multiTier ? `ao final do nível ${tier.levelName}` : "ao final do curso"}
             </p>
             <p className={`mt-2 flex items-start gap-2 text-base font-semibold leading-relaxed sm:text-lg ${TITLE}`}>
               <Flag className="mt-1 h-4 w-4 shrink-0 text-(--accent)" />
               {tier.outcome}
             </p>
-            <ToolList tools={tier.tools} label="Ferramentas usadas neste nível" />
+            <ToolList tools={tier.tools} label={multiTier ? "Ferramentas usadas neste nível" : "Ferramentas usadas neste curso"} />
           </GradientFrame>
         </Reveal>
       </div>

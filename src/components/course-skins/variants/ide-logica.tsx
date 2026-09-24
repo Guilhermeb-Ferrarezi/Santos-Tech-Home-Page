@@ -73,6 +73,7 @@ function Bloco({ cor, children, className = "", dente = true }: { cor: string; c
 }
 
 export function LogicaConteudo({ course, tier, tierIndex, onSelectTier, meta }: ConteudoProps) {
+  const multiTier = course.tiers.length > 1;
   const [sel, setSel] = useState(0);
   const total = tier.modules.length;
   const atual = Math.min(sel, total - 1);
@@ -144,7 +145,7 @@ export function LogicaConteudo({ course, tier, tierIndex, onSelectTier, meta }: 
             </div>
 
             <Bloco cor="#7a5cff" className="mt-1 rounded-b-[14px]" dente={false}>
-              próximo módulo {atual + 2 <= total ? `→ ${atual + 2}` : "→ fim do nível"}
+              próximo módulo {atual + 2 <= total ? `→ ${atual + 2}` : multiTier ? "→ fim do nível" : "→ fim do curso"}
             </Bloco>
           </div>
 

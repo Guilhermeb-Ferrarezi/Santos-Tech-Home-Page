@@ -211,7 +211,7 @@ export function PowerBiConteudo({ course, tier, selectedTier, onSelectTier, mult
               {/* Cartões */}
               <div className="grid gap-3 lg:grid-cols-[1fr_auto]">
                 <div className={`${TILE} border-l-4 p-4`} style={{ borderLeftColor: Y }}>
-                  <p className="text-xs font-semibold text-neutral-500">Resultado do nível</p>
+                  <p className="text-xs font-semibold text-neutral-500">{multiTier ? "Resultado do nível" : "Resultado do curso"}</p>
                   <p className="mt-1 text-[15px] font-semibold leading-snug text-neutral-900 dark:text-neutral-100">{tier.outcome}</p>
                 </div>
                 <div className="grid grid-cols-3 gap-3">

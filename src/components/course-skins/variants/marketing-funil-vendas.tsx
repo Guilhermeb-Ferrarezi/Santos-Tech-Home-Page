@@ -175,6 +175,7 @@ function stageName(i: number, n: number) {
 
 function Conteudo(p: MktBlockProps) {
   const { course, tier } = p;
+  const multiTier = course.tiers.length > 1;
   const n = tier.modules.length;
   const MIN = 0.36;
   const largura = (k: number) => 1 - (k / n) * (1 - MIN);
@@ -186,7 +187,11 @@ function Conteudo(p: MktBlockProps) {
           label="Conteúdo programático"
           Icon={Filter}
           title="O que você vai aprender"
-          sub="Cada módulo é uma etapa do funil: começa amplo, afunila no que importa e termina no resultado do nível."
+          sub={
+            multiTier
+              ? "Cada módulo é uma etapa do funil: começa amplo, afunila no que importa e termina no resultado do nível."
+              : "Cada módulo é uma etapa do funil: começa amplo, afunila no que importa e termina no resultado do curso."
+          }
         />
         <TierPicker {...p} unidade="etapas" className="mt-8" />
 
