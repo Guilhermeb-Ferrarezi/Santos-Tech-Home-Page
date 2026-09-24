@@ -6,6 +6,38 @@ _Nenhuma no momento._
 
 ## Resolvidas
 
+- [x] **FAQ "Em quanto tempo termino o curso?" era texto fixo genérico nas ~52
+      páginas de `/particular/cursos/*`, desconectado do `TIER_META` real de
+      cada curso** — pedido direto do Henrique, 23/09. Causa raiz: o item de
+      duração em `PARTICULAR_FAQ_ITEMS` (`particular-faq.tsx`) sempre foi um
+      texto único hardcoded ("a maioria dos cursos tem 48 aulas... a duração
+      exata está no card de Investimento"), correto só como aproximação —
+      nunca foi recalculado por curso, mesmo depois da unificação de tiers
+      (ver item abaixo) tornar quase todo curso "plano único" com duração
+      exata conhecida. Resolvido calculando a resposta a partir dos tiers
+      reais do curso (`tierMeta()`, mesma fonte do card de Investimento) em
+      `buildCourseFaqItems()`, usada nos 3 pontos que hoje montam o FAQ de
+      uma página de curso (acordeon do template padrão, pele visual via
+      `SkinProps.faq`, e o JSON-LD `FAQPage`) — a landing `/particular` (sem
+      curso específico) continua com o texto genérico, sem mudança. **Caso
+      multi-tier:** nenhum curso do catálogo usa hoje (unificação 100%
+      concluída, ver item abaixo), mas como a estrutura (`course.tiers`) e o
+      resto do código ainda tratam esse caso em toda parte (`multiTier`),
+      implementado por consistência: mostra a faixa do tier mais rápido
+      (ritmo intensivo) ao mais completo (ritmo padrão), em vez de listar
+      todos os níveis ou manter o texto genérico. Extraída a lógica pura pra
+      `particular-faq-items.ts`, deixando `particular-faq.tsx` só com o
+      componente (elimina 1 warning de fast-refresh pré-existente do
+      arquivo). Verificado com `bun run lint` (0 erros, 128 warnings — 1 a
+      menos que antes) e `bun run build` (gate do `CLAUDE.md`, sem erros) e
+      visualmente no `bun run dev`: `/particular/cursos/git` (24 aulas,
+      mostra "~3 meses"/"~1 mês"), `/particular/cursos/excel` (48 aulas,
+      maioria do catálogo, mostra "~6 meses"/"~3 meses") e `/particular`
+      (landing, texto genérico preservado) — FAQ expandido bate com o card
+      de Investimento da mesma página em cada caso; JSON-LD inspecionado via
+      console do navegador confirma o mesmo texto dinâmico. PR
+      [#54](https://github.com/Guilhermeb-Ferrarezi/Santos-Tech-Home-Page/pull/54).
+
 - [x] **Estatística "24 aulas por curso" e ritmo do bloco "Ritmo" na home
       do `/particular` estavam desatualizados pra quase todo o catálogo**
       — pendência aberta pela auditoria de resquícios do modelo antigo
