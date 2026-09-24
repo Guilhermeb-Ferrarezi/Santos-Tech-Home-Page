@@ -57,7 +57,7 @@ export function IdeSkin({ course, tema, theme: baseTheme, logo, whatsappUrl, sel
   const { Publico, Conteudo } = v;
 
   return (
-    <div className="bg-(--hero-bg) text-white" style={{ "--accent-2": v.accent2 } as CSSProperties}>
+    <div className="sb-bleed bg-(--hero-bg) text-white" style={{ "--accent-2": v.accent2 } as CSSProperties}>
       {/* ── HERO ───────────────────────────────────────────────────────────── */}
       <section className="sb-bleed relative isolate overflow-hidden">
         <div
@@ -121,7 +121,7 @@ export function IdeSkin({ course, tema, theme: baseTheme, logo, whatsappUrl, sel
         </div>
 
         {/* Barra de status do editor */}
-        <div className="relative flex items-center gap-5 overflow-x-auto bg-(--accent) px-4 py-1 font-mono text-[11px] text-white">
+        <div className="sb-bleed relative flex items-center gap-5 overflow-x-auto bg-(--accent) px-4 py-1 font-mono text-[11px] text-white [--sb-pl:1rem]">
           <span className="flex shrink-0 items-center gap-1">
             <GitBranch className="h-3 w-3" /> {v.status[0]}
           </span>

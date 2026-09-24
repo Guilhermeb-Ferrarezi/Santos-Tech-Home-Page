@@ -38,7 +38,7 @@ const CREAM = "bg-[#fbf5ec] dark:bg-[#140d08]";
 function Steps({ className, flip = false }: { className: string; flip?: boolean }) {
   const bands = [0, 1, 2, 3, 4];
   return (
-    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" className={`block h-10 w-full sm:h-14 ${className}`} aria-hidden="true">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" className={`sb-bleed-full block h-10 w-full sm:h-14 ${className}`} aria-hidden="true">
       <g transform={flip ? "translate(0 60) scale(1 -1)" : undefined}>
         {bands.map((b) => {
           const inset = b * 150;
@@ -177,7 +177,7 @@ export function OficinaSkin({ course, tema, theme, logo, whatsappUrl, selectedTi
   const bloco: OficinaBlockProps = { course, tier, tema, theme, selectedTier, onSelectTier };
 
   return (
-    <div className={`${CREAM} text-[#2a1a10] dark:text-white`}>
+    <div className={`sb-bleed ${CREAM} text-[#2a1a10] dark:text-white`}>
       {/* ── HERO ───────────────────────────────────────────────────────────── */}
       <section className="sb-bleed relative isolate overflow-hidden bg-(--hero-bg) text-white" style={v.textura.escuro}>
         <div className="pointer-events-none absolute -right-40 top-0 h-[560px] w-[560px] rounded-full bg-(--accent)/25 blur-3xl" />

@@ -44,3 +44,6 @@ Contexto/
 
 # Visual companion (brainstorming)
 .superpowers/
+
+# Saída do verificador da sidebar (scripts/verificar-sidebar-fusao.mjs)
+.verificacao-sidebar/
