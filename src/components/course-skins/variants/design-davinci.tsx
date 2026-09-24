@@ -98,7 +98,7 @@ function NodeShell({ children, className = "" }: { children: ReactNode; classNam
 export function DavinciAudience({ course, tema, theme }: AudienceProps) {
   const total = course.targetAudience.length;
   return (
-    <section className={`overflow-hidden bg-[#efeaee] py-20 dark:bg-[#0f0d12] ${DOTS_LIGHT}`}>
+    <section className={`sb-bleed overflow-hidden bg-[#efeaee] py-20 dark:bg-[#0f0d12] ${DOTS_LIGHT}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHead n="01" label="Para quem é" video>
           <AudienceTitle video />
@@ -369,7 +369,7 @@ export function DavinciContent({ course, logo, selectedTier, onSelectTier }: Con
   const pg = PAGINAS[paginas[atual]];
 
   return (
-    <section id="conteudo" className="scroll-mt-4 bg-(--hero-bg) py-20 text-white">
+    <section id="conteudo" className="sb-bleed scroll-mt-4 bg-(--hero-bg) py-20 text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHead n="02" label="Conteúdo programático" video dark>
           O que você vai <Picked video>aprender</Picked>

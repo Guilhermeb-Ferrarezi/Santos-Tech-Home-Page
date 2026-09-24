@@ -186,7 +186,7 @@ export function InformaticaSkin(props: SkinProps) {
   return (
     <div className={`${VARS} bg-white text-slate-900 dark:bg-[#0b1322] dark:text-white`}>
       {/* ── HERO: a tela do computador ─────────────────────────────────────── */}
-      <section className={`relative isolate overflow-hidden ${WALLPAPER}`}>
+      <section className={`sb-bleed relative isolate overflow-hidden ${WALLPAPER}`}>
         {/* Ondas do papel de parede */}
         <svg
           viewBox="0 0 1440 600"
@@ -324,7 +324,7 @@ function ParaQuemE({ items, whatsappUrl }: { items: string[]; whatsappUrl: strin
     });
 
   return (
-    <section id="info-para-quem" className="scroll-mt-4 bg-white py-20 dark:bg-[#0b1322]">
+    <section id="info-para-quem" className="sb-bleed scroll-mt-4 bg-white py-20 dark:bg-[#0b1322]">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           icon={<Check className="h-4 w-4" />}
@@ -430,7 +430,7 @@ function Conteudo({
   return (
     <section
       id="info-conteudo"
-      className="scroll-mt-4 border-y border-slate-200 bg-[linear-gradient(180deg,#eaf2fd,#d9e8fb)] py-20 dark:border-white/10 dark:bg-[linear-gradient(180deg,#0d1d38,#0b1830)]"
+      className="sb-bleed scroll-mt-4 border-y border-slate-200 bg-[linear-gradient(180deg,#eaf2fd,#d9e8fb)] py-20 dark:border-white/10 dark:bg-[linear-gradient(180deg,#0d1d38,#0b1830)]"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading

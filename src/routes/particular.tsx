@@ -275,14 +275,21 @@ function ParticularLayout() {
 
   return (
     <div className={dark ? "dark" : ""}>
-    <div className={`relative min-h-screen ${dark ? "bg-neutral-950" : "bg-neutral-50"}`}>
+    <div
+      className={`relative min-h-screen ${dark ? "bg-neutral-950" : "bg-neutral-50"}`}
+      style={{ "--sbw": collapsed ? "60px" : "256px" } as React.CSSProperties}
+    >
       {/* Fusão sidebar↔página: em telas grandes a sidebar não tem fundo próprio — fica
           100% transparente, é o mesmo fundo da página do curso aparecendo por trás, sem
           nenhuma camada. Só o traço da borda direita e os divisores internos (.sb-divider)
           separam visualmente; os tokens --sb-fg/--sb-fg-soft trocam de claro pra escuro
           conforme o tom amostrado, pra o texto continuar legível em cima de qualquer fundo.
           Fallback (sem JS ou fora do breakpoint lg): as classes Tailwind normais do aside
-          continuam valendo, porque a regra abaixo só bate quando data-fusion-tone existe. */}
+          continuam valendo, porque a regra abaixo só bate quando data-fusion-tone existe.
+          .sb-bleed (usada pelas peles de curso): faz a seção "vazar" por baixo da sidebar —
+          o fundo da seção chega até a borda esquerda de verdade, o conteúdo de dentro (que já
+          usa mx-auto/max-w) fica exatamente onde estava, porque o padding-left recria o
+          mesmo espaço que o vazamento tomou. */}
       <style>{`
         #particular-sidebar[data-fusion-tone] {
           background: transparent;
@@ -294,6 +301,14 @@ function ParticularLayout() {
         #particular-sidebar[data-fusion-tone] .sb-fg-soft { color: var(--sb-fg-soft); }
         #particular-sidebar[data-fusion-tone] .sb-divider { background-color: var(--sb-divider); border-color: var(--sb-divider); }
         #particular-sidebar[data-fusion-tone] .sb-hover:hover { background-color: var(--sb-hover-bg); color: var(--sb-fg); }
+        @media (min-width: 1024px) {
+          .sb-bleed {
+            margin-left: calc(-1 * var(--sbw, 256px));
+            padding-left: var(--sbw, 256px);
+            width: calc(100% + var(--sbw, 256px));
+            transition: margin-left .3s ease-in-out, padding-left .3s ease-in-out, width .3s ease-in-out;
+          }
+        }
       `}</style>
 
       {/* Overlay mobile */}

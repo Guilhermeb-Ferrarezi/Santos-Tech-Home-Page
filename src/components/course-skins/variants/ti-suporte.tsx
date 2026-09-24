@@ -52,7 +52,7 @@ function TicketScreen({ theme, box }: { theme: CourseTheme; box: { x: number; y:
 
 export function SuportePublico({ course, theme, tema }: TiBlockProps) {
   return (
-    <section className="py-20">
+    <section className="sb-bleed py-20">
       <div className="mx-auto grid max-w-7xl items-start gap-12 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
         <div className="lg:sticky lg:top-8">
           <SectionHead n="01" label="Para quem é" title="Este curso é ideal se você...">
@@ -109,7 +109,7 @@ export function SuporteConteudo(props: TiBlockProps) {
   const toggle = (key: string) => setFechados((f) => (f.includes(key) ? f.filter((k) => k !== key) : [...f, key]));
 
   return (
-    <section className="bg-white py-20 dark:bg-[#081210]">
+    <section className="sb-bleed bg-white py-20 dark:bg-[#081210]">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <SectionHead n="02" label="Conteúdo programático" title="O que você vai aprender">
           {total} módulos em sequência, montados como um rack: cada unidade apoia a próxima, do básico até o que vai pra produção.

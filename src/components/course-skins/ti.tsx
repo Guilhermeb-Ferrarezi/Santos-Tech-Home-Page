@@ -93,7 +93,7 @@ export function TiSkin({ course, tema, theme, logo, whatsappUrl, selectedTier, o
   return (
     <div className="bg-[#f3f6f5] text-[#0b1412] dark:bg-[#060e0c] dark:text-white">
       {/* ── HERO ───────────────────────────────────────────────────────────── */}
-      <section className="relative isolate overflow-hidden bg-(--hero-bg) text-white">
+      <section className="sb-bleed relative isolate overflow-hidden bg-(--hero-bg) text-white">
         <div className="pointer-events-none absolute -right-48 -top-40 h-[560px] w-[560px] rounded-full bg-(--accent)/25 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-48 left-1/4 h-[380px] w-[380px] rounded-full bg-(--accent-2)/[0.07] blur-3xl" />
         {/* Trilhos do rack nas laterais */}

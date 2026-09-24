@@ -69,7 +69,7 @@ export function ExcelPowerBiParaQuem({ course }: BlockProps) {
   const place = (col: number, row: number) => ({ "--c": String(col), "--r": String(row) }) as CSSProperties;
 
   return (
-    <section data-sec="para-quem" className="py-20">
+    <section data-sec="para-quem" className="sb-bleed py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FormulaHeading cell="Modelo" fn="Para quem é" title="Este curso é ideal se você..." />
 
@@ -162,7 +162,7 @@ export function ExcelPowerBiConteudo({ course, tier, selectedTier, onSelectTier,
   const count = (key: string) => mods.filter((m) => m.stage.key === key).length;
 
   return (
-    <section data-sec="conteudo" className="border-y border-neutral-200 py-20 dark:border-neutral-800" style={DOTS}>
+    <section data-sec="conteudo" className="sb-bleed border-y border-neutral-200 py-20 dark:border-neutral-800" style={DOTS}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <FormulaHeading cell="Pipeline" fn="Conteúdo programático" title="O que você vai aprender" />
 

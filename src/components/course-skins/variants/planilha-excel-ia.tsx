@@ -83,7 +83,7 @@ function SheetBehind() {
 
 export function ExcelIaParaQuem({ course }: BlockProps) {
   return (
-    <section data-sec="para-quem" className="py-20">
+    <section data-sec="para-quem" className="sb-bleed py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className={`grid overflow-hidden border border-neutral-300 dark:border-neutral-700 lg:grid-cols-[300px_1fr] ${PANE_VARS}`}>
@@ -147,7 +147,7 @@ export function ExcelIaConteudo({ course, tier, selectedTier, onSelectTier, mult
   // As linhas continuam de um módulo pro outro, como numa planilha só.
   const firstRows = tier.modules.map((_, i) => 2 + tier.modules.slice(0, i).reduce((n, m) => n + m.topics.length, 0));
   return (
-    <section data-sec="conteudo" className="border-y border-neutral-200 py-20 dark:border-neutral-800" style={GRID}>
+    <section data-sec="conteudo" className="sb-bleed border-y border-neutral-200 py-20 dark:border-neutral-800" style={GRID}>
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <FormulaHeading cell="✦ IA" fn="Conteúdo programático" title="O que você vai aprender" />
 

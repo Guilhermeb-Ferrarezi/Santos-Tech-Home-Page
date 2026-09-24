@@ -91,7 +91,7 @@ export function PowerAppsParaQuem({ course }: BlockProps) {
   const per = Math.ceil(items.length / 3);
   const screens = [0, 1, 2].map((s) => items.slice(s * per, s * per + per)).filter((s) => s.length > 0);
   return (
-    <section data-sec="para-quem" className="bg-neutral-100 py-20 dark:bg-neutral-900/50" style={DOTS}>
+    <section data-sec="para-quem" className="sb-bleed bg-neutral-100 py-20 dark:bg-neutral-900/50" style={DOTS}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FormulaHeading cell="Tela 1" fn="Para quem é" title="Este curso é ideal se você..." color={PA} />
         <div className="mt-12 grid gap-10 lg:grid-cols-3 lg:gap-8">
@@ -160,7 +160,7 @@ function Card({
 
 export function PowerAppsConteudo({ course, tier, selectedTier, onSelectTier, multiTier }: BlockProps) {
   return (
-    <section data-sec="conteudo" className="border-y border-neutral-200 py-20 dark:border-neutral-800" style={DOTS}>
+    <section data-sec="conteudo" className="sb-bleed border-y border-neutral-200 py-20 dark:border-neutral-800" style={DOTS}>
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <FormulaHeading cell="Fluxo" fn="Conteúdo programático" title="O que você vai aprender" color={PA} />
 

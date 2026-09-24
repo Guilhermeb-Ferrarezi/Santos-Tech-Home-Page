@@ -166,7 +166,7 @@ const FORMATOS: Formato[] = [
 
 export function CanvaAudience({ course, tema, theme }: AudienceProps) {
   return (
-    <section className={`overflow-hidden bg-[#efeaee] py-20 dark:bg-[#0f0d12] ${DOTS_LIGHT}`}>
+    <section className={`sb-bleed overflow-hidden bg-[#efeaee] py-20 dark:bg-[#0f0d12] ${DOTS_LIGHT}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-end gap-8 lg:grid-cols-[1.3fr_1fr]">
           <SectionHead n="01" label="Para quem é" video={false}>
@@ -325,7 +325,7 @@ export function CanvaContent({ course, logo, selectedTier, onSelectTier }: Conte
   const total = tier.modules.length;
 
   return (
-    <section id="conteudo" className="scroll-mt-4 bg-[#e9e5ec] py-20 dark:bg-[#141117]">
+    <section id="conteudo" className="sb-bleed scroll-mt-4 bg-[#e9e5ec] py-20 dark:bg-[#141117]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHead n="02" label="Conteúdo programático" video={false}>
           O que você vai <Picked>criar</Picked>

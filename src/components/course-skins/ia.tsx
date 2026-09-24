@@ -105,7 +105,7 @@ export function IaSkin(props: SkinProps) {
   return (
     <div className={PAGE}>
       {/* ── HERO: a caixa de mensagem é o CTA ─────────────────────────────── */}
-      <section className="relative isolate overflow-hidden bg-[#f4f0ff] dark:bg-(--hero-bg)">
+      <section className="sb-bleed relative isolate overflow-hidden bg-[#f4f0ff] dark:bg-(--hero-bg)">
         <div className="pointer-events-none absolute -right-32 -top-40 h-[560px] w-[560px] rounded-full bg-(--accent)/25 blur-3xl dark:bg-(--accent)/30" />
         <div className="pointer-events-none absolute -bottom-48 -left-24 h-[460px] w-[460px] rounded-full bg-(--accent-2)/20 blur-3xl dark:bg-(--accent-2)/12" />
         <div className="pointer-events-none absolute left-1/3 top-10 h-[260px] w-[260px] rounded-full bg-sky-300/20 blur-3xl dark:bg-sky-500/10" />

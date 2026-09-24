@@ -70,7 +70,7 @@ function ChatScreen({ theme, x, y, w, h }: { theme: CourseTheme; x: number; y: n
 
 export function ChatAudience({ course, theme, tema, whatsappUrl, verConteudo }: IaBlockProps) {
   return (
-    <section id="para-quem-ia" className="py-20">
+    <section id="para-quem-ia" className="sb-bleed py-20">
       <div className="mx-auto grid max-w-7xl items-start gap-12 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.25fr] lg:px-8">
         <div className="lg:sticky lg:top-10">
           <Heading eyebrow="Para quem é" title="Pergunte ao chat se o curso é pra você" sub="A resposta abaixo reúne as situações mais comuns de quem chega até nós procurando este curso." />
@@ -240,7 +240,7 @@ export function ChatProgram(props: IaBlockProps) {
   const tier = props.course.tiers[props.selectedTier];
   const multiTier = props.course.tiers.length > 1;
   return (
-    <section id="conteudo-ia" className={`scroll-mt-6 border-y ${BORDER} ${PANEL} py-20`}>
+    <section id="conteudo-ia" className={`sb-bleed scroll-mt-6 border-y ${BORDER} ${PANEL} py-20`}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <Heading
           center

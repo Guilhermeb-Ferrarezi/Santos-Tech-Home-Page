@@ -111,7 +111,7 @@ const COMMENT = "Se você se reconheceu em pelo menos um item, este curso foi pe
 export function WordParaQuem({ course }: BlockProps) {
   const items = course.targetAudience;
   return (
-    <section data-sec="para-quem" className="bg-neutral-100 py-20 dark:bg-neutral-900/50">
+    <section data-sec="para-quem" className="sb-bleed bg-neutral-100 py-20 dark:bg-neutral-900/50">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <StyleGallery active="Marcadores" />
@@ -184,7 +184,7 @@ export function WordConteudo({ course, tier, selectedTier, onSelectTier, multiTi
   };
 
   return (
-    <section data-sec="conteudo" className="border-y border-neutral-200 py-20 dark:border-neutral-800" style={RULED}>
+    <section data-sec="conteudo" className="sb-bleed border-y border-neutral-200 py-20 dark:border-neutral-800" style={RULED}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <FormulaHeading cell="Título 1" fn="Conteúdo programático" title="O que você vai aprender" color={W} />
 

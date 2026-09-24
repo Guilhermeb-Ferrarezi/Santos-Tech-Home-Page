@@ -49,7 +49,7 @@ function MapaScreen({ theme, box }: { theme: CourseTheme; box: { x: number; y: n
 
 export function RedesPublico({ course, theme, tema }: TiBlockProps) {
   return (
-    <section className="py-20">
+    <section className="sb-bleed py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-end gap-8 md:grid-cols-[1fr_300px]">
           <SectionHead n="01" label="Para quem é" title="Este curso é ideal se você...">
@@ -144,7 +144,7 @@ export function RedesConteudo(props: TiBlockProps) {
   const total = tier.modules.length;
 
   return (
-    <section className="bg-white py-20 dark:bg-[#081210]">
+    <section className="sb-bleed bg-white py-20 dark:bg-[#081210]">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHead n="02" label="Conteúdo programático" title="O que você vai aprender">
           A rota até o objetivo tem {total} saltos. Cada módulo é um roteador no caminho, e o pacote só chega ao destino passando por todos.

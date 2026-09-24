@@ -220,7 +220,7 @@ export function MarketingSkin({ course, tema, theme, logo, whatsappUrl, selected
   return (
     <div className={`${DOT_VARS} bg-white dark:bg-[#100a0c]`}>
       {/* ── HERO: a campanha ──────────────────────────────────────────────── */}
-      <section className="relative isolate overflow-hidden bg-(--hero-bg) text-white">
+      <section className="sb-bleed relative isolate overflow-hidden bg-(--hero-bg) text-white">
         {/* Gráfico de alcance subindo ao fundo */}
         <svg viewBox="0 0 1440 600" preserveAspectRatio="none" className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true">
           {[120, 240, 360, 480].map((y) => (

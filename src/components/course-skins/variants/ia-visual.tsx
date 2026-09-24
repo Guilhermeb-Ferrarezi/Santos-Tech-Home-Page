@@ -245,7 +245,7 @@ export function VisualAudience({ course, theme, tema }: IaBlockProps) {
     </div>
   );
   return (
-    <section id="para-quem-ia" className="py-20">
+    <section id="para-quem-ia" className="sb-bleed py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Celular e tablet: título e depois os cartões em ordem */}
         <div className="grid gap-5 sm:grid-cols-2 lg:hidden">
@@ -459,7 +459,7 @@ function Geracoes({ course, selectedTier }: IaBlockProps) {
 export function VisualProgram(props: IaBlockProps) {
   const tier = props.course.tiers[props.selectedTier];
   return (
-    <section id="conteudo-ia" className={`scroll-mt-6 border-y ${BORDER} ${PANEL} py-20`}>
+    <section id="conteudo-ia" className={`sb-bleed scroll-mt-6 border-y ${BORDER} ${PANEL} py-20`}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <Heading
           center

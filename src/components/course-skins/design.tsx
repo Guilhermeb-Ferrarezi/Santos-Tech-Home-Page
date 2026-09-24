@@ -189,7 +189,7 @@ export function DesignSkin({ course, tema, theme, logo, whatsappUrl, selectedTie
   return (
     <div className="bg-[#faf8f9] text-[#1f1a24] dark:bg-[#121014] dark:text-white">
       {/* ── HERO ───────────────────────────────────────────────────────────── */}
-      <section className="relative isolate overflow-hidden bg-(--hero-bg) text-white">
+      <section className="sb-bleed relative isolate overflow-hidden bg-(--hero-bg) text-white">
         <div className="pointer-events-none absolute inset-0" style={DOTS_DARK} />
         <div className="pointer-events-none absolute -right-40 -top-32 h-[560px] w-[560px] rounded-full bg-(--accent)/25 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-48 -left-24 h-[420px] w-[420px] rounded-full bg-(--accent-2)/10 blur-3xl" />
