@@ -218,7 +218,7 @@ export function MarketingSkin({ course, tema, theme, logo, whatsappUrl, selected
   const irParaConteudo = () => document.getElementById("conteudo-programatico")?.scrollIntoView({ behavior: "smooth", block: "start" });
 
   return (
-    <div className={`${DOT_VARS} bg-white dark:bg-[#100a0c]`}>
+    <div className={`sb-bleed ${DOT_VARS} bg-white dark:bg-[#100a0c]`}>
       {/* ── HERO: a campanha ──────────────────────────────────────────────── */}
       <section className="sb-bleed relative isolate overflow-hidden bg-(--hero-bg) text-white">
         {/* Gráfico de alcance subindo ao fundo */}

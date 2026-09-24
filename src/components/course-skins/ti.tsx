@@ -91,13 +91,13 @@ export function TiSkin({ course, tema, theme, logo, whatsappUrl, selectedTier, o
   const blocoProps = { course, tier, tema, theme, multiTier, selectedTier, onSelectTier, metricas };
 
   return (
-    <div className="bg-[#f3f6f5] text-[#0b1412] dark:bg-[#060e0c] dark:text-white">
+    <div className="sb-bleed bg-[#f3f6f5] text-[#0b1412] dark:bg-[#060e0c] dark:text-white">
       {/* ── HERO ───────────────────────────────────────────────────────────── */}
       <section className="sb-bleed relative isolate overflow-hidden bg-(--hero-bg) text-white">
         <div className="pointer-events-none absolute -right-48 -top-40 h-[560px] w-[560px] rounded-full bg-(--accent)/25 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-48 left-1/4 h-[380px] w-[380px] rounded-full bg-(--accent-2)/[0.07] blur-3xl" />
         {/* Trilhos do rack nas laterais */}
-        <RackRail count={12} className="absolute inset-y-0 left-0 hidden w-7 border-r border-white/5 bg-black/20 xl:flex" />
+        <RackRail count={12} className="sb-edge absolute inset-y-0 left-0 hidden w-7 border-r border-white/5 bg-black/20 xl:flex" />
         <RackRail count={12} className="absolute inset-y-0 right-0 hidden w-7 border-l border-white/5 bg-black/20 xl:flex" />
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pb-16 pt-14 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:px-10 lg:pb-20 lg:pt-20">

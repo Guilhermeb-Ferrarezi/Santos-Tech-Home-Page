@@ -335,3 +335,97 @@
     .rarity-badge::after { animation: none; opacity: 0; }
   }
 }
+
+/* ── /particular: sidebar fundida com a página (telas ≥ lg) ───────────────────
+   A sidebar não tem fundo próprio: o fundo real da página passa por trás dela e só
+   os traços (borda e divisores) separam. Fora de @layer de propósito — estas regras
+   precisam vencer as utilities do Tailwind (fundo branco do aside, cores neutras).
+   O layout (src/routes/particular.tsx) liga `data-fusion` no aside e marca cada
+   texto/ícone com `data-tone`: o tom do fundo que está exatamente atrás dele. */
+#particular-sidebar[data-fusion] {
+  --sb-line: rgb(128 128 128 / 0.32);
+  background: transparent;
+  border-right-color: var(--sb-line);
+}
+/* .sb-divider = linha de 1px (o fundo É a linha) · .sb-border = container que só tem borda.
+   Separados de propósito: pintar fundo num container vira um painel por trás do menu. */
+#particular-sidebar[data-fusion] .sb-divider { background-color: var(--sb-line); }
+#particular-sidebar[data-fusion] .sb-border { border-color: var(--sb-line); }
+#particular-sidebar[data-fusion] [data-tone="dark"] {
+  --sb-fg: #fff;
+  --sb-fg-soft: rgb(255 255 255 / 0.8);
+  --sb-hover-bg: rgb(255 255 255 / 0.1);
+  --sb-accent-ink: color-mix(in oklab, var(--accent) 50%, white);
+  --sb-halo: rgb(0 0 0 / 0.6);
+}
+#particular-sidebar[data-fusion] [data-tone="light"] {
+  --sb-fg: #171717;
+  --sb-fg-soft: rgb(23 23 23 / 0.8);
+  --sb-hover-bg: rgb(23 23 23 / 0.06);
+  --sb-accent-ink: color-mix(in oklab, var(--accent) 58%, black);
+  --sb-halo: rgb(255 255 255 / 0.75);
+}
+/* Halo colado nas letras, na cor oposta ao texto: sobre fundo uniforme some (tem a cor do
+   próprio fundo); só aparece quando um item cruza a divisa entre um fundo escuro e um
+   claro — aí é ele que mantém o texto legível dos dois lados. */
+#particular-sidebar[data-fusion] [data-tone] {
+  text-shadow:
+    0 0 1px var(--sb-halo),
+    0 0 3px var(--sb-halo);
+}
+#particular-sidebar[data-fusion] svg[data-tone] {
+  filter: drop-shadow(0 0 1px var(--sb-halo));
+}
+#particular-sidebar[data-fusion] .sb-fg[data-tone] { color: var(--sb-fg); }
+#particular-sidebar[data-fusion] .sb-fg-soft[data-tone] { color: var(--sb-fg-soft); }
+#particular-sidebar[data-fusion] .sb-accent[data-tone] { color: var(--sb-accent-ink); }
+#particular-sidebar[data-fusion] .sb-hover[data-tone]:hover {
+  background-color: var(--sb-hover-bg);
+  color: var(--sb-fg);
+}
+/* Rolagem do menu sem trilho: só o polegar, fino e neutro, por cima do fundo da página. */
+#particular-sidebar[data-fusion] nav {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(128 128 128 / 0.45) transparent;
+}
+
+/* `--sbw` = largura da sidebar que o conteúdo precisa "atravessar": a largura atual
+   (--sb-width, do layout de /particular) em telas ≥ lg; 0 abaixo disso (sidebar vira
+   gaveta) e fora do layout. Quem usa --sbw fora de media query fica seguro no celular. */
+.sb-layout { --sbw: 0px; }
+@media (min-width: 1024px) {
+  .sb-layout { --sbw: var(--sb-width, 0px); }
+}
+
+/* Vazamento por baixo da sidebar.
+   .sb-bleed      — elemento com fundo e conteúdo (seção, faixa com texto): a caixa vai até
+                    a borda esquerda e o padding-left devolve o conteúdo pro mesmo lugar.
+                    Se o elemento já tem padding-left próprio, informe em --sb-pl.
+   .sb-bleed-full — decoração pura (onda/degrau em SVG): só estica até a borda.
+   .sb-inset      — faixa absoluta de largura total (inset-x-0) com texto: a faixa já passa
+                    por baixo da sidebar, só o conteúdo dela é empurrado de volta (--sb-pl =
+                    padding-left original em lg).
+   .sb-edge       — ornamento absoluto ancorado à esquerda dentro de algo que vazou: volta
+                    pra borda do conteúdo em vez de ficar embaixo do menu (--sb-edge-left
+                    soma o deslocamento original, ex.: left-4). */
+@media (min-width: 1024px) {
+  .sb-bleed,
+  .sb-bleed-full {
+    margin-left: calc(-1 * var(--sbw, 0px));
+    width: calc(100% + var(--sbw, 0px));
+    transition:
+      margin-left 0.3s ease-in-out,
+      padding-left 0.3s ease-in-out,
+      width 0.3s ease-in-out;
+  }
+  .sb-bleed,
+  .sb-inset {
+    padding-left: calc(var(--sbw, 0px) + var(--sb-pl, 0px));
+  }
+  .sb-inset {
+    transition: padding-left 0.3s ease-in-out;
+  }
+  .sb-edge {
+    left: calc(var(--sbw, 0px) + var(--sb-edge-left, 0px));
+  }
+}

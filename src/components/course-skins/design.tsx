@@ -97,7 +97,7 @@ function Cta({ href, children }: { href: string; children: ReactNode }) {
 function Ruler() {
   return (
     <div
-      className="absolute inset-x-0 top-0 h-5 border-b border-white/10 bg-white/[0.03]"
+      className="sb-edge absolute inset-x-0 top-0 h-5 border-b border-white/10 bg-white/[0.03]"
       style={{
         backgroundImage:
           "linear-gradient(90deg, rgba(255,255,255,0.28) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.14) 1px, transparent 1px)",
@@ -127,7 +127,7 @@ function PaletteBand() {
     { flex: 1.4, label: "0%", dark: true, checker: true },
   ];
   return (
-    <div className="relative flex h-9 sm:h-11" aria-hidden="true">
+    <div className="sb-bleed relative flex h-9 sm:h-11 lg:bg-(--accent)" aria-hidden="true">
       {blocks.map((b) => (
         <div
           key={b.label}
@@ -153,9 +153,9 @@ function TimelineBand() {
     { f: 2.6, c: "var(--accent)" },
   ];
   return (
-    <div className="relative bg-[#0e0c11]" aria-hidden="true">
+    <div className="sb-bleed relative bg-[#0e0c11]" aria-hidden="true">
       <div
-        className="h-3 border-b border-white/10"
+        className="sb-bleed h-3 border-b border-white/10"
         style={{
           backgroundImage:
             "linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px)",
@@ -164,12 +164,14 @@ function TimelineBand() {
           backgroundRepeat: "repeat-x",
         }}
       />
-      <div className="flex h-7 gap-[3px] px-[3px] py-1 sm:h-8">
+      {/* A faixa escura passa por baixo da sidebar; a trilha de clipes começa na borda do
+          conteúdo, como num editor (data-sb-edge: borda intencional). */}
+      <div className="flex h-7 gap-[3px] px-[3px] py-1 sm:h-8" data-sb-edge="">
         {clips.map((c, i) => (
           <span key={i} className="rounded-[3px] opacity-90" style={{ flex: c.f, background: c.c }} />
         ))}
       </div>
-      <span className="absolute -top-1 bottom-0 left-[38%] w-0.5 bg-white">
+      <span className="absolute -top-1 bottom-0 left-[38%] w-0.5 bg-white lg:left-[calc(38%+0.62*var(--sbw,0px))]">
         <span className="absolute -left-[5px] top-0 h-2.5 w-3 rounded-sm bg-white" />
       </span>
     </div>
@@ -187,14 +189,14 @@ export function DesignSkin({ course, tema, theme, logo, whatsappUrl, selectedTie
   const { Scene, Audience, Content } = variante;
 
   return (
-    <div className="bg-[#faf8f9] text-[#1f1a24] dark:bg-[#121014] dark:text-white">
+    <div className="sb-bleed bg-[#faf8f9] text-[#1f1a24] dark:bg-[#121014] dark:text-white">
       {/* ── HERO ───────────────────────────────────────────────────────────── */}
       <section className="sb-bleed relative isolate overflow-hidden bg-(--hero-bg) text-white">
         <div className="pointer-events-none absolute inset-0" style={DOTS_DARK} />
         <div className="pointer-events-none absolute -right-40 -top-32 h-[560px] w-[560px] rounded-full bg-(--accent)/25 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-48 -left-24 h-[420px] w-[420px] rounded-full bg-(--accent-2)/10 blur-3xl" />
         {video ? (
-          <div className="absolute inset-x-0 top-0 flex h-6 items-center gap-4 border-b border-white/10 bg-black/30 px-4 font-mono text-[10px] text-white/45 sm:px-6 lg:px-8">
+          <div className="sb-inset absolute inset-x-0 top-0 flex h-6 items-center gap-4 border-b border-white/10 bg-black/30 px-4 font-mono text-[10px] text-white/45 [--sb-pl:2rem] sm:px-6 lg:px-8">
             <span className="flex items-center gap-1.5 text-[#ff5a5f]">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#ff5a5f]" /> REC
             </span>
