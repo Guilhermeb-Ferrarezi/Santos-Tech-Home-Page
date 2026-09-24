@@ -33,52 +33,24 @@ const COURSE_DATA = {
   ],
   tiers: [
     {
-      levelName: "Essencial",
-      totalHours: "24h",
-      outcome:
-        "Usar Excel com segurança no trabalho: fórmulas avançadas, tabelas dinâmicas e dashboards visuais que comunicam resultados",
-      modules: [
-        {
-          title: "Excel no Trabalho Real",
-          topics: [
-            "Atalhos de teclado e navegação eficiente que economizam horas por semana",
-            "Formatação condicional com regras personalizadas e semáforos visuais",
-            "Validação de dados: listas suspensas, restrições por tipo e mensagens de erro",
-            "Referências absolutas, relativas e mistas — o erro que todo iniciante comete",
-            "Fórmulas essenciais: SOMA, MÉDIA, CONT.SE, SOMASE, CONT.SES, MÍNIMO, MÁXIMO",
-          ],
-        },
-        {
-          title: "Funções de Busca e Análise de Dados",
-          topics: [
-            "PROCV e PROCX: diferença, limitações e quando usar cada um",
-            "ÍNDICE + CORRESP: busca bidirecional sem as restrições do PROCV",
-            "Funções de texto: CONCATENAR, ESQUERDA, DIREITA, EXT.TEXTO, ARRUMAR, SUBSTITUIR",
-            "Funções de data: HOJE, DATEDIF, DIA.DA.SEMANA, FIMMÊS, DIAS.ÚTEIS",
-            "Tratamento de erros com SEERRO e SE aninhado para relatórios limpos",
-          ],
-        },
-        {
-          title: "Tabelas Dinâmicas e Análise Visual",
-          topics: [
-            "Criando tabelas dinâmicas a partir de bases de dados reais",
-            "Segmentação de dados (Slicers) e linha do tempo para filtros visuais",
-            "Campos calculados, agrupamentos por data e percentuais automáticos",
-            "Gráficos dinâmicos vinculados: barras, linhas, pizza e combinados",
-            "Dashboard de uma página: KPIs, gráficos e segmentações integrados",
-          ],
-        },
-      ],
-      tools: ["Microsoft Excel 365", "OneDrive"],
-    },
-    {
-      levelName: "Intermediário",
+      levelName: "Excel + Power BI",
       totalHours: "48h",
       outcome:
-        "Conectar Excel e Power BI através do Power Query, modelar dados corretamente e criar dashboards executivos com DAX básico publicados no Power BI Service",
+        "Dominar Excel e Power BI como uma trilha só: do zero em fórmulas e tabelas dinâmicas até Power Query, modelagem em Star Schema, DAX avançado, VBA e governança com Row-Level Security no Power BI Service — incluindo os recursos de IA do Copilot — pronto para transformar planilhas soltas em dashboards executivos de verdade.",
       modules: [
         {
-          title: "Power Query — A Tecnologia que Une os Dois Programas",
+          title: "Excel para Análise de Dados",
+          topics: [
+            "Atalhos de teclado, formatação condicional e validação de dados para planilhas profissionais",
+            "Referências absolutas, relativas e mistas — a base de qualquer fórmula robusta",
+            "Fórmulas essenciais: SOMA, MÉDIA, CONT.SE, SOMASE, SEERRO, e as funções de texto e data mais usadas no dia a dia",
+            "PROCV, PROCX e ÍNDICE + CORRESP: busca de dados sem as limitações do PROCV clássico",
+            "Tabelas dinâmicas: criação a partir de bases reais, segmentação (Slicers), campos calculados e gráficos dinâmicos",
+            "Dashboard de uma página no Excel: KPIs e segmentações integradas — a ponte antes de migrar pro Power BI",
+          ],
+        },
+        {
+          title: "Power Query — Conectando e Limpando Dados",
           topics: [
             "O que é o Power Query e por que ele existe no Excel e no Power BI",
             "Conectando a CSV, Excel, JSON, SQL Server e SharePoint",
@@ -88,7 +60,7 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "Modelagem de Dados — A Base de Tudo",
+          title: "Modelagem de Dados e Star Schema",
           topics: [
             "Por que o modelo estrela (Star Schema) é obrigatório no Power BI",
             "Relacionamentos entre tabelas: tabelas fato, dimensão e o papel de cada uma",
@@ -108,107 +80,35 @@ const COURSE_DATA = {
           ],
         },
         {
-          title: "DAX Essencial — A Linguagem de Análise",
+          title: "DAX Essencial e Projeto Integrado",
           topics: [
             "Diferença entre coluna calculada e medida: o erro mais comum de iniciantes",
-            "CALCULATE: a função mais poderosa do DAX explicada do zero com exemplos reais",
-            "Funções de agregação: SUM, AVERAGE, COUNTROWS, DISTINCTCOUNT",
-            "ALL, FILTER e RELATED para controlar contexto de filtro",
+            "CALCULATE: a função mais poderosa do DAX, explicada do zero com exemplos reais",
+            "Funções de agregação e contexto de filtro: SUM, AVERAGE, DISTINCTCOUNT, ALL, FILTER, RELATED",
             "KPIs com metas, variação percentual e semáforos dinâmicos",
-          ],
-        },
-        {
-          title: "Projeto Integrado — Excel como Fonte, Power BI como Tela",
-          topics: [
-            "Construindo uma base de dados real no Excel e tratando com Power Query",
-            "Importando para o Power BI e montando o modelo estrela completo",
-            "Criando 10 medidas DAX para análise de vendas ou resultados financeiros",
+            "Projeto integrado: base de dados real tratada no Power Query, modelo estrela completo e 10 medidas DAX de vendas ou financeiro",
             "Dashboard executivo com drill-down, tooltips personalizados e bookmarks",
-            "Publicação, agendamento de atualização automática e distribuição para a equipe",
+          ],
+        },
+        {
+          title: "Módulo Avançado — VBA, Governança e IA",
+          topics: [
+            "VBA: gravador de macros, variáveis, condicionais, loops e UserForms para automatizar relatórios sem intervenção manual",
+            "DAX avançado: contexto de linha vs contexto de filtro, inteligência de tempo (YTD, MTD, SAMEPERIODLASTYEAR), variáveis DAX (VAR) e otimização com DAX Studio",
+            "Power BI Service — governança: Row-Level Security (RLS), gateway de dados on-premise e workspaces por departamento",
+            "Python e Copilot no ecossistema Excel + Power BI: pandas no Excel e Copilot gerando fórmulas, análises e medidas DAX por linguagem natural",
+            "Power Automate: fluxos automáticos entre Excel, Power BI, e-mail e Teams disparados por mudança de dados",
+            "Projeto final: solução de analytics completa (Excel → Power Query → Power BI) publicada com RLS, gateway e atualização automática",
           ],
         },
       ],
       tools: [
         "Microsoft Excel 365",
+        "OneDrive",
         "Power Query",
         "Power BI Desktop",
         "Power BI Service",
-      ],
-    },
-    {
-      levelName: "Profissional + IA",
-      totalHours: "72h",
-      outcome:
-        "Dominar VBA, DAX avançado e Power BI Service com governança; integrar Python e Copilot; entregar uma solução de analytics completa do zero ao deploy com RLS e atualização automática",
-      modules: [
-        {
-          title: "Excel Profissional — VBA e Automação",
-          topics: [
-            "Gravador de macros e navegação no Editor VBA",
-            "Variáveis, condicionais (If/Then) e loops (For Each / For Next) na prática",
-            "UserForms: criando formulários de entrada de dados personalizados",
-            "Automatizando relatórios: abrir, processar, salvar e distribuir arquivos via código",
-            "Integrando VBA com tabelas dinâmicas e Power Query para relatórios sem intervenção manual",
-          ],
-        },
-        {
-          title: "DAX Avançado e Inteligência de Tempo",
-          topics: [
-            "Contexto de linha vs contexto de filtro: entendendo a fundo com casos reais",
-            "Funções de inteligência temporal: YTD, MTD, QTD, SAMEPERIODLASTYEAR",
-            "Variáveis DAX (VAR) para fórmulas legíveis, reutilizáveis e mais rápidas",
-            "SWITCH dinâmico para seleção de métricas por parâmetro de campo",
-            "Análise de Pareto, ranking ABC, crescimento acumulado e análise de coorte",
-            "Otimização de DAX com DAX Studio: encontrando gargalos de performance",
-          ],
-        },
-        {
-          title: "Power BI Service — Governança e Colaboração",
-          topics: [
-            "Workspaces, aplicativos e permissões de acesso por departamento",
-            "Row-Level Security (RLS): cada usuário vê apenas os próprios dados",
-            "Gateway de dados on-premise para atualizar fontes internas automaticamente",
-            "Assinaturas automáticas e exportação programada de relatórios por e-mail",
-            "Lineage view: rastreando impacto de qualquer mudança no modelo de dados",
-          ],
-        },
-        {
-          title: "Python e IA no Ecossistema Excel + Power BI",
-          topics: [
-            "Python no Excel (Microsoft 365): pandas e matplotlib dentro da própria planilha",
-            "Scripts Python no Power Query do Power BI para transformações avançadas",
-            "Copilot no Excel: gerando fórmulas, análises e gráficos por linguagem natural",
-            "Copilot no Power BI: criando relatórios e medidas DAX por linguagem natural",
-            "ChatGPT como assistente de DAX e VBA: escrever, revisar e otimizar código",
-          ],
-        },
-        {
-          title: "Power Automate — Fluxos entre Excel e Power BI",
-          topics: [
-            "Acionando fluxos automáticos quando dados mudam no Excel ou SharePoint",
-            "Enviando alertas e snapshots de dashboards do Power BI por e-mail e Teams",
-            "Conectando Power BI com Forms, SharePoint Lists e outras fontes Microsoft",
-            "Automatizando o ciclo completo: extração, transformação e distribuição de dados",
-          ],
-        },
-        {
-          title: "Projeto Final — Solução de Analytics do Zero ao Deploy",
-          topics: [
-            "Definindo o escopo: vendas, financeiro, RH ou operações",
-            "Arquitetura da solução: Excel (Bronze) → Power Query (Prata) → Power BI (Ouro)",
-            "Desenvolvimento de 20+ medidas DAX com documentação técnica",
-            "Dashboard executivo + relatório operacional na mesma solução",
-            "Publicação com RLS, gateway, atualização automática e distribuição por área",
-            "Apresentação e defesa das escolhas técnicas de modelagem e DAX",
-          ],
-        },
-      ],
-      tools: [
-        "Microsoft Excel 365",
-        "Power Query",
         "VBA Editor",
-        "Power BI Desktop",
-        "Power BI Service",
         "DAX Studio",
         "Python (Microsoft 365)",
         "Microsoft Copilot",
@@ -220,7 +120,7 @@ const COURSE_DATA = {
   faqItems: [
     {
       q: "Não sei se tenho Excel suficiente pra aprender Power BI. Serve pra mim?",
-      a: "Sim — é exatamente pra isso que o curso existe. O nível Essencial fecha as lacunas de Excel (fórmulas, tabelas dinâmicas, dashboards) antes de entrar no Power Query e no Power BI no Intermediário, então você não precisa chegar sabendo Power BI, só sair sabendo.",
+      a: "Sim — é exatamente pra isso que o curso existe. As primeiras aulas fecham as lacunas de Excel (fórmulas, PROCV/PROCX, tabelas dinâmicas) antes de entrar no Power Query e no Power BI, então você não precisa chegar sabendo Power BI, só sair sabendo.",
     },
     {
       q: "Qual a diferença entre esse curso e um curso comum de Power BI?",
@@ -228,7 +128,7 @@ const COURSE_DATA = {
     },
     {
       q: "O curso ensina modelagem de dados de verdade, ou só a montar gráficos?",
-      a: "Ensina modelagem de verdade. Você aprende Star Schema, relacionamentos entre tabelas fato e dimensão, DAX do básico ao avançado com inteligência de tempo, e no nível Profissional + IA ainda entra Row-Level Security e governança no Power BI Service — não é só arrastar campo pra gráfico.",
+      a: "Ensina modelagem de verdade. Você aprende Star Schema, relacionamentos entre tabelas fato e dimensão, DAX do básico ao avançado com inteligência de tempo, e o curso ainda entra em Row-Level Security e governança no Power BI Service — não é só arrastar campo pra gráfico.",
     },
   ],
 }

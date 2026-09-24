@@ -33,10 +33,10 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      levelName: "Essencial",
-      totalHours: "24h",
+      levelName: "Excel + IA",
+      totalHours: "48h",
       outcome:
-        "Usar a IA como copiloto no dia a dia: gerar fórmulas, limpar dados e montar planilhas pedindo em português — sem travar.",
+        "Sair do zero e dominar a IA dentro do Excel e do Google Sheets — gerar fórmulas, limpar dados, analisar grandes bases com Python, delegar tarefas ao Agent Mode e usar Claude e ChatGPT dentro da planilha — até entregar um painel ou relatório automatizado real.",
       modules: [
         {
           title: "A IA dentro da planilha: primeiros passos",
@@ -69,84 +69,41 @@ const COURSE_DATA: CourseData = {
           ],
         },
         {
-          title: "Da planilha à apresentação: resumos e gráficos com IA",
+          title: "Copilot Agent Mode e Python no Excel: a IA no trabalho pesado",
           topics: [
-            "Pedindo à IA um resumo dos principais números de uma base",
-            "Gerando gráficos e tabelas dinâmicas descrevendo o que você quer ver",
-            "Identificando tendências e destaques automaticamente",
-            "Formatação condicional criada pela IA para destacar o que importa",
-            "Transformando uma análise em texto pronto para e-mail ou relatório",
+            "Do chat ao Agent Mode: Edit Mode, Plan Mode e Agent Mode — o Copilot planejando e executando tarefas de várias etapas",
+            "Revisando e auditando o que a IA mudou na planilha antes de confiar no resultado",
+            "O que é o Python no Excel e por que ele mudou o jogo",
+            "Pedindo análises em Python ao Copilot, em português, para transformar e cruzar grandes bases",
+            "Gerando gráficos avançados descrevendo o resultado esperado, e lendo o código quando precisar ajustar algo",
+          ],
+        },
+        {
+          title: "IA em escala, Claude e ChatGPT dentro da planilha",
+          topics: [
+            "A função =AI() e ferramentas como Numerous.ai e GPT for Work: aplicando IA em milhares de linhas de uma vez",
+            "Classificando, extraindo e organizando dados de textos livres (e-mails, respostas, descrições) automaticamente",
+            "Controle de custo e de limites ao rodar IA em lote",
+            "Claude for Excel: lendo planilhas multi-aba com citação célula a célula e auditando erros e premissas escondidas",
+            "ChatGPT for Excel: criando e limpando planilhas pela barra lateral",
+            "Quando usar cada assistente — forças e limites do Copilot, Claude e ChatGPT, preservando fórmulas ao deixar a IA editar",
+          ],
+        },
+        {
+          title: "Do dado ao resultado: resumos, gráficos, Google Sheets e projeto final",
+          topics: [
+            "Pedindo à IA um resumo dos principais números de uma base e identificando tendências automaticamente",
+            "Gerando gráficos, tabelas dinâmicas e formatação condicional descrevendo o que você quer ver",
+            "Transformando uma análise em texto, e-mail, relatório ou apresentação pronta, com um pedido em português",
+            "Gemini no Google Sheets: construindo planilhas, dashboards e insights inteiros a partir de uma conversa",
+            "A função =AI() no Google Sheets e a migração de análises entre Excel e Sheets",
+            "Projeto final: um painel ou relatório automatizado com IA, do dado bruto à apresentação",
           ],
         },
       ],
       tools: [
         "Microsoft Excel 365",
         "Copilot no Excel",
-        "Google Sheets",
-        "Gemini",
-        "ChatGPT",
-      ],
-    },
-    {
-      levelName: "Intermediário",
-      totalHours: "48h",
-      outcome:
-        "Fazer análise de dados de verdade com IA: Python por linguagem natural, IA em escala e auditoria de planilhas com Claude e ChatGPT.",
-      modules: [
-        {
-          title: "Copilot avançado: do chat ao Agent Mode",
-          topics: [
-            "Edit Mode: deixando o Copilot alterar a planilha por você, passo a passo",
-            "Plan Mode: revisando o plano da IA antes de executar",
-            "Agent Mode: delegando tarefas de várias etapas de uma vez",
-            "Entendendo e auditando as mudanças que o Copilot fez",
-            "Prompts avançados para tarefas complexas de planilha",
-          ],
-        },
-        {
-          title: "Python no Excel sem saber programar",
-          topics: [
-            "O que é o Python no Excel e por que ele mudou o jogo",
-            "Pedindo análises em Python ao Copilot, em português",
-            "Transformando e cruzando grandes bases com pandas (via IA)",
-            "Gerando gráficos avançados (matplotlib) descrevendo o resultado esperado",
-            "Lendo e ajustando o código que a IA gerou quando precisar",
-          ],
-        },
-        {
-          title: "IA em escala: classificar e extrair milhares de linhas",
-          topics: [
-            "A função =AI() na prática: aplicando IA célula a célula",
-            "Numerous.ai e GPT for Work: IA arrastável por milhares de linhas",
-            "Classificação automática: sentimento, categorias e prioridade",
-            "Extração de dados de textos livres (e-mails, respostas, descrições)",
-            "Controle de custo e de limites ao rodar IA em lote",
-          ],
-        },
-        {
-          title: "Claude e ChatGPT dentro da planilha",
-          topics: [
-            "Claude for Excel: lendo planilhas multi-aba com citação célula a célula",
-            "Auditoria de modelos: encontrando erros e premissas escondidas",
-            "ChatGPT for Excel: criando e limpando planilhas pela barra lateral",
-            "Quando usar cada assistente — forças e limitações de cada um",
-            "Preservando fórmulas e dependências ao deixar a IA editar",
-          ],
-        },
-        {
-          title: "Google Sheets + Gemini para quem vive na nuvem",
-          topics: [
-            "Gemini no Sheets: construindo planilhas inteiras a partir de uma conversa",
-            "A função =AI() no Google Sheets para texto e categorização",
-            "Dashboards e insights automáticos no Sheets",
-            "Colaboração em tempo real com IA em equipe",
-            "Migrando análises entre Excel e Google Sheets",
-          ],
-        },
-      ],
-      tools: [
-        "Microsoft Excel 365",
-        "Copilot (Agent Mode)",
         "Python no Excel",
         "Claude for Excel",
         "ChatGPT for Excel",
@@ -156,74 +113,6 @@ const COURSE_DATA: CourseData = {
         "GPT for Work",
       ],
     },
-    {
-      levelName: "Profissional + IA",
-      totalHours: "72h",
-      outcome:
-        "Desenhar e entregar fluxos de dados automatizados com IA: agentes, integração entre apps, automação de relatórios e um projeto final real.",
-      modules: [
-        {
-          title: "Fluxos agênticos: a IA trabalhando sozinha",
-          topics: [
-            "Delegando tarefas completas de planilha para agentes de IA",
-            "Encadeando etapas: coletar → limpar → analisar → apresentar",
-            "Reutilizando fluxos com Skills e prompts salvos",
-            "Supervisão humana: pontos de checagem e aprovação",
-            "Limites do modo agente e como evitar resultados errados",
-          ],
-        },
-        {
-          title: "Da análise ao slide: Excel + PowerPoint com IA",
-          topics: [
-            "Contexto compartilhado entre Excel e PowerPoint (Claude)",
-            "Gerando apresentações executivas a partir da sua análise",
-            "Relatórios em Word com dados da planilha via IA",
-            "Mantendo identidade visual e narrativa nos materiais gerados",
-            "Revisão final: o que a IA acerta e o que você precisa ajustar",
-          ],
-        },
-        {
-          title: "Conectando dados externos e APIs",
-          topics: [
-            "Trazendo dados de sistemas externos para a planilha",
-            "Conectores MCP: integrando a IA com suas fontes de dados",
-            "Consultando APIs e JSON com ajuda da IA (via Power Query)",
-            "Atualização automática de bases conectadas",
-            "Segurança e privacidade ao conectar dados sensíveis",
-          ],
-        },
-        {
-          title: "Automação de relatórios recorrentes",
-          topics: [
-            "Power Automate + IA: disparando planilhas e relatórios sozinhos",
-            "Rotinas mensais: da coleta ao envio automático por e-mail",
-            "Alertas inteligentes baseados em regras e IA",
-            "Documentando e versionando seus fluxos de automação",
-            "Governança: quem pode rodar, revisar e aprovar",
-          ],
-        },
-        {
-          title: "Projeto final: um fluxo de dados com IA de ponta a ponta",
-          topics: [
-            "Escolha do caso real: relatório de vendas, financeiro ou operacional",
-            "Desenho do fluxo: fontes, transformação, análise e entrega",
-            "Construção com Copilot, Python e agentes",
-            "Automação da atualização e da distribuição",
-            "Apresentação do resultado e checklist de qualidade da IA",
-          ],
-        },
-      ],
-      tools: [
-        "Microsoft Excel 365",
-        "Copilot (Agent Mode)",
-        "Python no Excel",
-        "Claude for Excel",
-        "ChatGPT for Excel",
-        "Power Automate",
-        "Power Query",
-        "MCP Connectors",
-      ],
-    },
   ],
   faqItems: [
     {
@@ -231,12 +120,8 @@ const COURSE_DATA: CourseData = {
       a: "Não. O curso não exige nem Excel avançado nem programação. A ideia é justamente deixar a IA (Copilot, Claude, ChatGPT) escrever fórmulas, gerar código Python e montar dashboards a partir de pedidos em português — você aprende a conduzir a IA, não a decorar sintaxe.",
     },
     {
-      q: "Qual a diferença entre os três níveis?",
-      a: "Essencial ensina a usar a IA como copiloto no dia a dia — gerar fórmulas, limpar dados e montar planilhas em português. Intermediário entra em Python no Excel sem programar, IA em escala (classificar milhares de linhas) e os assistentes Claude e ChatGPT dentro da planilha. Profissional + IA fecha com fluxos agênticos, integração com APIs externas e automação de relatórios recorrentes, terminando num projeto de dados real de ponta a ponta.",
-    },
-    {
       q: "Esse curso também serve pra quem usa Google Sheets, não só Excel?",
-      a: "Sim. Tem um módulo dedicado a Google Sheets com Gemini e a função =AI(), incluindo como migrar análises entre Excel e Sheets — então se você vive mais na nuvem do que no Excel, o conteúdo se aplica igual.",
+      a: "Sim. O curso cobre Google Sheets com Gemini e a função =AI(), incluindo como migrar análises entre Excel e Sheets — então se você vive mais na nuvem do que no Excel, o conteúdo se aplica igual.",
     },
   ],
 }

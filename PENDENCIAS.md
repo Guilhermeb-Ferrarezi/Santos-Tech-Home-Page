@@ -33,20 +33,36 @@
       óbvia. Revisar quando a conversão dos 39 cursos restantes avançar.
       _Aguardando Henrique._
 
-- [~] **Unificação de tiers em opção única — 20 de 47 cursos convertidos,
-      falta revisar a tabela de taxa técnica pros 27 restantes** (spec
-      completa em
+- [~] **Unificação de tiers em opção única — 28 de 47 cursos convertidos**
+      (spec completa em
       [`docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md`](docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md),
       PR #22/#24). **Feito:** Premiere (PR #20/#21, piloto), grupos T.I,
-      Universo 3D, Informática, Design & Criação e Marketing & Negócios —
-      100% migrados (PR #25/#26/#29/#30). Decidido em 23/09: `git` vira
-      técnico (110/h, sem mudar carga horária); `capcut` mantém 24h sem
-      nivelar; `mobile` unifica em React Native; `jogos` mantém Unity +
-      Godot juntos; `manutencao`/`impressao-3d` seguem curtos (24h).
-      **Falta:** Henrique revisar a tabela de taxa técnica (R$110-180/h)
-      pros 27 cursos restantes (Office, Inteligência Artificial,
-      Programação) — são sugestões da spec, não confirmadas.
-      _Aguardando Henrique._
+      Universo 3D, Informática, Design & Criação, Marketing & Negócios e
+      **Office** (8 cursos: Pacote Office, Excel Avançado, Excel + Power BI,
+      Excel + IA, Word Profissional, PowerPoint, Power BI, Power Apps +
+      Power Automate) — 100% migrados. Henrique confirmou a tabela de taxa
+      técnica (R$110-180/h) em 23/09: faixa aprovada como sugerida na spec,
+      cursos de IA (ia/agentes-ia/ia-visual/typescript) formalizados em
+      109,90/h com RAG subindo pra 115/h, e Pacote Office mantém-se símples
+      sem Power BI/Copilot (esse conteúdo já tem curso dedicado). Decidido
+      em 23/09 (itens anteriores): `git` vira técnico (110/h, sem mudar
+      carga horária); `capcut` mantém 24h sem nivelar; `mobile` unifica em
+      React Native; `jogos` mantém Unity + Godot juntos; `manutencao`/
+      `impressao-3d` seguem curtos (24h).
+      **Achado durante a conversão do Office:** a pele visual de 2 cursos
+      (`planilha-excel-ia.tsx`, `planilha-power-apps.tsx`) exibia texto tipo
+      "conversa do nível {tier.levelName}" sem checar `multiTier` — com o
+      curso em tier único, o texto saía "conversa do nível Excel + IA".
+      Corrigido nos mesmos commits da conversão (guard `multiTier`, mesmo
+      padrão já usado em `ti-suporte.tsx`). O padrão mais leve e disseminado
+      que isso apontou — rótulos genéricos como "Ao final deste nível" em
+      vários `course-skins/variants/*`, sem nome de curso injetado, mas
+      ainda pressupondo múltiplos níveis — foi resolvido em sessão separada
+      logo em seguida (ver item na seção "Resolvidas" abaixo).
+      **Falta:** Inteligência Artificial (6 cursos) e Programação (13
+      cursos, `git` já resolvido à parte).
+      _Sem pendência aberta com o Henrique neste item — próximo passo é
+      técnico (converter os 2 grupos restantes)._
 
 - [ ] **`ia-geral.tsx` (pele "Conversa com a IA", componente `Trilha`) tem uma
       sub-legenda ("Cada nível é uma etapa da trilha...") e um visual de
@@ -119,13 +135,27 @@
       nunca tinha sido instalado (`node_modules` não existia; script
       `generate-og-images.mjs` falhava com `ERR_MODULE_NOT_FOUND` por causa
       disso, não por causa da mudança). Restaurei `public/og/**` e
-      `public/og-image.png` depois do build (efeito colateral conhecido, ver
-      memória). Verificado visualmente no `bun run dev`: `/particular/
-      cursos/funil-vendas` (já convertido pra plano único) mostra "…termina
-      no resultado do curso" corretamente; `/particular/cursos/excel-ia` e
-      `/particular/cursos/power-apps` (ainda multi-tier) continuam mostrando
-      "conversa do nível Essencial" / "Quando você começa o nível Essencial"
-      sem nenhuma mudança de comportamento.
+      `public/og-image.png` depois de cada build (efeito colateral
+      conhecido, ver memória). No meio da sessão o `master` andou (PR #42,
+      grupo Office inteiro convertido pra plano único) e trouxe conflito
+      real em `planilha-excel-ia.tsx` e `planilha-power-apps.tsx` — a outra
+      sessão tinha corrigido, nos mesmos 2 arquivos, exatamente o mesmo bug
+      grave que essa varredura também pegou (`multiTier ? "…nível
+      {tier.levelName}" : "…curso"`, palavra por palavra igual em
+      `planilha-power-apps.tsx`), o que valida a correção; resolvido
+      mantendo a versão desta sessão pra a `<span>` de "conversa do
+      nível/curso" (fica consistente com "Resumo do nível/curso" duas
+      linhas abaixo, no mesmo arquivo, em vez de esconder a legenda
+      inteira). `bun run lint`/`build` rodados de novo depois do merge,
+      ainda limpos. Verificado visualmente no `bun run dev` **depois do
+      merge**: `/particular/cursos/funil-vendas`, `/particular/cursos/
+      office`, `/particular/cursos/power-bi`, `/particular/cursos/
+      powerpoint`, `/particular/cursos/excel-ia` e `/particular/cursos/
+      power-apps` (todos já plano único, os 2 últimos convertidos pelo PR
+      #42 que chegou no meio desta sessão) mostram a versão "curso" em cada
+      rótulo; `/particular/cursos/chatgpt` (ainda multi-tier) continua
+      mostrando "ao final do nível Essencial" / "Troque o nível no seletor
+      de modelo" sem nenhuma mudança de comportamento.
 
 - [x] **Copywriting mencionava "revisão em grupo" no projeto final e no
       FAQ** — pendência aberta em 23/09 durante a conversão do curso pra
