@@ -35,6 +35,23 @@
 
 ## Resolvidas
 
+- [x] **Card de investimento: parcela em destaque lia ambíguo, e a cláusula
+      do boleto tinha sumido de todas as 52 páginas** — achado pelo
+      Henrique revisando o card ao vivo (PR #49). Dois problemas
+      distintos: (1) "R$ 380,46" seguido de "12x sem juros no cartão"
+      embaixo podia ser lido como se 380,46 fosse o total sendo dividido
+      em 12 (quando já é o valor de cada parcela) — reescrito pro padrão
+      sem ambiguidade "12x de / R$ 380,46 / sem juros no cartão"; (2) a
+      frase "Boleto parcelado de acordo com a duração do seu curso" foi
+      derrubada silenciosamente quando o card de pagamento foi condensado
+      no refactor de identidade visual (`course-skins/common.tsx`) —
+      ninguém notou porque não quebra build nem lint, só falta conteúdo.
+      Restaurada via `FORMAS_PAGAMENTO_DETALHE`
+      (`course-skins/shared.tsx`), aplicada também no template padrão
+      (`particular-course-page.tsx`, hoje sem uso mas mantido como
+      fallback). Verificado com `bun run lint` + `bun run build` e
+      visualmente no preview local.
+
 - [x] **Unificação de tiers em opção única — catálogo 100% migrado (47 de
       47 cursos particulares)** (spec completa em
       [`docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md`](docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md),
