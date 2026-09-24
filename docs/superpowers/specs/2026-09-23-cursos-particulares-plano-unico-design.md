@@ -288,15 +288,26 @@ ritmo, depois os grupos maiores (Programação, Marketing & Negócios).
       Corrigido também um bug de 2 peles visuais (`planilha-excel-ia.tsx`,
       `planilha-power-apps.tsx`) que exibiam "nível {tier.levelName}" sem
       checar `multiTier` — visível só depois da conversão pra tier único.
-- [ ] Conversão dos **19 cursos restantes**: Inteligência Artificial (6),
-      Programação (13 — Git já resolvido à parte, só reclassificação de
-      preço). Taxa técnica já confirmada pelo Henrique (ver acima) — sem
-      bloqueio, é só executar. Grupos T.I, Universo 3D, Informática, Design
-      & Criação, Marketing & Negócios e Office estão 100% migrados (28 de
-      47 cursos).
-- [x] `TIER_META` com entrada própria por curso convertido (28 entradas
+- [x] **Grupo Inteligência Artificial completo** (6 cursos): IA: Essencial
+      ao Profissional com Agentes, Agentes de IA com N8N e LLMs, RAG, IA
+      para Criadores, ChatGPT e IA para Profissionais, Criação de Conteúdo
+      com IA. `pricePerAula` removido dos 4 cursos que tinham override
+      (ia/agentes-ia/ia-visual formalizados em R$109,90/h → R$5.275;
+      RAG subiu pra R$115/h → R$5.520) — preço agora vem só do `TIER_META`,
+      como todo curso já convertido. 4 dos 6 nomes precisaram de `ctaLabel`
+      por concordância de gênero/número ("IA"/"Agentes"/"Criação" são
+      substantivos feminino/plural). Mesmo bug de "nível {tier.levelName}"
+      sem checar `multiTier` encontrado (de novo) em mais 2 peles visuais
+      (`ia-chat.tsx`, `ia-agentes.tsx`) — corrigido com o mesmo padrão.
+- [ ] Conversão dos **13 cursos restantes**: Programação (Git já resolvido
+      à parte, só reclassificação de preço). Taxa técnica já confirmada
+      pelo Henrique (ver acima) — sem bloqueio, é só executar. Grupos T.I,
+      Universo 3D, Informática, Design & Criação, Marketing & Negócios,
+      Office e Inteligência Artificial estão 100% migrados (34 de 47
+      cursos).
+- [x] `TIER_META` com entrada própria por curso convertido (34 entradas
       novas: Premiere + 7 T.I/Universo 3D + Informática/Photoshop/DaVinci +
-      9 Marketing & Negócios + 8 Office).
+      9 Marketing & Negócios + 8 Office + 6 Inteligência Artificial).
 
 ## Margem embutida (15%) + parcelamento em 12x — decisão de 23/09
 
