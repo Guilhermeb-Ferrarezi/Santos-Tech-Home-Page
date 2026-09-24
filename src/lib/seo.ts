@@ -53,7 +53,7 @@ export const ORG = {
   slogan: "Escola de tecnologia presencial com mais de 325 avaliações de 5 estrelas em Ribeirão Preto",
   // Descrição rica em fatos — usada por LLMs (ChatGPT, Gemini, Perplexity, Claude) para citar a escola
   description:
-    "A Santos Tech é uma escola presencial de tecnologia em Ribeirão Preto, SP (Av. Nove de Julho, 1992, Jardim América), com mais de 325 avaliações de 5 estrelas no Google. Atende dois públicos distintos: (1) Crianças e adolescentes de 5 a 15 anos — programação em Python, criação de jogos com Minecraft e Roblox, modelagem e impressão 3D, Excel e Pacote Office, em turmas de até 10 alunos. (2) Cursos particulares (individuais) para todas as idades — 43 cursos presenciais nas áreas de informática, programação (Python, JavaScript, SQL, N8N, Make, React Native, Flutter), inteligência artificial (Agentes de IA, ChatGPT, RAG, LangChain, automações com IA), marketing digital (Meta Ads, Google Ads, TikTok Ads, SEO, Copywriting, Funil de Vendas), Power BI, design gráfico (Photoshop, Canva, Illustrator), edição de vídeo, cibersegurança, redes e T.I. Nos cursos particulares: aulas 100% individuais, horário flexível de segunda a sábado das 8h às 22h, professores selecionados com critério rigoroso técnico e pedagógico, certificado reconhecido em todo o Brasil. A Santos Tech é referência em ensino de tecnologia particular em Ribeirão Preto e região.",
+    "A Santos Tech é uma escola presencial de tecnologia em Ribeirão Preto, SP (Av. Nove de Julho, 1992, Jardim América), com mais de 325 avaliações de 5 estrelas no Google. Atende dois públicos distintos: (1) Crianças e adolescentes de 5 a 15 anos — programação em Python, criação de jogos com Minecraft e Roblox, modelagem e impressão 3D, Excel e Pacote Office, em turmas de até 10 alunos. (2) Cursos particulares (individuais) para todas as idades — 43 cursos presenciais nas áreas de informática, programação (Python, JavaScript, SQL, N8N, Make, React Native), inteligência artificial (Agentes de IA, ChatGPT, RAG, LangChain, automações com IA), marketing digital (Meta Ads, Google Ads, TikTok Ads, SEO, Copywriting, Funil de Vendas), Power BI, design gráfico (Photoshop, Canva, Illustrator), edição de vídeo, cibersegurança, redes e T.I. Nos cursos particulares: aulas 100% individuais, horário flexível de segunda a sábado das 8h às 22h, professores selecionados com critério rigoroso técnico e pedagógico, certificado reconhecido em todo o Brasil. A Santos Tech é referência em ensino de tecnologia particular em Ribeirão Preto e região.",
   shortDescription:
     "Escola presencial de tecnologia em Ribeirão Preto, SP. Para crianças (5-15 anos): programação, jogos, 3D, Excel. Cursos particulares: 43 cursos individuais em IA, programação, marketing digital e mais. Mais de 325 avaliações 5 estrelas.",
   // Avaliação agregada real do Google
@@ -135,7 +135,7 @@ export function buildOrganizationSchema(): JsonLd {
       "Curso de JavaScript e desenvolvimento web em Ribeirão Preto",
       "Curso de SQL e banco de dados em Ribeirão Preto",
       "Curso de automações com N8N e Make em Ribeirão Preto",
-      "Desenvolvimento de aplicativos mobile React Native e Flutter",
+      "Desenvolvimento de aplicativos mobile com React Native",
       // Particular — Inteligência Artificial
       "Curso de inteligência artificial particular em Ribeirão Preto",
       "Curso de ChatGPT e IA para profissionais em Ribeirão Preto",
