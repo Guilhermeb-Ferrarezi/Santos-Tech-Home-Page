@@ -116,11 +116,12 @@ export function N8nPublico({ itens }: PublicoProps) {
 // ── Workflow do nível + janela de detalhes do nó ───────────────────────────
 
 export function N8nConteudo({ course, tier, tierIndex, onSelectTier, meta }: ConteudoProps) {
+  const multiTier = course.tiers.length > 1;
   const [sel, setSel] = useState(0);
   const total = tier.modules.length;
   const atual = Math.min(sel, total - 1);
   const m = tier.modules[atual];
-  const anterior = atual === 0 ? "Início do nível" : tier.modules[atual - 1].title;
+  const anterior = atual === 0 ? (multiTier ? "Início do nível" : "Início do curso") : tier.modules[atual - 1].title;
 
   return (
     <div className="overflow-hidden rounded-xl border border-white/10 bg-[#161a26]">

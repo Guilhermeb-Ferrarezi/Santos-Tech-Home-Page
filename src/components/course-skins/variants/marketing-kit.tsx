@@ -151,7 +151,7 @@ export function ToolIcon({ tool }: { tool: string }) {
 }
 
 /** Linha de ferramentas do nível, com rótulo na linguagem do curso. */
-export function ToolsRow({ tools, label = "Ferramentas deste nível", className = "mt-12" }: { tools: string[]; label?: string; className?: string }) {
+export function ToolsRow({ tools, label = "Ferramentas deste curso", className = "mt-12" }: { tools: string[]; label?: string; className?: string }) {
   if (tools.length === 0) return null;
   return (
     <Reveal delay={120} className={className}>
