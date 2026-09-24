@@ -32,37 +32,29 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      levelName: "Essencial",
-      totalHours: "24h",
+      levelName: "Automações No-Code — Make",
+      ctaLabel: "curso de Automações com Make",
+      totalHours: "48h",
       outcome:
-        "Criar automações práticas com os apps mais usados no dia a dia — Google Sheets, Gmail, Slack e WhatsApp — eliminando tarefas manuais e repetitivas",
+        "Criar automações completas com Make, do zero absoluto até integrações avançadas — conectando os apps mais usados no dia a dia, aplicando lógica condicional, integrando qualquer sistema via API e webhook e incorporando Inteligência Artificial nos seus fluxos — com um projeto final de automação de processo real pronto pra aplicar no seu negócio.",
       modules: [
         {
-          title: "O que é Make e a Lógica de Automação",
+          title: "Fundamentos do Make e Primeiro Cenário",
           topics: [
-            "Diferença entre Make, Zapier e N8N: quando usar cada ferramenta",
-            "Estrutura de um cenário: módulos, conexões e fluxo de dados",
+            "Diferença entre Make, Zapier e n8n: quando usar cada ferramenta",
+            "Estrutura de um cenário: módulos, conexões, triggers e fluxo de dados",
             "Planos do Make, limites de operações e como economizar créditos",
-            "Conceito de trigger, ação e mapeamento de variáveis",
-            "Criando e executando o primeiro cenário do zero",
-          ],
-        },
-        {
-          title: "Primeiras Automações com Apps Populares",
-          topics: [
-            "Conectando Google Sheets, Gmail e Slack em um único fluxo",
+            "Primeiro cenário do zero: conectando Google Sheets, Gmail e Slack em um único fluxo",
             "Tipos de trigger: webhook, agendamento e por evento",
-            "Mapeamento de dados entre módulos: campos dinâmicos e variáveis",
             "Histórico de execuções: depurando erros e rastreando dados",
-            "Boas práticas para nomear e organizar cenários",
           ],
         },
         {
-          title: "Lógica e Condições nos Cenários",
+          title: "Lógica, Condições e Tratamento de Erros",
           topics: [
             "Router: dividindo fluxos por condição com múltiplas rotas",
             "Filtros em conexões: deixando passar apenas o que importa",
-            "Iterator e Aggregator básicos: processando listas de dados",
+            "Iterator e Aggregator: processando listas e arrays de dados",
             "Set Variable e manipulação de texto e números",
             "Tratando erros com o módulo Error Handler e notificações de falha",
           ],
@@ -87,32 +79,14 @@ const COURSE_DATA: CourseData = {
             "Dashboard pessoal atualizado automaticamente com dados do dia",
           ],
         },
-      ],
-      tools: ["Make", "Google Sheets", "Google Drive", "Gmail", "Slack", "WhatsApp Business", "Zapier (comparativo)"],
-    },
-    {
-      levelName: "Intermediário",
-      totalHours: "48h",
-      outcome:
-        "Construir automações avançadas com APIs, webhooks e IA — integrando qualquer sistema, processando dados em tempo real e entregando um projeto completo de automação de processo real",
-      modules: [
         {
-          title: "APIs e Módulos HTTP no Make",
+          title: "APIs, Webhooks e Integrações em Tempo Real",
           topics: [
             "O que é uma REST API: conceito de endpoint, método e resposta JSON",
-            "Usando o módulo HTTP do Make para chamar qualquer API",
-            "Autenticação: API Key, Bearer Token e OAuth 2.0 na prática",
+            "Usando o módulo HTTP do Make para chamar qualquer API, com autenticação via API Key, Bearer Token e OAuth 2.0",
             "Parseando e mapeando respostas JSON dentro do cenário",
-            "Testando requisições com Insomnia antes de integrar ao Make",
-          ],
-        },
-        {
-          title: "Webhooks e Integrações em Tempo Real",
-          topics: [
-            "Criando e configurando webhooks no Make para receber dados externos",
-            "Integrando sistemas que não têm conector nativo via webhook personalizado",
-            "Recebendo respostas de formulários do Typeform em tempo real",
-            "Capturando eventos do WhatsApp Business e disparando fluxos automáticos",
+            "Criando e configurando webhooks para receber dados externos em tempo real",
+            "Integrando sistemas sem conector nativo e recebendo respostas do Typeform em tempo real",
             "Boas práticas de segurança e validação de payload em webhooks",
           ],
         },
@@ -127,39 +101,31 @@ const COURSE_DATA: CourseData = {
           ],
         },
         {
-          title: "Cenários Complexos e Boas Práticas",
+          title: "Cenários Avançados e Projeto Final",
           topics: [
             "DataStore do Make: salvando e consultando dados entre execuções",
             "Subflows e cenários reutilizáveis para evitar duplicação de lógica",
-            "Gerenciamento avançado de erros com fallbacks e alertas automáticos",
-            "Documentando cenários: descrições, notas e versionamento",
-            "Monitoramento de execuções: alertas por e-mail e painel de saúde",
-          ],
-        },
-        {
-          title: "Projeto Final: Automação de Processo Real",
-          topics: [
-            "Mapeamento do processo escolhido: entradas, saídas e pontos de dor",
-            "Desenho do fluxo no Make: módulos, condições e integrações necessárias",
-            "Construção e teste iterativo do cenário com dados reais",
-            "Deploy, agendamento e monitoramento em produção",
-            "Apresentação do projeto com métricas de tempo e esforço economizados",
+            "Monitoramento de execuções: alertas automáticos e painel de saúde",
+            "Mapeamento do processo real escolhido: entradas, saídas e pontos de dor",
+            "Construção, teste e deploy do cenário em produção com dados reais",
+            "Apresentação do projeto final com métricas de tempo e esforço economizados",
           ],
         },
       ],
       tools: [
         "Make",
-        "OpenAI API",
         "Google Sheets",
         "Google Drive",
         "Gmail",
         "Slack",
+        "WhatsApp Business",
         "HubSpot",
         "Shopify",
         "Typeform",
         "Airtable",
         "Notion API",
-        "WhatsApp Business",
+        "OpenAI API",
+        "Zapier (comparativo)",
       ],
     },
   ],
@@ -167,10 +133,6 @@ const COURSE_DATA: CourseData = {
     {
       q: "Preciso saber programar para aprender Make?",
       a: "Não. Make é uma ferramenta no-code — você monta as automações visualmente, conectando módulos, sem escrever código. O curso foi desenhado justamente para quem acredita que automatizar processos é coisa só de desenvolvedor.",
-    },
-    {
-      q: "Qual a diferença entre o nível Essencial e o Intermediário?",
-      a: "O Essencial ensina automações práticas com os apps mais usados no dia a dia — Google Sheets, Gmail, Slack e WhatsApp — para eliminar tarefas manuais. O Intermediário avança para APIs, webhooks e integração com IA, fechando com um projeto real de automação de processo completo.",
     },
     {
       q: "Qual a diferença entre Make e Zapier — o curso ensina os dois?",
