@@ -63,8 +63,7 @@ export function Img({
         alt={alt}
         loading={effectiveLoading}
         decoding={effectiveDecoding}
-        // @ts-expect-error — fetchpriority é HTML válido mas o TS lib ainda não tem.
-        fetchpriority={fetchPriority}
+        fetchPriority={fetchPriority}
         {...rest}
       />
     </picture>
