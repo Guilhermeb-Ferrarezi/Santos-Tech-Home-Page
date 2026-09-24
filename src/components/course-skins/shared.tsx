@@ -75,6 +75,22 @@ export const TIER_META: Record<string, { price: number; aulas: string; intensivo
   "IA para Criadores": { price: 5275, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
   ChatGPT: { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
   "Criação de Conteúdo com IA": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  // Grupo Programação (taxa aprovada pelo Henrique em 23/09; TypeScript
+  // formaliza o pricePerAula já cobrado na prática, 109,90/h, mesmo padrão
+  // do grupo Inteligência Artificial)
+  "Lógica de Programação": { price: 5280, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Python para Automações": { price: 5760, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "APIs e Integrações com Python": { price: 6240, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  TypeScript: { price: 5275, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Automações + N8N": { price: 5520, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Automações No-Code — Make": { price: 5280, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Banco de Dados com SQL": { price: 5760, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Desenvolvimento Web Front-End": { price: 6240, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Desenvolvimento Web Back-End": { price: 6480, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Full Stack Web Developer": { price: 7200, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Desenvolvimento de Aplicativos": { price: 6720, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Desenvolvimento de Jogos: Unity e Godot": { price: 6720, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  ADS: { price: 8640, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
 };
 
 // ── Margem embutida e parcelamento (decisão do Henrique, 23/09) ────────────
