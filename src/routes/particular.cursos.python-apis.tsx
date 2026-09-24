@@ -31,10 +31,11 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      levelName: "Intermediário",
+      levelName: "APIs e Integrações com Python",
+      ctaLabel: "curso de APIs com Python",
       totalHours: "48h",
       outcome:
-        "Consome e cria APIs REST com Python, autentica com OAuth 2.0 e JWT, integra serviços como Google Sheets, Notion e Stripe, e entrega automações webhook-driven rodando em nuvem",
+        "Domina o ciclo completo de integrações com Python: consome e cria APIs REST, autentica com OAuth 2.0 e JWT, conecta serviços como Google Sheets, Notion, Slack e Stripe, recebe eventos via webhook, entrega sua própria API com FastAPI e ainda processa tarefas em fila e constrói um agente de IA que aciona APIs reais para automatizar tarefas de negócio",
       modules: [
         {
           title: "HTTP e APIs REST com Python",
@@ -99,7 +100,27 @@ const COURSE_DATA: CourseData = {
             "Logging estruturado de chamadas de API com structlog",
             "Rate limiting: respeitar limites de API e usar filas de throttling",
             "Testar integrações sem chamar API real com responses e pytest-httpx",
-            "Projeto final: sistema de sincronização de dados entre dois serviços via API",
+            "Projeto: sistema de sincronização de dados entre dois serviços via API",
+          ],
+        },
+        {
+          title: "Processamento Assíncrono com Filas",
+          topics: [
+            "Arquitetura event-driven na prática: por que tirar tarefas lentas do caminho principal da API",
+            "Celery com Redis Broker: criar e disparar tasks assíncronas a partir do FastAPI",
+            "Retry automático de tasks com backoff e Dead Letter Queue pra não perder evento com falha",
+            "Processar webhooks de alto volume em fila pra evitar timeout, evoluindo a fila simples da aula de Webhooks",
+            "Projeto: mover o processamento do webhook do Stripe pra uma fila Celery com retry automático",
+          ],
+        },
+        {
+          title: "Agentes de IA que Chamam APIs Reais",
+          topics: [
+            "Tool calling com LLMs (OpenAI GPT-4o e Anthropic Claude): como o modelo decide qual função chamar",
+            "Criar tools que chamam APIs reais (GitHub, Notion, Stripe) como ações disponíveis pro agente",
+            "Arquitetura básica de agente com LangGraph: state, nodes e edges pra decidir o próximo passo",
+            "Projeto final: agente que recebe um ticket de suporte, consulta uma API externa e abre issue no GitHub automaticamente",
+            "Panorama avançado pra quem for pra produção: observabilidade (Prometheus, Grafana, Jaeger), publicar SDK próprio no PyPI e arquitetura multi-tenant pra atender vários clientes",
           ],
         },
       ],
@@ -120,113 +141,17 @@ const COURSE_DATA: CourseData = {
         "Redis",
         "Insomnia",
         "pytest-httpx",
-      ],
-    },
-    {
-      levelName: "Profissional + IA",
-      totalHours: "72h",
-      outcome:
-        "Arquiteta plataformas de integração com filas assíncronas, observabilidade, SDK próprio e agentes de IA com LangGraph que orquestram múltiplas APIs para resolver tarefas complexas de negócio",
-      modules: [
-        {
-          title: "FastAPI Avançado: Autenticação, Middlewares e Performance",
-          topics: [
-            "OAuth 2.0 completo no FastAPI: Authorization Code Flow com PKCE",
-            "JWT com refresh token rotation e blacklist via Redis",
-            "Middleware de rate limiting por IP e por usuário autenticado",
-            "Background tasks com asyncio e workers Celery integrados ao FastAPI",
-            "Cache de respostas de API com Redis e invalidação por evento",
-            "Perfil de performance de endpoints com Pyinstrument e async profiling",
-            "Versionamento de API: path versioning vs header versioning",
-          ],
-        },
-        {
-          title: "Filas Assíncronas e Processamento de Eventos",
-          topics: [
-            "Arquitetura event-driven: produtores, consumidores e event bus",
-            "Celery com Redis Broker: criar tasks, chains, groups e chords",
-            "Dead letter queue: capturar falhas e reprocessar tarefas",
-            "Processar webhooks de alto volume com filas para evitar timeout",
-            "RabbitMQ como alternativa ao Redis: exchange, routing keys e bindings",
-            "Monitorar filas com Flower e alertas no Slack quando fila trava",
-          ],
-        },
-        {
-          title: "SDK e Clientes de API Profissionais",
-          topics: [
-            "Construir SDK Python tipado para sua API com httpx e Pydantic",
-            "Async client: usar asyncio e httpx.AsyncClient para chamadas paralelas",
-            "Publicar SDK no PyPI com Poetry e CI automático via GitHub Actions",
-            "Gerar SDK automaticamente a partir do OpenAPI spec com openapi-generator",
-            "Testes de contrato com Pact para garantir compatibilidade entre produtor e consumidor",
-            "Documentação do SDK com MkDocs Material e exemplos interativos",
-          ],
-        },
-        {
-          title: "Observabilidade de Integrações em Produção",
-          topics: [
-            "Distributed tracing com OpenTelemetry e Jaeger para rastrear chamadas entre APIs",
-            "Métricas de integração com Prometheus: latência, taxa de erro e throughput",
-            "Dashboards de saúde de integrações no Grafana",
-            "Alertas inteligentes: alertar quando SLA de integração externa degrada",
-            "Health check endpoints e readiness/liveness probes para APIs em Docker",
-            "Gestão de segredos em produção com HashiCorp Vault ou AWS Secrets Manager",
-          ],
-        },
-        {
-          title: "Agentes de IA com LangGraph e Integração de APIs",
-          topics: [
-            "Arquitetura de agentes com LangGraph 0.2: StateGraph, nodes e edges",
-            "Tool calling com OpenAI GPT-4o e Anthropic Claude 3.5 Sonnet",
-            "Criar tools que chamam APIs reais (Notion, GitHub, Stripe) como ações do agente",
-            "Multi-agent: orquestrar agentes especializados com supervisor pattern",
-            "Memória persistente de agentes com LangGraph Checkpointing no PostgreSQL",
-            "Streaming de respostas de agente via Server-Sent Events (SSE) no FastAPI",
-            "Projeto: agente que recebe ticket de suporte, consulta CRM e abre issue no GitHub automaticamente",
-          ],
-        },
-        {
-          title: "Projeto Final: Plataforma de Integração End-to-End",
-          topics: [
-            "Arquitetura da solução: API gateway + workers + banco de dados + fila + observabilidade",
-            "Multi-tenancy: isolar integrações e credenciais por organização",
-            "Armazenar e criptografar tokens OAuth de clientes com segurança (AES-256)",
-            "Pipeline CI/CD com GitHub Actions: lint (Ruff), testes, build Docker e deploy",
-            "Deploy no Railway com PostgreSQL, Redis e variáveis de ambiente gerenciadas",
-            "Documentação técnica OpenAPI publicada e onboarding de novos integradores",
-          ],
-        },
-      ],
-      tools: [
-        "FastAPI",
         "Celery",
-        "Redis",
-        "RabbitMQ",
-        "LangGraph 0.2",
+        "LangGraph",
         "OpenAI API",
         "Anthropic API",
-        "OpenTelemetry",
-        "Prometheus",
-        "Grafana",
-        "Jaeger",
-        "Pydantic v2",
-        "Docker",
-        "GitHub Actions",
-        "Railway",
-        "Poetry",
-        "Ruff",
-        "MkDocs",
       ],
     },
   ],
   faqItems: [
     {
       q: "Preciso já saber Python pra fazer esse curso?",
-      a: "Sim, o curso pressupõe Python básico — variáveis, funções, estruturas de controle. A partir daí ele foca 100% em integrar sistemas reais: consumir e criar APIs, autenticar com OAuth e JWT, e conectar serviços externos.",
-    },
-    {
-      q: "Qual a diferença entre os níveis Intermediário e Profissional + IA?",
-      a: "No Intermediário você consome e cria APIs REST, autentica com OAuth 2.0 e JWT, integra serviços como Google Sheets, Notion e Stripe, e recebe eventos via webhook. No Profissional + IA você avança pra filas assíncronas, observabilidade em produção, SDK próprio publicado no PyPI e agentes de IA com LangGraph que orquestram várias APIs.",
+      a: "Sim, o curso pressupõe Python básico — variáveis, funções, estruturas de controle. A partir daí ele foca 100% em integrar sistemas reais: consumir e criar APIs, autenticar com OAuth e JWT, conectar serviços externos e, no fim do curso, processar tarefas em fila e construir um agente de IA que chama APIs de verdade.",
     },
     {
       q: "Esse curso ensina a integrar ferramentas como Slack, Notion e Google Sheets?",
