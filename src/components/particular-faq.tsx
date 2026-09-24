@@ -2,44 +2,17 @@ import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 import { WhatsAppIcon } from "@/components/icons"
-
-export const PARTICULAR_FAQ_ITEMS = [
-  {
-    q: "Quais são os horários de aula?",
-    a: "Atendemos de segunda a sábado, das 8h às 22h. Você escolhe o horário que melhor encaixa na sua rotina — basta combinar com a gente pelo WhatsApp.",
-  },
-  {
-    q: "Quais dias têm aula?",
-    a: "Qualquer dia de segunda a sábado. Não existem turmas com dias fixos: você decide quando quer estudar, semana a semana, de acordo com a sua agenda.",
-  },
-  {
-    q: "Quanto tempo dura cada aula?",
-    a: "Cada aula tem duração de 1 hora — tempo ideal para aprender algo novo, praticar e tirar dúvidas sem se sobrecarregar.",
-  },
-  {
-    q: "Em quanto tempo termino o curso?",
-    a: "Depende do seu ritmo e do curso. A maioria dos cursos tem 48 aulas: no ritmo padrão de 2 aulas por semana você conclui em cerca de 6 meses, e no ritmo mais intensivo em cerca de 3 meses. Alguns cursos são mais curtos ou mais longos — a duração exata de cada um está no card de Investimento, aqui nesta página.",
-  },
-  {
-    q: "Preciso me matricular em uma turma?",
-    a: "Não. Na Santos Tech Particular não existem turmas. As aulas são individuais — só você e o professor. Isso significa atenção total, sem fila de dúvidas e sem adaptação ao ritmo de ninguém.",
-  },
-  {
-    q: "Quanto custa?",
-    a: "O valor varia conforme o curso e o plano escolhido. Fale com a gente pelo WhatsApp — é rápido, sem compromisso, e a gente indica o caminho certo pra você.",
-    cta: true,
-  },
-]
+import { PARTICULAR_FAQ_ITEMS } from "@/components/particular-faq-items"
 
 interface ParticularFaqProps {
   whatsappUrl: string
-  /** Perguntas específicas do curso — exibidas antes das genéricas. */
-  extraItems?: { q: string; a: string }[]
+  /** Perguntas a exibir; por padrão usa só o FAQ genérico (uso na landing /particular, sem curso específico). */
+  items?: { q: string; a: string; cta?: boolean }[]
 }
 
-export function ParticularFaq({ whatsappUrl, extraItems }: ParticularFaqProps) {
+export function ParticularFaq({ whatsappUrl, items = PARTICULAR_FAQ_ITEMS }: ParticularFaqProps) {
   const [open, setOpen] = useState<number | null>(null)
-  const FAQ = extraItems?.length ? [...extraItems, ...PARTICULAR_FAQ_ITEMS] : PARTICULAR_FAQ_ITEMS
+  const FAQ = items
 
   return (
     <section className="py-20 bg-neutral-50 dark:bg-neutral-900">
