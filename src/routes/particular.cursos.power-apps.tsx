@@ -32,33 +32,24 @@ const COURSE_DATA: CourseData = {
   ],
   tiers: [
     {
-      levelName: "Essencial",
-      totalHours: "24h",
+      levelName: "Power Apps + Power Automate",
+      ctaLabel: "Power Apps",
+      totalHours: "48h",
       outcome:
-        "Criar Canvas Apps conectados ao SharePoint e Excel, e montar fluxos automáticos de aprovação e notificação no Power Automate",
+        "Criar Canvas Apps conectados ao SharePoint e Excel, automatizar processos do fluxo simples ao RPA com Power Automate Desktop, estruturar dados empresariais no Dataverse e aplicar IA com AI Builder e Copilot — pronto para digitalizar processos reais da empresa de ponta a ponta",
       modules: [
         {
-          title: "Microsoft Power Platform",
+          title: "Fundamentos da Power Platform e Primeiro Canvas App",
           topics: [
-            "Visão geral: Power Apps, Power Automate, Power BI e Copilot Studio",
-            "Licenciamento e planos disponíveis no Microsoft 365",
-            "Canvas App vs Model-Driven App vs Power Pages: quando usar cada um",
-            "Navegando pelo portal make.powerapps.com e make.powerautomate.com",
-            "Conectores nativos e ambientes de desenvolvimento vs produção",
-          ],
-        },
-        {
-          title: "Criando o Primeiro Canvas App",
-          topics: [
-            "Layout responsivo para desktop e celular com containers e grupos",
+            "Visão geral da Power Platform — Power Apps, Power Automate, Power BI e Copilot Studio — e quando usar Canvas App vs Model-Driven App",
+            "Layout responsivo com containers e grupos, para desktop e celular",
             "Conectando o app ao SharePoint Online e ao Excel no OneDrive",
-            "Componente Gallery para exibir listas de registros com filtro e busca",
-            "Componente Form para criar, editar e visualizar registros",
-            "Publicando e compartilhando o app com usuários da organização",
+            "Componentes Gallery e Form: listar, criar, editar e visualizar registros",
+            "Publicando e compartilhando o app com os usuários da organização",
           ],
         },
         {
-          title: "Fórmulas Power Apps",
+          title: "Fórmulas e Lógica no Power Apps",
           topics: [
             "Funções essenciais: If, Filter, LookUp, Search e Sort",
             "Manipulando dados: Patch para salvar, Remove para excluir registros",
@@ -68,82 +59,43 @@ const COURSE_DATA: CourseData = {
           ],
         },
         {
-          title: "Power Automate: Primeiros Fluxos",
+          title: "Power Automate: Fluxos e Integração com Power Apps",
           topics: [
             "Tipos de fluxo: automático, instantâneo e agendado — quando usar cada um",
             "Fluxo: novo item no SharePoint dispara e-mail de notificação automática",
             "Processo de aprovação com botões de Aprovar e Rejeitar no Outlook e Teams",
-            "Usando condições, loops e expressões básicas em fluxos",
-            "Aproveitando templates prontos e adaptando para a sua realidade",
+            "Condições, loops e expressões em fluxos, partindo de templates prontos",
+            "Chamando um fluxo a partir de um botão no Canvas App e recebendo a resposta com Respond to a PowerApp",
           ],
         },
         {
-          title: "Integração Power Apps + Power Automate",
-          topics: [
-            "Chamando um fluxo do Power Automate a partir de um botão no Canvas App",
-            "Enviando dados do app para o fluxo via parâmetros de entrada",
-            "Recebendo resposta do fluxo de volta no app com Respond to a PowerApp",
-            "Caso prático: formulário de solicitação com aprovação automática por e-mail",
-            "Caso prático: notificação no Teams ao registrar novo item no app",
-          ],
-        },
-      ],
-      tools: ["Power Apps", "Power Automate", "SharePoint Online", "Microsoft Teams", "Outlook 365"],
-    },
-    {
-      levelName: "Intermediário",
-      totalHours: "48h",
-      outcome:
-        "Construir soluções empresariais completas com Dataverse, RPA Desktop, IA Builder e integrações premium, entregando um sistema de ponta a ponta",
-      modules: [
-        {
-          title: "Power Apps com Dataverse",
+          title: "Dataverse: Dados e Segurança Empresarial",
           topics: [
             "Criando e relacionando tabelas no Microsoft Dataverse",
             "Model-Driven Apps com formulários, views e dashboards gerados automaticamente",
             "Regras de negócio para validações e automações sem código na camada de dados",
             "Segurança baseada em funções: perfis de acesso e times no Dataverse",
-            "Migrando dados de SharePoint/Excel para o Dataverse com fluxos de importação",
+            "Migrando dados de SharePoint e Excel para o Dataverse",
           ],
         },
         {
-          title: "Power Automate Desktop — RPA",
+          title: "Automação RPA com Power Automate Desktop",
           topics: [
             "Instalando e configurando o Power Automate Desktop para automação local",
             "Gravador de UI para capturar ações em aplicativos legados e sistemas sem API",
             "Automatizando tarefas no SAP, Excel desktop e sites via navegador",
             "Fluxos híbridos: integrando automação desktop com fluxos cloud",
-            "Agendando e monitorando robôs RPA com o portal de gerenciamento",
+            "Agendando e monitorando robôs RPA pelo portal de gerenciamento",
           ],
         },
         {
-          title: "Power Apps com IA",
+          title: "Inteligência Artificial no Power Apps e Projeto Final",
           topics: [
             "AI Builder: modelo de leitura de documentos para extrair dados de NF e contratos",
-            "Reconhecimento de objetos e detecção de imagens em apps corporativos",
             "Análise de sentimento para triagem automática de feedbacks e chamados",
-            "Copilot no Power Apps: gerando um app completo a partir de uma descrição textual",
-            "Refinando e personalizando o app gerado pelo Copilot com ajustes manuais",
-          ],
-        },
-        {
-          title: "Fluxos Empresariais e Integrações",
-          topics: [
-            "Conectores premium: integrando com Dynamics 365 e Salesforce",
-            "Fluxos de processo de negócio para guiar usuários em etapas sequenciais",
-            "Variáveis de ambiente para parametrizar soluções entre ambientes",
-            "Empacotando e fazendo deploy de soluções entre ambientes dev, teste e produção",
-            "Monitoramento, alertas de falha e boas práticas de governança de fluxos",
-          ],
-        },
-        {
-          title: "Projeto Final: Sistema Completo",
-          topics: [
-            "Levantamento de requisitos e modelagem do processo escolhido (compras, ponto ou chamados)",
-            "Construindo o Canvas App ou Model-Driven App com todas as telas e validações",
-            "Criando o fluxo de aprovação multinível com notificações no Teams e e-mail",
-            "Dashboard de acompanhamento integrado com Power BI ou views do Dataverse",
-            "Apresentação da solução, documentação básica e publicação para usuários reais",
+            "Copilot no Power Apps: gerando e refinando um app a partir de uma descrição textual",
+            "Projeto final: sistema completo (app + fluxo de aprovação multinível + painel de acompanhamento em Power BI ou Dataverse) para um processo real da empresa",
+            "Apresentação da solução e publicação para os usuários finais",
           ],
         },
       ],
@@ -156,7 +108,6 @@ const COURSE_DATA: CourseData = {
         "SharePoint Online",
         "Microsoft Teams",
         "Outlook 365",
-        "Power BI",
       ],
     },
   ],
@@ -164,10 +115,6 @@ const COURSE_DATA: CourseData = {
     {
       q: "Preciso saber programar pra criar apps com Power Apps?",
       a: "Não. Power Apps e Power Automate são ferramentas low-code do ecossistema Microsoft — você cria aplicativos e automações sem escrever código, usando fórmulas parecidas com as do Excel.",
-    },
-    {
-      q: "Qual a diferença entre os dois níveis do curso?",
-      a: "No Essencial você cria Canvas Apps conectados ao SharePoint e Excel, e monta fluxos automáticos de aprovação e notificação. No Intermediário você avança pra soluções empresariais completas com Dataverse, RPA com Power Automate Desktop, IA Builder e um projeto final de sistema de ponta a ponta.",
     },
     {
       q: "Já uso SharePoint ou Teams no trabalho — esse curso ajuda a aproveitar melhor essas ferramentas?",

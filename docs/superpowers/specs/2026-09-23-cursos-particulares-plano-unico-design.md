@@ -207,10 +207,15 @@ sem reescrever muito).
 
 ## Pontos em aberto — decisão do Henrique antes de executar em massa
 
-1. **Taxa técnica exata (110-180) por curso.** As sugestões acima seguem uma
-   lógica (escopo, quantidade de ferramentas, nível de mercado), mas são
-   inferência, não confirmação dele. **Ainda em aberto** — Henrique vai
-   revisar a tabela e sinalizar ajustes.
+1. ~~**Taxa técnica exata (110-180) por curso.**~~ **Confirmado em 23/09.**
+   Henrique aprovou a tabela sugerida acima na íntegra, mais 2 ajustes
+   específicos: (a) os cursos de IA com override `pricePerAula` (ia,
+   agentes-ia, ia-visual, typescript) ficam formalizados em R$109,90/h —
+   já era o valor cobrado na prática, só oficializando —, com RAG subindo
+   sozinho pra R$115/h por ser mais avançado (bancos vetoriais, GraphRAG);
+   (b) o curso "Pacote Office" **não** inclui Power BI nem Microsoft
+   Copilot — esse conteúdo fica de fora porque já existe curso dedicado de
+   Power BI no catálogo, mantendo o Pacote Office 100% símples.
 
 ### Decididos em 23/09
 
@@ -276,15 +281,22 @@ ritmo, depois os grupos maiores (Programação, Marketing & Negócios).
 - [x] **Grupo Marketing & Negócios completo** (PR #30, todos os 9 cursos
       do grupo): Marketing Digital, Meta Ads, Google Ads, TikTok Ads,
       Copywriting, Funil de Vendas, SEO, Redes Sociais, E-commerce.
-- [ ] Conversão dos **27 cursos restantes**: Office (8), Inteligência
-      Artificial (6), Programação (13 — Git já resolvido à parte, só
-      reclassificação de preço). Quase todos dependem da revisão da taxa
-      técnica (ponto acima) antes de converter. Grupos T.I, Universo 3D,
-      Informática, Design & Criação e Marketing & Negócios estão 100%
-      migrados (20 de 47 cursos).
-- [x] `TIER_META` com entrada própria por curso convertido (20 entradas
+- [x] **Grupo Office completo** (8 cursos): Pacote Office, Excel Avançado,
+      Excel + Power BI, Excel + IA, Word Profissional, PowerPoint, Power
+      BI, Power Apps + Power Automate. Pacote Office excluiu Power BI e
+      Copilot por decisão do Henrique (ver seção "Pontos em aberto").
+      Corrigido também um bug de 2 peles visuais (`planilha-excel-ia.tsx`,
+      `planilha-power-apps.tsx`) que exibiam "nível {tier.levelName}" sem
+      checar `multiTier` — visível só depois da conversão pra tier único.
+- [ ] Conversão dos **19 cursos restantes**: Inteligência Artificial (6),
+      Programação (13 — Git já resolvido à parte, só reclassificação de
+      preço). Taxa técnica já confirmada pelo Henrique (ver acima) — sem
+      bloqueio, é só executar. Grupos T.I, Universo 3D, Informática, Design
+      & Criação, Marketing & Negócios e Office estão 100% migrados (28 de
+      47 cursos).
+- [x] `TIER_META` com entrada própria por curso convertido (28 entradas
       novas: Premiere + 7 T.I/Universo 3D + Informática/Photoshop/DaVinci +
-      9 Marketing & Negócios).
+      9 Marketing & Negócios + 8 Office).
 
 ## Margem embutida (15%) + parcelamento em 12x — decisão de 23/09
 
