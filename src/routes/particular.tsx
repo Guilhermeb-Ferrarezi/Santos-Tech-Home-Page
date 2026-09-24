@@ -1,5 +1,5 @@
 import { createFileRoute, Outlet, Link, useRouterState } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Home,
   Menu,
@@ -136,6 +136,7 @@ function ParticularLayout() {
   const [cursosOpen, setCursosOpen] = useState(true);
   const [gruposOpen, setGruposOpen] = useState<Record<string, boolean>>({});
   const [dark, setDark] = useState(false);
+  const sidebarRef = useRef<HTMLElement | null>(null);
 
   // Lê a preferência salva no mount (inicia em false p/ casar com o SSR e evitar mismatch).
   useEffect(() => {
@@ -172,16 +173,95 @@ function ParticularLayout() {
     }
   }, [activeGroup]);
 
+  // Fusão da sidebar com o fundo da página: em telas grandes, a sidebar fica sobre o
+  // conteúdo (translúcida) e "amostra" a cor real renderizada logo à direita dela pra
+  // tingir o próprio fundo e trocar o contraste do texto (claro/escuro) conforme rola.
+  // Lê o DOM de verdade em vez de mapear cor por pele — funciona igual nas 8 categorias
+  // sem precisar tocar em cada uma.
+  useEffect(() => {
+    const aside = sidebarRef.current;
+    if (!aside) return;
+    const desktop = window.matchMedia("(min-width: 1024px)");
+
+    // Canvas 1x1 só pra normalizar qualquer formato de cor que o browser devolva
+    // (Tailwind v4 usa oklch(), não rgb()) em RGBA de verdade — mais robusto que regex.
+    const canvas = document.createElement("canvas");
+    canvas.width = 1;
+    canvas.height = 1;
+    const ctx = canvas.getContext("2d", { willReadFrequently: true });
+    if (ctx) ctx.globalCompositeOperation = "copy";
+
+    function colorToRgba(str: string): { r: number; g: number; b: number; a: number } | null {
+      if (!ctx) return null;
+      ctx.clearRect(0, 0, 1, 1);
+      try {
+        ctx.fillStyle = str;
+      } catch {
+        return null;
+      }
+      ctx.fillRect(0, 0, 1, 1);
+      const [r, g, b, a] = ctx.getImageData(0, 0, 1, 1).data;
+      return { r, g, b, a: a / 255 };
+    }
+
+    function relativeLuminance(r: number, g: number, b: number) {
+      const [rs, gs, bs] = [r, g, b].map((c) => {
+        const v = c / 255;
+        return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+      });
+      return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs;
+    }
+
+    function sample() {
+      if (!desktop.matches || !aside) return;
+      const x = Math.min(aside.offsetWidth + 24, window.innerWidth - 8);
+      const y = Math.min(window.innerHeight * 0.35, 320);
+      let el = document.elementFromPoint(x, y) as HTMLElement | null;
+      let hops = 0;
+      while (el && hops < 12) {
+        const rgba = colorToRgba(getComputedStyle(el).backgroundColor);
+        if (rgba && rgba.a > 0.4) {
+          const tone = relativeLuminance(rgba.r, rgba.g, rgba.b) > 0.5 ? "light" : "dark";
+          aside.style.setProperty("--fusion-tint", `rgb(${rgba.r} ${rgba.g} ${rgba.b})`);
+          aside.dataset.fusionTone = tone;
+          return;
+        }
+        el = el.parentElement;
+        hops++;
+      }
+    }
+
+    let ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        sample();
+        ticking = false;
+      });
+    }
+
+    sample();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    desktop.addEventListener("change", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      desktop.removeEventListener("change", onScroll);
+    };
+  }, [pathname, collapsed]);
+
   const navItem = (active: boolean) =>
     [
       "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold transition-colors",
       active
         ? "bg-[#0DB88F]/10 text-[#0DB88F]"
-        : "text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white",
+        : "sb-fg-soft sb-hover text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white",
     ].join(" ");
 
   const iconCls = (active: boolean) =>
-    active ? "text-[#0DB88F]" : "text-neutral-400 dark:text-neutral-500";
+    active ? "text-[#0DB88F]" : "sb-fg-soft text-neutral-400 dark:text-neutral-500";
 
   const label = (text: string) => (
     <span
@@ -196,7 +276,26 @@ function ParticularLayout() {
 
   return (
     <div className={dark ? "dark" : ""}>
-    <div className={`flex h-screen overflow-hidden ${dark ? "bg-neutral-950" : "bg-neutral-50"}`}>
+    <div className={`relative min-h-screen ${dark ? "bg-neutral-950" : "bg-neutral-50"}`}>
+      {/* Fusão sidebar↔página: em telas grandes a sidebar é translúcida e herda a cor
+          amostrada do fundo real da página (ver efeito de scroll acima); os tokens
+          --sb-fg/--sb-fg-soft/--sb-divider trocam de claro pra escuro com o tom amostrado.
+          Fallback (sem JS ou fora do breakpoint lg): as classes Tailwind normais do aside
+          continuam valendo, porque a regra abaixo só bate quando data-fusion-tone existe. */}
+      <style>{`
+        #particular-sidebar[data-fusion-tone] {
+          background: color-mix(in srgb, var(--fusion-tint, var(--accent)) 88%, transparent);
+          backdrop-filter: blur(26px) saturate(160%);
+          border-right-color: var(--sb-divider);
+        }
+        #particular-sidebar[data-fusion-tone="dark"] { --sb-fg: #fff; --sb-fg-soft: rgba(255,255,255,.66); --sb-divider: rgba(255,255,255,.16); --sb-hover-bg: rgba(255,255,255,.08); }
+        #particular-sidebar[data-fusion-tone="light"] { --sb-fg: #171717; --sb-fg-soft: rgba(23,23,23,.64); --sb-divider: rgba(23,23,23,.12); --sb-hover-bg: rgba(23,23,23,.06); }
+        #particular-sidebar[data-fusion-tone] .sb-fg { color: var(--sb-fg); }
+        #particular-sidebar[data-fusion-tone] .sb-fg-soft { color: var(--sb-fg-soft); }
+        #particular-sidebar[data-fusion-tone] .sb-divider { background-color: var(--sb-divider); border-color: var(--sb-divider); }
+        #particular-sidebar[data-fusion-tone] .sb-hover:hover { background-color: var(--sb-hover-bg); color: var(--sb-fg); }
+      `}</style>
+
       {/* Overlay mobile */}
       {mobileOpen && (
         <div
@@ -207,6 +306,8 @@ function ParticularLayout() {
 
       {/* ── SIDEBAR ── */}
       <aside
+        id="particular-sidebar"
+        ref={sidebarRef}
         style={themeVars(activeTheme)}
         className={[
           "fixed inset-y-0 left-0 z-50 flex flex-col border-r overflow-hidden",
@@ -214,15 +315,17 @@ function ParticularLayout() {
           // Mobile: slide transform, largura fixa
           "w-64 -translate-x-full transition-transform duration-300 ease-in-out",
           mobileOpen && "translate-x-0",
-          // Desktop: sempre visível, anima largura
-          "lg:static lg:translate-x-0 lg:transition-[width] lg:duration-300 lg:ease-in-out",
+          // Desktop: sempre visível (agora sobrepõe o conteúdo, não empurra), anima largura.
+          // Sem transição na cor de fundo: com o tint de fusão via color-mix(), animar
+          // background-color trava o repaint neste Chromium (engine bug) — troca instantânea.
+          "lg:translate-x-0 lg:transition-[width] lg:duration-300 lg:ease-in-out",
           collapsed ? "lg:w-[60px]" : "lg:w-64",
         ].filter(Boolean).join(" ")}
       >
         {/* Cabeçalho */}
         <div
           className={[
-            "flex shrink-0 border-b border-neutral-200 dark:border-neutral-800",
+            "sb-divider flex shrink-0 border-b border-neutral-200 dark:border-neutral-800",
             collapsed
               ? "flex-col items-center gap-2 px-2 py-3"
               : "h-16 flex-row items-center gap-1.5 px-2.5",
@@ -245,9 +348,9 @@ function ParticularLayout() {
               collapsed ? "max-w-0 opacity-0" : "max-w-[200px] opacity-100",
             ].join(" ")}
           >
-            <span className="whitespace-nowrap text-[8px] font-light uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-500 mb-0.5">Escola</span>
+            <span className="sb-fg-soft whitespace-nowrap text-[8px] font-light uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-500 mb-0.5">Escola</span>
             <div className="flex min-w-0 items-center gap-1">
-              <span className="min-w-0 truncate text-xs font-black tracking-tight text-neutral-900 dark:text-white">
+              <span className="sb-fg min-w-0 truncate text-xs font-black tracking-tight text-neutral-900 dark:text-white">
                 SANTOS TECH
               </span>
               <span className="shrink-0 inline-flex items-center rounded-md bg-neutral-900 dark:bg-white px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-white dark:text-neutral-900">
@@ -262,7 +365,7 @@ function ParticularLayout() {
               type="button"
               onClick={() => setCollapsed(true)}
               aria-label="Recolher menu"
-              className="ml-auto hidden lg:flex shrink-0 rounded-md p-1 text-neutral-400 dark:text-neutral-500 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
+              className="sb-fg-soft sb-hover ml-auto hidden lg:flex shrink-0 rounded-md p-1 text-neutral-400 dark:text-neutral-500 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
             >
               <PanelLeftClose className="h-3.5 w-3.5" />
             </button>
@@ -271,7 +374,7 @@ function ParticularLayout() {
               type="button"
               onClick={() => setCollapsed(false)}
               aria-label="Expandir menu"
-              className="hidden lg:flex items-center justify-center rounded-lg p-1.5 text-neutral-400 dark:text-neutral-500 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
+              className="sb-fg-soft sb-hover hidden lg:flex items-center justify-center rounded-lg p-1.5 text-neutral-400 dark:text-neutral-500 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
             >
               <PanelLeftOpen className="h-4 w-4" />
             </button>
@@ -292,7 +395,7 @@ function ParticularLayout() {
             {label("Início")}
           </Link>
 
-          <div className="my-3 h-px bg-neutral-100 dark:bg-neutral-800" />
+          <div className="sb-divider my-3 h-px bg-neutral-100 dark:bg-neutral-800" />
 
           {/* Cursos dropdown */}
           <button
@@ -306,9 +409,9 @@ function ParticularLayout() {
               }
             }}
             title={collapsed ? "Cursos — clique para expandir" : undefined}
-            className="w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
+            className="sb-fg-soft sb-hover w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
           >
-            <BookOpen className="h-4 w-4 shrink-0 text-neutral-400 dark:text-neutral-500" />
+            <BookOpen className="sb-fg-soft h-4 w-4 shrink-0 text-neutral-400 dark:text-neutral-500" />
             <span
               className={[
                 "flex-1 text-left whitespace-nowrap overflow-hidden transition-[opacity,max-width] duration-300",
@@ -319,7 +422,7 @@ function ParticularLayout() {
             </span>
             <ChevronDown
               className={[
-                "h-4 w-4 shrink-0 text-neutral-400 dark:text-neutral-500 transition-all duration-300",
+                "sb-fg-soft h-4 w-4 shrink-0 text-neutral-400 dark:text-neutral-500 transition-all duration-300",
                 collapsed ? "max-w-0 opacity-0" : "max-w-[20px] opacity-100",
                 cursosOpen ? "rotate-180" : "rotate-0",
               ].join(" ")}
@@ -334,7 +437,7 @@ function ParticularLayout() {
             ].join(" ")}
           >
             <div className="overflow-hidden">
-              <div className="ml-3 border-l border-neutral-200 dark:border-neutral-800 pl-2 pt-1 pb-1 space-y-0.5">
+              <div className="sb-divider ml-3 border-l border-neutral-200 dark:border-neutral-800 pl-2 pt-1 pb-1 space-y-0.5">
                 {GRUPOS.map(({ id, label: lbl, cursos }) => {
                   const isActiveGroup = activeGroup?.id === id;
                   return (
@@ -347,14 +450,14 @@ function ParticularLayout() {
                           "w-full flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-black uppercase tracking-wider transition-colors",
                           isActiveGroup
                             ? "text-(--accent) bg-(--accent)/[0.06] hover:bg-(--accent)/10"
-                            : "text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-white/[0.07]",
+                            : "sb-fg sb-hover text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-white/[0.07]",
                         ].join(" ")}
                       >
                         <span className="flex-1 text-left line-clamp-2">{lbl}</span>
                         <ChevronDown
                           className={[
                             "h-3 w-3 shrink-0 transition-transform duration-200",
-                            isActiveGroup ? "text-(--accent)" : "",
+                            isActiveGroup ? "text-(--accent)" : "sb-fg-soft",
                             gruposOpen[id] ? "rotate-180" : "rotate-0",
                           ].join(" ")}
                         />
@@ -373,7 +476,7 @@ function ParticularLayout() {
                               "ml-2 border-l pl-2 pb-1 space-y-0.5 transition-colors",
                               isActiveGroup
                                 ? "border-(--accent)/40"
-                                : "border-neutral-100 dark:border-neutral-800/60",
+                                : "sb-divider border-neutral-100 dark:border-neutral-800/60",
                             ].join(" ")}
                           >
                             {cursos.map(({ slug, nome, legenda }) => {
@@ -388,7 +491,7 @@ function ParticularLayout() {
                                     "flex min-w-0 flex-col rounded-lg px-3 py-1.5 leading-tight transition-colors",
                                     isActiveCourse
                                       ? "bg-(--accent)/10 text-(--accent)"
-                                      : "text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white",
+                                      : "sb-fg-soft sb-hover text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white",
                                   ].join(" ")}
                                 >
                                   <span className="line-clamp-2 text-sm font-medium">{nome}</span>
@@ -398,7 +501,7 @@ function ParticularLayout() {
                                         "truncate text-xs",
                                         isActiveCourse
                                           ? "text-(--accent)/70"
-                                          : "text-neutral-400 dark:text-neutral-500",
+                                          : "sb-fg-soft text-neutral-400 dark:text-neutral-500",
                                       ].join(" ")}
                                     >
                                       {legenda}
@@ -417,7 +520,7 @@ function ParticularLayout() {
             </div>
           </div>
 
-          <div className="my-3 h-px bg-neutral-100 dark:bg-neutral-800" />
+          <div className="sb-divider my-3 h-px bg-neutral-100 dark:bg-neutral-800" />
 
           {/* Suporte */}
           <a
@@ -426,25 +529,25 @@ function ParticularLayout() {
             rel="noreferrer"
             onClick={() => setMobileOpen(false)}
             title={collapsed ? "Falar no WhatsApp" : undefined}
-            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
+            className="sb-fg-soft sb-hover flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
           >
-            <MessageCircle className="h-4 w-4 shrink-0 text-neutral-400 dark:text-neutral-500" />
+            <MessageCircle className="sb-fg-soft h-4 w-4 shrink-0 text-neutral-400 dark:text-neutral-500" />
             {label("Falar no WhatsApp")}
           </a>
 
         </nav>
 
         {/* Rodapé */}
-        <div className="shrink-0 border-t border-neutral-200 dark:border-neutral-800 p-3 space-y-2">
+        <div className="sb-divider shrink-0 border-t border-neutral-200 dark:border-neutral-800 p-3 space-y-2">
           <button
             type="button"
             onClick={toggleDark}
             title={collapsed ? (dark ? "Modo claro" : "Modo escuro") : undefined}
-            className="w-full flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
+            className="sb-fg-soft sb-hover w-full flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
           >
             {dark
-              ? <Sun className="h-4 w-4 shrink-0 text-neutral-400 dark:text-neutral-500" />
-              : <Moon className="h-4 w-4 shrink-0 text-neutral-400 dark:text-neutral-500" />}
+              ? <Sun className="sb-fg-soft h-4 w-4 shrink-0 text-neutral-400 dark:text-neutral-500" />
+              : <Moon className="sb-fg-soft h-4 w-4 shrink-0 text-neutral-400 dark:text-neutral-500" />}
             {label(dark ? "Modo claro" : "Modo escuro")}
           </button>
 
@@ -462,9 +565,11 @@ function ParticularLayout() {
       </aside>
 
       {/* ── CONTEÚDO ── */}
-      <div className="flex flex-1 flex-col overflow-hidden">
+      {/* A sidebar agora sobrepõe (não empurra) o conteúdo em telas grandes, pra dar pra
+          amostrar o fundo real da página; esse padding-left reserva o espaço visual dela. */}
+      <div className={`flex flex-col transition-[padding-left] duration-300 ease-in-out ${collapsed ? "lg:pl-[60px]" : "lg:pl-64"}`}>
         {/* Topbar mobile */}
-        <div className="flex h-14 shrink-0 items-center border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-4 lg:hidden">
+        <div className="sticky top-0 z-40 flex h-14 shrink-0 items-center border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-4 lg:hidden">
           {/* Logo + nome — esquerda */}
           <div className="flex items-center gap-2">
             <Img name="logo" alt="Santos Tech" width={28} height={28} className="h-7 w-7 shrink-0" />
@@ -500,7 +605,7 @@ function ParticularLayout() {
           </button>
         </div>
 
-        <main className="flex-1 overflow-y-auto">
+        <main>
           <Outlet />
         </main>
       </div>
