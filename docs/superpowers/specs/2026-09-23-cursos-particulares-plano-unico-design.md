@@ -266,8 +266,8 @@ ritmo, depois os grupos maiores (Programação, Marketing & Negócios).
 
 - [x] Henrique decide os pontos 2-6 (git, capcut, mobile, jogos,
       manutenção/impressão 3D) — 23/09.
-- [ ] Henrique revisa a tabela de taxa técnica (ponto 1) antes da
-      conversão dos cursos técnicos restantes.
+- [x] Henrique revisa a tabela de taxa técnica (ponto 1) — confirmada em
+      23/09 (ver "Pontos em aberto" acima).
 - [x] **Grupo T.I convertido** (PR #25): Suporte Técnico, Redes e
       Infraestrutura, Cibersegurança, Linux. Montagem e Manutenção não
       precisou de mudança.
@@ -299,15 +299,30 @@ ritmo, depois os grupos maiores (Programação, Marketing & Negócios).
       substantivos feminino/plural). Mesmo bug de "nível {tier.levelName}"
       sem checar `multiTier` encontrado (de novo) em mais 2 peles visuais
       (`ia-chat.tsx`, `ia-agentes.tsx`) — corrigido com o mesmo padrão.
-- [ ] Conversão dos **13 cursos restantes**: Programação (Git já resolvido
-      à parte, só reclassificação de preço). Taxa técnica já confirmada
-      pelo Henrique (ver acima) — sem bloqueio, é só executar. Grupos T.I,
-      Universo 3D, Informática, Design & Criação, Marketing & Negócios,
-      Office e Inteligência Artificial estão 100% migrados (34 de 47
-      cursos).
-- [x] `TIER_META` com entrada própria por curso convertido (34 entradas
+- [x] **Grupo Programação completo** (13 cursos): Lógica de Programação,
+      Python para Automações, APIs e Integrações com Python, TypeScript,
+      Automações + N8N, Automações No-Code — Make, Banco de Dados com SQL,
+      Desenvolvimento Web Front-End, Desenvolvimento Web Back-End, Full
+      Stack Web Developer, Desenvolvimento de Aplicativos (React Native),
+      Desenvolvimento de Jogos (Unity + Godot), ADS. `git` já era plano
+      único antes desta spec (só reclassificação de preço, resolvido à
+      parte). `mobile` removeu Flutter/Dart/Riverpod por completo (decisão
+      do Henrique); `fullstack` e `ads` eram "repetitivos" (tier maior já
+      continha o menor) — só promovidos, sem cortar conteúdo, mantendo 13
+      e 16 módulos respectivamente (ADS é o curso mais abrangente do
+      catálogo, preço teto da faixa). Corrigida mais 1 instância do bug
+      "nome do curso sem checar `multiTier`" em `ide-jogos.tsx` — 5ª
+      ocorrência encontrada nesta unificação (as outras 4: Office ×2, IA
+      ×2). Também corrigidos 4 pontos de meta description/copy
+      desatualizados em relação ao currículo comprimido (`ia-visual.tsx`,
+      `sql.tsx`, `backend.tsx`, `ads.tsx` — este último tinha "12 meses" em
+      3 lugares, inconsistente com o ritmo real de 48 aulas, ~3-6 meses).
+- [x] **Catálogo 100% migrado — 47 de 47 cursos particulares em opção
+      única de investimento.** Unificação de tiers concluída em 23/09.
+- [x] `TIER_META` com entrada própria por curso convertido (47 entradas
       novas: Premiere + 7 T.I/Universo 3D + Informática/Photoshop/DaVinci +
-      9 Marketing & Negócios + 8 Office + 6 Inteligência Artificial).
+      9 Marketing & Negócios + 8 Office + 6 Inteligência Artificial + 13
+      Programação).
 
 ## Margem embutida (15%) + parcelamento em 12x — decisão de 23/09
 
