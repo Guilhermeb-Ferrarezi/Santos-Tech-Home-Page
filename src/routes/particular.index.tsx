@@ -445,9 +445,9 @@ function ParticularPage() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { value: "1h", label: "por aula" },
-                { value: "24", label: "aulas por curso" },
-                { value: "3 meses", label: "no ritmo padrão (2×/sem)" },
-                { value: "1 mês", label: "no ritmo intensivo" },
+                { value: "48", label: "aulas por curso" },
+                { value: "6 meses", label: "no ritmo padrão (2×/sem)" },
+                { value: "3 meses", label: "no ritmo intensivo" },
               ].map((stat, i) => (
                 <Reveal key={stat.label} delay={i * 80}>
                   <div className="rounded-xl border border-white/10 bg-white/5 p-6 text-center">
