@@ -56,22 +56,123 @@
       {tier.levelName}" sem checar `multiTier` — com o curso em tier único,
       o texto saía tipo "ao final do nível ChatGPT". Corrigido nos mesmos
       commits da conversão (guard `multiTier`, mesmo padrão já usado em
-      `ti-suporte.tsx`) — encontrado 2x de forma independente por sessões/
-      agentes diferentes em grupos diferentes. Depois da 2ª ocorrência,
-      rodei um grep sistemático em todo `course-skins/variants/*` por esse
-      padrão exato (`nível ${tier.levelName}` / `nível {t.levelName}`) —
-      confirmado que não há mais nenhuma instância em nenhuma categoria,
-      incluindo os skins `ide-*.tsx` que o grupo Programação vai usar.
-      Registrado como item de backlog separado (não
-      corrigido agora, escopo de outra sessão) um padrão mais leve e
-      disseminado: rótulos genéricos como "Ao final deste nível" em vários
-      `course-skins/variants/*`, sem nome de curso injetado — não quebra a
-      frase, mas ainda pressupõe múltiplos níveis.
+      `ti-suporte.tsx`) — encontrado 2x de forma independente por
+      sessões/agentes diferentes em grupos diferentes (Office e IA). Depois
+      da 2ª ocorrência, a sessão da conversão de IA rodou um grep
+      sistemático em todo `course-skins/variants/*` por esse padrão exato
+      (`nível ${tier.levelName}` / `nível {t.levelName}`) e confirmou que
+      não havia mais nenhuma instância dele em nenhuma categoria, incluindo
+      os skins `ide-*.tsx` que o grupo Programação vai usar. O padrão mais
+      leve e disseminado que isso também apontou — rótulos genéricos como
+      "Ao final deste nível" em vários `course-skins/variants/*`, sem nome
+      de curso injetado, mas ainda pressupondo múltiplos níveis — foi
+      resolvido em sessão separada logo em seguida (ver item na seção
+      "Resolvidas" abaixo).
       **Falta:** Programação (13 cursos, `git` já resolvido à parte).
       _Sem pendência aberta com o Henrique neste item — próximo passo é
       técnico (converter o grupo restante)._
 
 ## Resolvidas
+
+- [x] **`ia-geral.tsx` (componente `Trilha`) ficou com sub-legenda incorreta
+      assim que o curso "ia" converteu pra plano único, no meio desta
+      sessão** — inicialmente registrado como pendência em aberto (esta
+      mesma sessão, ver commit anterior), porque o curso "IA: Essencial ao
+      Profissional com Agentes" ainda não tinha convertido e a correção
+      parecia exigir redesenho, não só texto. O `master` andou 2x durante a
+      sessão (PR #42 Office, depois PR #43 IA) — na sincronização com o PR
+      #43 o curso `ia` já tinha virado plano único, e a checagem visual em
+      `/particular/cursos/ia` mostrou o problema ao vivo: "Cada nível é uma
+      etapa da trilha. Escolha a etapa..." continuava aparecendo com um só
+      card "etapa 01" estático (sem seletor, sem barra de progresso — esses
+      dois já eram condicionais a `n > 1` antes). Reavaliado: o visual
+      degrada bem sozinho (card único desabilitado, sem elementos vazios ou
+      quebrados); só o texto ficava incoerente. Corrigido com o mesmo padrão
+      do resto da revisão: `sub={n > 1 ? "Cada nível é uma etapa da
+      trilha..." : "Acompanhe os módulos na linha do tempo, do primeiro
+      prompt ao primeiro agente."}` (reaproveitando o `n` que a função já
+      calculava). Observação à parte, não corrigida agora por ser um ponto
+      de design (não usa a palavra "nível", foge do escopo desta revisão):
+      cada módulo do curso de tier único repete o nome inteiro do curso como
+      kicker (ex.: "IA: ESSENCIAL AO PROFISSIONAL COM AGENTES · MÓDULO 01"
+      em todo módulo) — funciona, mas é repetitivo; fica pra quem revisar a
+      identidade visual desse skin depois. Verificado com `bun run lint` +
+      `bun run build` (sem erros) e visualmente em `/particular/cursos/ia`
+      no `bun run dev`.
+
+- [x] **Rótulos genéricos "nível" em `course-skins/variants/*` não checavam
+      `multiTier` — ~19 ocorrências corrigidas, incluindo 4 que já eram o
+      bug grave (nome do curso injetado depois de "nível")** — achado
+      apontado num curso já existente sobre `planilha-pacote.tsx`,
+      `planilha-power-bi.tsx` e `planilha-powerpoint.tsx` ("Ao final deste
+      nível" / "Resultado do nível" incondicionais). Causa raiz: `Tier.
+      levelName` virou o nome do curso/software em cursos de plano único
+      (decisão da unificação de tiers, ver spec
+      [`2026-09-23-cursos-particulares-plano-unico-design.md`](docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md)),
+      mas muitos rótulos escritos quando todo curso era multi-tier nunca
+      foram revisados. Rodei `grep` por "nível" (com acento) em todo
+      `src/components/course-skins/` (84 ocorrências) e classifiquei cada
+      uma: comentário/JSDoc (não é texto de tela) → ignorado; "nível" da
+      arquitetura em `oficina-revit.tsx` (cota de elevação do desenho
+      técnico, sem relação com tier) → ignorado, falso positivo por
+      homônimo; componente que já retorna `null`/já está dentro de
+      `{multiTier && (...)}` (`TierIntro`, `TierSwitch`, `TierTabs`,
+      `TierGuide` em todos os 8 call sites, badge "Escolha o nível" em
+      `ia.tsx`, "Não se encaixa em nenhum nível?" em `common.tsx`) → já
+      seguro, sem mudança; rótulo genérico incondicional → corrigido pra
+      `multiTier ? "…nível…" : "…curso…"`. **Nessa varredura apareceram mais
+      4 ocorrências do bug grave já corrigido antes noutro lugar** (nome do
+      tier colado depois de "nível", tipo "conversa do nível Excel + IA")
+      que ainda não tinham sido pegas — `ia-agentes.tsx` ("Você começa o
+      nível {tier.levelName}"), `ia-chat.tsx` ("ao final do nível
+      {tier.levelName}"), `planilha-excel-ia.tsx` ("conversa do nível
+      {tier.levelName}") e `planilha-power-apps.tsx` ("Quando você começa o
+      nível {tier.levelName}") — hoje inofensivas porque nenhum desses 4
+      cursos foi convertido pra plano único ainda, mas quebrariam
+      automaticamente na conversão (mesma classe do bug do badge "Nível X" e
+      do JSON-LD duplicado, já corrigidos antes). Corrigidas junto, com a
+      mesma regra. **Arquivos alterados (15):** `ia-agentes.tsx`,
+      `ia-chat.tsx`, `ia-conteudo.tsx`, `ia-rag.tsx`, `ia-visual.tsx`,
+      `ide-logica.tsx`, `ide-n8n.tsx`, `ide-python-apis.tsx`,
+      `marketing-funil-vendas.tsx`, `marketing-kit.tsx` (default não usado
+      de `ToolsRow`), `planilha-excel-ia.tsx`, `planilha-pacote.tsx`,
+      `planilha-power-apps.tsx`, `planilha-power-bi.tsx`,
+      `planilha-powerpoint.tsx`. Nos componentes sem prop `multiTier` já
+      pronta (família `ia-*`/`IaBlockProps`, família `ide-*`/`ConteudoProps`,
+      `marketing-funil-vendas.tsx`/`MktBlockProps`), segui o mesmo padrão já
+      usado em `TierIntro`/`TierTabs`/`NivelSeletor`: `const multiTier =
+      course.tiers.length > 1` calculado localmente. Deixei de fora
+      `ia-geral.tsx` (ver pendência aberta acima — precisa de redesenho, não
+      de troca de texto) e a tag decorativa `<Nivel nome="…">` de
+      `ide-frontend.tsx` (sem acento, é estética de "código falso" no
+      metáfora do skin, não prosa real). Verificado com `bun run lint` (0
+      erros, só os 129 warnings pré-existentes de fast-refresh em rotas,
+      nenhum nos arquivos alterados) e `bun run build` (limpo, TypeScript
+      incluído) — precisei rodar `bun install` antes porque este worktree
+      nunca tinha sido instalado (`node_modules` não existia; script
+      `generate-og-images.mjs` falhava com `ERR_MODULE_NOT_FOUND` por causa
+      disso, não por causa da mudança). Restaurei `public/og/**` e
+      `public/og-image.png` depois de cada build (efeito colateral
+      conhecido, ver memória). No meio da sessão o `master` andou (PR #42,
+      grupo Office inteiro convertido pra plano único) e trouxe conflito
+      real em `planilha-excel-ia.tsx` e `planilha-power-apps.tsx` — a outra
+      sessão tinha corrigido, nos mesmos 2 arquivos, exatamente o mesmo bug
+      grave que essa varredura também pegou (`multiTier ? "…nível
+      {tier.levelName}" : "…curso"`, palavra por palavra igual em
+      `planilha-power-apps.tsx`), o que valida a correção; resolvido
+      mantendo a versão desta sessão pra a `<span>` de "conversa do
+      nível/curso" (fica consistente com "Resumo do nível/curso" duas
+      linhas abaixo, no mesmo arquivo, em vez de esconder a legenda
+      inteira). `bun run lint`/`build` rodados de novo depois do merge,
+      ainda limpos. Verificado visualmente no `bun run dev` **depois do
+      merge**: `/particular/cursos/funil-vendas`, `/particular/cursos/
+      office`, `/particular/cursos/power-bi`, `/particular/cursos/
+      powerpoint`, `/particular/cursos/excel-ia` e `/particular/cursos/
+      power-apps` (todos já plano único, os 2 últimos convertidos pelo PR
+      #42 que chegou no meio desta sessão) mostram a versão "curso" em cada
+      rótulo; `/particular/cursos/chatgpt` (ainda multi-tier) continua
+      mostrando "ao final do nível Essencial" / "Troque o nível no seletor
+      de modelo" sem nenhuma mudança de comportamento.
 
 - [x] **Copywriting mencionava "revisão em grupo" no projeto final e no
       FAQ** — pendência aberta em 23/09 durante a conversão do curso pra

@@ -108,6 +108,7 @@ export function PythonApisPublico({ itens }: PublicoProps) {
 const METODO = ["GET", "POST", "GET", "PUT", "POST", "GET", "GET"];
 
 export function PythonApisConteudo({ course, tier, tierIndex, onSelectTier, meta }: ConteudoProps) {
+  const multiTier = course.tiers.length > 1;
   const [sel, setSel] = useState(0);
   const total = tier.modules.length;
   const atual = Math.min(sel, total - 1);
@@ -198,7 +199,7 @@ export function PythonApisConteudo({ course, tier, tierIndex, onSelectTier, meta
 
       <div className="mt-8 grid gap-4 border-t border-white/10 pt-5 lg:grid-cols-[1.5fr_1fr]">
         <div className="min-w-0">
-          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/40">Ao final do nível</p>
+          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/40">{multiTier ? "Ao final do nível" : "Ao final do curso"}</p>
           <p className="mt-2 text-[14px] leading-snug text-white/90">{tier.outcome}</p>
           <p className="mt-2 font-mono text-[11.5px] text-white/40">{ritmo(tier, meta)}</p>
         </div>
