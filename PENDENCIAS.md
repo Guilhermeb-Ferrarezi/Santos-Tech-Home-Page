@@ -33,14 +33,15 @@
       óbvia. Revisar quando a conversão dos 39 cursos restantes avançar.
       _Aguardando Henrique._
 
-- [~] **Unificação de tiers em opção única — 28 de 47 cursos convertidos**
+- [~] **Unificação de tiers em opção única — 34 de 47 cursos convertidos**
       (spec completa em
       [`docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md`](docs/superpowers/specs/2026-09-23-cursos-particulares-plano-unico-design.md),
       PR #22/#24). **Feito:** Premiere (PR #20/#21, piloto), grupos T.I,
-      Universo 3D, Informática, Design & Criação, Marketing & Negócios e
-      **Office** (8 cursos: Pacote Office, Excel Avançado, Excel + Power BI,
-      Excel + IA, Word Profissional, PowerPoint, Power BI, Power Apps +
-      Power Automate) — 100% migrados. Henrique confirmou a tabela de taxa
+      Universo 3D, Informática, Design & Criação, Marketing & Negócios,
+      **Office** (8 cursos) e **Inteligência Artificial** (6 cursos: IA:
+      Essencial ao Profissional com Agentes, Agentes de IA com N8N e LLMs,
+      RAG, IA para Criadores, ChatGPT e IA para Profissionais, Criação de
+      Conteúdo com IA) — 100% migrados. Henrique confirmou a tabela de taxa
       técnica (R$110-180/h) em 23/09: faixa aprovada como sugerida na spec,
       cursos de IA (ia/agentes-ia/ia-visual/typescript) formalizados em
       109,90/h com RAG subindo pra 115/h, e Pacote Office mantém-se símples
@@ -49,20 +50,26 @@
       carga horária); `capcut` mantém 24h sem nivelar; `mobile` unifica em
       React Native; `jogos` mantém Unity + Godot juntos; `manutencao`/
       `impressao-3d` seguem curtos (24h).
-      **Achado durante a conversão do Office:** a pele visual de 2 cursos
-      (`planilha-excel-ia.tsx`, `planilha-power-apps.tsx`) exibia texto tipo
-      "conversa do nível {tier.levelName}" sem checar `multiTier` — com o
-      curso em tier único, o texto saía "conversa do nível Excel + IA".
-      Corrigido nos mesmos commits da conversão (guard `multiTier`, mesmo
-      padrão já usado em `ti-suporte.tsx`). Registrado como item de backlog
-      separado (não corrigido agora, escopo de outra sessão) um padrão mais
-      leve e disseminado: rótulos genéricos como "Ao final deste nível" em
-      vários `course-skins/variants/*`, sem nome de curso injetado — não
-      quebra a frase, mas ainda pressupõe múltiplos níveis.
-      **Falta:** Inteligência Artificial (6 cursos) e Programação (13
-      cursos, `git` já resolvido à parte).
+      **Achado durante a conversão do Office e da IA:** a pele visual de 4
+      cursos (`planilha-excel-ia.tsx`, `planilha-power-apps.tsx`,
+      `ia-chat.tsx`, `ia-agentes.tsx`) exibia texto tipo "nível
+      {tier.levelName}" sem checar `multiTier` — com o curso em tier único,
+      o texto saía tipo "ao final do nível ChatGPT". Corrigido nos mesmos
+      commits da conversão (guard `multiTier`, mesmo padrão já usado em
+      `ti-suporte.tsx`) — encontrado 2x de forma independente por sessões/
+      agentes diferentes em grupos diferentes. Depois da 2ª ocorrência,
+      rodei um grep sistemático em todo `course-skins/variants/*` por esse
+      padrão exato (`nível ${tier.levelName}` / `nível {t.levelName}`) —
+      confirmado que não há mais nenhuma instância em nenhuma categoria,
+      incluindo os skins `ide-*.tsx` que o grupo Programação vai usar.
+      Registrado como item de backlog separado (não
+      corrigido agora, escopo de outra sessão) um padrão mais leve e
+      disseminado: rótulos genéricos como "Ao final deste nível" em vários
+      `course-skins/variants/*`, sem nome de curso injetado — não quebra a
+      frase, mas ainda pressupõe múltiplos níveis.
+      **Falta:** Programação (13 cursos, `git` já resolvido à parte).
       _Sem pendência aberta com o Henrique neste item — próximo passo é
-      técnico (converter os 2 grupos restantes)._
+      técnico (converter o grupo restante)._
 
 ## Resolvidas
 

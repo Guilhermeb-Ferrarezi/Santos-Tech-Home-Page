@@ -66,6 +66,15 @@ export const TIER_META: Record<string, { price: number; aulas: string; intensivo
   PowerPoint: { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
   "Power BI": { price: 5520, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
   "Power Apps + Power Automate": { price: 5520, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  // Grupo Inteligência Artificial (taxa aprovada pelo Henrique em 23/09 —
+  // ia/agentes-ia/ia-visual formalizam o valor de pricePerAula já cobrado
+  // na prática, 109,90/h; RAG sobe pra 115/h por ser mais avançado)
+  "IA: Essencial ao Profissional com Agentes": { price: 5275, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Agentes de IA com N8N e LLMs": { price: 5275, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  RAG: { price: 5520, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "IA para Criadores": { price: 5275, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  ChatGPT: { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
+  "Criação de Conteúdo com IA": { price: 3970, aulas: "48 aulas", intensivo: "~3 meses", padrao: "~6 meses" },
 };
 
 // ── Margem embutida e parcelamento (decisão do Henrique, 23/09) ────────────
