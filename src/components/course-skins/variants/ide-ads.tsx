@@ -141,7 +141,7 @@ export function AdsConteudo({ course, tier, tierIndex, onSelectTier, meta }: Con
             </div>
           ))}
           <p className="relative z-10 ml-9 w-fit rounded-md border border-(--accent-2)/60 px-3 py-1 text-[13px] font-bold text-(--accent-2) md:mx-auto">
-            Formado em ADS
+            Projeto de conclusão entregue
           </p>
         </div>
 
