@@ -41,7 +41,7 @@ import { PacoteConteudo, PacoteParaQuem } from "@/components/course-skins/varian
  * O acento da página continua o da categoria (PLANILHA_THEME) em todas.
  */
 
-export const PLANILHA_THEME: CourseTheme = { accent: "#21A366", accentHover: "#1b8a56", accent2: "#9BE7C1", heroBg: "#0d1712" };
+// Paleta da pele em course-skins/themes.ts (PLANILHA_THEME) — módulo leve, sem componentes.
 
 /** Fundos por app: células (Excel), linhas de texto (Word), grade de pontos (telas/slides). */
 const PATTERNS: Record<Variante["pattern"], CSSProperties> = { cells: GRID, ruled: RULED, dots: DOTS };

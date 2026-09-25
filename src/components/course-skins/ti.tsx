@@ -3,7 +3,6 @@ import { RevealHero } from "@/components/reveal";
 import { CommonSections, type Look } from "@/components/course-skins/common";
 import { WhatsAppIcon } from "@/components/icons";
 import { TiHeroArt, TiScene } from "@/components/course-skins/scenes/ti";
-import type { CourseTheme } from "@/lib/course-themes";
 import { tierMeta, type SkinProps } from "@/components/course-skins/shared";
 import { ACC_TEXT, RackRail, StatusLed, Tape, type TiBlocos } from "@/components/course-skins/variants/ti-kit";
 import { SuporteConteudo, SuportePublico } from "@/components/course-skins/variants/ti-suporte";
@@ -23,7 +22,7 @@ import { LinuxConteudo, LinuxPublico } from "@/components/course-skins/variants/
  * comercial usa o bloco comum, com acabamento frio e sóbrio.
  */
 
-export const TI_THEME: CourseTheme = { accent: "#0D9488", accentHover: "#0F766E", accent2: "#A3E635", heroBg: "#081412" };
+// Paleta da pele em course-skins/themes.ts (TI_THEME) — módulo leve, sem componentes.
 
 /** Rótulos por curso (campo `variante` do COURSE_DATA). */
 const VARIANTES: Record<string, { area: string; blocos: TiBlocos }> = {

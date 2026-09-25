@@ -30,7 +30,7 @@ import { EcommercePublico, EcommerceConteudo } from "@/components/course-skins/v
  * A parte comercial usa o bloco comum, com acabamento limpo e cantos suaves.
  */
 
-export const MARKETING_THEME: CourseTheme = { accent: "#E5484D", accentHover: "#cc3a3f", accent2: "#FFC53D", heroBg: "#170c10" };
+// Paleta da pele em course-skins/themes.ts (MARKETING_THEME) — módulo leve, sem componentes.
 
 // ── Variações por curso ─────────────────────────────────────────────────────
 

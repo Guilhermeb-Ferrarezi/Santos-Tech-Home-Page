@@ -5,7 +5,6 @@ import { CommonSections, type Look } from "@/components/course-skins/common";
 import { WhatsAppIcon } from "@/components/icons";
 import { CourseHeroArt } from "@/components/course-hero-art";
 import { IaScene, type IaVariante } from "@/components/course-skins/scenes/ia";
-import type { CourseTheme } from "@/lib/course-themes";
 import type { SkinProps } from "@/components/course-skins/shared";
 import { ACCENT_TEXT, BORDER, Eyebrow, LevelPicker, MUTED, PAGE, PANEL, TEXT, TITLE, type IaBlockProps } from "@/components/course-skins/variants/ia-kit";
 import { GeralAudience, GeralProgram } from "@/components/course-skins/variants/ia-geral";
@@ -24,7 +23,7 @@ import { ConteudoAudience, ConteudoProgram } from "@/components/course-skins/var
  * com acabamento lavanda, cantos arredondados e botões em pílula.
  */
 
-export const IA_THEME: CourseTheme = { accent: "#8B5CF6", accentHover: "#7c3aed", accent2: "#E879F9", heroBg: "#120d1f" };
+// Paleta da pele em course-skins/themes.ts (IA_THEME) — módulo leve, sem componentes.
 
 const IA_LOOK: Look = {
   bgA: PANEL,

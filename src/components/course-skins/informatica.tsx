@@ -29,7 +29,6 @@ import {
   StartGlyph,
   WinTitleBar,
 } from "@/components/course-skins/scenes/informatica";
-import type { CourseTheme } from "@/lib/course-themes";
 import { TIER_GUIDE, tierMeta, type SkinProps } from "@/components/course-skins/shared";
 
 /**
@@ -45,12 +44,7 @@ import { TIER_GUIDE, tierMeta, type SkinProps } from "@/components/course-skins/
  * - O resto (planos, FAQ…) usa o bloco comum com acabamento sóbrio.
  */
 
-export const INFORMATICA_THEME: CourseTheme = {
-  accent: "#0F6CD4",
-  accentHover: "#0b59b3",
-  accent2: "#FFC83D",
-  heroBg: "#0a1830",
-};
+// Paleta da pele em course-skins/themes.ts (INFORMATICA_THEME) — módulo leve, sem componentes.
 
 /**
  * No modo escuro o azul fica um pouco mais claro pra manter contraste, e

@@ -30,7 +30,7 @@ import { RevitConteudo, RevitParaQuem } from "@/components/course-skins/variants
  * - "revit": prédio em corte, um perfil por pavimento · navegador de projeto + tabelas.
  */
 
-export const OFICINA_THEME: CourseTheme = { accent: "#F97316", accentHover: "#e0620c", accent2: "#FDBA74", heroBg: "#1a110b" };
+// Paleta da pele em course-skins/themes.ts (OFICINA_THEME) — módulo leve, sem componentes.
 
 const CREAM = "bg-[#fbf5ec] dark:bg-[#140d08]";
 

@@ -18,7 +18,7 @@ import { kebab, slug } from "@/components/course-skins/variants/ide-util";
  * `variante` do curso — ver `variants/ide-variantes.ts`.
  */
 
-export const IDE_THEME: CourseTheme = { accent: "#4B8BF5", accentHover: "#3a76dc", accent2: "#FFD43B", heroBg: "#0c1220" };
+// Paleta da pele em course-skins/themes.ts (IDE_THEME) — módulo leve, sem componentes.
 
 function Heading({ n, cm, file, title }: { n: string; cm: string; file: string; title: string }) {
   return (

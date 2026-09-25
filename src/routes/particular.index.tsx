@@ -17,7 +17,7 @@ import { Reveal } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
 import { Img } from "@/components/img";
 import { ParticularFaq } from "@/components/particular-faq";
-import { TIER_META } from "@/components/course-skins/shared";
+import { TIER_META } from "@/components/course-skins/tier-meta";
 import { pageMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/particular/")({

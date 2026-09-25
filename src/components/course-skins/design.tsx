@@ -30,7 +30,7 @@ import { PremiereAudience, PremiereContent } from "@/components/course-skins/var
  * A parte comercial usa o bloco comum com acabamento limpo, sem metáfora.
  */
 
-export const DESIGN_THEME: CourseTheme = { accent: "#DB2777", accentHover: "#BE185D", accent2: "#FBBF24", heroBg: "#16121a" };
+// Paleta da pele em course-skins/themes.ts (DESIGN_THEME) — módulo leve, sem componentes.
 
 type Modo = "design" | "video";
 
