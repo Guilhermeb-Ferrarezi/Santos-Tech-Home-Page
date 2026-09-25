@@ -259,12 +259,12 @@ function ProductBand({ p, reverse, curveBottom }: { p: Produto; reverse?: boolea
             </p>
 
             <a
-              href={WHATSAPP}
+              href={WHATSAPP_URL.program(p.name)}
               target="_blank"
               rel="noreferrer"
               className="mt-8 inline-flex items-center gap-2 rounded-md bg-st-green px-8 py-4 text-sm font-black uppercase tracking-wider text-white shadow-xl transition hover:scale-[1.03] glow-green"
             >
-              <WhatsAppIcon className="h-4 w-4" /> Quero saber mais
+              <WhatsAppIcon className="h-4 w-4" /> Falar sobre {p.name}
             </a>
           </Reveal>
         </div>
@@ -723,13 +723,13 @@ function Index() {
                     </ul>
 
                     <a
-                      href={WHATSAPP}
+                      href={WHATSAPP_URL.program(p.nome)}
                       target="_blank"
                       rel="noreferrer"
                       className="mt-7 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3.5 text-sm font-black uppercase tracking-wider text-white shadow-md transition hover:scale-[1.02]"
                       style={{ background: p.cor }}
                     >
-                      <WhatsAppIcon className="h-4 w-4" /> Quero saber mais
+                      <WhatsAppIcon className="h-4 w-4" /> Falar sobre {p.nome}
                     </a>
                   </div>
                 </TiltCard>
