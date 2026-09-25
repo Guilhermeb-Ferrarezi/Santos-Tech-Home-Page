@@ -216,6 +216,12 @@ export function SiteFooter() {
           </button>
         </div>
       </div>
+
+      {/* Com o banner de cookies aberto, reserva a altura dele no fim da página: o
+          scroll-padding (styles.css) não resolve os últimos links, porque a página
+          já não tem para onde rolar e eles ficariam atrás do card (WCAG 2.4.11).
+          Banner fechado = variável em 0. */}
+      <div aria-hidden="true" className="h-[var(--st-consent-height,0px)]" />
     </footer>
   );
 }

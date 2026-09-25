@@ -147,6 +147,10 @@
     scroll-behavior: smooth;
     /* Compensa o header sticky de 80px (h-20) ao usar âncoras (#secao). */
     scroll-padding-top: 5rem;
+    /* Enquanto o banner de cookies está aberto, o navegador rola o elemento que
+       recebe foco (Tab) para acima dele, em vez de deixá-lo escondido atrás do card
+       (WCAG 2.4.11). A altura vem do <CookieConsent />; fechado, vale 0. */
+    scroll-padding-bottom: var(--st-consent-height, 0px);
   }
 
   body {

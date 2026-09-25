@@ -77,9 +77,15 @@ const GOOGLE_REVIEWS_URL =
 
 const clamp = (v: number, a = 0, b = 1) => Math.max(a, Math.min(b, v));
 
-function Stars({ className = "" }: { className?: string }) {
+// `aria-label` num <span> sem papel é proibido (axe: aria-prohibited-attr) e o
+// leitor de tela ignora — `role="img"` faz as 5 estrelas virarem uma imagem com
+// nome. Dentro de um link que já diz o que é, as estrelas são só enfeite.
+function Stars({ className = "", decorative = false }: { className?: string; decorative?: boolean }) {
+  const a11y = decorative
+    ? ({ "aria-hidden": true } as const)
+    : ({ role: "img", "aria-label": "5 de 5 estrelas" } as const);
   return (
-    <span className={`inline-flex ${className}`} aria-label="5 de 5 estrelas">
+    <span className={`inline-flex ${className}`} {...a11y}>
       {Array.from({ length: 5 }).map((_, i) => (
         <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
       ))}
@@ -129,7 +135,7 @@ function GoogleButton() {
       rel="noreferrer"
       className="inline-flex items-center gap-2 rounded-full border-2 border-border px-7 py-3 text-sm font-bold text-st-blue-dark transition hover:border-primary/40 hover:bg-muted"
     >
-      <Stars className="scale-90" /> Ver as 329 avaliações no Google
+      <Stars className="scale-90" decorative /> Ver as 329 avaliações no Google
     </a>
   );
 }
