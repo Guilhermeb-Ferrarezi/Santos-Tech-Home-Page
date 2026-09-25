@@ -15,7 +15,7 @@ import {
   PaintBrush as PhPaintBrush,
   HeartStraight as PhHeartStraight,
 } from "@phosphor-icons/react";
-import { phosphor } from "@/lib/phosphor";
+import { phosphor, type LucideCompatible } from "@/lib/phosphor";
 import { Reveal } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
 
@@ -189,7 +189,7 @@ function AgeBlock({
 // ──────────────────────────────────────────────────────────────────────────
 // Sub-componente: feature card (método)
 // ──────────────────────────────────────────────────────────────────────────
-function MethodPoint({ icon: Icon, title, children }: { icon: typeof Sparkles; title: string; children: ReactNode }) {
+function MethodPoint({ icon: Icon, title, children }: { icon: LucideCompatible; title: string; children: ReactNode }) {
   return (
     <div className="flex items-start gap-4">
       <div

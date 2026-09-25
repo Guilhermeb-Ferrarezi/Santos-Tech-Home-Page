@@ -1,9 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
-import {
-  CheckCircle2,
-  type LucideIcon,
-} from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import {
   Robot as PhRobot,
   Brain as PhBrain,
@@ -15,7 +12,7 @@ import {
   StackSimple as PhStackSimple,
   FlowArrow as PhFlowArrow,
 } from "@phosphor-icons/react";
-import { phosphor } from "@/lib/phosphor";
+import { phosphor, type LucideCompatible } from "@/lib/phosphor";
 import { Reveal } from "@/components/reveal";
 import { HoverWashCard } from "@/components/hover-wash-card";
 
@@ -72,7 +69,7 @@ type Academy = {
   name: string;
   tagline: string;
   description: string;
-  icon: LucideIcon;
+  icon: LucideCompatible;
   color: string;
   highlights: string[];
   /** O que o aluno constrói/leva pra casa. */

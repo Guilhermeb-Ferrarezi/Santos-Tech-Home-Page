@@ -13,7 +13,7 @@ import {
   TrendUp as PhTrendUp,
   RocketLaunch as PhRocketLaunch,
 } from "@phosphor-icons/react";
-import { phosphor } from "@/lib/phosphor";
+import { phosphor, type LucideCompatible } from "@/lib/phosphor";
 import { Reveal } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
 import { TechHero } from "@/components/tech-hero";
@@ -51,10 +51,13 @@ const CREATE_LIGHT = "#49A8EB";
 // ──────────────────────────────────────────────────────────────────────────
 // 6 Cursos CREATE (placeholders — conteúdo programático vem depois)
 // ──────────────────────────────────────────────────────────────────────────
+/** Slugs das páginas CREATE que existem em src/routes — tipado pra o <Link> validar a rota. */
+type CreateSlug = "8-9-anos" | "9-10-anos" | "10-11-anos" | "11-12-anos" | "12-13-anos" | "13-14-anos";
+
 type CourseCard = {
   id: string;          // CREATE1, CREATE2...
   ageRange: string;    // "8 a 9 anos"
-  slug: string;        // URL fragment (ex.: "8-9-anos")
+  slug: CreateSlug;    // URL fragment (ex.: "8-9-anos")
   title: string;       // "[A definir]" enquanto conteúdo não chega
   pitch: string;       // 1 frase do que a criança faz
   ready: boolean;      // se a página existe
@@ -114,7 +117,7 @@ const COURSES: CourseCard[] = [
 // ──────────────────────────────────────────────────────────────────────────
 // Subcomponentes
 // ──────────────────────────────────────────────────────────────────────────
-function MethodPoint({ icon: Icon, title, children }: { icon: typeof Sparkles; title: string; children: ReactNode }) {
+function MethodPoint({ icon: Icon, title, children }: { icon: LucideCompatible; title: string; children: ReactNode }) {
   return (
     <div className="flex items-start gap-4">
       <div
