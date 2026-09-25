@@ -8,8 +8,9 @@
 //   links       — toda URL do sitemap é alcançável por <a href> a partir da home (arquitetura-links-internos-01/-03)
 //   faq-html    — toda resposta do FAQPage aparece no HTML visível              (aeo-respostas-01/-02)
 //   aulas-html  — a ementa aula a aula do CREATE 8–9 está no HTML                (lacuna-conteudo-01)
-//   h1-visivel  — o H1 não nasce dentro de um elemento com opacity:0             (performance-cwv-01)
-//   accept      — Accept sem text/html não devolve 500                           (lacuna-infra-04 = lacuna-geo-03)
+//   h1-visivel  — o H1 não nasce dentro de um elemento com opacity:0 (home, hub,
+//                 curso particular e curso infantil)                               (performance-cwv-01)
+//   accept      — Accept sem text/html não devolve 500; /_serverFn/* dá 404      (lacuna-infra-04 = lacuna-geo-03)
 //   json-ld     — sem aggregateRating, sem instructor=Organization, sem audience
 //                 na organização, ItemList no hub /particular                    (seo-local-02, dados-estruturados-03/-04/-15)
 //   404         — rota inexistente responde 404 com noindex e título próprio      (tecnico-rastreio-indexacao-05)
@@ -130,7 +131,7 @@ const checks = {
   async "h1-visivel"() {
     const VOID = new Set(["area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"]);
     const erros = [];
-    for (const path of ["/", "/particular/cursos/excel", "/cursos/create/8-9-anos"]) {
+    for (const path of ["/", "/particular", "/particular/cursos/excel", "/cursos/create/8-9-anos"]) {
       const { body } = await get(path);
       const html = stripScripts(body);
       const fim = html.indexOf("<h1");
@@ -156,10 +157,12 @@ const checks = {
 
   async accept() {
     const erros = [];
-    for (const accept of ["text/markdown", "application/json"]) {
+    for (const accept of ["text/markdown", "application/json", "text/plain", "text/*", "TEXT/HTML"]) {
       const { status } = await get("/cursos", { accept });
       if (status >= 500) erros.push(`Accept ${accept} → ${status}`);
     }
+    const { status: sf } = await get("/_serverFn/verificador-seo");
+    if (sf !== 404) erros.push(`/_serverFn/* → ${sf} (esperado 404)`);
     return erros.length ? erros.join(" · ") : null;
   },
 
