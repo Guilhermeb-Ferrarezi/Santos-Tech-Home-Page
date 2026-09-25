@@ -8,9 +8,12 @@ type LogoProps = { name: string; className?: string };
 //   sharp(png).resize(192, 192, { fit: "inside", withoutEnlargement: true })
 //     .webp({ quality: 85, alphaQuality: 100, smartSubsample: true })
 // Uma chave = um arquivo: não deixe `x.png` e `x.webp` juntos (o glob pegaria só um deles).
+// `no-inline`: sem ele o Vite embute como base64 no JS toda logo < 4 KB — e o
+// glob é eager, então TODA página com ToolLogo baixaria todas essas logos no
+// bundle, usadas ou não. Como arquivo, cada página baixa só as que exibe.
 const files = import.meta.glob("../assets/logos/*.{png,svg,webp,jpg}", {
   eager: true,
-  query: "?url",
+  query: "?url&no-inline",
   import: "default",
 }) as Record<string, string>;
 
