@@ -20,6 +20,7 @@ import { COURSE_THEMES } from "@/components/course-skins/themes";
 import { BRAND_THEME, themeVars, type CourseThemeKey } from "@/lib/course-themes";
 import { openConsentPreferences } from "@/lib/consent";
 import { ORG } from "@/lib/seo";
+import type { FileRoutesByTo } from "@/routeTree.gen";
 
 export const Route = createFileRoute("/particular")({
   component: ParticularLayout,
@@ -63,11 +64,22 @@ const RODAPE_LINKS: { label: string; href: string; externo?: boolean }[] = [
 /** `tel:` a partir do telefone do JSON-LD (ORG), a mesma fonte do rodapé do site. */
 const TEL_HREF = `tel:+${ORG.telephone.replace(/\D/g, "")}`;
 
+/**
+ * Slug de um curso particular que existe como rota (`particular.cursos.<slug>.tsx`).
+ * Vem da árvore de rotas gerada: o `<Link to>` fica tipado e um slug sem página
+ * (digitado errado ou de rota removida) quebra o type-check em vez de virar 404.
+ */
+type CursoSlug = keyof FileRoutesByTo extends infer P
+  ? P extends `/particular/cursos/${infer S}`
+    ? S
+    : never
+  : never;
+
 /** `id` bate com `CourseThemeKey` — é a chave usada pra buscar o tema (cor) da categoria em `COURSE_THEMES`. */
 const GRUPOS: {
   id: CourseThemeKey;
   label: string;
-  cursos: { slug: string; nome: string; legenda?: string }[];
+  cursos: { slug: CursoSlug; nome: string; legenda?: string }[];
 }[] = [
   {
     id: "informatica",
