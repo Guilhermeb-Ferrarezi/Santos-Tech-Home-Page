@@ -8,9 +8,9 @@ export const Route = createFileRoute("/particular/cursos/ads")({
   head: () =>
     pageMeta({
       title:
-        "Curso de ADS — Formação Profissional em Programação Particular em Ribeirão Preto — Santos Tech",
+        "Curso de ADS — Desenvolvimento de Sistemas do Zero, Particular em Ribeirão Preto — Santos Tech",
       description:
-        "Formação profissional completa em Análise e Desenvolvimento de Sistemas: lógica, back-end, mobile, cloud e IA. Do zero ao mercado de TI em até 6 meses, presencial em Ribeirão Preto.",
+        "Curso particular de Análise e Desenvolvimento de Sistemas: lógica, back-end, mobile, cloud e IA, com projeto de conclusão. Presencial em Ribeirão Preto.",
       path: "/particular/cursos/ads",
     }),
 })
@@ -22,12 +22,12 @@ const COURSE_DATA = {
   logo: "projeto",
   variante: "ads",
   tagline:
-    "Formação profissional completa em tecnologia: da lógica ao sistema em produção",
+    "Da lógica de programação ao sistema em produção, com projeto próprio no portfólio",
   targetAudience: [
-    "Você quer uma formação estruturada e completa em TI sem precisar fazer uma graduação de 4 anos",
+    "Você quer aprender a desenvolver sistemas de ponta a ponta, numa trilha estruturada desde o zero",
     "Você está em transição de carreira e precisa de base sólida para entrar no mercado de tecnologia",
-    "Você já trabalha em TI (suporte, infraestrutura) e quer formação formal em desenvolvimento de sistemas",
-    "Você busca uma qualificação profissional reconhecida pelo mercado em poucos meses, não em anos de graduação",
+    "Você já trabalha em TI (suporte, infraestrutura) e quer aprender a desenvolver sistemas",
+    "Você quer praticar com ferramentas usadas no dia a dia das equipes, como Git, Docker e AWS",
     "Você quer dominar tanto o desenvolvimento quanto a análise de requisitos e gestão de projetos",
     "Você tem tempo parcial para estudar e precisa de um curso estruturado que respeite seu ritmo de trabalhador",
   ],
@@ -37,7 +37,7 @@ const COURSE_DATA = {
       ctaLabel: "curso de ADS",
       totalHours: "48h",
       outcome:
-        "Desenvolver sistemas completos do zero absoluto — lógica, banco de dados, front-end e back-end em Java com Spring Boot, mobile Android — até DevOps e cloud, microsserviços, IoT, machine learning, IA generativa e segurança da informação, fechando com projeto de conclusão entregável ao mercado — pronto para posições de desenvolvedor júnior a pleno/sênior em TI",
+        "Desenvolver sistemas completos do zero absoluto — lógica, banco de dados, front-end e back-end em Java com Spring Boot, mobile Android — até DevOps e cloud, microsserviços, IoT, machine learning, IA generativa e segurança da informação, fechando com um projeto de conclusão para o portfólio — base sólida para buscar vagas de desenvolvedor júnior",
       modules: [
         {
           title: "Lógica de Programação e Algoritmos",
@@ -236,7 +236,7 @@ const COURSE_DATA = {
     },
     {
       q: "Já trabalho na área de suporte ou infraestrutura de TI, o ADS serve pra mim?",
-      a: "Sim, é um dos perfis mais comuns aqui. O curso dá a formação formal em desenvolvimento de sistemas que quem já está no operacional de TI geralmente não teve — desde lógica e banco de dados até arquitetura de microsserviços e projeto de conclusão, em até 6 meses.",
+      a: "Sim, é um dos perfis para quem o curso foi pensado. Ele cobre a parte de desenvolvimento de sistemas que quem já está no operacional de TI geralmente não viu — desde lógica e banco de dados até arquitetura de microsserviços, fechando com um projeto de conclusão.",
     },
   ],
 }
