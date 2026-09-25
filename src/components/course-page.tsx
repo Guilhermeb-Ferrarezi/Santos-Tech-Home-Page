@@ -640,23 +640,23 @@ export function LessonAccordion({
                 summaryClassName="flex items-center justify-between gap-3 px-6 py-5 text-left text-sm"
                 resumo={
                   <>
-                    <div className="flex items-center gap-4 text-left">
-                      <div
+                    <span className="flex items-center gap-4 text-left">
+                      <span
                         className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-white shadow"
                         style={{ background: mod.badge.color }}
                       >
                         <BadgeIcon className="h-6 w-6 text-white" />
-                      </div>
-                      <div>
-                        <p className="text-xs font-black uppercase tracking-wider" style={{ color: theme.primary }}>
+                      </span>
+                      <span className="block">
+                        <span className="block text-xs font-black uppercase tracking-wider" style={{ color: theme.primary }}>
                           Módulo {mod.n} · {mod.classes}
-                        </p>
+                        </span>
                         <h3 className="mt-0.5 text-lg font-black">{mod.name}</h3>
-                        <p className="mt-0.5 text-xs text-muted-foreground">
+                        <span className="mt-0.5 block text-xs text-muted-foreground">
                           {mod.duration} · {mod.hours} · {badgeWord} {mod.badge.name}
-                        </p>
-                      </div>
-                    </div>
+                        </span>
+                      </span>
+                    </span>
                     <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open/mod:rotate-180" />
                   </>
                 }
