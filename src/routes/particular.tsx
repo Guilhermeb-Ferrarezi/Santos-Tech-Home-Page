@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { Img } from "@/components/img";
 import { WHATSAPP_URL, WHATSAPP_PHONE_DISPLAY } from "@/lib/whatsapp";
-import { SKINS } from "@/components/course-skins";
+import { COURSE_THEMES } from "@/components/course-skins/themes";
 import { BRAND_THEME, themeVars, type CourseThemeKey } from "@/lib/course-themes";
 import { openConsentPreferences } from "@/lib/consent";
 import { ORG } from "@/lib/seo";
@@ -62,7 +62,7 @@ const RODAPE_LINKS: { label: string; href: string; externo?: boolean }[] = [
 /** `tel:` a partir do telefone do JSON-LD (ORG), a mesma fonte do rodapé do site. */
 const TEL_HREF = `tel:+${ORG.telephone.replace(/\D/g, "")}`;
 
-/** `id` bate com `CourseThemeKey` — é a chave usada pra buscar o tema (cor) da categoria em `SKINS`. */
+/** `id` bate com `CourseThemeKey` — é a chave usada pra buscar o tema (cor) da categoria em `COURSE_THEMES`. */
 const GRUPOS: {
   id: CourseThemeKey;
   label: string;
@@ -512,7 +512,7 @@ function ParticularLayout() {
   const activeGroup = activeSlug
     ? GRUPOS.find((g) => g.cursos.some((c) => c.slug === activeSlug))
     : undefined;
-  const activeTheme = activeGroup ? SKINS[activeGroup.id].theme : BRAND_THEME;
+  const activeTheme = activeGroup ? COURSE_THEMES[activeGroup.id] : BRAND_THEME;
 
   // Ao entrar numa página de curso, garante que o grupo dela esteja expandido
   // na sidebar (senão o highlight fica escondido atrás de um dropdown fechado).
