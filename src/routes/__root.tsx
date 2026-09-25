@@ -198,7 +198,15 @@ function RootComponent() {
       <CookieConsent />
 
       {isParticularRoute ? (
-        <Outlet />
+        <>
+          <Outlet />
+          {/* No desktop a sidebar do /particular já tem "Falar no WhatsApp" fixo. No
+              celular não havia contato persistente: eram ~10 telas de página de curso
+              sem botão nenhum. */}
+          <div className="lg:hidden">
+            <WhatsAppFab />
+          </div>
+        </>
       ) : (
         <>
           <a
