@@ -334,7 +334,6 @@ export function buildParticularCourseSchema(course: {
     description: course.description,
     url: absoluteUrl(course.path),
     provider: { "@id": `${BASE_URL}/#organization` },
-    educationalLevel: "Educação Profissional",
     educationalCredentialAwarded:
       "Certificado de Conclusão — emitido pela Santos Tech",
     inLanguage: "pt-BR",
