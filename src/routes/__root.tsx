@@ -191,7 +191,12 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <JsonLd data={[buildOrganizationSchema(), buildWebSiteSchema()]} />
+      {/* Organização e WebSite completos só na home (diretriz do Google: nome do
+          site e organização na página inicial). As outras páginas citam a escola
+          pela referência curta de `@id` dentro do Course (ver ORG_REF em seo.ts). */}
+      {pathname === "/" && (
+        <JsonLd data={[buildOrganizationSchema(), buildWebSiteSchema()]} />
+      )}
 
       {/* Fora do ternário: o consentimento vale para o site todo, inclusive
           /particular, que tem layout próprio. */}
