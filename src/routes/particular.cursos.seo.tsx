@@ -10,7 +10,7 @@ export const Route = createFileRoute("/particular/cursos/seo")({
     pageMeta({
       title: "Curso de SEO Particular em Ribeirão Preto — Santos Tech",
       description:
-        "Aprenda SEO do zero ao avançado em Ribeirão Preto: rankeie no Google, atraia tráfego orgânico e cresça sem depender de anúncios pagos.",
+        "Aprenda SEO do zero ao avançado em Ribeirão Preto: otimização de páginas, auditoria técnica, link building e SEO local para o tráfego orgânico.",
       path: "/particular/cursos/seo",
     }),
 })
@@ -22,7 +22,7 @@ const COURSE_DATA: CourseData = {
   logo: "seo",
   variante: "seo",
   tagline:
-    "Apareça na primeira página do Google e conquiste clientes sem pagar por clique",
+    "Posicione seu site na busca orgânica do Google, sem pagar por clique",
   targetAudience: [
     "Você tem um negócio ou site e não aparece nas buscas do Google",
     "Você gasta com anúncios pagos e quer reduzir o custo de aquisição de clientes",

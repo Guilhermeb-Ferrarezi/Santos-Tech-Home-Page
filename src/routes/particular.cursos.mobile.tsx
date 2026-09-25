@@ -35,7 +35,7 @@ const COURSE_DATA = {
       levelName: "Desenvolvimento de Aplicativos",
       totalHours: "48h",
       outcome:
-        "Desenvolver apps completos com React Native e Expo — navegação, estado global, autenticação, recursos nativos e integração de IA — e publicar de verdade na Google Play e na App Store com CI/CD automatizado, base para trabalhar como desenvolvedor mobile",
+        "Desenvolver apps completos com React Native e Expo — navegação, estado global, autenticação, recursos nativos e integração de IA — e publicar de verdade na Google Play e na App Store com CI/CD automatizado — base para trabalhar como desenvolvedor mobile",
       modules: [
         {
           title: "Fundamentos do Desenvolvimento Mobile",

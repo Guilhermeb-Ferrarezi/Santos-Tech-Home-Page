@@ -37,7 +37,7 @@ const COURSE_DATA: CourseData = {
       ctaLabel: "curso de Redes e Infraestrutura",
       totalHours: "48h",
       outcome:
-        "Configurar redes corporativas do zero absoluto — endereçamento IP e VLANs — até o roteamento avançado com OSPF multi-área, BGP e VPN, Wi-Fi corporativo e automação com Python e IA, pronto para a certificação CompTIA Network+.",
+        "Configurar redes corporativas do zero absoluto — endereçamento IP e VLANs — até o roteamento avançado com OSPF multi-área, BGP e VPN, Wi-Fi corporativo e automação com Python e IA, com preparação para a certificação CompTIA Network+.",
       modules: [
         {
           title: "Endereçamento IP e Sub-redes",

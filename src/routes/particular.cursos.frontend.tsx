@@ -10,7 +10,7 @@ export const Route = createFileRoute("/particular/cursos/frontend")({
       title:
         "Curso de Desenvolvimento Web Front-End Particular em Ribeirão Preto — Santos Tech",
       description:
-        "Aprenda HTML, CSS, JavaScript e React do zero ao profissional em Ribeirão Preto. Aulas individuais, ritmo flexível e projetos reais para entrar no mercado de tecnologia.",
+        "Aprenda HTML, CSS, JavaScript e React do zero ao profissional em Ribeirão Preto. Aulas individuais, ritmo flexível e projetos reais do início ao deploy.",
       path: "/particular/cursos/frontend",
     }),
 })
@@ -22,7 +22,7 @@ const COURSE_DATA = {
   logo: "html",
   variante: "frontend",
   tagline:
-    "Crie interfaces profissionais que encantam usuários e impressionam recrutadores",
+    "Crie interfaces profissionais que encantam usuários",
   targetAudience: [
     "Você quer se tornar desenvolvedor front-end e conseguir sua primeira vaga de emprego",
     "Você tem noções de HTML e CSS mas trava quando precisa adicionar JavaScript real",

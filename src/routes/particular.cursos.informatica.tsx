@@ -11,7 +11,7 @@ export const Route = createFileRoute("/particular/cursos/informatica")({
       title:
         "Curso de Informática Particular em Ribeirão Preto — Santos Tech",
       description:
-        "Domine o computador, o pacote Office e as ferramentas de IA em aulas presenciais individuais. Do básico ao avançado, do zero ao mercado de trabalho.",
+        "Domine o computador, o pacote Office e as ferramentas de IA em aulas presenciais individuais. Do básico ao avançado, do zero à fluência profissional.",
       path: "/particular/cursos/informatica",
     }),
 })

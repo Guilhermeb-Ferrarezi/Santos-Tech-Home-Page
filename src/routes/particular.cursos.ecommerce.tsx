@@ -21,7 +21,7 @@ const COURSE_DATA = {
   tema: "marketing" as const,
   logo: "ecommerce",
   variante: "ecommerce",
-  tagline: "Monte sua loja virtual e venda todos os dias no piloto automático",
+  tagline: "Monte sua loja virtual do zero e automatize a operação",
   targetAudience: [
     "Quer abrir uma loja virtual do zero sem experiência técnica prévia",
     "Empreendedor com produto físico ou digital que quer vender pela internet",
@@ -34,7 +34,7 @@ const COURSE_DATA = {
       levelName: "E-commerce",
       totalHours: "48h",
       outcome:
-        "Criar e configurar uma loja virtual do zero no Shopify ou WooCommerce — produtos, pagamento e frete prontos para vender — e evoluir a operação com tráfego pago, automação de e-mail e WhatsApp, gestão de estoque e logística e analytics, para crescimento consistente de vendas.",
+        "Criar e configurar uma loja virtual do zero no Shopify ou WooCommerce — produtos, pagamento e frete prontos para vender — e evoluir a operação com tráfego pago, automação de e-mail e WhatsApp, gestão de estoque e logística e analytics para acompanhar o crescimento das vendas.",
       modules: [
         {
           title: "Fundamentos do E-commerce",

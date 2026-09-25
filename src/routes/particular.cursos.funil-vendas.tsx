@@ -21,7 +21,7 @@ const COURSE_DATA: CourseData = {
   tema: "marketing" as const,
   logo: "funil-vendas",
   variante: "funil-vendas",
-  tagline: "Transforme desconhecidos em clientes com funis e processos automatizados",
+  tagline: "Do primeiro lead ao CRM avançado, com funis e processos automatizados",
   targetAudience: [
     "Você trabalha em vendas ou marketing e quer estruturar um processo que gere resultados previsíveis",
     "Você tem um negócio próprio e perde leads porque não tem sistema para acompanhar cada contato",

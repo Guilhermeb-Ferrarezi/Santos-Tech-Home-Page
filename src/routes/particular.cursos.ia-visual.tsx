@@ -1,4 +1,4 @@
-﻿import { createFileRoute } from "@tanstack/react-router"
+import { createFileRoute } from "@tanstack/react-router"
 import { ParticularCursosPage } from "@/components/particular-course-page"
 import { WHATSAPP_URL } from "@/lib/whatsapp"
 import { pageMeta } from "@/lib/seo"
@@ -34,7 +34,7 @@ const COURSE_DATA = {
       ctaLabel: "curso de IA para Criadores",
       totalHours: "48h",
       outcome:
-        "Criar imagens, vídeos e áudios com IA do zero absoluto — prompt visual, Midjourney e DALL-E — até fluxos de produção completos com identidade visual consistente, vídeo com Runway e Kling e narração profissional com ElevenLabs, base para trabalhar como criador de conteúdo, freelancer de IA criativa ou profissional de marketing que produz o próprio material visual.",
+        "Criar imagens, vídeos e áudios com IA do zero absoluto — prompt visual, Midjourney e DALL-E — até fluxos de produção completos com identidade visual consistente, vídeo com Runway e Kling e narração profissional com ElevenLabs — base para trabalhar como criador de conteúdo, freelancer de IA criativa ou profissional de marketing que produz o próprio material visual.",
       modules: [
         {
           title: "Fundamentos de IA Generativa para Mídia",

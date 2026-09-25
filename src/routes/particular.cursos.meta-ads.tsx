@@ -10,7 +10,7 @@ export const Route = createFileRoute("/particular/cursos/meta-ads")({
     pageMeta({
       title: "Curso de Meta Ads Particular em Ribeirão Preto — Santos Tech",
       description:
-        "Aprenda a criar campanhas lucrativas no Facebook e Instagram com Meta Ads em Ribeirão Preto. Do básico ao Advantage+ com IA.",
+        "Aprenda a criar e escalar campanhas no Facebook e Instagram com Meta Ads em Ribeirão Preto. Do básico ao Advantage+ com IA.",
       path: "/particular/cursos/meta-ads",
     }),
 })
@@ -21,7 +21,7 @@ const COURSE_DATA: CourseData = {
   tema: "marketing" as const,
   logo: "meta-ads",
   variante: "meta-ads",
-  tagline: "Crie campanhas lucrativas no Facebook e Instagram e venda todos os dias",
+  tagline: "Crie e escale campanhas no Facebook e Instagram, do Pixel ao Advantage+",
   targetAudience: [
     "Você tem um negócio mas não sabe como anunciar no Facebook e Instagram de forma eficiente",
     "Você já tentou impulsionar posts e jogou dinheiro fora sem ver resultado real",
@@ -35,7 +35,7 @@ const COURSE_DATA: CourseData = {
       levelName: "Meta Ads",
       totalHours: "48h",
       outcome:
-        "Criar e escalar campanhas no Facebook e Instagram do zero absoluto — da configuração do Business Manager e Pixel até públicos personalizados, retargeting em funil completo, Advantage+, Conversions API e criativos com IA generativa — pronto para gerar leads e vendas de forma consistente ou atuar como gestor de tráfego para clientes",
+        "Criar e escalar campanhas no Facebook e Instagram do zero absoluto — da configuração do Business Manager e Pixel até públicos personalizados, retargeting em funil completo, Advantage+, Conversions API e criativos com IA generativa — base para trabalhar como gestor de tráfego",
       modules: [
         {
           title: "Fundamentos e Estrutura do Meta Ads",

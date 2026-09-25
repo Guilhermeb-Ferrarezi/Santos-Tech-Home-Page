@@ -10,7 +10,7 @@ export const Route = createFileRoute("/particular/cursos/marketing")({
       title:
         "Curso de Marketing Digital Particular em Ribeirão Preto — Santos Tech",
       description:
-        "Domine Google Ads, Meta Ads e SEO com aulas individuais em Ribeirão Preto. Do funil de marketing à gestão de campanhas com IA: forme-se especialista em tráfego pago.",
+        "Domine Google Ads, Meta Ads e SEO com aulas individuais em Ribeirão Preto. Do funil de marketing à gestão de campanhas com IA — base para trabalhar com tráfego pago.",
       path: "/particular/cursos/marketing",
     }),
 })

@@ -22,7 +22,7 @@ const COURSE_DATA = {
   logo: "javascript",
   variante: "typescript",
   tagline:
-    "Escreva JavaScript com tipagem, autocomplete e zero erros em produção",
+    "Escreva JavaScript com tipagem, autocomplete e menos erros em produção",
   targetAudience: [
     "Você já sabe JavaScript mas seus projetos quebram em produção com erros que só aparecem em runtime",
     "Você quer ser contratado por empresas que exigem TypeScript em vagas de React, Node.js ou full stack",
@@ -36,7 +36,7 @@ const COURSE_DATA = {
       levelName: "TypeScript",
       totalHours: "48h",
       outcome:
-        "Escrever TypeScript do zero até aplicações completas, dominando tipagem avançada, generics e orientação a objetos, e aplicando tudo em projetos reais de React e Node.js/Express, com testes tipados e uma introdução prática a NestJS — pronto pra entregar código production-ready e disputar vagas que exigem TypeScript no mercado",
+        "Escrever TypeScript do zero até aplicações completas, dominando tipagem avançada, generics e orientação a objetos, e aplicando tudo em projetos reais de React e Node.js/Express, com testes tipados e uma introdução prática a NestJS, entregando código production-ready — base para trabalhar como desenvolvedor TypeScript",
       modules: [
         {
           title: "Fundamentos de TypeScript e Configuração do Ambiente",
