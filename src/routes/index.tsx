@@ -400,8 +400,9 @@ function Index() {
               </RevealHero>
               <RevealHero delay={120}>
                 <h1 className="mt-6 text-4xl font-black leading-[1.02] tracking-tight sm:text-5xl lg:text-6xl">
-                  <span className="block text-st-blue-dark">Onde seu filho aprende a</span>
-                  <span className="mt-1 block text-gradient-hero">criar a tecnologia</span>
+                  {/* {" "} entre as linhas: sem ele o texto do H1 sai colado pra robôs ("aprende acriar"). */}
+                  <span className="block text-st-blue-dark">Onde seu filho aprende a</span>{" "}
+                  <span className="mt-1 block text-gradient-hero">criar a tecnologia</span>{" "}
                   <span className="mt-1 block text-st-blue-dark">— não só a usar.</span>
                 </h1>
               </RevealHero>

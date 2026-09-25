@@ -248,6 +248,7 @@ export function DesignSkin({ course, tema, theme, logo, whatsappUrl, selectedTie
                 {kicker && (
                   <span className="block font-serif text-2xl italic text-(--accent-2) sm:text-3xl">{kicker}</span>
                 )}
+                {/* Espaço entre os spans: sem ele o texto do H1 sai colado pra robôs ("Design GráficoCanva Pro"). */}{" "}
                 <span className="relative mt-3 inline-block">
                   <span className="block text-5xl font-black leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">{principal}</span>
                   {video ? (
