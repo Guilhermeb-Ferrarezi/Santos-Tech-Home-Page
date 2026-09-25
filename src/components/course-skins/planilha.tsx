@@ -1,5 +1,5 @@
 import { type ComponentType, type CSSProperties, type ReactNode } from "react";
-import { Reveal } from "@/components/reveal";
+import { RevealHero } from "@/components/reveal";
 import { CommonSections } from "@/components/course-skins/common";
 import { WhatsAppIcon } from "@/components/icons";
 import { CourseHeroArt } from "@/components/course-hero-art";
@@ -41,7 +41,7 @@ import { PacoteConteudo, PacoteParaQuem } from "@/components/course-skins/varian
  * O acento da página continua o da categoria (PLANILHA_THEME) em todas.
  */
 
-export const PLANILHA_THEME: CourseTheme = { accent: "#21A366", accentHover: "#1b8a56", accent2: "#9BE7C1", heroBg: "#0d1712" };
+// Paleta da pele em course-skins/themes.ts (PLANILHA_THEME) — módulo leve, sem componentes.
 
 /** Fundos por app: células (Excel), linhas de texto (Word), grade de pontos (telas/slides). */
 const PATTERNS: Record<Variante["pattern"], CSSProperties> = { cells: GRID, ruled: RULED, dots: DOTS };
@@ -184,26 +184,26 @@ export function PlanilhaSkin({ course, tema, theme, logo, whatsappUrl, selectedT
         <div className="sb-bleed relative" style={pattern}>
           <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:px-8 lg:py-20">
             <div>
-              <Reveal>
+              <RevealHero>
                 <p className="inline-flex items-center gap-2 rounded-sm border border-(--accent)/40 bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-(--accent) dark:bg-neutral-900">
                   {v.tag} · Particular · {course.categoria}
                 </p>
-              </Reveal>
-              <Reveal delay={100}>
+              </RevealHero>
+              <RevealHero delay={100}>
                 <h1 className="mt-5 text-4xl font-black leading-[1.04] tracking-tight text-neutral-900 dark:text-white sm:text-5xl lg:text-6xl">
                   {course.nome}
                 </h1>
-              </Reveal>
-              <Reveal delay={180}>
+              </RevealHero>
+              <RevealHero delay={180}>
                 <p className="mt-5 max-w-xl text-base text-neutral-600 dark:text-neutral-400 sm:text-lg">{course.tagline}</p>
-              </Reveal>
-              <Reveal delay={260}>
+              </RevealHero>
+              <RevealHero delay={260}>
                 <div className="mt-8">
                   <WppButton href={whatsappUrl}>Quero saber mais</WppButton>
                 </div>
-              </Reveal>
+              </RevealHero>
             </div>
-            <Reveal delay={200}>
+            <RevealHero delay={200}>
               {OFFICE_CUSTOM_ICONS.has(logo) ? (
                 <OfficeHeroArt theme={theme} icon={<LogoMark name={logo} className="h-10 w-10 sm:h-12 sm:w-12" />}>
                   <Scene theme={theme} />
@@ -213,7 +213,7 @@ export function PlanilhaSkin({ course, tema, theme, logo, whatsappUrl, selectedT
                   <Scene theme={theme} />
                 </CourseHeroArt>
               )}
-            </Reveal>
+            </RevealHero>
           </div>
         </div>
 

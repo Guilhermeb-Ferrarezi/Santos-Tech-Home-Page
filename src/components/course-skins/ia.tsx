@@ -1,11 +1,10 @@
 import type { ComponentType } from "react";
 import { ArrowUp, Sparkles } from "lucide-react";
-import { Reveal } from "@/components/reveal";
+import { RevealHero } from "@/components/reveal";
 import { CommonSections, type Look } from "@/components/course-skins/common";
 import { WhatsAppIcon } from "@/components/icons";
 import { CourseHeroArt } from "@/components/course-hero-art";
 import { IaScene, type IaVariante } from "@/components/course-skins/scenes/ia";
-import type { CourseTheme } from "@/lib/course-themes";
 import type { SkinProps } from "@/components/course-skins/shared";
 import { ACCENT_TEXT, BORDER, Eyebrow, LevelPicker, MUTED, PAGE, PANEL, TEXT, TITLE, type IaBlockProps } from "@/components/course-skins/variants/ia-kit";
 import { GeralAudience, GeralProgram } from "@/components/course-skins/variants/ia-geral";
@@ -24,7 +23,7 @@ import { ConteudoAudience, ConteudoProgram } from "@/components/course-skins/var
  * com acabamento lavanda, cantos arredondados e botões em pílula.
  */
 
-export const IA_THEME: CourseTheme = { accent: "#8B5CF6", accentHover: "#7c3aed", accent2: "#E879F9", heroBg: "#120d1f" };
+// Paleta da pele em course-skins/themes.ts (IA_THEME) — módulo leve, sem componentes.
 
 const IA_LOOK: Look = {
   bgA: PANEL,
@@ -116,37 +115,37 @@ export function IaSkin(props: SkinProps) {
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pb-16 pt-14 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:px-8 lg:pb-20 lg:pt-20">
           <div className="min-w-0">
-            <Reveal>
+            <RevealHero>
               <Eyebrow>{course.categoria} · aula particular</Eyebrow>
-            </Reveal>
-            <Reveal delay={100}>
+            </RevealHero>
+            <RevealHero delay={100}>
               <h1 className="mt-6 bg-[linear-gradient(120deg,#1c1530_30%,#6d28d9)] bg-clip-text pb-1 text-4xl font-bold leading-[1.06] tracking-tight text-transparent dark:bg-[linear-gradient(120deg,#ffffff_35%,#c4b5fd)] sm:text-5xl lg:text-[3.4rem]">
                 {course.nome}
               </h1>
-            </Reveal>
-            <Reveal delay={180}>
+            </RevealHero>
+            <RevealHero delay={180}>
               <p className={`mt-5 max-w-xl text-base sm:text-lg ${MUTED}`}>{course.tagline}</p>
-            </Reveal>
-            <Reveal delay={260}>
+            </RevealHero>
+            <RevealHero delay={260}>
               <div className="mt-8">
                 <Composer href={whatsappUrl} placeholder={VARIANTES[variante].composer} />
                 <p className={`mt-2.5 pl-1 text-xs ${MUTED}`}>A IA pode errar. No curso, você aprende a conferir cada resposta.</p>
               </div>
-            </Reveal>
+            </RevealHero>
             {multiTier && (
-              <Reveal delay={340}>
+              <RevealHero delay={340}>
                 <div className="mt-8">
                   <p className={`mb-2 text-[11px] font-bold uppercase tracking-[0.2em] ${MUTED}`}>Escolha o nível</p>
                   <LevelPicker course={course} selected={selectedTier} onSelect={onSelectTier} />
                 </div>
-              </Reveal>
+              </RevealHero>
             )}
           </div>
-          <Reveal delay={200}>
+          <RevealHero delay={200}>
             <CourseHeroArt theme={theme} logo={logo}>
               <IaScene variante={variante} />
             </CourseHeroArt>
-          </Reveal>
+          </RevealHero>
         </div>
         <div className="h-px bg-[linear-gradient(90deg,transparent,var(--accent),transparent)] opacity-40" />
       </section>

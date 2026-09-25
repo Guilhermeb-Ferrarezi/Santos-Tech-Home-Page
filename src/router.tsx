@@ -14,6 +14,12 @@ export const getRouter = () => {
     routeTree,
     context: { queryClient },
     scrollRestoration: true,
+    // Pré-carrega o JS da rota quando o visitante passa o mouse/toca num <Link>
+    // (performance-cwv-12). Só baixa os chunks — não navega nem muda o history.
+    // Não gera $pageview: o PostHog só registra pageview no carregamento da
+    // página e na decisão de consentimento (src/lib/posthog.ts). As rotas não
+    // têm loader, então o preload não tem efeito colateral.
+    defaultPreload: "intent",
     defaultPreloadStaleTime: 0,
   });
 
