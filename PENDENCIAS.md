@@ -125,30 +125,36 @@
 - [ ] Search Console + Bing Webmaster: submeter os 2 sitemaps, exportar baseline
       (Páginas e Desempenho em IA generativa), importar no Bing. _Aguardando Henrique._
 
-#### Fase 1 — código sem depender de decisão (§7.3)
+#### Fase 1 — pendências que sobraram (a Fase 1 em si está em Resolvidas)
 
-- [~] **P1 Robots e sitemap** — ~~remover `Disallow: /assets/`~~ ✅ feito na Fase 1 de UI/UX
-      (`F322`, 25/09); falta o Disallow de `/apresentacoes` e `/professores`
-      (conflita com o noindex); tirar priority/changefreq; lastmod fiel.
-      (`tecnico-rastreio-indexacao-01`, `-04`, `-12`, `-14`)
-- [ ] **P2 Malha de links internos** — hoje, a partir da home, um robô alcança
-      **8 de 74** URLs do sitemap (conferido por BFS em 25/09). Rodapé com `<nav>` e
-      `<address>`, CTA para `/particular`, volta de `/particular` para o site.
-      (`arquitetura-links-internos-01`, `-02`, `-06`)
-- [ ] **P3 Conteúdo no HTML** — respostas de FAQ existem só no JSON-LD (0 no HTML
-      visível em `/particular/cursos/excel` e `/cursos/create/8-9-anos`, conferido
-      em 25/09); ementa aula a aula fora do HTML. (`aeo-respostas-01`, `-02`,
-      `lacuna-conteudo-01`)
-- [ ] **P6 Performance no celular** — H1 da home sai do servidor com `opacity:0`
-      (Reveal); LCP mobile de laboratório 5,7 s na home; logos PNG de até 742 KB.
-      (`performance-cwv-01`, `-02`, `-07`)
-- [ ] **P5 JSON-LD** — 1 erro no validador schema.org em todos os 52 cursos
-      particulares (`instructor` = Organization); `audience` inválido na Organization;
-      `aggregateRating` autodeclarado. (`dados-estruturados-03`, `-15`, `seo-local-02`)
-- [ ] **P7 Origem** — `Accept: text/markdown` ou `application/json` devolve **500**
-      em todas as rotas (conferido em 25/09); Brotli nível 4. (`lacuna-infra-04` =
-      `lacuna-geo-03`, `lacuna-infra-01`)
-- [ ] **P10 Acessibilidade** e **P8 Títulos/H1** — itens rápidos listados no §7.3.
+- [ ] ⚠️ **Purge do `robots.txt` e do `sitemap.xml` no Cloudflare.** A origem já serve
+      o robots novo (conferido em 25/09 com `?verificacao=` → sem `Disallow: /assets/`),
+      mas a borda guarda a cópia antiga por até 7 dias (`cf-cache-status: HIT`,
+      `max-age=604800`). No painel: Caching → Configuration → Custom Purge → URLs
+      `https://santos-tech.com/robots.txt` e `https://santos-tech.com/sitemap.xml`.
+      Conferir depois: `node scripts/verificar-seo.mjs https://santos-tech.com` → 10/10.
+      _Aguardando Henrique._
+- [ ] **Cloudflare reescreve o cache do navegador para 4 h** (`Cache-Control: max-age=14400`
+      na borda, a origem manda 3600). É a configuração "Browser Cache TTL" do painel.
+      Deixar em "Respect Existing Headers". _Aguardando Henrique._
+- [ ] **Não bloqueantes da revisão final da Fase 1 (25/09)**, para a Fase 2:
+      - Pílulas de categoria do hub levam a um curso específico com rótulo de área
+        (ex.: "Programação" → `/particular/cursos/logica`) e o CTA "Conhecer este curso"
+        do card "Pacote Office + IA" (`arquitetura-links-internos-08`, item 2).
+      - 20 dos 52 nomes do ItemList do hub não batem com o rótulo curto da sidebar
+        (`src/lib/cursos-particulares.ts`) — alinhar ao catálogo único do P8.
+      - `/contato` e `/sobre` ficaram sem o nó da organização no JSON-LD (só a home tem):
+        acrescentar ContactPage/AboutPage com referência ao `@id`.
+      - 404 dentro de `/particular/cursos/*` sai sem header/rodapé (título e noindex
+        corretos; só UX).
+      - HEAD sem `Accept-Encoding` renderiza o SSR inteiro sem consumir o stream (log
+        "SSR stream transform exceeded maximum lifetime"): responder HEAD sem corpo.
+      - `id` duplicado `mkt-mark-marketing` na pele de marketing (já existia) → `useId()`.
+      - `scripts/check-sitemap.mjs` não confere lastmod.
+      - Anos vencidos no texto (`on-page-conteudo-15`) não foram trocados na Fase 1.
+- [ ] **Medir o efeito real (dado de campo)** em ~28 dias (a partir de 23/10/2026):
+      pagespeed.web.dev da home, do hub e de 2 cursos, e o relatório de Core Web Vitals
+      do Search Console. O laboratório não decide (ver Resolvidas, Fase 1 SEO).
 
 #### Fase 2 e 3 (§7.4 e §7.5)
 
@@ -157,6 +163,26 @@
       repositório) · P14 E-E-A-T · P15 medição (evento `whatsapp_click`, IndexNow).
 
 ## Resolvidas
+
+- [x] **Fase 1 da auditoria SEO/GEO/AEO** — aprovada pelo Henrique em 25/09 e publicada no
+      mesmo dia (PR #61, `50e8eaf`). Plano em `docs/superpowers/plans/2026-09-25-seo-fase-1.md`.
+      Causa-raiz dos problemas: o site já era SSR, mas escondia o que o robô precisa ver —
+      conteúdo do topo com `opacity:0` até o JS, FAQ e ementa só no JSON-LD, 53 páginas sem
+      nenhum link de entrada, robots bloqueando `/assets/` e Accept não-HTML gerando 500.
+      **Prova:** `scripts/verificar-seo.mjs` contra a produção — **0/10 antes** (25/09, antes
+      do código) → **9/10 depois do deploy**; a única falha é o robots.txt antigo no cache
+      da borda (purge pendente acima; a origem já serve o novo). Links: 8/74 → **74/74** URLs
+      alcançáveis a partir da home. Validador schema.org: erro de `instructor` e avisos de
+      `audience` eliminados. Lighthouse mobile na produção (mediana de 3 rodadas, mesma
+      máquina da auditoria): **home 66 → 80, LCP 5,7 s → 3,8 s, TBT 220 ms → 9 ms,
+      acessibilidade 93 → 96**; hub `/particular` 40% mais leve (não carrega mais as peles).
+      ⚠️ Nas páginas de curso o LCP *simulado* subiu (ex.: CREATE 8–9 3,0 → 5,0 s) porque o
+      número antigo media o **logo do cabeçalho** — o conteúdo nascia invisível e era
+      ignorado. Com lentidão aplicada de verdade (`--throttling-method=devtools`), o texto
+      de abertura aparece junto com o primeiro desenho: CREATE 8–9 FCP = LCP = 2,5 s, Excel
+      2,6 s. Gate: lint 0 erros (com check-sitemap 74=74), `node --test` 8/8, build OK,
+      `tsc` com os mesmos 12 erros antigos (nenhum novo). Integrada com a Fase 1 de UI/UX
+      (#60) sem duplicar a seção de cursos particulares da home.
 
 - [x] **FAQ "Em quanto tempo termino o curso?" era texto fixo genérico nas ~52
       páginas de `/particular/cursos/*`, desconectado do `TIER_META` real de
