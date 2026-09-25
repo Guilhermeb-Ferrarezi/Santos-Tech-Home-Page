@@ -173,12 +173,12 @@ function ParticularLayout() {
     }
   }, [activeGroup]);
 
-  // Fusão da sidebar com o fundo da página: em telas grandes, a sidebar não tem fundo
-  // próprio — é 100% transparente, então o fundo real da página do curso aparece por
-  // trás dela sem nenhuma camada (só os traços/divisores separam visualmente). Esse
-  // efeito só decide o CONTRASTE do texto (claro/escuro), amostrando a cor real
-  // renderizada logo à direita da sidebar conforme rola. Lê o DOM de verdade em vez de
-  // mapear cor por pele — funciona igual nas 8 categorias sem precisar tocar em cada uma.
+  // Fusão da sidebar com o fundo da página: em telas grandes, a sidebar pinta o próprio
+  // fundo com a cor real que está atrás dela (amostrada conforme rola) e decide o
+  // CONTRASTE do texto (claro/escuro) por essa mesma cor. Onde a seção do curso vaza
+  // por baixo (.sb-bleed), o resultado é idêntico ao fundo da página — só os traços/
+  // divisores separam visualmente. Lê o DOM de verdade em vez de mapear cor por pele —
+  // funciona igual nas 8 categorias sem precisar tocar em cada uma.
   useEffect(() => {
     const aside = sidebarRef.current;
     if (!aside) return;
@@ -213,21 +213,61 @@ function ParticularLayout() {
       return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs;
     }
 
+    // Cor de fundo efetiva de um elemento: a cor sólida, ou a 1ª cor de um gradiente
+    // (Tailwind/arbitrary `bg-[linear-gradient(...)]` deixa backgroundColor transparente).
+    function backgroundOf(el: HTMLElement): { css: string; r: number; g: number; b: number } | null {
+      const cs = getComputedStyle(el);
+      const solid = colorToRgba(cs.backgroundColor);
+      if (solid && solid.a > 0.4) return { css: cs.backgroundColor, ...solid };
+      if (cs.backgroundImage.includes("gradient(")) {
+        const first = cs.backgroundImage.match(/(?:rgba?|oklch|oklab|color|hsla?)\([^()]*\)|#[0-9a-f]{3,8}/i);
+        const rgba = first ? colorToRgba(first[0]) : null;
+        if (first && rgba && rgba.a > 0.4) return { css: first[0], ...rgba };
+      }
+      return null;
+    }
+
+    function clearFusion() {
+      if (!aside) return;
+      delete aside.dataset.fusionTone;
+      aside.style.removeProperty("--sb-bg");
+    }
+
+    // Amostra o que está ATRÁS da sidebar (não à direita dela): antes, uma seção escura
+    // à direita que não vazava por baixo deixava o texto branco sobre o cinza-claro do
+    // layout (sidebar ilegível na landing e na pele de programação — auditoria F255/F159).
+    // Pega o 1º elemento da pilha que não é a própria sidebar e sobe pelos ancestrais
+    // até achar um fundo opaco: uma seção .sb-bleed transparente herda a cor do bloco
+    // que a envolve, que é a cor que o visitante vê ali.
     function sample() {
-      if (!desktop.matches || !aside) return;
-      const x = Math.min(aside.offsetWidth + 24, window.innerWidth - 8);
+      if (!aside) return;
+      if (!desktop.matches) {
+        clearFusion();
+        return;
+      }
+      const x = Math.max(8, Math.round(aside.offsetWidth / 2));
       const y = Math.min(window.innerHeight * 0.35, 320);
-      let el = document.elementFromPoint(x, y) as HTMLElement | null;
+      const behind = document
+        .elementsFromPoint(x, y)
+        .find((node) => node !== aside && !aside.contains(node)) as HTMLElement | undefined;
+      let el: HTMLElement | null = behind ?? null;
       let hops = 0;
-      while (el && hops < 12) {
-        const rgba = colorToRgba(getComputedStyle(el).backgroundColor);
-        if (rgba && rgba.a > 0.4) {
-          aside.dataset.fusionTone = relativeLuminance(rgba.r, rgba.g, rgba.b) > 0.5 ? "light" : "dark";
+      while (el && hops < 16) {
+        const bg = backgroundOf(el);
+        if (bg) {
+          // 0,179 é o ponto em que texto preto e branco têm o mesmo contraste (WCAG);
+          // o 0,5 de antes punha texto branco em fundos médios, onde o escuro lê melhor.
+          aside.dataset.fusionTone = relativeLuminance(bg.r, bg.g, bg.b) > 0.179 ? "light" : "dark";
+          // A sidebar pinta o próprio fundo com a cor de trás: onde a seção vaza por
+          // baixo, fica idêntica (fusão preservada); onde não vaza, o texto continua
+          // sobre o fundo que decidiu a cor dele.
+          aside.style.setProperty("--sb-bg", bg.css);
           return;
         }
         el = el.parentElement;
         hops++;
       }
+      clearFusion();
     }
 
     let ticking = false;
@@ -249,18 +289,18 @@ function ParticularLayout() {
       window.removeEventListener("resize", onScroll);
       desktop.removeEventListener("change", onScroll);
     };
-  }, [pathname, collapsed]);
+  }, [pathname, collapsed, dark]);
 
   const navItem = (active: boolean) =>
     [
       "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold transition-colors",
       active
-        ? "bg-[#0DB88F]/10 text-[#0DB88F]"
+        ? "bg-[#0DB88F]/10 text-(--sb-brand-ink)"
         : "sb-fg-soft sb-hover text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white",
     ].join(" ");
 
   const iconCls = (active: boolean) =>
-    active ? "text-[#0DB88F]" : "sb-fg-soft text-neutral-400 dark:text-neutral-500";
+    active ? "text-(--sb-brand-ink)" : "sb-fg-soft text-neutral-400 dark:text-neutral-500";
 
   const label = (text: string) => (
     <span
@@ -279,11 +319,11 @@ function ParticularLayout() {
       className={`relative min-h-screen ${dark ? "bg-neutral-950" : "bg-neutral-50"}`}
       style={{ "--sbw": collapsed ? "60px" : "256px" } as React.CSSProperties}
     >
-      {/* Fusão sidebar↔página: em telas grandes a sidebar não tem fundo próprio — fica
-          100% transparente, é o mesmo fundo da página do curso aparecendo por trás, sem
-          nenhuma camada. Só o traço da borda direita e os divisores internos (.sb-divider)
-          separam visualmente; os tokens --sb-fg/--sb-fg-soft trocam de claro pra escuro
-          conforme o tom amostrado, pra o texto continuar legível em cima de qualquer fundo.
+      {/* Fusão sidebar↔página: em telas grandes a sidebar usa como fundo (--sb-bg) a cor
+          amostrada atrás dela — igual à da seção que vaza por baixo. Só o traço da borda
+          direita e os divisores internos (.sb-divider) separam visualmente; os tokens
+          --sb-fg/--sb-fg-soft trocam de claro pra escuro conforme o tom amostrado, pra o
+          texto continuar legível em cima de qualquer fundo.
           Fallback (sem JS ou fora do breakpoint lg): as classes Tailwind normais do aside
           continuam valendo, porque a regra abaixo só bate quando data-fusion-tone existe.
           .sb-bleed (usada pelas peles de curso): faz a seção "vazar" por baixo da sidebar —
@@ -291,9 +331,17 @@ function ParticularLayout() {
           usa mx-auto/max-w) fica exatamente onde estava, porque o padding-left recria o
           mesmo espaço que o vazamento tomou. */}
       <style>{`
+        /* Texto do item ativo: mesmo matiz da cor do curso (--accent) e do verde da marca,
+           mas escurecido sobre fundo claro e clareado sobre fundo escuro. As cores puras
+           ficam entre 2,4:1 e 4,2:1 como texto de 12–14px (WCAG pede 4,5:1). A ordem das
+           regras importa: o tom amostrado (fusion-tone) vence o tema do layout. */
+        #particular-sidebar { --sb-accent-ink: color-mix(in oklab, var(--accent) 62%, #000); --sb-brand-ink: color-mix(in oklab, #0DB88F 62%, #000); }
+        .dark #particular-sidebar, #particular-sidebar[data-fusion-tone="dark"] { --sb-accent-ink: color-mix(in oklab, var(--accent) 58%, #fff); --sb-brand-ink: color-mix(in oklab, #0DB88F 58%, #fff); }
+        #particular-sidebar[data-fusion-tone="light"] { --sb-accent-ink: color-mix(in oklab, var(--accent) 62%, #000); --sb-brand-ink: color-mix(in oklab, #0DB88F 62%, #000); }
         #particular-sidebar[data-fusion-tone] {
-          background: transparent;
+          background: var(--sb-bg, transparent);
           border-right-color: var(--sb-divider);
+          transition: background-color .25s ease-out, width .3s ease-in-out;
         }
         #particular-sidebar[data-fusion-tone="dark"] { --sb-fg: #fff; --sb-fg-soft: rgba(255,255,255,.66); --sb-divider: rgba(255,255,255,.16); --sb-hover-bg: rgba(255,255,255,.08); }
         #particular-sidebar[data-fusion-tone="light"] { --sb-fg: #171717; --sb-fg-soft: rgba(23,23,23,.64); --sb-divider: rgba(23,23,23,.12); --sb-hover-bg: rgba(23,23,23,.06); }
@@ -463,7 +511,7 @@ function ParticularLayout() {
                         className={[
                           "w-full flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-black uppercase tracking-wider transition-colors",
                           isActiveGroup
-                            ? "text-(--accent) bg-(--accent)/[0.06] hover:bg-(--accent)/10"
+                            ? "text-(--sb-accent-ink) bg-(--accent)/[0.06] hover:bg-(--accent)/10"
                             : "sb-fg sb-hover text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-white/[0.07]",
                         ].join(" ")}
                       >
@@ -471,7 +519,7 @@ function ParticularLayout() {
                         <ChevronDown
                           className={[
                             "h-3 w-3 shrink-0 transition-transform duration-200",
-                            isActiveGroup ? "text-(--accent)" : "sb-fg-soft",
+                            isActiveGroup ? "text-(--sb-accent-ink)" : "sb-fg-soft",
                             gruposOpen[id] ? "rotate-180" : "rotate-0",
                           ].join(" ")}
                         />
@@ -504,7 +552,7 @@ function ParticularLayout() {
                                   className={[
                                     "flex min-w-0 flex-col rounded-lg px-3 py-1.5 leading-tight transition-colors",
                                     isActiveCourse
-                                      ? "bg-(--accent)/10 text-(--accent)"
+                                      ? "bg-(--accent)/10 text-(--sb-accent-ink)"
                                       : "sb-fg-soft sb-hover text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white",
                                   ].join(" ")}
                                 >
@@ -514,7 +562,7 @@ function ParticularLayout() {
                                       className={[
                                         "truncate text-xs",
                                         isActiveCourse
-                                          ? "text-(--accent)/70"
+                                          ? "text-(--sb-accent-ink)"
                                           : "sb-fg-soft text-neutral-400 dark:text-neutral-500",
                                       ].join(" ")}
                                     >
