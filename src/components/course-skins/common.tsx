@@ -369,7 +369,7 @@ export function CommonSections({
         </div>
       </section>
 
-      <p className={`sb-bleed py-6 text-center text-xs ${look.bgA} ${look.muted}`}>
+      <p className={`sb-bleed py-6 max-lg:pb-24 text-center text-xs ${look.bgA} ${look.muted}`}>
         © {new Date().getFullYear()} Santos Tech — Todos os direitos reservados.
       </p>
     </>
