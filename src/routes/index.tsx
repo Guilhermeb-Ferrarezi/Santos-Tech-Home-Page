@@ -265,7 +265,7 @@ function ProductBand({ p, reverse, curveBottom }: { p: Produto; reverse?: boolea
               rel="noreferrer"
               className="mt-8 inline-flex items-center gap-2 rounded-md bg-st-green px-8 py-4 text-sm font-black uppercase tracking-wider text-white shadow-xl transition hover:scale-[1.03] glow-green"
             >
-              <WhatsAppIcon className="h-4 w-4" /> Falar sobre {p.name}
+              <WhatsAppIcon className="h-4 w-4" /> Falar sobre {p.name.replace(/ /g, "\u00A0")}
             </a>
           </Reveal>
         </div>
@@ -434,7 +434,7 @@ function Index() {
                 {/* Atalho discreto pro preço (link de texto, não compete com o CTA
                     verde): no celular os valores ficam a ~9 telas do topo — F192. */}
                 <a
-                  href="#investimento"
+                  href="#valores"
                   className="inline-flex items-center gap-1 py-3 text-sm font-bold text-primary underline decoration-primary/30 underline-offset-4 transition hover:decoration-primary"
                 >
                   Ver valores <ArrowDown className="h-4 w-4" aria-hidden />
@@ -670,7 +670,7 @@ function Index() {
             </p>
           </Reveal>
 
-          <div className="mt-8 grid items-stretch gap-6 md:grid-cols-2">
+          <div id="valores" className="mt-8 grid scroll-mt-24 items-stretch gap-6 md:grid-cols-2">
             {PRECOS.map((p) => (
               <Reveal key={p.nome}>
                 <TiltCard
@@ -738,7 +738,7 @@ function Index() {
                       className="mt-7 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3.5 text-sm font-black uppercase tracking-wider text-white shadow-md transition hover:scale-[1.02]"
                       style={{ background: p.cor }}
                     >
-                      <WhatsAppIcon className="h-4 w-4" /> Falar sobre {p.nome}
+                      <WhatsAppIcon className="h-4 w-4" /> Falar sobre {p.nome.replace(/ /g, "\u00A0")}
                     </a>
                   </div>
                 </TiltCard>
