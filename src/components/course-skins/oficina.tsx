@@ -1,5 +1,5 @@
 import { type ComponentType, type CSSProperties, type ReactNode } from "react";
-import { Reveal } from "@/components/reveal";
+import { RevealHero } from "@/components/reveal";
 import { CommonSections } from "@/components/course-skins/common";
 import { WhatsAppIcon } from "@/components/icons";
 import { CourseHeroArt } from "@/components/course-hero-art";
@@ -183,28 +183,28 @@ export function OficinaSkin({ course, tema, theme, logo, whatsappUrl, selectedTi
         <div className="pointer-events-none absolute -right-40 top-0 h-[560px] w-[560px] rounded-full bg-(--accent)/25 blur-3xl" />
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pb-16 pt-14 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:px-8 lg:pb-20 lg:pt-20">
           <div>
-            <Reveal>
+            <RevealHero>
               <p className="inline-flex items-center gap-2 rounded-full bg-(--accent) px-4 py-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white">
                 ▲ {course.categoria}
               </p>
-            </Reveal>
-            <Reveal delay={100}>
+            </RevealHero>
+            <RevealHero delay={100}>
               <h1 className="mt-6 text-4xl font-black uppercase leading-[0.98] tracking-tight sm:text-5xl lg:text-6xl">
                 {course.nome}
               </h1>
-            </Reveal>
-            <Reveal delay={160} className="mt-4 max-w-md">
+            </RevealHero>
+            <RevealHero delay={160} className="mt-4 max-w-md">
               <Dim label={`${meta?.aulas ?? tier.totalHours} · 1h cada`} light />
-            </Reveal>
-            <Reveal delay={220}>
+            </RevealHero>
+            <RevealHero delay={220}>
               <p className="mt-5 max-w-xl text-base text-white/65 sm:text-lg">{course.tagline}</p>
-            </Reveal>
-            <Reveal delay={280}>
+            </RevealHero>
+            <RevealHero delay={280}>
               <div className="mt-8">
                 <Pill href={whatsappUrl}>Quero saber mais</Pill>
               </div>
-            </Reveal>
-            <Reveal delay={340}>
+            </RevealHero>
+            <RevealHero delay={340}>
               <div className="mt-8 flex flex-wrap gap-2">
                 {tier.tools.map((tool) => (
                   <span key={tool} className="rounded-full border border-white/20 px-3 py-1 font-mono text-[11px] text-white/70">
@@ -212,13 +212,13 @@ export function OficinaSkin({ course, tema, theme, logo, whatsappUrl, selectedTi
                   </span>
                 ))}
               </div>
-            </Reveal>
+            </RevealHero>
           </div>
-          <Reveal delay={200}>
+          <RevealHero delay={200}>
             <HeroArt theme={theme} logo={logo} Mark={v.Mark}>
               <v.Scene theme={theme} />
             </HeroArt>
-          </Reveal>
+          </RevealHero>
         </div>
         <Steps className="text-[#fbf5ec] dark:text-[#140d08]" />
       </section>

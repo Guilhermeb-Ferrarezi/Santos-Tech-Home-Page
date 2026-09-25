@@ -1,6 +1,6 @@
 import type { ComponentType, ReactNode } from "react";
 import { ArrowDown, Megaphone, MousePointer2 } from "lucide-react";
-import { Reveal } from "@/components/reveal";
+import { RevealHero } from "@/components/reveal";
 import { CourseHeroArt } from "@/components/course-hero-art";
 import { CommonSections, type Look } from "@/components/course-skins/common";
 import { WhatsAppIcon } from "@/components/icons";
@@ -257,19 +257,19 @@ export function MarketingSkin({ course, tema, theme, logo, whatsappUrl, selected
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pb-14 pt-12 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:px-8 lg:pb-16 lg:pt-16">
           <div>
-            <Reveal>
+            <RevealHero>
               <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-white/75">
                 <Megaphone className="h-3.5 w-3.5 text-(--accent-2)" />
                 Campanha · {course.categoria}
               </p>
-            </Reveal>
-            <Reveal delay={100}>
+            </RevealHero>
+            <RevealHero delay={100}>
               <h1 className="mt-5 text-4xl font-black leading-[1.03] tracking-tight sm:text-5xl lg:text-6xl">{course.nome}</h1>
-            </Reveal>
-            <Reveal delay={180}>
+            </RevealHero>
+            <RevealHero delay={180}>
               <p className="mt-5 max-w-xl text-base text-white/65 sm:text-lg">{course.tagline}</p>
-            </Reveal>
-            <Reveal delay={260}>
+            </RevealHero>
+            <RevealHero delay={260}>
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <CtaButton href={whatsappUrl}>Quero saber mais</CtaButton>
                 <button
@@ -280,13 +280,13 @@ export function MarketingSkin({ course, tema, theme, logo, whatsappUrl, selected
                   Ver as etapas do curso <ArrowDown className="h-4 w-4" />
                 </button>
               </div>
-            </Reveal>
+            </RevealHero>
           </div>
-          <Reveal delay={200}>
+          <RevealHero delay={200}>
             <HeroArt theme={theme} logo={logo}>
               <MarketingScene theme={theme} variante={course.variante} />
             </HeroArt>
-          </Reveal>
+          </RevealHero>
         </div>
 
         {/* Colunas do painel = fatos do curso (sem métricas inventadas) */}

@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
 import { GitBranch, Play } from "lucide-react";
-import { Reveal } from "@/components/reveal";
+import { Reveal, RevealHero } from "@/components/reveal";
 import { CommonSections } from "@/components/course-skins/common";
 import { WhatsAppIcon } from "@/components/icons";
 import { CourseHeroArt } from "@/components/course-hero-art";
@@ -69,31 +69,31 @@ export function IdeSkin({ course, tema, theme: baseTheme, logo, whatsappUrl, sel
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pb-20 pt-14 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:px-8 lg:pb-24 lg:pt-20">
           <div className="min-w-0">
-            <Reveal>
+            <RevealHero>
               <p className="font-mono text-sm text-white/50">
                 <span className="text-(--accent)">~/santos-tech</span> $ cursos --categoria {slug(course.categoria)}
               </p>
-            </Reveal>
-            <Reveal delay={100}>
+            </RevealHero>
+            <RevealHero delay={100}>
               <h1 className="mt-5 text-4xl font-black leading-[1.04] tracking-tight sm:text-5xl lg:text-6xl">
                 {course.nome}
                 <span className="ml-1 inline-block h-[0.8em] w-[0.35em] translate-y-[0.08em] animate-pulse bg-(--accent)" />
               </h1>
-            </Reveal>
-            <Reveal delay={180}>
+            </RevealHero>
+            <RevealHero delay={180}>
               <p className="mt-5 max-w-xl font-mono text-sm leading-relaxed text-white/55 sm:text-base">
                 <span className="text-white/30">{v.doc[0]}</span>
                 {course.tagline}
                 <span className="text-white/30">{v.doc[1]}</span>
               </p>
-            </Reveal>
-            <Reveal delay={260}>
+            </RevealHero>
+            <RevealHero delay={260}>
               <div className="mt-8">
                 <RunButton href={whatsappUrl}>Quero saber mais</RunButton>
               </div>
-            </Reveal>
+            </RevealHero>
             {course.tiers.length > 1 && (
-              <Reveal delay={340}>
+              <RevealHero delay={340}>
                 <div className="mt-8 flex flex-wrap gap-2 font-mono text-xs">
                   {course.tiers.map((t, i) => (
                     <button
@@ -110,14 +110,14 @@ export function IdeSkin({ course, tema, theme: baseTheme, logo, whatsappUrl, sel
                     </button>
                   ))}
                 </div>
-              </Reveal>
+              </RevealHero>
             )}
           </div>
-          <Reveal delay={200}>
+          <RevealHero delay={200}>
             <CourseHeroArt theme={theme} logo={logo}>
               <CodeSceneFor variante={course.variante} theme={theme} />
             </CourseHeroArt>
-          </Reveal>
+          </RevealHero>
         </div>
 
         {/* Barra de status do editor */}

@@ -31,7 +31,7 @@ import {
   ShieldCheck as PhShieldCheck,
 } from "@phosphor-icons/react";
 import { phosphor } from "@/lib/phosphor";
-import { Reveal } from "@/components/reveal";
+import { Reveal, RevealHero } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
 import { getOptimizedUrl } from "@/components/img";
 import { HoverWashCard } from "@/components/hover-wash-card";
@@ -199,40 +199,40 @@ export function CourseHero({
     <TechHero primary={theme.primary} dark={theme.dark} soft={theme.soft} decor={decor}>
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
         {breadcrumb && (
-          <Reveal>
+          <RevealHero>
             <Link
               to={breadcrumb.href}
               className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white/70 hover:text-white"
             >
               <ArrowRight className="h-3 w-3 rotate-180" /> {breadcrumb.label}
             </Link>
-          </Reveal>
+          </RevealHero>
         )}
 
         <div className={`${breadcrumb ? "mt-6 " : ""}grid items-center gap-10 lg:grid-cols-2`}>
           <div>
-            <Reveal delay={80}>
+            <RevealHero delay={80}>
               <span
                 className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-black uppercase tracking-[0.25em] text-white"
                 style={{ background: `${theme.soft}30`, border: `1px solid ${theme.soft}66` }}
               >
                 {eyebrow}
               </span>
-            </Reveal>
+            </RevealHero>
 
-            <Reveal delay={160}>
+            <RevealHero delay={160}>
               <h1 className="mt-6 text-5xl font-black leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
                 {title}
               </h1>
-            </Reveal>
+            </RevealHero>
 
-            <Reveal delay={240}>
+            <RevealHero delay={240}>
               <div className="mt-5 max-w-xl space-y-3 text-lg text-white/90 sm:text-xl">
                 {subtitle}
               </div>
-            </Reveal>
+            </RevealHero>
 
-            <Reveal delay={360} className="mt-8 flex flex-wrap items-center gap-3">
+            <RevealHero delay={360} className="mt-8 flex flex-wrap items-center gap-3">
               <a
                 href={primaryCta.href}
                 target="_blank"
@@ -250,10 +250,10 @@ export function CourseHero({
                   {secondaryCta.label} <ArrowRight className="h-4 w-4" />
                 </a>
               )}
-            </Reveal>
+            </RevealHero>
           </div>
 
-          <Reveal delay={400} y={40} className="hidden lg:block">
+          <RevealHero delay={400} className="hidden lg:block">
             {/* Wrapper FIXO 440px — trava a altura da linha do grid (não cresce com a imagem) */}
             <div className="relative h-[440px]">
               {/* Imagem ABSOLUTA — pode crescer sem afetar layout do hero.
@@ -284,14 +284,14 @@ export function CourseHero({
                 </svg>
               </div>
             </div>
-          </Reveal>
+          </RevealHero>
         </div>
 
-        <Reveal delay={520} className="mt-14 grid grid-cols-2 gap-6 rounded-3xl border border-white/15 bg-white/5 p-6 backdrop-blur sm:grid-cols-4 sm:p-8">
+        <RevealHero delay={520} className="mt-14 grid grid-cols-2 gap-6 rounded-3xl border border-white/15 bg-white/5 p-6 backdrop-blur sm:grid-cols-4 sm:p-8">
           {metrics.map((m) => (
             <MetricCard key={m.label} value={m.value} label={m.label} />
           ))}
-        </Reveal>
+        </RevealHero>
       </div>
     </TechHero>
   );

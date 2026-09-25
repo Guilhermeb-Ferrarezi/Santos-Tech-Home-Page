@@ -1,6 +1,6 @@
 import type { ComponentType, CSSProperties, ReactNode } from "react";
 import { ArrowDown, Circle, Film, Frame, Hand, MousePointer2, PenTool, Play, SkipBack, SkipForward, Square, Type } from "lucide-react";
-import { Reveal } from "@/components/reveal";
+import { RevealHero } from "@/components/reveal";
 import { CommonSections, type Look } from "@/components/course-skins/common";
 import { WhatsAppIcon } from "@/components/icons";
 import { tierMeta, type SkinProps } from "@/components/course-skins/shared";
@@ -209,7 +209,7 @@ export function DesignSkin({ course, tema, theme, logo, whatsappUrl, selectedTie
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pb-16 pt-16 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:px-8 lg:pb-20 lg:pt-24">
           <div className="min-w-0">
-            <Reveal>
+            <RevealHero>
               <div className="inline-flex max-w-full items-center gap-1 rounded-xl border border-white/10 bg-white/[0.06] p-1 backdrop-blur">
                 {video ? (
                   <>
@@ -241,9 +241,9 @@ export function DesignSkin({ course, tema, theme, logo, whatsappUrl, selectedTie
                   {course.categoria}
                 </span>
               </div>
-            </Reveal>
+            </RevealHero>
 
-            <Reveal delay={100}>
+            <RevealHero delay={100}>
               <h1 className="mt-8">
                 {kicker && (
                   <span className="block font-serif text-2xl italic text-(--accent-2) sm:text-3xl">{kicker}</span>
@@ -264,8 +264,8 @@ export function DesignSkin({ course, tema, theme, logo, whatsappUrl, selectedTie
                   )}
                 </span>
               </h1>
-            </Reveal>
-            <Reveal delay={160}>
+            </RevealHero>
+            <RevealHero delay={160}>
               <p
                 className={`mt-5 inline-flex rounded-md px-2 py-0.5 font-mono text-[11px] font-bold ${
                   video ? "bg-white/10 text-white/80" : "bg-(--accent) text-white"
@@ -273,19 +273,19 @@ export function DesignSkin({ course, tema, theme, logo, whatsappUrl, selectedTie
               >
                 {video ? `Duração · ${meta?.aulas ?? tier.totalHours} de 1h` : `${meta?.aulas ?? tier.totalHours} × 1h`}
               </p>
-            </Reveal>
-            <Reveal delay={220}>
+            </RevealHero>
+            <RevealHero delay={220}>
               <p className="mt-5 max-w-xl text-base text-white/65 sm:text-lg">{course.tagline}</p>
-            </Reveal>
-            <Reveal delay={280}>
+            </RevealHero>
+            <RevealHero delay={280}>
               <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
                 <Cta href={whatsappUrl}>Quero saber mais</Cta>
                 <a href="#conteudo" className="inline-flex items-center gap-1.5 text-sm font-bold text-white/60 transition hover:text-white">
                   Ver o conteúdo <ArrowDown className="h-4 w-4" />
                 </a>
               </div>
-            </Reveal>
-            <Reveal delay={340}>
+            </RevealHero>
+            <RevealHero delay={340}>
               <div className="mt-8 flex flex-wrap gap-2">
                 {tier.tools.map((tool, i) => (
                   <span
@@ -301,14 +301,14 @@ export function DesignSkin({ course, tema, theme, logo, whatsappUrl, selectedTie
                   </span>
                 ))}
               </div>
-            </Reveal>
+            </RevealHero>
           </div>
 
-          <Reveal delay={200}>
+          <RevealHero delay={200}>
             <StudioHeroArt theme={theme} logo={logo}>
               <Scene theme={theme} />
             </StudioHeroArt>
-          </Reveal>
+          </RevealHero>
         </div>
 
         {video ? <TimelineBand /> : <PaletteBand />}

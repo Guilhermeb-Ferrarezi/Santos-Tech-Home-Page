@@ -14,7 +14,7 @@ import {
   User,
   Zap,
 } from "lucide-react";
-import { Reveal } from "@/components/reveal";
+import { Reveal, RevealHero } from "@/components/reveal";
 import { CommonSections, type Look } from "@/components/course-skins/common";
 import { WhatsAppIcon } from "@/components/icons";
 import { CourseHeroArt } from "@/components/course-hero-art";
@@ -201,7 +201,7 @@ export function InformaticaSkin(props: SkinProps) {
 
         <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 pb-12 pt-8 sm:px-6 lg:grid-cols-[120px_minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-10 lg:px-8 lg:pb-16 lg:pt-12">
           {/* Atalhos da área de trabalho: levam às seções da página */}
-          <Reveal className="flex justify-center gap-2 sm:gap-6 lg:flex-col lg:justify-start lg:gap-5 lg:self-start">
+          <RevealHero className="flex justify-center gap-2 sm:gap-6 lg:flex-col lg:justify-start lg:gap-5 lg:self-start">
             <Shortcut label="Para quem é" icon={<StickyIcon />} onClick={() => scrollToId("info-para-quem")} />
             <Shortcut label="Conteúdo" icon={<FolderIcon className="h-12 w-14" />} onClick={() => scrollToId("info-conteudo")} />
             <Shortcut
@@ -213,10 +213,10 @@ export function InformaticaSkin(props: SkinProps) {
                 </span>
               }
             />
-          </Reveal>
+          </RevealHero>
 
           {/* Janela de boas-vindas */}
-          <Reveal delay={100}>
+          <RevealHero delay={100}>
             <div className="overflow-hidden rounded-2xl border border-slate-900/10 bg-white shadow-[0_40px_80px_-32px_rgba(15,40,80,0.55)] dark:border-white/10 dark:bg-[#0f1b31] dark:shadow-[0_40px_80px_-24px_rgba(0,0,0,0.8)]">
               <WinTitleBar
                 icon={<ToolLogo name={logo} className="h-4 w-4 shrink-0" />}
@@ -250,13 +250,13 @@ export function InformaticaSkin(props: SkinProps) {
                 </ul>
               </div>
             </div>
-          </Reveal>
+          </RevealHero>
 
-          <Reveal delay={200}>
+          <RevealHero delay={200}>
             <CourseHeroArt theme={theme} logo={logo}>
               <DesktopScene theme={theme} />
             </CourseHeroArt>
-          </Reveal>
+          </RevealHero>
         </div>
 
         {/* Barra de tarefas */}
