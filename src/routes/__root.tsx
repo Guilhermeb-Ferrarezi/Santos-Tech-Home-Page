@@ -28,6 +28,7 @@ import {
   ORG,
   buildOrganizationSchema,
   buildWebSiteSchema,
+  noindexMeta,
 } from "@/lib/seo";
 
 function NotFoundComponent() {
@@ -91,61 +92,72 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
-const HOMEPAGE_TITLE =
-  "Santos Tech — Cursos de Tecnologia, Programação e Informática para Crianças em Ribeirão Preto";
-const HOMEPAGE_DESCRIPTION =
-  "Escola presencial em Ribeirão Preto: cursos de tecnologia, programação, criação de jogos (Minecraft e Roblox), impressão 3D, informática e Excel para crianças e adolescentes de 5 a 15 anos. Turmas de até 10 alunos, nota 5,0 no Google. Agende uma aula experimental grátis.";
+// Título de reserva: toda rota define o seu (e a description, og:title, og:url…)
+// via pageMeta()/noindexMeta() em src/lib/seo.ts — este só aparece se alguma
+// rota esquecer. Antes o root repetia título e description da home, e a 404 saía
+// com eles.
+const FALLBACK_TITLE = ORG.name;
+const NOT_FOUND_TITLE = `Página não encontrada — ${ORG.name}`;
+const NOT_FOUND_DESCRIPTION = "A página que você procura não existe ou foi movida.";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   {
-    head: () => ({
-      meta: [
-        { charSet: "utf-8" },
-        { name: "viewport", content: "width=device-width, initial-scale=1" },
-        { name: "theme-color", content: "#187ABF" },
-        { title: HOMEPAGE_TITLE },
-        { name: "description", content: HOMEPAGE_DESCRIPTION },
-        // SEO complementar
-        { name: "author", content: ORG.name },
-        { name: "publisher", content: ORG.name },
-        { name: "robots", content: "index, follow, max-image-preview:large" },
-        { name: "googlebot", content: "index, follow, max-image-preview:large" },
-        // Open Graph (default — páginas individuais sobrescrevem)
-        { property: "og:title", content: HOMEPAGE_TITLE },
-        { property: "og:description", content: HOMEPAGE_DESCRIPTION },
-        { property: "og:type", content: "website" },
-        { property: "og:site_name", content: ORG.name },
-        { property: "og:locale", content: "pt_BR" },
-        { property: "og:url", content: BASE_URL },
-        { property: "og:image", content: `${BASE_URL}/og-image.png` },
-        { property: "og:image:width", content: "1200" },
-        { property: "og:image:height", content: "630" },
-        { property: "og:image:alt", content: `${ORG.name} — ${ORG.shortDescription}` },
-        // Twitter
-        { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: HOMEPAGE_TITLE },
-        { name: "twitter:description", content: HOMEPAGE_DESCRIPTION },
-        { name: "twitter:image", content: `${BASE_URL}/og-image.png` },
-        // GEO signals — ajuda mecanismos de busca a entender localização
-        { name: "geo.region", content: "BR-SP" },
-        { name: "geo.placename", content: "Ribeirão Preto" },
-        { name: "geo.position", content: `${ORG.geo.latitude};${ORG.geo.longitude}` },
-        { name: "ICBM", content: `${ORG.geo.latitude}, ${ORG.geo.longitude}` },
-      ],
-      links: [
-        // Favicon
-        { rel: "icon", type: "image/png", href: "/favicon.png" },
-        { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
-        // Canonical é definido em cada rota via pageMeta() em src/lib/seo.ts.
-        // Não definir aqui evita duplicação de <link rel="canonical">.
-        // CSS principal
-        { rel: "stylesheet", href: appCss },
-        // Preload das 3 fonts críticas — quebra a cadeia CSS→font do PSI
-        { rel: "preload", as: "font", type: "font/woff2", href: poppins400, crossOrigin: "anonymous" },
-        { rel: "preload", as: "font", type: "font/woff2", href: poppins700, crossOrigin: "anonymous" },
-        { rel: "preload", as: "font", type: "font/woff2", href: poppins900, crossOrigin: "anonymous" },
-      ],
-    }),
+    head: ({ matches }) => {
+      // Rota inexistente: o router marca com `_notFound` o match que vai desenhar o
+      // notFoundComponent (aqui é sempre o root, a única rota que tem um) e o head
+      // das rotas-filhas nem roda. `status === "notFound"` cobre um notFound()
+      // lançado por loader. A 404 sai com título próprio e noindex.
+      const paginaInexistente = matches.some(
+        (match) => match._notFound || match.status === "notFound",
+      );
+      return {
+        meta: [
+          { charSet: "utf-8" },
+          { name: "viewport", content: "width=device-width, initial-scale=1" },
+          { name: "theme-color", content: "#187ABF" },
+          ...(paginaInexistente
+            ? noindexMeta({ title: NOT_FOUND_TITLE, description: NOT_FOUND_DESCRIPTION }).meta
+            : [
+                { title: FALLBACK_TITLE },
+                { name: "robots", content: "index, follow, max-image-preview:large" },
+                { name: "googlebot", content: "index, follow, max-image-preview:large" },
+              ]),
+          // SEO complementar
+          { name: "author", content: ORG.name },
+          { name: "publisher", content: ORG.name },
+          // Open Graph e Twitter: só o que vale pro site inteiro. Título, descrição,
+          // og:url e imagem de cada página vêm do pageMeta() da rota.
+          { property: "og:type", content: "website" },
+          { property: "og:site_name", content: ORG.name },
+          { property: "og:locale", content: "pt_BR" },
+          { property: "og:image", content: `${BASE_URL}/og-image.png` },
+          { property: "og:image:width", content: "1200" },
+          { property: "og:image:height", content: "630" },
+          { property: "og:image:alt", content: `${ORG.name} — ${ORG.shortDescription}` },
+          // Twitter
+          { name: "twitter:card", content: "summary_large_image" },
+          { name: "twitter:image", content: `${BASE_URL}/og-image.png` },
+          // GEO signals — ajuda mecanismos de busca a entender localização
+          { name: "geo.region", content: "BR-SP" },
+          { name: "geo.placename", content: "Ribeirão Preto" },
+          { name: "geo.position", content: `${ORG.geo.latitude};${ORG.geo.longitude}` },
+          { name: "ICBM", content: `${ORG.geo.latitude}, ${ORG.geo.longitude}` },
+        ],
+        links: [
+          // Favicon
+          { rel: "icon", type: "image/png", href: "/favicon.png" },
+          { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+          // Canonical é definido em cada rota via pageMeta() em src/lib/seo.ts.
+          // Não definir aqui evita duplicação de <link rel="canonical">.
+          // CSS principal
+          { rel: "stylesheet", href: appCss },
+          // Preload das 3 fonts críticas — quebra a cadeia CSS→font do PSI
+          { rel: "preload", as: "font", type: "font/woff2", href: poppins400, crossOrigin: "anonymous" },
+          { rel: "preload", as: "font", type: "font/woff2", href: poppins700, crossOrigin: "anonymous" },
+          { rel: "preload", as: "font", type: "font/woff2", href: poppins900, crossOrigin: "anonymous" },
+        ],
+      };
+    },
     shellComponent: RootShell,
     component: RootComponent,
     notFoundComponent: NotFoundComponent,
