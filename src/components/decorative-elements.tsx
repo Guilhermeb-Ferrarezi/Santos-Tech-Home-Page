@@ -65,7 +65,10 @@ const COMPOSITIONS: Record<Variant, ReactNode> = {
       <Hexagon style={{ top: "62%", left: "4%" }} size={56} className="opacity-15 animate-float-slower [animation-delay:1.5s]" />
       <Sparkle style={{ top: "70%", right: "11%" }} size={28} className="opacity-30 animate-float-slow [animation-delay:1s]" />
       <PixelDots style={{ top: "8%", left: "42%" }} className="opacity-25 animate-float-slower [animation-delay:3s]" />
-      <Binary style={{ bottom: "14%", left: "38%" }} className="opacity-20 animate-float-slow [animation-delay:2.5s]" />
+      {/* Binário no alto, fora da coluna de texto: em bottom 14% / left 38% ele
+          caía em cima das estrelas do Google (home) e da legenda de cores
+          (/cursos) — auditoria de UI/UX 24/09/2026, F289. */}
+      <Binary style={{ top: "6%", right: "18%" }} className="opacity-20 animate-float-slow [animation-delay:2.5s]" />
       <Chip style={{ bottom: "26%", right: "5%" }} size={44} className="opacity-15 animate-float-slower [animation-delay:2s]" />
     </>
   ),
