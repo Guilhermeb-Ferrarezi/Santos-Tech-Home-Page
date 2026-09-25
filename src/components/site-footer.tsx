@@ -82,9 +82,16 @@ export function SiteFooter() {
   return (
     <footer className={t.wrapper}>
       <div className={t.bottomBar}>
-        <div className={`mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 text-xs sm:flex-row sm:px-6 lg:px-8 ${t.bottomText}`}>
+        {/* O botão flutuante do WhatsApp (whatsapp-fab.tsx: bottom-5 h-14 no
+            mobile, bottom-6 right-6 w-16 do sm pra cima) fica por cima do fim
+            da página. Sem reservar a faixa dele, "Cookies" — a revogação do
+            consentimento — ficava coberto no fim da rolagem:
+            - mobile: pb-24 (96px) deixa a linha de links acima do botão (76px);
+            - sm até 2xl: sm:mr-24 afasta os links da borda direita, onde o
+              botão fica (88px); de 2xl pra cima a margem do container já basta. */}
+        <div className={`mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 pt-6 pb-24 text-xs sm:flex-row sm:px-6 sm:pb-6 lg:px-8 ${t.bottomText}`}>
           <p>© {new Date().getFullYear()} Santos Tech. Todos os direitos reservados.</p>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 sm:mr-24 2xl:mr-0">
             <Link to="/privacidade" className={t.links}>Política de Privacidade</Link>
             <span aria-hidden="true" className="opacity-50">·</span>
             <Link to="/termos" className={t.links}>Termos de Uso</Link>
