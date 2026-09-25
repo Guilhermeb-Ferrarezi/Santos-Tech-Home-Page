@@ -14,7 +14,7 @@
  *   `ORG_REF` (mesmo `@id`), dentro do `provider` do Course
  * - Course em cada página de curso
  * - FAQPage **só onde o FAQ está visível na página** (a marcação espelha o texto)
- * - BreadcrumbList pra navegação
+ * - BreadcrumbList pra navegação; ItemList nos hubs que listam cursos
  *
  * ⚠️ Só marcar o que o visitante vê na página e só propriedades definidas para o
  * tipo (validar em https://validator.schema.org). Nada de nota da escola dentro do
@@ -260,6 +260,33 @@ export function buildBreadcrumbSchema(crumbs: { name: string; path: string }[]):
       position: i + 1,
       name: c.name,
       item: absoluteUrl(c.path),
+    })),
+  };
+}
+
+/**
+ * ItemList de cursos — para hubs que listam cursos com página própria.
+ * Formato "página-resumo" do Google: cada ListItem aponta para o curso (`position` +
+ * `url` igual ao canonical e ao sitemap) e o Course completo fica na página dele. O
+ * `name` deixa buscadores e LLMs lerem a lista sem abrir cada página. O carrossel
+ * "Course list" só aparece em inglês: o ganho aqui é consistência de entidade.
+ */
+export function buildCourseListSchema(input: {
+  /** Nome da lista (ex.: "Cursos particulares da Santos Tech"). */
+  name: string;
+  /** Cursos na ordem em que a página mostra. */
+  items: { name: string; path: string }[];
+}): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: input.name,
+    numberOfItems: input.items.length,
+    itemListElement: input.items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: absoluteUrl(item.path),
+      name: item.name,
     })),
   };
 }

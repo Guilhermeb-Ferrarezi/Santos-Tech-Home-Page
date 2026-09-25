@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
+import { JsonLd } from "@/components/json-ld";
+import { buildParticularHubSchemas } from "@/lib/particular-hub-schemas";
 import {
   User,
   Users,
@@ -160,6 +162,7 @@ function ParticularPage() {
 
   return (
     <>
+      <JsonLd data={buildParticularHubSchemas()} />
       {/* ============ HERO ============ */}
       <section className="sb-bleed relative isolate overflow-hidden bg-neutral-900">
         <div
