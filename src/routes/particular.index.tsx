@@ -276,8 +276,12 @@ function ParticularPage() {
         </div>
 
         {/* ── Cursos por área: destino das pílulas acima, do "Ver todos os cursos" e do rodapé ── */}
-        <div id="cursos-por-area" className="mx-auto mt-12 max-w-6xl scroll-mt-20 px-4 sm:px-6 lg:px-8">
-          <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
+        {/* Colunas por container query, não por viewport: a sidebar fixa (≥ lg, recolhível) muda a
+            largura útil. O maior nome ("TypeScript para Desenvolvimento Moderno") pede ~302px + 40px de
+            padding do card → 2 colunas a partir de 44rem de conteúdo e 3 a partir de 68rem. Com xl:columns-3
+            ainda havia palavra órfã a 1280 e 1366px (medido em 25/09/2026). */}
+        <div id="cursos-por-area" className="@container mx-auto mt-12 max-w-6xl scroll-mt-20 px-4 sm:px-6 lg:px-8">
+          <div className="columns-1 gap-4 @min-[44rem]:columns-2 @min-[68rem]:columns-3">
             {GRUPOS_PARTICULAR.map((g) => (
               <div
                 key={g.id}
