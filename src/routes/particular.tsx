@@ -64,8 +64,6 @@ const RODAPE_LINKS: { label: string; href: string; externo?: boolean }[] = [
 /** `tel:` a partir do telefone do JSON-LD (ORG), a mesma fonte do rodapé do site. */
 const TEL_HREF = `tel:+${ORG.telephone.replace(/\D/g, "")}`;
 
-// Catálogo da sidebar: mesma fonte da lista "Cursos por área" da landing.
-const GRUPOS = GRUPOS_PARTICULAR;
 
 
 type Tone = "dark" | "light";
@@ -425,7 +423,7 @@ function ParticularLayout() {
     ? pathname.slice("/particular/cursos/".length).split("/")[0]
     : null;
   const activeGroup = activeSlug
-    ? GRUPOS.find((g) => g.cursos.some((c) => c.slug === activeSlug))
+    ? GRUPOS_PARTICULAR.find((g) => g.cursos.some((c) => c.slug === activeSlug))
     : undefined;
   const activeTheme = activeGroup ? COURSE_THEMES[activeGroup.id] : BRAND_THEME;
 
@@ -719,7 +717,7 @@ function ParticularLayout() {
           >
             <div className="overflow-hidden">
               <div className="sb-border ml-3 border-l border-neutral-200 dark:border-neutral-800 pl-2 pt-1 pb-1 space-y-0.5">
-                {GRUPOS.map(({ id, label: lbl, cursos }) => {
+                {GRUPOS_PARTICULAR.map(({ id, label: lbl, cursos }) => {
                   const isActiveGroup = activeGroup?.id === id;
                   return (
                     <div key={id}>
