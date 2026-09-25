@@ -1,4 +1,4 @@
-import { createFileRoute, Outlet, Link, useRouterState } from "@tanstack/react-router";
+import { createFileRoute, Outlet, Link, useRouter, useRouterState } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import {
   Home,
@@ -14,6 +14,7 @@ import {
   LogIn,
 } from "lucide-react";
 import { Img } from "@/components/img";
+import { WhatsAppFab } from "@/components/whatsapp-fab";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 import { SKINS } from "@/components/course-skins";
 import { BRAND_THEME, themeVars, type CourseThemeKey } from "@/lib/course-themes";
@@ -78,7 +79,7 @@ const GRUPOS: {
       { slug: "fullstack", nome: "Full Stack" },
       { slug: "mobile", nome: "Desenvolvimento de Aplicativos" },
       { slug: "jogos", nome: "Desenvolvimento de Jogos" },
-      { slug: "ads", nome: "ADS", legenda: "Formação Profissional" },
+      { slug: "ads", nome: "ADS", legenda: "Desenvolvimento de Sistemas" },
     ],
   },
   {
@@ -137,6 +138,7 @@ function ParticularLayout() {
   const [gruposOpen, setGruposOpen] = useState<Record<string, boolean>>({});
   const [dark, setDark] = useState(false);
   const sidebarRef = useRef<HTMLElement | null>(null);
+  const router = useRouter();
 
   // Lê a preferência salva no mount (inicia em false p/ casar com o SSR e evitar mismatch).
   useEffect(() => {
@@ -284,12 +286,17 @@ function ParticularLayout() {
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     desktop.addEventListener("change", onScroll);
+    // O router troca o pathname ANTES de montar a página nova: a amostra do efeito
+    // acima leria o DOM da página anterior (ex.: Canva → Excel pela sidebar, sem rolar,
+    // deixava a sidebar escura sobre o Excel branco). Reamostra depois da renderização.
+    const unsubscribe = router.subscribe("onRendered", onScroll);
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
       desktop.removeEventListener("change", onScroll);
+      unsubscribe();
     };
-  }, [pathname, collapsed, dark]);
+  }, [router, collapsed, dark]);
 
   const navItem = (active: boolean) =>
     [
@@ -341,13 +348,14 @@ function ParticularLayout() {
         #particular-sidebar[data-fusion-tone] {
           background: var(--sb-bg, transparent);
           border-right-color: var(--sb-divider);
-          transition: background-color .25s ease-out, width .3s ease-in-out;
+          transition: width .3s ease-in-out;
         }
         #particular-sidebar[data-fusion-tone="dark"] { --sb-fg: #fff; --sb-fg-soft: rgba(255,255,255,.66); --sb-divider: rgba(255,255,255,.16); --sb-hover-bg: rgba(255,255,255,.08); }
         #particular-sidebar[data-fusion-tone="light"] { --sb-fg: #171717; --sb-fg-soft: rgba(23,23,23,.64); --sb-divider: rgba(23,23,23,.12); --sb-hover-bg: rgba(23,23,23,.06); }
         #particular-sidebar[data-fusion-tone] .sb-fg { color: var(--sb-fg); }
         #particular-sidebar[data-fusion-tone] .sb-fg-soft { color: var(--sb-fg-soft); }
-        #particular-sidebar[data-fusion-tone] .sb-divider { background-color: var(--sb-divider); border-color: var(--sb-divider); }
+        #particular-sidebar[data-fusion-tone] .sb-divider { border-color: var(--sb-divider); }
+        #particular-sidebar[data-fusion-tone] .sb-divider.h-px { background-color: var(--sb-divider); }
         #particular-sidebar[data-fusion-tone] .sb-hover:hover { background-color: var(--sb-hover-bg); color: var(--sb-fg); }
         @media (min-width: 1024px) {
           .sb-bleed {
@@ -563,7 +571,7 @@ function ParticularLayout() {
                                         "truncate text-xs",
                                         isActiveCourse
                                           ? "text-(--sb-accent-ink)"
-                                          : "sb-fg-soft text-neutral-400 dark:text-neutral-500",
+                                          : "sb-fg-soft text-neutral-500 dark:text-neutral-400",
                                       ].join(" ")}
                                     >
                                       {legenda}
@@ -672,6 +680,13 @@ function ParticularLayout() {
         </main>
       </div>
     </div>
+    {/* WhatsApp persistente no celular (no desktop a sidebar já tem "Falar no WhatsApp").
+        Some com o menu aberto: senão fica aceso e clicável por cima do overlay. */}
+    {!mobileOpen && (
+      <div className="lg:hidden">
+        <WhatsAppFab />
+      </div>
+    )}
     </div>
   );
 }
