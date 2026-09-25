@@ -184,7 +184,7 @@ export function InformaticaSkin(props: SkinProps) {
   const pinned = [...new Set(tier.tools.map(logoKey))].filter((k) => k !== "ia" && k !== "pc").slice(0, 6);
 
   return (
-    <div className={`${VARS} bg-white text-slate-900 dark:bg-[#0b1322] dark:text-white`}>
+    <div className={`sb-bleed ${VARS} bg-white text-slate-900 dark:bg-[#0b1322] dark:text-white`}>
       {/* ── HERO: a tela do computador ─────────────────────────────────────── */}
       <section className={`sb-bleed relative isolate overflow-hidden ${WALLPAPER}`}>
         {/* Ondas do papel de parede */}
@@ -260,7 +260,7 @@ export function InformaticaSkin(props: SkinProps) {
         </div>
 
         {/* Barra de tarefas */}
-        <div className="border-t border-white/70 bg-white/80 backdrop-blur-md dark:border-white/10 dark:bg-[#07101f]/85">
+        <div className="sb-bleed border-t border-white/70 bg-white/80 backdrop-blur-md dark:border-white/10 dark:bg-[#07101f]/85">
           <div className="mx-auto flex h-14 max-w-7xl items-center gap-3 px-4 sm:px-6 lg:px-8">
             <span className="hidden flex-1 sm:block" />
             <div className="flex min-w-0 items-center gap-1.5">

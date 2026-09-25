@@ -103,7 +103,7 @@ export function IaSkin(props: SkinProps) {
   const blockProps: IaBlockProps = { ...props, verConteudo };
 
   return (
-    <div className={PAGE}>
+    <div className={`sb-bleed ${PAGE}`}>
       {/* ── HERO: a caixa de mensagem é o CTA ─────────────────────────────── */}
       <section className="sb-bleed relative isolate overflow-hidden bg-[#f4f0ff] dark:bg-(--hero-bg)">
         <div className="pointer-events-none absolute -right-32 -top-40 h-[560px] w-[560px] rounded-full bg-(--accent)/25 blur-3xl dark:bg-(--accent)/30" />

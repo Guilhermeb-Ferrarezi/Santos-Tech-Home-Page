@@ -15,7 +15,7 @@ export function ParticularFaq({ whatsappUrl, items = PARTICULAR_FAQ_ITEMS }: Par
   const FAQ = items
 
   return (
-    <section className="py-20 bg-neutral-50 dark:bg-neutral-900">
+    <section className="sb-bleed py-20 bg-neutral-50 dark:bg-neutral-900">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <Reveal className="text-center mb-12">
           <p className="text-xs font-black uppercase tracking-[0.25em] text-[#0DB88F]">
