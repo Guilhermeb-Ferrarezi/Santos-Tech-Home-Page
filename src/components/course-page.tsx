@@ -17,6 +17,7 @@ import type { ComponentType, CSSProperties, ReactNode } from "react";
 import {
   ArrowRight,
   CheckCircle2,
+  ChevronDown,
   Clock,
   Calendar,
   Users,
@@ -30,23 +31,18 @@ import {
   ShieldCheck as PhShieldCheck,
 } from "@phosphor-icons/react";
 import { phosphor } from "@/lib/phosphor";
-import { Reveal } from "@/components/reveal";
+import { Reveal, RevealHero } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
 import { getOptimizedUrl } from "@/components/img";
 import { HoverWashCard } from "@/components/hover-wash-card";
 import { TechHero } from "@/components/tech-hero";
+import { Detalhes } from "@/components/faq-item";
 
 // Pillars da MethodologySection — Phosphor duotone (look premium em bg claro)
 const GraduationCapIcon = phosphor(PhGraduationCap, "duotone");
 const UsersThreeIcon = phosphor(PhUsersThree, "duotone");
 const HeartStraightIcon = phosphor(PhHeartStraight, "duotone");
 const ShieldCheckIcon = phosphor(PhShieldCheck, "duotone");
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 
 // ──────────────────────────────────────────────────────────────────────────
 // TYPES
@@ -203,40 +199,40 @@ export function CourseHero({
     <TechHero primary={theme.primary} dark={theme.dark} soft={theme.soft} decor={decor}>
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
         {breadcrumb && (
-          <Reveal>
+          <RevealHero>
             <Link
               to={breadcrumb.href}
               className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white/70 hover:text-white"
             >
               <ArrowRight className="h-3 w-3 rotate-180" /> {breadcrumb.label}
             </Link>
-          </Reveal>
+          </RevealHero>
         )}
 
         <div className={`${breadcrumb ? "mt-6 " : ""}grid items-center gap-10 lg:grid-cols-2`}>
           <div>
-            <Reveal delay={80}>
+            <RevealHero delay={80}>
               <span
                 className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-black uppercase tracking-[0.25em] text-white"
                 style={{ background: `${theme.soft}30`, border: `1px solid ${theme.soft}66` }}
               >
                 {eyebrow}
               </span>
-            </Reveal>
+            </RevealHero>
 
-            <Reveal delay={160}>
+            <RevealHero delay={160}>
               <h1 className="mt-6 text-5xl font-black leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
                 {title}
               </h1>
-            </Reveal>
+            </RevealHero>
 
-            <Reveal delay={240}>
+            <RevealHero delay={240}>
               <div className="mt-5 max-w-xl space-y-3 text-lg text-white/90 sm:text-xl">
                 {subtitle}
               </div>
-            </Reveal>
+            </RevealHero>
 
-            <Reveal delay={360} className="mt-8 flex flex-wrap items-center gap-3">
+            <RevealHero delay={360} className="mt-8 flex flex-wrap items-center gap-3">
               <a
                 href={primaryCta.href}
                 target="_blank"
@@ -254,10 +250,10 @@ export function CourseHero({
                   {secondaryCta.label} <ArrowRight className="h-4 w-4" />
                 </a>
               )}
-            </Reveal>
+            </RevealHero>
           </div>
 
-          <Reveal delay={400} y={40} className="hidden lg:block">
+          <RevealHero delay={400} className="hidden lg:block">
             {/* Wrapper FIXO 440px — trava a altura da linha do grid (não cresce com a imagem) */}
             <div className="relative h-[440px]">
               {/* Imagem ABSOLUTA — pode crescer sem afetar layout do hero.
@@ -288,14 +284,14 @@ export function CourseHero({
                 </svg>
               </div>
             </div>
-          </Reveal>
+          </RevealHero>
         </div>
 
-        <Reveal delay={520} className="mt-14 grid grid-cols-2 gap-6 rounded-3xl border border-white/15 bg-white/5 p-6 backdrop-blur sm:grid-cols-4 sm:p-8">
+        <RevealHero delay={520} className="mt-14 grid grid-cols-2 gap-6 rounded-3xl border border-white/15 bg-white/5 p-6 backdrop-blur sm:grid-cols-4 sm:p-8">
           {metrics.map((m) => (
             <MetricCard key={m.label} value={m.value} label={m.label} />
           ))}
-        </Reveal>
+        </RevealHero>
       </div>
     </TechHero>
   );
@@ -628,77 +624,80 @@ export function LessonAccordion({
           <p className="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground">{description}</p>
         </Reveal>
 
-        <Reveal delay={200} className="mt-10">
-          <Accordion type="multiple" className="space-y-4">
-            {modules.map((mod) => {
-              const BadgeIcon = mod.badge.icon;
-              return (
-                <AccordionItem
-                  key={mod.n}
-                  value={`mod-${mod.n}`}
-                  className="overflow-hidden rounded-xl border-2 bg-white"
-                  style={{
-                    borderColor: `${theme.soft}66`,
-                    boxShadow: `0 6px 20px -8px ${theme.primary}1f`,
-                  }}
-                >
-                  <AccordionTrigger className="px-6 py-5 hover:no-underline">
-                    <div className="flex items-center gap-4 text-left">
-                      <div
+        {/* <details> nativo por módulo: as aulas ficam no HTML servido mesmo com o módulo
+            fechado (o Accordion do Radix desmontava o conteúdo — lacuna-conteudo-01). */}
+        <Reveal delay={200} className="mt-10 space-y-4">
+          {modules.map((mod) => {
+            const BadgeIcon = mod.badge.icon;
+            return (
+              <Detalhes
+                key={mod.n}
+                className="group/mod overflow-hidden rounded-xl border-2 bg-white"
+                style={{
+                  borderColor: `${theme.soft}66`,
+                  boxShadow: `0 6px 20px -8px ${theme.primary}1f`,
+                }}
+                summaryClassName="flex items-center justify-between gap-3 px-6 py-5 text-left text-sm"
+                resumo={
+                  <>
+                    <span className="flex items-center gap-4 text-left">
+                      <span
                         className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-white shadow"
                         style={{ background: mod.badge.color }}
                       >
                         <BadgeIcon className="h-6 w-6 text-white" />
-                      </div>
-                      <div>
-                        <p className="text-xs font-black uppercase tracking-wider" style={{ color: theme.primary }}>
+                      </span>
+                      <span className="block">
+                        <span className="block text-xs font-black uppercase tracking-wider" style={{ color: theme.primary }}>
                           Módulo {mod.n} · {mod.classes}
-                        </p>
-                        <p className="mt-0.5 text-lg font-black">{mod.name}</p>
-                        <p className="mt-0.5 text-xs text-muted-foreground">
+                        </span>
+                        <h3 className="mt-0.5 text-lg font-black">{mod.name}</h3>
+                        <span className="mt-0.5 block text-xs text-muted-foreground">
                           {mod.duration} · {mod.hours} · {badgeWord} {mod.badge.name}
-                        </p>
-                      </div>
+                        </span>
+                      </span>
+                    </span>
+                    <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open/mod:rotate-180" />
+                  </>
+                }
+              >
+                <div className="px-6 pb-6 text-sm">
+                  {mod.project && (
+                    <div
+                      className="mb-4 rounded-lg border bg-white p-4 text-sm"
+                      style={{ borderColor: theme.soft }}
+                    >
+                      <p className="text-[11px] font-black uppercase tracking-wider" style={{ color: theme.primary }}>
+                        Mini-projeto
+                      </p>
+                      <p className="mt-1 text-foreground/85">{mod.project}</p>
                     </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-6">
-                    {mod.project && (
-                      <div
-                        className="mb-4 rounded-lg border bg-white p-4 text-sm"
-                        style={{ borderColor: theme.soft }}
+                  )}
+                  <ol className="space-y-3">
+                    {mod.lessons.map((lesson) => (
+                      <li
+                        key={lesson.n}
+                        className="flex gap-4 rounded-xl border border-border bg-muted/30 p-4"
                       >
-                        <p className="text-[11px] font-black uppercase tracking-wider" style={{ color: theme.primary }}>
-                          Mini-projeto
-                        </p>
-                        <p className="mt-1 text-foreground/85">{mod.project}</p>
-                      </div>
-                    )}
-                    <ol className="space-y-3">
-                      {mod.lessons.map((lesson) => (
-                        <li
-                          key={lesson.n}
-                          className="flex gap-4 rounded-xl border border-border bg-muted/30 p-4"
+                        <div
+                          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-xs font-black text-white"
+                          style={{ background: theme.primary }}
                         >
-                          <div
-                            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-xs font-black text-white"
-                            style={{ background: theme.primary }}
-                          >
-                            {lesson.n}
-                          </div>
-                          <div>
-                            <p className="text-sm font-bold text-foreground">
-                              Aula {lesson.n} — {lesson.title}
-                            </p>
-                            <p className="mt-1 text-sm text-muted-foreground">{lesson.goal}</p>
-                          </div>
-                        </li>
-                      ))}
-                    </ol>
-                  </AccordionContent>
-                </AccordionItem>
-              );
-            })}
-          </Accordion>
+                          {lesson.n}
+                        </div>
+                        <div>
+                          <p className="text-sm font-bold text-foreground">
+                            Aula {lesson.n} — {lesson.title}
+                          </p>
+                          <p className="mt-1 text-sm text-muted-foreground">{lesson.goal}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </Detalhes>
+            );
+          })}
         </Reveal>
       </div>
     </section>
@@ -895,27 +894,29 @@ export function FaqSection({ theme, items }: FaqSectionProps) {
           </h2>
         </Reveal>
 
-        <Reveal delay={200} className="mt-10">
-          <Accordion type="single" collapsible className="space-y-3">
-            {items.map((item, i) => (
-              <AccordionItem
-                key={item.q}
-                value={`faq-${i}`}
-                className="overflow-hidden rounded-xl border-2 bg-white px-2"
-                style={{
-                  borderColor: `${theme.soft}66`,
-                  boxShadow: `0 6px 18px -8px ${theme.primary}1f`,
-                }}
-              >
-                <AccordionTrigger className="px-4 py-5 text-left text-base font-bold hover:no-underline">
-                  {item.q}
-                </AccordionTrigger>
-                <AccordionContent className="px-4 pb-5 text-sm text-muted-foreground">
-                  {item.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+        {/* <details> nativo: a resposta fica no HTML servido mesmo fechada, e o texto
+            visível bate com o FAQPage do JSON-LD (aeo-respostas-02). */}
+        <Reveal delay={200} className="mt-10 space-y-3">
+          {items.map((item) => (
+            <Detalhes
+              key={item.q}
+              name="faq-programa"
+              className="group/faq overflow-hidden rounded-xl border-2 bg-white px-2"
+              style={{
+                borderColor: `${theme.soft}66`,
+                boxShadow: `0 6px 18px -8px ${theme.primary}1f`,
+              }}
+              summaryClassName="flex items-center justify-between gap-4 px-4 py-5 text-left"
+              resumo={
+                <>
+                  <h3 className="text-base font-bold">{item.q}</h3>
+                  <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open/faq:rotate-180" />
+                </>
+              }
+            >
+              <div className="px-4 pb-5 text-sm text-muted-foreground">{item.a}</div>
+            </Detalhes>
+          ))}
         </Reveal>
       </div>
     </section>

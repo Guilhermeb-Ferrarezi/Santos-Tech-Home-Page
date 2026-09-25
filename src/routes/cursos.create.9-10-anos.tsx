@@ -26,6 +26,7 @@ import {
   type ProgressionBadge,
 } from "@/components/course-page";
 import { Reveal } from "@/components/reveal";
+import { TrilhaFaixas } from "@/components/trilha-faixas";
 import { JsonLd } from "@/components/json-ld";
 import { pageMeta, coursePageSchemas } from "@/lib/seo";
 
@@ -370,6 +371,8 @@ function Create910Page() {
         primaryCta={{ href: WHATSAPP, label: "Agendar aula experimental" }}
         secondaryCta={{ href: "/cursos/create", label: "Voltar ao CREATE" }}
       />
+
+      <TrilhaFaixas atual="/cursos/create/9-10-anos" theme={THEME} />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import path from "node:path";
 import { promises as fs } from "node:fs";
-import { gzipSync, brotliCompressSync } from "node:zlib";
+import { gzipSync, brotliCompressSync, constants as zlibConstants } from "node:zlib";
 
 import app from "../dist/server/index.js";
 
@@ -71,19 +71,15 @@ async function serveStaticAsset(request: Request) {
 
   const headers = new Headers();
   // Bundled assets têm hash no nome → cache eterno. Public files (top-level
-  // ou subpastas permitidas) mudam sem invalidar URL → cache curto.
-  const isLongLivedStatic =
-    url.pathname === "/robots.txt" ||
-    url.pathname === "/sitemap.xml" ||
-    url.pathname === "/sitemap-0.xml";
-
+  // ou subpastas permitidas, incluindo robots.txt e sitemap.xml) mudam sem
+  // invalidar URL → cache curto de 1 h. robots.txt e sitemap.xml ficavam com
+  // 7 dias e a borda do Cloudflare seguia servindo a cópia antiga depois do
+  // deploy; com 1 h a correção chega aos robôs no mesmo dia (o Google guarda o
+  // robots.txt por até 24 h, respeitando o max-age). Mudou o robots.txt? Purge
+  // manual da URL no Cloudflare depois do deploy.
   headers.set(
     "Cache-Control",
-    isBundledAsset
-      ? "public, max-age=31536000, immutable"
-      : isLongLivedStatic
-        ? "public, max-age=604800"
-        : "public, max-age=3600",
+    isBundledAsset ? "public, max-age=31536000, immutable" : "public, max-age=3600",
   );
   return new Response(file, { headers });
 }
@@ -140,6 +136,12 @@ function redirectLegacyParticularPath(request: Request): Response | null {
 
 const COMPRESSIBLE = /text\/html|text\/css|application\/javascript|application\/json|image\/svg\+xml/;
 
+// Brotli nível 4 em vez do padrão (11). A compressão é síncrona e trava o
+// event loop: no nível 11 a home (≈264 KB de HTML) levava ≈127 ms de CPU por
+// requisição; no 4 leva ≈1 ms e o arquivo sai só ≈15% maior. O Cloudflare
+// recomprime na borda de qualquer jeito (lacuna-infra-01).
+const BROTLI_OPTIONS = { params: { [zlibConstants.BROTLI_PARAM_QUALITY]: 4 } };
+
 async function compressWorkerResponse(request: Request, response: Response): Promise<Response> {
   const ct = response.headers.get("content-type") ?? "";
   if (!COMPRESSIBLE.test(ct)) return response;
@@ -156,10 +158,13 @@ async function compressWorkerResponse(request: Request, response: Response): Pro
   // Skip compression for very large payloads to avoid blocking
   if (body.byteLength > 4 * 1024 * 1024) return response;
 
-  const compressed = encoding === "br" ? brotliCompressSync(body) : gzipSync(body);
+  const compressed = encoding === "br" ? brotliCompressSync(body, BROTLI_OPTIONS) : gzipSync(body);
   const headers = new Headers(response.headers);
   headers.set("content-encoding", encoding);
-  headers.set("vary", "Accept-Encoding");
+  // Acrescenta ao Vary que a app já tenha mandado, sem duplicar nem apagar.
+  if (!/(^|,)\s*accept-encoding\s*(,|$)/i.test(headers.get("vary") ?? "")) {
+    headers.append("vary", "Accept-Encoding");
+  }
   headers.delete("content-length");
 
   return new Response(compressed, { status: response.status, statusText: response.statusText, headers });

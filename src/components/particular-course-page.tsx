@@ -10,7 +10,7 @@ import {
   Wrench,
   Building2,
 } from "lucide-react";
-import { Reveal } from "@/components/reveal";
+import { Reveal, RevealHero } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
 import { ParticularFaq } from "@/components/particular-faq";
 import { buildCourseFaqItems } from "@/components/particular-faq-items";
@@ -239,27 +239,27 @@ export function ParticularCursosPage({
         <div className="pointer-events-none absolute -right-32 -top-32 h-[500px] w-[500px] rounded-full bg-[#0DB88F]/10 blur-3xl" />
 
         <div className="relative mx-auto max-w-4xl px-4 pb-24 pt-14 text-center sm:px-6 sm:pt-18 lg:px-8 lg:pb-32 lg:pt-20">
-          <Reveal>
+          <RevealHero>
             <div className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm">
               <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
                 Escola Santos Tech · Particular
               </span>
             </div>
-          </Reveal>
+          </RevealHero>
 
-          <Reveal delay={120}>
+          <RevealHero delay={120}>
             <h1 className="mt-6 text-4xl font-black leading-[1.04] tracking-tight text-white sm:text-5xl lg:text-6xl">
               {course.nome}
             </h1>
-          </Reveal>
+          </RevealHero>
 
-          <Reveal delay={200}>
+          <RevealHero delay={200}>
             <p className="mx-auto mt-5 max-w-xl text-base text-white/60 sm:text-lg">
               {course.tagline}
             </p>
-          </Reveal>
+          </RevealHero>
 
-          <Reveal delay={300}>
+          <RevealHero delay={300}>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <a
                 href={whatsappUrl}
@@ -271,17 +271,17 @@ export function ParticularCursosPage({
                 Quero saber mais
               </a>
             </div>
-          </Reveal>
+          </RevealHero>
 
           {multiTier && (
-            <Reveal delay={420}>
+            <RevealHero delay={420}>
               <TierTabs
                 tiers={course.tiers}
                 selected={selectedTier}
                 onSelect={setSelectedTier}
                 dark
               />
-            </Reveal>
+            </RevealHero>
           )}
         </div>
 

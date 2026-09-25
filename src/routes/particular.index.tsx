@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
+import { JsonLd } from "@/components/json-ld";
+import { buildParticularHubSchemas } from "@/lib/particular-hub-schemas";
 import {
   User,
   Users,
@@ -13,11 +15,11 @@ import {
   Briefcase,
   ChevronDown,
 } from "lucide-react";
-import { Reveal } from "@/components/reveal";
+import { Reveal, RevealHero } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
 import { Img } from "@/components/img";
 import { ParticularFaq } from "@/components/particular-faq";
-import { TIER_META } from "@/components/course-skins/shared";
+import { TIER_META } from "@/components/course-skins/tier-meta";
 import { pageMeta } from "@/lib/seo";
 import { openConsentPreferences } from "@/lib/consent";
 
@@ -161,6 +163,7 @@ function ParticularPage() {
 
   return (
     <>
+      <JsonLd data={buildParticularHubSchemas()} />
       {/* ============ HERO ============ */}
       <section className="sb-bleed relative isolate overflow-hidden bg-neutral-900">
         <div
@@ -173,7 +176,7 @@ function ParticularPage() {
         <div className="pointer-events-none absolute -right-32 -top-32 h-[500px] w-[500px] rounded-full bg-[#0DB88F]/10 blur-3xl" />
 
         <div className="relative mx-auto max-w-4xl px-4 pb-20 pt-14 text-center sm:px-6 sm:pt-18 lg:px-8 lg:pb-28 lg:pt-20">
-          <Reveal>
+          <RevealHero>
             <div className="inline-flex flex-col items-start rounded-md border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-sm">
               <span className="text-[9px] font-light uppercase tracking-[0.2em] text-white/35 leading-none mb-0.5">
                 Escola
@@ -182,24 +185,24 @@ function ParticularPage() {
                 Santos Tech — Particular
               </span>
             </div>
-          </Reveal>
+          </RevealHero>
 
-          <Reveal delay={120}>
+          <RevealHero delay={120}>
             <h1 className="mt-6 text-4xl font-black leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Comece do zero<br />
+              Comece do zero{" "}<br />
               <span className="text-[#0DB88F]">ou se especialize</span>
             </h1>
-          </Reveal>
+          </RevealHero>
 
-          <Reveal delay={240}>
+          <RevealHero delay={240}>
             <p className="mx-auto mt-6 max-w-lg text-base leading-relaxed text-white/60 sm:text-lg">
               Ensinamos as habilidades práticas que o mercado exige — para você{" "}
               <strong className="font-semibold text-white/90">iniciar uma nova carreira</strong>{" "}
               ou <strong className="font-semibold text-white/90">conquistar a sua promoção</strong>.
             </p>
-          </Reveal>
+          </RevealHero>
 
-          <Reveal
+          <RevealHero
             delay={360}
             className="mt-8 flex flex-wrap items-center justify-center gap-3"
           >
@@ -212,9 +215,9 @@ function ParticularPage() {
               <WhatsAppIcon className="h-4 w-4" />
               Quero saber mais
             </a>
-          </Reveal>
+          </RevealHero>
 
-          <Reveal
+          <RevealHero
             delay={480}
             className="mt-6 flex items-center justify-center gap-2 text-sm text-white/50"
           >
@@ -229,7 +232,7 @@ function ParticularPage() {
             <span>
               <strong className="font-semibold text-white/80">5,0</strong> no Google
             </span>
-          </Reveal>
+          </RevealHero>
 
           <Reveal delay={600} className="mt-12 grid grid-cols-3 gap-px overflow-hidden rounded-lg border border-white/10">
             {[

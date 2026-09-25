@@ -27,7 +27,8 @@ qualquer idade), professores e contato.
 bun install
 bun run dev      # vite dev
 bun run build    # build de produção
-bun run lint     # eslint — deve passar limpo
+bun run lint     # eslint + scripts/check-sitemap.mjs — deve passar limpo
+node scripts/verificar-seo.mjs http://localhost:3000   # aceite de SEO (ver abaixo)
 ```
 
 ## ⚠️ Regra: manter o `public/sitemap.xml` SEMPRE atualizado
@@ -43,15 +44,30 @@ bun run lint     # eslint — deve passar limpo
 **Por isso, em TODA mudança de rota, atualize `public/sitemap.xml` no mesmo commit:**
 - **Adicionou** uma rota/página em `src/routes/` → adicione o `<url><loc>` correspondente.
 - **Removeu/renomeou** uma rota → remova/ajuste a `<loc>` antiga.
-- Mantenha `<lastmod>` na data da alteração.
+- Mantenha `<lastmod>` na data da última mudança **de conteúdo** da página (refactor,
+  className ou troca de ícone não contam). Não use `<priority>`/`<changefreq>` — o Google ignora.
 
-Checagem rápida (a contagem deve bater com as rotas públicas reais):
+Checagem automática: o `bun run lint` roda `scripts/check-sitemap.mjs`, que compara as
+rotas públicas de `src/routes/` com as `<loc>` e **falha** se faltar ou sobrar URL.
+
+## ⚠️ Regra: SEO verificável — `scripts/verificar-seo.mjs`
+
+Lê o HTML servido como um robô (sem JavaScript) e checa 10 critérios da auditoria de
+24/09/2026 (`docs/auditorias/2026-09-24-seo-geo-aeo.md`): robots, sitemap, alcance de
+**todas** as URLs do sitemap por links a partir da home, FAQ e ementa no HTML, H1 sem
+`opacity:0`, `Accept` sem 500, JSON-LD limpo, 404 com noindex e rodapé com NAP.
+Rode depois do build, contra o servidor de produção local:
 ```bash
-grep -c "<loc>" public/sitemap.xml
+PORT=3000 bun run docker/server.ts &
+node scripts/verificar-seo.mjs http://localhost:3000
 ```
+Mexeu em navegação, FAQ, hero, JSON-LD, robots/sitemap ou `docker/server.ts`? Tem que
+continuar **10/10**. Página nova precisa ser alcançável por `<a href>` (o sitemap sozinho
+não basta).
 
 ## Pré-commit
 - [ ] `bun run lint` e `bun run build` passam.
 - [ ] Mexeu em rotas? **Atualizei `public/sitemap.xml`** no mesmo commit (regra acima).
+- [ ] Mexeu em navegação, conteúdo, hero, JSON-LD ou servidor? `verificar-seo.mjs` 10/10.
 - [ ] Identidade visual institucional respeitada.
 - [ ] Commit no imperativo, com escopo.

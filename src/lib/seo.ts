@@ -3,15 +3,22 @@
  *
  * **Por que JSON-LD em vez de microdata:** Schema.org via JSON-LD é o formato
  * preferido pelo Google e por LLMs (ChatGPT, Perplexity, Claude com web
- * search). Aumenta chance de aparecer em rich results E de ser citado em
- * respostas geradas por IA (GEO — Generative Engine Optimization).
+ * search). O ganho hoje é **semântico** — o buscador e a IA entendem quem é a
+ * escola, o que cada curso ensina e onde fica —, não um enfeite na busca: o rich
+ * result de FAQ saiu do Google em 07/05/2026, o sitelinks search box em 11/2024
+ * e o "Course info" também foi descontinuado.
  *
- * **Cobertura mínima:**
- * - Organization + EducationalOrganization no root (sinaliza institucional)
- * - LocalBusiness (sinaliza presencial, com endereço e contato)
- * - Course pra cada página de curso
- * - FAQPage pra páginas com FAQ
- * - BreadcrumbList pra navegação
+ * **Cobertura:**
+ * - EducationalOrganization + LocalBusiness e WebSite **completos só na home**
+ *   (`__root.tsx`); nas outras páginas a escola aparece pela referência curta
+ *   `ORG_REF` (mesmo `@id`), dentro do `provider` do Course
+ * - Course em cada página de curso
+ * - FAQPage **só onde o FAQ está visível na página** (a marcação espelha o texto)
+ * - BreadcrumbList pra navegação; ItemList nos hubs que listam cursos
+ *
+ * ⚠️ Só marcar o que o visitante vê na página e só propriedades definidas para o
+ * tipo (validar em https://validator.schema.org). Nada de nota da escola dentro do
+ * curso, nem avaliação autodeclarada (políticas do Google para review snippet).
  *
  * Convenção: `BASE_URL` é o canonical absoluto. Todas as URLs internas
  * passam por `absoluteUrl()` pra ficarem em formato HTTPS absoluto.
@@ -56,7 +63,9 @@ export const ORG = {
     "A Santos Tech é uma escola presencial de tecnologia em Ribeirão Preto, SP (Av. Nove de Julho, 1992, Jardim América), com mais de 325 avaliações de 5 estrelas no Google. Atende dois públicos distintos: (1) Crianças e adolescentes de 5 a 15 anos — programação em Python, criação de jogos com Minecraft e Roblox, modelagem e impressão 3D, Excel e Pacote Office, em turmas de até 10 alunos. (2) Cursos particulares (individuais) para todas as idades — 52 cursos presenciais nas áreas de informática, programação (Python, JavaScript, SQL, N8N, Make, React Native), inteligência artificial (Agentes de IA, ChatGPT, RAG, LangChain, automações com IA), marketing digital (Meta Ads, Google Ads, TikTok Ads, SEO, Copywriting, Funil de Vendas), Power BI, design gráfico (Photoshop, Canva, Illustrator), edição de vídeo, cibersegurança, redes e T.I. Nos cursos particulares: aulas 100% individuais, horário flexível de segunda a sábado das 8h às 22h, professores selecionados com critério rigoroso técnico e pedagógico, certificado de conclusão emitido pela Santos Tech. A Santos Tech é referência em ensino de tecnologia particular em Ribeirão Preto e região.",
   shortDescription:
     "Escola presencial de tecnologia em Ribeirão Preto, SP. Para crianças (5-15 anos): programação, jogos, 3D, Excel. Cursos particulares: 52 cursos individuais em IA, programação, marketing digital e mais. Mais de 325 avaliações 5 estrelas.",
-  // Avaliação agregada real do Google
+  // Avaliação agregada real do Google — só para TEXTO VISÍVEL. Não vai para o
+  // JSON-LD: nota que a própria escola declara sobre si não é elegível a estrelas
+  // (Google, review snippet), e copiá-la em cada curso seria marcação enganosa.
   rating: { value: "5.0", count: 329 },
 } as const;
 
@@ -66,15 +75,32 @@ export const ORG = {
 
 type JsonLd = Record<string, unknown>;
 
-/** EducationalOrganization + LocalBusiness — root institucional. */
+const ORG_ID = `${BASE_URL}/#organization`;
+const ORG_TYPES = ["EducationalOrganization", "LocalBusiness"];
+
+/**
+ * Referência curta à escola, para usar dentro de outros nós (`provider`, `publisher`).
+ * O nó completo só sai na home; este traz `@type`, `@id`, `name` e `url` para que a
+ * página continue autossuficiente (o `@id` liga os dois quando o grafo é unido).
+ * Tipo só EducationalOrganization de propósito: um LocalBusiness sem `address` seria
+ * lido pelo Google como negócio local incompleto em toda página de curso.
+ */
+const ORG_REF: JsonLd = {
+  "@type": "EducationalOrganization",
+  "@id": ORG_ID,
+  name: ORG.name,
+  url: ORG.url,
+};
+
+/** EducationalOrganization + LocalBusiness completo — emitido só na home (`__root.tsx`). */
 export function buildOrganizationSchema(): JsonLd {
   return {
     "@context": "https://schema.org",
-    "@type": ["EducationalOrganization", "LocalBusiness"],
-    "@id": `${BASE_URL}/#organization`,
+    "@type": ORG_TYPES,
+    "@id": ORG_ID,
     name: ORG.name,
     legalName: ORG.legalName,
-    alternateName: ["Escola Santos Tech", "Santos Tech Ribeirão Preto", "Santos Tech Particular"],
+    alternateName: ["Escola Santos Tech", "Santos Tech Particular"],
     slogan: ORG.slogan,
     url: ORG.url,
     logo: ORG.logo,
@@ -115,73 +141,33 @@ export function buildOrganizationSchema(): JsonLd {
         closes: "18:00",
       },
     ],
+    // Tópicos que a escola ensina — curtos, sem cidade e sem "Curso de": a
+    // localização já está em `address`, `geo` e `areaServed`. Lista longa de frases
+    // de busca com "em Ribeirão Preto" é keyword stuffing (políticas de spam do Google).
     knowsAbout: [
-      // Crianças e adolescentes
-      "Curso de tecnologia para crianças em Ribeirão Preto",
-      "Curso de programação para crianças e adolescentes",
-      "Criação de jogos com Minecraft e Roblox",
-      "Modelagem e impressão 3D para jovens",
-      "Lógica de programação e pensamento computacional",
-      "STEM e educação tecnológica infantil",
-      "Colônia de férias de tecnologia em Ribeirão Preto",
-      // Particular — Informática e Office
-      "Curso de informática particular em Ribeirão Preto",
-      "Curso de Excel avançado em Ribeirão Preto",
-      "Pacote Office particular (Word, PowerPoint, Excel, Power BI)",
-      "Curso de Power BI em Ribeirão Preto",
-      // Particular — Programação
-      "Curso de programação particular em Ribeirão Preto",
-      "Curso de Python em Ribeirão Preto",
-      "Curso de JavaScript e desenvolvimento web em Ribeirão Preto",
-      "Curso de SQL e banco de dados em Ribeirão Preto",
-      "Curso de automações com N8N e Make em Ribeirão Preto",
-      "Desenvolvimento de aplicativos mobile com React Native",
-      // Particular — Inteligência Artificial
-      "Curso de inteligência artificial particular em Ribeirão Preto",
-      "Curso de ChatGPT e IA para profissionais em Ribeirão Preto",
-      "Agentes de IA com LangGraph e CrewAI",
-      "Criação de conteúdo com IA — Midjourney, DALL-E, Runway",
-      "Automações com inteligência artificial",
-      // Particular — Marketing Digital
-      "Curso de marketing digital em Ribeirão Preto",
-      "Curso de Meta Ads (Facebook e Instagram) em Ribeirão Preto",
-      "Curso de Google Ads em Ribeirão Preto",
-      "Curso de TikTok Ads em Ribeirão Preto",
-      "Curso de SEO em Ribeirão Preto",
-      "Curso de copywriting e persuasão em Ribeirão Preto",
-      "Curso de funil de vendas e CRM em Ribeirão Preto",
-      // Particular — Design e Vídeo
-      "Curso de Photoshop e Illustrator em Ribeirão Preto",
-      "Curso de Canva particular em Ribeirão Preto",
-      "Curso de edição de vídeo DaVinci Resolve em Ribeirão Preto",
-      // Particular — T.I.
-      "Curso de cibersegurança em Ribeirão Preto",
-      "Curso de redes e infraestrutura em Ribeirão Preto",
-      "Curso de suporte técnico e help desk em Ribeirão Preto",
-      "Curso de Linux em Ribeirão Preto",
-      // Geral
-      "Escola de tecnologia Ribeirão Preto",
-      "Cursos de tecnologia presenciais em Ribeirão Preto",
-      "Escola de TI Ribeirão Preto",
-      "Aulas individuais de tecnologia Ribeirão Preto",
+      "Programação para crianças",
+      "Criação de jogos digitais",
+      "Modelagem e impressão 3D",
+      "Informática",
+      "Pacote Office",
+      "Excel",
+      "Power BI",
+      "Python",
+      "Inteligência artificial",
+      "Marketing digital",
+      "Design gráfico",
+      "Cibersegurança",
     ],
-    audience: [
-      { "@type": "EducationalAudience", educationalRole: "student", audienceType: "Crianças e adolescentes de 5 a 15 anos" },
-      { "@type": "EducationalAudience", educationalRole: "parent", audienceType: "Pais e responsáveis" },
-      { "@type": "EducationalAudience", educationalRole: "student", audienceType: "Todas as idades, em aulas particulares — profissionais, empreendedores e estudantes" },
-    ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: ORG.rating.value,
-      reviewCount: ORG.rating.count,
-      bestRating: "5",
-      worstRating: "1",
-    },
+    // Sem `audience`: não é propriedade de Organization (o validator acusa). O público
+    // de cada curso vai no próprio Course. Sem `aggregateRating`: ver `ORG.rating`.
     priceRange: "R$$$",
   };
 }
 
-/** WebSite schema — habilita sitelinks search box no Google. */
+/**
+ * WebSite schema — dá ao Google o nome do site (site names) e liga o site à escola.
+ * Emitido só na home. (O sitelinks search box, que usava este nó, saiu em 11/2024.)
+ */
 export function buildWebSiteSchema(): JsonLd {
   return {
     "@context": "https://schema.org",
@@ -191,7 +177,7 @@ export function buildWebSiteSchema(): JsonLd {
     name: ORG.name,
     description: ORG.shortDescription,
     inLanguage: "pt-BR",
-    publisher: { "@id": `${BASE_URL}/#organization` },
+    publisher: ORG_REF,
   };
 }
 
@@ -216,11 +202,18 @@ export function buildCourseSchema(input: {
     name: input.name,
     description: input.description,
     url: absoluteUrl(input.path),
-    provider: { "@id": `${BASE_URL}/#organization` },
+    provider: ORG_REF,
     educationalLevel: "Educação básica",
     inLanguage: "pt-BR",
     ...(input.ageMin && input.ageMax
-      ? { typicalAgeRange: `${input.ageMin}-${input.ageMax}` }
+      ? {
+          typicalAgeRange: `${input.ageMin}-${input.ageMax}`,
+          audience: {
+            "@type": "EducationalAudience",
+            educationalRole: "student",
+            audienceType: `Alunos de ${input.ageMin} a ${input.ageMax} anos`,
+          },
+        }
       : {}),
     hasCourseInstance: {
       "@type": "CourseInstance",
@@ -240,7 +233,11 @@ export function buildCourseSchema(input: {
   };
 }
 
-/** FAQPage schema — usar em páginas com FAQ. */
+/**
+ * FAQPage schema — só em página cujo FAQ está VISÍVEL (as mesmas perguntas e
+ * respostas do texto). Não rende mais rich result no Google (saiu em 07/05/2026):
+ * fica como dado semântico para buscadores e LLMs. Não migrar para QAPage.
+ */
 export function buildFaqSchema(items: { q: string; a: string }[]): JsonLd {
   return {
     "@context": "https://schema.org",
@@ -267,6 +264,33 @@ export function buildBreadcrumbSchema(crumbs: { name: string; path: string }[]):
   };
 }
 
+/**
+ * ItemList de cursos — para hubs que listam cursos com página própria.
+ * Formato "página-resumo" do Google: cada ListItem aponta para o curso (`position` +
+ * `url` igual ao canonical e ao sitemap) e o Course completo fica na página dele. O
+ * `name` deixa buscadores e LLMs lerem a lista sem abrir cada página. O carrossel
+ * "Course list" só aparece em inglês: o ganho aqui é consistência de entidade.
+ */
+export function buildCourseListSchema(input: {
+  /** Nome da lista (ex.: "Cursos particulares da Santos Tech"). */
+  name: string;
+  /** Cursos na ordem em que a página mostra. */
+  items: { name: string; path: string }[];
+}): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: input.name,
+    numberOfItems: input.items.length,
+    itemListElement: input.items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: absoluteUrl(item.path),
+      name: item.name,
+    })),
+  };
+}
+
 // ──────────────────────────────────────────────────────────────────────────
 // META BUILDERS — helpers que retornam tags formatadas pra TanStack Start
 // ──────────────────────────────────────────────────────────────────────────
@@ -276,7 +300,8 @@ export function buildBreadcrumbSchema(crumbs: { name: string; path: string }[]):
  * Retorna ARRAY de schemas pra passar pro <JsonLd data={...}>.
  *
  * Inclui: BreadcrumbList (Home → Cursos → Programa → Curso),
- * Course (curso específico) e FAQPage (se faq passado).
+ * Course (curso específico) e FAQPage (se faq passado — o mesmo FAQ que a
+ * página mostra no <FaqSection>).
  */
 export function coursePageSchemas(input: {
   /** Path do curso (ex: "/cursos/create/8-9-anos"). */
@@ -293,7 +318,7 @@ export function coursePageSchemas(input: {
   ageMin: number;
   /** Faixa etária máxima. */
   ageMax: number;
-  /** FAQ items pra gerar FAQPage schema. Opcional. */
+  /** FAQ visível da página, pra gerar o FAQPage. Opcional. */
   faq?: { q: string; a: string }[];
 }): JsonLd[] {
   const schemas: JsonLd[] = [
@@ -320,6 +345,11 @@ export function coursePageSchemas(input: {
 /**
  * Course schema específico para cursos particulares.
  * Cada tier vira um CourseInstance separado — LLMs e Google entendem a progressão.
+ *
+ * Sem `instructor`: `CourseInstance.instructor` só aceita Person (o validator acusa
+ * erro com Organization) e a página não nomeia professor — quem dá o curso já está
+ * no `provider`. Usar Person só quando houver professor nomeado e visível na página.
+ * Sem `aggregateRating`: a nota é da escola, não do curso (ver `ORG.rating`).
  */
 export function buildParticularCourseSchema(course: {
   name: string;
@@ -333,21 +363,21 @@ export function buildParticularCourseSchema(course: {
     name: course.name,
     description: course.description,
     url: absoluteUrl(course.path),
-    provider: { "@id": `${BASE_URL}/#organization` },
+    provider: ORG_REF,
     educationalCredentialAwarded:
       "Certificado de Conclusão — emitido pela Santos Tech",
     inLanguage: "pt-BR",
+    audience: {
+      "@type": "EducationalAudience",
+      educationalRole: "student",
+      audienceType: "Todas as idades — profissionais, empreendedores e estudantes, em aulas individuais",
+    },
     teaches: course.tiers.map((t) => t.outcome).join("; "),
     hasCourseInstance: course.tiers.map((tier) => ({
       "@type": "CourseInstance",
       name: course.tiers.length > 1 ? `${course.name} — ${tier.levelName}` : course.name,
       courseMode: "Onsite",
       courseWorkload: `PT${tier.totalHours.replace("h", "")}H`,
-      instructor: {
-        "@type": "Organization",
-        name: ORG.name,
-        url: ORG.url,
-      },
       location: {
         "@type": "Place",
         name: ORG.name,
@@ -361,19 +391,13 @@ export function buildParticularCourseSchema(course: {
         },
       },
     })),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: ORG.rating.value,
-      reviewCount: ORG.rating.count,
-      bestRating: "5",
-      worstRating: "1",
-    },
   };
 }
 
 /**
- * Conjunto completo de schemas para páginas de curso particular.
- * Inclui Course + FAQPage + BreadcrumbList — máxima cobertura para Google e LLMs.
+ * Conjunto completo de schemas para páginas de curso particular:
+ * BreadcrumbList + Course + FAQPage. O `faq` tem de ser o mesmo que a página
+ * mostra (o FAQ do curso é visível na página).
  */
 export function buildParticularPageSchemas(input: {
   courseName: string;

@@ -14,6 +14,7 @@ import { Reveal } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
 import { DecorativeElements } from "@/components/decorative-elements";
 import { RarityBadge } from "@/components/rarity-badge";
+import { ParticularCta } from "@/components/particular-cta";
 import { JsonLd } from "@/components/json-ld";
 import { pageMeta, buildBreadcrumbSchema } from "@/lib/seo";
 
@@ -174,6 +175,7 @@ function ProgramCardItem({ program }: { program: ProgramCard }) {
               style={{ color: program.dark }}
             >
               <WhatsAppIcon className="h-4 w-4" /> Quero saber mais
+              <span className="sr-only"> sobre {program.name} no WhatsApp (abre em nova aba)</span>
             </span>
           </div>
         </div>
@@ -306,6 +308,9 @@ function ProgramasPage() {
           </Reveal>
         </div>
       </section>
+
+      {/* CURSOS PARTICULARES — para o adulto que chegou aqui procurando curso pra si */}
+      <ParticularCta />
 
       {/* CTA FINAL */}
       <section className="py-20">

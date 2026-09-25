@@ -74,6 +74,17 @@
 > (189 achados verificados: 0 🔴 · 7 🟠 · 86 🟡 · 96 🟢). Os IDs entre parênteses
 > apontam para o §5 do relatório; o §7 tem a ordem de execução e como provar cada fase.
 
+#### 🔴 Segurança (fora do escopo da auditoria de SEO — achado em 25/09/2026)
+
+- [ ] **Material "restrito" dos professores está num JavaScript público.** As rotas
+      `/professores/*` mostram só o cabeçalho sem login, mas o conteúdo inteiro vai
+      embutido nos chunks públicos do build (ex.: `/assets/professores.tecnologia-create-*.js`,
+      ~4,5 MB; o texto das aulas aparece em claro no arquivo). Qualquer pessoa que abrir o
+      DevTools baixa o material. O `Disallow: /professores` do robots.txt nunca protegeu
+      nada (robots não é controle de acesso). Correção provável: servir o material por uma
+      API autenticada (ou rota com checagem de sessão no servidor) em vez de importar os
+      dados no bundle. _Aguardando priorização — não é SEO._
+
 #### ⚠️ Decisões do Henrique que bloqueiam código (§6 do relatório)
 
 - [ ] **1. Nomes e faixas de idade oficiais do infantil** (5–9/10–15 × 5–8/8–14).

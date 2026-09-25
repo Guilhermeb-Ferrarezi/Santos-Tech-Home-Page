@@ -13,6 +13,8 @@
  * separado (recomendado pra parsing mais robusto).
  */
 
+import { serializeJsonLd } from "@/lib/json-ld";
+
 type JsonLdData = Record<string, unknown>;
 
 type Props = {
@@ -27,9 +29,10 @@ export function JsonLd({ data }: Props) {
         <script
           key={i}
           type="application/ld+json"
-          // O JSON é construído pelos builders em src/lib/seo.ts.
-          // Não há dados de usuário aqui — XSS-safe por construção.
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(item) }}
+          // Os dados vêm dos builders de src/lib/seo.ts, mas o texto dos cursos já tem
+          // `<` e `>` — `serializeJsonLd` escapa os dois (e `&`) pra nenhum texto fechar
+          // a tag </script> antes da hora.
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(item) }}
         />
       ))}
     </>

@@ -26,7 +26,7 @@ import {
   Bot,
   Smartphone,
 } from "lucide-react";
-import { Reveal } from "@/components/reveal";
+import { Reveal, RevealHero } from "@/components/reveal";
 import { Preloader } from "@/components/preloader";
 import { useHeroParallax } from "@/hooks/use-hero-parallax";
 import { useCountUp } from "@/hooks/use-count-up";
@@ -392,28 +392,29 @@ function Index() {
         <div className="relative mx-auto max-w-7xl px-4 pb-32 pt-16 sm:px-6 sm:pt-20 lg:px-8 lg:pb-40 lg:pt-24">
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <div>
-              <Reveal>
+              <RevealHero>
                 <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-primary shadow-sm">
                   <MapPin className="h-4 w-4 shrink-0" />
                   Escola presencial de tecnologia · Ribeirão Preto
                 </span>
-              </Reveal>
-              <Reveal delay={120}>
+              </RevealHero>
+              <RevealHero delay={120}>
                 <h1 className="mt-6 text-4xl font-black leading-[1.02] tracking-tight sm:text-5xl lg:text-6xl">
-                  <span className="block text-st-blue-dark">Onde seu filho aprende a</span>
-                  <span className="mt-1 block text-gradient-hero">criar a tecnologia</span>
+                  {/* {" "} entre as linhas: sem ele o texto do H1 sai colado pra robôs ("aprende acriar"). */}
+                  <span className="block text-st-blue-dark">Onde seu filho aprende a</span>{" "}
+                  <span className="mt-1 block text-gradient-hero">criar a tecnologia</span>{" "}
                   <span className="mt-1 block text-st-blue-dark">— não só a usar.</span>
                 </h1>
-              </Reveal>
-              <Reveal delay={240}>
+              </RevealHero>
+              <RevealHero delay={240}>
                 <p className="mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
                   Escola presencial de tecnologia para crianças e adolescentes em
                   Ribeirão Preto. Turmas de até <strong>10 alunos</strong>,
                   equipamentos de ponta e um método em que seu filho cria jogos,
                   robôs e projetos reais <strong>desde a primeira aula</strong>.
                 </p>
-              </Reveal>
-              <Reveal delay={360} className="mt-8 flex flex-wrap items-center gap-3">
+              </RevealHero>
+              <RevealHero delay={360} className="mt-8 flex flex-wrap items-center gap-3">
                 <MagneticButton
                   href={WHATSAPP}
                   target="_blank"
@@ -429,15 +430,15 @@ function Index() {
                 >
                   Ver os programas <ArrowRight className="h-4 w-4" />
                 </a>
-              </Reveal>
-              <Reveal delay={480} className="mt-6 flex items-center gap-2 text-sm font-semibold text-foreground/80">
+              </RevealHero>
+              <RevealHero delay={480} className="mt-6 flex items-center gap-2 text-sm font-semibold text-foreground/80">
                 <span className="flex items-center gap-1 text-amber-500">
                   {[0, 1, 2, 3, 4].map((i) => (
                     <Star key={i} className="h-4 w-4 fill-current" />
                   ))}
                 </span>
                 <span>5,0 no Google · 329 avaliações de pais e alunos</span>
-              </Reveal>
+              </RevealHero>
             </div>
 
             {/* Colagem rotativa — alterna fotos de alunos (crianças + adolescentes) */}

@@ -1,5 +1,5 @@
 import { createFileRoute, Outlet, Link, useRouter, useRouterState } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import {
   Home,
   Menu,
@@ -15,9 +15,11 @@ import {
 } from "lucide-react";
 import { Img } from "@/components/img";
 import { WhatsAppFab } from "@/components/whatsapp-fab";
-import { WHATSAPP_URL } from "@/lib/whatsapp";
-import { SKINS } from "@/components/course-skins";
+import { WHATSAPP_URL, WHATSAPP_PHONE_DISPLAY } from "@/lib/whatsapp";
+import { COURSE_THEMES } from "@/components/course-skins/themes";
 import { BRAND_THEME, themeVars, type CourseThemeKey } from "@/lib/course-themes";
+import { openConsentPreferences } from "@/lib/consent";
+import { ORG } from "@/lib/seo";
 
 export const Route = createFileRoute("/particular")({
   component: ParticularLayout,
@@ -25,7 +27,43 @@ export const Route = createFileRoute("/particular")({
 
 const DARK_KEY = "particular:dark";
 
-/** `id` bate com `CourseThemeKey` — é a chave usada pra buscar o tema (cor) da categoria em `SKINS`. */
+// ── Tela ≥ lg (sidebar fixa) × celular (sidebar vira gaveta) ──────────────────
+// No SSR assume desktop: o HTML sai sem `inert`, e o cliente corrige na hidratação.
+const DESKTOP_QUERY = "(min-width: 1024px)";
+function subscribeDesktop(onChange: () => void) {
+  const mq = window.matchMedia(DESKTOP_QUERY);
+  mq.addEventListener("change", onChange);
+  return () => mq.removeEventListener("change", onChange);
+}
+function useIsDesktop() {
+  return useSyncExternalStore(
+    subscribeDesktop,
+    () => window.matchMedia(DESKTOP_QUERY).matches,
+    () => true,
+  );
+}
+
+/**
+ * Mini-rodapé do layout (vale para o hub e para os cursos): o caminho de volta
+ * para o site institucional. Sem ele, as páginas de curso não linkavam a home,
+ * os programas, o contato nem a Política de Privacidade. A sidebar continua só
+ * com cursos — os links institucionais ficam aqui.
+ */
+const RODAPE_LINKS: { label: string; href: string; externo?: boolean }[] = [
+  { label: "Site da Santos Tech", href: "/" },
+  { label: "Cursos para crianças e adolescentes", href: "/cursos" },
+  { label: "Sobre a escola", href: "/sobre" },
+  { label: "Contato", href: "/contato" },
+  // /blog é outro app no mesmo domínio: <a> comum, na URL canônica (com barra).
+  { label: "Blog", href: "/blog/", externo: true },
+  { label: "Política de Privacidade", href: "/privacidade" },
+  { label: "Termos de Uso", href: "/termos" },
+];
+
+/** `tel:` a partir do telefone do JSON-LD (ORG), a mesma fonte do rodapé do site. */
+const TEL_HREF = `tel:+${ORG.telephone.replace(/\D/g, "")}`;
+
+/** `id` bate com `CourseThemeKey` — é a chave usada pra buscar o tema (cor) da categoria em `COURSE_THEMES`. */
 const GRUPOS: {
   id: CourseThemeKey;
   label: string;
@@ -331,6 +369,61 @@ function createBackdropReader(exclude: Element) {
   };
 }
 
+/**
+ * Cor em que a página termina logo acima de `rodape`: parte do fundo do layout e desce pela
+ * cadeia de "último bloco" — em cada nível, o último filho no fluxo que encosta no rodapé e
+ * ocupa a largura toda —, compondo os fundos que encontrar. Pula o que não é a borda de baixo
+ * da página (botão flutuante `fixed`, elemento escondido, bloco estreito). Serve para o
+ * mini-rodapé continuar o fundo da página em vez de abrir uma faixa branca embaixo das
+ * páginas escuras (programação/IDE) — o mesmo princípio da fusão da sidebar.
+ */
+function corDoFimDaPagina(rodape: HTMLElement): Rgba {
+  const canvas = document.createElement("canvas");
+  canvas.width = canvas.height = 1;
+  const ctx = canvas.getContext("2d", { willReadFrequently: true });
+  if (ctx) ctx.globalCompositeOperation = "copy";
+  // O canvas normaliza qualquer formato de cor do navegador (Tailwind v4 usa oklch()).
+  const toRgba = (css: string): Rgba => {
+    if (!ctx || !css || css === "transparent") return [0, 0, 0, 0];
+    ctx.clearRect(0, 0, 1, 1);
+    ctx.fillStyle = "rgba(0,0,0,0)";
+    ctx.fillStyle = css;
+    ctx.fillRect(0, 0, 1, 1);
+    const d = ctx.getImageData(0, 0, 1, 1).data;
+    return [d[0], d[1], d[2], d[3] / 255];
+  };
+  const fundo = (el: Element) => toRgba(getComputedStyle(el).backgroundColor);
+
+  // Base: o primeiro fundo pintado entre os ancestrais do rodapé (o fundo do layout).
+  let cor: Rgba = [255, 255, 255, 1];
+  for (let el = rodape.parentElement; el; el = el.parentElement) {
+    const c = fundo(el);
+    if (c[3] > 0) {
+      cor = over(c, cor);
+      if (c[3] >= 0.99) break;
+    }
+  }
+
+  const topoRodape = rodape.getBoundingClientRect().top;
+  const largura = rodape.parentElement?.getBoundingClientRect().width ?? window.innerWidth;
+  const encostaNoRodape = (el: Element) => {
+    const cs = getComputedStyle(el);
+    if (cs.display === "none" || cs.position === "fixed" || cs.position === "sticky") return false;
+    const r = el.getBoundingClientRect();
+    return r.height > 0 && Math.abs(r.bottom - topoRodape) <= 2 && r.width >= largura * 0.9;
+  };
+  const ultimoBloco = (el: Element | null) => {
+    while (el && !encostaNoRodape(el)) el = el.previousElementSibling;
+    return el;
+  };
+
+  for (let el = ultimoBloco(rodape.previousElementSibling); el; el = ultimoBloco(el.lastElementChild)) {
+    const c = fundo(el);
+    if (c[3] > 0) cor = over(c, cor);
+  }
+  return cor;
+}
+
 function ParticularLayout() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
@@ -338,6 +431,24 @@ function ParticularLayout() {
   const [gruposOpen, setGruposOpen] = useState<Record<string, boolean>>({});
   const [dark, setDark] = useState(false);
   const sidebarRef = useRef<HTMLElement | null>(null);
+  const menuButtonRef = useRef<HTMLButtonElement | null>(null);
+  const isDesktop = useIsDesktop();
+  // No celular, com a gaveta fechada, a sidebar fica fora da tela: `inert` tira os
+  // links e botões dela da ordem do Tab e do leitor de tela (antes eram ~66 alvos
+  // de foco invisíveis antes do conteúdo).
+  const drawerHidden = !isDesktop && !mobileOpen;
+
+  // Escape fecha a gaveta e devolve o foco ao botão que a abriu.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setMobileOpen(false);
+      menuButtonRef.current?.focus();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [mobileOpen]);
   const router = useRouter();
 
   // Lê a preferência salva no mount (inicia em false p/ casar com o SSR e evitar mismatch).
@@ -356,6 +467,45 @@ function ParticularLayout() {
     setGruposOpen((prev) => ({ ...prev, [id]: !prev[id] }));
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
+  // Mini-rodapé na cor em que a página termina (ver corDoFimDaPagina). No SSR e antes da
+  // medição ele usa o branco/neutro padrão; o tom decide texto claro ou escuro.
+  const rodapeRef = useRef<HTMLElement | null>(null);
+  const [fimPagina, setFimPagina] = useState<{ cor: string; tom: Tone } | null>(null);
+  useEffect(() => {
+    const rodape = rodapeRef.current;
+    if (!rodape) return;
+    let raf = 0;
+    const medir = () => {
+      raf = 0;
+      const c = corDoFimDaPagina(rodape);
+      const cor = `rgb(${Math.round(c[0])}, ${Math.round(c[1])}, ${Math.round(c[2])})`;
+      const tom = toneFor([c]);
+      setFimPagina((prev) => (prev?.cor === cor && prev.tom === tom ? prev : { cor, tom }));
+    };
+    const agendar = () => {
+      if (!raf) raf = requestAnimationFrame(medir);
+    };
+    medir();
+    // Conteúdo que entra depois (rota carregada sob demanda, imagem) e a troca de tema com
+    // `transition-colors` (a cor lida no meio da transição seria a intermediária).
+    const resize = new ResizeObserver(agendar);
+    resize.observe(document.body);
+    const main = rodape.parentElement;
+    main?.addEventListener("transitionend", agendar);
+    return () => {
+      cancelAnimationFrame(raf);
+      resize.disconnect();
+      main?.removeEventListener("transitionend", agendar);
+    };
+  }, [pathname, dark]);
+  const tomRodape = fimPagina?.tom;
+  const rodapeHover =
+    tomRodape === "dark"
+      ? "hover:text-white"
+      : tomRodape === "light"
+        ? "hover:text-neutral-900"
+        : "hover:text-neutral-900 dark:hover:text-white";
+
   // Categoria do curso atual (se a rota for uma página de curso) — usada pra "herdar"
   // a cor de destaque daquele curso na sidebar (borda, ícone e item ativos).
   const activeSlug = pathname.startsWith("/particular/cursos/")
@@ -364,7 +514,7 @@ function ParticularLayout() {
   const activeGroup = activeSlug
     ? GRUPOS.find((g) => g.cursos.some((c) => c.slug === activeSlug))
     : undefined;
-  const activeTheme = activeGroup ? SKINS[activeGroup.id].theme : BRAND_THEME;
+  const activeTheme = activeGroup ? COURSE_THEMES[activeGroup.id] : BRAND_THEME;
 
   // Ao entrar numa página de curso, garante que o grupo dela esteja expandido
   // na sidebar (senão o highlight fica escondido atrás de um dropdown fechado).
@@ -463,7 +613,7 @@ function ParticularLayout() {
       aside.removeEventListener("transitionrun", onTransition);
       desktop.removeEventListener("change", schedule);
     };
-  }, [router, pathname, collapsed, dark, cursosOpen, gruposOpen]);
+  }, [router, pathname, collapsed, dark, cursosOpen, gruposOpen, fimPagina]);
 
   const navItem = (active: boolean) =>
     [
@@ -505,6 +655,9 @@ function ParticularLayout() {
       <aside
         id="particular-sidebar"
         ref={sidebarRef}
+        aria-label="Menu dos cursos particulares"
+        inert={drawerHidden}
+        aria-hidden={drawerHidden || undefined}
         style={themeVars(activeTheme)}
         className={[
           "fixed inset-y-0 left-0 z-50 flex flex-col border-r overflow-hidden",
@@ -527,33 +680,46 @@ function ParticularLayout() {
               : "h-16 flex-row items-center gap-1.5 px-2.5",
           ].join(" ")}
         >
-          {/* Logo — tamanho maior quando colapsado para melhor resolução */}
-          <Img
-            name="logo"
-            alt="Santos Tech"
-            width={192}
-            height={192}
-            sizesAttr="40px"
-            className={collapsed ? "h-10 w-10 shrink-0" : "h-8 w-8 shrink-0"}
-          />
-
-          {/* Texto — some quando colapsado */}
-          <div
+          {/* Logo + nome = volta ao site institucional (convenção de "logo leva à
+              home"). O "Início" do menu continua levando ao hub /particular. */}
+          <Link
+            to="/"
+            aria-label="Santos Tech — página inicial do site"
+            title={collapsed ? "Página inicial da Santos Tech" : undefined}
+            onClick={() => setMobileOpen(false)}
             className={[
-              "flex min-w-0 flex-1 flex-col items-start leading-none overflow-hidden transition-[opacity,max-width] duration-300",
-              collapsed ? "max-w-0 opacity-0" : "max-w-[200px] opacity-100",
+              "flex min-w-0 items-center rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0DB88F]",
+              collapsed ? "" : "flex-1 gap-1.5",
             ].join(" ")}
           >
-            <span className="sb-fg-soft whitespace-nowrap text-[8px] font-light uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-500 mb-0.5">Escola</span>
-            <div className="flex min-w-0 items-center gap-1">
-              <span className="sb-fg min-w-0 truncate text-xs font-black tracking-tight text-neutral-900 dark:text-white">
-                SANTOS TECH
-              </span>
-              <span className="sb-solid shrink-0 inline-flex items-center rounded-md bg-neutral-900 dark:bg-white px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-white dark:text-neutral-900">
-                particular
-              </span>
+            {/* Logo — tamanho maior quando colapsado para melhor resolução */}
+            <Img
+              name="logo"
+              alt=""
+              width={192}
+              height={192}
+              sizesAttr="40px"
+              className={collapsed ? "h-10 w-10 shrink-0" : "h-8 w-8 shrink-0"}
+            />
+
+            {/* Texto — some quando colapsado */}
+            <div
+              className={[
+                "flex min-w-0 flex-1 flex-col items-start leading-none overflow-hidden transition-[opacity,max-width] duration-300",
+                collapsed ? "max-w-0 opacity-0" : "max-w-[200px] opacity-100",
+              ].join(" ")}
+            >
+              <span className="sb-fg-soft whitespace-nowrap text-[8px] font-light uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-500 mb-0.5">Escola</span>
+              <div className="flex min-w-0 items-center gap-1">
+                <span className="sb-fg min-w-0 truncate text-xs font-black tracking-tight text-neutral-900 dark:text-white">
+                  SANTOS TECH
+                </span>
+                <span className="sb-solid shrink-0 inline-flex items-center rounded-md bg-neutral-900 dark:bg-white px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-white dark:text-neutral-900">
+                  particular
+                </span>
+              </div>
             </div>
-          </div>
+          </Link>
 
           {/* Botão recolher (expandido) ou expandir (colapsado) — sempre no cabeçalho */}
           {!collapsed ? (
@@ -578,7 +744,7 @@ function ParticularLayout() {
         </div>
 
         {/* Nav */}
-        <nav className="flex-1 overflow-y-auto overflow-x-hidden px-2 py-4 space-y-0.5">
+        <nav aria-label="Cursos" className="flex-1 overflow-y-auto overflow-x-hidden px-2 py-4 space-y-0.5">
 
           {/* Início */}
           <Link
@@ -605,6 +771,8 @@ function ParticularLayout() {
               }
             }}
             title={collapsed ? "Cursos — clique para expandir" : undefined}
+            aria-expanded={cursosOpen && !collapsed}
+            aria-controls="particular-cursos"
             className="sb-fg-soft sb-hover w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
           >
             <BookOpen className="sb-fg-soft h-4 w-4 shrink-0 text-neutral-400 dark:text-neutral-500" />
@@ -625,8 +793,11 @@ function ParticularLayout() {
             />
           </button>
 
-          {/* Dropdown — grupos com sub-dropdowns */}
+          {/* Dropdown — grupos com sub-dropdowns. Recolhido, fica `inert`: os links
+              continuam no HTML, mas saem do Tab enquanto estão escondidos. */}
           <div
+            id="particular-cursos"
+            inert={!(cursosOpen && !collapsed)}
             className={[
               "grid transition-[grid-template-rows] duration-300 ease-in-out",
               cursosOpen && !collapsed ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
@@ -642,6 +813,8 @@ function ParticularLayout() {
                       <button
                         type="button"
                         onClick={() => toggleGrupo(id)}
+                        aria-expanded={!!gruposOpen[id]}
+                        aria-controls={`particular-grupo-${id}`}
                         className={[
                           "w-full flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-black uppercase tracking-wider transition-colors",
                           isActiveGroup
@@ -661,6 +834,8 @@ function ParticularLayout() {
 
                       {/* Links do grupo — animação grid */}
                       <div
+                        id={`particular-grupo-${id}`}
+                        inert={!gruposOpen[id]}
                         className={[
                           "grid transition-[grid-template-rows] duration-200 ease-in-out",
                           gruposOpen[id] ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
@@ -766,9 +941,13 @@ function ParticularLayout() {
       <div className={`flex flex-col transition-[padding-left] duration-300 ease-in-out ${collapsed ? "lg:pl-[60px]" : "lg:pl-64"}`}>
         {/* Topbar mobile */}
         <div className="sticky top-0 z-40 flex h-14 shrink-0 items-center border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-4 lg:hidden">
-          {/* Logo + nome — esquerda */}
-          <div className="flex items-center gap-2">
-            <Img name="logo" alt="Santos Tech" width={28} height={28} className="h-7 w-7 shrink-0" />
+          {/* Logo + nome — esquerda. Leva ao site institucional, como na sidebar. */}
+          <Link
+            to="/"
+            aria-label="Santos Tech — página inicial do site"
+            className="flex items-center gap-2 rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0DB88F]"
+          >
+            <Img name="logo" alt="" width={28} height={28} className="h-7 w-7 shrink-0" />
             <div className="flex flex-col items-start leading-none">
               <span className="text-[8px] font-light uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-500 mb-0.5">Escola</span>
               <div className="flex items-center gap-1.5">
@@ -778,7 +957,7 @@ function ParticularLayout() {
                 </span>
               </div>
             </div>
-          </div>
+          </Link>
 
           <div className="flex-1" />
 
@@ -792,9 +971,12 @@ function ParticularLayout() {
 
           {/* Hambúrguer — direita */}
           <button
+            ref={menuButtonRef}
             type="button"
             onClick={() => setMobileOpen((o) => !o)}
-            aria-label="Abrir menu"
+            aria-label={mobileOpen ? "Fechar menu de cursos" : "Abrir menu de cursos"}
+            aria-expanded={mobileOpen}
+            aria-controls="particular-sidebar"
             className="ml-2 rounded-md p-1.5 text-neutral-500 hover:bg-neutral-100 dark:hover:bg-white/[0.07] dark:text-neutral-400 transition-colors"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -803,6 +985,78 @@ function ParticularLayout() {
 
         <main>
           <Outlet />
+
+          {/* Mini-rodapé — dentro do <main> de propósito: em telas ≥ lg a sidebar é
+              transparente e o que aparece atrás dela tem que ser a página (é o que
+              scripts/verificar-sidebar-fusao.mjs confere). `sb-bleed` estende o fundo
+              por baixo da sidebar sem mover o conteúdo. Efeito colateral aceito: dentro
+              do <main>, o <footer> não vira landmark "contentinfo" — o marco de navegação
+              é o <nav aria-label="Site da Santos Tech"> logo abaixo. */}
+          <footer
+            ref={rodapeRef}
+            style={fimPagina ? { backgroundColor: fimPagina.cor } : undefined}
+            className={[
+              "sb-bleed border-t",
+              tomRodape === "dark"
+                ? "border-white/10 text-neutral-300"
+                : tomRodape === "light"
+                  ? "border-black/10 text-neutral-600"
+                  : "border-neutral-200 bg-white text-neutral-600 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-400",
+            ].join(" ")}
+          >
+            <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 py-8 sm:px-6 lg:px-8">
+              <nav aria-label="Site da Santos Tech">
+                <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold">
+                  {RODAPE_LINKS.map((item) => {
+                    const cls =
+                      `rounded-sm transition-colors ${rodapeHover} focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0DB88F]`;
+                    return (
+                      <li key={item.href}>
+                        {item.externo ? (
+                          <a href={item.href} className={cls}>
+                            {item.label}
+                          </a>
+                        ) : (
+                          <Link to={item.href} className={cls}>
+                            {item.label}
+                          </Link>
+                        )}
+                      </li>
+                    );
+                  })}
+                  <li>
+                    {/* Revogar o consentimento tão fácil quanto dar (LGPD, art. 8º, §5º). */}
+                    <button
+                      type="button"
+                      onClick={openConsentPreferences}
+                      className={`rounded-sm font-semibold transition-colors ${rodapeHover} focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0DB88F]`}
+                    >
+                      Cookies
+                    </button>
+                  </li>
+                </ul>
+              </nav>
+              {/* Sem linha de ©: o hub e as páginas de curso já fecham com a delas. */}
+              {/* No hub o rodapé próprio da página já traz endereço e telefone. */}
+              {pathname !== "/particular" && (
+              <div className="text-xs">
+                <address className="not-italic">
+                  {ORG.address.street} — {ORG.address.neighborhood}, {ORG.address.city}/
+                  {ORG.address.state} ·{" "}
+                  <a
+                    href={TEL_HREF}
+                    className={`rounded-sm underline underline-offset-2 ${rodapeHover} focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0DB88F]`}
+                  >
+                    Telefone: {WHATSAPP_PHONE_DISPLAY}
+                  </a>
+                </address>
+              </div>
+              )}
+            </div>
+            {/* Banner de cookies aberto: reserva a altura dele no fim da página, para
+                os últimos links não ficarem presos atrás do card (WCAG 2.4.11). */}
+            <div aria-hidden="true" className="h-[var(--st-consent-height,0px)]" />
+          </footer>
         </main>
       </div>
     </div>

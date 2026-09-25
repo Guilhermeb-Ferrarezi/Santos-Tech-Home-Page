@@ -21,7 +21,8 @@
  *     - FAQ (perguntas e respostas)
  *     - CTA final
  *
- *  5. ADICIONE a URL ao `public/sitemap.xml` com prioridade adequada.
+ *  5. ADICIONE a URL ao `public/sitemap.xml` no mesmo commit (`<loc>` +
+ *     `<lastmod>`, sem `<priority>`/`<changefreq>`).
  *
  *  6. ADICIONE link no `src/components/site-header.tsx` se o programa for novo
  *     (atualizar `PROGRAMAS_PRINCIPAIS` ou `PROGRAMAS_ADICIONAIS`).
@@ -166,6 +167,8 @@ const MODULES: Module[] = [
 
 // TODO — preencher com 6-8 perguntas que os pais realmente fazem.
 // Respostas devem ser DIRETAS e CONCRETAS (otimizadas pra LLMs).
+// O MESMO array alimenta o <FaqSection> visível e o FAQPage do JSON-LD — o
+// FAQPage só vale se as perguntas estiverem na página.
 const FAQ: FaqItem[] = [
   {
     q: "TODO — Pergunta 1?",
@@ -184,7 +187,10 @@ const FAQ: FaqItem[] = [
 function NovoCursoPage() {
   return (
     <>
-      {/* JSON-LD pra SEO + GEO (Google + LLMs entendem o que é este curso). */}
+      {/* JSON-LD pra SEO + GEO (Google + LLMs entendem o que é este curso).
+          Breadcrumb + Course + FAQPage; a escola entra no Course pela referência
+          de `@id` (o nó completo da organização só sai na home). Não acrescentar
+          nota/avaliação nem `instructor` no Course (ver comentários em seo.ts). */}
       <JsonLd
         data={coursePageSchemas({
           path: "/cursos/PROGRAMA/SLUG",
