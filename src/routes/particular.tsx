@@ -334,6 +334,8 @@ function ParticularLayout() {
   // links e botões dela da ordem do Tab e do leitor de tela (antes eram ~66 alvos
   // de foco invisíveis antes do conteúdo).
   const drawerHidden = !isDesktop && !mobileOpen;
+  // Com a gaveta aberta no celular, o <main> atrás do overlay sai do Tab e do leitor de tela.
+  const drawerModal = !isDesktop && mobileOpen;
 
   // Escape fecha a gaveta e devolve o foco ao botão que a abriu.
   useEffect(() => {
@@ -570,6 +572,9 @@ function ParticularLayout() {
         aria-label="Menu dos cursos particulares"
         inert={drawerHidden}
         aria-hidden={drawerHidden || undefined}
+        // Gaveta aberta no celular = diálogo modal: o conteúdo atrás do overlay fica inert.
+        role={drawerModal ? "dialog" : undefined}
+        aria-modal={drawerModal || undefined}
         style={themeVars(activeTheme)}
         className={[
           "fixed inset-y-0 left-0 z-50 flex flex-col border-r overflow-hidden",
@@ -895,7 +900,7 @@ function ParticularLayout() {
           </button>
         </div>
 
-        <main>
+        <main inert={drawerModal}>
           <Outlet />
 
           {/* Mini-rodapé — dentro do <main> de propósito: em telas ≥ lg a sidebar é
