@@ -37,7 +37,7 @@ const COURSE_DATA: CourseData = {
       ctaLabel: "curso de SEO",
       totalHours: "48h",
       outcome:
-        "Dominar SEO do zero absoluto até a liderança de projetos com inteligência artificial: otimizar páginas e conteúdo para rankeamento orgânico, executar auditorias técnicas completas, construir autoridade com link building, rankear negócios locais e escalar resultados em e-commerce, e entregar relatórios executivos com atribuição de receita — pronto para atuar como profissional ou consultor de SEO no mercado.",
+        "Dominar SEO do zero absoluto até a liderança de projetos com inteligência artificial: otimizar páginas e conteúdo para rankeamento orgânico, executar auditorias técnicas completas, construir autoridade com link building, rankear negócios locais e escalar resultados em e-commerce, e entregar relatórios executivos com atribuição de receita — base para trabalhar como profissional ou consultor de SEO no mercado.",
       modules: [
         {
           title: "Fundamentos de SEO e Pesquisa de Palavras-Chave",

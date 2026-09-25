@@ -35,7 +35,7 @@ const COURSE_DATA = {
       ctaLabel: "curso de Redes Sociais",
       totalHours: "48h",
       outcome:
-        "Gerir perfis profissionais do zero absoluto — Instagram, TikTok e LinkedIn — até atuar como Social Media estratégico para múltiplos clientes, com ferramentas de agendamento profissional, tráfego pago e relatórios executivos, pronto para atuar em agências ou como freelancer.",
+        "Gerir perfis profissionais do zero absoluto — Instagram, TikTok e LinkedIn — até atuar como Social Media estratégico para múltiplos clientes, com ferramentas de agendamento profissional, tráfego pago e relatórios executivos, base para trabalhar em agências ou como freelancer.",
       modules: [
         {
           title: "Fundamentos de Redes Sociais",

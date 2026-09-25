@@ -35,7 +35,7 @@ const COURSE_DATA = {
       levelName: "Power BI",
       totalHours: "48h",
       outcome:
-        "Dominar o Power BI do zero absoluto até a análise de dados avançada: conectar e modelar dados de qualquer fonte, construir dashboards executivos, escrever DAX do essencial ao nível expert e aplicar Python e Copilot num projeto de BI completo — pronto para atuar como analista de dados, BI ou de qualquer área que decide com base em dados reais.",
+        "Dominar o Power BI do zero absoluto até a análise de dados avançada: conectar e modelar dados de qualquer fonte, construir dashboards executivos, escrever DAX do essencial ao nível expert e aplicar Python e Copilot num projeto de BI completo — preparo para trabalhar como analista de dados, BI ou de qualquer área que decide com base em dados reais.",
       modules: [
         {
           title: "Fundamentos do Power BI e o ecossistema Microsoft",

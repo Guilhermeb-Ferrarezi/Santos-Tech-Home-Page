@@ -34,7 +34,7 @@ const COURSE_DATA = {
       levelName: "Marketing Digital",
       totalHours: "48h",
       outcome:
-        "Planejar e executar estratégias completas de marketing digital do zero absoluto — funil, Google Ads, Meta Ads, SEO e e-mail marketing — até a automação de campanhas com IA, analytics avançado e a gestão de budget real de cliente, pronto para atuar como especialista em tráfego pago ou gestor de marketing.",
+        "Planejar e executar estratégias completas de marketing digital do zero absoluto — funil, Google Ads, Meta Ads, SEO e e-mail marketing — até a automação de campanhas com IA, analytics avançado e a gestão de budget real de cliente, base para trabalhar como especialista em tráfego pago ou gestor de marketing.",
       modules: [
         {
           title: "Fundamentos do Marketing Digital",

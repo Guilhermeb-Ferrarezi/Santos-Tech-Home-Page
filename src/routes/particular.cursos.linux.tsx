@@ -35,7 +35,7 @@ const COURSE_DATA = {
       levelName: "Linux",
       totalHours: "48h",
       outcome:
-        "Administrar servidores Linux do zero absoluto — terminal, usuários e permissões — até colocar serviços web e banco de dados em produção com segurança e automação via shell script, pronto para atuar com infraestrutura, DevOps ou administração de servidores.",
+        "Administrar servidores Linux do zero absoluto — terminal, usuários e permissões — até colocar serviços web e banco de dados em produção com segurança e automação via shell script, base para trabalhar com infraestrutura, DevOps ou administração de servidores.",
       modules: [
         {
           title: "Primeiros Passos no Linux",

@@ -35,7 +35,7 @@ const COURSE_DATA: CourseData = {
       levelName: "Copywriting",
       totalHours: "48h",
       outcome:
-        "Escrever copy persuasivo do zero absoluto — headlines, redes sociais e anúncios — até páginas de vendas, e-mail marketing, scripts de vídeo e funis de lançamento completos, aplicando psicologia da persuasão, testes de otimização e IA generativa como acelerador estratégico, pronto para atuar como copywriter freelancer ou em marketing de conteúdo.",
+        "Escrever copy persuasivo do zero absoluto — headlines, redes sociais e anúncios — até páginas de vendas, e-mail marketing, scripts de vídeo e funis de lançamento completos, aplicando psicologia da persuasão, testes de otimização e IA generativa como acelerador estratégico, base para trabalhar como copywriter freelancer ou em marketing de conteúdo.",
       modules: [
         {
           title: "Fundamentos do Copywriting e Pesquisa de Avatar",
