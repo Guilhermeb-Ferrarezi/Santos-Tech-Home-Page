@@ -11,17 +11,22 @@ type RevealProps = {
 };
 
 /**
- * Surge (opacidade + deslize) quando entra na tela. Nasce com `opacity:0` no
- * HTML do servidor e só aparece depois do JS — por isso é só para conteúdo
- * ABAIXO da dobra. Acima da dobra (hero: badge, H1, texto, CTAs) use `RevealHero`.
+ * Surge (opacidade + deslize) quando entra na tela. O HTML do servidor sai
+ * VISÍVEL (sem JS nada some — F034); no cliente, só o que está abaixo da dobra
+ * é escondido antes da pintura e anima ao entrar (ver `useReveal`). Pensado
+ * para conteúdo ABAIXO da dobra. Acima da dobra (hero: badge, H1, texto, CTAs)
+ * use `RevealHero`, que anima a entrada mesmo no primeiro carregamento.
  */
 export function Reveal({ children, className, delay = 0, as: Tag = "div", y = 24 }: RevealProps) {
   const { ref, visible } = useReveal<HTMLElement>();
-  const style: CSSProperties = {
-    transitionDelay: `${delay}ms`,
-    transform: visible ? "translateY(0)" : `translateY(${y}px)`,
-    opacity: visible ? 1 : 0,
-  };
+  const style: CSSProperties = visible
+    ? { transitionDelay: `${delay}ms` }
+    : {
+        // Escondido fora da tela esperando a entrada: some sem transição.
+        transitionProperty: "none",
+        transform: `translateY(${y}px)`,
+        opacity: 0,
+      };
   return (
     <Tag
       ref={ref as never}
