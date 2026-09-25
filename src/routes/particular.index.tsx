@@ -76,11 +76,11 @@ const PILARES = [
   },
   {
     id: "destaque",
-    titulo: "Pacote Office + IA",
+    titulo: "Pacote Office",
     descricao: "O mais exigido pelas empresas — em qualquer área.",
     bullets: [
       "Word, Excel e PowerPoint do básico ao avançado",
-      "Inteligência Artificial aplicada ao trabalho real",
+      "Recursos atuais, como o Designer do PowerPoint",
       "Válido para qualquer cargo ou setor",
     ],
     cta: "Conhecer este curso",
