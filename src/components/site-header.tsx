@@ -14,8 +14,9 @@ import { useSession } from "@/hooks/use-session";
 import { logout, loginUrl, APP_URL, type SessionUser } from "@/lib/auth";
 
 // ──────────────────────────────────────────────────────────────────────────
-// DATA — 4 produtos reais, agrupados por eixo. "Também" mantém Robótica/IA
-// e Férias acessíveis (páginas no ar) como links secundários.
+// DATA — 4 produtos reais, agrupados por eixo. "Também" leva, como links
+// secundários, à Colônia de Férias e aos cursos particulares (/particular,
+// o público adulto: aula individual, layout próprio).
 // ──────────────────────────────────────────────────────────────────────────
 type NavItem = { label: string; meta?: string; href: string; color: string; badge?: boolean };
 
@@ -29,6 +30,7 @@ const NAV_INF: NavItem[] = [
 ];
 const NAV_EXTRAS: NavItem[] = [
   { label: "Colônia de Férias", href: "/cursos/camps", color: "#0E9E8E" },
+  { label: "Cursos particulares", meta: "adultos · individual", href: "/particular", color: "#0067BE" },
 ];
 
 type SobreItem = { label: string; href: string };
