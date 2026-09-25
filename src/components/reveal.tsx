@@ -47,12 +47,14 @@ type RevealHeroProps = {
  * (auditoria SEO/performance de 24/09/2026, performance-cwv-01). Animação em CSS
  * puro (tw-animate-css): desliza 1rem de baixo pra cima; `fill-mode-backwards`
  * segura o ponto de partida durante o atraso. Desligada com `prefers-reduced-motion`.
+ * `will-change-transform` mantém o mesmo contexto de empilhamento e bloco de
+ * contenção do `Reveal` (filhos `absolute`/`z-index` se comportam igual).
  */
 export function RevealHero({ children, className, delay = 0, as: Tag = "div" }: RevealHeroProps) {
   return (
     <Tag
       className={cn(
-        "animate-in slide-in-from-bottom-4 fill-mode-backwards duration-700 ease-out motion-reduce:animate-none",
+        "animate-in slide-in-from-bottom-4 fill-mode-backwards duration-700 ease-out will-change-transform motion-reduce:animate-none",
         className,
       )}
       style={delay ? { animationDelay: `${delay}ms` } : undefined}
