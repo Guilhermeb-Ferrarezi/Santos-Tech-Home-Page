@@ -1,6 +1,7 @@
-import { useState, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { CheckCircle2, ChevronDown, Clock } from "lucide-react";
 import { Reveal } from "@/components/reveal";
+import { Detalhes } from "@/components/faq-item";
 import { WhatsAppIcon } from "@/components/icons";
 import { CalendarSpot, CertificateSpot, OneOnOne, SchoolSpot } from "@/components/course-illustrations";
 import {
@@ -134,7 +135,6 @@ export function CommonSections({
   const accentText = look.accentText ?? "text-(--accent)";
   const multiTier = course.tiers.length > 1;
   const planBorder = look.planBorder ?? "border-neutral-200 dark:border-neutral-800";
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <>
@@ -317,34 +317,32 @@ export function CommonSections({
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <Heading look={look} eyebrow="Dúvidas frequentes" title="Perguntas frequentes" />
           <div className={`mt-10 divide-y ${look.divider}`}>
-            {faq.map((item, i) => {
-              const open = openFaq === i;
-              return (
-                <div key={item.q}>
-                  <button
-                    type="button"
-                    onClick={() => setOpenFaq(open ? null : i)}
-                    aria-expanded={open}
-                    className="flex w-full items-start justify-between gap-4 py-5 text-left"
-                  >
-                    <span className={`font-bold ${look.title}`}>{item.q}</span>
-                    <ChevronDown className={`mt-0.5 h-5 w-5 shrink-0 text-(--accent) transition ${open ? "rotate-180" : ""}`} />
-                  </button>
-                  {open && (
-                    <div className={`pb-5 text-sm leading-relaxed ${look.muted}`}>
-                      {item.a}
-                      {item.cta && (
-                        <div className="mt-4">
-                          <Cta look={look} href={whatsappUrl}>
-                            Falar no WhatsApp
-                          </Cta>
-                        </div>
-                      )}
+            {/* <details> nativo: a resposta fica no HTML servido mesmo fechada (FAQPage do JSON-LD = texto visível). */}
+            {faq.map((item) => (
+              <Detalhes
+                key={item.q}
+                name="faq-curso"
+                className="group/faq"
+                summaryClassName="flex w-full items-start justify-between gap-4 py-5 text-left"
+                resumo={
+                  <>
+                    <h3 className={`font-bold ${look.title}`}>{item.q}</h3>
+                    <ChevronDown className="mt-0.5 h-5 w-5 shrink-0 text-(--accent) transition group-open/faq:rotate-180" />
+                  </>
+                }
+              >
+                <div className={`pb-5 text-sm leading-relaxed ${look.muted}`}>
+                  {item.a}
+                  {item.cta && (
+                    <div className="mt-4">
+                      <Cta look={look} href={whatsappUrl}>
+                        Falar no WhatsApp
+                      </Cta>
                     </div>
                   )}
                 </div>
-              );
-            })}
+              </Detalhes>
+            ))}
           </div>
         </div>
       </section>
