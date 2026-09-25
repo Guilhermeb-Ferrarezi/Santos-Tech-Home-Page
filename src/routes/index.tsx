@@ -42,6 +42,7 @@ import { RarityBadge } from "@/components/rarity-badge";
 import { HeroCollage } from "@/components/hero-collage";
 import { ScrollStage } from "@/components/scroll-stage";
 import { Testimonials } from "@/components/testimonials";
+import { ParticularCta } from "@/components/particular-cta";
 import { JsonLd } from "@/components/json-ld";
 import { pageMeta, buildFaqSchema, buildCourseSchema } from "@/lib/seo";
 
@@ -1047,6 +1048,8 @@ function Index() {
           </Reveal>
         </div>
       </section>
+
+      <ParticularCta />
 
       {/* ============ COMO CHEGAR ============ */}
       <section className="py-20 bg-white">

@@ -20,6 +20,7 @@ import {
   type ProgressionBadge,
 } from "@/components/course-page";
 import { Reveal } from "@/components/reveal";
+import { TrilhaFaixas } from "@/components/trilha-faixas";
 import { JsonLd } from "@/components/json-ld";
 import { pageMeta, coursePageSchemas } from "@/lib/seo";
 
@@ -383,6 +384,8 @@ function Junior78Page() {
         primaryCta={{ href: WHATSAPP, label: "Agendar visita guiada grátis" }}
         secondaryCta={{ href: "/cursos/create", label: "Conheça o CREATE" }}
       />
+
+      <TrilhaFaixas atual="/cursos/junior/7-8-anos" theme={THEME} />
     </>
   );
 }

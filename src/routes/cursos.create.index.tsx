@@ -120,6 +120,7 @@ function MethodPoint({ icon: Icon, title, children }: { icon: typeof Sparkles; t
       <div
         className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md"
         style={{ background: `${CREATE_LIGHT}30`, color: CREATE_LIGHT }}
+        aria-hidden="true"
       >
         <Icon className="h-5 w-5" />
       </div>
@@ -171,7 +172,13 @@ function CourseCardItem({ course }: { course: CourseCard }) {
 
   if (course.ready) {
     return (
-      <Link to={`/cursos/create/${course.slug}`} className="block h-full">
+      <Link
+        to={`/cursos/create/${course.slug}`}
+        // O card inteiro é o link: sem isto, o nome acessível seria o texto todo do
+        // card, terminando num genérico "Ver currículo".
+        aria-label={`${course.id} (${course.ageRange}) — ${course.title}: ver currículo`}
+        className="block h-full"
+      >
         {content}
       </Link>
     );

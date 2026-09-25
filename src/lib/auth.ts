@@ -9,7 +9,10 @@ export const AUTH_URL = "https://auth.santos-tech.com";
 // (portal.santos-tech.com): o portal é o sistema antigo, e mandar quem loga
 // pra lá deixava a pessoa fora do lugar onde ela vê curso, aulas e progresso —
 // sem nem perceber que estava no sistema errado.
-export const APP_URL = "https://santos-tech.com/dashboard";
+// Com a barra final: é a URL que responde 200 direto. Sem ela, `/dashboard` faz
+// um 301 para http://…/dashboard/ (rebaixa para http) e depois outro salto de volta
+// para https. O auth-web aceita qualquer https em *.santos-tech.com como redirect.
+export const APP_URL = "https://santos-tech.com/dashboard/";
 
 export type SessionUser = {
   id: number;
