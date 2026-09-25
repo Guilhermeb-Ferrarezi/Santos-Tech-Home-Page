@@ -26,6 +26,10 @@ export function PageTransitionLink({ to, className, onClick, children }: Props) 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const main = document.getElementById("conteudo");
     if (!main) return;
+    // Já estamos na rota de destino (ex.: "Ver todos os programas" clicado dentro de
+    // /cursos): o pathname não muda, então `useRouteEnterFade` nunca roda pra devolver
+    // a opacidade — esconder o <main> aqui deixaria a página em branco. Navegação comum.
+    if (router.state.location.pathname === to) return;
 
     e.preventDefault();
     gsap.to(main, {
