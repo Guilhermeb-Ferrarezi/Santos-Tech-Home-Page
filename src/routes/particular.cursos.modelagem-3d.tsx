@@ -21,7 +21,7 @@ const COURSE_DATA = {
   tema: "universo-3d" as const,
   logo: "blender",
   variante: "modelagem",
-  tagline: "Do zero ao portfólio 3D profissional que o mercado contrata",
+  tagline: "Do zero ao portfólio 3D profissional",
   targetAudience: [
     "Você trabalha com arquitetura, design de interiores ou engenharia e quer sair do papel para o 3D",
     "Você quer criar produtos, cenários ou personagens para games, filmes ou animação",

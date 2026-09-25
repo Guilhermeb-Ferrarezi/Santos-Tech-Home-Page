@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Check, CheckCircle2, FileText, GitMerge, GitPullRequest, MessageSquare, Tag } from "lucide-react";
 import { NivelSeletor } from "@/components/course-skins/variants/ide-kit";
 import { curto, hash7, kebab, nn, ritmo, type ConteudoProps, type PublicoProps } from "@/components/course-skins/variants/ide-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Git e GitHub: “Para quem é” é um pull request aberto (descrição com
@@ -229,7 +230,7 @@ export function GitConteudo({ course, tier, tierIndex, onSelectTier, meta }: Con
           <p className="flex items-center gap-2 font-mono text-[12px] font-bold text-(--accent-2)">
             <Tag className="h-3.5 w-3.5" /> release v1.0 · {tier.levelName}
           </p>
-          <p className="mt-2 text-[14px] leading-snug text-white/90">{tier.outcome}</p>
+          <OutcomeText text={tier.outcome} className="mt-2 text-[14px] leading-snug text-white/90" />
           <p className="mt-2 font-mono text-[11.5px] text-white/40">{ritmo(tier, meta)}</p>
           <div className="mt-3 flex flex-wrap gap-1.5">
             {tier.tools.map((tool) => (

@@ -11,7 +11,7 @@ interface ParticularFaqProps {
 }
 
 /**
- * FAQ de /particular e do template padrão dos cursos particulares.
+ * FAQ da landing /particular (as páginas de curso usam o FAQ da pele, em course-skins/common.tsx).
  * `<details>` nativo: a resposta fica no HTML servido mesmo fechada (o texto
  * visível bate com o FAQPage do JSON-LD) e, fechada, sai da leitura e do foco
  * (inclusive o CTA). Pergunta em `<h3>` dentro do `<summary>`.

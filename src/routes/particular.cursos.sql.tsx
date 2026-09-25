@@ -36,7 +36,7 @@ const COURSE_DATA: CourseData = {
       levelName: "Banco de Dados com SQL",
       totalHours: "48h",
       outcome:
-        "Sair do zero absoluto até escrever consultas avançadas com CTEs, Window Functions e agregações complexas, modelar bancos de dados relacionais profissionais e manipular dados com segurança, conectando SQL a Power BI e Python — com uma introdução prática a bancos NoSQL e visão do panorama de cloud, pipelines de dados e IA aplicada a SQL — pronto para atuar como analista, desenvolvedor ou futuro engenheiro de dados.",
+        "Sair do zero absoluto até escrever consultas avançadas com CTEs, Window Functions e agregações complexas, modelar bancos de dados relacionais profissionais e manipular dados com segurança, conectando SQL a Power BI e Python — com uma introdução prática a bancos NoSQL e visão do panorama de cloud, pipelines de dados e IA aplicada a SQL — base para trabalhar como analista, desenvolvedor ou futuro engenheiro de dados.",
       modules: [
         {
           title: "Fundamentos de Bancos de Dados Relacionais",

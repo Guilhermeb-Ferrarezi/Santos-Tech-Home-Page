@@ -12,6 +12,7 @@ import {
 } from "@/components/course-skins/variants/marketing-kit";
 import { BODY, CARD, INK, KICKER, SOFT, pad2, ritmo, useMarcados } from "@/components/course-skins/variants/marketing-tokens";
 import { tierMeta } from "@/components/course-skins/shared";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Gestão de Redes Sociais. "Para quem é" é a grade de um perfil (fictício):
@@ -217,7 +218,7 @@ function Conteudo(p: MktBlockProps) {
       <Reveal delay={80} className="mt-5">
         <div className="rounded-2xl bg-(--hero-bg) p-5 text-white dark:border dark:border-(--accent)/40 sm:p-6">
           <p className={`${KICKER} text-(--accent-2)`}>Meta do calendário · {tier.levelName}</p>
-          <p className="mt-2 text-base font-semibold leading-relaxed sm:text-lg">{tier.outcome}</p>
+          <OutcomeText text={tier.outcome} className="mt-2 text-base leading-relaxed sm:text-lg" />
           <p className="mt-2 text-xs text-white/60">{ritmo(course, tier)}</p>
         </div>
       </Reveal>

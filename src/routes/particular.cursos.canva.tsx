@@ -22,7 +22,7 @@ const COURSE_DATA: CourseData = {
   tema: "design" as const,
   logo: "canva",
   variante: "canva",
-  tagline: "Do zero ao design profissional que atrai clientes de verdade",
+  tagline: "Do zero ao design profissional para redes sociais, apresentações e divulgação",
   targetAudience: [
     "Quer criar posts, stories e artes para redes sociais sem depender de designer",
     "Empreendedor que precisa de materiais visuais profissionais com orçamento enxuto",

@@ -11,6 +11,7 @@ import {
   type MktBlockProps,
 } from "@/components/course-skins/variants/marketing-kit";
 import { BODY, CARD, INK, KICKER, SOFT, pad2, ritmo, useMarcados } from "@/components/course-skins/variants/marketing-tokens";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * E-commerce. "Para quem é" é o catálogo de uma loja: cada perfil é um produto
@@ -255,7 +256,7 @@ function Conteudo(p: MktBlockProps) {
             </span>
             <div>
               <p className={`${KICKER} text-(--accent-2)`}>Pedido confirmado · {tier.levelName}</p>
-              <p className="mt-2 text-base font-semibold leading-relaxed sm:text-lg">{tier.outcome}</p>
+              <OutcomeText text={tier.outcome} className="mt-2 text-base leading-relaxed sm:text-lg" />
               <p className="mt-2 text-xs text-white/60">{ritmo(course, tier)}</p>
             </div>
           </div>

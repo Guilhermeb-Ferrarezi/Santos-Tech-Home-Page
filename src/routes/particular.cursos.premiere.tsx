@@ -34,7 +34,7 @@ const COURSE_DATA = {
       levelName: "Adobe Premiere",
       totalHours: "48h",
       outcome:
-        "Editar profissionalmente no Adobe Premiere do zero absoluto até o color grading cinematográfico, motion graphics com After Effects e os recursos de IA generativa — pronto para atuar em agências, emissoras e produtoras.",
+        "Editar profissionalmente no Adobe Premiere do zero absoluto até o color grading cinematográfico, motion graphics com After Effects e os recursos de IA generativa — base para trabalhar em agências, emissoras e produtoras.",
       modules: [
         {
           title: "Interface, Projeto e Primeiros Cortes",

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowRight, Box, CheckCircle2, Info, Type } from "lucide-react";
 import { A, F, K, M, NivelSeletor, P, Win } from "@/components/course-skins/variants/ide-kit";
 import { nn, ritmo, type ConteudoProps, type PublicoProps } from "@/components/course-skins/variants/ide-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * TypeScript: “Para quem é” é o autocomplete do editor sugerindo os perfis de
@@ -170,7 +171,7 @@ export function TypescriptConteudo({ course, tier, tierIndex, onSelectTier, meta
             <p className="flex items-center gap-2 font-mono text-[12px] text-[#7ee2a8]">
               <CheckCircle2 className="h-3.5 w-3.5" /> tsc --noEmit · 0 erros
             </p>
-            <p className="mt-2 text-[14px] leading-snug text-white/90">{tier.outcome}</p>
+            <OutcomeText text={tier.outcome} className="mt-2 text-[14px] leading-snug text-white/90" />
             <p className="mt-2 font-mono text-[11.5px] text-white/40">
               <M>{ritmo(tier, meta)}</M>
             </p>

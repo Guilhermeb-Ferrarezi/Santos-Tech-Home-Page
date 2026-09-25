@@ -10,7 +10,7 @@ export const Route = createFileRoute("/particular/cursos/tiktok-ads")({
     pageMeta({
       title: "Curso de TikTok Ads Particular em Ribeirão Preto — Santos Tech",
       description:
-        "Aprenda a criar e gerenciar anúncios no TikTok do zero ao avançado em Ribeirão Preto. Criativos nativos, segmentação e ROAS real.",
+        "Aprenda a criar e gerenciar anúncios no TikTok do zero ao avançado em Ribeirão Preto. Criativos nativos, segmentação e leitura de métricas como ROAS.",
       path: "/particular/cursos/tiktok-ads",
     }),
 })
@@ -36,7 +36,7 @@ const COURSE_DATA: CourseData = {
       levelName: "TikTok Ads",
       totalHours: "48h",
       outcome:
-        "Criar, produzir e gerenciar campanhas de TikTok Ads do zero absoluto até a operação em escala — criativos nativos que convertem, segmentação com retargeting por funil, TikTok Shop e Spark Ads com creators, e otimização orientada a dados com automações de budget — pronto para gerar ROAS real como gestor de tráfego ou dono de negócio.",
+        "Criar, produzir e gerenciar campanhas de TikTok Ads do zero absoluto até a operação em escala — criativos nativos que convertem, segmentação com retargeting por funil, TikTok Shop e Spark Ads com creators, e otimização orientada a dados com automações de budget — base para trabalhar como gestor de tráfego ou gerir os anúncios do próprio negócio.",
       modules: [
         {
           title: "TikTok for Business e Estrutura de Conta",

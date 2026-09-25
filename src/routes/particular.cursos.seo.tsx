@@ -10,7 +10,7 @@ export const Route = createFileRoute("/particular/cursos/seo")({
     pageMeta({
       title: "Curso de SEO Particular em Ribeirão Preto — Santos Tech",
       description:
-        "Aprenda SEO do zero ao avançado em Ribeirão Preto: rankeie no Google, atraia tráfego orgânico e cresça sem depender de anúncios pagos.",
+        "Aprenda SEO do zero ao avançado em Ribeirão Preto: otimização de páginas, auditoria técnica, link building e SEO local para o tráfego orgânico.",
       path: "/particular/cursos/seo",
     }),
 })
@@ -22,7 +22,7 @@ const COURSE_DATA: CourseData = {
   logo: "seo",
   variante: "seo",
   tagline:
-    "Apareça na primeira página do Google e conquiste clientes sem pagar por clique",
+    "Posicione seu site na busca orgânica do Google, sem pagar por clique",
   targetAudience: [
     "Você tem um negócio ou site e não aparece nas buscas do Google",
     "Você gasta com anúncios pagos e quer reduzir o custo de aquisição de clientes",
@@ -37,7 +37,7 @@ const COURSE_DATA: CourseData = {
       ctaLabel: "curso de SEO",
       totalHours: "48h",
       outcome:
-        "Dominar SEO do zero absoluto até a liderança de projetos com inteligência artificial: otimizar páginas e conteúdo para rankeamento orgânico, executar auditorias técnicas completas, construir autoridade com link building, rankear negócios locais e escalar resultados em e-commerce, e entregar relatórios executivos com atribuição de receita — pronto para atuar como profissional ou consultor de SEO no mercado.",
+        "Dominar SEO do zero absoluto até a liderança de projetos com inteligência artificial: otimizar páginas e conteúdo para rankeamento orgânico, executar auditorias técnicas completas, construir autoridade com link building, rankear negócios locais e escalar resultados em e-commerce, e entregar relatórios executivos com atribuição de receita — base para trabalhar como profissional ou consultor de SEO no mercado.",
       modules: [
         {
           title: "Fundamentos de SEO e Pesquisa de Palavras-Chave",

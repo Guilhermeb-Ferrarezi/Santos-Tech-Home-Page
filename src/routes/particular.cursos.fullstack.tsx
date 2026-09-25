@@ -35,7 +35,7 @@ const COURSE_DATA = {
       levelName: "Full Stack Web Developer",
       totalHours: "48h",
       outcome:
-        "Sair do zero e entregar aplicações full stack completas em produção — com React, Node.js e PostgreSQL como base, evoluindo para Next.js, Docker, CI/CD, testes automatizados e integração com IA generativa, prontas para o mercado nacional e internacional",
+        "Sair do zero e entregar aplicações full stack completas em produção — com React, Node.js e PostgreSQL como base, evoluindo para Next.js, Docker, CI/CD, testes automatizados e integração com IA generativa — base para trabalhar como desenvolvedor full stack",
       modules: [
         {
           title: "Fundamentos da Web e Setup",

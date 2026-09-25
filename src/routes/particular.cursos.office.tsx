@@ -10,7 +10,7 @@ export const Route = createFileRoute("/particular/cursos/office")({
       title:
         "Curso de Pacote Office Particular em Ribeirão Preto — Santos Tech",
       description:
-        "Aprenda Word, Excel e PowerPoint do zero ao avançado com aulas presenciais em Ribeirão Preto. Domine o Office que o mercado contrata e conquiste melhores vagas e promoções.",
+        "Aprenda Word, Excel e PowerPoint do zero ao avançado com aulas presenciais em Ribeirão Preto. Domine o Office para o dia a dia profissional.",
       path: "/particular/cursos/office",
     }),
 });
@@ -21,7 +21,7 @@ const COURSE_DATA = {
   tema: "office" as const,
   logo: "office",
   variante: "pacote",
-  tagline: "Word, Excel e PowerPoint do zero ao avançado que o mercado contrata",
+  tagline: "Word, Excel e PowerPoint do zero ao avançado para o dia a dia profissional",
   targetAudience: [
     "Você perdeu vagas administrativas ou de atendimento porque o anúncio exigia 'domínio do Pacote Office' e você não tinha segurança",
     "Você usa o Excel, mas só para digitar dados — e quer criar fórmulas, tabelas dinâmicas e dashboards de verdade",

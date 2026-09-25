@@ -11,6 +11,7 @@ import {
   GRID,
   type BlockProps,
 } from "@/components/course-skins/variants/planilha-base";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Excel + IA: tudo acontece no painel do assistente de IA ao lado da planilha.
@@ -171,7 +172,7 @@ export function ExcelIaConteudo({ course, tier, selectedTier, onSelectTier, mult
             <div className="space-y-6 px-4 py-6 sm:px-8">
               <Answer>
                 <p className="text-xs font-bold uppercase tracking-wider text-(--accent)">{multiTier ? "Resumo do nível" : "Resumo do curso"}</p>
-                <p className="mt-1.5 text-[15px] leading-relaxed text-neutral-800 dark:text-neutral-200">{tier.outcome}</p>
+                <OutcomeText text={tier.outcome} className="mt-1.5 text-[15px] leading-relaxed text-neutral-800 dark:text-neutral-200" />
               </Answer>
 
               {tier.modules.map((m, i) => {

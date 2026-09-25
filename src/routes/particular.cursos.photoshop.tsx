@@ -21,7 +21,7 @@ const COURSE_DATA = {
   tema: "design" as const,
   logo: "photoshop",
   variante: "photoshop",
-  tagline: "Adobe do zero ao portfólio que compete com qualquer agência",
+  tagline: "Adobe do zero ao portfólio profissional",
   targetAudience: [
     "Aspira trabalhar em agência de publicidade, estúdio ou como designer freelancer",
     "Já usa Canva mas quer aprender as ferramentas Adobe usadas pelo mercado profissional",
@@ -34,7 +34,7 @@ const COURSE_DATA = {
       levelName: "Photoshop + Illustrator",
       totalHours: "48h",
       outcome:
-        "Dominar Photoshop e Illustrator do zero absoluto até a composição fotorrealista, a identidade visual completa e os recursos de IA generativa do Adobe Firefly — pronto para montar portfólio competitivo e atuar como designer, retocador ou freelancer no mercado profissional.",
+        "Dominar Photoshop e Illustrator do zero absoluto até a composição fotorrealista, a identidade visual completa e os recursos de IA generativa do Adobe Firefly — base para montar portfólio e trabalhar como designer, retocador ou freelancer.",
       modules: [
         {
           title: "Photoshop — Interface e Ferramentas Fundamentais",

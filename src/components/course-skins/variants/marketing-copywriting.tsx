@@ -10,6 +10,7 @@ import {
   type MktBlockProps,
 } from "@/components/course-skins/variants/marketing-kit";
 import { BODY, INK, KICKER, SOFT, pad2, ritmo, useMarcados } from "@/components/course-skins/variants/marketing-tokens";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Copywriting. "Para quem é" é um rascunho em revisão: o título genérico é
@@ -150,7 +151,7 @@ function Conteudo(p: MktBlockProps) {
         <div className="px-5 py-8 sm:px-12 sm:py-12">
           <p className={`${KICKER} text-(--accent)`}>Manuscrito · {tier.levelName}</p>
           <h3 className={`${SERIF} mt-3 text-3xl leading-tight sm:text-4xl ${INK}`}>{course.nome}</h3>
-          <p className={`${SERIF} mt-3 max-w-3xl text-lg italic leading-relaxed ${SOFT}`}>{tier.outcome}</p>
+          <OutcomeText text={tier.outcome} className={`${SERIF} mt-3 max-w-3xl text-lg italic leading-relaxed ${SOFT}`} />
 
           <div className="mt-8 space-y-12">
             {tier.modules.map((m, i) => {

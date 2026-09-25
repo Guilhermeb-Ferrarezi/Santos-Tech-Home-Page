@@ -2,6 +2,7 @@ import { useState, type ReactNode } from "react";
 import { Circle, FileCode2, Play, Plus, Square } from "lucide-react";
 import { F, K, NivelSeletor, P, Q } from "@/components/course-skins/variants/ide-kit";
 import { curto, kebab, nn, ritmo, type ConteudoProps, type PublicoProps } from "@/components/course-skins/variants/ide-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * APIs e Integrações com Python: “Para quem é” é um notebook Jupyter que
@@ -200,7 +201,7 @@ export function PythonApisConteudo({ course, tier, tierIndex, onSelectTier, meta
       <div className="mt-8 grid gap-4 border-t border-white/10 pt-5 lg:grid-cols-[1.5fr_1fr]">
         <div className="min-w-0">
           <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/40">{multiTier ? "Ao final do nível" : "Ao final do curso"}</p>
-          <p className="mt-2 text-[14px] leading-snug text-white/90">{tier.outcome}</p>
+          <OutcomeText text={tier.outcome} className="mt-2 text-[14px] leading-snug text-white/90" />
           <p className="mt-2 font-mono text-[11.5px] text-white/40">{ritmo(tier, meta)}</p>
         </div>
         <div className="min-w-0">

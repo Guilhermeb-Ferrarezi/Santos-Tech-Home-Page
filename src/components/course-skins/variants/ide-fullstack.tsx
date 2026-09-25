@@ -3,6 +3,7 @@ import type { LucideIcon } from "lucide-react";
 import { ArrowRight, Check, Database, Monitor, Rocket, Server, Wrench } from "lucide-react";
 import { NivelSeletor } from "@/components/course-skins/variants/ide-kit";
 import { curto, nn, ritmo, slug, type ConteudoProps, type Modulo, type PublicoProps } from "@/components/course-skins/variants/ide-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Full Stack: “Para quem é” é a própria pilha — camadas empilhadas da tela ao
@@ -163,7 +164,7 @@ export function FullstackConteudo({ course, tier, tierIndex, onSelectTier, meta 
         <div className="min-w-0 space-y-4 lg:border-l lg:border-white/10 lg:pl-5">
           <div>
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/40">Você sai fazendo</p>
-            <p className="mt-2 text-[14px] leading-snug text-white/90">{tier.outcome}</p>
+            <OutcomeText text={tier.outcome} className="mt-2 text-[14px] leading-snug text-white/90" />
             <p className="mt-2 font-mono text-[11.5px] text-white/40">{ritmo(tier, meta)}</p>
           </div>
           <div>

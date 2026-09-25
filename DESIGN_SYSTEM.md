@@ -133,7 +133,7 @@ Cada programa tem cor própria — **não misture, não invente nova**.
 | **CAMPS** (férias) | `#1C8299` | — | `bg-program-camps` | 5–14 |
 | **ACADEMIES** (avançado) | `#0411A0` | — | `bg-program-academies` | Robótica / IA |
 
-> ⚠️ Nomes em revisão (proposta BR: **CRIA / MIRIM / FÉRIAS TECH / AVANÇADO**). Confirmar antes de criar páginas dedicadas ou peças com nome do programa.
+> ⚠️ **Nomes e faixas oficiais = decisão pendente do Henrique** (decisão 1 em `PENDENCIAS.md`). Hoje a home e o header vendem **Tecnologia Júnior (5–9) / Tecnologia Create (10–15)** e **Informática Júnior / Create**, enquanto as páginas de curso usam **JR 5–8 / CREATE 8–14** (tabela acima). Não criar peça nova com nome de programa até a decisão. A proposta antiga CRIA / MIRIM / FÉRIAS TECH / AVANÇADO não está em uso.
 
 ### 2.2 Regra prática de uso
 
@@ -159,7 +159,7 @@ Cada programa tem cor própria — **não misture, não invente nova**.
 | `--st-camps` | `#1C8299` | ✅ |
 | `--st-academies` | `#0411A0` | ✅ |
 
-> 🚧 **Decisão pendente** sobre `--st-blue-dark`: alinhar ao guia (`#0E2937` ou `#212D3A`) muda a cor de todos os títulos do hero e do header. Antes de alterar, validar visualmente com a marca. **Tokens que ainda não existem no CSS** (e provavelmente vão precisar quando ampliar a paleta visual): `#338FBF`, `#2D8ABD`, `#49A8EB`, `#0270E0`, `#F5F8FA`, `#212121`.
+> 🚧 **Decisão pendente do Henrique** sobre `--st-blue-dark`: o código usa `#04325A` (títulos do hero, header e o fundo do rodapé padrão); alinhar ao guia (`#0E2937` ou `#212D3A`) muda tudo isso. Não alterar sem a decisão. **Tokens que ainda não existem no CSS** (e provavelmente vão precisar quando ampliar a paleta visual): `#338FBF`, `#2D8ABD`, `#49A8EB`, `#0270E0`, `#F5F8FA`, `#212121`.
 
 ### 2.4 Classes utilitárias prontas
 
@@ -172,6 +172,24 @@ Cada programa tem cor própria — **não misture, não invente nova**.
 
 `--background`, `--foreground`, `--primary`, `--muted`, `--card`, `--border`, etc. — usados em componentes `ui/`. Não editar arbitrariamente; alterar via tokens, nunca direto no componente.
 
+
+### 2.6 Cursos particulares (`/particular`)
+
+As 52 páginas de curso particular usam **peles** por área (`src/components/course-skins/`), cada uma com a própria paleta em [src/components/course-skins/themes.ts](src/components/course-skins/themes.ts) (`CourseTheme`: `accent`, `accentHover`, `accent2`, `heroBg`). A landing e a sidebar usam `BRAND_THEME` ([src/lib/course-themes.ts](src/lib/course-themes.ts)).
+
+| Área | Pele | `accent` | `accent2` | `heroBg` |
+|---|---|---|---|---|
+| Informática | `informatica` | `#0F6CD4` | `#FFC83D` | `#0a1830` |
+| Office | `planilha` | `#21A366` | `#9BE7C1` | `#0d1712` |
+| Inteligência Artificial | `ia` | `#8B5CF6` | `#E879F9` | `#120d1f` |
+| Programação | `ide` | `#4B8BF5` | `#FFD43B` | `#0c1220` |
+| T.I | `ti` | `#0D9488` | `#A3E635` | `#081412` |
+| Universo 3D | `oficina` | `#F97316` | `#FDBA74` | `#1a110b` |
+| Design & Criação | `design` | `#DB2777` | `#FBBF24` | `#16121a` |
+| Marketing & Negócios | `marketing` | `#E5484D` | `#FFC53D` | `#170c10` |
+| Landing / sidebar | `BRAND_THEME` | `#0DB88F` | `#0DB88F` | `#171717` |
+
+> ⚠️ Branco sobre o `accent` como texto de botão, por pele: **reprovam** (abaixo de 4,5:1) Office 3,2 · IA 4,2 · Programação 3,3 · T.I 3,7 · Universo 3D 2,8 · Marketing 3,9; **passam** Informática 5,1 · Design 4,6. Cor de CTA das peles é decisão pendente (decisão 2 da auditoria de UI/UX). A sidebar escurece/clareia o `accent` com `color-mix` para texto (regras em `src/styles.css`).
 ---
 
 ## 3. Tipografia
@@ -194,7 +212,7 @@ A tipografia precisa transmitir: **tecnologia · clareza · energia · profissio
 
 | Uso | Tailwind | Peso | Tracking |
 |---|---|---|---|
-| **H1 Hero** | `text-5xl sm:text-6xl lg:text-7xl` | `font-black` | `tracking-tight leading-[0.95]` |
+| **H1 Hero** | `text-4xl sm:text-5xl lg:text-6xl` | `font-black` | `tracking-tight leading-[1.02]` (home, [index.tsx](src/routes/index.tsx)) |
 | **H2 Seção** | `text-3xl sm:text-4xl` (até `5xl` em destaque) | `font-black` | `tracking-tight` |
 | **H3 Card** | `text-lg` (até `2xl` em destaques) | `font-bold` ou `font-black` | — |
 | **H3 ProgramBand** | `text-6xl sm:text-7xl lg:text-8xl` | `font-black` | `tracking-tight` |
@@ -277,9 +295,9 @@ Não comprima. Se a peça parecer apertada, **tira coisa antes de espremer**. Hi
 
 | Token | Uso |
 |---|---|
-| `rounded-md` (8px) | Inputs, botões pequenos. |
-| `rounded-xl` (16px) | Ícones em containers, badges. |
-| `rounded-2xl` (20px) | Cards. |
+| `rounded-md` (10px) | Inputs, botões pequenos e, hoje, o CTA verde (ver §8.1). |
+| `rounded-xl` (16px) | **Card padrão** (o mais usado no código), ícones em containers, badges. |
+| `rounded-2xl` (20px) | Card de destaque e blocos de CTA menores. |
 | `rounded-3xl` (24px) | Cards grandes, blocos de CTA. |
 | `rounded-full` | Pills, chips, botões principais, avatares. |
 
@@ -370,13 +388,13 @@ const Lightning = phosphor(PhLightning, "bold");
 | **Eyebrow chips** (chips coloridos com ícone pequeno) | `duotone` ou `bold` | Depende do tamanho — bold em <h-5 |
 | **Ferramentas** (tools grid em cards brancos) | `duotone` | Look limpo, presença adequada |
 
-### 7.3 Ícones lucide ainda em uso
+### 7.3 Ícones lucide em uso
 
 Funcionais: `ArrowRight, CheckCircle2, ChevronDown, Clock, Calendar, Users, MapPin, Mail, Instagram, Menu, X, Lock, Lightbulb, Sparkles` (alguns).
 
 (Vários ícones de domínio — Cog, Trophy, Award, Brain, etc. — foram migrados pra Phosphor nas páginas de destaque.)
 
-### 7.2 Tamanhos padrão
+### 7.4 Tamanhos padrão
 
 | Contexto | Tailwind |
 |---|---|
@@ -385,7 +403,7 @@ Funcionais: `ArrowRight, CheckCircle2, ChevronDown, Clock, Calendar, Users, MapP
 | Card icon (em container colorido) | `h-6 w-6` ou `h-7 w-7` |
 | Lista de features | `h-5 w-5` |
 
-### 7.3 Padrão ícone em "pílula" colorida (cards de pilares)
+### 7.5 Padrão ícone em "pílula" colorida (cards de pilares)
 
 ```tsx
 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
@@ -399,9 +417,11 @@ Funcionais: `ArrowRight, CheckCircle2, ChevronDown, Clock, Calendar, Users, MapP
 
 ### 8.1 Botão CTA Primário
 
+> 🚧 **Formato e cor do botão = decisão pendente do Henrique** (decisão 2 da auditoria de UI/UX). O código usa hoje `rounded-md` no CTA verde (hero, faixas, preços); o exemplo abaixo, com `rounded-full`, é o padrão antigo deste guia. Branco sobre `#0DB88F` dá 2,5:1 (reprova AA). Não padronizar antes da decisão.
+
 ```tsx
 <a className="inline-flex items-center gap-2 rounded-full bg-st-green px-8 py-4 text-sm font-black uppercase tracking-wider text-white shadow-xl transition hover:scale-[1.03] glow-green">
-  <MessageCircle className="h-4 w-4" />
+  <WhatsAppIcon className="h-4 w-4" /> {/* import { WhatsAppIcon } from "@/components/icons" */}
   Agendar aula experimental grátis
 </a>
 ```
@@ -414,7 +434,9 @@ Funcionais: `ArrowRight, CheckCircle2, ChevronDown, Clock, Calendar, Users, MapP
 </Link>
 ```
 
-### 8.3 Card padrão (pilares / o que se aprende)
+### 8.3 Card de destaque (pilares / o que se aprende)
+
+> O card **padrão** do código é `rounded-xl border border-border bg-card` (§5.1); este, com `rounded-2xl`, é o de destaque.
 
 ```tsx
 <div className="group h-full rounded-2xl border border-border bg-card p-7 transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
@@ -569,7 +591,7 @@ Mapeia `pathname → ProgramKey` e expõe a cor de acento usada em:
 | `/cursos/create*` | `create` | `#04325A` | `#49A8EB` |
 | `/cursos/camps*` | `camps` | `#0f5a6b` | `#6EC4CC` |
 | `/cursos/academies*` | `academies` | `#020a6b` | `#818CF8` |
-| qualquer outra | `default` | `bg-muted/40` | `--primary` |
+| qualquer outra | `default` | `#04325A` | `#49A8EB` |
 
 **Quando adicionar um programa novo** (ex.: `/cursos/clubes`):
 1. Adicionar `"clubes"` à union `ProgramKey` em `program-theme.ts`
@@ -646,7 +668,7 @@ Lista negra. Se a peça tem qualquer um destes, refaz:
 
 ## 12. Acessibilidade
 
-- Contraste mínimo AA — verde/azul Santos Tech sobre branco passam; sobre fundo colorido, use `text-white` ou `text-white/85`.
+- Contraste mínimo AA (texto 4,5:1; texto grande e ícones 3:1). ⚠️ **Nem toda cor da marca passa:** texto branco sobre o verde `#0DB88F` dá **2,5:1** (reprova como texto de botão) e o verde como texto sobre branco também reprova; o azul `#187ABF` sobre branco dá 4,6:1 (passa por pouco). Sobre fundo escuro, use `text-white` ou no mínimo `text-white/85` em texto corrido — nada abaixo de `/60` para texto. A cor dos botões verdes é decisão pendente (decisão 2 da auditoria de UI/UX).
 - Todo `<a>` externo: `target="_blank" rel="noreferrer"`.
 - Botão "puro" (ex.: menu mobile): incluir `aria-label`.
 - `<img>` sempre com `alt`.

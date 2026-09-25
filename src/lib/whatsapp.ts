@@ -7,6 +7,9 @@
  * Pra adicionar um contexto novo (ex.: matrícula, suporte técnico):
  *   1. Adicionar entrada em WHATSAPP_URL com a mensagem desejada
  *   2. Importar e usar
+ *
+ * Contexto que depende de um nome (ex.: programa) vira construtor de URL
+ * (`WHATSAPP_URL.program(nome)`), não uma entrada por programa.
  */
 
 const PHONE = "5516992578710";
@@ -40,4 +43,13 @@ export const WHATSAPP_URL = {
    * Mensagem: "Olá, quero conhecer a Santos Tech."
    */
   fab: build("Olá, quero conhecer a Santos Tech."),
+
+  /**
+   * Botões de um programa específico (faixas e cards de preço da home): a
+   * mensagem já chega dizendo de qual programa o pai está falando, então o
+   * atendimento não recomeça do zero e dá pra saber qual seção converteu
+   * (auditoria de UI/UX 24/09/2026, F180).
+   * Mensagem: "Olá! Quero saber mais sobre o programa <nome> da Santos Tech"
+   */
+  program: (nome: string) => build(`Olá! Quero saber mais sobre o programa ${nome} da Santos Tech`),
 } as const;

@@ -16,9 +16,9 @@ import type { CourseData, Tier } from "@/components/particular-course-page";
 import type { CourseTheme, CourseThemeKey } from "@/lib/course-themes";
 
 /**
- * Conteúdo compartilhado entre o template padrão de /particular/cursos/* e as
- * "peles" por categoria (course-skins/*). Preço, ritmo e textos institucionais
- * vivem aqui pra não divergirem entre os layouts.
+ * Conteúdo compartilhado entre as "peles" por categoria de /particular/cursos/*
+ * (course-skins/*). Preço, ritmo e textos institucionais vivem aqui pra não
+ * divergirem entre os layouts.
  */
 
 // ── Preços e ritmo por nível ───────────────────────────────────────────────
@@ -156,7 +156,7 @@ export const TRILHA_PERSONALIZADA =
 export const WHATSAPP_EXIBICAO = "(16) 99257-8710";
 
 /**
- * Preço/ritmo de um nível, com o mesmo cálculo do template padrão: preço-base
+ * Preço/ritmo de um nível — fonte única do card de investimento e do FAQ: preço-base
  * (ou `pricePerAula` × horas), margem embutida e parcela em 12x.
  */
 export function tierMeta(course: CourseData, t: Tier) {

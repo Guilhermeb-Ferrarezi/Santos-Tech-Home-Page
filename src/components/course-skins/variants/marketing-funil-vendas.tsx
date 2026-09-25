@@ -11,6 +11,7 @@ import {
   type MktBlockProps,
 } from "@/components/course-skins/variants/marketing-kit";
 import { BODY, CARD, INK, KICKER, PERSONA_CORES, SOFT, pad2, ritmo, useMarcados } from "@/components/course-skins/variants/marketing-tokens";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Funil de Vendas + CRM. "Para quem é" vira um quadro de CRM: cada perfil é um
@@ -249,7 +250,7 @@ function Conteudo(p: MktBlockProps) {
               </div>
               <div className="rounded-2xl bg-(--hero-bg) p-5 text-white dark:border dark:border-(--accent)/40 sm:p-6">
                 <p className={`${KICKER} text-(--accent-2)`}>Conversão · {tier.levelName}</p>
-                <p className="mt-2 text-base font-semibold leading-relaxed sm:text-lg">{tier.outcome}</p>
+                <OutcomeText text={tier.outcome} className="mt-2 text-base leading-relaxed sm:text-lg" />
                 <p className="mt-3 text-xs text-white/60">{ritmo(course, tier)}</p>
               </div>
             </div>

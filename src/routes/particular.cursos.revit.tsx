@@ -34,7 +34,7 @@ const COURSE_DATA = {
       levelName: "Revit BIM",
       totalHours: "48h",
       outcome:
-        "Projetar em Revit BIM do zero absoluto até o projeto executivo completo — modelagem arquitetônica, famílias paramétricas, coordenação multidisciplinar, automação com Dynamo e os recursos de IA generativa do BIM — pronto para atuar como projetista ou coordenador BIM em escritórios, construtoras e incorporadoras.",
+        "Projetar em Revit BIM do zero absoluto até o projeto executivo completo — modelagem arquitetônica, famílias paramétricas, coordenação multidisciplinar, automação com Dynamo e os recursos de IA generativa do BIM — base para trabalhar como projetista ou coordenador BIM em escritórios, construtoras e incorporadoras.",
       modules: [
         {
           title: "Interface do Revit e Fundamentos BIM",

@@ -2,6 +2,7 @@ import { Reveal } from "@/components/reveal";
 import { PersonAtDesk } from "@/components/course-illustrations";
 import { SectionTitle, TierTabs } from "./oficina-base";
 import { NOTCH, pad2, type OficinaBlockProps } from "./oficina-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Impressão 3D — a referência da família "Oficina".
@@ -111,7 +112,7 @@ export function ImpressaoConteudo(props: OficinaBlockProps) {
               </div>
               <div className="rounded-2xl bg-[#2a1a10] p-5 text-white dark:bg-white dark:text-[#2a1a10]">
                 <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-(--accent)">Peça pronta · 100%</p>
-                <p className="mt-2 text-base font-semibold">{tier.outcome}</p>
+                <OutcomeText text={tier.outcome} className="mt-2 text-base leading-relaxed" />
               </div>
             </div>
           </Reveal>

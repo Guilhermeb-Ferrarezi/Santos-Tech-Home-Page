@@ -7,6 +7,7 @@ import type { CourseTheme } from "@/lib/course-themes";
 import { tierMeta } from "@/components/course-skins/shared";
 import { StudioLogo } from "@/components/course-skins/scenes/design-kit";
 import { CYAN, DOTS_LIGHT, GREEN, VIOLET, pad, type AudienceProps, type ContentProps } from "@/components/course-skins/variants/design-tokens";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Adobe Premiere: o padrão de agência, organizado em bins e montado em timeline.
@@ -385,7 +386,7 @@ export function PremiereContent({ course, logo, selectedTier, onSelectTier }: Co
               <p className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-(--accent)">
                 <Download className="h-3.5 w-3.5" /> Exportar sequência · ao concluir você vai
               </p>
-              <p className="mt-2 text-lg font-semibold leading-relaxed">{tier.outcome}</p>
+              <OutcomeText text={tier.outcome} className="mt-2 text-lg leading-relaxed" />
               {tier.tools.length > 0 && (
                 <div className="mt-4 flex flex-wrap gap-2">
                   {tier.tools.map((tool) => (

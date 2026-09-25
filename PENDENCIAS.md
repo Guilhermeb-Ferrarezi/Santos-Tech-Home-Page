@@ -35,37 +35,36 @@
          virou "apresentação do projeto ao professor". Se existir banca, é só voltar.
       _Aguardando Henrique._
 
-- [ ] **Novos achados durante a Fase 1 (25/09), fora do escopo dela:**
-      - `/cursos/junior` tem 8px de rolagem horizontal no celular (390px): blob decorativo
-        em `tech-hero.tsx:58` (`absolute -right-24 … h-96 w-96`) sem `overflow-hidden`
-        no contêiner. Conferir as outras rotas que usam `TechHero`.
-      - **Gate incompleto:** o `CLAUDE.md` diz que `bun run build` faz o type-check, mas o
-        build é só `generate-og-images + vite build`. `bunx tsc --noEmit` mostra 12 erros
-        antigos (cursos.academies 2, cursos.create.index 5, cursos.junior.index 4,
-        particular.tsx 1 — tipo da rota `/particular/cursos/${string}`). Corrigir os 12 e
-        pôr `tsc --noEmit` no gate.
-      - O card de investimento real das 52 páginas é o de `course-skins/common.tsx` (já
-        passa AA); o template de `particular-course-page.tsx` (~L227–735) nunca renderiza
-        — código morto a remover (Fase 2).
-      - **Tom desigual nos resultados dos cursos:** 12 cursos ainda fecham com "pronto
-        para atuar como X" (power-bi, redes-sociais, seo, premiere, marketing, mobile,
-        davinci, revit, sql, ia-visual, linux, copywriting), enquanto ADS e AutoCAD já
-        dizem "base para trabalhar como X". Uma passada única de copy (Fase 2).
-      - `particular-course-page.tsx:732` (template morto) e o `/particular` ainda sem
-        horário unificado dependem da pergunta 2 acima.
+- [ ] **Backlog de UI/UX (achados das Fases 1 e 2, fora do escopo delas):**
+      - Header em tablet (768px): "SANTOS TECH" encosta em "Início" — a nav desktop entra
+        em `md:` e não cabe logo + 5 itens + Entrar. Subir a nav para `lg:` ou reduzir o gap.
+      - Frases de público-alvo ainda falam em salário/renda (`F362`): backend:27, mobile:30,
+        manutencao:31, jogos:31, ciberseguranca:31; taglines limítrofes em google-ads,
+        tiktok-ads, marketing, git e agentes-ia.
+      - `/particular` no desktop: o bloco "Cursos por área" repete a lista que a sidebar já
+        mostra ao lado (no celular, onde a sidebar é gaveta, faz sentido). Decidir se fica
+        só no celular.
+      - Avisos de contraste do verificador da sidebar (`scripts/verificar-sidebar-fusao.mjs`,
+        ~400, 0 falhas): rótulos na divisa entre duas seções (ex.: "Automações No-Code Make"
+        sobre a faixa azul da pele de Programação). Limitação conhecida do #57.
 
 - [~] **Executar o plano da auditoria de UI/UX** — 326 achados confirmados (🔴 4 · 🟠 32 ·
-      🟡 139 · ⚪ 151) em [docs/auditorias/2026-09-24-ui-ux/](docs/auditorias/2026-09-24-ui-ux/README.md),
-      organizados em 3 fases. **Fase 1** (quick wins, sem mexer na marca) feita em 25/09
-      na branch `claude-henrique/ui-ux-fase1`: os 3 críticos do site (`F032` tela em
-      branco, `F255`/`F159` sidebar ilegível, `F358` promessa de emprego) + `F360`,
-      `F359`, `F361`, `F244`, `F175`, `F340`, `F256`/`F125`, `F216`, `F322`, e ainda
-      `F379` (DaVinci) e o link "Cookies" no `/particular`, puxados pela revisão
-      adversarial — plano em
-      [docs/superpowers/plans/2026-09-25-ui-ux-fase1.md](docs/superpowers/plans/2026-09-25-ui-ux-fase1.md).
-      Ficaram de fora só `F181` (pergunta 1 acima) e `F323` (DNS, item acima).
-      **Fase 2** (sprint de consistência) é a próxima e não depende do Henrique;
-      **Fase 3** depende das 11 decisões.
+      🟡 139 · ⚪ 151) em [docs/auditorias/2026-09-24-ui-ux/](docs/auditorias/2026-09-24-ui-ux/README.md).
+      - ✅ **Fase 1** (25/09, PR #60, no ar): os 3 críticos do site + promessas sem prova,
+        contraste, entrada para `/particular`, WhatsApp no celular, "Cookies" no `/particular`.
+        Plano: [2026-09-25-ui-ux-fase1.md](docs/superpowers/plans/2026-09-25-ui-ux-fase1.md).
+      - ✅ **Fase 2** (25/09, branch `claude-henrique/ui-ux-fase2`): gaveta e menus acessíveis,
+        âncoras que prendiam a página com o scroll suave, WhatsApp por programa, "Ver valores",
+        conteúdo visível sem JS, métricas sem estouro, 8px de rolagem em `/cursos/junior`
+        (causa real: brilho do AgeBlock, não o TechHero), resultado do curso legível, FAQ de
+        preço com o valor real, pílulas levando à lista da área, 38 trocas de copy sem
+        promessa, código morto removido, catálogo único da sidebar, 12 erros de `tsc`
+        zerados e `tsc --noEmit` no `bun run lint`, `DESIGN_SYSTEM.md` sincronizado. Plano:
+        [2026-09-25-ui-ux-fase2.md](docs/superpowers/plans/2026-09-25-ui-ux-fase2.md).
+      - ⚠️ **Ficaram para decisão do Henrique:** cor/formato do botão verde e dos CTAs das
+        peles e o estilo do "Entrar" (`F233`/`F241`/`F001`/`F236` = decisão 2) e o
+        preloader (`F036` = decisão 9). _Aguardando Henrique._
+      - **Fase 3** (evolução de marca) depende das 11 decisões.
 
 ### Auditoria de SEO/GEO/AEO (24/09)
 

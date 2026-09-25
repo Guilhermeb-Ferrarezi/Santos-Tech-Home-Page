@@ -15,6 +15,7 @@ import {
   tierMeta,
   type SkinProps,
 } from "@/components/course-skins/shared";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Seções comerciais comuns a todas as peles (diferenciais, professores,
@@ -245,7 +246,7 @@ export function CommonSections({
                       </p>
                     </div>
                     <div className="flex flex-1 flex-col gap-5 p-6">
-                      <p className={`text-sm ${look.text}`}>{t.outcome}</p>
+                      <OutcomeText text={t.outcome} className={`text-sm ${look.text}`} />
                       <div>
                         <p className={`${small} ${look.muted}`}>12x de</p>
                         <p className={`text-3xl font-black tracking-tight ${look.title}`}>

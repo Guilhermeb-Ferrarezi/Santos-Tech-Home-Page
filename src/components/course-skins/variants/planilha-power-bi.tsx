@@ -13,6 +13,7 @@ import {
   DOTS,
   type BlockProps,
 } from "@/components/course-skins/variants/planilha-base";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Power BI: "Para quem é" é uma página de relatório — segmentação no topo,
@@ -212,7 +213,7 @@ export function PowerBiConteudo({ course, tier, selectedTier, onSelectTier, mult
               <div className="grid gap-3 lg:grid-cols-[1fr_auto]">
                 <div className={`${TILE} border-l-4 p-4`} style={{ borderLeftColor: Y }}>
                   <p className="text-xs font-semibold text-neutral-500">{multiTier ? "Resultado do nível" : "Resultado do curso"}</p>
-                  <p className="mt-1 text-[15px] font-semibold leading-snug text-neutral-900 dark:text-neutral-100">{tier.outcome}</p>
+                  <OutcomeText text={tier.outcome} className="mt-1 text-[15px] leading-snug text-neutral-900 dark:text-neutral-100" />
                 </div>
                 <div className="grid grid-cols-3 gap-3">
                   {kpis.map(([value, label]) => (

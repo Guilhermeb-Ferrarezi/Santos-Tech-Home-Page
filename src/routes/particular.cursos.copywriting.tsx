@@ -10,7 +10,7 @@ export const Route = createFileRoute("/particular/cursos/copywriting")({
     pageMeta({
       title: "Curso de Copywriting & Persuasão Particular em Ribeirão Preto — Santos Tech",
       description:
-        "Aprenda a escrever textos que convencem, vendem e geram cliques em Ribeirão Preto. Do AIDA ao funil completo com IA generativa.",
+        "Aprenda a escrever textos persuasivos para anúncios, páginas de vendas e e-mail em Ribeirão Preto. Do AIDA ao funil completo com IA generativa.",
       path: "/particular/cursos/copywriting",
     }),
 })
@@ -21,7 +21,7 @@ const COURSE_DATA: CourseData = {
   tema: "marketing" as const,
   logo: "docs",
   variante: "copywriting",
-  tagline: "Escreva textos que convencem, vendem e fazem o leitor tomar ação imediata",
+  tagline: "Escreva textos persuasivos, da headline ao funil de lançamento",
   targetAudience: [
     "Você tem um negócio ou serviço mas não sabe como comunicar o valor do que vende",
     "Você publica nas redes sociais e não consegue engajamento nem cliques nos seus anúncios",
@@ -35,7 +35,7 @@ const COURSE_DATA: CourseData = {
       levelName: "Copywriting",
       totalHours: "48h",
       outcome:
-        "Escrever copy persuasivo do zero absoluto — headlines, redes sociais e anúncios — até páginas de vendas, e-mail marketing, scripts de vídeo e funis de lançamento completos, aplicando psicologia da persuasão, testes de otimização e IA generativa como acelerador estratégico, pronto para atuar como copywriter freelancer ou em marketing de conteúdo.",
+        "Escrever copy persuasivo do zero absoluto — headlines, redes sociais e anúncios — até páginas de vendas, e-mail marketing, scripts de vídeo e funis de lançamento completos, aplicando psicologia da persuasão, testes de otimização e IA generativa como acelerador estratégico — base para trabalhar como copywriter freelancer ou em marketing de conteúdo.",
       modules: [
         {
           title: "Fundamentos do Copywriting e Pesquisa de Avatar",

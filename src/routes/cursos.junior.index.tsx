@@ -15,7 +15,7 @@ import {
   PaintBrush as PhPaintBrush,
   HeartStraight as PhHeartStraight,
 } from "@phosphor-icons/react";
-import { phosphor } from "@/lib/phosphor";
+import { phosphor, type LucideCompatible } from "@/lib/phosphor";
 import { Reveal } from "@/components/reveal";
 import { WhatsAppIcon } from "@/components/icons";
 
@@ -80,7 +80,10 @@ function AgeBlock({
   comingSoon,
 }: AgeBlockProps) {
   return (
-    <section className="py-20">
+    // overflow-x-clip: o brilho atrás da foto (-inset-6 = 24px) passa do gutter de 16px
+    // no celular e gerava 8px de rolagem horizontal. `clip` corta só na horizontal e não
+    // vira contêiner de rolagem — o brilho continua vazando pra cima e pra baixo.
+    <section className="overflow-x-clip py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div
           className={`grid items-center gap-12 lg:grid-cols-2 ${
@@ -189,7 +192,7 @@ function AgeBlock({
 // ──────────────────────────────────────────────────────────────────────────
 // Sub-componente: feature card (método)
 // ──────────────────────────────────────────────────────────────────────────
-function MethodPoint({ icon: Icon, title, children }: { icon: typeof Sparkles; title: string; children: ReactNode }) {
+function MethodPoint({ icon: Icon, title, children }: { icon: LucideCompatible; title: string; children: ReactNode }) {
   return (
     <div className="flex items-start gap-4">
       <div

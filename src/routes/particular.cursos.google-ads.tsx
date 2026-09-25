@@ -36,7 +36,7 @@ const COURSE_DATA: CourseData = {
       levelName: "Google Ads",
       totalHours: "48h",
       outcome:
-        "Criar, publicar e otimizar campanhas no Google Ads do zero absoluto até Performance Max, Demand Gen e automação com Scripts — dominando Search, Display, YouTube, Shopping e Smart Bidding com IA, pronto para gerenciar contas de múltiplos clientes via MCC e atuar como especialista de mídia paga em agências ou como freelancer.",
+        "Criar, publicar e otimizar campanhas no Google Ads do zero absoluto até Performance Max, Demand Gen e automação com Scripts — dominando Search, Display, YouTube, Shopping e Smart Bidding com IA e a gestão de contas de múltiplos clientes via MCC — base para trabalhar como especialista de mídia paga em agências ou como freelancer.",
       modules: [
         {
           title: "Estrutura da Conta e Fundamentos de Search",

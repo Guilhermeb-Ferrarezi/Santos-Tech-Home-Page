@@ -7,6 +7,7 @@ import type { CourseTheme } from "@/lib/course-themes";
 import { tierMeta } from "@/components/course-skins/shared";
 import { StudioLogo } from "@/components/course-skins/scenes/design-kit";
 import { CHECKER, CYAN, DOTS_LIGHT, SWATCHES, VIOLET, pad, type AudienceProps, type ContentProps } from "@/components/course-skins/variants/design-tokens";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Photoshop + Illustrator: raster em camadas e vetor em pranchetas.
@@ -356,7 +357,7 @@ export function PhotoshopContent({ course, logo, selectedTier, onSelectTier }: C
                 </span>
                 <div>
                   <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white/75">Ao final você vai</p>
-                  <p className="mt-2 text-lg font-semibold leading-relaxed">{tier.outcome}</p>
+                  <OutcomeText text={tier.outcome} className="mt-2 text-lg leading-relaxed" />
                 </div>
               </div>
               {tier.tools.length > 0 && (

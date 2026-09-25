@@ -10,7 +10,7 @@ export const Route = createFileRoute("/particular/cursos/redes-sociais")({
       title:
         "Curso de Gestão de Redes Sociais Particular em Ribeirão Preto — Santos Tech",
       description:
-        "Torne-se Social Media profissional: estratégia de conteúdo, métricas, tráfego pago e IA aplicada. Do essencial ao gestor estratégico, presencial em Ribeirão Preto.",
+        "Aprenda a gerir redes sociais como Social Media profissional: estratégia de conteúdo, métricas, tráfego pago e IA aplicada. Do essencial à gestão estratégica, presencial em Ribeirão Preto.",
       path: "/particular/cursos/redes-sociais",
     }),
 })
@@ -21,7 +21,7 @@ const COURSE_DATA = {
   tema: "marketing" as const,
   logo: "redes-sociais",
   variante: "redes-sociais",
-  tagline: "De criador de conteúdo a gestor estratégico que entrega resultado",
+  tagline: "Do conteúdo à gestão estratégica de redes sociais",
   targetAudience: [
     "Quer trabalhar como Social Media para agências, empresas ou como freelancer",
     "Empreendedor que precisa gerenciar as redes sociais do próprio negócio com estratégia",
@@ -35,7 +35,7 @@ const COURSE_DATA = {
       ctaLabel: "curso de Redes Sociais",
       totalHours: "48h",
       outcome:
-        "Gerir perfis profissionais do zero absoluto — Instagram, TikTok e LinkedIn — até atuar como Social Media estratégico para múltiplos clientes, com ferramentas de agendamento profissional, tráfego pago e relatórios executivos, pronto para atuar em agências ou como freelancer.",
+        "Gerir perfis profissionais do zero absoluto — Instagram, TikTok e LinkedIn — até a gestão estratégica de perfis de múltiplos clientes, com ferramentas de agendamento profissional, tráfego pago e relatórios executivos — base para trabalhar como Social Media em agências ou como freelancer.",
       modules: [
         {
           title: "Fundamentos de Redes Sociais",

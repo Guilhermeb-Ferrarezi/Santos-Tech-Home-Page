@@ -30,6 +30,7 @@ import {
   WinTitleBar,
 } from "@/components/course-skins/scenes/informatica";
 import { TIER_GUIDE, tierMeta, type SkinProps } from "@/components/course-skins/shared";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Pele "Área de trabalho" (categoria Informática). O público costuma ser
@@ -560,7 +561,7 @@ function Conteudo({
                   </span>
                   Ao concluir o curso
                 </p>
-                <p className="mt-4 text-lg leading-relaxed text-slate-800 dark:text-slate-100">{tier.outcome}</p>
+                <OutcomeText text={tier.outcome} className="mt-4 text-lg leading-relaxed text-slate-800 dark:text-slate-100" />
               </div>
             </Reveal>
 

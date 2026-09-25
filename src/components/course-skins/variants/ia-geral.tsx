@@ -16,6 +16,7 @@ import {
   type IaBlockProps,
 } from "@/components/course-skins/variants/ia-kit";
 import { pad } from "@/components/course-skins/variants/ia-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Inteligência Artificial (visão geral): "Para quem é" é uma constelação em
@@ -277,7 +278,7 @@ export function GeralProgram(props: IaBlockProps) {
         <Reveal className="relative mt-10">
           <GradientFrame>
             <p className={`text-[11px] font-bold uppercase tracking-[0.2em] ${ACCENT_TEXT}`}>Etapa concluída · {etapa.label}</p>
-            <p className={`mt-2 text-base font-semibold leading-relaxed sm:text-lg ${TITLE}`}>{tier.outcome}</p>
+            <OutcomeText text={tier.outcome} className={`mt-2 text-base leading-relaxed sm:text-lg ${TITLE}`} />
             <ToolList tools={tier.tools} label="Ferramentas desta etapa" />
             {proxima && (
               <button

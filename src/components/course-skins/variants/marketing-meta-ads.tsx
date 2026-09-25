@@ -11,6 +11,7 @@ import {
   type MktBlockProps,
 } from "@/components/course-skins/variants/marketing-kit";
 import { BODY, CARD, INK, KICKER, PERSONA_CORES, SOFT, pad2, ritmo, useMarcados } from "@/components/course-skins/variants/marketing-tokens";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Meta Ads. "Para quem é" é o construtor de públicos (a pessoa liga os perfis
@@ -231,7 +232,7 @@ function Conteudo(p: MktBlockProps) {
             </span>
           </div>
           <p className={`mt-4 ${KICKER} text-(--accent-2)`}>Objetivo da campanha · {tier.levelName}</p>
-          <p className="mt-1.5 text-base font-semibold leading-relaxed sm:text-lg">{tier.outcome}</p>
+          <OutcomeText text={tier.outcome} className="mt-1.5 text-base leading-relaxed sm:text-lg" />
           <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-xs text-white/65">
             <span>{n} conjuntos de anúncios</span>
             <span>{totalAnuncios} anúncios (tópicos)</span>

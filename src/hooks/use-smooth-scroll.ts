@@ -31,7 +31,52 @@ export function useSmoothScroll(hasWrapper: boolean) {
       normalizeScroll: true,
     });
 
+    // Âncoras (#programas, #investimento…): sem isto o navegador faz o salto rolando o
+    // #smooth-wrapper (overflow-hidden), não a janela, e o visitante fica preso — não
+    // consegue mais rolar de volta pro topo sem recarregar. Aqui o salto passa pelo
+    // smoother, compensando o header fixo (80px + folga).
+    const OFFSET = "top 96px";
+    const alvoDo = (hash: string) => {
+      if (!hash || hash === "#") return null;
+      try {
+        return document.querySelector<HTMLElement>(decodeURIComponent(hash));
+      } catch {
+        return null;
+      }
+    };
+    const onClick = (e: MouseEvent) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const a = (e.target as Element | null)?.closest?.("a[href*='#']") as HTMLAnchorElement | null;
+      if (!a || a.target === "_blank") return;
+      const url = new URL(a.href, location.href);
+      if (url.origin !== location.origin || url.pathname !== location.pathname || !url.hash) return;
+      const alvo = alvoDo(url.hash);
+      if (!alvo) return;
+      e.preventDefault();
+      smoother.scrollTo(alvo, true, OFFSET);
+      // Sem pushState do hash de propósito: o router reage à troca de hash com o próprio
+      // scrollIntoView, que rola o #smooth-wrapper e prende a página de novo.
+      // "Pular para o conteúdo" (#conteudo) precisa levar o FOCO, não só a rolagem.
+      if (alvo.tagName === "MAIN") {
+        if (!alvo.hasAttribute("tabindex")) alvo.setAttribute("tabindex", "-1");
+        alvo.focus({ preventScroll: true });
+      }
+    };
+    document.addEventListener("click", onClick);
+
+    // Link direto com hash (ex.: /#investimento compartilhado no WhatsApp): rola pelo
+    // smoother depois que o ScrollTrigger mediu a página.
+    const alvoInicial = alvoDo(location.hash);
+    const timer = alvoInicial
+      ? window.setTimeout(() => {
+          ScrollTrigger.refresh();
+          smoother.scrollTo(alvoInicial, false, OFFSET);
+        }, 150)
+      : 0;
+
     return () => {
+      document.removeEventListener("click", onClick);
+      window.clearTimeout(timer);
       smoother.kill();
     };
   }, [hasWrapper]);

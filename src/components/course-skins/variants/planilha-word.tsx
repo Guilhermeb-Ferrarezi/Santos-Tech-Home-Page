@@ -12,6 +12,7 @@ import {
   RULED,
   type BlockProps,
 } from "@/components/course-skins/variants/planilha-base";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Word: "Para quem é" é uma página de documento no modo rascunho, com a área de
@@ -261,9 +262,10 @@ export function WordConteudo({ course, tier, selectedTier, onSelectTier, multiTi
                   <p className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: W }}>
                     Resumo
                   </p>
-                  <p className="mt-2 border-l-2 border-neutral-200 pl-4 text-[15px] italic leading-relaxed text-neutral-700 dark:border-neutral-700 dark:text-neutral-300">
-                    {tier.outcome}
-                  </p>
+                  <OutcomeText
+                    text={tier.outcome}
+                    className="mt-2 border-l-2 border-neutral-200 pl-4 text-[15px] italic leading-relaxed text-neutral-700 dark:border-neutral-700 dark:text-neutral-300"
+                  />
 
                   <h3 className="mt-10 text-2xl font-black tracking-tight" style={{ color: W }}>
                     Sumário

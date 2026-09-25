@@ -11,6 +11,7 @@ import {
   nn,
   type TiBlockProps,
 } from "@/components/course-skins/variants/ti-kit";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * T.I · Redes e Infraestrutura: o público-alvo é um patch panel, com cada
@@ -215,7 +216,7 @@ export function RedesConteudo(props: TiBlockProps) {
               <p className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-(--accent-2)">
                 <StatusLed blink /> Destino alcançado · ao final do curso
               </p>
-              <p className="mt-2.5 text-base font-semibold leading-relaxed sm:text-lg">{tier.outcome}</p>
+              <OutcomeText text={tier.outcome} className="mt-2.5 text-base leading-relaxed sm:text-lg" />
               <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 font-mono text-[11px] text-white/50">
                 {metricas.map((m) => (
                   <span key={m.label}>

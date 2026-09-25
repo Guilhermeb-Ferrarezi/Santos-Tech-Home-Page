@@ -3,6 +3,7 @@ import { ChevronDown, ChevronRight, FileCode2, FileText, Folder, FolderOpen } fr
 import { PersonAtDesk } from "@/components/course-illustrations";
 import { Code, F, K, M, N, P, Q, Win, type L } from "@/components/course-skins/variants/ide-kit";
 import { C, kebab, nn, ritmo, slug, type ConteudoProps, type PublicoProps } from "@/components/course-skins/variants/ide-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Python: a referência da pele. “Para quem é” é um script .py rodando no
@@ -134,9 +135,11 @@ export function PythonConteudo({ course, tier, tierIndex, onSelectTier, meta }: 
           <p className="mt-2 break-words text-white/50">
             <span className="text-(--accent)">$</span> python -m curso --nivel {slug(tier.levelName)}
           </p>
-          <p className="mt-1 whitespace-pre-wrap text-white/85">
-            <span className="text-(--accent-2)">✓</span> {tier.outcome}
-          </p>
+          <OutcomeText
+            text={tier.outcome}
+            className="mt-1 whitespace-pre-wrap text-white/85"
+            antes={<><span className="text-(--accent-2)">✓</span> </>}
+          />
           <p className="mt-1 text-white/40">{ritmo(tier, meta)}</p>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { useState, type ReactNode } from "react";
 import { ArrowDown, Flag } from "lucide-react";
 import { NivelSeletor } from "@/components/course-skins/variants/ide-kit";
 import { ritmo, type ConteudoProps, type PublicoProps } from "@/components/course-skins/variants/ide-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Lógica de Programação (para quem nunca programou): “Para quem é” é um
@@ -153,7 +154,7 @@ export function LogicaConteudo({ course, tier, tierIndex, onSelectTier, meta }: 
           <div className="mt-8 grid gap-4 sm:grid-cols-[1.5fr_1fr]">
             <div className="relative rounded-2xl border-2 border-white/15 bg-white/[0.04] p-4">
               <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/40">diga</p>
-              <p className="mt-1.5 text-[14px] leading-snug text-white/90">{tier.outcome}</p>
+              <OutcomeText text={tier.outcome} className="mt-1.5 text-[14px] leading-snug text-white/90" />
               <p className="mt-2 font-mono text-[11.5px] text-white/40">{ritmo(tier, meta)}</p>
             </div>
             <div>

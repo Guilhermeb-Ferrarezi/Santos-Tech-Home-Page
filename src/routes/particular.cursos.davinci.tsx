@@ -34,7 +34,7 @@ const COURSE_DATA = {
       levelName: "DaVinci Resolve",
       totalHours: "48h",
       outcome:
-        "Editar profissionalmente no DaVinci Resolve do zero absoluto até o color grading cinematográfico, os efeitos visuais com Fusion e as ferramentas de IA do Neural Engine — pronto para atuar como editor ou colorista em produções de cinema, TV e streaming.",
+        "Editar profissionalmente no DaVinci Resolve do zero absoluto até o color grading cinematográfico, os efeitos visuais com Fusion e as ferramentas de IA do Neural Engine — base para trabalhar como editor ou colorista em produções de cinema, TV e streaming.",
       modules: [
         {
           title: "Interface, Projeto e Primeiros Cortes",

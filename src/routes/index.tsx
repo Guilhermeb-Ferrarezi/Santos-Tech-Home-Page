@@ -17,6 +17,7 @@ import {
   Star,
   MapPin,
   ArrowRight,
+  ArrowDown,
   CheckCircle2,
   BadgeCheck,
   KeyRound,
@@ -259,12 +260,12 @@ function ProductBand({ p, reverse, curveBottom }: { p: Produto; reverse?: boolea
             </p>
 
             <a
-              href={WHATSAPP}
+              href={WHATSAPP_URL.program(p.name)}
               target="_blank"
               rel="noreferrer"
               className="mt-8 inline-flex items-center gap-2 rounded-md bg-st-green px-8 py-4 text-sm font-black uppercase tracking-wider text-white shadow-xl transition hover:scale-[1.03] glow-green"
             >
-              <WhatsAppIcon className="h-4 w-4" /> Quero saber mais
+              <WhatsAppIcon className="h-4 w-4" /> Falar sobre {p.name.replace(/ /g, "\u00A0")}
             </a>
           </Reveal>
         </div>
@@ -429,6 +430,14 @@ function Index() {
                   className="inline-flex items-center gap-2 rounded-full border-2 border-primary/20 bg-white px-7 py-4 text-sm font-black uppercase tracking-wider text-st-blue-dark transition hover:border-primary/60 hover:text-primary"
                 >
                   Ver os programas <ArrowRight className="h-4 w-4" />
+                </a>
+                {/* Atalho discreto pro preço (link de texto, não compete com o CTA
+                    verde): no celular os valores ficam a ~9 telas do topo — F192. */}
+                <a
+                  href="#valores"
+                  className="inline-flex items-center gap-1 py-3 text-sm font-bold text-primary underline decoration-primary/30 underline-offset-4 transition hover:decoration-primary"
+                >
+                  Ver valores <ArrowDown className="h-4 w-4" aria-hidden />
                 </a>
               </RevealHero>
               <RevealHero delay={480} className="mt-6 flex items-center gap-2 text-sm font-semibold text-foreground/80">
@@ -634,7 +643,7 @@ function Index() {
       </section>
 
       {/* ============ INVESTIMENTO ============ */}
-      <section className="relative isolate overflow-hidden py-24">
+      <section id="investimento" className="relative isolate scroll-mt-24 overflow-hidden py-24">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#eef5fb] to-white" />
         <div className="pointer-events-none absolute -left-32 top-16 h-80 w-80 rounded-full bg-[#187ABF]/10 blur-3xl" />
         <div className="pointer-events-none absolute -right-32 bottom-16 h-80 w-80 rounded-full bg-[#0DB88F]/10 blur-3xl" />
@@ -661,7 +670,7 @@ function Index() {
             </p>
           </Reveal>
 
-          <div className="mt-8 grid items-stretch gap-6 md:grid-cols-2">
+          <div id="valores" className="mt-8 grid scroll-mt-24 items-stretch gap-6 md:grid-cols-2">
             {PRECOS.map((p) => (
               <Reveal key={p.nome}>
                 <TiltCard
@@ -723,13 +732,13 @@ function Index() {
                     </ul>
 
                     <a
-                      href={WHATSAPP}
+                      href={WHATSAPP_URL.program(p.nome)}
                       target="_blank"
                       rel="noreferrer"
                       className="mt-7 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3.5 text-sm font-black uppercase tracking-wider text-white shadow-md transition hover:scale-[1.02]"
                       style={{ background: p.cor }}
                     >
-                      <WhatsAppIcon className="h-4 w-4" /> Quero saber mais
+                      <WhatsAppIcon className="h-4 w-4" /> Falar sobre {p.nome.replace(/ /g, "\u00A0")}
                     </a>
                   </div>
                 </TiltCard>

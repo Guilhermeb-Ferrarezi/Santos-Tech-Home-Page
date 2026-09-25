@@ -24,6 +24,7 @@ import {
   DOTS,
   type BlockProps,
 } from "@/components/course-skins/variants/planilha-base";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Excel + Power BI: os dados saem da planilha e viram painel. "Para quem é" é a
@@ -207,7 +208,7 @@ export function ExcelPowerBiConteudo({ course, tier, selectedTier, onSelectTier,
             <div className="h-1.5" style={{ background: `linear-gradient(90deg, ${STAGES.map((s) => s.color).join(", ")})` }} />
             <div className="flex gap-3 px-4 py-3">
               <span className="shrink-0 pt-0.5 font-mono text-[11px] font-bold uppercase text-neutral-500">Saída</span>
-              <p className="text-[15px] font-semibold leading-snug text-neutral-800 dark:text-neutral-200">{tier.outcome}</p>
+              <OutcomeText text={tier.outcome} className="min-w-0 text-[15px] leading-snug text-neutral-800 dark:text-neutral-200" />
             </div>
           </div>
         </Reveal>

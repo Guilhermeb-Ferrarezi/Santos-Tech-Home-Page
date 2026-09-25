@@ -36,7 +36,7 @@ const COURSE_DATA = {
       ctaLabel: "curso de Cibersegurança",
       totalHours: "48h",
       outcome:
-        "Entender os fundamentos de segurança do zero absoluto — CIA Triad, proteções essenciais e hacking ético — até realizar testes de penetração completos, operar um SOC básico com Wazuh e redigir relatório técnico de pentest, pronto para as certificações CompTIA Security+ ou eJPT.",
+        "Entender os fundamentos de segurança do zero absoluto — CIA Triad, proteções essenciais e hacking ético — até realizar testes de penetração completos, operar um SOC básico com Wazuh e redigir relatório técnico de pentest, com preparação para as certificações CompTIA Security+ ou eJPT.",
       modules: [
         {
           title: "Fundamentos de Segurança",

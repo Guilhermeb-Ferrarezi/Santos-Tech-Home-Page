@@ -19,6 +19,7 @@ import {
   type IaBlockProps,
 } from "@/components/course-skins/variants/ia-kit";
 import { pad } from "@/components/course-skins/variants/ia-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * IA para Criadores: "Para quem é" é um moodboard de gerações, cada perfil é o
@@ -447,7 +448,7 @@ function Geracoes({ course, selectedTier }: IaBlockProps) {
           </div>
           <div className="min-w-0">
             <p className={`text-[11px] font-bold uppercase tracking-[0.2em] ${ACCENT_TEXT}`}>{multiTier ? "Versão final · ao fim do nível" : "Versão final · ao fim do curso"}</p>
-            <p className={`mt-2 text-base font-semibold leading-relaxed sm:text-lg ${TITLE}`}>{tier.outcome}</p>
+            <OutcomeText text={tier.outcome} className={`mt-2 text-base leading-relaxed sm:text-lg ${TITLE}`} />
             <ToolList tools={tier.tools} label={multiTier ? "Modelos e ferramentas deste nível" : "Modelos e ferramentas deste curso"} />
           </div>
         </GradientFrame>

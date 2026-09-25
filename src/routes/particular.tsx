@@ -17,9 +17,10 @@ import { Img } from "@/components/img";
 import { WhatsAppFab } from "@/components/whatsapp-fab";
 import { WHATSAPP_URL, WHATSAPP_PHONE_DISPLAY } from "@/lib/whatsapp";
 import { COURSE_THEMES } from "@/components/course-skins/themes";
-import { BRAND_THEME, themeVars, type CourseThemeKey } from "@/lib/course-themes";
+import { BRAND_THEME, themeVars } from "@/lib/course-themes";
 import { openConsentPreferences } from "@/lib/consent";
 import { ORG } from "@/lib/seo";
+import { GRUPOS_PARTICULAR } from "@/components/particular-catalogo";
 
 export const Route = createFileRoute("/particular")({
   component: ParticularLayout,
@@ -63,111 +64,7 @@ const RODAPE_LINKS: { label: string; href: string; externo?: boolean }[] = [
 /** `tel:` a partir do telefone do JSON-LD (ORG), a mesma fonte do rodapé do site. */
 const TEL_HREF = `tel:+${ORG.telephone.replace(/\D/g, "")}`;
 
-/** `id` bate com `CourseThemeKey` — é a chave usada pra buscar o tema (cor) da categoria em `COURSE_THEMES`. */
-const GRUPOS: {
-  id: CourseThemeKey;
-  label: string;
-  cursos: { slug: string; nome: string; legenda?: string }[];
-}[] = [
-  {
-    id: "informatica",
-    label: "Informática",
-    cursos: [{ slug: "informatica", nome: "Informática" }],
-  },
-  {
-    id: "office",
-    label: "Office",
-    cursos: [
-      { slug: "office", nome: "Pacote Office" },
-      { slug: "excel-power-bi", nome: "Excel + Power BI" },
-      { slug: "excel", nome: "Excel" },
-      { slug: "excel-ia", nome: "Excel + IA" },
-      { slug: "word", nome: "Word" },
-      { slug: "powerpoint", nome: "PowerPoint" },
-      { slug: "power-bi", nome: "Power BI" },
-      { slug: "power-apps", nome: "Power Apps + Power Automate" },
-    ],
-  },
-  {
-    id: "ia",
-    label: "Inteligência Artificial",
-    cursos: [
-      { slug: "ia", nome: "Inteligência Artificial" },
-      { slug: "agentes-ia", nome: "Agentes de IA com N8N e LLMs" },
-      { slug: "rag", nome: "RAG", legenda: "IA com seus Próprios Dados" },
-      { slug: "ia-visual", nome: "IA para Criadores: Imagem, Vídeo e Áudio" },
-      { slug: "chatgpt", nome: "ChatGPT e IA para Profissionais" },
-      { slug: "conteudo-ia", nome: "Criação de Conteúdo com IA" },
-    ],
-  },
-  {
-    id: "programacao",
-    label: "Programação",
-    cursos: [
-      { slug: "logica", nome: "Lógica de Programação" },
-      { slug: "python", nome: "Python para Automações" },
-      { slug: "python-apis", nome: "APIs e Integrações com Python" },
-      { slug: "typescript", nome: "TypeScript para Desenvolvimento Moderno" },
-      { slug: "git", nome: "Git e GitHub para Profissionais" },
-      { slug: "n8n", nome: "Automações + N8N" },
-      { slug: "make", nome: "Automações No-Code Make" },
-      { slug: "sql", nome: "Banco de Dados com SQL" },
-      { slug: "frontend", nome: "Desenvolvimento Web Front-End" },
-      { slug: "backend", nome: "Desenvolvimento Web Back-End" },
-      { slug: "fullstack", nome: "Full Stack" },
-      { slug: "mobile", nome: "Desenvolvimento de Aplicativos" },
-      { slug: "jogos", nome: "Desenvolvimento de Jogos" },
-      { slug: "ads", nome: "ADS", legenda: "Desenvolvimento de Sistemas" },
-    ],
-  },
-  {
-    id: "ti",
-    label: "T.I",
-    cursos: [
-      { slug: "suporte", nome: "Suporte Técnico / Help Desk" },
-      { slug: "manutencao", nome: "Montagem e Manutenção" },
-      { slug: "redes", nome: "Redes e Infraestrutura" },
-      { slug: "ciberseguranca", nome: "Cibersegurança" },
-      { slug: "linux", nome: "Linux Essencial" },
-    ],
-  },
-  {
-    id: "universo-3d",
-    label: "Universo 3D",
-    cursos: [
-      { slug: "modelagem-3d", nome: "Modelagem 3D" },
-      { slug: "impressao-3d", nome: "Impressão 3D" },
-      { slug: "autocad", nome: "AutoCAD" },
-      { slug: "revit", nome: "Revit" },
-    ],
-  },
-  {
-    id: "design",
-    label: "Design & Criação",
-    cursos: [
-      { slug: "canva", nome: "Canva Pro" },
-      { slug: "photoshop", nome: "Photoshop + Illustrator" },
-      { slug: "capcut", nome: "Edição de Vídeo", legenda: "CapCut" },
-      { slug: "davinci", nome: "Edição de Vídeo", legenda: "DaVinci Resolve" },
-      { slug: "premiere", nome: "Edição de Vídeo", legenda: "Adobe Premiere" },
-    ],
-  },
-  {
-    id: "marketing",
-    label: "Marketing & Negócios",
-    cursos: [
-      { slug: "marketing", nome: "Marketing Digital" },
-      { slug: "meta-ads", nome: "Meta Ads", legenda: "Facebook e Instagram" },
-      { slug: "google-ads", nome: "Google Ads" },
-      { slug: "tiktok-ads", nome: "TikTok Ads" },
-      { slug: "copywriting", nome: "Copywriting & Persuasão" },
-      { slug: "funil-vendas", nome: "Funil de Vendas + CRM" },
-      { slug: "seo", nome: "SEO", legenda: "Otimização para Buscadores" },
-      { slug: "redes-sociais", nome: "Gestão de Redes Sociais" },
-      { slug: "ecommerce", nome: "E-commerce & Vendas Online" },
-    ],
-  },
-];
+
 
 type Tone = "dark" | "light";
 type Rgba = [number, number, number, number];
@@ -437,6 +334,8 @@ function ParticularLayout() {
   // links e botões dela da ordem do Tab e do leitor de tela (antes eram ~66 alvos
   // de foco invisíveis antes do conteúdo).
   const drawerHidden = !isDesktop && !mobileOpen;
+  // Com a gaveta aberta no celular, o <main> atrás do overlay sai do Tab e do leitor de tela.
+  const drawerModal = !isDesktop && mobileOpen;
 
   // Escape fecha a gaveta e devolve o foco ao botão que a abriu.
   useEffect(() => {
@@ -449,6 +348,20 @@ function ParticularLayout() {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [mobileOpen]);
+
+  // Gaveta aberta no celular: o foco entra nela (1º link). Sem isso, quem usa teclado
+  // ou leitor de tela continuaria no conteúdo atrás do overlay. `inert` já saiu no
+  // mesmo commit, então o link aceita o foco; `preventScroll` evita pulo da página.
+  useEffect(() => {
+    if (!mobileOpen || isDesktop) return;
+    sidebarRef.current?.querySelector<HTMLElement>("a[href], button")?.focus({ preventScroll: true });
+  }, [mobileOpen, isDesktop]);
+
+  /** Fecha a gaveta pelo overlay sem perder o foco (a sidebar volta a ficar `inert`). */
+  const closeDrawer = () => {
+    setMobileOpen(false);
+    menuButtonRef.current?.focus({ preventScroll: true });
+  };
   const router = useRouter();
 
   // Lê a preferência salva no mount (inicia em false p/ casar com o SSR e evitar mismatch).
@@ -512,7 +425,7 @@ function ParticularLayout() {
     ? pathname.slice("/particular/cursos/".length).split("/")[0]
     : null;
   const activeGroup = activeSlug
-    ? GRUPOS.find((g) => g.cursos.some((c) => c.slug === activeSlug))
+    ? GRUPOS_PARTICULAR.find((g) => g.cursos.some((c) => c.slug === activeSlug))
     : undefined;
   const activeTheme = activeGroup ? COURSE_THEMES[activeGroup.id] : BRAND_THEME;
 
@@ -646,8 +559,9 @@ function ParticularLayout() {
       {/* Overlay mobile */}
       {mobileOpen && (
         <div
+          aria-hidden
           className="fixed inset-0 z-40 bg-black/40 lg:hidden"
-          onClick={() => setMobileOpen(false)}
+          onClick={closeDrawer}
         />
       )}
 
@@ -658,6 +572,9 @@ function ParticularLayout() {
         aria-label="Menu dos cursos particulares"
         inert={drawerHidden}
         aria-hidden={drawerHidden || undefined}
+        // Gaveta aberta no celular = diálogo modal: o conteúdo atrás do overlay fica inert.
+        role={drawerModal ? "dialog" : undefined}
+        aria-modal={drawerModal || undefined}
         style={themeVars(activeTheme)}
         className={[
           "fixed inset-y-0 left-0 z-50 flex flex-col border-r overflow-hidden",
@@ -805,7 +722,7 @@ function ParticularLayout() {
           >
             <div className="overflow-hidden">
               <div className="sb-border ml-3 border-l border-neutral-200 dark:border-neutral-800 pl-2 pt-1 pb-1 space-y-0.5">
-                {GRUPOS.map(({ id, label: lbl, cursos }) => {
+                {GRUPOS_PARTICULAR.map(({ id, label: lbl, cursos }) => {
                   const isActiveGroup = activeGroup?.id === id;
                   return (
                     <div key={id}>
@@ -983,7 +900,7 @@ function ParticularLayout() {
           </button>
         </div>
 
-        <main>
+        <main inert={drawerModal}>
           <Outlet />
 
           {/* Mini-rodapé — dentro do <main> de propósito: em telas ≥ lg a sidebar é

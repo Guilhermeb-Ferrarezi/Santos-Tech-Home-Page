@@ -2,6 +2,7 @@ import { useState, type ReactNode } from "react";
 import { ArrowRight, BookOpen, Check, ChevronLeft, Home, Package, Rocket, Smartphone, Sparkles, User, Wifi } from "lucide-react";
 import { NivelSeletor } from "@/components/course-skins/variants/ide-kit";
 import { nn, ritmo, type ConteudoProps, type PublicoProps } from "@/components/course-skins/variants/ide-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Desenvolvimento de Aplicativos: tudo é tela de celular. “Para quem é” vira
@@ -182,7 +183,7 @@ export function MobileConteudo({ course, tier, tierIndex, onSelectTier, meta }: 
             <p className="flex flex-wrap items-baseline justify-between gap-x-3 text-[13px] font-bold text-white">
               Build pronto · iOS e Android <span className="font-mono text-[11px] font-normal text-white/40">agora</span>
             </p>
-            <p className="mt-1 text-[14px] leading-snug text-white/80">{tier.outcome}</p>
+            <OutcomeText text={tier.outcome} className="mt-1 text-[14px] leading-snug text-white/80" />
             <p className="mt-1.5 font-mono text-[11.5px] text-white/40">{ritmo(tier, meta)}</p>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 import { JsonLd } from "@/components/json-ld";
@@ -20,6 +20,7 @@ import { WhatsAppIcon } from "@/components/icons";
 import { Img } from "@/components/img";
 import { ParticularFaq } from "@/components/particular-faq";
 import { TIER_META } from "@/components/course-skins/tier-meta";
+import { GRUPOS_PARTICULAR, ancoraArea } from "@/components/particular-catalogo";
 import { pageMeta } from "@/lib/seo";
 import { openConsentPreferences } from "@/lib/consent";
 
@@ -37,17 +38,6 @@ export const Route = createFileRoute("/particular/")({
 
 const WHATSAPP = WHATSAPP_URL.courses;
 
-const CATEGORIAS = [
-  { nome: "Informática", slug: "informatica" },
-  { nome: "Office", slug: "office" },
-  { nome: "Inteligência Artificial", slug: "ia" },
-  { nome: "Programação", slug: "logica" },
-  { nome: "T.I", slug: "suporte" },
-  { nome: "Universo 3D", slug: "modelagem-3d" },
-  { nome: "Design & Criação", slug: "canva" },
-  { nome: "Marketing & Negócios", slug: "marketing" },
-];
-
 const PILARES = [
   {
     id: "cursos",
@@ -59,7 +49,7 @@ const PILARES = [
       "Escolha pelo que o mercado está pedindo",
     ],
     cta: "Ver todos os cursos",
-    href: "#categorias",
+    href: "#cursos-por-area",
     bg: "linear-gradient(135deg, #0a1a12 0%, #0d2e1e 100%)",
     glow: "bg-[#0DB88F]/15",
   },
@@ -271,17 +261,55 @@ function ParticularPage() {
             </h2>
           </Reveal>
 
+          {/* Cada pílula leva à lista da área logo abaixo (antes levava a UM curso da área — F218). */}
           <Reveal delay={120} className="mt-10 flex flex-wrap justify-center gap-3">
-            {CATEGORIAS.map((cat) => (
+            {GRUPOS_PARTICULAR.map((g) => (
               <a
-                key={cat.slug}
-                href={`/particular/cursos/${cat.slug}`}
+                key={g.id}
+                href={`#${ancoraArea(g.id)}`}
                 className="rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-5 py-2.5 text-sm font-semibold text-neutral-700 dark:text-neutral-300 shadow-sm transition hover:border-[#0DB88F] hover:text-[#0DB88F] hover:shadow-md"
               >
-                {cat.nome}
+                {g.label}
               </a>
             ))}
           </Reveal>
+        </div>
+
+        {/* ── Cursos por área: destino das pílulas acima, do "Ver todos os cursos" e do rodapé ── */}
+        {/* Colunas por container query, não por viewport: a sidebar fixa (≥ lg, recolhível) muda a
+            largura útil. O maior nome ("TypeScript para Desenvolvimento Moderno") pede ~302px + 40px de
+            padding do card → 2 colunas a partir de 44rem de conteúdo e 3 a partir de 68rem. Com xl:columns-3
+            ainda havia palavra órfã a 1280 e 1366px (medido em 25/09/2026). */}
+        <div id="cursos-por-area" className="@container mx-auto mt-12 max-w-6xl scroll-mt-20 px-4 sm:px-6 lg:px-8">
+          <div className="columns-1 gap-4 @min-[44rem]:columns-2 @min-[68rem]:columns-3">
+            {GRUPOS_PARTICULAR.map((g) => (
+              <div
+                key={g.id}
+                id={ancoraArea(g.id)}
+                className="mb-4 break-inside-avoid scroll-mt-20 rounded-xl border border-neutral-200 bg-white p-5 transition-shadow target:border-[#0DB88F] target:ring-2 target:ring-[#0DB88F]/30 dark:border-neutral-800 dark:bg-neutral-900"
+              >
+                <h3 className="flex items-baseline justify-between gap-3 text-base font-black text-neutral-900 dark:text-white">
+                  {g.label}
+                  <span className="shrink-0 text-xs font-semibold text-neutral-500 dark:text-neutral-400">
+                    {g.cursos.length} {g.cursos.length === 1 ? "curso" : "cursos"}
+                  </span>
+                </h3>
+                <ul className="mt-3 space-y-0.5">
+                  {g.cursos.map((c) => (
+                    <li key={c.slug}>
+                      <Link
+                        to={`/particular/cursos/${c.slug}`}
+                        className="-mx-2 flex min-h-10 flex-wrap items-baseline gap-x-1.5 rounded-md px-2 py-2 text-sm text-neutral-700 transition hover:bg-[#0DB88F]/10 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white"
+                      >
+                        <span>{c.nome}</span>
+                        {c.legenda && <span className="text-xs text-neutral-500 dark:text-neutral-400">{c.legenda}</span>}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -641,13 +669,13 @@ function ParticularPage() {
                         Cursos
                       </p>
                       <ul className="space-y-2">
-                        {CATEGORIAS.map((cat) => (
-                          <li key={cat.slug}>
+                        {GRUPOS_PARTICULAR.map((g) => (
+                          <li key={g.id}>
                             <a
-                              href={`/particular/cursos/${cat.slug}`}
+                              href={`#${ancoraArea(g.id)}`}
                               className="text-xs text-neutral-500 transition hover:text-white/80"
                             >
-                              {cat.nome}
+                              {g.label}
                             </a>
                           </li>
                         ))}

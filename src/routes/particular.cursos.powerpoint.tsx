@@ -23,7 +23,7 @@ const COURSE_DATA: CourseData = {
   logo: "ppt",
   variante: "powerpoint",
   tagline:
-    "Apresentações que convencem: do slide básico ao storytelling que fecha negócios",
+    "Apresentações de impacto: do slide básico ao storytelling avançado",
   targetAudience: [
     "Você precisa apresentar projetos, resultados e propostas para gestores ou clientes e quer causar impacto real",
     "Você gasta horas montando slides e o resultado ainda parece amador",
@@ -37,7 +37,7 @@ const COURSE_DATA: CourseData = {
       levelName: "PowerPoint",
       totalHours: "48h",
       outcome:
-        "Dominar o PowerPoint do design básico ao storytelling avançado — Slide Mestre, animações profissionais, Morph, Designer e Copilot — para criar apresentações e pitches de vendas que convencem qualquer audiência, da equipe ao board executivo",
+        "Dominar o PowerPoint do design básico ao storytelling avançado — Slide Mestre, animações profissionais, Morph, Designer e Copilot — para criar apresentações e pitches de vendas persuasivos para qualquer audiência, da equipe ao board executivo",
       modules: [
         {
           title: "Fundamentos de design para apresentações",

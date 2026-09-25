@@ -13,6 +13,7 @@ import {
   GRID,
   type BlockProps,
 } from "@/components/course-skins/variants/planilha-base";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Pacote Office: a tela inicial do Office. "Para quem é" é a área
@@ -265,7 +266,7 @@ export function PacoteConteudo({ course, tier, selectedTier, onSelectTier, multi
         <Reveal delay={120} className="mt-6">
           <div className="border-l-4 border-(--accent) bg-white px-4 py-3 dark:bg-neutral-900">
             <p className="text-xs font-bold uppercase tracking-wider text-neutral-500">{multiTier ? "Ao final deste nível" : "Ao final deste curso"}</p>
-            <p className="mt-1 text-[15px] font-semibold leading-snug text-neutral-800 dark:text-neutral-200">{tier.outcome}</p>
+            <OutcomeText text={tier.outcome} className="mt-1 text-[15px] leading-snug text-neutral-800 dark:text-neutral-200" />
           </div>
         </Reveal>
 

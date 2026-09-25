@@ -3,6 +3,7 @@ import { Reveal } from "@/components/reveal";
 import { PersonAtDesk } from "@/components/course-illustrations";
 import { SectionTitle, TierTabs } from "./oficina-base";
 import { pad2, type OficinaBlockProps, type TelaBox } from "./oficina-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Revit (BIM).
@@ -376,7 +377,7 @@ export function RevitConteudo(props: OficinaBlockProps) {
                   {total} tabelas · {topicos} itens
                 </p>
               </header>
-              <p className="px-5 py-5 text-base font-semibold">{tier.outcome}</p>
+              <OutcomeText text={tier.outcome} className="px-5 py-5 text-base leading-relaxed" />
             </section>
           </Reveal>
         </div>

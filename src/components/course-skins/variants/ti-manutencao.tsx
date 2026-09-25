@@ -9,6 +9,7 @@ import {
   nn,
   type TiBlockProps,
 } from "@/components/course-skins/variants/ti-kit";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * T.I · Montagem e Manutenção: a bancada do técnico. O público-alvo é uma
@@ -364,7 +365,7 @@ export function ManutencaoConteudo(props: TiBlockProps) {
               </span>
               <div className="relative min-w-0 flex-1 overflow-hidden rounded-xl bg-[#0b1412] p-5 text-white ring-1 ring-black/5 dark:ring-white/10">
                 <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-(--accent-2)">Laudo técnico · ao final do curso</p>
-                <p className="mt-2 pr-2 text-base font-semibold leading-relaxed sm:pr-24 sm:text-lg">{tier.outcome}</p>
+                <OutcomeText text={tier.outcome} className="mt-2 pr-2 text-base leading-relaxed sm:pr-24 sm:text-lg" />
                 <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 font-mono text-[11px] text-white/50">
                   {metricas.map((m) => (
                     <span key={m.label}>

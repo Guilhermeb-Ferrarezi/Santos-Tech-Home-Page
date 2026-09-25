@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CheckCircle2, ChevronDown, ChevronRight, Server } from "lucide-react";
 import { NivelSeletor } from "@/components/course-skins/variants/ide-kit";
 import { curto, nn, ritmo, type ConteudoProps, type PublicoProps } from "@/components/course-skins/variants/ide-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Back-End: “Para quem é” são os logs do servidor recebendo uma requisição
@@ -196,7 +197,7 @@ export function BackendConteudo({ course, tier, tierIndex, onSelectTier, meta }:
           <p className="font-mono text-[12.5px] font-bold text-white">
             Resultado <span className="font-normal text-white/40">{"{ }"} schema</span>
           </p>
-          <p className="mt-2 text-[14px] leading-snug text-white/85">{tier.outcome}</p>
+          <OutcomeText text={tier.outcome} className="mt-2 text-[14px] leading-snug text-white/85" />
           <p className="mt-2 font-mono text-[11.5px] text-white/40">{ritmo(tier, meta)}</p>
         </div>
         <div className="min-w-0 rounded-md border border-white/10 p-4">
