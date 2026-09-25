@@ -131,6 +131,9 @@ function redirectLegacyParticularPath(request: Request): Response | null {
   // Location sai "http://" e o cliente leva um 301->302 em vez de 1 hop só.
   url.protocol = request.headers.get("x-forwarded-proto") === "http" ? "http:" : "https:";
   url.pathname = `/particular${url.pathname.slice(LEGACY_PARTICULAR_PREFIX.length)}`;
+  // O blog (outro app no Coolify, movido em 2026-09-25) só responde com barra
+  // final — sem isto, /adultos/blog levaria 2 saltos (301 daqui + 301 do nginx).
+  if (url.pathname === "/particular/blog") url.pathname = "/particular/blog/";
   return Response.redirect(url, 301);
 }
 
