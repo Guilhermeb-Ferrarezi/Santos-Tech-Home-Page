@@ -2,7 +2,28 @@
 
 ## Abertas
 
-_Nenhuma no momento._
+- [ ] 🔴 **`www.santos-tech.com` não existe no DNS** — quem digita ou recebe o link com
+      `www` cai em erro de navegador (conferido em 24/09: `nslookup www.santos-tech.com 1.1.1.1`
+      → NXDOMAIN; o domínio sem `www` responde 200). Passo privilegiado no painel da
+      Cloudflare, com o passo a passo pronto no achado `F323` da
+      [auditoria de UI/UX](docs/auditorias/2026-09-24-ui-ux/achados/tecnico.md#f323).
+      Validação depois: `curl -sI https://www.santos-tech.com/particular` deve responder
+      `301` para `https://santos-tech.com/particular`. _Aguardando Henrique._
+
+- [ ] **11 decisões de marca/escopo da auditoria de UI/UX (24/09)** — catálogo infantil
+      único, cor dos programas, preço no infantil, número "+300 alunos", nome do curso
+      ADS, template único do /particular, ensaio fotográfico, SVGs, preloader, banner de
+      cookies e formulário de contato. Cada uma já vem com recomendação e motivo na
+      [seção 4 do relatório](docs/auditorias/2026-09-24-ui-ux/README.md#4-decisões-que-só-o-henrique-toma).
+      _Aguardando Henrique._
+
+- [ ] **Executar o plano da auditoria de UI/UX** — 326 achados confirmados (🔴 4 · 🟠 32 ·
+      🟡 139 · ⚪ 151) em [docs/auditorias/2026-09-24-ui-ux/](docs/auditorias/2026-09-24-ui-ux/README.md),
+      organizados em 3 fases: **Fase 1** quick wins (1–2 dias, não mexe na marca — inclui
+      os 4 críticos: tela em branco ao clicar "Ver todos os programas" em `/cursos`,
+      sidebar do `/particular` ilegível no desktop e promessa "primeiro emprego em TI em
+      60 dias"), **Fase 2** sprint de consistência (1 semana) e **Fase 3** evolução de
+      marca (depende das decisões acima). Aguardando o "vai" da Fase 1.
 
 ## Resolvidas
 
