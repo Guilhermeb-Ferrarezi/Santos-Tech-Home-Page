@@ -19,6 +19,7 @@ import { Img } from "@/components/img";
 import { ParticularFaq } from "@/components/particular-faq";
 import { TIER_META } from "@/components/course-skins/shared";
 import { pageMeta } from "@/lib/seo";
+import { openConsentPreferences } from "@/lib/consent";
 
 export const Route = createFileRoute("/particular/")({
   component: ParticularPage,
@@ -680,7 +681,10 @@ function ParticularPage() {
                   </div>
 
                   <p className="mt-8 border-t border-white/5 pt-6 text-center text-xs text-neutral-600">
-                    © {new Date().getFullYear()} Santos Tech — Todos os direitos reservados.
+                    © {new Date().getFullYear()} Santos Tech — Todos os direitos reservados. ·{" "}
+                    <button type="button" onClick={openConsentPreferences} className="underline-offset-2 hover:underline hover:text-white/80">
+                      Cookies
+                    </button>
                   </p>
                 </footer>
               </div>

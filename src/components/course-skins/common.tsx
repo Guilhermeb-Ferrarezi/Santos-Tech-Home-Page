@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from "react";
 import { CheckCircle2, ChevronDown, Clock } from "lucide-react";
 import { Reveal } from "@/components/reveal";
+import { openConsentPreferences } from "@/lib/consent";
 import { WhatsAppIcon } from "@/components/icons";
 import { CalendarSpot, CertificateSpot, OneOnOne, SchoolSpot } from "@/components/course-illustrations";
 import {
@@ -370,7 +371,12 @@ export function CommonSections({
       </section>
 
       <p className={`sb-bleed py-6 max-lg:pb-24 text-center text-xs ${look.bgA} ${look.muted}`}>
-        © {new Date().getFullYear()} Santos Tech — Todos os direitos reservados.
+        © {new Date().getFullYear()} Santos Tech — Todos os direitos reservados. ·{" "}
+        {/* Revogar o consentimento a qualquer momento (LGPD art. 8º §5º): o /particular não
+            usa o SiteFooter, que é onde fica esse botão no resto do site. */}
+        <button type="button" onClick={openConsentPreferences} className="underline-offset-2 hover:underline">
+          Cookies
+        </button>
       </p>
     </>
   );
