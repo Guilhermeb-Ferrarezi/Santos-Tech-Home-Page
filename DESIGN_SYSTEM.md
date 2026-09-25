@@ -189,7 +189,7 @@ As 52 páginas de curso particular usam **peles** por área (`src/components/cou
 | Marketing & Negócios | `marketing` | `#E5484D` | `#FFC53D` | `#170c10` |
 | Landing / sidebar | `BRAND_THEME` | `#0DB88F` | `#0DB88F` | `#171717` |
 
-> ⚠️ Branco sobre a maioria dos `accent` fica abaixo de 4,5:1 como texto de botão (laranja 2,8 · verde 3,2 · azul 3,3 · teal 3,7). Cor de CTA das peles é decisão pendente (decisão 2 da auditoria de UI/UX). A sidebar escurece/clareia o `accent` com `color-mix` para texto (regras em `src/styles.css`).
+> ⚠️ Branco sobre o `accent` como texto de botão, por pele: **reprovam** (abaixo de 4,5:1) Office 3,2 · IA 4,2 · Programação 3,3 · T.I 3,7 · Universo 3D 2,8 · Marketing 3,9; **passam** Informática 5,1 · Design 4,6. Cor de CTA das peles é decisão pendente (decisão 2 da auditoria de UI/UX). A sidebar escurece/clareia o `accent` com `color-mix` para texto (regras em `src/styles.css`).
 ---
 
 ## 3. Tipografia
@@ -295,7 +295,7 @@ Não comprima. Se a peça parecer apertada, **tira coisa antes de espremer**. Hi
 
 | Token | Uso |
 |---|---|
-| `rounded-md` (8px) | Inputs, botões pequenos. |
+| `rounded-md` (10px) | Inputs, botões pequenos e, hoje, o CTA verde (ver §8.1). |
 | `rounded-xl` (16px) | **Card padrão** (o mais usado no código), ícones em containers, badges. |
 | `rounded-2xl` (20px) | Card de destaque e blocos de CTA menores. |
 | `rounded-3xl` (24px) | Cards grandes, blocos de CTA. |
@@ -417,6 +417,8 @@ Funcionais: `ArrowRight, CheckCircle2, ChevronDown, Clock, Calendar, Users, MapP
 
 ### 8.1 Botão CTA Primário
 
+> 🚧 **Formato e cor do botão = decisão pendente do Henrique** (decisão 2 da auditoria de UI/UX). O código usa hoje `rounded-md` no CTA verde (hero, faixas, preços); o exemplo abaixo, com `rounded-full`, é o padrão antigo deste guia. Branco sobre `#0DB88F` dá 2,5:1 (reprova AA). Não padronizar antes da decisão.
+
 ```tsx
 <a className="inline-flex items-center gap-2 rounded-full bg-st-green px-8 py-4 text-sm font-black uppercase tracking-wider text-white shadow-xl transition hover:scale-[1.03] glow-green">
   <WhatsAppIcon className="h-4 w-4" /> {/* import { WhatsAppIcon } from "@/components/icons" */}
@@ -432,7 +434,9 @@ Funcionais: `ArrowRight, CheckCircle2, ChevronDown, Clock, Calendar, Users, MapP
 </Link>
 ```
 
-### 8.3 Card padrão (pilares / o que se aprende)
+### 8.3 Card de destaque (pilares / o que se aprende)
+
+> O card **padrão** do código é `rounded-xl border border-border bg-card` (§5.1); este, com `rounded-2xl`, é o de destaque.
 
 ```tsx
 <div className="group h-full rounded-2xl border border-border bg-card p-7 transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg">
