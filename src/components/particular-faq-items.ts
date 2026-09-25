@@ -1,7 +1,8 @@
 import type { CourseData } from "@/components/particular-course-page"
-import { tierMeta } from "@/components/course-skins/shared"
+import { CUSTOS_UNICOS, tierMeta } from "@/components/course-skins/shared"
 
 const DURACAO_PERGUNTA = "Em quanto tempo termino o curso?"
+const PRECO_PERGUNTA = "Quanto custa?"
 
 // Fallback genérico — só aparece se um tier não tiver entrada em TIER_META
 // (não deveria acontecer hoje: todo curso do catálogo tem par levelName/TIER_META).
@@ -30,8 +31,11 @@ export const PARTICULAR_FAQ_ITEMS = [
     a: "Não. Na Santos Tech Particular não existem turmas. As aulas são individuais — só você e o professor. Isso significa atenção total, sem fila de dúvidas e sem adaptação ao ritmo de ninguém.",
   },
   {
-    q: "Quanto custa?",
-    a: "O valor varia conforme o curso e o plano escolhido. Fale com a gente pelo WhatsApp — é rápido, sem compromisso, e a gente indica o caminho certo pra você.",
+    q: PRECO_PERGUNTA,
+    // Genérico de propósito: é o FAQ da landing, sem curso. O preço de cada curso
+    // está na página dele (card de Investimento), e lá esta resposta é trocada
+    // pelos valores reais (buildPrecoAnswer).
+    a: "O valor depende do curso: cada página de curso mostra o investimento completo, com a parcela em até 12x sem juros no cartão e o valor à vista. Se preferir, fale com a gente pelo WhatsApp — é rápido, sem compromisso, e a gente indica o caminho certo pra você.",
     cta: true,
   },
 ]
@@ -61,15 +65,47 @@ function buildDuracaoAnswer(course: CourseData): string {
   return `Depende do nível escolhido: no curso de ${course.nome}, a duração vai de ${first.intensivo} (nível ${tiers[0].levelName}, ritmo intensivo) até ${last.padrao} (nível ${tiers[tiers.length - 1].levelName}, ritmo padrão). Veja o detalhe de cada nível no card de Investimento, aqui nesta página.`
 }
 
+/** "matrícula (R$ 199,90) e material didático (R$ 389,90)" — da mesma lista do card de Investimento. */
+function custosUnicosTexto(): string {
+  const itens = CUSTOS_UNICOS.map((c) => `${c.label.toLowerCase()} (${c.value})`)
+  return itens.length > 1 ? `${itens.slice(0, -1).join(", ")} e ${itens[itens.length - 1]}` : itens.join("")
+}
+
+/**
+ * Resposta de "Quanto custa?" com os valores reais do curso — a mesma fonte do
+ * card de Investimento da página (tierMeta → parcela e total; CUSTOS_UNICOS →
+ * matrícula e material). Auditoria de UI/UX 24/09/2026, F217: a resposta
+ * genérica mandava pedir preço no WhatsApp na mesma página que mostra o preço.
+ * Sem preço calculável (tier fora de TIER_META e sem pricePerAula), devolve
+ * `null` e o texto genérico fica — nunca inventa valor.
+ */
+function buildPrecoAnswer(course: CourseData): string | null {
+  const precos = course.tiers.map((t) => ({ tier: t, inv: tierMeta(course, t)?.investimento }))
+  if (precos.length === 0 || precos.some((p) => !p.inv)) return null
+  const custos = `Além disso, há os custos únicos, pagos uma vez só: ${custosUnicosTexto()}.`
+
+  if (precos.length === 1) {
+    const inv = precos[0].inv!
+    return `O curso de ${course.nome} custa 12x de ${inv.parcelaFormatted} sem juros no cartão, ou ${inv.totalFormatted} à vista. ${custos}`
+  }
+
+  // Multi-tier (nenhum curso usa hoje): lista cada nível, na ordem da página.
+  const niveis = precos.map((p) => `${p.tier.levelName}: 12x de ${p.inv!.parcelaFormatted} (ou ${p.inv!.totalFormatted} à vista)`)
+  return `Depende do nível escolhido no curso de ${course.nome} — ${niveis.join("; ")}. Parcelas sem juros no cartão. ${custos}`
+}
+
 /**
  * FAQ completo de uma página de curso: perguntas específicas do curso primeiro,
- * depois as genéricas — com a resposta de duração substituída pela calculada
- * a partir dos tiers reais do curso.
+ * depois as genéricas — com as respostas de duração e de preço substituídas
+ * pelas calculadas a partir dos tiers reais do curso.
  */
 export function buildCourseFaqItems(course: CourseData): { q: string; a: string; cta?: boolean }[] {
   const duracaoResposta = buildDuracaoAnswer(course)
-  const generico = PARTICULAR_FAQ_ITEMS.map((item) =>
-    item.q === DURACAO_PERGUNTA ? { ...item, a: duracaoResposta } : item,
-  )
+  const precoResposta = buildPrecoAnswer(course)
+  const generico = PARTICULAR_FAQ_ITEMS.map((item) => {
+    if (item.q === DURACAO_PERGUNTA) return { ...item, a: duracaoResposta }
+    if (item.q === PRECO_PERGUNTA && precoResposta) return { ...item, a: precoResposta }
+    return item
+  })
   return [...(course.faqItems ?? []), ...generico]
 }
