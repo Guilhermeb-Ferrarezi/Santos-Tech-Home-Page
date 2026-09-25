@@ -120,11 +120,31 @@ export type Metric = { value: string; label: string };
 // PRIMITIVES
 // ──────────────────────────────────────────────────────────────────────────
 
+/**
+ * Uma métrica da barra do hero. O valor pode ser número ("40", "80h", "12–13")
+ * ou palavra ("Avançado", "Hands-on") — e tem que caber na célula em qualquer
+ * largura (a célula chega a ~110px no celular pequeno e no tablet de 4 colunas).
+ *
+ * Como cabe: a célula é um container (`@container`) e a fonte do valor é
+ * `min(teto do breakpoint, --fit)`, onde `--fit` encolhe com o número de
+ * caracteres (em `cqi` = % da largura da célula). Número curto fica no teto
+ * de sempre (36px / 48px); palavra longa encolhe só o necessário, sem quebrar
+ * no meio. A altura da linha do valor é fixa, então os rótulos da mesma linha
+ * começam alinhados mesmo quando os valores têm tamanhos diferentes.
+ */
 function MetricCard({ value, label }: Metric) {
+  // ~0,7em por caractere em Poppins black (o "Avançado" mede 0,68em/char) →
+  // 100 / (0,7 × n) ≈ 140/n % da célula. Folga pro valor nunca encostar na borda.
+  const fit = `${(140 / Math.max(value.length, 1)).toFixed(1)}cqi`;
   return (
-    <div className="text-center">
-      <p className="text-4xl font-black text-white sm:text-5xl">{value}</p>
-      <p className="mt-1 text-xs font-bold uppercase tracking-wider text-white/75">{label}</p>
+    <div className="@container min-w-0 text-center">
+      <p
+        className="flex h-10 items-center justify-center whitespace-nowrap text-[length:min(2.25rem,var(--fit))] font-black leading-none text-white sm:h-12 sm:text-[length:min(3rem,var(--fit))]"
+        style={{ "--fit": fit } as CSSProperties}
+      >
+        {value}
+      </p>
+      <p className="mt-1 text-balance text-xs font-bold uppercase tracking-wider text-white/75">{label}</p>
     </div>
   );
 }
