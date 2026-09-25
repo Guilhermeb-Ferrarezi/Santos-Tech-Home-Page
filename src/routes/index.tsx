@@ -1077,7 +1077,10 @@ function Index() {
                   <div>
                     <p className="text-xs font-black uppercase tracking-wider text-muted-foreground">WhatsApp</p>
                     <p className="mt-1 font-black text-foreground">(16) 99257-8710</p>
-                    <p className="text-sm text-muted-foreground">Seg a Sáb · 8h às 22h</p>
+                    {/* Mesmo horário do /contato, do FAQ e do schema (seo.ts,
+                        openingHoursSpecification): sábado fecha às 18h. */}
+                    <p className="text-sm text-muted-foreground">Seg a Sex · 8h às 22h</p>
+                    <p className="text-sm text-muted-foreground">Sábado · 8h às 18h</p>
                   </div>
                 </div>
               </div>
