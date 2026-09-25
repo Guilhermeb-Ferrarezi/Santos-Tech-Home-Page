@@ -198,6 +198,8 @@ function RootComponent() {
       <CookieConsent />
 
       {isParticularRoute ? (
+        // O /particular monta o próprio botão do WhatsApp (só no celular e escondido
+        // com o menu aberto) — ver ParticularLayout em routes/particular.tsx.
         <Outlet />
       ) : (
         <>

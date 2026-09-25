@@ -143,8 +143,8 @@ export const DIFERENCIAIS = [
   },
   {
     icon: Award,
-    title: "Certificado Reconhecido",
-    desc: "Válido em todo o Brasil.",
+    title: "Certificado de Conclusão",
+    desc: "Emitido pela Santos Tech ao fim do curso.",
   },
   {
     icon: Dumbbell,

@@ -19,6 +19,7 @@ import { Img } from "@/components/img";
 import { ParticularFaq } from "@/components/particular-faq";
 import { TIER_META } from "@/components/course-skins/shared";
 import { pageMeta } from "@/lib/seo";
+import { openConsentPreferences } from "@/lib/consent";
 
 export const Route = createFileRoute("/particular/")({
   component: ParticularPage,
@@ -65,7 +66,7 @@ const PILARES = [
     titulo: "Profissões",
     descricao: "Quer mudar de carreira ou entrar na área de T.I do zero?",
     bullets: [
-      "Trilha estruturada: da primeira aula ao primeiro emprego",
+      "Trilha estruturada: da primeira aula ao projeto de portfólio",
       "Orientação sobre qual área combina com você",
       "Conteúdo organizado por objetivo profissional",
     ],
@@ -76,11 +77,11 @@ const PILARES = [
   },
   {
     id: "destaque",
-    titulo: "Pacote Office + IA",
+    titulo: "Pacote Office",
     descricao: "O mais exigido pelas empresas — em qualquer área.",
     bullets: [
       "Word, Excel e PowerPoint do básico ao avançado",
-      "Inteligência Artificial aplicada ao trabalho real",
+      "Recursos atuais, como o Designer do PowerPoint",
       "Válido para qualquer cargo ou setor",
     ],
     cta: "Conhecer este curso",
@@ -546,7 +547,7 @@ function ParticularPage() {
                     <MapPin className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="text-xs font-black uppercase tracking-wider text-neutral-400">Endereço</p>
+                    <p className="text-xs font-black uppercase tracking-wider text-neutral-500 dark:text-neutral-400">Endereço</p>
                     <p className="mt-1 font-black text-neutral-900 dark:text-white">Av. Nove de Julho, 1992</p>
                     <p className="text-sm text-neutral-500">Jardim América — Ribeirão Preto, SP</p>
                   </div>
@@ -556,7 +557,7 @@ function ParticularPage() {
                     <Users className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="text-xs font-black uppercase tracking-wider text-neutral-400">Horário de atendimento</p>
+                    <p className="text-xs font-black uppercase tracking-wider text-neutral-500 dark:text-neutral-400">Horário de atendimento</p>
                     <p className="mt-1 font-black text-neutral-900 dark:text-white">Seg a Sáb · 8h às 22h</p>
                     <p className="text-sm text-neutral-500">Aulas individuais com horário flexível</p>
                   </div>
@@ -680,7 +681,10 @@ function ParticularPage() {
                   </div>
 
                   <p className="mt-8 border-t border-white/5 pt-6 text-center text-xs text-neutral-600">
-                    © {new Date().getFullYear()} Santos Tech — Todos os direitos reservados.
+                    © {new Date().getFullYear()} Santos Tech — Todos os direitos reservados. ·{" "}
+                    <button type="button" onClick={openConsentPreferences} className="underline-offset-2 hover:underline hover:text-white/80">
+                      Cookies
+                    </button>
                   </p>
                 </footer>
               </div>

@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from "react";
 import { CheckCircle2, ChevronDown, Clock } from "lucide-react";
 import { Reveal } from "@/components/reveal";
+import { openConsentPreferences } from "@/lib/consent";
 import { WhatsAppIcon } from "@/components/icons";
 import { CalendarSpot, CertificateSpot, OneOnOne, SchoolSpot } from "@/components/course-illustrations";
 import {
@@ -184,7 +185,7 @@ export function CommonSections({
               <CertificateSpot theme={theme} curso={course.nome} className="h-40 w-full" />
               <h3 className={`mt-4 text-xl font-black ${look.title}`}>O que você recebe ao concluir</h3>
               <p className={`mt-1 text-sm ${look.muted}`}>
-                Certificado emitido pela Santos Tech, reconhecido em todo o território nacional.
+                Certificado de conclusão do curso, emitido pela Santos Tech.
               </p>
               <p className={`mt-4 text-sm leading-relaxed ${look.text}`}>
                 Mas o que realmente importa é o que você consegue fazer depois. Cada aula é projetada pra entregar
@@ -369,8 +370,13 @@ export function CommonSections({
         </div>
       </section>
 
-      <p className={`sb-bleed py-6 text-center text-xs ${look.bgA} ${look.muted}`}>
-        © {new Date().getFullYear()} Santos Tech — Todos os direitos reservados.
+      <p className={`sb-bleed py-6 max-lg:pb-24 text-center text-xs ${look.bgA} ${look.muted}`}>
+        © {new Date().getFullYear()} Santos Tech — Todos os direitos reservados. ·{" "}
+        {/* Revogar o consentimento a qualquer momento (LGPD art. 8º §5º): o /particular não
+            usa o SiteFooter, que é onde fica esse botão no resto do site. */}
+        <button type="button" onClick={openConsentPreferences} className="underline-offset-2 hover:underline">
+          Cookies
+        </button>
       </p>
     </>
   );

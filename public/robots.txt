@@ -4,8 +4,9 @@
 User-agent: *
 Allow: /
 
-# Bloqueia arquivos internos sem conteúdo relevante pra SEO.
-Disallow: /assets/
+# Bloqueia só a API. Os bundles em /assets/ (CSS, JS, fontes, imagens) ficam
+# liberados de propósito: o Googlebot precisa deles pra renderizar a página como
+# um visitante vê (layout mobile, fotos no Google Imagens).
 Disallow: /api/
 
 # Área de apresentações / ementa — conteúdo pedagógico privado (não indexar)

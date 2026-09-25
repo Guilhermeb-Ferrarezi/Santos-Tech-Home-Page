@@ -1,4 +1,4 @@
-import { createFileRoute, Outlet, Link, useRouterState } from "@tanstack/react-router";
+import { createFileRoute, Outlet, Link, useRouter, useRouterState } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import {
   Home,
@@ -14,6 +14,7 @@ import {
   LogIn,
 } from "lucide-react";
 import { Img } from "@/components/img";
+import { WhatsAppFab } from "@/components/whatsapp-fab";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 import { SKINS } from "@/components/course-skins";
 import { BRAND_THEME, themeVars, type CourseThemeKey } from "@/lib/course-themes";
@@ -78,7 +79,7 @@ const GRUPOS: {
       { slug: "fullstack", nome: "Full Stack" },
       { slug: "mobile", nome: "Desenvolvimento de Aplicativos" },
       { slug: "jogos", nome: "Desenvolvimento de Jogos" },
-      { slug: "ads", nome: "ADS", legenda: "Formação Profissional" },
+      { slug: "ads", nome: "ADS", legenda: "Desenvolvimento de Sistemas" },
     ],
   },
   {
@@ -337,6 +338,7 @@ function ParticularLayout() {
   const [gruposOpen, setGruposOpen] = useState<Record<string, boolean>>({});
   const [dark, setDark] = useState(false);
   const sidebarRef = useRef<HTMLElement | null>(null);
+  const router = useRouter();
 
   // Lê a preferência salva no mount (inicia em false p/ casar com o SSR e evitar mismatch).
   useEffect(() => {
@@ -447,7 +449,11 @@ function ParticularLayout() {
     aside.addEventListener("scroll", schedule, { capture: true, passive: true });
     aside.addEventListener("transitionrun", onTransition);
     desktop.addEventListener("change", schedule);
+    // O router troca o pathname ANTES de montar a página nova: sem isto, navegar pela
+    // sidebar sem rolar podia manter os tons da página anterior até o próximo scroll.
+    const unsubscribe = router.subscribe("onRendered", schedule);
     return () => {
+      unsubscribe();
       cancelAnimationFrame(raf);
       animatingUntil = 0;
       resize.disconnect();
@@ -457,7 +463,7 @@ function ParticularLayout() {
       aside.removeEventListener("transitionrun", onTransition);
       desktop.removeEventListener("change", schedule);
     };
-  }, [pathname, collapsed, dark, cursosOpen, gruposOpen]);
+  }, [router, pathname, collapsed, dark, cursosOpen, gruposOpen]);
 
   const navItem = (active: boolean) =>
     [
@@ -691,7 +697,7 @@ function ParticularLayout() {
                                         "truncate text-xs",
                                         isActiveCourse
                                           ? "sb-accent text-(--accent)/70"
-                                          : "sb-fg-soft text-neutral-400 dark:text-neutral-500",
+                                          : "sb-fg-soft text-neutral-500 dark:text-neutral-400",
                                       ].join(" ")}
                                     >
                                       {legenda}
@@ -800,6 +806,13 @@ function ParticularLayout() {
         </main>
       </div>
     </div>
+    {/* WhatsApp persistente no celular (no desktop a sidebar já tem "Falar no WhatsApp").
+        Some com o menu aberto: senão fica aceso e clicável por cima do overlay. */}
+    {!mobileOpen && (
+      <div className="lg:hidden">
+        <WhatsAppFab />
+      </div>
+    )}
     </div>
   );
 }
