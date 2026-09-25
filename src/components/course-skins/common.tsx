@@ -184,7 +184,7 @@ export function CommonSections({
               <CertificateSpot theme={theme} curso={course.nome} className="h-40 w-full" />
               <h3 className={`mt-4 text-xl font-black ${look.title}`}>O que você recebe ao concluir</h3>
               <p className={`mt-1 text-sm ${look.muted}`}>
-                Certificado emitido pela Santos Tech, reconhecido em todo o território nacional.
+                Certificado de conclusão do curso, emitido pela Santos Tech.
               </p>
               <p className={`mt-4 text-sm leading-relaxed ${look.text}`}>
                 Mas o que realmente importa é o que você consegue fazer depois. Cada aula é projetada pra entregar

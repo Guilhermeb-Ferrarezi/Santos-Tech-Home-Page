@@ -461,7 +461,7 @@ export function ParticularCursosPage({
                   O que você recebe ao concluir
                 </h3>
                 <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
-                  Certificado emitido pela Santos Tech, reconhecido em todo o território nacional.
+                  Certificado de conclusão do curso, emitido pela Santos Tech.
                 </p>
                 <p className="mt-4 flex-1 text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
                   Mas o que realmente importa é o que você consegue fazer depois. Cada aula é
