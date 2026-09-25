@@ -3,6 +3,7 @@ import { Check, CircleDot, Route } from "lucide-react";
 import type { Modulo } from "@/components/course-skins/variants/ide-util";
 import { NivelSeletor } from "@/components/course-skins/variants/ide-kit";
 import { nn, ritmo, type ConteudoProps, type PublicoProps } from "@/components/course-skins/variants/ide-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
 ^ * ADS (curso): “Para quem é” é o mural de personas da análise de
@@ -158,7 +159,7 @@ export function AdsConteudo({ course, tier, tierIndex, onSelectTier, meta }: Con
           </div>
           <div className="rounded-xl border border-white/10 p-4">
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/40">Perfil de saída</p>
-            <p className="mt-2 text-[14px] leading-snug text-white/90">{tier.outcome}</p>
+            <OutcomeText text={tier.outcome} className="mt-2 text-[14px] leading-snug text-white/90" />
             <p className="mt-2 font-mono text-[11.5px] text-white/40">{ritmo(tier, meta)}</p>
             <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white/40">Tecnologias da trilha</p>
             <div className="mt-2 flex flex-wrap gap-1.5">

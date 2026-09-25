@@ -7,6 +7,7 @@ import type { CourseTheme } from "@/lib/course-themes";
 import { tierMeta } from "@/components/course-skins/shared";
 import { StudioLogo } from "@/components/course-skins/scenes/design-kit";
 import { CYAN, DOTS_LIGHT, GREEN, VIOLET, pad, type AudienceProps, type ContentProps } from "@/components/course-skins/variants/design-tokens";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * CapCut: vertical, no celular.
@@ -329,7 +330,7 @@ export function CapcutContent({ course, logo, selectedTier, onSelectTier }: Cont
                     <p className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white/80">
                       <Upload className="h-3.5 w-3.5" /> Exportar · 1080p · 30 fps
                     </p>
-                    <p className="mt-2 text-lg font-semibold leading-relaxed">{tier.outcome}</p>
+                    <OutcomeText text={tier.outcome} className="mt-2 text-lg leading-relaxed" />
                   </div>
                 </div>
                 {tier.tools.length > 0 && (

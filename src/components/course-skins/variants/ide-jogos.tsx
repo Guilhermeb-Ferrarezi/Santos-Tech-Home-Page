@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Lock } from "lucide-react";
 import { NivelSeletor } from "@/components/course-skins/variants/ide-kit";
 import { ritmo, type ConteudoProps, type PublicoProps } from "@/components/course-skins/variants/ide-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Jogos (Unity e Godot): “Para quem é” é a tela de seleção de personagem;
@@ -252,7 +253,7 @@ export function JogosConteudo({ course, tier, tierIndex, onSelectTier, meta }: C
             <p className="flex items-center gap-3 font-mono text-[12px] font-bold uppercase tracking-[0.2em] text-[#FFD43B]">
               <Bau /> Recompensa do mundo
             </p>
-            <p className="mt-3 text-[14px] leading-snug text-white/90">{tier.outcome}</p>
+            <OutcomeText text={tier.outcome} className="mt-3 text-[14px] leading-snug text-white/90" />
             <p className="mt-2 font-mono text-[11.5px] text-white/40">{ritmo(tier, meta)}</p>
           </div>
           <div>

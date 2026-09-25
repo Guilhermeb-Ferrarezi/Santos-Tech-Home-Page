@@ -14,6 +14,7 @@ import {
   nn,
   type TiBlockProps,
 } from "@/components/course-skins/variants/ti-kit";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * T.I · Suporte / Help Desk (referência da pele): o público-alvo é uma fila de
@@ -177,7 +178,7 @@ export function SuporteConteudo(props: TiBlockProps) {
                   <p className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-(--accent-2)">
                     <StatusLed blink /> Status ao final do curso · tudo online
                   </p>
-                  <p className="mt-2.5 text-base font-semibold leading-relaxed text-white sm:text-lg">{tier.outcome}</p>
+                  <OutcomeText text={tier.outcome} className="mt-2.5 text-base leading-relaxed text-white sm:text-lg" />
                   <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] text-white/50">
                     {metricas.map((m) => (
                       <span key={m.label}>

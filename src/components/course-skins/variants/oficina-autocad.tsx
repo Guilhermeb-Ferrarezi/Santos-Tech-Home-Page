@@ -3,6 +3,7 @@ import { Reveal } from "@/components/reveal";
 import { PersonAtDesk } from "@/components/course-illustrations";
 import { SectionTitle, TierTabs } from "./oficina-base";
 import { pad2, type OficinaBlockProps, type TelaBox } from "./oficina-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * AutoCAD.
@@ -425,7 +426,7 @@ export function AutocadConteudo(props: OficinaBlockProps) {
           <div className="relative overflow-hidden bg-[#2a1a10] p-6 text-white sm:p-8 dark:bg-white dark:text-[#2a1a10]">
             <div className="max-w-2xl pr-0 sm:pr-40">
               <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-(--accent)">Prancha plotada · 100%</p>
-              <p className="mt-2 text-base font-semibold">{tier.outcome}</p>
+              <OutcomeText text={tier.outcome} className="mt-2 text-base leading-relaxed" />
             </div>
             <span className="pointer-events-none absolute right-6 top-1/2 hidden h-28 w-28 -translate-y-1/2 rotate-[-12deg] items-center justify-center rounded-full border-4 border-(--accent) text-center font-mono text-xs font-black uppercase leading-tight tracking-widest text-(--accent) sm:flex">
               Plotado

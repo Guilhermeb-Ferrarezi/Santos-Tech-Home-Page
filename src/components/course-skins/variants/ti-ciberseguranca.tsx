@@ -11,6 +11,7 @@ import {
   nn,
   type TiBlockProps,
 } from "@/components/course-skins/variants/ti-kit";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * T.I · Cibersegurança: o público-alvo é um relatório de avaliação de risco,
@@ -191,7 +192,7 @@ export function CibersegurancaConteudo(props: TiBlockProps) {
       <p className="flex items-center gap-2 font-mono text-[11px] font-black uppercase tracking-[0.2em]">
         <ShieldCheck className="h-4 w-4" /> Núcleo protegido · ao final do curso
       </p>
-      <p className="mt-2 text-base font-bold leading-relaxed sm:text-lg">{tier.outcome}</p>
+      <OutcomeText text={tier.outcome} className="mt-2 text-base leading-relaxed sm:text-lg" />
       <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1 font-mono text-[11px] text-[#0b1412]/70">
         {metricas.map((m) => (
           <span key={m.label}>

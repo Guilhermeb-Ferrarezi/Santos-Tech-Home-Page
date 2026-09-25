@@ -26,6 +26,7 @@ import {
   DOTS,
   type BlockProps,
 } from "@/components/course-skins/variants/planilha-base";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Power Apps + Power Automate: "Para quem é" são telas de um app no celular
@@ -232,7 +233,7 @@ export function PowerAppsConteudo({ course, tier, selectedTier, onSelectTier, mu
             <p className="flex items-center gap-2 text-sm font-bold text-(--accent)">
               <CircleCheck className="h-5 w-5" /> Fluxo concluído com êxito
             </p>
-            <p className="mt-2 text-[15px] leading-relaxed text-neutral-800 dark:text-neutral-200">{tier.outcome}</p>
+            <OutcomeText text={tier.outcome} className="mt-2 text-[15px] leading-relaxed text-neutral-800 dark:text-neutral-200" />
           </div>
         </Reveal>
 

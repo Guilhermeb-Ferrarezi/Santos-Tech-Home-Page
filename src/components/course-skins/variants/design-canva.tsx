@@ -7,6 +7,7 @@ import type { CourseTheme } from "@/lib/course-themes";
 import { tierMeta } from "@/components/course-skins/shared";
 import { Handles, StudioLogo } from "@/components/course-skins/scenes/design-kit";
 import { CREAM, DOTS_LIGHT, INK, SWATCHES, VIOLET, pad, type AudienceProps, type ContentProps } from "@/components/course-skins/variants/design-tokens";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Canva: tudo é "modelo pronto + kit de marca".
@@ -502,7 +503,7 @@ export function CanvaContent({ course, logo, selectedTier, onSelectTier }: Conte
                           </p>
                         </div>
                       </div>
-                      <p className="mt-4 text-lg font-semibold leading-relaxed">{tier.outcome}</p>
+                      <OutcomeText text={tier.outcome} className="mt-4 text-lg leading-relaxed" />
                       <div className="mt-5 grid gap-3 sm:grid-cols-[auto_1fr] sm:items-center">
                         <span className="font-mono text-[11px] uppercase tracking-wider text-[#766c7d] dark:text-white/45">Tipo de arquivo</span>
                         <div className="flex flex-wrap gap-1.5">

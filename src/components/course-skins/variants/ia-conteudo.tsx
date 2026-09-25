@@ -20,6 +20,7 @@ import {
   type IaBlockProps,
 } from "@/components/course-skins/variants/ia-kit";
 import { pad } from "@/components/course-skins/variants/ia-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Criação de Conteúdo com IA: "Para quem é" é o calendário editorial da semana
@@ -207,7 +208,7 @@ export function ConteudoProgram(props: IaBlockProps) {
             <p className={`flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] ${ACCENT_TEXT}`}>
               <Send className="h-3.5 w-3.5" /> Publicado · o que você entrega {multiTier ? "ao fim do nível" : "ao fim do curso"}
             </p>
-            <p className={`mt-2 text-base font-semibold leading-relaxed sm:text-lg ${TITLE}`}>{tier.outcome}</p>
+            <OutcomeText text={tier.outcome} className={`mt-2 text-base leading-relaxed sm:text-lg ${TITLE}`} />
             <ToolList tools={tier.tools} label={multiTier ? "Ferramentas da esteira neste nível" : "Ferramentas da esteira neste curso"} />
           </GradientFrame>
         </Reveal>

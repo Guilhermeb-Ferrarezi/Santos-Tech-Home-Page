@@ -11,6 +11,7 @@ import {
   GRID,
   type BlockProps,
 } from "@/components/course-skins/variants/planilha-base";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Excel (referência da pele): "Para quem é" é uma tabela com cabeçalho de
@@ -85,7 +86,7 @@ export function ExcelConteudo({ course, tier, selectedTier, onSelectTier, multiT
             <span className="shrink-0 border-r border-neutral-300 px-2 py-2 font-bold italic text-(--accent) dark:border-neutral-700">
               fx
             </span>
-            <span className="px-3 py-2 font-sans text-sm font-semibold text-neutral-800 dark:text-neutral-200">{tier.outcome}</span>
+            <OutcomeText text={tier.outcome} className="min-w-0 px-3 py-2 font-sans text-sm leading-relaxed text-neutral-800 dark:text-neutral-200" />
           </div>
         </Reveal>
 

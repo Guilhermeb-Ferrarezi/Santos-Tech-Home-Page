@@ -7,6 +7,7 @@ import type { CourseTheme } from "@/lib/course-themes";
 import { tierMeta } from "@/components/course-skins/shared";
 import { StudioLogo } from "@/components/course-skins/scenes/design-kit";
 import { CYAN, DOTS_LIGHT, GREEN, VIOLET, pad, type AudienceProps, type ContentProps } from "@/components/course-skins/variants/design-tokens";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * DaVinci Resolve: o software de color grading.
@@ -476,7 +477,7 @@ export function DavinciContent({ course, logo, selectedTier, onSelectTier }: Con
               <p className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-(--accent)">
                 <Rocket className="h-3.5 w-3.5" /> Fila de render · ao concluir você vai
               </p>
-              <p className="mt-2 text-lg font-semibold leading-relaxed">{tier.outcome}</p>
+              <OutcomeText text={tier.outcome} className="mt-2 text-lg leading-relaxed" />
               <span className="mt-4 block h-2 overflow-hidden rounded-full bg-[#f1ecf0] dark:bg-white/10">
                 <span className="block h-full w-full rounded-full bg-[linear-gradient(90deg,var(--accent),var(--accent-2))]" />
               </span>

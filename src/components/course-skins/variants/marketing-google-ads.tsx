@@ -11,6 +11,7 @@ import {
   type MktBlockProps,
 } from "@/components/course-skins/variants/marketing-kit";
 import { BODY, CARD, INK, KICKER, LINE, SOFT, pad2, ritmo, useMarcados } from "@/components/course-skins/variants/marketing-tokens";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Google Ads. "Para quem é" vira uma lista de palavras-chave com tipo de
@@ -188,7 +189,7 @@ function Conteudo(p: MktBlockProps) {
                 <Target className="h-4.5 w-4.5" />
               </span>
               <p className={`mt-3 ${KICKER} text-(--accent-2)`}>Conversão · {tier.levelName}</p>
-              <p className="mt-2 text-sm font-semibold leading-relaxed">{tier.outcome}</p>
+              <OutcomeText text={tier.outcome} className="mt-2 text-sm leading-relaxed" />
             </div>
           </Reveal>
           <Reveal delay={140}>

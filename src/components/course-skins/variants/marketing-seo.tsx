@@ -10,6 +10,7 @@ import {
   type MktBlockProps,
 } from "@/components/course-skins/variants/marketing-kit";
 import { BODY, CARD, INK, KICKER, SOFT, pad2, ritmo, useMarcados } from "@/components/course-skins/variants/marketing-tokens";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * SEO. "Para quem é" é uma página de resultados orgânicos em forma de ranking:
@@ -191,7 +192,7 @@ function Conteudo(p: MktBlockProps) {
             <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-[6px] border-(--accent) text-sm font-black">100%</span>
             <div>
               <p className={`${KICKER} text-(--accent-2)`}>Auditoria completa · {tier.levelName}</p>
-              <p className="mt-1.5 text-base font-semibold leading-relaxed">{tier.outcome}</p>
+              <OutcomeText text={tier.outcome} className="mt-1.5 text-base leading-relaxed" />
               <p className="mt-2 text-xs text-white/60">{ritmo(course, tier)}</p>
             </div>
           </div>

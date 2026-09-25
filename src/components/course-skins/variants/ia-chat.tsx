@@ -22,6 +22,7 @@ import {
   type IaBlockProps,
 } from "@/components/course-skins/variants/ia-kit";
 import { pad } from "@/components/course-skins/variants/ia-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * ChatGPT e IA para Profissionais: o curso É o chat. "Para quem é" é a resposta
@@ -258,10 +259,10 @@ export function ChatProgram(props: IaBlockProps) {
             <p className={`flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.2em] ${ACCENT_TEXT}`}>
               <Pin className="h-3.5 w-3.5" /> Resposta fixada · {multiTier ? `ao final do nível ${tier.levelName}` : "ao final do curso"}
             </p>
-            <p className={`mt-2 flex items-start gap-2 text-base font-semibold leading-relaxed sm:text-lg ${TITLE}`}>
+            <div className={`mt-2 flex items-start gap-2 text-base leading-relaxed sm:text-lg ${TITLE}`}>
               <Flag className="mt-1 h-4 w-4 shrink-0 text-(--accent)" />
-              {tier.outcome}
-            </p>
+              <OutcomeText text={tier.outcome} className="min-w-0 flex-1" />
+            </div>
             <ToolList tools={tier.tools} label={multiTier ? "Ferramentas usadas neste nível" : "Ferramentas usadas neste curso"} />
           </GradientFrame>
         </Reveal>

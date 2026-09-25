@@ -3,6 +3,7 @@ import type { LucideIcon } from "lucide-react";
 import { CheckCircle2, MessageCircle, Play, Split, Zap } from "lucide-react";
 import { NivelSeletor } from "@/components/course-skins/variants/ide-kit";
 import { nn, ritmo, type ConteudoProps, type PublicoProps } from "@/components/course-skins/variants/ide-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * n8n (automação, sem programar): “Para quem é” é um workflow com um nó “IF”
@@ -201,7 +202,7 @@ export function N8nConteudo({ course, tier, tierIndex, onSelectTier, meta }: Con
       <div className="grid gap-4 border-t border-white/10 p-4 md:grid-cols-[1.5fr_1fr]">
         <div className="min-w-0">
           <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white/40">Execução bem-sucedida</p>
-          <p className="mt-2 text-[14px] leading-snug text-white/90">{tier.outcome}</p>
+          <OutcomeText text={tier.outcome} className="mt-2 text-[14px] leading-snug text-white/90" />
           <p className="mt-2 font-mono text-[11.5px] text-white/40">{ritmo(tier, meta)}</p>
         </div>
         <div className="min-w-0">

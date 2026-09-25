@@ -10,6 +10,7 @@ import {
   type MktBlockProps,
 } from "@/components/course-skins/variants/marketing-kit";
 import { BODY, CARD, INK, KICKER, SOFT, pad2, ritmo, useMarcados } from "@/components/course-skins/variants/marketing-tokens";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * TikTok Ads. "Para quem é" é uma sequência de vídeos verticais (cada perfil é
@@ -217,7 +218,7 @@ function Conteudo(p: MktBlockProps) {
         <div className="grid gap-3 bg-(--hero-bg) px-4 py-5 text-white sm:px-6 md:grid-cols-[180px_1fr] md:gap-6">
           <span className="font-mono text-sm font-bold text-(--accent-2)">CTA final</span>
           <div>
-            <p className="text-base font-semibold leading-relaxed sm:text-lg">{tier.outcome}</p>
+            <OutcomeText text={tier.outcome} className="text-base leading-relaxed sm:text-lg" />
             <p className="mt-2 text-xs text-white/60">{ritmo(course, tier)}</p>
           </div>
         </div>

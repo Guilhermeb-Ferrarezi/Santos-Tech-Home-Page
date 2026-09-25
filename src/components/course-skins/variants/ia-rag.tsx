@@ -18,6 +18,7 @@ import {
   type IaBlockProps,
 } from "@/components/course-skins/variants/ia-kit";
 import { pad } from "@/components/course-skins/variants/ia-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * RAG: "Para quem é" é uma busca na base de conhecimento (cada perfil é um
@@ -221,7 +222,7 @@ export function RagProgram(props: IaBlockProps) {
             <p className={`flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] ${ACCENT_TEXT}`}>
               <Sparkles className="h-3.5 w-3.5" /> Resposta gerada · o que você consegue {multiTier ? "ao final do nível" : "ao final do curso"}
             </p>
-            <p className={`mt-2 text-base font-semibold leading-relaxed sm:text-lg ${TITLE}`}>{tier.outcome}</p>
+            <OutcomeText text={tier.outcome} className={`mt-2 text-base leading-relaxed sm:text-lg ${TITLE}`} />
             <p className={`mt-3 flex flex-wrap items-center gap-1.5 text-xs ${MUTED}`}>
               Fontes:
               {tier.modules.map((m, i) => (

@@ -11,6 +11,7 @@ import {
   DOTS,
   type BlockProps,
 } from "@/components/course-skins/variants/planilha-base";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * PowerPoint: "Para quem é" é o modo Classificação de slides — uma seção do
@@ -210,10 +211,11 @@ export function PowerPointConteudo({ course, tier, selectedTier, onSelectTier, m
             {/* Anotações do orador */}
             <div className="border-t border-neutral-300 bg-white px-4 py-4 dark:border-neutral-700 dark:bg-neutral-900 sm:px-6">
               <p className="text-xs font-bold uppercase tracking-wider text-neutral-500">Anotações do orador</p>
-              <p className="mt-1.5 text-[15px] leading-relaxed text-neutral-800 dark:text-neutral-200">
-                <span className="font-bold">{multiTier ? "Ao final deste nível: " : "Ao final deste curso: "}</span>
-                {tier.outcome}
-              </p>
+              <OutcomeText
+                text={tier.outcome}
+                className="mt-1.5 text-[15px] leading-relaxed text-neutral-800 dark:text-neutral-200"
+                antes={<span className="font-bold">{multiTier ? "Ao final deste nível: " : "Ao final deste curso: "}</span>}
+              />
             </div>
 
             {/* Barra de status */}

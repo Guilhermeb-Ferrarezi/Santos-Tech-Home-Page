@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from "react";
 import { ArrowRight, Check, ChevronDown, ChevronRight, Code2, Layers, MonitorSmartphone, Palette, RotateCw, Rocket, Sparkles, X } from "lucide-react";
 import { kebab, nn, pascal, ritmo, type ConteudoProps, type PublicoProps } from "@/components/course-skins/variants/ide-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Front-end: tudo acontece dentro do navegador. “Para quem é” é uma página
@@ -197,11 +198,12 @@ export function FrontendConteudo({ course, tier, tierIndex, onSelectTier, meta }
             <p className="mt-2 text-white/50">
               <span className="text-(--accent)">&gt;</span> curso.resultado
             </p>
-            <p className="mt-1 [font-family:Poppins,system-ui,sans-serif] text-[13.5px] leading-snug text-white/90">
-              <span className="text-(--accent-2)">“</span>
-              {tier.outcome}
-              <span className="text-(--accent-2)">”</span>
-            </p>
+            <OutcomeText
+              text={tier.outcome}
+              className="mt-1 [font-family:Poppins,system-ui,sans-serif] text-[13.5px] leading-snug text-white/90"
+              antes={<span className="text-(--accent-2)">“</span>}
+              depois={<span className="text-(--accent-2)">”</span>}
+            />
             <p className="mt-2 text-white/40">{ritmo(tier, meta)}</p>
           </div>
 

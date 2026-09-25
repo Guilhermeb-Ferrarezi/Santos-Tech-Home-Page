@@ -11,6 +11,7 @@ import {
   type MktBlockProps,
 } from "@/components/course-skins/variants/marketing-kit";
 import { BODY, CARD, INK, KICKER, SOFT, pad2, ritmo, useMarcados } from "@/components/course-skins/variants/marketing-tokens";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Marketing Digital (multicanal). "Para quem é" é o quadro de planejamento de
@@ -195,7 +196,7 @@ function Conteudo(p: MktBlockProps) {
       <Reveal delay={80} className="mt-6">
         <div className="rounded-2xl border-2 border-dashed border-(--accent)/40 p-5 sm:p-6">
           <p className={`${KICKER} text-(--accent)`}>Resultado da estratégia · {tier.levelName}</p>
-          <p className={`mt-2 text-base font-semibold leading-relaxed sm:text-lg ${INK}`}>{tier.outcome}</p>
+          <OutcomeText text={tier.outcome} className={`mt-2 text-base leading-relaxed sm:text-lg ${INK}`} />
           <p className={`mt-2 text-xs ${SOFT}`}>{ritmo(course, tier)}</p>
         </div>
       </Reveal>

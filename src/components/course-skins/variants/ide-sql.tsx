@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Check, Database, Key, KeyRound, Play, Table2 } from "lucide-react";
 import { K, M, NivelSeletor, P, Q } from "@/components/course-skins/variants/ide-kit";
 import { nn, ritmo, slug, type ConteudoProps, type PublicoProps } from "@/components/course-skins/variants/ide-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Banco de Dados com SQL: “Para quem é” é uma consulta executada num cliente
@@ -164,7 +165,7 @@ export function SqlConteudo({ course, tier, tierIndex, onSelectTier, meta }: Con
           <p>
             <K>CREATE VIEW</K> <P>resultado_{slug(tier.levelName)}</P> <K>AS</K>
           </p>
-          <p className="mt-2 border-l-2 border-(--accent-2) pl-3 [font-family:Poppins,system-ui,sans-serif] text-[14px] leading-snug text-white/90">{tier.outcome}</p>
+          <OutcomeText text={tier.outcome} className="mt-2 border-l-2 border-(--accent-2) pl-3 [font-family:Poppins,system-ui,sans-serif] text-[14px] leading-snug text-white/90" />
           <p className="mt-2 text-white/40">
             <M>-- {ritmo(tier, meta)}</M>
           </p>

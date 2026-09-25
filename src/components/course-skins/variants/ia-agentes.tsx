@@ -36,6 +36,7 @@ import {
   type IaBlockProps,
 } from "@/components/course-skins/variants/ia-kit";
 import { pad } from "@/components/course-skins/variants/ia-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Agentes de IA: "Para quem é" é a fila de tarefas que o agente assume (cada
@@ -283,7 +284,7 @@ function Flow({ course, selectedTier }: IaBlockProps) {
           <p className={`flex items-center gap-2 font-mono text-xs font-bold ${ACCENT_TEXT}`}>
             <Rocket className="h-4 w-4" /> ação final · o que o fluxo entrega
           </p>
-          <p className={`mt-2 text-base font-semibold leading-relaxed sm:text-lg ${TITLE}`}>{tier.outcome}</p>
+          <OutcomeText text={tier.outcome} className={`mt-2 text-base leading-relaxed sm:text-lg ${TITLE}`} />
           <ToolList tools={tier.tools} label={multiTier ? "Credenciais conectadas neste nível" : "Credenciais conectadas neste curso"} />
         </GradientFrame>
       </Reveal>

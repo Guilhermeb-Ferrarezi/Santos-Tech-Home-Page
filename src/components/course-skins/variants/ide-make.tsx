@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CheckCircle2, ChevronDown, Filter, GitFork, User } from "lucide-react";
 import { NivelSeletor } from "@/components/course-skins/variants/ide-kit";
 import { ritmo, type ConteudoProps, type PublicoProps } from "@/components/course-skins/variants/ide-util";
+import { OutcomeText } from "@/components/course-skins/outcome-text";
 
 /**
  * Make (automação, sem programar): “Para quem é” é um roteador que abre uma
@@ -170,7 +171,7 @@ export function MakeConteudo({ course, tier, tierIndex, onSelectTier, meta }: Co
         <div className="min-w-0 space-y-4">
           <div>
             <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white/40">Histórico · sucesso</p>
-            <p className="mt-2 text-[14px] leading-snug text-white/90">{tier.outcome}</p>
+            <OutcomeText text={tier.outcome} className="mt-2 text-[14px] leading-snug text-white/90" />
             <p className="mt-2 font-mono text-[11.5px] text-white/40">{ritmo(tier, meta)}</p>
           </div>
           <div>
