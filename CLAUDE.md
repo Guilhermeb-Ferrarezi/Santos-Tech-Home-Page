@@ -5,7 +5,7 @@
 **NUNCA** commite, faça push ou dispare deploy sem antes rodar a verificação de **build**
 e **lint** e confirmar que passam **sem erros**. Build quebrado = deploy quebrado.
 
-- **Frontend (React/Vite):** `bun run lint` **e** `bun run build` (o build faz o type-check `tsc`).
+- **Frontend (React/Vite):** `bun run lint` (ESLint + conferência do sitemap + type-check `tsc --noEmit`) **e** `bun run build`. O build sozinho **não** checa tipos.
 - **Go:** `gofmt -l .` (saída vazia) · `go vet ./...` · `go build ./...` · `go test ./...`.
 
 Se qualquer etapa falhar, **corrija antes de prosseguir** — não pushe "pra ver se passa no CI".
