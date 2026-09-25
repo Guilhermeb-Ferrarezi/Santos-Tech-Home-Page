@@ -572,13 +572,13 @@ export function ParticularCursosPage({
                       <p className="text-sm text-neutral-600 dark:text-neutral-400">{t.outcome}</p>
 
                       <div>
-                        <p className="text-xs text-neutral-400">12x de</p>
+                        <p className="text-xs text-neutral-600 dark:text-neutral-400">12x de</p>
                         <p className="text-3xl font-black tracking-tight text-neutral-900 dark:text-white">
                           {investimento?.parcelaFormatted ?? "—"}
                         </p>
-                        <p className="mt-0.5 text-xs text-neutral-400">sem juros no cartão</p>
+                        <p className="mt-0.5 text-xs text-neutral-600 dark:text-neutral-400">sem juros no cartão</p>
                         {investimento && (
-                          <p className="mt-1.5 text-xs text-neutral-400">ou {investimento.totalFormatted} à vista</p>
+                          <p className="mt-1.5 text-xs text-neutral-600 dark:text-neutral-400">ou {investimento.totalFormatted} à vista</p>
                         )}
                       </div>
 
@@ -631,7 +631,7 @@ export function ParticularCursosPage({
                     <p className="mt-1 text-xl font-black text-neutral-900 dark:text-white">R$ 389,90</p>
                   </div>
                 </div>
-                <p className="mt-3 text-xs text-neutral-400 dark:text-neutral-500">
+                <p className="mt-3 text-xs text-neutral-600 dark:text-neutral-400">
                   Cobrados uma única vez por curso, junto com o investimento no curso.
                 </p>
               </div>

@@ -546,7 +546,7 @@ function ParticularPage() {
                     <MapPin className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="text-xs font-black uppercase tracking-wider text-neutral-400">Endereço</p>
+                    <p className="text-xs font-black uppercase tracking-wider text-neutral-500 dark:text-neutral-400">Endereço</p>
                     <p className="mt-1 font-black text-neutral-900 dark:text-white">Av. Nove de Julho, 1992</p>
                     <p className="text-sm text-neutral-500">Jardim América — Ribeirão Preto, SP</p>
                   </div>
@@ -556,7 +556,7 @@ function ParticularPage() {
                     <Users className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="text-xs font-black uppercase tracking-wider text-neutral-400">Horário de atendimento</p>
+                    <p className="text-xs font-black uppercase tracking-wider text-neutral-500 dark:text-neutral-400">Horário de atendimento</p>
                     <p className="mt-1 font-black text-neutral-900 dark:text-white">Seg a Sáb · 8h às 22h</p>
                     <p className="text-sm text-neutral-500">Aulas individuais com horário flexível</p>
                   </div>
