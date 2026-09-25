@@ -449,6 +449,20 @@ function ParticularLayout() {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [mobileOpen]);
+
+  // Gaveta aberta no celular: o foco entra nela (1º link). Sem isso, quem usa teclado
+  // ou leitor de tela continuaria no conteúdo atrás do overlay. `inert` já saiu no
+  // mesmo commit, então o link aceita o foco; `preventScroll` evita pulo da página.
+  useEffect(() => {
+    if (!mobileOpen || isDesktop) return;
+    sidebarRef.current?.querySelector<HTMLElement>("a[href], button")?.focus({ preventScroll: true });
+  }, [mobileOpen, isDesktop]);
+
+  /** Fecha a gaveta pelo overlay sem perder o foco (a sidebar volta a ficar `inert`). */
+  const closeDrawer = () => {
+    setMobileOpen(false);
+    menuButtonRef.current?.focus({ preventScroll: true });
+  };
   const router = useRouter();
 
   // Lê a preferência salva no mount (inicia em false p/ casar com o SSR e evitar mismatch).
@@ -646,8 +660,9 @@ function ParticularLayout() {
       {/* Overlay mobile */}
       {mobileOpen && (
         <div
+          aria-hidden
           className="fixed inset-0 z-40 bg-black/40 lg:hidden"
-          onClick={() => setMobileOpen(false)}
+          onClick={closeDrawer}
         />
       )}
 
