@@ -206,7 +206,9 @@ export function SiteFooter() {
 
       <div className={t.bottomBar}>
         <div
-          className={`mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 text-xs sm:flex-row sm:px-6 lg:px-8 ${t.bottomText}`}
+          // pb-24 no celular: o botão flutuante do WhatsApp (canto inferior direito)
+          // cobria o fim da linha de © quando a página chegava ao fim.
+          className={`mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 pb-24 pt-6 text-xs sm:flex-row sm:px-6 sm:pb-6 lg:px-8 ${t.bottomText}`}
         >
           <p>© {new Date().getFullYear()} Santos Tech. Todos os direitos reservados.</p>
           {/* Revogar o consentimento tem que ser tão fácil quanto dar

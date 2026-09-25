@@ -923,7 +923,8 @@ function ParticularLayout() {
                   </li>
                 </ul>
               </nav>
-              <div className="flex flex-col gap-2 text-xs sm:flex-row sm:items-center sm:justify-between">
+              {/* Sem linha de ©: o hub e as páginas de curso já fecham com a delas. */}
+              <div className="text-xs">
                 <address className="not-italic">
                   {ORG.address.street} — {ORG.address.neighborhood}, {ORG.address.city}/
                   {ORG.address.state} ·{" "}
@@ -934,7 +935,6 @@ function ParticularLayout() {
                     Telefone: {WHATSAPP_PHONE_DISPLAY}
                   </a>
                 </address>
-                <p>© {new Date().getFullYear()} Santos Tech</p>
               </div>
             </div>
             {/* Banner de cookies aberto: reserva a altura dele no fim da página, para
