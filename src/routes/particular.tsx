@@ -1031,6 +1031,8 @@ function ParticularLayout() {
                 </ul>
               </nav>
               {/* Sem linha de ©: o hub e as páginas de curso já fecham com a delas. */}
+              {/* No hub o rodapé próprio da página já traz endereço e telefone. */}
+              {pathname !== "/particular" && (
               <div className="text-xs">
                 <address className="not-italic">
                   {ORG.address.street} — {ORG.address.neighborhood}, {ORG.address.city}/
@@ -1043,6 +1045,7 @@ function ParticularLayout() {
                   </a>
                 </address>
               </div>
+              )}
             </div>
             {/* Banner de cookies aberto: reserva a altura dele no fim da página, para
                 os últimos links não ficarem presos atrás do card (WCAG 2.4.11). */}
