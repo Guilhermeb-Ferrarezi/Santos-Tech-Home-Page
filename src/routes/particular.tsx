@@ -1,5 +1,5 @@
 import { createFileRoute, Outlet, Link, useRouterState } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import {
   Home,
   Menu,
@@ -14,15 +14,53 @@ import {
   LogIn,
 } from "lucide-react";
 import { Img } from "@/components/img";
-import { WHATSAPP_URL } from "@/lib/whatsapp";
+import { WHATSAPP_URL, WHATSAPP_PHONE_DISPLAY } from "@/lib/whatsapp";
 import { SKINS } from "@/components/course-skins";
 import { BRAND_THEME, themeVars, type CourseThemeKey } from "@/lib/course-themes";
+import { openConsentPreferences } from "@/lib/consent";
+import { ORG } from "@/lib/seo";
 
 export const Route = createFileRoute("/particular")({
   component: ParticularLayout,
 });
 
 const DARK_KEY = "particular:dark";
+
+// ── Tela ≥ lg (sidebar fixa) × celular (sidebar vira gaveta) ──────────────────
+// No SSR assume desktop: o HTML sai sem `inert`, e o cliente corrige na hidratação.
+const DESKTOP_QUERY = "(min-width: 1024px)";
+function subscribeDesktop(onChange: () => void) {
+  const mq = window.matchMedia(DESKTOP_QUERY);
+  mq.addEventListener("change", onChange);
+  return () => mq.removeEventListener("change", onChange);
+}
+function useIsDesktop() {
+  return useSyncExternalStore(
+    subscribeDesktop,
+    () => window.matchMedia(DESKTOP_QUERY).matches,
+    () => true,
+  );
+}
+
+/**
+ * Mini-rodapé do layout (vale para o hub e para os cursos): o caminho de volta
+ * para o site institucional. Sem ele, as páginas de curso não linkavam a home,
+ * os programas, o contato nem a Política de Privacidade. A sidebar continua só
+ * com cursos — os links institucionais ficam aqui.
+ */
+const RODAPE_LINKS: { label: string; href: string; externo?: boolean }[] = [
+  { label: "Site da Santos Tech", href: "/" },
+  { label: "Cursos para crianças e adolescentes", href: "/cursos" },
+  { label: "Sobre a escola", href: "/sobre" },
+  { label: "Contato", href: "/contato" },
+  // /blog é outro app no mesmo domínio: <a> comum, na URL canônica (com barra).
+  { label: "Blog", href: "/blog/", externo: true },
+  { label: "Política de Privacidade", href: "/privacidade" },
+  { label: "Termos de Uso", href: "/termos" },
+];
+
+/** `tel:` a partir do telefone do JSON-LD (ORG), a mesma fonte do rodapé do site. */
+const TEL_HREF = `tel:+${ORG.telephone.replace(/\D/g, "")}`;
 
 /** `id` bate com `CourseThemeKey` — é a chave usada pra buscar o tema (cor) da categoria em `SKINS`. */
 const GRUPOS: {
@@ -337,6 +375,24 @@ function ParticularLayout() {
   const [gruposOpen, setGruposOpen] = useState<Record<string, boolean>>({});
   const [dark, setDark] = useState(false);
   const sidebarRef = useRef<HTMLElement | null>(null);
+  const menuButtonRef = useRef<HTMLButtonElement | null>(null);
+  const isDesktop = useIsDesktop();
+  // No celular, com a gaveta fechada, a sidebar fica fora da tela: `inert` tira os
+  // links e botões dela da ordem do Tab e do leitor de tela (antes eram ~66 alvos
+  // de foco invisíveis antes do conteúdo).
+  const drawerHidden = !isDesktop && !mobileOpen;
+
+  // Escape fecha a gaveta e devolve o foco ao botão que a abriu.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setMobileOpen(false);
+      menuButtonRef.current?.focus();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [mobileOpen]);
 
   // Lê a preferência salva no mount (inicia em false p/ casar com o SSR e evitar mismatch).
   useEffect(() => {
@@ -499,6 +555,9 @@ function ParticularLayout() {
       <aside
         id="particular-sidebar"
         ref={sidebarRef}
+        aria-label="Menu dos cursos particulares"
+        inert={drawerHidden}
+        aria-hidden={drawerHidden || undefined}
         style={themeVars(activeTheme)}
         className={[
           "fixed inset-y-0 left-0 z-50 flex flex-col border-r overflow-hidden",
@@ -521,33 +580,46 @@ function ParticularLayout() {
               : "h-16 flex-row items-center gap-1.5 px-2.5",
           ].join(" ")}
         >
-          {/* Logo — tamanho maior quando colapsado para melhor resolução */}
-          <Img
-            name="logo"
-            alt="Santos Tech"
-            width={192}
-            height={192}
-            sizesAttr="40px"
-            className={collapsed ? "h-10 w-10 shrink-0" : "h-8 w-8 shrink-0"}
-          />
-
-          {/* Texto — some quando colapsado */}
-          <div
+          {/* Logo + nome = volta ao site institucional (convenção de "logo leva à
+              home"). O "Início" do menu continua levando ao hub /particular. */}
+          <Link
+            to="/"
+            aria-label="Santos Tech — página inicial do site"
+            title={collapsed ? "Página inicial da Santos Tech" : undefined}
+            onClick={() => setMobileOpen(false)}
             className={[
-              "flex min-w-0 flex-1 flex-col items-start leading-none overflow-hidden transition-[opacity,max-width] duration-300",
-              collapsed ? "max-w-0 opacity-0" : "max-w-[200px] opacity-100",
+              "flex min-w-0 items-center rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0DB88F]",
+              collapsed ? "" : "flex-1 gap-1.5",
             ].join(" ")}
           >
-            <span className="sb-fg-soft whitespace-nowrap text-[8px] font-light uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-500 mb-0.5">Escola</span>
-            <div className="flex min-w-0 items-center gap-1">
-              <span className="sb-fg min-w-0 truncate text-xs font-black tracking-tight text-neutral-900 dark:text-white">
-                SANTOS TECH
-              </span>
-              <span className="sb-solid shrink-0 inline-flex items-center rounded-md bg-neutral-900 dark:bg-white px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-white dark:text-neutral-900">
-                particular
-              </span>
+            {/* Logo — tamanho maior quando colapsado para melhor resolução */}
+            <Img
+              name="logo"
+              alt=""
+              width={192}
+              height={192}
+              sizesAttr="40px"
+              className={collapsed ? "h-10 w-10 shrink-0" : "h-8 w-8 shrink-0"}
+            />
+
+            {/* Texto — some quando colapsado */}
+            <div
+              className={[
+                "flex min-w-0 flex-1 flex-col items-start leading-none overflow-hidden transition-[opacity,max-width] duration-300",
+                collapsed ? "max-w-0 opacity-0" : "max-w-[200px] opacity-100",
+              ].join(" ")}
+            >
+              <span className="sb-fg-soft whitespace-nowrap text-[8px] font-light uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-500 mb-0.5">Escola</span>
+              <div className="flex min-w-0 items-center gap-1">
+                <span className="sb-fg min-w-0 truncate text-xs font-black tracking-tight text-neutral-900 dark:text-white">
+                  SANTOS TECH
+                </span>
+                <span className="sb-solid shrink-0 inline-flex items-center rounded-md bg-neutral-900 dark:bg-white px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-white dark:text-neutral-900">
+                  particular
+                </span>
+              </div>
             </div>
-          </div>
+          </Link>
 
           {/* Botão recolher (expandido) ou expandir (colapsado) — sempre no cabeçalho */}
           {!collapsed ? (
@@ -572,7 +644,7 @@ function ParticularLayout() {
         </div>
 
         {/* Nav */}
-        <nav className="flex-1 overflow-y-auto overflow-x-hidden px-2 py-4 space-y-0.5">
+        <nav aria-label="Cursos" className="flex-1 overflow-y-auto overflow-x-hidden px-2 py-4 space-y-0.5">
 
           {/* Início */}
           <Link
@@ -599,6 +671,8 @@ function ParticularLayout() {
               }
             }}
             title={collapsed ? "Cursos — clique para expandir" : undefined}
+            aria-expanded={cursosOpen && !collapsed}
+            aria-controls="particular-cursos"
             className="sb-fg-soft sb-hover w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-white/[0.07] hover:text-neutral-900 dark:hover:text-white transition-colors"
           >
             <BookOpen className="sb-fg-soft h-4 w-4 shrink-0 text-neutral-400 dark:text-neutral-500" />
@@ -619,8 +693,11 @@ function ParticularLayout() {
             />
           </button>
 
-          {/* Dropdown — grupos com sub-dropdowns */}
+          {/* Dropdown — grupos com sub-dropdowns. Recolhido, fica `inert`: os links
+              continuam no HTML, mas saem do Tab enquanto estão escondidos. */}
           <div
+            id="particular-cursos"
+            inert={!(cursosOpen && !collapsed)}
             className={[
               "grid transition-[grid-template-rows] duration-300 ease-in-out",
               cursosOpen && !collapsed ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
@@ -636,6 +713,8 @@ function ParticularLayout() {
                       <button
                         type="button"
                         onClick={() => toggleGrupo(id)}
+                        aria-expanded={!!gruposOpen[id]}
+                        aria-controls={`particular-grupo-${id}`}
                         className={[
                           "w-full flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-black uppercase tracking-wider transition-colors",
                           isActiveGroup
@@ -655,6 +734,8 @@ function ParticularLayout() {
 
                       {/* Links do grupo — animação grid */}
                       <div
+                        id={`particular-grupo-${id}`}
+                        inert={!gruposOpen[id]}
                         className={[
                           "grid transition-[grid-template-rows] duration-200 ease-in-out",
                           gruposOpen[id] ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
@@ -760,9 +841,13 @@ function ParticularLayout() {
       <div className={`flex flex-col transition-[padding-left] duration-300 ease-in-out ${collapsed ? "lg:pl-[60px]" : "lg:pl-64"}`}>
         {/* Topbar mobile */}
         <div className="sticky top-0 z-40 flex h-14 shrink-0 items-center border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-4 lg:hidden">
-          {/* Logo + nome — esquerda */}
-          <div className="flex items-center gap-2">
-            <Img name="logo" alt="Santos Tech" width={28} height={28} className="h-7 w-7 shrink-0" />
+          {/* Logo + nome — esquerda. Leva ao site institucional, como na sidebar. */}
+          <Link
+            to="/"
+            aria-label="Santos Tech — página inicial do site"
+            className="flex items-center gap-2 rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0DB88F]"
+          >
+            <Img name="logo" alt="" width={28} height={28} className="h-7 w-7 shrink-0" />
             <div className="flex flex-col items-start leading-none">
               <span className="text-[8px] font-light uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-500 mb-0.5">Escola</span>
               <div className="flex items-center gap-1.5">
@@ -772,7 +857,7 @@ function ParticularLayout() {
                 </span>
               </div>
             </div>
-          </div>
+          </Link>
 
           <div className="flex-1" />
 
@@ -786,9 +871,12 @@ function ParticularLayout() {
 
           {/* Hambúrguer — direita */}
           <button
+            ref={menuButtonRef}
             type="button"
             onClick={() => setMobileOpen((o) => !o)}
-            aria-label="Abrir menu"
+            aria-label={mobileOpen ? "Fechar menu de cursos" : "Abrir menu de cursos"}
+            aria-expanded={mobileOpen}
+            aria-controls="particular-sidebar"
             className="ml-2 rounded-md p-1.5 text-neutral-500 hover:bg-neutral-100 dark:hover:bg-white/[0.07] dark:text-neutral-400 transition-colors"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -797,6 +885,62 @@ function ParticularLayout() {
 
         <main>
           <Outlet />
+
+          {/* Mini-rodapé — dentro do <main> de propósito: em telas ≥ lg a sidebar é
+              transparente e o que aparece atrás dela tem que ser a página (é o que
+              scripts/verificar-sidebar-fusao.mjs confere). `sb-bleed` estende o fundo
+              por baixo da sidebar sem mover o conteúdo. */}
+          <footer className="sb-bleed border-t border-neutral-200 bg-white text-neutral-600 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-400">
+            <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 py-8 sm:px-6 lg:px-8">
+              <nav aria-label="Site da Santos Tech">
+                <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold">
+                  {RODAPE_LINKS.map((item) => {
+                    const cls =
+                      "rounded-sm transition-colors hover:text-neutral-900 dark:hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0DB88F]";
+                    return (
+                      <li key={item.href}>
+                        {item.externo ? (
+                          <a href={item.href} className={cls}>
+                            {item.label}
+                          </a>
+                        ) : (
+                          <Link to={item.href} className={cls}>
+                            {item.label}
+                          </Link>
+                        )}
+                      </li>
+                    );
+                  })}
+                  <li>
+                    {/* Revogar o consentimento tão fácil quanto dar (LGPD, art. 8º, §5º). */}
+                    <button
+                      type="button"
+                      onClick={openConsentPreferences}
+                      className="rounded-sm font-semibold transition-colors hover:text-neutral-900 dark:hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0DB88F]"
+                    >
+                      Cookies
+                    </button>
+                  </li>
+                </ul>
+              </nav>
+              <div className="flex flex-col gap-2 text-xs sm:flex-row sm:items-center sm:justify-between">
+                <address className="not-italic">
+                  {ORG.address.street} — {ORG.address.neighborhood}, {ORG.address.city}/
+                  {ORG.address.state} ·{" "}
+                  <a
+                    href={TEL_HREF}
+                    className="rounded-sm underline underline-offset-2 hover:text-neutral-900 dark:hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0DB88F]"
+                  >
+                    Telefone: {WHATSAPP_PHONE_DISPLAY}
+                  </a>
+                </address>
+                <p>© {new Date().getFullYear()} Santos Tech</p>
+              </div>
+            </div>
+            {/* Banner de cookies aberto: reserva a altura dele no fim da página, para
+                os últimos links não ficarem presos atrás do card (WCAG 2.4.11). */}
+            <div aria-hidden="true" className="h-[var(--st-consent-height,0px)]" />
+          </footer>
         </main>
       </div>
     </div>
