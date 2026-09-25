@@ -17,10 +17,10 @@ import { Img } from "@/components/img";
 import { WhatsAppFab } from "@/components/whatsapp-fab";
 import { WHATSAPP_URL, WHATSAPP_PHONE_DISPLAY } from "@/lib/whatsapp";
 import { COURSE_THEMES } from "@/components/course-skins/themes";
-import { BRAND_THEME, themeVars, type CourseThemeKey } from "@/lib/course-themes";
+import { BRAND_THEME, themeVars } from "@/lib/course-themes";
 import { openConsentPreferences } from "@/lib/consent";
 import { ORG } from "@/lib/seo";
-import type { FileRoutesByTo } from "@/routeTree.gen";
+import { GRUPOS_PARTICULAR } from "@/components/particular-catalogo";
 
 export const Route = createFileRoute("/particular")({
   component: ParticularLayout,
@@ -64,122 +64,9 @@ const RODAPE_LINKS: { label: string; href: string; externo?: boolean }[] = [
 /** `tel:` a partir do telefone do JSON-LD (ORG), a mesma fonte do rodapé do site. */
 const TEL_HREF = `tel:+${ORG.telephone.replace(/\D/g, "")}`;
 
-/**
- * Slug de um curso particular que existe como rota (`particular.cursos.<slug>.tsx`).
- * Vem da árvore de rotas gerada: o `<Link to>` fica tipado e um slug sem página
- * (digitado errado ou de rota removida) quebra o type-check em vez de virar 404.
- */
-type CursoSlug = keyof FileRoutesByTo extends infer P
-  ? P extends `/particular/cursos/${infer S}`
-    ? S
-    : never
-  : never;
+// Catálogo da sidebar: mesma fonte da lista "Cursos por área" da landing.
+const GRUPOS = GRUPOS_PARTICULAR;
 
-/** `id` bate com `CourseThemeKey` — é a chave usada pra buscar o tema (cor) da categoria em `COURSE_THEMES`. */
-const GRUPOS: {
-  id: CourseThemeKey;
-  label: string;
-  cursos: { slug: CursoSlug; nome: string; legenda?: string }[];
-}[] = [
-  {
-    id: "informatica",
-    label: "Informática",
-    cursos: [{ slug: "informatica", nome: "Informática" }],
-  },
-  {
-    id: "office",
-    label: "Office",
-    cursos: [
-      { slug: "office", nome: "Pacote Office" },
-      { slug: "excel-power-bi", nome: "Excel + Power BI" },
-      { slug: "excel", nome: "Excel" },
-      { slug: "excel-ia", nome: "Excel + IA" },
-      { slug: "word", nome: "Word" },
-      { slug: "powerpoint", nome: "PowerPoint" },
-      { slug: "power-bi", nome: "Power BI" },
-      { slug: "power-apps", nome: "Power Apps + Power Automate" },
-    ],
-  },
-  {
-    id: "ia",
-    label: "Inteligência Artificial",
-    cursos: [
-      { slug: "ia", nome: "Inteligência Artificial" },
-      { slug: "agentes-ia", nome: "Agentes de IA com N8N e LLMs" },
-      { slug: "rag", nome: "RAG", legenda: "IA com seus Próprios Dados" },
-      { slug: "ia-visual", nome: "IA para Criadores: Imagem, Vídeo e Áudio" },
-      { slug: "chatgpt", nome: "ChatGPT e IA para Profissionais" },
-      { slug: "conteudo-ia", nome: "Criação de Conteúdo com IA" },
-    ],
-  },
-  {
-    id: "programacao",
-    label: "Programação",
-    cursos: [
-      { slug: "logica", nome: "Lógica de Programação" },
-      { slug: "python", nome: "Python para Automações" },
-      { slug: "python-apis", nome: "APIs e Integrações com Python" },
-      { slug: "typescript", nome: "TypeScript para Desenvolvimento Moderno" },
-      { slug: "git", nome: "Git e GitHub para Profissionais" },
-      { slug: "n8n", nome: "Automações + N8N" },
-      { slug: "make", nome: "Automações No-Code Make" },
-      { slug: "sql", nome: "Banco de Dados com SQL" },
-      { slug: "frontend", nome: "Desenvolvimento Web Front-End" },
-      { slug: "backend", nome: "Desenvolvimento Web Back-End" },
-      { slug: "fullstack", nome: "Full Stack" },
-      { slug: "mobile", nome: "Desenvolvimento de Aplicativos" },
-      { slug: "jogos", nome: "Desenvolvimento de Jogos" },
-      { slug: "ads", nome: "ADS", legenda: "Desenvolvimento de Sistemas" },
-    ],
-  },
-  {
-    id: "ti",
-    label: "T.I",
-    cursos: [
-      { slug: "suporte", nome: "Suporte Técnico / Help Desk" },
-      { slug: "manutencao", nome: "Montagem e Manutenção" },
-      { slug: "redes", nome: "Redes e Infraestrutura" },
-      { slug: "ciberseguranca", nome: "Cibersegurança" },
-      { slug: "linux", nome: "Linux Essencial" },
-    ],
-  },
-  {
-    id: "universo-3d",
-    label: "Universo 3D",
-    cursos: [
-      { slug: "modelagem-3d", nome: "Modelagem 3D" },
-      { slug: "impressao-3d", nome: "Impressão 3D" },
-      { slug: "autocad", nome: "AutoCAD" },
-      { slug: "revit", nome: "Revit" },
-    ],
-  },
-  {
-    id: "design",
-    label: "Design & Criação",
-    cursos: [
-      { slug: "canva", nome: "Canva Pro" },
-      { slug: "photoshop", nome: "Photoshop + Illustrator" },
-      { slug: "capcut", nome: "Edição de Vídeo", legenda: "CapCut" },
-      { slug: "davinci", nome: "Edição de Vídeo", legenda: "DaVinci Resolve" },
-      { slug: "premiere", nome: "Edição de Vídeo", legenda: "Adobe Premiere" },
-    ],
-  },
-  {
-    id: "marketing",
-    label: "Marketing & Negócios",
-    cursos: [
-      { slug: "marketing", nome: "Marketing Digital" },
-      { slug: "meta-ads", nome: "Meta Ads", legenda: "Facebook e Instagram" },
-      { slug: "google-ads", nome: "Google Ads" },
-      { slug: "tiktok-ads", nome: "TikTok Ads" },
-      { slug: "copywriting", nome: "Copywriting & Persuasão" },
-      { slug: "funil-vendas", nome: "Funil de Vendas + CRM" },
-      { slug: "seo", nome: "SEO", legenda: "Otimização para Buscadores" },
-      { slug: "redes-sociais", nome: "Gestão de Redes Sociais" },
-      { slug: "ecommerce", nome: "E-commerce & Vendas Online" },
-    ],
-  },
-];
 
 type Tone = "dark" | "light";
 type Rgba = [number, number, number, number];

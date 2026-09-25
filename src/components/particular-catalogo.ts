@@ -6,9 +6,8 @@ import type { FileRoutesByTo } from "@/routeTree.gen";
  * mostra em "Cursos por área" (auditoria de UI/UX 24/09/2026, F218: as pílulas
  * de categoria levavam a UM curso, não à lista da área).
  *
- * ⚠️ Mesmo conteúdo do `GRUPOS` da sidebar em `src/routes/particular.tsx`. A
- * sidebar deve passar a importar daqui (pendência registrada na Fase 2) — até
- * lá, curso novo entra nos DOIS lugares, além de `public/sitemap.xml`.
+ * Fonte única da sidebar de `src/routes/particular.tsx` e da landing. Curso novo entra aqui
+ * e em `public/sitemap.xml`.
  *
  * Módulo só de dados/tipos: a landing importa sem puxar ícones nem componentes.
  */
