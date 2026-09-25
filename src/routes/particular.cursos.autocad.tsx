@@ -34,7 +34,7 @@ const COURSE_DATA = {
       levelName: "AutoCAD",
       totalHours: "48h",
       outcome:
-        "Desenhar no AutoCAD do zero absoluto até projetos executivos completos em 2D e 3D, com blocos inteligentes, IA, modelagem sólida e automação via AutoLISP, incluindo uma especialização em Civil 3D, Mechanical ou Plant 3D — pronto para atuar como desenhista técnico, projetista ou engenheiro.",
+        "Desenhar no AutoCAD do zero absoluto até projetos executivos completos em 2D e 3D, com blocos inteligentes, IA, modelagem sólida e automação via AutoLISP, incluindo uma especialização em Civil 3D, Mechanical ou Plant 3D — base para trabalhar com desenho técnico e projetos em CAD, como desenhista, projetista ou no dia a dia da engenharia.",
       modules: [
         {
           title: "Interface, Configuração e Padrões de Projeto",

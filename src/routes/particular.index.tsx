@@ -66,7 +66,7 @@ const PILARES = [
     titulo: "Profissões",
     descricao: "Quer mudar de carreira ou entrar na área de T.I do zero?",
     bullets: [
-      "Trilha estruturada: da primeira aula ao primeiro emprego",
+      "Trilha estruturada: da primeira aula ao projeto de portfólio",
       "Orientação sobre qual área combina com você",
       "Conteúdo organizado por objetivo profissional",
     ],

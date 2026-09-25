@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Check, CircleDot, GraduationCap } from "lucide-react";
+import { Check, CircleDot, Route } from "lucide-react";
 import type { Modulo } from "@/components/course-skins/variants/ide-util";
 import { NivelSeletor } from "@/components/course-skins/variants/ide-kit";
 import { nn, ritmo, type ConteudoProps, type PublicoProps } from "@/components/course-skins/variants/ide-util";
 
 /**
- * ADS (formação): “Para quem é” é o mural de personas da análise de
- * requisitos, em post-its; o conteúdo é a trilha da formação em estilo
+^ * ADS (curso): “Para quem é” é o mural de personas da análise de
+ * requisitos, em post-its; o conteúdo é a trilha do curso em estilo
  * roadmap — disciplinas agrupadas por etapa, com progresso até a disciplina
  * selecionada.
  */
@@ -45,7 +45,7 @@ export function AdsPublico({ itens }: PublicoProps) {
   );
 }
 
-// ── Roadmap da formação ────────────────────────────────────────────────────
+// ── Roadmap do curso ────────────────────────────────────────────────────────
 
 function Topicos({ m }: { m: Modulo }) {
   return (
@@ -73,7 +73,7 @@ export function AdsConteudo({ course, tier, tierIndex, onSelectTier, meta }: Con
     <div className="rounded-xl border border-white/10 bg-[#0b0f19] p-4 sm:p-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <p className="flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.2em] text-white/45">
-          <GraduationCap className="h-4 w-4 text-(--accent-2)" /> Trilha da formação
+          <Route className="h-4 w-4 text-(--accent-2)" /> Trilha do curso
         </p>
         <NivelSeletor tiers={course.tiers} atual={tierIndex} onSelect={onSelectTier} estilo="pilula" rotulo={(n, i) => `${n} · ${course.tiers[i].modules.length} disciplinas`} />
       </div>

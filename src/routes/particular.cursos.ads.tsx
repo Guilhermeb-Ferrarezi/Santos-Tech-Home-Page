@@ -189,7 +189,7 @@ const COURSE_DATA = {
             "Arquitetura do sistema: diagrama C4, escolha de stack e planejamento de sprints",
             "Desenvolvimento iterativo com entregas quinzenais e revisão de código",
             "Documentação técnica: README, Swagger, diagrama ER e manual do usuário",
-            "Apresentação e defesa do projeto para banca avaliadora com pitch de 10 minutos",
+            "Apresentação do projeto ao professor, com pitch de 10 minutos",
           ],
         },
       ],
@@ -236,7 +236,7 @@ const COURSE_DATA = {
     },
     {
       q: "Já trabalho na área de suporte ou infraestrutura de TI, o ADS serve pra mim?",
-      a: "Sim, é um dos perfis para quem o curso foi pensado. Ele cobre a parte de desenvolvimento de sistemas que quem já está no operacional de TI geralmente não viu — desde lógica e banco de dados até arquitetura de microsserviços, fechando com um projeto de conclusão.",
+      a: "Sim, o curso também foi pensado para esse perfil. Ele cobre a parte de desenvolvimento de sistemas que quem já está no operacional de TI geralmente não viu — desde lógica e banco de dados até arquitetura de microsserviços, fechando com um projeto de conclusão.",
     },
   ],
 }

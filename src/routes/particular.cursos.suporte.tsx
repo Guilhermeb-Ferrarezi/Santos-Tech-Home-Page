@@ -10,7 +10,7 @@ export const Route = createFileRoute("/particular/cursos/suporte")({
       title:
         "Curso de Suporte Técnico / Help Desk Particular em Ribeirão Preto — Santos Tech",
       description:
-        "Aprenda do zero hardware, redes, Active Directory e ticketing e prepare-se para a CompTIA A+, com aulas individuais e presenciais em Ribeirão Preto.",
+        "Aprenda do zero hardware, redes, Active Directory e ticketing, e prepare-se para a CompTIA A+ com aulas individuais e presenciais em Ribeirão Preto.",
       path: "/particular/cursos/suporte",
     }),
 })
