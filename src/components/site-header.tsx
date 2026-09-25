@@ -30,7 +30,7 @@ const NAV_INF: NavItem[] = [
 ];
 const NAV_EXTRAS: NavItem[] = [
   { label: "Colônia de Férias", href: "/cursos/camps", color: "#0E9E8E" },
-  { label: "Cursos particulares", meta: "adultos · individual", href: "/particular", color: "#0067BE" },
+  { label: "Cursos particulares", meta: "1:1 · qualquer idade", href: "/particular", color: "#0067BE" },
 ];
 
 type SobreItem = { label: string; href: string };

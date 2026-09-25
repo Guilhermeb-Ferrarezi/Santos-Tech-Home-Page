@@ -1055,10 +1055,10 @@ function Index() {
           <Reveal className="mx-auto max-w-5xl">
             <div className="flex flex-col items-start gap-6 rounded-3xl border-2 border-primary/15 bg-card p-6 sm:p-8 md:flex-row md:items-center md:justify-between">
               <div>
-                <h2 className="text-balance text-2xl font-black tracking-tight">Aulas particulares para adultos</h2>
+                <h2 className="text-balance text-2xl font-black tracking-tight">Aulas particulares, para qualquer idade</h2>
                 <p className="mt-2 text-pretty text-muted-foreground">
-                  Excel, IA, programação, marketing e mais — aulas individuais e presenciais, no seu
-                  horário.
+                  Excel, IA, programação, marketing e mais — 1 aluno e 1 professor, presencial, no seu
+                  horário. Para você ou para o seu filho.
                 </p>
               </div>
               <Link
