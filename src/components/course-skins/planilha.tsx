@@ -169,8 +169,8 @@ export function PlanilhaSkin({ course, tema, theme, logo, whatsappUrl, selectedT
   return (
     <div className={`sb-bleed ${GRID_VARS} bg-white dark:bg-neutral-950`}>
       {/* ── HERO: janela do app (Excel, Word, PowerPoint…) ─────────────────── */}
-      <section className="border-b border-neutral-300 dark:border-neutral-800">
-        <div className="flex h-9 items-center justify-between px-4" style={{ background: v.bar, color: v.barInk }}>
+      <section className="sb-bleed border-b border-neutral-300 dark:border-neutral-800">
+        <div className="sb-bleed flex h-9 items-center justify-between px-4 [--sb-pl:1rem]" style={{ background: v.bar, color: v.barInk }}>
           <div className="flex items-center gap-2">
             <span className="flex h-5 w-5 items-center justify-center rounded-sm bg-white">
               <LogoMark name={logo} className="h-3.5 w-3.5" />
@@ -181,7 +181,7 @@ export function PlanilhaSkin({ course, tema, theme, logo, whatsappUrl, selectedT
           <span className="w-24" />
         </div>
 
-        <div className="relative" style={pattern}>
+        <div className="sb-bleed relative" style={pattern}>
           <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:px-8 lg:py-20">
             <div>
               <Reveal>
@@ -218,7 +218,7 @@ export function PlanilhaSkin({ course, tema, theme, logo, whatsappUrl, selectedT
         </div>
 
         {/* Abas (de planilha, de páginas…) = níveis */}
-        <div className="flex items-center justify-between gap-4 border-t border-neutral-300 bg-neutral-100 px-4 dark:border-neutral-800 dark:bg-neutral-900/60">
+        <div className="sb-bleed flex items-center justify-between gap-4 border-t border-neutral-300 bg-neutral-100 px-4 [--sb-pl:1rem] dark:border-neutral-800 dark:bg-neutral-900/60">
           {multiTier ? (
             <SheetTabs tiers={course.tiers} selected={selectedTier} onSelect={onSelectTier} addTab={v.addTab} />
           ) : (

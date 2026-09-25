@@ -161,7 +161,7 @@ function ParticularPage() {
   return (
     <>
       {/* ============ HERO ============ */}
-      <section className="relative isolate overflow-hidden bg-neutral-900">
+      <section className="sb-bleed relative isolate overflow-hidden bg-neutral-900">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.06]"
           style={{
@@ -256,7 +256,7 @@ function ParticularPage() {
       </section>
 
       {/* ============ CATEGORIAS ============ */}
-      <section id="categorias" className="py-16 bg-white dark:bg-neutral-950">
+      <section id="categorias" className="sb-bleed py-16 bg-white dark:bg-neutral-950">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-black uppercase tracking-[0.25em] text-[#0DB88F]">
@@ -282,7 +282,7 @@ function ParticularPage() {
       </section>
 
       {/* ============ PILARES ============ */}
-      <section className="py-16 bg-neutral-50 dark:bg-neutral-950 border-t border-neutral-100 dark:border-neutral-900">
+      <section className="sb-bleed py-16 bg-neutral-50 dark:bg-neutral-950 border-t border-neutral-100 dark:border-neutral-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-2xl text-center mb-12">
             <p className="text-xs font-black uppercase tracking-[0.25em] text-[#0DB88F]">
@@ -341,7 +341,7 @@ function ParticularPage() {
       </section>
 
       {/* ============ EXPERIÊNCIA ============ */}
-      <section className="py-20 bg-white dark:bg-neutral-950">
+      <section className="sb-bleed py-20 bg-white dark:bg-neutral-950">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl">
             <Reveal>
@@ -385,7 +385,7 @@ function ParticularPage() {
       </section>
 
       {/* ============ DIFERENCIAIS ============ */}
-      <section className="border-y border-neutral-100 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 py-20">
+      <section className="sb-bleed border-y border-neutral-100 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-black uppercase tracking-[0.25em] text-[#0DB88F]">
@@ -413,7 +413,7 @@ function ParticularPage() {
       </section>
 
       {/* ============ RITMO ============ */}
-      <section className="py-20 bg-neutral-900">
+      <section className="sb-bleed py-20 bg-neutral-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <Reveal>
@@ -463,7 +463,7 @@ function ParticularPage() {
       </section>
 
       {/* ============ CURSOS MAIS POPULARES ============ */}
-      <section className="py-20 bg-white dark:bg-neutral-950">
+      <section className="sb-bleed py-20 bg-white dark:bg-neutral-950">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <h2 className="text-3xl font-black tracking-tight text-neutral-900 dark:text-white sm:text-4xl">
@@ -529,7 +529,7 @@ function ParticularPage() {
       <ParticularFaq whatsappUrl={WHATSAPP} />
 
       {/* ============ COMO CHEGAR ============ */}
-      <section className="py-20 bg-neutral-50 dark:bg-neutral-900">
+      <section className="sb-bleed py-20 bg-neutral-50 dark:bg-neutral-900">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mb-10 text-center">
             <p className="text-xs font-black uppercase tracking-[0.25em] text-[#0DB88F]">Onde estamos</p>
@@ -579,7 +579,7 @@ function ParticularPage() {
       </section>
 
       {/* ============ CTA FINAL ============ */}
-      <section className="py-20 bg-neutral-50 dark:bg-neutral-950">
+      <section className="sb-bleed py-20 bg-neutral-50 dark:bg-neutral-950">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="relative overflow-hidden rounded-xl bg-neutral-900 px-8 py-14 text-center text-white shadow-xl sm:px-16">
