@@ -210,7 +210,7 @@ export function AdsScene({ theme }: { theme: CourseTheme }) {
   return (
     <>
       <Panel className="left-0 top-[6%] w-[88%]">
-        <p className="border-b border-white/10 px-3 py-1.5 font-mono text-[9px] text-white/45 sm:text-[10px]">trilha · formação ADS</p>
+        <p className="border-b border-white/10 px-3 py-1.5 font-mono text-[9px] text-white/45 sm:text-[10px]">trilha · curso ADS</p>
         <ol className="relative px-4 py-3">
           {/* linha da trilha */}
           <span className="absolute bottom-6 left-[1.45rem] top-6 w-0.5 bg-white/10" />

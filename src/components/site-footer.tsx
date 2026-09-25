@@ -205,15 +205,17 @@ export function SiteFooter() {
       </div>
 
       <div className={t.bottomBar}>
+        {/* O botão flutuante do WhatsApp (whatsapp-fab.tsx) fica por cima do fim da
+            página: no celular, pb-24 deixa a última linha acima dele; do lg ao 2xl,
+            lg:mr-24 afasta "Cookies" da borda direita, onde o botão fica. Os links
+            de Privacidade, Termos e Cursos particulares estão na navegação acima. */}
         <div
-          // pb-24 no celular: o botão flutuante do WhatsApp (canto inferior direito)
-          // cobria o fim da linha de © quando a página chegava ao fim.
-          className={`mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 pb-24 pt-6 text-xs sm:flex-row sm:px-6 sm:pb-6 lg:px-8 ${t.bottomText}`}
+          className={`mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 pb-24 pt-6 text-xs sm:px-6 sm:pb-6 lg:flex-row lg:px-8 ${t.bottomText}`}
         >
           <p>© {new Date().getFullYear()} Santos Tech. Todos os direitos reservados.</p>
           {/* Revogar o consentimento tem que ser tão fácil quanto dar
               (LGPD, art. 8º, §5º) — reabre o mesmo card do banner. */}
-          <button type="button" onClick={openConsentPreferences} className={linkCls}>
+          <button type="button" onClick={openConsentPreferences} className={`${linkCls} lg:mr-24 2xl:mr-0`}>
             Cookies
           </button>
         </div>

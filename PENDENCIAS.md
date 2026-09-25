@@ -2,12 +2,79 @@
 
 ## Abertas
 
+### Auditoria de UI/UX (24/09) e Fase 1 (25/09)
+
+- [ ] 🔴 **`www.santos-tech.com` não existe no DNS** (mesmo item da Fase 0 da auditoria de SEO, abaixo) — quem digita ou recebe o link com
+      `www` cai em erro de navegador (conferido em 24/09: `nslookup www.santos-tech.com 1.1.1.1`
+      → NXDOMAIN; o domínio sem `www` responde 200). Passo privilegiado no painel da
+      Cloudflare, com o passo a passo pronto no achado `F323` da
+      [auditoria de UI/UX](docs/auditorias/2026-09-24-ui-ux/achados/tecnico.md#f323).
+      Validação depois: `curl -sI https://www.santos-tech.com/particular` deve responder
+      `301` para `https://santos-tech.com/particular`. _Aguardando Henrique._
+
+- [ ] **11 decisões de marca/escopo da auditoria de UI/UX (24/09)** — catálogo infantil
+      único, cor dos programas, preço no infantil, número "+300 alunos", nome do curso
+      ADS, template único do /particular, ensaio fotográfico, SVGs, preloader, banner de
+      cookies e formulário de contato. Cada uma já vem com recomendação e motivo na
+      [seção 4 do relatório](docs/auditorias/2026-09-24-ui-ux/README.md#4-decisões-que-só-o-henrique-toma).
+      _Aguardando Henrique._
+
+- [ ] **4 perguntas de fato da Fase 1 da auditoria (25/09)** — o código não tem a
+      resposta e inventar seria pior que perguntar:
+      1. **Robótica existe?** (= decisão 2 da auditoria de SEO, abaixo — responder uma vez só) A home promete "robôs" e "Robótica, games e IA", o FAQ da
+         home diz "Não trabalhamos com robótica de montagem" e `/cursos/academies` vende
+         uma "Robotics Academy" com kits físicos. Qual é a verdade? (bloqueia o `F181`)
+      2. **Sábado nos cursos particulares vai até 22h?** (= decisão 3 da auditoria de SEO) `/particular`, o FAQ particular e
+         a descrição GEO (`seo.ts:56`) dizem seg–sáb 8h–22h; o schema da escola, o
+         `/contato` e a home (já corrigida) dizem sábado até 18h.
+      3. **O certificado traz carga horária e conteúdo?** Se sim, o texto do certificado
+         (hoje "Certificado de conclusão do curso, emitido pela Santos Tech") ganha
+         ", com carga horária e conteúdo do curso".
+      4. **Existe banca avaliadora no ADS?** O módulo 16 dizia "defesa do projeto para
+         banca avaliadora" (linguagem de TCC, sem fonte). Pela regra "sem fonte, corta",
+         virou "apresentação do projeto ao professor". Se existir banca, é só voltar.
+      _Aguardando Henrique._
+
+- [ ] **Novos achados durante a Fase 1 (25/09), fora do escopo dela:**
+      - `/cursos/junior` tem 8px de rolagem horizontal no celular (390px): blob decorativo
+        em `tech-hero.tsx:58` (`absolute -right-24 … h-96 w-96`) sem `overflow-hidden`
+        no contêiner. Conferir as outras rotas que usam `TechHero`.
+      - **Gate incompleto:** o `CLAUDE.md` diz que `bun run build` faz o type-check, mas o
+        build é só `generate-og-images + vite build`. `bunx tsc --noEmit` mostra 12 erros
+        antigos (cursos.academies 2, cursos.create.index 5, cursos.junior.index 4,
+        particular.tsx 1 — tipo da rota `/particular/cursos/${string}`). Corrigir os 12 e
+        pôr `tsc --noEmit` no gate.
+      - O card de investimento real das 52 páginas é o de `course-skins/common.tsx` (já
+        passa AA); o template de `particular-course-page.tsx` (~L227–735) nunca renderiza
+        — código morto a remover (Fase 2).
+      - **Tom desigual nos resultados dos cursos:** 12 cursos ainda fecham com "pronto
+        para atuar como X" (power-bi, redes-sociais, seo, premiere, marketing, mobile,
+        davinci, revit, sql, ia-visual, linux, copywriting), enquanto ADS e AutoCAD já
+        dizem "base para trabalhar como X". Uma passada única de copy (Fase 2).
+      - `particular-course-page.tsx:732` (template morto) e o `/particular` ainda sem
+        horário unificado dependem da pergunta 2 acima.
+
+- [~] **Executar o plano da auditoria de UI/UX** — 326 achados confirmados (🔴 4 · 🟠 32 ·
+      🟡 139 · ⚪ 151) em [docs/auditorias/2026-09-24-ui-ux/](docs/auditorias/2026-09-24-ui-ux/README.md),
+      organizados em 3 fases. **Fase 1** (quick wins, sem mexer na marca) feita em 25/09
+      na branch `claude-henrique/ui-ux-fase1`: os 3 críticos do site (`F032` tela em
+      branco, `F255`/`F159` sidebar ilegível, `F358` promessa de emprego) + `F360`,
+      `F359`, `F361`, `F244`, `F175`, `F340`, `F256`/`F125`, `F216`, `F322`, e ainda
+      `F379` (DaVinci) e o link "Cookies" no `/particular`, puxados pela revisão
+      adversarial — plano em
+      [docs/superpowers/plans/2026-09-25-ui-ux-fase1.md](docs/superpowers/plans/2026-09-25-ui-ux-fase1.md).
+      Ficaram de fora só `F181` (pergunta 1 acima) e `F323` (DNS, item acima).
+      **Fase 2** (sprint de consistência) é a próxima e não depende do Henrique;
+      **Fase 3** depende das 11 decisões.
+
+### Auditoria de SEO/GEO/AEO (24/09)
+
 > Origem de todos os itens abaixo: auditoria SEO/GEO/AEO de 24/09/2026 —
 > [`docs/auditorias/2026-09-24-seo-geo-aeo.md`](docs/auditorias/2026-09-24-seo-geo-aeo.md)
 > (189 achados verificados: 0 🔴 · 7 🟠 · 86 🟡 · 96 🟢). Os IDs entre parênteses
 > apontam para o §5 do relatório; o §7 tem a ordem de execução e como provar cada fase.
 
-### 🔴 Segurança (fora do escopo da auditoria de SEO — achado em 25/09/2026)
+#### 🔴 Segurança (fora do escopo da auditoria de SEO — achado em 25/09/2026)
 
 - [ ] **Material "restrito" dos professores está num JavaScript público.** As rotas
       `/professores/*` mostram só o cabeçalho sem login, mas o conteúdo inteiro vai
@@ -18,7 +85,7 @@
       API autenticada (ou rota com checagem de sessão no servidor) em vez de importar os
       dados no bundle. _Aguardando priorização — não é SEO._
 
-### ⚠️ Decisões do Henrique que bloqueiam código (§6 do relatório)
+#### ⚠️ Decisões do Henrique que bloqueiam código (§6 do relatório)
 
 - [ ] **1. Nomes e faixas de idade oficiais do infantil** (5–9/10–15 × 5–8/8–14).
       Recomendação: oficializar os 4 produtos da home e alinhar as 9 páginas de
@@ -34,8 +101,10 @@
       Julho nº 1992 = **14020-170, Jardim América**; o site usa 14025-000 (trecho
       2–1322, Jardim Sumaré). Falta copiar as coordenadas do pino do Perfil da
       Empresa. _Aguardando Henrique._
-- [ ] **6. "Cursos particulares" no menu principal.** Recomendação: sim.
-      _Aguardando Henrique._
+- [x] **6. "Cursos particulares" no menu principal.** Recomendação: sim.
+      ✅ Feito na Fase 1 de UI/UX (25/09, `F175`): item no dropdown Programas e no menu
+      mobile, link no rodapé e bloco na home. Se o Henrique preferir no menu de primeiro
+      nível, é um ajuste pequeno.
 - [ ] **7. Preço em mais lugares** (páginas infantis, FAQ dos particulares, faixa no
       hub). _Aguardando Henrique._
 - [ ] **8–25. Demais decisões** (avaliações autodeclaradas, aula online,
@@ -45,7 +114,7 @@
       promessas de marketing, acesso aos painéis). Detalhe e recomendação de cada
       uma no §6. _Aguardando Henrique._
 
-### Fase 0 — painéis (só o Henrique; §7.2)
+#### Fase 0 — painéis (só o Henrique; §7.2)
 
 - [ ] Cloudflare: Email Obfuscation Off · Always Use HTTPS (http→https hoje é
       **302**, deveria ser 301) · criar `www` (hoje **NXDOMAIN**) com 301 · conferir
@@ -56,10 +125,10 @@
 - [ ] Search Console + Bing Webmaster: submeter os 2 sitemaps, exportar baseline
       (Páginas e Desempenho em IA generativa), importar no Bing. _Aguardando Henrique._
 
-### Fase 1 — código sem depender de decisão (§7.3)
+#### Fase 1 — código sem depender de decisão (§7.3)
 
-- [ ] **P1 Robots e sitemap** — remover `Disallow: /assets/` (bloqueia CSS/JS do
-      próprio site para o Google) e o Disallow de `/apresentacoes` e `/professores`
+- [~] **P1 Robots e sitemap** — ~~remover `Disallow: /assets/`~~ ✅ feito na Fase 1 de UI/UX
+      (`F322`, 25/09); falta o Disallow de `/apresentacoes` e `/professores`
       (conflita com o noindex); tirar priority/changefreq; lastmod fiel.
       (`tecnico-rastreio-indexacao-01`, `-04`, `-12`, `-14`)
 - [ ] **P2 Malha de links internos** — hoje, a partir da home, um robô alcança
@@ -81,7 +150,7 @@
       `lacuna-geo-03`, `lacuna-infra-01`)
 - [ ] **P10 Acessibilidade** e **P8 Títulos/H1** — itens rápidos listados no §7.3.
 
-### Fase 2 e 3 (§7.4 e §7.5)
+#### Fase 2 e 3 (§7.4 e §7.5)
 
 - [ ] P4 fonte única de fatos (depende das decisões 1–5 e 9) · P9 respostas e
       preços · P11 marca e social · P12 presença local externa · P13 blog (outro

@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 import {
   Users,
@@ -42,7 +42,6 @@ import { RarityBadge } from "@/components/rarity-badge";
 import { HeroCollage } from "@/components/hero-collage";
 import { ScrollStage } from "@/components/scroll-stage";
 import { Testimonials } from "@/components/testimonials";
-import { ParticularCta } from "@/components/particular-cta";
 import { JsonLd } from "@/components/json-ld";
 import { pageMeta, buildFaqSchema, buildCourseSchema } from "@/lib/seo";
 
@@ -1049,7 +1048,34 @@ function Index() {
         </div>
       </section>
 
-      <ParticularCta />
+      {/* ============ CURSOS PARTICULARES (público adulto) ============
+          Entrada discreta pro /particular: CTA secundário, sem competir com o
+          "agende a aula experimental" das crianças, que fecha a página. */}
+      <section className="bg-white pt-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="mx-auto max-w-5xl">
+            <div className="flex flex-col items-start gap-6 rounded-3xl border-2 border-primary/15 bg-card p-6 sm:p-8 md:flex-row md:items-center md:justify-between">
+              <div>
+                <h2 className="text-balance text-2xl font-black tracking-tight">Aulas particulares, para qualquer idade</h2>
+                <p className="mt-2 text-pretty text-muted-foreground">
+                  Excel, IA, programação, marketing e mais — 1 aluno e 1 professor, presencial, no seu
+                  horário. Para você ou para o seu filho.
+                </p>
+              </div>
+              <Link
+                to="/particular"
+                className="inline-flex shrink-0 items-center gap-2 rounded-full border-2 border-primary/20 bg-white px-7 py-4 text-sm font-black uppercase tracking-wider text-st-blue-dark transition hover:border-primary/60 hover:text-primary"
+              >
+                {/* Texto visível curto pra caber numa linha em 360px; o
+                    "particulares" escondido completa o nome do link pra leitor
+                    de tela (e pro texto-âncora). */}
+                Conhecer os cursos<span className="sr-only"> particulares</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
       {/* ============ COMO CHEGAR ============ */}
       <section className="py-20 bg-white">
@@ -1081,7 +1107,10 @@ function Index() {
                   <div>
                     <p className="text-xs font-black uppercase tracking-wider text-muted-foreground">WhatsApp</p>
                     <p className="mt-1 font-black text-foreground">(16) 99257-8710</p>
-                    <p className="text-sm text-muted-foreground">Seg a Sáb · 8h às 22h</p>
+                    {/* Mesmo horário do /contato, do FAQ e do schema (seo.ts,
+                        openingHoursSpecification): sábado fecha às 18h. */}
+                    <p className="text-sm text-muted-foreground">Seg a Sex · 8h às 22h</p>
+                    <p className="text-sm text-muted-foreground">Sábado · 8h às 18h</p>
                   </div>
                 </div>
               </div>

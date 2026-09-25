@@ -107,8 +107,8 @@ const COURSE_DATA = {
       a: "Não. O curso já parte da instalação e da interface do zero, incluindo os atalhos básicos e a estrutura de projeto. Se você já edita no celular ou é curioso mas nunca abriu o Resolve, esse é o ponto de partida — o curso vai te levar, em ordem, até o color grading cinematográfico, os efeitos visuais com Fusion e as ferramentas de IA do Neural Engine.",
     },
     {
-      q: "O curso dá alguma certificação reconhecida no mercado?",
-      a: "Sim. O projeto final do curso inclui a certificação Blackmagic Design: DaVinci Resolve Operator, além de um showreel de 2-3 minutos pronto para publicar no Vimeo e no LinkedIn — ótimo para quem precisa comprovar domínio técnico como editor ou colorista.",
+      q: "O curso prepara para alguma certificação?",
+      a: "Sim. O curso prepara você para a prova de certificação Blackmagic Design (DaVinci Resolve), que é feita por conta própria na plataforma da Blackmagic, e você sai com um showreel de 2-3 minutos pronto para publicar no Vimeo e no LinkedIn — ótimo para quem precisa comprovar domínio técnico como editor ou colorista.",
     },
   ],
 }
