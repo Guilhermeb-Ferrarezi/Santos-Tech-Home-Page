@@ -4,15 +4,23 @@
 User-agent: *
 Allow: /
 
-# Bloqueia arquivos internos sem conteúdo relevante pra SEO.
-Disallow: /assets/
+# Endpoints internos, sem conteúdo pra indexar.
 Disallow: /api/
 
-# Área de apresentações / ementa — conteúdo pedagógico privado (não indexar)
-Disallow: /apresentacoes
-
-# Área de professores — material didático restrito (não indexar)
-Disallow: /professores
+# NÃO bloquear /assets/: é onde ficam o CSS, o JS e as fontes. O Google
+# renderiza a página como um navegador e, sem esses arquivos, avalia o site
+# sem layout (experiência mobile, CLS). Os arquivos têm hash no nome e cache
+# immutable, então liberar o rastreio não custa nada.
+# https://developers.google.com/search/blog/2024/12/crawling-december-resources
+#
+# NÃO bloquear /apresentacoes nem /professores: essas páginas já saem com
+# <meta name="robots" content="noindex"> (noindexMeta em src/lib/seo.ts). O
+# robô só lê o noindex se puder rastrear a página; com Disallow ele nunca vê a
+# meta e a URL pode aparecer nos resultados, só que sem descrição.
+# https://developers.google.com/search/docs/crawling-indexing/block-indexing
+#
+# Mudou este arquivo? Depois do deploy, fazer purge de /robots.txt no
+# Cloudflare (a origem manda max-age=3600, ver docker/server.ts).
 
 # Sitemaps — cada app do domínio mantém o próprio; listar os dois pros
 # crawlers descobrirem as rotas de ambos (site institucional + blog).

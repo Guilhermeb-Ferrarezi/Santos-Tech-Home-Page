@@ -71,19 +71,15 @@ async function serveStaticAsset(request: Request) {
 
   const headers = new Headers();
   // Bundled assets têm hash no nome → cache eterno. Public files (top-level
-  // ou subpastas permitidas) mudam sem invalidar URL → cache curto.
-  const isLongLivedStatic =
-    url.pathname === "/robots.txt" ||
-    url.pathname === "/sitemap.xml" ||
-    url.pathname === "/sitemap-0.xml";
-
+  // ou subpastas permitidas, incluindo robots.txt e sitemap.xml) mudam sem
+  // invalidar URL → cache curto de 1 h. robots.txt e sitemap.xml ficavam com
+  // 7 dias e a borda do Cloudflare seguia servindo a cópia antiga depois do
+  // deploy; com 1 h a correção chega aos robôs no mesmo dia (o Google guarda o
+  // robots.txt por até 24 h, respeitando o max-age). Mudou o robots.txt? Purge
+  // manual da URL no Cloudflare depois do deploy.
   headers.set(
     "Cache-Control",
-    isBundledAsset
-      ? "public, max-age=31536000, immutable"
-      : isLongLivedStatic
-        ? "public, max-age=604800"
-        : "public, max-age=3600",
+    isBundledAsset ? "public, max-age=31536000, immutable" : "public, max-age=3600",
   );
   return new Response(file, { headers });
 }
