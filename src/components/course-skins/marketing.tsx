@@ -1,4 +1,4 @@
-import type { ComponentType, ReactNode } from "react";
+import { useId, type ComponentType, type ReactNode } from "react";
 import { ArrowDown, Megaphone, MousePointer2 } from "lucide-react";
 import { RevealHero } from "@/components/reveal";
 import { CourseHeroArt } from "@/components/course-hero-art";
@@ -120,17 +120,21 @@ const ICON_GLYPHS: Record<string, { glyph: ReactNode; ad?: boolean }> = {
 
 /** Logo do curso: arquivo oficial quando existe, senão um ícone genérico desenhado aqui. */
 function CourseMark({ logo, className = "h-10 w-10" }: { logo: string; className?: string }) {
+  // A marca aparece mais de uma vez na página (hero e card do curso): `id` fixo
+  // por logo virava `id` duplicado no DOM. useId dá um por instância; tira os
+  // caracteres que não servem dentro de `url(#…)`.
+  const gradId = `mkt-mark-${useId().replace(/[^\w-]/g, "")}`;
   const icon = ICON_GLYPHS[logo];
   if (!icon) return <ToolLogo name={logo} className={className} />;
   return (
     <svg viewBox="0 0 24 24" className={`text-(--accent) ${className}`} aria-hidden="true">
       <defs>
-        <linearGradient id={`mkt-mark-${logo}`} x1="0" x2="1" y1="0" y2="1">
+        <linearGradient id={gradId} x1="0" x2="1" y1="0" y2="1">
           <stop offset="0" stopColor="var(--accent)" />
           <stop offset="1" stopColor="color-mix(in srgb, var(--accent) 70%, #7a0b2a)" />
         </linearGradient>
       </defs>
-      <rect width="24" height="24" rx="6" fill={`url(#mkt-mark-${logo})`} />
+      <rect width="24" height="24" rx="6" fill={`url(#${gradId})`} />
       {icon.glyph}
       {icon.ad && (
         <g>
