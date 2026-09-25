@@ -28,7 +28,7 @@ export function ParticularCta() {
     <section aria-labelledby="particular-cta-titulo" className="bg-white py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <div className="grid items-center gap-8 rounded-3xl border-2 border-primary/15 bg-card p-8 sm:p-10 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:gap-12">
+          <div className="grid items-center gap-8 rounded-3xl border-2 border-primary/15 bg-card p-6 sm:p-10 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:gap-12">
             <div>
               <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-primary shadow-sm">
                 <UserRound className="h-4 w-4 shrink-0" />
@@ -49,9 +49,9 @@ export function ParticularCta() {
               <div className="mt-8">
                 <Link
                   to="/particular"
-                  className="inline-flex items-center gap-2 rounded-full border-2 border-primary/20 bg-white px-7 py-4 text-sm font-black uppercase tracking-wider text-st-blue-dark transition hover:border-primary/60 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  className="inline-flex items-center gap-2 rounded-full border-2 border-primary/20 bg-white px-5 py-4 text-xs font-black uppercase tracking-normal text-st-blue-dark sm:px-7 sm:text-sm sm:tracking-wider transition hover:border-primary/60 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
-                  Conhecer os cursos particulares <ArrowRight className="h-4 w-4" />
+                  Conhecer os cursos particulares <ArrowRight className="hidden h-4 w-4 sm:block" />
                 </Link>
               </div>
             </div>
