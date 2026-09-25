@@ -1,6 +1,13 @@
 type LogoProps = { name: string; className?: string };
 
 // Logos originais (arquivos em src/assets/logos). Vite resolve com hash.
+// ⚠️ Logo raster entra como WebP de no máximo 192 px no maior lado (cobre até
+// 64 px de exibição em tela 3x) — os PNGs originais chegavam a 725 KB pra um
+// ícone de 14-48 px (auditoria de performance de 24/09/2026, performance-cwv-07).
+// Conversão (sharp, já é devDependency):
+//   sharp(png).resize(192, 192, { fit: "inside", withoutEnlargement: true })
+//     .webp({ quality: 85, alphaQuality: 100, smartSubsample: true })
+// Uma chave = um arquivo: não deixe `x.png` e `x.webp` juntos (o glob pegaria só um deles).
 const files = import.meta.glob("../assets/logos/*.{png,svg,webp,jpg}", {
   eager: true,
   query: "?url",
@@ -90,7 +97,16 @@ export function logoKey(ferramenta: string): string {
 export function ToolLogo({ name, className = "h-7 w-7" }: LogoProps) {
   const url = REAL[name];
   if (url) {
-    return <img src={url} alt="" aria-hidden="true" className={`${className} object-contain`} />;
+    return (
+      <img
+        src={url}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+        className={`${className} object-contain`}
+      />
+    );
   }
   return (
     <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
