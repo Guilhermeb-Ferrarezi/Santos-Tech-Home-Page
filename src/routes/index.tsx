@@ -17,6 +17,7 @@ import {
   Star,
   MapPin,
   ArrowRight,
+  ArrowDown,
   CheckCircle2,
   BadgeCheck,
   KeyRound,
@@ -430,6 +431,14 @@ function Index() {
                 >
                   Ver os programas <ArrowRight className="h-4 w-4" />
                 </a>
+                {/* Atalho discreto pro preço (link de texto, não compete com o CTA
+                    verde): no celular os valores ficam a ~9 telas do topo — F192. */}
+                <a
+                  href="#investimento"
+                  className="inline-flex items-center gap-1 py-3 text-sm font-bold text-primary underline decoration-primary/30 underline-offset-4 transition hover:decoration-primary"
+                >
+                  Ver valores <ArrowDown className="h-4 w-4" aria-hidden />
+                </a>
               </RevealHero>
               <RevealHero delay={480} className="mt-6 flex items-center gap-2 text-sm font-semibold text-foreground/80">
                 <span className="flex items-center gap-1 text-amber-500">
@@ -634,7 +643,7 @@ function Index() {
       </section>
 
       {/* ============ INVESTIMENTO ============ */}
-      <section className="relative isolate overflow-hidden py-24">
+      <section id="investimento" className="relative isolate scroll-mt-24 overflow-hidden py-24">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#eef5fb] to-white" />
         <div className="pointer-events-none absolute -left-32 top-16 h-80 w-80 rounded-full bg-[#187ABF]/10 blur-3xl" />
         <div className="pointer-events-none absolute -right-32 bottom-16 h-80 w-80 rounded-full bg-[#0DB88F]/10 blur-3xl" />
