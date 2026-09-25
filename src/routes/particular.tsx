@@ -368,6 +368,61 @@ function createBackdropReader(exclude: Element) {
   };
 }
 
+/**
+ * Cor em que a página termina logo acima de `rodape`: parte do fundo do layout e desce pela
+ * cadeia de "último bloco" — em cada nível, o último filho no fluxo que encosta no rodapé e
+ * ocupa a largura toda —, compondo os fundos que encontrar. Pula o que não é a borda de baixo
+ * da página (botão flutuante `fixed`, elemento escondido, bloco estreito). Serve para o
+ * mini-rodapé continuar o fundo da página em vez de abrir uma faixa branca embaixo das
+ * páginas escuras (programação/IDE) — o mesmo princípio da fusão da sidebar.
+ */
+function corDoFimDaPagina(rodape: HTMLElement): Rgba {
+  const canvas = document.createElement("canvas");
+  canvas.width = canvas.height = 1;
+  const ctx = canvas.getContext("2d", { willReadFrequently: true });
+  if (ctx) ctx.globalCompositeOperation = "copy";
+  // O canvas normaliza qualquer formato de cor do navegador (Tailwind v4 usa oklch()).
+  const toRgba = (css: string): Rgba => {
+    if (!ctx || !css || css === "transparent") return [0, 0, 0, 0];
+    ctx.clearRect(0, 0, 1, 1);
+    ctx.fillStyle = "rgba(0,0,0,0)";
+    ctx.fillStyle = css;
+    ctx.fillRect(0, 0, 1, 1);
+    const d = ctx.getImageData(0, 0, 1, 1).data;
+    return [d[0], d[1], d[2], d[3] / 255];
+  };
+  const fundo = (el: Element) => toRgba(getComputedStyle(el).backgroundColor);
+
+  // Base: o primeiro fundo pintado entre os ancestrais do rodapé (o fundo do layout).
+  let cor: Rgba = [255, 255, 255, 1];
+  for (let el = rodape.parentElement; el; el = el.parentElement) {
+    const c = fundo(el);
+    if (c[3] > 0) {
+      cor = over(c, cor);
+      if (c[3] >= 0.99) break;
+    }
+  }
+
+  const topoRodape = rodape.getBoundingClientRect().top;
+  const largura = rodape.parentElement?.getBoundingClientRect().width ?? window.innerWidth;
+  const encostaNoRodape = (el: Element) => {
+    const cs = getComputedStyle(el);
+    if (cs.display === "none" || cs.position === "fixed" || cs.position === "sticky") return false;
+    const r = el.getBoundingClientRect();
+    return r.height > 0 && Math.abs(r.bottom - topoRodape) <= 2 && r.width >= largura * 0.9;
+  };
+  const ultimoBloco = (el: Element | null) => {
+    while (el && !encostaNoRodape(el)) el = el.previousElementSibling;
+    return el;
+  };
+
+  for (let el = ultimoBloco(rodape.previousElementSibling); el; el = ultimoBloco(el.lastElementChild)) {
+    const c = fundo(el);
+    if (c[3] > 0) cor = over(c, cor);
+  }
+  return cor;
+}
+
 function ParticularLayout() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
@@ -409,6 +464,45 @@ function ParticularLayout() {
   const toggleGrupo = (id: string) =>
     setGruposOpen((prev) => ({ ...prev, [id]: !prev[id] }));
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  // Mini-rodapé na cor em que a página termina (ver corDoFimDaPagina). No SSR e antes da
+  // medição ele usa o branco/neutro padrão; o tom decide texto claro ou escuro.
+  const rodapeRef = useRef<HTMLElement | null>(null);
+  const [fimPagina, setFimPagina] = useState<{ cor: string; tom: Tone } | null>(null);
+  useEffect(() => {
+    const rodape = rodapeRef.current;
+    if (!rodape) return;
+    let raf = 0;
+    const medir = () => {
+      raf = 0;
+      const c = corDoFimDaPagina(rodape);
+      const cor = `rgb(${Math.round(c[0])}, ${Math.round(c[1])}, ${Math.round(c[2])})`;
+      const tom = toneFor([c]);
+      setFimPagina((prev) => (prev?.cor === cor && prev.tom === tom ? prev : { cor, tom }));
+    };
+    const agendar = () => {
+      if (!raf) raf = requestAnimationFrame(medir);
+    };
+    medir();
+    // Conteúdo que entra depois (rota carregada sob demanda, imagem) e a troca de tema com
+    // `transition-colors` (a cor lida no meio da transição seria a intermediária).
+    const resize = new ResizeObserver(agendar);
+    resize.observe(document.body);
+    const main = rodape.parentElement;
+    main?.addEventListener("transitionend", agendar);
+    return () => {
+      cancelAnimationFrame(raf);
+      resize.disconnect();
+      main?.removeEventListener("transitionend", agendar);
+    };
+  }, [pathname, dark]);
+  const tomRodape = fimPagina?.tom;
+  const rodapeHover =
+    tomRodape === "dark"
+      ? "hover:text-white"
+      : tomRodape === "light"
+        ? "hover:text-neutral-900"
+        : "hover:text-neutral-900 dark:hover:text-white";
 
   // Categoria do curso atual (se a rota for uma página de curso) — usada pra "herdar"
   // a cor de destaque daquele curso na sidebar (borda, ícone e item ativos).
@@ -513,7 +607,7 @@ function ParticularLayout() {
       aside.removeEventListener("transitionrun", onTransition);
       desktop.removeEventListener("change", schedule);
     };
-  }, [pathname, collapsed, dark, cursosOpen, gruposOpen]);
+  }, [pathname, collapsed, dark, cursosOpen, gruposOpen, fimPagina]);
 
   const navItem = (active: boolean) =>
     [
@@ -889,14 +983,27 @@ function ParticularLayout() {
           {/* Mini-rodapé — dentro do <main> de propósito: em telas ≥ lg a sidebar é
               transparente e o que aparece atrás dela tem que ser a página (é o que
               scripts/verificar-sidebar-fusao.mjs confere). `sb-bleed` estende o fundo
-              por baixo da sidebar sem mover o conteúdo. */}
-          <footer className="sb-bleed border-t border-neutral-200 bg-white text-neutral-600 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-400">
+              por baixo da sidebar sem mover o conteúdo. Efeito colateral aceito: dentro
+              do <main>, o <footer> não vira landmark "contentinfo" — o marco de navegação
+              é o <nav aria-label="Site da Santos Tech"> logo abaixo. */}
+          <footer
+            ref={rodapeRef}
+            style={fimPagina ? { backgroundColor: fimPagina.cor } : undefined}
+            className={[
+              "sb-bleed border-t",
+              tomRodape === "dark"
+                ? "border-white/10 text-neutral-300"
+                : tomRodape === "light"
+                  ? "border-black/10 text-neutral-600"
+                  : "border-neutral-200 bg-white text-neutral-600 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-400",
+            ].join(" ")}
+          >
             <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 py-8 sm:px-6 lg:px-8">
               <nav aria-label="Site da Santos Tech">
                 <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold">
                   {RODAPE_LINKS.map((item) => {
                     const cls =
-                      "rounded-sm transition-colors hover:text-neutral-900 dark:hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0DB88F]";
+                      `rounded-sm transition-colors ${rodapeHover} focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0DB88F]`;
                     return (
                       <li key={item.href}>
                         {item.externo ? (
@@ -916,7 +1023,7 @@ function ParticularLayout() {
                     <button
                       type="button"
                       onClick={openConsentPreferences}
-                      className="rounded-sm font-semibold transition-colors hover:text-neutral-900 dark:hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0DB88F]"
+                      className={`rounded-sm font-semibold transition-colors ${rodapeHover} focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0DB88F]`}
                     >
                       Cookies
                     </button>
@@ -930,7 +1037,7 @@ function ParticularLayout() {
                   {ORG.address.state} ·{" "}
                   <a
                     href={TEL_HREF}
-                    className="rounded-sm underline underline-offset-2 hover:text-neutral-900 dark:hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0DB88F]"
+                    className={`rounded-sm underline underline-offset-2 ${rodapeHover} focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0DB88F]`}
                   >
                     Telefone: {WHATSAPP_PHONE_DISPLAY}
                   </a>
