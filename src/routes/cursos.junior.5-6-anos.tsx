@@ -42,6 +42,7 @@ import {
   type FaqItem,
   type ProgressionBadge,
 } from "@/components/course-page";
+import { TrilhaFaixas } from "@/components/trilha-faixas";
 import { JsonLd } from "@/components/json-ld";
 import { pageMeta, coursePageSchemas } from "@/lib/seo";
 
@@ -350,6 +351,8 @@ function Junior56Page() {
         primaryCta={{ href: WHATSAPP, label: "Agendar visita guiada grátis" }}
         secondaryCta={{ href: "/cursos/junior", label: "Voltar ao programa JR" }}
       />
+
+      <TrilhaFaixas atual="/cursos/junior/5-6-anos" theme={THEME} />
     </>
   );
 }

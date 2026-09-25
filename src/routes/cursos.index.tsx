@@ -175,6 +175,7 @@ function ProgramCardItem({ program }: { program: ProgramCard }) {
               style={{ color: program.dark }}
             >
               <WhatsAppIcon className="h-4 w-4" /> Quero saber mais
+              <span className="sr-only"> sobre {program.name} no WhatsApp (abre em nova aba)</span>
             </span>
           </div>
         </div>

@@ -169,7 +169,7 @@ function AgeBlock({
                   className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-black uppercase tracking-wider text-white shadow-lg transition hover:scale-[1.03]"
                   style={{ background: JR }}
                 >
-                  Ver currículo completo <ArrowRight className="h-4 w-4" />
+                  Ver currículo de {eyebrow} ({ageRange}) <ArrowRight className="h-4 w-4" />
                 </Link>
               ) : (
                 <span className="inline-flex items-center gap-2 rounded-full border-2 border-dashed px-6 py-3 text-sm font-bold uppercase tracking-wider"
@@ -195,6 +195,7 @@ function MethodPoint({ icon: Icon, title, children }: { icon: typeof Sparkles; t
       <div
         className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md"
         style={{ background: `${JR_SOFT}40`, color: JR_SOFT }}
+        aria-hidden="true"
       >
         <Icon className="h-5 w-5" />
       </div>
