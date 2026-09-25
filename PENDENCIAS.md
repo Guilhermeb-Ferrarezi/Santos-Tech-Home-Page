@@ -2,7 +2,9 @@
 
 ## Abertas
 
-- [ ] 🔴 **`www.santos-tech.com` não existe no DNS** — quem digita ou recebe o link com
+### Auditoria de UI/UX (24/09) e Fase 1 (25/09)
+
+- [ ] 🔴 **`www.santos-tech.com` não existe no DNS** (mesmo item da Fase 0 da auditoria de SEO, abaixo) — quem digita ou recebe o link com
       `www` cai em erro de navegador (conferido em 24/09: `nslookup www.santos-tech.com 1.1.1.1`
       → NXDOMAIN; o domínio sem `www` responde 200). Passo privilegiado no painel da
       Cloudflare, com o passo a passo pronto no achado `F323` da
@@ -19,10 +21,10 @@
 
 - [ ] **4 perguntas de fato da Fase 1 da auditoria (25/09)** — o código não tem a
       resposta e inventar seria pior que perguntar:
-      1. **Robótica existe?** A home promete "robôs" e "Robótica, games e IA", o FAQ da
+      1. **Robótica existe?** (= decisão 2 da auditoria de SEO, abaixo — responder uma vez só) A home promete "robôs" e "Robótica, games e IA", o FAQ da
          home diz "Não trabalhamos com robótica de montagem" e `/cursos/academies` vende
          uma "Robotics Academy" com kits físicos. Qual é a verdade? (bloqueia o `F181`)
-      2. **Sábado nos cursos particulares vai até 22h?** `/particular`, o FAQ particular e
+      2. **Sábado nos cursos particulares vai até 22h?** (= decisão 3 da auditoria de SEO) `/particular`, o FAQ particular e
          a descrição GEO (`seo.ts:56`) dizem seg–sáb 8h–22h; o schema da escola, o
          `/contato` e a home (já corrigida) dizem sábado até 18h.
       3. **O certificado traz carga horária e conteúdo?** Se sim, o texto do certificado
@@ -64,6 +66,84 @@
       Ficaram de fora só `F181` (pergunta 1 acima) e `F323` (DNS, item acima).
       **Fase 2** (sprint de consistência) é a próxima e não depende do Henrique;
       **Fase 3** depende das 11 decisões.
+
+### Auditoria de SEO/GEO/AEO (24/09)
+
+> Origem de todos os itens abaixo: auditoria SEO/GEO/AEO de 24/09/2026 —
+> [`docs/auditorias/2026-09-24-seo-geo-aeo.md`](docs/auditorias/2026-09-24-seo-geo-aeo.md)
+> (189 achados verificados: 0 🔴 · 7 🟠 · 86 🟡 · 96 🟢). Os IDs entre parênteses
+> apontam para o §5 do relatório; o §7 tem a ordem de execução e como provar cada fase.
+
+#### ⚠️ Decisões do Henrique que bloqueiam código (§6 do relatório)
+
+- [ ] **1. Nomes e faixas de idade oficiais do infantil** (5–9/10–15 × 5–8/8–14).
+      Recomendação: oficializar os 4 produtos da home e alinhar as 9 páginas de
+      currículo. _Aguardando Henrique._
+- [ ] **2. Robotics Academy é vendida hoje?** A home diz "não trabalhamos com
+      robótica de montagem" e `/cursos/academies` vende a Robotics Academy.
+      _Aguardando Henrique._
+- [ ] **3. Sábado até 18h ou 22h?** `/contato` e o JSON-LD dizem 18h; a descrição
+      da escola diz "segunda a sábado das 8h às 22h". _Aguardando Henrique._
+- [ ] **4. E-mail oficial.** Recomendação: `contato@santos-tech.com`, tirando
+      `ceo@santos-games.com` do site. _Aguardando Henrique._
+- [ ] **5. CEP e pino do mapa.** Correios (ViaCEP, conferido em 25/09): Av. Nove de
+      Julho nº 1992 = **14020-170, Jardim América**; o site usa 14025-000 (trecho
+      2–1322, Jardim Sumaré). Falta copiar as coordenadas do pino do Perfil da
+      Empresa. _Aguardando Henrique._
+- [x] **6. "Cursos particulares" no menu principal.** Recomendação: sim.
+      ✅ Feito na Fase 1 de UI/UX (25/09, `F175`): item no dropdown Programas e no menu
+      mobile, link no rodapé e bloco na home. Se o Henrique preferir no menu de primeiro
+      nível, é um ajuste pequeno.
+- [ ] **7. Preço em mais lugares** (páginas infantis, FAQ dos particulares, faixa no
+      hub). _Aguardando Henrique._
+- [ ] **8–25. Demais decisões** (avaliações autodeclaradas, aula online,
+      professores públicos, razão social/CNPJ, datas da colônia, Preloader, verde
+      dos botões, bots de IA, llms.txt, bairros, `/links`, Facebook duplicado,
+      cadastro do CNPJ, fotos reais, custos de infra, domínios de exemplo,
+      promessas de marketing, acesso aos painéis). Detalhe e recomendação de cada
+      uma no §6. _Aguardando Henrique._
+
+#### Fase 0 — painéis (só o Henrique; §7.2)
+
+- [ ] Cloudflare: Email Obfuscation Off · Always Use HTTPS (http→https hoje é
+      **302**, deveria ser 301) · criar `www` (hoje **NXDOMAIN**) com 301 · conferir
+      AI Crawl Control · Early Hints · token só de Cache Purge para o Guilherme.
+      _Aguardando Henrique._
+- [ ] Perfil da Empresa: coordenadas do pino, URL com CID, link de avaliação,
+      conferir horário/categoria, trocar links `/adultos`. _Aguardando Henrique._
+- [ ] Search Console + Bing Webmaster: submeter os 2 sitemaps, exportar baseline
+      (Páginas e Desempenho em IA generativa), importar no Bing. _Aguardando Henrique._
+
+#### Fase 1 — código sem depender de decisão (§7.3)
+
+- [~] **P1 Robots e sitemap** — ~~remover `Disallow: /assets/`~~ ✅ feito na Fase 1 de UI/UX
+      (`F322`, 25/09); falta o Disallow de `/apresentacoes` e `/professores`
+      (conflita com o noindex); tirar priority/changefreq; lastmod fiel.
+      (`tecnico-rastreio-indexacao-01`, `-04`, `-12`, `-14`)
+- [ ] **P2 Malha de links internos** — hoje, a partir da home, um robô alcança
+      **8 de 74** URLs do sitemap (conferido por BFS em 25/09). Rodapé com `<nav>` e
+      `<address>`, CTA para `/particular`, volta de `/particular` para o site.
+      (`arquitetura-links-internos-01`, `-02`, `-06`)
+- [ ] **P3 Conteúdo no HTML** — respostas de FAQ existem só no JSON-LD (0 no HTML
+      visível em `/particular/cursos/excel` e `/cursos/create/8-9-anos`, conferido
+      em 25/09); ementa aula a aula fora do HTML. (`aeo-respostas-01`, `-02`,
+      `lacuna-conteudo-01`)
+- [ ] **P6 Performance no celular** — H1 da home sai do servidor com `opacity:0`
+      (Reveal); LCP mobile de laboratório 5,7 s na home; logos PNG de até 742 KB.
+      (`performance-cwv-01`, `-02`, `-07`)
+- [ ] **P5 JSON-LD** — 1 erro no validador schema.org em todos os 52 cursos
+      particulares (`instructor` = Organization); `audience` inválido na Organization;
+      `aggregateRating` autodeclarado. (`dados-estruturados-03`, `-15`, `seo-local-02`)
+- [ ] **P7 Origem** — `Accept: text/markdown` ou `application/json` devolve **500**
+      em todas as rotas (conferido em 25/09); Brotli nível 4. (`lacuna-infra-04` =
+      `lacuna-geo-03`, `lacuna-infra-01`)
+- [ ] **P10 Acessibilidade** e **P8 Títulos/H1** — itens rápidos listados no §7.3.
+
+#### Fase 2 e 3 (§7.4 e §7.5)
+
+- [ ] P4 fonte única de fatos (depende das decisões 1–5 e 9) · P9 respostas e
+      preços · P11 marca e social · P12 presença local externa · P13 blog (outro
+      repositório) · P14 E-E-A-T · P15 medição (evento `whatsapp_click`, IndexNow).
 
 ## Resolvidas
 
