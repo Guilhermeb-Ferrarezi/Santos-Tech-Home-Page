@@ -10,7 +10,7 @@ export const Route = createFileRoute("/particular/cursos/suporte")({
       title:
         "Curso de Suporte Técnico / Help Desk Particular em Ribeirão Preto — Santos Tech",
       description:
-        "Entre na área de TI em até 60 dias: hardware, redes, Active Directory e ticketing. Prepare-se para a certificação CompTIA A+ com aulas individuais e presenciais.",
+        "Aprenda do zero hardware, redes, Active Directory e ticketing e prepare-se para a CompTIA A+, com aulas individuais e presenciais em Ribeirão Preto.",
       path: "/particular/cursos/suporte",
     }),
 })
@@ -21,13 +21,13 @@ const COURSE_DATA = {
   tema: "ti" as const,
   logo: "pc",
   variante: "suporte",
-  tagline: "Do atendimento ao primeiro emprego em TI em 60 dias",
+  tagline: "Do primeiro chamado ao suporte N2: sua base em TI",
   targetAudience: [
     "Quer entrar na área de TI mas não sabe por onde começar",
-    "Trabalha em outra área e quer migrar para tecnologia ainda este ano",
+    "Trabalha em outra área e quer dar o primeiro passo rumo à tecnologia",
     "Já faz pequenos consertos e quer formalizar o conhecimento",
-    "Busca a primeira certificação reconhecida pelo mercado (CompTIA A+)",
-    "Precisa de um curso com saída de emprego rápida e demanda garantida",
+    "Quer se preparar para a sua primeira certificação (CompTIA A+)",
+    "Quer aprender, na prática, a rotina de um técnico de suporte",
     "Quer trabalhar em empresas de médio e grande porte como analista de suporte",
   ],
   tiers: [
@@ -35,7 +35,7 @@ const COURSE_DATA = {
       levelName: "Suporte Técnico",
       totalHours: "48h",
       outcome:
-        "Atender chamados de Help Desk do zero — hardware, sistemas operacionais e ticketing — até atuar como técnico N2/N3, gerenciando redes, Active Directory e automação com PowerShell e IA, pronto para a certificação CompTIA A+ e o primeiro emprego em TI.",
+        "Atender chamados de Help Desk do zero — hardware, sistemas operacionais e ticketing — até resolver casos de nível N2, gerenciando redes, Active Directory e automação com PowerShell e IA, com simulados da CompTIA A+ e um caso real de suporte documentado para o seu portfólio.",
       modules: [
         {
           title: "Fundamentos de Hardware",
