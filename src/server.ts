@@ -73,7 +73,15 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
 const SERVER_FN_PREFIX = "/_serverFn";
 
 function isServerFnPath(pathname: string): boolean {
-  return pathname === SERVER_FN_PREFIX || pathname.startsWith(`${SERVER_FN_PREFIX}/`);
+  // Compara o caminho decodificado, como o roteador faz: sem isso, /%5FserverFn/x
+  // escapava do atalho e voltava a gerar 500 no handler de server functions.
+  let decoded: string;
+  try {
+    decoded = decodeURI(pathname);
+  } catch {
+    return false;
+  }
+  return decoded === SERVER_FN_PREFIX || decoded.startsWith(`${SERVER_FN_PREFIX}/`);
 }
 
 // O handler do TanStack Start só renderiza a página quando o Accept contém
