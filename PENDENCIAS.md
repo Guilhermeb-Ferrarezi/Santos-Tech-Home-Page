@@ -89,8 +89,14 @@
 - [ ] **1. Nomes e faixas de idade oficiais do infantil** (5–9/10–15 × 5–8/8–14).
       Recomendação: oficializar os 4 produtos da home e alinhar as 9 páginas de
       currículo. Em 26/09 o Henrique pediu, antes de decidir, uma referência de como a
-      Code Ninjas define as idades do JR e do CREATE — pesquisa em andamento.
-      _Aguardando Henrique (depois da referência)._
+      Code Ninjas define as idades do JR e do CREATE — entregue em
+      [`docs/referencias/2026-09-26-code-ninjas-idades.md`](docs/referencias/2026-09-26-code-ninjas-idades.md)
+      (Code Ninjas: JR 5–7, CREATE 8–14, conferido nas páginas oficiais em 26/09).
+      Recomendação do CTO: **opção C** — manter 5–9 / 10–15 e escrever a regra de borda
+      (aos 9–10 anos a aula experimental decide; avanço por nível). ⚠️ Alinhar as 9 páginas
+      de currículo exige reescrever o conteúdo a partir da ementa real (hoje vendem ScratchJr,
+      MakeCode e Unity, copiados da Code Ninjas; a ementa ensina Roblox, Python etc.).
+      _Aguardando Henrique._
 - [~] **2. Robotics Academy é vendida hoje?** **Decidido pelo Henrique em 26/09: não é
       vendida** (é cara; era uma referência da Code Ninjas, tipo bootcamp/hackathon) e deve
       sair do site "por enquanto", para focar nos cursos de duração mínima de 12 meses.
