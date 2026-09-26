@@ -88,24 +88,40 @@
 
 - [ ] **1. Nomes e faixas de idade oficiais do infantil** (5–9/10–15 × 5–8/8–14).
       Recomendação: oficializar os 4 produtos da home e alinhar as 9 páginas de
-      currículo. _Aguardando Henrique._
-- [ ] **2. Robotics Academy é vendida hoje?** A home diz "não trabalhamos com
-      robótica de montagem" e `/cursos/academies` vende a Robotics Academy.
-      _Aguardando Henrique._
-- [ ] **3. Sábado até 18h ou 22h?** `/contato` e o JSON-LD dizem 18h; a descrição
-      da escola diz "segunda a sábado das 8h às 22h". _Aguardando Henrique._
-- [ ] **4. E-mail oficial.** Recomendação: `contato@santos-tech.com`, tirando
-      `ceo@santos-games.com` do site. _Aguardando Henrique._
-- [ ] **5. CEP e pino do mapa.** Correios (ViaCEP, conferido em 25/09): Av. Nove de
-      Julho nº 1992 = **14020-170, Jardim América**; o site usa 14025-000 (trecho
-      2–1322, Jardim Sumaré). Falta copiar as coordenadas do pino do Perfil da
-      Empresa. _Aguardando Henrique._
+      currículo. Em 26/09 o Henrique pediu, antes de decidir, uma referência de como a
+      Code Ninjas define as idades do JR e do CREATE — pesquisa em andamento.
+      _Aguardando Henrique (depois da referência)._
+- [~] **2. Robotics Academy é vendida hoje?** **Decidido pelo Henrique em 26/09: não é
+      vendida** (é cara; era uma referência da Code Ninjas, tipo bootcamp/hackathon) e deve
+      sair do site "por enquanto", para focar nos cursos de duração mínima de 12 meses.
+      Consequência: o FAQ da home ("não trabalhamos com robótica de montagem") passa a ser
+      verdadeiro; sai "Robótica" do card "Robótica, games e IA" da home, a Robotics Academy
+      sai de `/cursos/academies` e do rodapé/JSON-LD. Falta confirmar se a **AI Academy**
+      (11–14, mesma página) também sai — se sair, `/cursos/academies` vira 301 para
+      `/cursos` e some do sitemap no mesmo commit. _Aguardando Henrique (só a AI Academy)._
+- [~] **3. Sábado até 18h ou 22h?** **Decidido pelo Henrique em 26/09:** aos sábados as
+      **aulas vão até 20h**; o **atendimento vai até 22h, só com agendamento** (atendimento
+      do coordenador: apresentação do curso, conteúdo, duração, preço e matrícula — a
+      recepção faz só a triagem). Sem nada agendado, a escola pode fechar mais cedo.
+      Texto proposto (a validar pelo Henrique depois de publicado): "Seg a sex · 8h às 22h" /
+      "Sábado · aulas das 8h às 20h · atendimento com hora marcada até 22h"; JSON-LD e
+      Perfil da Empresa com sábado 08:00–20:00. _Aguardando o Henrique confirmar o texto._
+- [~] **4. E-mail oficial.** **Decidido pelo Henrique em 26/09: `contato@santos-tech.com`.**
+      Sai `ceo@santos-games.com` do site (contato, JSON-LD, páginas legais). Implementação
+      no pacote P4 (fonte única de fatos).
+- [~] **5. CEP e pino do mapa.** **CEP decidido pelo Henrique em 26/09: 14020-170**
+      (confere com os Correios para o nº 1992, Jardim América; o site usa 14025-000).
+      Implementação no P4. Ainda falta copiar as coordenadas do pino do Perfil da Empresa
+      (Fase 0). _Aguardando Henrique (só as coordenadas)._
 - [x] **6. "Cursos particulares" no menu principal.** Recomendação: sim.
       ✅ Feito na Fase 1 de UI/UX (25/09, `F175`): item no dropdown Programas e no menu
       mobile, link no rodapé e bloco na home. Se o Henrique preferir no menu de primeiro
       nível, é um ajuste pequeno.
 - [ ] **7. Preço em mais lugares** (páginas infantis, FAQ dos particulares, faixa no
-      hub). _Aguardando Henrique._
+      hub). Hoje a mensalidade infantil (R$ 539,90, matrícula R$ 299,90 e material) só
+      aparece na home; `/cursos`, `/cursos/junior`, `/cursos/create` e as 9 páginas de ano
+      não mostram preço. Em 26/09 o Henrique pediu esclarecimento — explicado no chat.
+      _Aguardando Henrique._
 - [ ] **8–25. Demais decisões** (avaliações autodeclaradas, aula online,
       professores públicos, razão social/CNPJ, datas da colônia, Preloader, verde
       dos botões, bots de IA, llms.txt, bairros, `/links`, Facebook duplicado,
