@@ -22,7 +22,8 @@ Disallow: /api/
 # Mudou este arquivo? Depois do deploy, fazer purge de /robots.txt no
 # Cloudflare (a origem manda max-age=3600, ver docker/server.ts).
 
-# Sitemaps — cada app do domínio mantém o próprio; listar os dois pros
-# crawlers descobrirem as rotas de ambos (site institucional + blog).
+# Sitemaps — cada app do domínio mantém o próprio; listar todos pros
+# crawlers descobrirem as rotas (site institucional, blog e blog particular).
 Sitemap: https://santos-tech.com/sitemap.xml
 Sitemap: https://santos-tech.com/blog/sitemap.xml
+Sitemap: https://santos-tech.com/particular/blog/sitemap.xml
