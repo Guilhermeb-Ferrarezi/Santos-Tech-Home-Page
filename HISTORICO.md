@@ -87,3 +87,6 @@ Relatório em `docs/auditorias/2026-09-24-seo-geo-aeo.md`; plano da Fase 1 em
   sábado, AI Academy, preços e as demais decisões; "Browser Cache TTL" do Cloudflare;
   Fase 2 (fonte única de fatos, preços, respostas diretas, blog), que deve rodar numa
   sessão nova.
+- **Encerrada em 28/09 por limite semanal de tokens.** Retomada documentada em
+  `docs/superpowers/specs/2026-09-28-seo-fase-2-design.md` (prompt para colar, estado real do
+  código conferido na master `a482b76`, decisões abertas e escopo da Fase 2).

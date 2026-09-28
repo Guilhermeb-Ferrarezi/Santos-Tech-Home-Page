@@ -71,6 +71,11 @@
 
 ### Auditoria de SEO/GEO/AEO (24/09)
 
+> ⚠️ **RETOMADA:** a sessão foi encerrada em 28/09 por limite semanal de tokens, com a Fase 1
+> em 100% (10/10 na produção). Para continuar, abrir uma sessão nova ("SEO Fase 2") a partir de
+> [`docs/superpowers/specs/2026-09-28-seo-fase-2-design.md`](docs/superpowers/specs/2026-09-28-seo-fase-2-design.md)
+> — tem o prompt de retomada, o estado real do código, as decisões abertas e o escopo da Fase 2.
+
 > Origem de todos os itens abaixo: auditoria SEO/GEO/AEO de 24/09/2026 —
 > [`docs/auditorias/2026-09-24-seo-geo-aeo.md`](docs/auditorias/2026-09-24-seo-geo-aeo.md)
 > (189 achados verificados: 0 🔴 · 7 🟠 · 86 🟡 · 96 🟢). Os IDs entre parênteses
