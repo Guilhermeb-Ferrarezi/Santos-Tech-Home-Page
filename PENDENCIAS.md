@@ -96,6 +96,7 @@
       (aos 9–10 anos a aula experimental decide; avanço por nível). ⚠️ Alinhar as 9 páginas
       de currículo exige reescrever o conteúdo a partir da ementa real (hoje vendem ScratchJr,
       MakeCode e Unity, copiados da Code Ninjas; a ementa ensina Roblox, Python etc.).
+      Perguntado em 26/09 ("aprova a opção C?"), sem resposta até 28/09.
       _Aguardando Henrique._
 - [~] **2. Robotics Academy é vendida hoje?** **Decidido pelo Henrique em 26/09: não é
       vendida** (é cara; era uma referência da Code Ninjas, tipo bootcamp/hackathon) e deve
@@ -133,7 +134,27 @@
       dos botões, bots de IA, llms.txt, bairros, `/links`, Facebook duplicado,
       cadastro do CNPJ, fotos reais, custos de infra, domínios de exemplo,
       promessas de marketing, acesso aos painéis). Detalhe e recomendação de cada
-      uma no §6. _Aguardando Henrique._
+      uma no §6. Em 26/09 foram reapresentadas no chat as que dependem dele, cada uma
+      com recomendação, sem resposta até 28/09 (ele pode responder "ok nas
+      recomendações" e apontar exceções):
+      - Texto do sábado: "Seg a sex · 8h às 22h" / "Sábado · aulas das 8h às 20h ·
+        atendimento com hora marcada até 22h" + "Aos sábados, venha com horário marcado".
+      - AI Academy sai junto com a robótica? (rec.: sim — `/cursos/academies` vira 301)
+      - Preço infantil em `/cursos`, `/cursos/junior`, `/cursos/create` e nas 9 páginas
+        de ano (rec.: sim).
+      - Remover a tela azul de abertura (Preloader) (rec.: sim).
+      - Aula online é só reposição? (rec.: "presencial, com reposição online ao vivo").
+      - Professores no site com nome/foto/formação (rec.: começar pelo fundador).
+      - Razão social e CNPJ no JSON-LD (rec.: sim, já são públicos).
+      - Datas da colônia dez/26–jan/27 (rec.: publicar já).
+      - Verde mais escuro só nos botões com texto branco (rec.: aprovar).
+      - Cidades vizinhas atendidas — quais? (precisa da informação dele).
+      - `/links` fora do Google (rec.: sim).
+      - Qual das duas páginas do Facebook é a oficial? (precisa da informação dele).
+      - Fotos reais das turmas (rec.: sim; ele escolhe).
+      - Acesso de leitura do Guilherme ao Search Console, Bing, Perfil da Empresa e
+        Cloudflare (rec.: sim).
+      _Aguardando Henrique._
 
 #### Fase 0 — painéis (só o Henrique; §7.2)
 
@@ -148,13 +169,6 @@
 
 #### Fase 1 — pendências que sobraram (a Fase 1 em si está em Resolvidas)
 
-- [ ] ⚠️ **Purge do `robots.txt` e do `sitemap.xml` no Cloudflare.** A origem já serve
-      o robots novo (conferido em 25/09 com `?verificacao=` → sem `Disallow: /assets/`),
-      mas a borda guarda a cópia antiga por até 7 dias (`cf-cache-status: HIT`,
-      `max-age=604800`). No painel: Caching → Configuration → Custom Purge → URLs
-      `https://santos-tech.com/robots.txt` e `https://santos-tech.com/sitemap.xml`.
-      Conferir depois: `node scripts/verificar-seo.mjs https://santos-tech.com` → 10/10.
-      _Aguardando Henrique._
 - [ ] **Cloudflare reescreve o cache do navegador para 4 h** (`Cache-Control: max-age=14400`
       na borda, a origem manda 3600). É a configuração "Browser Cache TTL" do painel.
       Deixar em "Respect Existing Headers". _Aguardando Henrique._
@@ -184,6 +198,14 @@
       repositório) · P14 E-E-A-T · P15 medição (evento `whatsapp_click`, IndexNow).
 
 ## Resolvidas
+
+- [x] **robots.txt novo chegou à borda do Cloudflare (fecha a Fase 1 de SEO em 10/10)** —
+      a origem servia o robots corrigido desde o deploy de 25/09, mas a borda guardava a
+      cópia antiga (`max-age=604800`, 7 dias). Causa-raiz: o `docker/server.ts` mandava
+      cache de 7 dias para robots/sitemap (reduzido para 1 h na Fase 1). A cópia antiga
+      saiu do cache em 28/09. **Prova:** `node scripts/verificar-seo.mjs https://santos-tech.com`
+      em 28/09 às 11h30 → **10/10** (`robots ok`); `curl https://santos-tech.com/robots.txt`
+      → só `Disallow: /api/`. Continua aberto o item do "Browser Cache TTL" de 4 h.
 
 - [x] **Fase 1 da auditoria SEO/GEO/AEO** — aprovada pelo Henrique em 25/09 e publicada no
       mesmo dia (PR #61, `50e8eaf`). Plano em `docs/superpowers/plans/2026-09-25-seo-fase-1.md`.
