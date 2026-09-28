@@ -367,33 +367,37 @@
   --sb-fg-soft: var(--sb-dark-soft);
   --sb-hover-bg: rgb(255 255 255 / 0.1);
   --sb-accent-ink: var(--sb-dark-accent);
-  --sb-halo: rgb(0 0 0 / 0.6);
+  --sb-halo: rgb(0 0 0 / 0.55);
 }
 #particular-sidebar[data-fusion] [data-tone="light"] {
   --sb-fg: var(--sb-light-fg);
   --sb-fg-soft: var(--sb-light-soft);
   --sb-hover-bg: rgb(23 23 23 / 0.06);
   --sb-accent-ink: var(--sb-light-accent);
-  --sb-halo: rgb(255 255 255 / 0.75);
+  --sb-halo: rgb(255 255 255 / 0.7);
 }
-/* Halo colado nas letras, na cor oposta ao texto: sobre fundo uniforme some (tem a cor do
-   próprio fundo); só aparece quando um item cruza a divisa entre um fundo escuro e um
-   claro — aí é ele que mantém o texto legível dos dois lados. */
+/* Contorno de 1px nas letras e ícones, na cor oposta à da tinta: sobre fundo uniforme
+   quase não aparece; em fundo de tom médio ou perto de uma divisa, destaca o desenho da
+   letra do que está atrás. */
 #particular-sidebar[data-fusion] [data-tone] {
   text-shadow:
-    0 0 1px var(--sb-halo),
-    0 0 3px var(--sb-halo);
+    1px 0 0 var(--sb-halo), -1px 0 0 var(--sb-halo), 0 1px 0 var(--sb-halo), 0 -1px 0 var(--sb-halo),
+    1px 1px 0 var(--sb-halo), -1px -1px 0 var(--sb-halo), 1px -1px 0 var(--sb-halo), -1px 1px 0 var(--sb-halo);
 }
 #particular-sidebar[data-fusion] svg[data-tone] {
-  filter: drop-shadow(0 0 1px var(--sb-halo));
+  filter: drop-shadow(1px 0 0 var(--sb-halo)) drop-shadow(-1px 0 0 var(--sb-halo))
+    drop-shadow(0 1px 0 var(--sb-halo)) drop-shadow(0 -1px 0 var(--sb-halo));
 }
 /* Tinta dividida: item em cima da divisa entre um fundo escuro e um claro. Nenhuma cor
    única serve ali, então o texto é pintado por um gradiente de cortes secos na altura exata
    da divisa (--sb-split, calculado no layout) — cada pedaço da letra no tom do fundo atrás
-   dele. Ícones fazem o mesmo via `stroke: url(#…)`. Sem halo: não há o que compensar. */
+   dele. Ícones fazem o mesmo via `stroke: url(#…)`. O contorno aqui é cinza neutro: a cor
+   oposta mudaria no meio da letra e um text-shadow só tem uma cor. */
 #particular-sidebar[data-fusion] [data-split] {
+  --sb-ring: rgb(128 128 128 / 0.55);
   text-shadow: none;
-  filter: none;
+  filter: drop-shadow(1px 0 0 var(--sb-ring)) drop-shadow(-1px 0 0 var(--sb-ring))
+    drop-shadow(0 1px 0 var(--sb-ring)) drop-shadow(0 -1px 0 var(--sb-ring));
 }
 #particular-sidebar[data-fusion] :not(svg)[data-split] {
   background-image: var(--sb-split);

@@ -984,7 +984,7 @@ function ParticularLayout() {
                         <div className="overflow-hidden">
                           <div
                             className={[
-                              "ml-2 border-l pl-2 pb-1 space-y-0.5 transition-colors",
+                              "ml-2 mt-1 border-l pl-2 pb-1 space-y-0.5 transition-colors",
                               isActiveGroup
                                 ? "border-(--accent)/40"
                                 : "sb-border border-neutral-100 dark:border-neutral-800/60",
