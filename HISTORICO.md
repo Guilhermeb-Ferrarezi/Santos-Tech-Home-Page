@@ -5,6 +5,8 @@ pro `PENDENCIAS.md`.
 
 ## 24–28/09 — Auditoria de UI/UX e design, Fases 1 e 2 no ar ✅
 
+> ⏸️ Pausada em 28/09 (limite semanal de uso). Para continuar: [`docs/auditorias/2026-09-24-ui-ux/RETOMADA.md`](docs/auditorias/2026-09-24-ui-ux/RETOMADA.md).
+
 **Objetivo:** auditoria completa de UI, UX, design e formatação de texto do site, com
 multi-agentes, e execução do que não depende de decisão de marca.
 

@@ -1,5 +1,7 @@
 # Auditoria de UI, UX e Design — santos-tech.com
 
+> 🔁 **Estado atual e como continuar:** [RETOMADA.md](RETOMADA.md) — Fases 1 e 2 no ar (PRs #60 e #63), Fase 3 aguardando decisões (28/09/2026).
+
 > **Data:** 24/09/2026 · **Base:** commit `5885a36` (igual ao `master` em produção) · **Escopo:** as 75 rotas públicas do `sitemap.xml` + página 404, em desktop, mobile e tablet.
 > **Método:** enxame de agentes em 5 etapas — 18 lentes especializadas acharam problemas → verificação adversarial (cada achado checado no código e na screenshot, tentando refutar) → painel de 3 designers + juiz → crítico de completude → síntese. Referências: `DESIGN_SYSTEM.md` (fonte de verdade da marca), Apple Human Interface Guidelines e WCAG 2.2.
 > **Como ler:** 🔴 crítica · 🟠 alta · 🟡 média · ⚪ baixa. Cada achado tem id (ex.: `F012`), rota, arquivo:linha e a correção sugerida. Comece pelas seções 1 a 4; a seção 6 é o detalhe técnico.
