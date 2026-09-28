@@ -70,7 +70,7 @@ type Tone = "dark" | "light";
 type Rgba = [number, number, number, number];
 
 /** Textos/ícones da sidebar que ganham tom próprio na fusão (ver styles.css). */
-const TONE_TARGETS = ".sb-fg, .sb-fg-soft, .sb-hover, .sb-accent";
+const TONE_TARGETS = ".sb-fg, .sb-fg-soft, .sb-hover, .sb-accent, .sb-badge";
 
 const COLOR_FN = /(?:rgba?|hsla?|oklch|oklab|lab|lch|color)\([^()]*(?:\([^()]*\)[^()]*)*\)|#[0-9a-fA-F]{3,8}\b/g;
 
@@ -110,6 +110,147 @@ function toneFor(backgrounds: Rgba[]): Tone {
   }
   if (okWhite !== okInk) return okWhite > okInk ? "dark" : "light";
   return worstWhite >= worstInk ? "dark" : "light";
+}
+
+/** Faixa vertical (px de viewport) em que a tinta de um item usa um tom. */
+type Band = { tone: Tone; from: number; to: number };
+type Role = "fg" | "soft" | "accent";
+/** Divisa sob um item: linha reta (x/y de viewport) entre o tom de cima e o de baixo, ou
+ *  faixas horizontais (faixa fina, várias divisas). */
+type Split =
+  | { kind: "line"; above: Tone; below: Tone; x0: number; y0: number; x1: number; y1: number }
+  | { kind: "bands"; bands: Band[] };
+
+/** A linha vira faixas na coordenada x dada (ícones, que são estreitos). */
+function bandsAt(split: Split, x: number): Band[] {
+  if (split.kind === "bands") return split.bands;
+  const f = split.x1 === split.x0 ? 0 : (x - split.x0) / (split.x1 - split.x0);
+  const y = split.y0 + (split.y1 - split.y0) * f;
+  return [
+    { tone: split.above, from: -Infinity, to: y },
+    { tone: split.below, from: y, to: Infinity },
+  ];
+}
+
+function roleOf(el: Element): Role {
+  if (el.classList.contains("sb-accent")) return "accent";
+  if (el.classList.contains("sb-fg")) return "fg";
+  return "soft";
+}
+
+const hasOwnText = (el: Element) =>
+  [...el.childNodes].some((n) => n.nodeType === Node.TEXT_NODE && n.textContent?.trim());
+
+/**
+ * Onde a tinta de um item de tom é de fato pintada: o próprio elemento (ícone, ou texto
+ * direto) ou os filhos sem tom próprio que carregam o texto (o link do curso tem o nome
+ * num <span>). Dividir no filho preserva o fundo do item ativo, que `background-clip:
+ * text` no link apagaria.
+ */
+function inkCarriers(el: HTMLElement | SVGElement): Element[] {
+  if (el instanceof SVGElement || hasOwnText(el)) return [el];
+  return [...el.querySelectorAll("*")].filter(
+    (c) => !(c instanceof SVGElement) && hasOwnText(c) && c.closest(TONE_TARGETS) === el,
+  );
+}
+
+let splitSeq = 0;
+
+/**
+ * Pinta (ou limpa) a tinta dividida de um item: texto via `background-clip: text` com um
+ * gradiente de cortes secos (styles.css, `[data-split]`); ícone via `stroke` apontando
+ * pra um <linearGradient> equivalente no <defs> da sidebar.
+ */
+function paintSplit(carrier: Element, split: Split | null, role: Role, defs: SVGDefsElement) {
+  const el = carrier as HTMLElement | SVGSVGElement;
+  if (!split) {
+    if (el.dataset.split === undefined) return;
+    delete el.dataset.split;
+    el.style.removeProperty("--sb-split");
+    el.style.removeProperty("stroke");
+    return;
+  }
+  const r = el.getBoundingClientRect();
+  const color = (t: Tone) => `var(--sb-${t}-${role})`;
+  el.dataset.split = "";
+
+  if (el instanceof SVGSVGElement) {
+    const bands = bandsAt(split, r.left + r.width / 2);
+    const vb = el.viewBox.baseVal;
+    const vbY = vb && vb.height ? vb.y : 0;
+    const vbH = vb && vb.height ? vb.height : r.height;
+    // Ícone girado 180° (chevron do grupo aberto): o espaço do SVG está de cabeça pra baixo.
+    const flipped = new DOMMatrixReadOnly(getComputedStyle(el).transform === "none" ? undefined : getComputedStyle(el).transform).d < 0;
+    const frac = (y: number) => {
+      const f = Math.max(0, Math.min(1, (y - r.top) / r.height));
+      return flipped ? 1 - f : f;
+    };
+    let id = el.dataset.splitId;
+    let grad = id ? (defs.querySelector(`#${id}`) as SVGLinearGradientElement | null) : null;
+    if (!grad) {
+      id = `sb-split-${++splitSeq}`;
+      el.dataset.splitId = id;
+      grad = document.createElementNS("http://www.w3.org/2000/svg", "linearGradient");
+      grad.id = id;
+      grad.setAttribute("gradientUnits", "userSpaceOnUse");
+      grad.setAttribute("x1", "0");
+      grad.setAttribute("x2", "0");
+      defs.appendChild(grad);
+    }
+    grad.setAttribute("y1", String(vbY));
+    grad.setAttribute("y2", String(vbY + vbH));
+    const stops = (flipped ? [...bands].reverse() : bands).flatMap((b) => {
+      const a = frac(b.from);
+      const z = frac(b.to);
+      return [
+        { off: Math.min(a, z), c: color(b.tone) },
+        { off: Math.max(a, z), c: color(b.tone) },
+      ];
+    });
+    grad.replaceChildren(
+      ...stops.map(({ off, c }) => {
+        const s = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+        s.setAttribute("offset", String(off));
+        s.setAttribute("style", `stop-color: ${c}`);
+        return s;
+      }),
+    );
+    el.style.setProperty("stroke", `url(#${id})`);
+    return;
+  }
+
+  if (split.kind === "line") {
+    // Gradiente em ângulo cuja linha de corte passa pelos dois pontos medidos da divisa.
+    const lx = split.x1 - split.x0;
+    const ly = split.y1 - split.y0;
+    // normal da linha apontando pra baixo (lado "below")
+    let nx = -ly;
+    let ny = lx;
+    if (ny < 0 || (ny === 0 && nx < 0)) {
+      nx = -nx;
+      ny = -ny;
+    }
+    const len = Math.hypot(nx, ny) || 1;
+    nx /= len;
+    ny /= len;
+    const angle = (Math.atan2(nx, -ny) * 180) / Math.PI;
+    // comprimento da reta do gradiente (spec do CSS) e posição do corte nela
+    const L = Math.abs(r.width * nx) + Math.abs(r.height * ny);
+    const cx = r.left + r.width / 2;
+    const cy = r.top + r.height / 2;
+    const at = ((split.x0 - cx) * nx + (split.y0 - cy) * ny) + L / 2;
+    const off = `${Math.round(at * 10) / 10}px`;
+    el.style.setProperty(
+      "--sb-split",
+      `linear-gradient(${Math.round(angle * 100) / 100}deg, ${color(split.above)} ${off}, ${color(split.below)} ${off})`,
+    );
+    return;
+  }
+  const px = (y: number) => `${Math.round(Math.max(0, Math.min(r.height, y - r.top)) * 10) / 10}px`;
+  el.style.setProperty(
+    "--sb-split",
+    `linear-gradient(to bottom, ${split.bands.map((b) => `${color(b.tone)} ${px(b.from)} ${px(b.to)}`).join(", ")})`,
+  );
 }
 
 /** Caixa das letras de um item (não a do elemento, que inclui padding). */
@@ -449,11 +590,26 @@ function ParticularLayout() {
     if (!aside) return;
     const desktop = window.matchMedia("(min-width: 1024px)");
     const backdrop = createBackdropReader(aside);
+    // <defs> dos gradientes dos ícones divididos (ver paintSplit).
+    const defsSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    defsSvg.setAttribute("aria-hidden", "true");
+    defsSvg.setAttribute("width", "0");
+    defsSvg.setAttribute("height", "0");
+    defsSvg.style.position = "absolute";
+    const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+    defsSvg.appendChild(defs);
+    aside.appendChild(defsSvg);
+
+    function clearSplits() {
+      for (const el of aside!.querySelectorAll("[data-split]")) paintSplit(el, null, "soft", defs);
+      defs.replaceChildren();
+    }
 
     function sample() {
       if (!aside) return;
       if (!desktop.matches) {
         aside.removeAttribute("data-fusion");
+        clearSplits();
         return;
       }
       aside.setAttribute("data-fusion", "");
@@ -475,10 +631,75 @@ function ParticularLayout() {
         // Amostra as letras (começo do texto, que é alinhado à esquerda) em 5 alturas —
         // pega item atravessando a divisa entre dois fundos, inclusive faixa fina (barra
         // de status) no meio de um item de 2 linhas.
-        const x = Math.round(r.left + Math.min(r.width, 48) / 2);
-        const ys = [0.15, 0.33, 0.5, 0.67, 0.85].map((f) => Math.round(r.top + r.height * f));
-        const tone = toneFor(ys.map((y) => at(x, y)));
+        const ys = [0.04, 0.27, 0.5, 0.73, 0.96].map((f) => Math.round(r.top + r.height * f));
+        // Colunas: começo, meio e fim das letras — a divisa pode ser inclinada (onda da home)
+        // e cruzar só uma ponta do texto.
+        const xs =
+          r.width < 24
+            ? [Math.round(r.left + r.width / 2)]
+            : [0.04, 0.5, 0.96].map((f) => Math.round(r.left + r.width * f));
+        const cols = xs.map((x) => ys.map((y) => at(x, y)));
+        const tone = toneFor(cols.flat());
         if (el.dataset.tone !== tone) el.dataset.tone = tone;
+        // Selo sólido: o próprio fundo dele garante o contraste, não divide.
+        if (el.classList.contains("sb-solid")) continue;
+
+        // Item em cima da divisa entre um fundo escuro e um claro: nenhuma cor única serve
+        // (a metade de um lado some). A tinta passa a ter a cor dividida na linha exata da
+        // divisa — cada pedaço da letra no tom do fundo que está atrás dele.
+        const colTones = cols.map((c) => c.map((bg) => toneFor([bg])));
+        const flat = colTones.flat();
+        let split: Split | null = null;
+        if (flat.some((t) => t !== flat[0])) {
+          const cut = (x: number, i: number, from: Tone) => {
+            // busca binária do primeiro pixel já no outro tom, na coluna x
+            let lo = ys[i - 1];
+            let hi = ys[i];
+            while (hi - lo > 1) {
+              const mid = (lo + hi) >> 1;
+              if (toneFor([backdrop(x, mid)]) === from) lo = mid;
+              else hi = mid;
+            }
+            return hi;
+          };
+          const transitions = colTones.map((ts) => ts.flatMap((t, i) => (i > 0 && t !== ts[i - 1] ? [i] : [])));
+          const top = colTones.find((ts, k) => transitions[k].length === 1)?.[0];
+          const simple =
+            top !== undefined && transitions.every((tr, k) => tr.length === 0 || (tr.length === 1 && colTones[k][0] === top));
+          if (simple && xs.length > 1) {
+            // Uma divisa só, no mesmo sentido em todas as colunas: linha (possivelmente
+            // inclinada). Coluna sem transição está inteira de um lado → a linha passa
+            // acima (inteira no tom de baixo) ou abaixo dela.
+            const yAt = (k: number) => {
+              const tr = transitions[k];
+              if (tr.length) return cut(xs[k], tr[0], top);
+              return colTones[k][0] === top ? r.bottom : r.top;
+            };
+            const last = xs.length - 1;
+            const bottom = colTones.find((_, k) => transitions[k].length === 1)!.at(-1)!;
+            split = { kind: "line", above: top, below: bottom, x0: xs[0], y0: yAt(0), x1: xs[last], y1: yAt(last) };
+          } else {
+            // Faixa fina ou várias divisas: cortes horizontais pela coluna do começo do texto.
+            const ts = colTones[0];
+            const tr = transitions[0];
+            if (tr.length) {
+              const bands: Band[] = [];
+              let from = -Infinity;
+              for (const i of tr) {
+                const y = cut(xs[0], i, ts[i - 1]);
+                bands.push({ tone: ts[i - 1], from, to: y });
+                from = y;
+              }
+              bands.push({ tone: ts[ts.length - 1], from, to: Infinity });
+              split = { kind: "bands", bands };
+            }
+          }
+        }
+        for (const carrier of inkCarriers(el)) paintSplit(carrier, split, roleOf(el), defs);
+      }
+      // Gradiente de ícone que deixou de ser dividido (ou saiu do DOM).
+      for (const g of [...defs.children]) {
+        if (!aside.querySelector(`[data-split-id="${g.id}"][data-split]`)) g.remove();
       }
     }
 
@@ -518,6 +739,8 @@ function ParticularLayout() {
     return () => {
       unsubscribe();
       cancelAnimationFrame(raf);
+      clearSplits();
+      defsSvg.remove();
       animatingUntil = 0;
       resize.disconnect();
       window.removeEventListener("scroll", schedule);
@@ -631,7 +854,7 @@ function ParticularLayout() {
                 <span className="sb-fg min-w-0 truncate text-xs font-black tracking-tight text-neutral-900 dark:text-white">
                   SANTOS TECH
                 </span>
-                <span className="sb-solid shrink-0 inline-flex items-center rounded-md bg-neutral-900 dark:bg-white px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-white dark:text-neutral-900">
+                <span className="sb-solid sb-badge shrink-0 inline-flex items-center rounded-md bg-neutral-900 dark:bg-white px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-white dark:text-neutral-900">
                   particular
                 </span>
               </div>

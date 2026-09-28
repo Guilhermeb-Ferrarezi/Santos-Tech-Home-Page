@@ -348,6 +348,13 @@
    texto/ícone com `data-tone`: o tom do fundo que está exatamente atrás dele. */
 #particular-sidebar[data-fusion] {
   --sb-line: rgb(128 128 128 / 0.32);
+  /* Paleta por tom de fundo × papel do item — usada pelo tom único e pela tinta dividida. */
+  --sb-dark-fg: #fff;
+  --sb-dark-soft: rgb(255 255 255 / 0.8);
+  --sb-dark-accent: color-mix(in oklab, var(--accent) 50%, white);
+  --sb-light-fg: #171717;
+  --sb-light-soft: rgb(23 23 23 / 0.8);
+  --sb-light-accent: color-mix(in oklab, var(--accent) 58%, black);
   background: transparent;
   border-right-color: var(--sb-line);
 }
@@ -356,17 +363,17 @@
 #particular-sidebar[data-fusion] .sb-divider { background-color: var(--sb-line); }
 #particular-sidebar[data-fusion] .sb-border { border-color: var(--sb-line); }
 #particular-sidebar[data-fusion] [data-tone="dark"] {
-  --sb-fg: #fff;
-  --sb-fg-soft: rgb(255 255 255 / 0.8);
+  --sb-fg: var(--sb-dark-fg);
+  --sb-fg-soft: var(--sb-dark-soft);
   --sb-hover-bg: rgb(255 255 255 / 0.1);
-  --sb-accent-ink: color-mix(in oklab, var(--accent) 50%, white);
+  --sb-accent-ink: var(--sb-dark-accent);
   --sb-halo: rgb(0 0 0 / 0.6);
 }
 #particular-sidebar[data-fusion] [data-tone="light"] {
-  --sb-fg: #171717;
-  --sb-fg-soft: rgb(23 23 23 / 0.8);
+  --sb-fg: var(--sb-light-fg);
+  --sb-fg-soft: var(--sb-light-soft);
   --sb-hover-bg: rgb(23 23 23 / 0.06);
-  --sb-accent-ink: color-mix(in oklab, var(--accent) 58%, black);
+  --sb-accent-ink: var(--sb-light-accent);
   --sb-halo: rgb(255 255 255 / 0.75);
 }
 /* Halo colado nas letras, na cor oposta ao texto: sobre fundo uniforme some (tem a cor do
@@ -380,6 +387,25 @@
 #particular-sidebar[data-fusion] svg[data-tone] {
   filter: drop-shadow(0 0 1px var(--sb-halo));
 }
+/* Tinta dividida: item em cima da divisa entre um fundo escuro e um claro. Nenhuma cor
+   única serve ali, então o texto é pintado por um gradiente de cortes secos na altura exata
+   da divisa (--sb-split, calculado no layout) — cada pedaço da letra no tom do fundo atrás
+   dele. Ícones fazem o mesmo via `stroke: url(#…)`. Sem halo: não há o que compensar. */
+#particular-sidebar[data-fusion] [data-split] {
+  text-shadow: none;
+  filter: none;
+}
+#particular-sidebar[data-fusion] :not(svg)[data-split] {
+  background-image: var(--sb-split);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* Selo "particular": pílula sólida no tom oposto ao fundo (escura sobre claro, clara sobre
+   escuro) — com a cor fixa do tema ela sumia sobre o hero escuro. */
+#particular-sidebar[data-fusion] .sb-badge[data-tone="dark"] { background-color: #fff; color: #171717; }
+#particular-sidebar[data-fusion] .sb-badge[data-tone="light"] { background-color: #171717; color: #fff; }
+#particular-sidebar[data-fusion] .sb-badge[data-tone] { text-shadow: none; }
 #particular-sidebar[data-fusion] .sb-fg[data-tone] { color: var(--sb-fg); }
 #particular-sidebar[data-fusion] .sb-fg-soft[data-tone] { color: var(--sb-fg-soft); }
 #particular-sidebar[data-fusion] .sb-accent[data-tone] { color: var(--sb-accent-ink); }

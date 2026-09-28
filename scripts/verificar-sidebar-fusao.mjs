@@ -72,6 +72,36 @@ function installProbe() {
     return out;
   }
   const COLOR_FN = /(?:rgba?|hsla?|oklch|oklab|lab|lch|color)\([^()]*(?:\([^()]*\)[^()]*)*\)|#[0-9a-fA-F]{3,8}\b/g;
+  // Tinta dividida como {left, top, w, h, angle, stops:[{pos, fg}]} — o mesmo modelo de um
+  // linear-gradient do CSS (pos em px ao longo da reta do gradiente).
+  function splitInk(el, isIcon, cs) {
+    const holder = isIcon ? el : el.closest("[data-split]");
+    if (!holder || !holder.hasAttribute("data-split")) return null;
+    const r = holder.getBoundingClientRect();
+    const box = { left: r.left, top: r.top, w: r.width, h: r.height };
+    if (isIcon) {
+      const id = cs.stroke.match(/url\("?#([^")]+)"?\)/)?.[1];
+      const grad = id && document.getElementById(id);
+      if (!grad) return null;
+      const flipped = new DOMMatrixReadOnly(cs.transform === "none" ? undefined : cs.transform).d < 0;
+      const stops = [...grad.querySelectorAll("stop")].map((st) => {
+        const off = Number(st.getAttribute("offset"));
+        return { pos: (flipped ? 1 - off : off) * r.height, fg: rgba(getComputedStyle(st).stopColor) };
+      });
+      if (flipped) stops.reverse();
+      return stops.length >= 2 ? { ...box, angle: 180, stops } : null;
+    }
+    const img = getComputedStyle(holder).backgroundImage;
+    const body = img.match(/linear-gradient\(([\s\S]+)\)/)?.[1];
+    if (!body) return null;
+    const angle = Number(body.match(/^\s*(-?[\d.]+)deg/)?.[1] ?? 180);
+    const stops = [];
+    for (const c of body.matchAll(new RegExp(`(${COLOR_FN.source})((?:\\s+-?[\\d.]+px)+)`, "g"))) {
+      const fg = rgba(c[1]);
+      for (const p of c[2].trim().split(/\s+/)) stops.push({ pos: parseFloat(p), fg });
+    }
+    return stops.length >= 2 ? { ...box, angle, stops } : null;
+  }
   // Cor de um fundo: background-color + média das paradas de um gradiente (se houver).
   function bgOf(el) {
     const cs = getComputedStyle(el);
@@ -215,6 +245,8 @@ function installProbe() {
         const r = el.getBoundingClientRect();
         if (r.width < 1 || r.height < 1 || r.bottom < 0 || r.top > vh) continue;
         if (el.closest(".sb-accent, .sb-solid")) continue;
+        // tinta dividida: o gradiente é recortado pelas letras (background-clip: text)
+        if (el.hasAttribute("data-split") && getComputedStyle(el).backgroundClip === "text") continue;
         if (el.classList.contains("sb-divider") && r.height <= 2) continue;
         found.push({ tipo: "fundo-proprio", el: describe(el), alfa: Math.round(bg[3] * 100) / 100 });
       }
@@ -250,6 +282,7 @@ function installProbe() {
         // dependem do fundo da página — ficam fora desta medição.
         let ownBg = false;
         for (let n = el; n && n !== a; n = n.parentElement) {
+          if (n.hasAttribute("data-split")) continue;
           if (!(n instanceof SVGElement) && bgOf(n)[3] >= 0.9) {
             ownBg = true;
             break;
@@ -257,10 +290,14 @@ function installProbe() {
         }
         if (ownBg) continue;
         const cs = getComputedStyle(el);
-        const fg = rgba(isIcon ? (cs.stroke !== "none" ? cs.stroke : cs.color) : cs.color);
         let op = 1;
         for (let n = el; n && n !== document.documentElement; n = n.parentElement) op *= Number(getComputedStyle(n).opacity);
-        if (fg[3] * op < 0.05) continue;
+        // Tinta dividida (item na divisa entre fundos): a cor depende da altura. Lê as faixas
+        // do que o navegador de fato pinta — gradiente do background-clip:text do texto, ou o
+        // <linearGradient> do stroke do ícone — em coordenadas de viewport.
+        const split = splitInk(el, isIcon, cs);
+        const fg = split ? split.stops[0].fg : rgba(isIcon ? (cs.stroke !== "none" ? cs.stroke : cs.color) : cs.color);
+        if (!split && fg[3] * op < 0.05) continue;
         const size = parseFloat(cs.fontSize);
         const bold = Number(cs.fontWeight) >= 700;
         items.push({
@@ -269,6 +306,7 @@ function installProbe() {
           w: Math.max(1, Math.round(r.width)),
           h: Math.max(1, Math.round(r.height)),
           fg: [fg[0], fg[1], fg[2], fg[3] * op],
+          split: split && { ...split, stops: split.stops.map((st) => ({ pos: st.pos, fg: [st.fg[0], st.fg[1], st.fg[2], st.fg[3] * op] })) },
           min: isIcon || size >= 24 || (bold && size >= 18.66) ? 3 : 4.5,
           texto: isIcon
             ? `[ícone ${el.getAttribute("class")?.split(" ").find((c) => c.startsWith("lucide-")) ?? ""}]`
@@ -283,7 +321,11 @@ function installProbe() {
 
 const NO_MOTION = `*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}`;
 // Esconde só a "tinta" da sidebar (texto e ícones) pra screenshot mostrar o fundo real atrás.
-const HIDE_INK = `#particular-sidebar,#particular-sidebar *{color:transparent!important;-webkit-text-fill-color:transparent!important;text-shadow:none!important}#particular-sidebar svg{visibility:hidden!important}`;
+// A tinta dividida é um gradiente recortado nas letras (background-clip: text): esconder a
+// cor não basta, o gradiente também sai.
+const HIDE_INK = `#particular-sidebar,#particular-sidebar *{color:transparent!important;-webkit-text-fill-color:transparent!important;text-shadow:none!important}#particular-sidebar [data-split]{background-image:none!important}#particular-sidebar svg{visibility:hidden!important}`;
+
+const MASK_INK = `#particular-sidebar,#particular-sidebar *{color:#f0f!important;-webkit-text-fill-color:#f0f!important;text-shadow:none!important;filter:none!important}#particular-sidebar svg{stroke:#f0f!important}`;
 
 // Costura: com a sidebar escondida, o fundo logo à esquerda da borda dela tem que ser o
 // mesmo logo à direita. Compara médias de 6px de cada lado (pontilhados se anulam) e acusa
@@ -322,6 +364,23 @@ async function pixelSeams(page, sbw, edgeRanges, scrollY) {
   return out;
 }
 
+// Cor da tinta dividida num pixel: projeta o ponto na reta do gradiente (como o CSS) e pega
+// a última parada até ali (os cortes são secos).
+function splitColor(sp) {
+  const rad = (sp.angle * Math.PI) / 180;
+  const dx = Math.sin(rad);
+  const dy = -Math.cos(rad);
+  const L = Math.abs(sp.w * dx) + Math.abs(sp.h * dy);
+  const cx = sp.left + sp.w / 2;
+  const cy = sp.top + sp.h / 2;
+  return (x, y) => {
+    const t = (x + 0.5 - cx) * dx + (y + 0.5 - cy) * dy + L / 2;
+    let c = sp.stops[0].fg;
+    for (const st of sp.stops) if (t >= st.pos) c = st.fg;
+    return c;
+  };
+}
+
 function lum([r, g, b]) {
   const f = (v) => ((v /= 255) <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4);
   return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
@@ -342,17 +401,28 @@ async function pixelContrast(page, sbw, items) {
   const png = await page.screenshot({ clip: { x: 0, y: 0, width: sbw + 2, height: vh } });
   await style.evaluate((n) => n.remove());
   const { data, info } = await sharp(png).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+  // Máscara dos glifos: a mesma tela com toda a tinta da sidebar em magenta. O contraste é
+  // medido só onde há letra/traço de ícone — o vão entre letras e a borda serrilhada de uma
+  // divisa não contam (antes contavam e derrubavam o percentil sem nada ilegível).
+  const maskStyle = await page.addStyleTag({ content: MASK_INK });
+  const maskPng = await page.screenshot({ clip: { x: 0, y: 0, width: sbw + 2, height: vh } });
+  await maskStyle.evaluate((n) => n.remove());
+  const mask = (await sharp(maskPng).removeAlpha().raw().toBuffer()).valueOf();
+  const isGlyph = (i) => Math.min(mask[i], mask[i + 2]) - mask[i + 1] > 150;
   const out = [];
+  // `color` = cor única, ou função do pixel (tinta dividida).
   const p10Of = (it, color) => {
     const ratios = [];
     const x1 = Math.min(info.width, it.x + it.w);
     const y1 = Math.min(info.height, it.y + it.h);
-    for (let y = it.y; y < y1; y += 2) {
-      for (let x = it.x; x < x1; x += 2) {
+    for (let y = it.y; y < y1; y++) {
+      for (let x = it.x; x < x1; x++) {
         const i = (y * info.width + x) * 3;
+        if (!isGlyph(i)) continue;
+        const ink = typeof color === "function" ? color(x, y) : color;
         const bg = [data[i], data[i + 1], data[i + 2]];
-        const a = color[3];
-        const fg = [0, 1, 2].map((k) => color[k] * a + bg[k] * (1 - a));
+        const a = ink[3];
+        const fg = [0, 1, 2].map((k) => ink[k] * a + bg[k] * (1 - a));
         ratios.push(contrast(fg, bg));
       }
     }
@@ -361,12 +431,14 @@ async function pixelContrast(page, sbw, items) {
     return ratios[Math.floor(ratios.length * 0.1)];
   };
   for (const it of items) {
-    const p10 = p10Of(it, it.fg);
+    const ink = it.split ? splitColor(it.split) : it.fg;
+    const p10 = p10Of(it, ink);
     if (p10 >= it.min) continue;
     // O tom oposto (texto claro ↔ escuro) teria se saído melhor? Então a sidebar escolheu
     // errado: falha. Se nem o oposto resolve, o fundo não comporta contraste AA com uma cor
     // só (texto atravessando divisa de seção, faixa de cor média): aviso.
-    const alt = lum(it.fg) > 0.5 ? [23, 23, 23, 1] : [255, 255, 255, 1];
+    const flip = (c) => (lum(c) > 0.5 ? [23, 23, 23, 1] : [255, 255, 255, 1]);
+    const alt = typeof ink === "function" ? (x, y) => flip(ink(x, y)) : flip(it.fg);
     const altP10 = p10Of(it, alt);
     const base = { texto: it.texto, y: it.y + it.scrollY, razao: Math.round(p10 * 100) / 100, oposto: Math.round(altP10 * 100) / 100, minimo: it.min };
     if (altP10 >= it.min) out.push({ tipo: "contraste", ...base });
