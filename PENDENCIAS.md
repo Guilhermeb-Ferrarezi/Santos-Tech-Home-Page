@@ -207,6 +207,31 @@
       em 28/09 às 11h30 → **10/10** (`robots ok`); `curl https://santos-tech.com/robots.txt`
       → só `Disallow: /api/`. Continua aberto o item do "Browser Cache TTL" de 4 h.
 
+- [x] **Sidebar de `/particular` fundida com o fundo da página** — pedido do Henrique em
+      23/09 ("a sidebar compartilha o mesmo fundo da página do curso; só os traços separam").
+      Levou 5 PRs porque a entrega errou o alvo três vezes antes de acertar: #46 só tingia o
+      item ativo; #52 dava um fundo próprio aproximado (translúcido + blur); #53 deixou a
+      sidebar transparente mas o `padding-left` do layout confinava o `<main>` a começar
+      depois dela, então atrás aparecia só o fallback neutro; #56 fez as seções das peles
+      "vazarem" por baixo (`.sb-bleed`), mas esqueceu a home, o `ParticularFaq` e faixas de 3
+      peles — e a lógica de contraste olhava o conteúdo *ao lado* da sidebar, não o que
+      estava atrás dela, daí texto branco sobre fundo claro. **#57 (`25d73ef`) fechou:** tom
+      por item (cada texto/ícone amostra o próprio fundo nas letras, em 5 pontos, e escolhe
+      o tom que deixa mais itens legíveis — halo sutil segura a fração que cruza a divisa
+      entre duas seções), leitura de `linear-gradient` na posição real do pixel (a média
+      simples dos stops inventava uma cor amarelo-esverdeada que nunca existe na faixa do
+      Excel + Power BI e deixava um ícone invisível), vazamento na home e nas faixas que
+      faltavam. A sidebar só pinta 3 coisas de propósito: item ativo, selo/botão sólido
+      (`.sb-solid`) e linhas de 1px (`.sb-divider`) — qualquer outro fundo é bug checável.
+      **Prova:** `scripts/verificar-sidebar-fusao.mjs` (Playwright, pixels reais): abre as 53
+      páginas em 6 configurações (claro/escuro × sidebar aberta/recolhida × 1280/1920 px),
+      rola cada uma inteira e mede fundo errado atrás da sidebar, seção sem vazamento,
+      contraste AA contra o fundo real, emenda na borda e texto da página deslocado —
+      **318 verificações, 0 falhas** no local e **0 falhas na produção** (28/09, home + 4
+      cursos nos dois modos). Sobram ~400 avisos de contraste (rótulo na divisa entre duas
+      seções, nenhuma cor de texto resolve sozinha) — registrados como limitação conhecida
+      no item da auditoria de UI/UX acima. Gate: lint 0 erros, build OK.
+
 - [x] **Fase 1 da auditoria SEO/GEO/AEO** — aprovada pelo Henrique em 25/09 e publicada no
       mesmo dia (PR #61, `50e8eaf`). Plano em `docs/superpowers/plans/2026-09-25-seo-fase-1.md`.
       Causa-raiz dos problemas: o site já era SSR, mas escondia o que o robô precisa ver —
