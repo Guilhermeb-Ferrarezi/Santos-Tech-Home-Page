@@ -24,7 +24,6 @@ import {
   Package,
   RefreshCw,
   Brain,
-  Bot,
   Smartphone,
 } from "lucide-react";
 import { Reveal, RevealHero } from "@/components/reveal";
@@ -412,7 +411,7 @@ function Index() {
                   Escola presencial de tecnologia para crianças e adolescentes em
                   Ribeirão Preto. Turmas de até <strong>10 alunos</strong>,
                   equipamentos de ponta e um método em que seu filho cria jogos,
-                  robôs e projetos reais <strong>desde a primeira aula</strong>.
+                  objetos em 3D e projetos reais <strong>desde a primeira aula</strong>.
                 </p>
               </RevealHero>
               <RevealHero delay={360} className="mt-8 flex flex-wrap items-center gap-3">
@@ -476,7 +475,7 @@ function Index() {
         photo={{ name: "marina-roblox", alt: "Aluna da Santos Tech criando um jogo no Roblox" }}
         features={[
           { icon: Brain, title: "Lógica desde cedo", desc: "Pensamento computacional dos 5 aos 14 anos, na medida certa pra cada idade." },
-          { icon: Bot, title: "Robótica, games e IA", desc: "Projetos reais que ganham vida — do bloco ao código de verdade." },
+          { icon: Gamepad2, title: "Jogos, 3D e programação", desc: "Do Minecraft e do Roblox ao Python — projetos reais que ganham vida." },
           { icon: Users, title: "Professores presentes", desc: "Turmas pequenas e acompanhamento de perto, aula após aula." },
           { icon: Smartphone, title: "Portal pra família", desc: "O pai acompanha notas, presença e projetos na palma da mão." },
         ]}
