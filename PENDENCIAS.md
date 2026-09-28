@@ -19,21 +19,22 @@
       [seção 4 do relatório](docs/auditorias/2026-09-24-ui-ux/README.md#4-decisões-que-só-o-henrique-toma).
       _Aguardando Henrique._
 
-- [ ] **4 perguntas de fato da Fase 1 da auditoria (25/09)** — o código não tem a
-      resposta e inventar seria pior que perguntar:
-      1. **Robótica existe?** (= decisão 2 da auditoria de SEO, abaixo — responder uma vez só) A home promete "robôs" e "Robótica, games e IA", o FAQ da
-         home diz "Não trabalhamos com robótica de montagem" e `/cursos/academies` vende
-         uma "Robotics Academy" com kits físicos. Qual é a verdade? (bloqueia o `F181`)
-      2. **Sábado nos cursos particulares vai até 22h?** (= decisão 3 da auditoria de SEO) `/particular`, o FAQ particular e
-         a descrição GEO (`seo.ts:56`) dizem seg–sáb 8h–22h; o schema da escola, o
-         `/contato` e a home (já corrigida) dizem sábado até 18h.
+- [~] **4 perguntas de fato da Fase 1 da auditoria de UI/UX (25/09)**:
+      1. ✅ **Robótica existe?** Respondida em 26/09 (decisão 2 da auditoria de SEO, abaixo): não é
+         vendida. `F181` feito em 28/09: o hero da home diz "jogos, objetos em 3D e projetos
+         reais" (era "jogos, robôs…") e o card virou "Jogos, 3D e programação" (era "Robótica,
+         games e IA"). Tirar a Robotics Academy de `/cursos/academies` fica com a decisão 2
+         (falta só a AI Academy).
+      2. ✅ **Sábado?** Respondida em 26/09 (decisão 3 da auditoria de SEO): aulas até 20h,
+         atendimento com hora marcada até 22h — falta o Henrique validar o texto; aplicar em
+         home, `/contato`, `/particular`, FAQ, JSON-LD e `seo.ts` junto (P4, fonte única de fatos).
       3. **O certificado traz carga horária e conteúdo?** Se sim, o texto do certificado
          (hoje "Certificado de conclusão do curso, emitido pela Santos Tech") ganha
-         ", com carga horária e conteúdo do curso".
+         ", com carga horária e conteúdo do curso". _Aguardando Henrique._
       4. **Existe banca avaliadora no ADS?** O módulo 16 dizia "defesa do projeto para
          banca avaliadora" (linguagem de TCC, sem fonte). Pela regra "sem fonte, corta",
          virou "apresentação do projeto ao professor". Se existir banca, é só voltar.
-      _Aguardando Henrique._
+         _Aguardando Henrique._
 
 - [ ] **Backlog de UI/UX (achados das Fases 1 e 2, fora do escopo delas):**
       - Header em tablet (768px): "SANTOS TECH" encosta em "Início" — a nav desktop entra
@@ -50,10 +51,10 @@
 
 - [~] **Executar o plano da auditoria de UI/UX** — 326 achados confirmados (🔴 4 · 🟠 32 ·
       🟡 139 · ⚪ 151) em [docs/auditorias/2026-09-24-ui-ux/](docs/auditorias/2026-09-24-ui-ux/README.md).
-      - ✅ **Fase 1** (25/09, PR #60, no ar): os 3 críticos do site + promessas sem prova,
+      - ✅ **Fase 1** (25/09, PR #60, no ar; `F181` em 28/09): os 3 críticos do site + promessas sem prova,
         contraste, entrada para `/particular`, WhatsApp no celular, "Cookies" no `/particular`.
         Plano: [2026-09-25-ui-ux-fase1.md](docs/superpowers/plans/2026-09-25-ui-ux-fase1.md).
-      - ✅ **Fase 2** (25/09, branch `claude-henrique/ui-ux-fase2`): gaveta e menus acessíveis,
+      - ✅ **Fase 2** (25/09, PR #63, no ar): gaveta e menus acessíveis,
         âncoras que prendiam a página com o scroll suave, WhatsApp por programa, "Ver valores",
         conteúdo visível sem JS, métricas sem estouro, 8px de rolagem em `/cursos/junior`
         (causa real: brilho do AgeBlock, não o TechHero), resultado do curso legível, FAQ de
