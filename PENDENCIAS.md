@@ -49,7 +49,9 @@
         ~400, 0 falhas): rótulos na divisa entre duas seções (ex.: "Automações No-Code Make"
         sobre a faixa azul da pele de Programação). Limitação conhecida do #57.
 
-- [~] **Executar o plano da auditoria de UI/UX** — 326 achados confirmados (🔴 4 · 🟠 32 ·
+- [~] **Executar o plano da auditoria de UI/UX** — ⏸️ **pausada em 28/09 por limite de uso; retomar
+      por [`RETOMADA.md`](docs/auditorias/2026-09-24-ui-ux/RETOMADA.md)** (estado, decisões pendentes e
+      checklist). 326 achados confirmados (🔴 4 · 🟠 32 ·
       🟡 139 · ⚪ 151) em [docs/auditorias/2026-09-24-ui-ux/](docs/auditorias/2026-09-24-ui-ux/README.md).
       - ✅ **Fase 1** (25/09, PR #60, no ar; `F181` em 28/09): os 3 críticos do site + promessas sem prova,
         contraste, entrada para `/particular`, WhatsApp no celular, "Cookies" no `/particular`.
