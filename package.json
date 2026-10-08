@@ -11,7 +11,8 @@
     "lint": "eslint . && node scripts/check-sitemap.mjs && tsc --noEmit",
     "format": "prettier --write .",
     "optimize:images": "node scripts/optimize-images.mjs",
-    "generate:og": "node scripts/generate-og-images.mjs"
+    "generate:og": "node scripts/generate-og-images.mjs",
+    "generate:og:hero": "bun scripts/capture-og-particular.mjs"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.51.1",

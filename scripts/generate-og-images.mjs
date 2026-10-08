@@ -336,18 +336,30 @@ async function main() {
     return iconCache.get(name);
   }
 
-  // 1) og-image.png padrão (institucional)
-  const defaultBase = await sharp(Buffer.from(buildDefaultSvg())).png().toBuffer();
-  await sharp(defaultBase)
-    .composite([{ input: logoBadge, left: WIDTH / 2 - 36, top: 436 }])
-    .png()
-    .toFile(path.join(ROOT, "public/og-image.png"));
-  console.log("✓ public/og-image.png (1200×630)");
+  // A institucional e as dos cursos particulares são capturadas do hero real
+  // por scripts/capture-og-particular.mjs (bun run generate:og:hero) e
+  // versionadas. Aqui só entra a capa genérica quando o PNG ainda não existe
+  // (curso novo antes da captura) — nunca sobrescreve a captura.
+  const exists = (file) => fs.access(file).then(() => true, () => false);
 
-  // 2) cursos particulares — descobertos direto das rotas (ver discoverParticularCourses)
+  // 1) og-image.png padrão (institucional) — fallback
+  const defaultPath = path.join(ROOT, "public/og-image.png");
+  if (!(await exists(defaultPath))) {
+    const defaultBase = await sharp(Buffer.from(buildDefaultSvg())).png().toBuffer();
+    await sharp(defaultBase)
+      .composite([{ input: logoBadge, left: WIDTH / 2 - 36, top: 436 }])
+      .png()
+      .toFile(defaultPath);
+    console.log("✓ public/og-image.png (1200×630, fallback)");
+  }
+
+  // 2) cursos particulares — fallback só pra curso sem captura do hero
   const particularDir = path.join(ROOT, "public/og/particular");
   await fs.mkdir(particularDir, { recursive: true });
-  const particularCourses = await discoverParticularCourses();
+  const particularCourses = [];
+  for (const course of await discoverParticularCourses()) {
+    if (!(await exists(path.join(particularDir, `${course.slug}.png`)))) particularCourses.push(course);
+  }
   for (const course of particularCourses) {
     const iconName = PARTICULAR_ICONS[course.slug];
     if (!iconName) {
@@ -368,7 +380,11 @@ async function main() {
       .toFile(path.join(particularDir, `${course.slug}.png`));
     void final;
   }
-  console.log(`✓ public/og/particular/*.png (${particularCourses.length} imagens)`);
+  if (particularCourses.length) {
+    console.warn(
+      `  ! ${particularCourses.length} curso(s) sem OG do hero (${particularCourses.map((c) => c.slug).join(", ")}) — capa genérica gerada; rode "bun run generate:og:hero" depois do deploy`,
+    );
+  }
 
   // 3) cursos infantis
   const infantilDir = path.join(ROOT, "public/og/infantil");
